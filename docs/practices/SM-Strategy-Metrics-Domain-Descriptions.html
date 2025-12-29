@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SM-Strategy-Metrics-Domain-Descriptions</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/dev/null" />
+</head>
+<body>
+<h1 id="strategy-metrics-sm-practice">Strategy &amp; Metrics (SM)
+Practice</h1>
+<h2
+id="domain-specific-descriptions-for-ai-operated-security-programs">Domain-Specific
+Descriptions for AI-Operated Security Programs</h2>
+<p><strong>HAIAMM Practice:</strong> Strategy &amp; Metrics (SM)
+<strong>Business Function:</strong> Governance <strong>Date:</strong>
+December 18, 2025 <strong>Version:</strong> 1.0</p>
+<hr />
+<h2 id="practice-overview">PRACTICE OVERVIEW</h2>
+<p><strong>Strategy &amp; Metrics (SM)</strong> is a foundational
+governance practice that establishes the strategic direction for
+AI-operated security programs and implements measurement systems to
+track AI agent effectiveness and security posture improvements.</p>
+<p><strong>Based on OWASP SAMM v1.0 Definition:</strong> &gt; “Strategy
+&amp; Metrics involves the overall strategic direction of the software
+assurance program and instrumentation of processes and activities to
+collect metrics about an organization’s security posture.”</p>
+<p><strong>HAIAMM Translation:</strong> &gt; “Strategy &amp; Metrics
+involves the overall strategic direction of AI-operated security
+programs and instrumentation of AI agent activities to collect metrics
+about an organization’s security posture across all domains.”</p>
+<hr />
+<h2 id="domain-specific-descriptions">DOMAIN-SPECIFIC DESCRIPTIONS</h2>
+<hr />
+<h2 id="strategy-metrics---software-domain">1. STRATEGY &amp; METRICS -
+SOFTWARE DOMAIN</h2>
+<h3
+id="sm.software---ai-operated-application-security-strategy-metrics">SM.Software
+- AI-Operated Application Security Strategy &amp; Metrics</h3>
+<p><strong>Domain Focus:</strong> Software applications, code
+repositories, APIs, web applications, mobile applications,
+microservices</p>
+<p><strong>Practice Description:</strong></p>
+<p>Strategy &amp; Metrics for the Software domain involves the
+<strong>overall strategic direction of the AI-operated application
+security program</strong> and <strong>instrumentation of AI agent
+activities</strong> to collect metrics about an organization’s software
+security posture.</p>
+<p>This practice establishes how organizations define strategic goals
+for AI agents performing software security work (code analysis,
+vulnerability scanning, secure code review, application testing), align
+AI security operations with business objectives, and measure the
+effectiveness of AI-driven software security activities.</p>
+<p><strong>Core Questions This Practice Answers:</strong></p>
+<ul>
+<li><strong>Strategy:</strong> What is our strategic vision for using AI
+agents to secure our software applications?</li>
+<li><strong>Alignment:</strong> How do AI software security operations
+align with business risk and development velocity?</li>
+<li><strong>Metrics:</strong> How do we measure whether AI agents are
+improving our application security posture?</li>
+<li><strong>ROI:</strong> What value are AI security agents delivering
+to our software development lifecycle?</li>
+</ul>
+<p><strong>What AI Agents Do in This Domain:</strong></p>
+<ul>
+<li><strong>AI Code Scanners:</strong> Analyze source code for
+vulnerabilities (SAST)</li>
+<li><strong>AI Dependency Analyzers:</strong> Scan libraries for known
+CVEs (SCA)</li>
+<li><strong>AI Security Reviewers:</strong> Review code commits for
+security issues</li>
+<li><strong>AI Penetration Testers:</strong> Test applications for
+exploitable vulnerabilities (DAST)</li>
+<li><strong>AI API Security Analyzers:</strong> Monitor API endpoints
+for misconfigurations and attacks</li>
+</ul>
+<p><strong>Strategic Objectives Examples:</strong></p>
+<ul>
+<li>Reduce application vulnerabilities by 50% using AI-driven static
+analysis</li>
+<li>Achieve &lt;1% false positive rate from AI code security
+scanners</li>
+<li>Ensure AI agents scan 100% of code commits before production
+deployment</li>
+<li>Align AI security testing with OWASP Top 10 and business-critical
+applications</li>
+<li>Measure AI agent contribution to secure software delivery
+velocity</li>
+</ul>
+<p><strong>Key Metrics Examples:</strong></p>
+<table>
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric Category</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Effectiveness</strong></td>
+<td>Vulnerabilities detected by AI agents, True positive rate, Critical
+vulns found per 1000 LOC</td>
+</tr>
+<tr>
+<td><strong>Coverage</strong></td>
+<td>% of repositories scanned by AI, % of code commits reviewed by AI,
+API endpoints monitored</td>
+</tr>
+<tr>
+<td><strong>Efficiency</strong></td>
+<td>Time to detect vulnerabilities, Cost per vulnerability found,
+Developer remediation time</td>
+</tr>
+<tr>
+<td><strong>Quality</strong></td>
+<td>False positive rate, False negative rate (validated by penetration
+testing)</td>
+</tr>
+<tr>
+<td><strong>Business Impact</strong></td>
+<td>Security incidents prevented, Production security bugs reduced,
+Compliance violations avoided</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maturity Progression:</strong></p>
+<ul>
+<li><strong>Level 1:</strong> Ad-hoc AI tool deployment; basic metrics
+(# of vulns found)</li>
+<li><strong>Level 2:</strong> Defined AI scanning strategy aligned with
+SDLC; metrics tracked consistently</li>
+<li><strong>Level 3:</strong> AI security strategy integrated with
+business objectives; predictive metrics and continuous optimization</li>
+</ul>
+<p><strong>Example Strategy Statement:</strong></p>
+<blockquote>
+<p>“Our AI-operated software security strategy is to achieve zero
+high-severity vulnerabilities in production by deploying AI security
+agents at every stage of the SDLC. We measure success through
+vulnerability detection rates, remediation velocity, and reduction in
+security incidents. AI agents must scan 100% of code commits with &lt;2%
+false positive rate, enabling developers to ship secure code
+faster.”</p>
+</blockquote>
+<hr />
+<h2 id="strategy-metrics---infrastructure-domain">2. STRATEGY &amp;
+METRICS - INFRASTRUCTURE DOMAIN</h2>
+<h3
+id="sm.infrastructure---ai-operated-infrastructure-security-strategy-metrics">SM.Infrastructure
+- AI-Operated Infrastructure Security Strategy &amp; Metrics</h3>
+<p><strong>Domain Focus:</strong> Cloud platforms (AWS/Azure/GCP),
+containers, Kubernetes, servers, networks, virtualization, IaC
+(Infrastructure as Code)</p>
+<p><strong>Practice Description:</strong></p>
+<p>Strategy &amp; Metrics for the Infrastructure domain involves the
+<strong>overall strategic direction of the AI-operated infrastructure
+security program</strong> and <strong>instrumentation of AI agent
+activities</strong> to collect metrics about an organization’s
+infrastructure security posture.</p>
+<p>This practice establishes how organizations define strategic goals
+for AI agents performing infrastructure security work (configuration
+hardening, network monitoring, cloud security posture management,
+infrastructure-as-code security), align AI security operations with
+infrastructure reliability and scalability objectives, and measure the
+effectiveness of AI-driven infrastructure security activities.</p>
+<p><strong>Core Questions This Practice Answers:</strong></p>
+<ul>
+<li><strong>Strategy:</strong> What is our strategic vision for using AI
+agents to secure our infrastructure?</li>
+<li><strong>Alignment:</strong> How do AI infrastructure security
+operations support business continuity and cloud migration?</li>
+<li><strong>Metrics:</strong> How do we measure whether AI agents are
+reducing infrastructure attack surface?</li>
+<li><strong>ROI:</strong> What value are AI security agents delivering
+to our infrastructure operations?</li>
+</ul>
+<p><strong>What AI Agents Do in This Domain:</strong></p>
+<ul>
+<li><strong>AI Cloud Security Posture Management (CSPM):</strong> Detect
+misconfigurations in AWS/Azure/GCP</li>
+<li><strong>AI Infrastructure Hardening Agents:</strong> Enforce CIS
+Benchmarks and security baselines</li>
+<li><strong>AI Network Monitoring Agents:</strong> Detect anomalous
+traffic patterns and lateral movement</li>
+<li><strong>AI Container Security Agents:</strong> Scan Docker images
+for vulnerabilities and enforce runtime policies</li>
+<li><strong>AI IaC Security Scanners:</strong> Analyze
+Terraform/CloudFormation for security issues</li>
+</ul>
+<p><strong>Strategic Objectives Examples:</strong></p>
+<ul>
+<li>Achieve 100% cloud infrastructure compliance with CIS Benchmarks
+using AI CSPM</li>
+<li>Reduce infrastructure misconfigurations by 80% through AI-driven
+monitoring</li>
+<li>Ensure AI agents detect and remediate critical infrastructure vulns
+within 24 hours</li>
+<li>Align AI infrastructure security with zero-trust architecture
+principles</li>
+<li>Measure AI agent contribution to infrastructure resilience and
+availability</li>
+</ul>
+<p><strong>Key Metrics Examples:</strong></p>
+<table>
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric Category</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Effectiveness</strong></td>
+<td>Misconfigurations detected, Critical infrastructure vulns found,
+Unauthorized access attempts blocked</td>
+</tr>
+<tr>
+<td><strong>Coverage</strong></td>
+<td>% of cloud accounts monitored, % of servers hardened, Network
+segments monitored by AI</td>
+</tr>
+<tr>
+<td><strong>Efficiency</strong></td>
+<td>Mean time to detect infrastructure issues, Mean time to remediate,
+Cost per misconfiguration fixed</td>
+</tr>
+<tr>
+<td><strong>Quality</strong></td>
+<td>False positive rate for network alerts, False negative rate
+(validated by red team)</td>
+</tr>
+<tr>
+<td><strong>Business Impact</strong></td>
+<td>Infrastructure downtime prevented, Compliance violations avoided,
+Breach attempts stopped</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maturity Progression:</strong></p>
+<ul>
+<li><strong>Level 1:</strong> Basic AI monitoring deployed; reactive
+metrics (alerts generated)</li>
+<li><strong>Level 2:</strong> Proactive AI hardening strategy; metrics
+aligned with infrastructure teams</li>
+<li><strong>Level 3:</strong> AI-driven infrastructure security
+integrated with DevOps/SRE; predictive threat metrics</li>
+</ul>
+<p><strong>Example Strategy Statement:</strong></p>
+<blockquote>
+<p>“Our AI-operated infrastructure security strategy is to maintain
+continuous compliance with zero-trust principles across all cloud and
+on-premises infrastructure. We measure success through misconfiguration
+detection rates, infrastructure hardening coverage, and prevented
+security incidents. AI agents must monitor 100% of cloud resources with
+automated remediation of critical issues within 1 hour.”</p>
+</blockquote>
+<hr />
+<h2 id="strategy-metrics---endpoints-domain">3. STRATEGY &amp; METRICS -
+ENDPOINTS DOMAIN</h2>
+<h3
+id="sm.endpoints---ai-operated-endpoint-security-strategy-metrics">SM.Endpoints
+- AI-Operated Endpoint Security Strategy &amp; Metrics</h3>
+<p><strong>Domain Focus:</strong> Laptops, desktops, mobile devices, IoT
+devices, workstations, BYOD devices</p>
+<p><strong>Practice Description:</strong></p>
+<p>Strategy &amp; Metrics for the Endpoints domain involves the
+<strong>overall strategic direction of the AI-operated endpoint security
+program</strong> and <strong>instrumentation of AI agent
+activities</strong> to collect metrics about an organization’s endpoint
+security posture.</p>
+<p>This practice establishes how organizations define strategic goals
+for AI agents performing endpoint security work (endpoint detection and
+response, device compliance monitoring, mobile threat defense,
+behavioral analysis), align AI security operations with workforce
+productivity and remote work enablement, and measure the effectiveness
+of AI-driven endpoint security activities.</p>
+<p><strong>Core Questions This Practice Answers:</strong></p>
+<ul>
+<li><strong>Strategy:</strong> What is our strategic vision for using AI
+agents to secure endpoints across our workforce?</li>
+<li><strong>Alignment:</strong> How do AI endpoint security operations
+balance security with user productivity?</li>
+<li><strong>Metrics:</strong> How do we measure whether AI agents are
+protecting against endpoint compromises?</li>
+<li><strong>ROI:</strong> What value are AI security agents delivering
+to our endpoint management?</li>
+</ul>
+<p><strong>What AI Agents Do in This Domain:</strong></p>
+<ul>
+<li><strong>AI Endpoint Detection &amp; Response (EDR):</strong> Detect
+malware, ransomware, and anomalous endpoint behavior</li>
+<li><strong>AI Device Compliance Agents:</strong> Enforce device
+security policies (encryption, patching, antivirus)</li>
+<li><strong>AI Mobile Threat Defense:</strong> Protect mobile devices
+from app-based and network-based threats</li>
+<li><strong>AI User Behavior Analytics (UBA):</strong> Detect
+compromised credentials and insider threats</li>
+<li><strong>AI Patch Management Agents:</strong> Identify vulnerable
+endpoints and automate patching</li>
+</ul>
+<p><strong>Strategic Objectives Examples:</strong></p>
+<ul>
+<li>Achieve 99% endpoint malware detection rate using AI EDR agents</li>
+<li>Ensure 100% endpoint compliance with security policies through AI
+monitoring</li>
+<li>Reduce endpoint security incident response time from hours to
+minutes with AI automation</li>
+<li>Align AI endpoint security with remote workforce enablement and BYOD
+policies</li>
+<li>Measure AI agent contribution to reducing endpoint-based
+breaches</li>
+</ul>
+<p><strong>Key Metrics Examples:</strong></p>
+<table>
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric Category</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Effectiveness</strong></td>
+<td>Malware detections, Ransomware attempts blocked, Compromised
+credentials identified</td>
+</tr>
+<tr>
+<td><strong>Coverage</strong></td>
+<td>% of endpoints protected by AI EDR, % of devices compliant with
+policies, Mobile devices monitored</td>
+</tr>
+<tr>
+<td><strong>Efficiency</strong></td>
+<td>Mean time to detect endpoint compromise, Mean time to contain
+threat, Cost per endpoint protected</td>
+</tr>
+<tr>
+<td><strong>Quality</strong></td>
+<td>False positive rate for endpoint alerts, False negative rate
+(validated by penetration testing)</td>
+</tr>
+<tr>
+<td><strong>Business Impact</strong></td>
+<td>Ransomware attacks prevented, Data exfiltration attempts stopped,
+Compliance violations avoided</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maturity Progression:</strong></p>
+<ul>
+<li><strong>Level 1:</strong> Basic AI antivirus/EDR deployed; reactive
+metrics (threats detected)</li>
+<li><strong>Level 2:</strong> Comprehensive AI endpoint monitoring
+strategy; proactive threat hunting metrics</li>
+<li><strong>Level 3:</strong> AI-driven autonomous endpoint protection;
+predictive compromise detection and auto-remediation</li>
+</ul>
+<p><strong>Example Strategy Statement:</strong></p>
+<blockquote>
+<p>“Our AI-operated endpoint security strategy is to protect 100% of
+corporate and BYOD endpoints from malware, ransomware, and insider
+threats through autonomous AI agents. We measure success through threat
+detection rates, endpoint compliance levels, and incident response
+speed. AI agents must detect endpoint compromises within 5 minutes and
+contain threats automatically with &lt;0.5% false positive rate.”</p>
+</blockquote>
+<hr />
+<h2 id="strategy-metrics---data-domain">4. STRATEGY &amp; METRICS - DATA
+DOMAIN</h2>
+<h3 id="sm.data---ai-operated-data-security-strategy-metrics">SM.Data -
+AI-Operated Data Security Strategy &amp; Metrics</h3>
+<p><strong>Domain Focus:</strong> Databases, data lakes, file storage,
+cloud storage (S3, Blob), data warehouses, sensitive information (PII,
+PHI, CUI)</p>
+<p><strong>Practice Description:</strong></p>
+<p>Strategy &amp; Metrics for the Data domain involves the
+<strong>overall strategic direction of the AI-operated data security
+program</strong> and <strong>instrumentation of AI agent
+activities</strong> to collect metrics about an organization’s data
+security posture.</p>
+<p>This practice establishes how organizations define strategic goals
+for AI agents performing data security work (data classification, access
+monitoring, data loss prevention, encryption enforcement, data
+exfiltration detection), align AI security operations with data
+governance and privacy regulations, and measure the effectiveness of
+AI-driven data security activities.</p>
+<p><strong>Core Questions This Practice Answers:</strong></p>
+<ul>
+<li><strong>Strategy:</strong> What is our strategic vision for using AI
+agents to protect sensitive data?</li>
+<li><strong>Alignment:</strong> How do AI data security operations
+support privacy compliance (GDPR, HIPAA, CCPA)?</li>
+<li><strong>Metrics:</strong> How do we measure whether AI agents are
+preventing data breaches and unauthorized access?</li>
+<li><strong>ROI:</strong> What value are AI security agents delivering
+to our data protection program?</li>
+</ul>
+<p><strong>What AI Agents Do in This Domain:</strong></p>
+<ul>
+<li><strong>AI Data Classification Agents:</strong> Auto-classify data
+as PII, PHI, CUI, confidential, public</li>
+<li><strong>AI Data Loss Prevention (DLP):</strong> Monitor and block
+unauthorized data transfers</li>
+<li><strong>AI Data Access Monitoring:</strong> Detect anomalous
+database queries and file access patterns</li>
+<li><strong>AI Encryption Enforcement Agents:</strong> Ensure
+data-at-rest and data-in-transit encryption</li>
+<li><strong>AI Data Exfiltration Detectors:</strong> Identify suspicious
+data movement to external destinations</li>
+</ul>
+<p><strong>Strategic Objectives Examples:</strong></p>
+<ul>
+<li>Achieve 100% classification of sensitive data using AI
+classification agents</li>
+<li>Reduce data breach risk by 90% through AI-driven DLP and access
+monitoring</li>
+<li>Ensure 100% encryption of CUI/PII data enforced by AI agents</li>
+<li>Align AI data security with GDPR, HIPAA, and NIST SP 800-171
+requirements</li>
+<li>Measure AI agent contribution to preventing data exfiltration
+incidents</li>
+</ul>
+<p><strong>Key Metrics Examples:</strong></p>
+<table>
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric Category</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Effectiveness</strong></td>
+<td>Data exfiltration attempts blocked, Unauthorized access events
+detected, Unencrypted sensitive data found</td>
+</tr>
+<tr>
+<td><strong>Coverage</strong></td>
+<td>% of data classified by AI, % of databases monitored, % of sensitive
+data encrypted</td>
+</tr>
+<tr>
+<td><strong>Efficiency</strong></td>
+<td>Time to detect data access anomalies, Time to remediate unencrypted
+data, Cost per GB of data protected</td>
+</tr>
+<tr>
+<td><strong>Quality</strong></td>
+<td>False positive rate for DLP alerts, False negative rate (validated
+by red team data exfiltration tests)</td>
+</tr>
+<tr>
+<td><strong>Business Impact</strong></td>
+<td>Data breaches prevented, Privacy violations avoided, Regulatory
+fines prevented</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maturity Progression:</strong></p>
+<ul>
+<li><strong>Level 1:</strong> Basic AI DLP deployed; reactive metrics
+(data transfer blocks)</li>
+<li><strong>Level 2:</strong> Comprehensive AI data classification and
+monitoring strategy; proactive anomaly detection</li>
+<li><strong>Level 3:</strong> AI-driven autonomous data protection;
+predictive data breach prevention and auto-remediation</li>
+</ul>
+<p><strong>Example Strategy Statement:</strong></p>
+<blockquote>
+<p>“Our AI-operated data security strategy is to achieve zero
+unauthorized access to sensitive data (PII, PHI, CUI) through autonomous
+AI classification, monitoring, and protection agents. We measure success
+through data classification coverage, exfiltration prevention rates, and
+compliance with privacy regulations. AI agents must classify 100% of new
+data within 24 hours and block unauthorized data transfers with &lt;1%
+false positive rate.”</p>
+</blockquote>
+<hr />
+<h2 id="strategy-metrics---processes-domain">5. STRATEGY &amp; METRICS -
+PROCESSES DOMAIN</h2>
+<h3
+id="sm.processes---ai-operated-security-process-strategy-metrics">SM.Processes
+- AI-Operated Security Process Strategy &amp; Metrics</h3>
+<p><strong>Domain Focus:</strong> Security workflows, incident response,
+compliance monitoring, policy enforcement, security training, GRC
+(Governance, Risk, Compliance)</p>
+<p><strong>Practice Description:</strong></p>
+<p>Strategy &amp; Metrics for the Processes domain involves the
+<strong>overall strategic direction of the AI-operated security process
+program</strong> and <strong>instrumentation of AI agent
+activities</strong> to collect metrics about an organization’s security
+process effectiveness and maturity.</p>
+<p>This practice establishes how organizations define strategic goals
+for AI agents performing security process work (incident detection and
+response, compliance monitoring, policy violation detection, security
+training delivery, risk assessments), align AI security operations with
+governance and compliance objectives, and measure the effectiveness of
+AI-driven security process automation.</p>
+<p><strong>Core Questions This Practice Answers:</strong></p>
+<ul>
+<li><strong>Strategy:</strong> What is our strategic vision for using AI
+agents to automate and improve security processes?</li>
+<li><strong>Alignment:</strong> How do AI process automation operations
+support compliance and governance objectives?</li>
+<li><strong>Metrics:</strong> How do we measure whether AI agents are
+improving security process efficiency and effectiveness?</li>
+<li><strong>ROI:</strong> What value are AI security agents delivering
+to our GRC and incident response programs?</li>
+</ul>
+<p><strong>What AI Agents Do in This Domain:</strong></p>
+<ul>
+<li><strong>AI Incident Response Orchestration:</strong> Automate
+incident detection, triage, and initial response</li>
+<li><strong>AI Compliance Monitoring Agents:</strong> Continuously
+assess compliance with SOC 2, ISO 27001, NIST, PCI-DSS</li>
+<li><strong>AI Policy Enforcement Agents:</strong> Detect policy
+violations and trigger remediation workflows</li>
+<li><strong>AI Security Training Agents:</strong> Deliver personalized
+security awareness training and phishing simulations</li>
+<li><strong>AI Risk Assessment Agents:</strong> Identify and score
+security risks across the organization</li>
+</ul>
+<p><strong>Strategic Objectives Examples:</strong></p>
+<ul>
+<li>Reduce incident response time from hours to minutes using AI
+orchestration</li>
+<li>Achieve 100% continuous compliance monitoring with AI agents
+(vs. annual audits)</li>
+<li>Automate 80% of routine security process tasks through AI
+agents</li>
+<li>Align AI process automation with audit and regulatory reporting
+requirements</li>
+<li>Measure AI agent contribution to reducing security process overhead
+and manual work</li>
+</ul>
+<p><strong>Key Metrics Examples:</strong></p>
+<table>
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric Category</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Effectiveness</strong></td>
+<td>Incidents detected and responded to, Compliance violations
+identified, Policy violations detected</td>
+</tr>
+<tr>
+<td><strong>Coverage</strong></td>
+<td>% of security processes automated, % of compliance controls
+monitored continuously, % of staff trained</td>
+</tr>
+<tr>
+<td><strong>Efficiency</strong></td>
+<td>Mean time to detect incidents, Mean time to respond, Cost per
+compliance control assessed</td>
+</tr>
+<tr>
+<td><strong>Quality</strong></td>
+<td>False positive rate for compliance alerts, Incident response
+accuracy, Training effectiveness scores</td>
+</tr>
+<tr>
+<td><strong>Business Impact</strong></td>
+<td>Audit findings reduced, Regulatory compliance maintained, Security
+process costs reduced</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maturity Progression:</strong></p>
+<ul>
+<li><strong>Level 1:</strong> Basic AI monitoring for incidents; manual
+metrics collection</li>
+<li><strong>Level 2:</strong> AI-driven incident response playbooks;
+automated compliance dashboards</li>
+<li><strong>Level 3:</strong> Fully automated AI security processes;
+predictive risk analytics and proactive remediation</li>
+</ul>
+<p><strong>Example Strategy Statement:</strong></p>
+<blockquote>
+<p>“Our AI-operated security process strategy is to automate 80% of
+routine security workflows (incident response, compliance monitoring,
+policy enforcement) through autonomous AI agents, enabling the security
+team to focus on strategic initiatives. We measure success through
+process automation coverage, incident response speed, and continuous
+compliance scores. AI agents must detect security incidents within 5
+minutes and maintain 100% real-time compliance visibility.”</p>
+</blockquote>
+<hr />
+<h2 id="strategy-metrics---vendors-domain">6. STRATEGY &amp; METRICS -
+VENDORS DOMAIN</h2>
+<h3
+id="sm.vendors---ai-operated-vendor-security-strategy-metrics">SM.Vendors
+- AI-Operated Vendor Security Strategy &amp; Metrics</h3>
+<p><strong>Domain Focus:</strong> Third-party vendors, suppliers, cloud
+service providers, software vendors, outsourced services, supply chain
+partners</p>
+<p><strong>Practice Description:</strong></p>
+<p>Strategy &amp; Metrics for the Vendors domain involves the
+<strong>overall strategic direction of the AI-operated vendor security
+program</strong> and <strong>instrumentation of AI agent
+activities</strong> to collect metrics about an organization’s
+third-party risk and supply chain security posture.</p>
+<p>This practice establishes how organizations define strategic goals
+for AI agents performing vendor security work (vendor risk assessments,
+continuous vendor monitoring, supply chain threat detection, contract
+compliance verification), align AI security operations with supply chain
+resilience and third-party risk management objectives, and measure the
+effectiveness of AI-driven vendor security activities.</p>
+<p><strong>Core Questions This Practice Answers:</strong></p>
+<ul>
+<li><strong>Strategy:</strong> What is our strategic vision for using AI
+agents to manage third-party and supply chain security risks?</li>
+<li><strong>Alignment:</strong> How do AI vendor security operations
+support supply chain resilience and business continuity?</li>
+<li><strong>Metrics:</strong> How do we measure whether AI agents are
+reducing third-party security risks?</li>
+<li><strong>ROI:</strong> What value are AI security agents delivering
+to our vendor risk management program?</li>
+</ul>
+<p><strong>What AI Agents Do in This Domain:</strong></p>
+<ul>
+<li><strong>AI Vendor Risk Assessment Agents:</strong> Automate initial
+and ongoing vendor security assessments</li>
+<li><strong>AI Supply Chain Monitoring Agents:</strong> Detect vendor
+security incidents, breaches, and compromises</li>
+<li><strong>AI Contract Compliance Agents:</strong> Verify vendors meet
+security SLAs and contractual obligations</li>
+<li><strong>AI Software Supply Chain Scanners:</strong> Detect malicious
+code in third-party libraries and dependencies</li>
+<li><strong>AI Vendor Security Scorecard Agents:</strong> Continuously
+score vendor security posture</li>
+</ul>
+<p><strong>Strategic Objectives Examples:</strong></p>
+<ul>
+<li>Achieve 100% vendor security assessment coverage using AI
+automation</li>
+<li>Reduce vendor security incident impact through AI-driven continuous
+monitoring</li>
+<li>Ensure all critical vendors maintain security scores &gt;80/100 via
+AI scorecards</li>
+<li>Align AI vendor security with NIST SR (Supply Chain Risk Management)
+family requirements</li>
+<li>Measure AI agent contribution to preventing supply chain
+attacks</li>
+</ul>
+<p><strong>Key Metrics Examples:</strong></p>
+<table>
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric Category</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Effectiveness</strong></td>
+<td>Vendor security incidents detected, Supply chain compromises
+identified, Non-compliant vendors flagged</td>
+</tr>
+<tr>
+<td><strong>Coverage</strong></td>
+<td>% of vendors assessed by AI, % of critical vendors monitored
+continuously, % of vendor contracts reviewed</td>
+</tr>
+<tr>
+<td><strong>Efficiency</strong></td>
+<td>Time to complete vendor assessments, Cost per vendor assessed,
+Vendor onboarding time</td>
+</tr>
+<tr>
+<td><strong>Quality</strong></td>
+<td>False positive rate for vendor alerts, Vendor security score
+accuracy, Risk prediction accuracy</td>
+</tr>
+<tr>
+<td><strong>Business Impact</strong></td>
+<td>Supply chain attacks prevented, Vendor-caused incidents reduced,
+Third-party compliance maintained</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maturity Progression:</strong></p>
+<ul>
+<li><strong>Level 1:</strong> Basic AI vendor questionnaires; manual
+metrics (vendors assessed per quarter)</li>
+<li><strong>Level 2:</strong> Automated AI vendor risk monitoring;
+continuous vendor security scoring</li>
+<li><strong>Level 3:</strong> Predictive AI supply chain threat
+detection; autonomous vendor risk mitigation</li>
+</ul>
+<p><strong>Example Strategy Statement:</strong></p>
+<blockquote>
+<p>“Our AI-operated vendor security strategy is to achieve continuous
+visibility into the security posture of all third-party vendors and
+supply chain partners through autonomous AI monitoring and risk scoring.
+We measure success through vendor assessment coverage, continuous
+monitoring adoption, and supply chain incident prevention. AI agents
+must assess 100% of new vendors within 48 hours and monitor critical
+vendors 24/7 with real-time risk alerts.”</p>
+</blockquote>
+<hr />
+<h2 id="summary-table-sm-practice-across-domains">SUMMARY TABLE: SM
+PRACTICE ACROSS DOMAINS</h2>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 24%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Strategic Focus</th>
+<th>AI Agent Activities</th>
+<th>Key Metrics Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Software</strong></td>
+<td>AI-operated application security strategy</td>
+<td>Code scanning, vulnerability detection, secure code review</td>
+<td>Vulnerabilities detected, false positive rate, code coverage</td>
+</tr>
+<tr>
+<td><strong>Infrastructure</strong></td>
+<td>AI-operated infrastructure security strategy</td>
+<td>CSPM, network monitoring, infrastructure hardening</td>
+<td>Misconfigurations found, infrastructure coverage, MTTR</td>
+</tr>
+<tr>
+<td><strong>Endpoints</strong></td>
+<td>AI-operated endpoint security strategy</td>
+<td>EDR, device compliance, behavioral analysis</td>
+<td>Malware detections, endpoint coverage, compromise detection
+time</td>
+</tr>
+<tr>
+<td><strong>Data</strong></td>
+<td>AI-operated data protection strategy</td>
+<td>Data classification, DLP, access monitoring</td>
+<td>Data classified, exfiltration attempts blocked, encryption
+coverage</td>
+</tr>
+<tr>
+<td><strong>Processes</strong></td>
+<td>AI-operated security process automation strategy</td>
+<td>Incident response, compliance monitoring, policy enforcement</td>
+<td>Incidents detected, compliance score, process automation %</td>
+</tr>
+<tr>
+<td><strong>Vendors</strong></td>
+<td>AI-operated vendor risk management strategy</td>
+<td>Vendor assessments, supply chain monitoring, risk scoring</td>
+<td>Vendor assessment coverage, security scores, supply chain
+incidents</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cross-domain-strategic-themes">CROSS-DOMAIN STRATEGIC
+THEMES</h2>
+<p><strong>Theme 1: Alignment with Business Objectives</strong> All
+domains must align AI security strategy with business goals (velocity,
+resilience, compliance, cost reduction)</p>
+<p><strong>Theme 2: Metrics-Driven Decision Making</strong> All domains
+require quantifiable metrics to demonstrate AI agent effectiveness and
+ROI</p>
+<p><strong>Theme 3: Coverage and Completeness</strong> All domains
+strive for comprehensive coverage (100% of code, infrastructure,
+endpoints, data, processes, vendors)</p>
+<p><strong>Theme 4: Continuous Improvement</strong> All domains
+establish baseline metrics and track improvement over time (maturity
+progression)</p>
+<p><strong>Theme 5: Balance Automation and Human Oversight</strong> All
+domains must balance AI autonomy with human strategic direction and
+validation</p>
+<hr />
+<h2 id="using-these-descriptions">USING THESE DESCRIPTIONS</h2>
+<p><strong>For HAIAMM Assessments:</strong> These descriptions provide
+context for Strategy &amp; Metrics questions in each domain
+assessment.</p>
+<p><strong>For Organizations:</strong> Use these descriptions to define
+your domain-specific AI security strategies and select appropriate
+metrics.</p>
+<p><strong>For Assessors:</strong> Reference these descriptions when
+evaluating organizational maturity in Strategy &amp; Metrics
+practice.</p>
+<p><strong>For Tool Development:</strong> Use these descriptions to
+generate domain-specific Strategy &amp; Metrics questions in the HAIAMM
+assessment tool.</p>
+<hr />
+<p><strong>Document Version:</strong> 1.0 <strong>Last Updated:</strong>
+December 18, 2025 <strong>Next:</strong> Create similar one-pagers for
+remaining 11 HAIAMM practices (PC, EG, TA, SR, SA, DR, CR, ST, EH, ML,
+IM)</p>
+<p><strong>Related Documents:</strong> - HAIAMM Fundamental Controls
+Maturity Roadmap - NIST-DFARS-CMMC Alignment Analysis</p>
+</body>
+</html>
