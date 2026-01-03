@@ -1,0 +1,409 @@
+{
+  "practice": "Issue Management",
+  "domain": "Vendors",
+  "name": "IM-Vendors",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "im-vendors-1-1",
+      "question": "Do you scan vendor risk management platforms for vulnerabilities and patch them within SLA (Critical ≤24h, High ≤7d, Medium ≤30d)?",
+      "verification": [
+        "Review vendor platform vulnerability scanning schedule and tools (Nessus, Qualys, OpenVAS, Snyk, Dependabot)",
+        "Examine CVE monitoring alerts and configuration scan reports (daily CVE monitoring, weekly CIS benchmark scans)",
+        "Verify platform vulnerability coverage (platform CVEs, API vulnerabilities, misconfigurations, dependency scanning)",
+        "Review patching SLA compliance tracking (Critical ≤24h, High ≤7d, Medium ≤30d)",
+        "Verify vulnerability prioritization criteria (public exploits, affects critical vendor data, risk level)"
+      ],
+      "evidence": [
+        "Vulnerability scanning reports for vendor platforms (BitSight API, SecurityScorecard API, RiskRecon, Prevalent, UpGuard)",
+        "CVE monitoring alerts and scan schedules (daily CVE, weekly configuration)",
+        "Platform vulnerability remediation tracking logs with SLA compliance metrics",
+        "Patching records showing Critical ≤24h, High ≤7d, Medium ≤30d compliance",
+        "Vulnerability prioritization queue with risk scoring (exploitability, criticality, impact)"
+      ],
+      "scoring": {
+        "yes_if": "Vendor platforms scanned daily for CVEs, weekly for misconfigurations; ≥95% patched within SLA; prioritization includes exploitability and criticality; automated alerts on new CVEs",
+        "partial_if": "Platforms scanned but <95% SLA compliance OR missing daily CVE monitoring OR prioritization lacks exploitability assessment",
+        "no_if": "No platform vulnerability scanning OR Critical CVEs unpatched >24h OR no CVE monitoring"
+      }
+    },
+    {
+      "id": "im-vendors-1-2",
+      "question": "Do you test vendor platform integrations for security vulnerabilities (API authentication, authorization, injection, credential security) and remediate findings?",
+      "verification": [
+        "Review integration security testing scope (questionnaire systems, breach databases, SBOM repositories, threat intel feeds, third-party APIs)",
+        "Examine API security testing tools and schedule (OWASP ZAP, Burp Suite, penetration testing quarterly for Critical)",
+        "Verify coverage of authentication (weak API keys, credential stuffing), authorization (IDOR, privilege escalation), injection (SQL, command, LDAP)",
+        "Review credential security audits (rotate every 90 days, no plaintext secrets, no hardcoded keys)",
+        "Verify vulnerability findings tracking (CVSS score, affected integration, remediation status)"
+      ],
+      "evidence": [
+        "API security scan reports for vendor integrations (BitSight, SecurityScorecard, HIBP, Risk Based Security)",
+        "Penetration testing reports for Critical integrations (quarterly frequency)",
+        "Credential audit logs showing 90-day rotation and secure storage",
+        "Integration vulnerability tracking system with CVSS scores and remediation status",
+        "Authentication and authorization test results (API key security, IDOR tests, injection testing)"
+      ],
+      "scoring": {
+        "yes_if": "All vendor integrations tested for API security vulnerabilities; Critical integrations pen tested quarterly; credentials rotated ≤90d; findings tracked with CVSS scores; no high/critical unresolved >30d",
+        "partial_if": "Integrations tested but >30d high/critical findings unresolved OR credentials rotated >90d OR missing quarterly pen testing for Critical integrations",
+        "no_if": "No integration security testing OR plaintext secrets OR no vulnerability tracking"
+      }
+    },
+    {
+      "id": "im-vendors-1-3",
+      "question": "Do you scan vendor platform dependencies daily for CVEs and remediate vulnerable dependencies within SLA (Critical ≤24h, High ≤7d)?",
+      "verification": [
+        "Review dependency scanning tools and schedule (Dependabot, Snyk, GitHub Security Advisories, daily scans)",
+        "Examine dependency coverage (language libraries npm/PyPI/Maven, OS packages apt/yum, container images)",
+        "Verify daily scanning for new CVEs and automated alerts",
+        "Review remediation SLA tracking (Critical ≤24h, High ≤7d from discovery)",
+        "Verify supply chain security (checksums, signatures, typosquatting detection, malicious package scanning)"
+      ],
+      "evidence": [
+        "Dependency scanning reports with daily scan schedule",
+        "Automated CVE alerts for platform dependencies (npm, PyPI, Maven, apt, yum, Docker)",
+        "Remediation tracking showing Critical ≤24h, High ≤7d compliance",
+        "Dependency integrity verification logs (checksums, signatures)",
+        "Supply chain security scan results (typosquatting, suspicious behavior detection)"
+      ],
+      "scoring": {
+        "yes_if": "Dependencies scanned daily; automated CVE alerts; zero high/critical vulnerabilities >30d old; remediation SLA ≥95% compliant (Critical ≤24h, High ≤7d); supply chain verification active",
+        "partial_if": "Dependencies scanned but <95% SLA compliance OR scans less than daily OR supply chain verification missing",
+        "no_if": "No dependency scanning OR high/critical vulnerabilities >30d old OR no remediation SLA tracking"
+      }
+    },
+    {
+      "id": "im-vendors-1-4",
+      "question": "Do you scan all vendor-provided SBOMs daily for CVEs (including transitive dependencies ≥5 levels deep) and generate vulnerability reports per vendor?",
+      "verification": [
+        "Review SBOM scanning tools and schedule (Grype, Trivy, Dependency-Track, daily scans)",
+        "Examine CVE database coverage (NVD, GitHub Security Advisories, OSV, vendor-specific databases)",
+        "Verify SBOM scan coverage (all vendor software: on-prem, SaaS, cloud services; ≥95% vendors)",
+        "Review transitive dependency scanning depth (≥5 levels) and vulnerability propagation detection",
+        "Verify vulnerability reports include CVE ID, CVSS score, affected component/version, remediation available, exploitability"
+      ],
+      "evidence": [
+        "SBOM scanning reports with daily scan schedule for all vendors",
+        "CVE database integration logs (NVD, GitHub Security Advisories, OSV)",
+        "SBOM coverage metrics (≥95% of vendors, including on-prem/SaaS/cloud)",
+        "Transitive dependency analysis reports (≥5 levels deep, vulnerability propagation tracking)",
+        "Per-vendor vulnerability reports (CVE ID, CVSS, component, remediation status, exploitability)"
+      ],
+      "scoring": {
+        "yes_if": "All vendor SBOMs scanned daily; ≥95% coverage; transitive dependencies ≥5 levels; vulnerability reports per vendor with CVE/CVSS/exploitability; immediate scan on new SBOM ingestion",
+        "partial_if": "SBOMs scanned but <95% coverage OR transitive dependency depth <5 levels OR scans less than daily",
+        "no_if": "No SBOM scanning OR <70% vendor coverage OR no transitive dependency analysis"
+      }
+    },
+    {
+      "id": "im-vendors-1-5",
+      "question": "Do you prioritize vendor software vulnerabilities using CVSS scoring (Base/Temporal/Environmental), vendor criticality, exploitability, and affected components with prioritized remediation queue?",
+      "verification": [
+        "Review vulnerability prioritization factors (vendor criticality, exploitability CISA KEV/public exploits, affected components core vs. optional, compensating controls)",
+        "Examine CVSS scoring implementation (Base severity, Temporal exploit/patch availability, Environmental criticality to org)",
+        "Verify vendor notification SLA (Critical CVSS ≥9.0 ≤7d, High CVSS 7.0-8.9 ≤30d, Medium CVSS 4.0-6.9 ≤60d)",
+        "Review prioritized remediation queue (sorted by risk score = CVSS × vendor criticality × exploitability)",
+        "Verify Critical vendor prioritization and compensating control risk reduction"
+      ],
+      "evidence": [
+        "Vulnerability prioritization algorithm documentation (CVSS Base/Temporal/Environmental, vendor tier, exploitability)",
+        "Prioritized remediation queue sorted by risk score",
+        "Vendor notification SLA tracking (Critical ≤7d, High ≤30d, Medium ≤60d)",
+        "Risk scoring formula and calculation examples (CVSS × criticality × exploitability)",
+        "Compensating control risk reduction documentation (WAF, network isolation impacts)"
+      ],
+      "scoring": {
+        "yes_if": "Vulnerabilities prioritized using CVSS Base/Temporal/Environmental; vendor criticality factored; exploitability assessed (CISA KEV, exploit code); prioritized queue; vendor notification SLA ≥90% compliant",
+        "partial_if": "Prioritization exists but missing Environmental CVSS OR exploitability assessment incomplete OR <90% SLA compliance",
+        "no_if": "No vulnerability prioritization OR CVSS Base only OR no vendor notification SLA"
+      }
+    },
+    {
+      "id": "im-vendors-1-6",
+      "question": "Do you notify vendors of SBOM vulnerabilities via portal/email/API, set remediation deadlines, track progress with escalation for non-response (Critical ≤48h, High ≤7d), and verify fixes?",
+      "verification": [
+        "Review vendor notification process (identify vulnerability → verify not false positive → notify via portal/email/API → set SLA deadline → track progress → verify fix)",
+        "Examine notification tracking (vendor portal audit trail, email follow-ups, remediation deadlines per SLA)",
+        "Verify escalation process (Critical no response ≤48h, High ≤7d escalate to account manager/vendor management/contract enforcement)",
+        "Review remediation verification (updated SBOM, patch notes, testing)",
+        "Verify vendor response time and MTTR metrics (Critical ≤30d, High ≤60d, Medium ≤90d)"
+      ],
+      "evidence": [
+        "Vendor notification logs (portal notifications, emails, API calls) with audit trails",
+        "Remediation deadline tracking with SLA compliance (Critical ≤7d, High ≤30d, Medium ≤60d)",
+        "Escalation records (no response within ≤48h Critical, ≤7d High)",
+        "Remediation verification documentation (updated SBOMs, patch notes, test results)",
+        "Vendor response time and MTTR metrics by severity and vendor tier"
+      ],
+      "scoring": {
+        "yes_if": "Vendors notified via portal with audit trail; remediation deadlines set per SLA; escalation process defined and followed (Critical ≤48h, High ≤7d); fixes verified with updated SBOM/testing; ≥90% SLA compliance",
+        "partial_if": "Notification process exists but <90% SLA compliance OR escalation not followed OR verification incomplete",
+        "no_if": "No vendor notification process OR no remediation tracking OR no escalation for non-response"
+      }
+    },
+    {
+      "id": "im-vendors-1-7",
+      "question": "Do you manage SBOM vulnerability false positives with vendor evidence review process and track false positive rates by vendor to improve SBOM quality?",
+      "verification": [
+        "Review false positive management process (vendor contests → provide evidence → security review → mark false positive or request SBOM update)",
+        "Examine false positive causes (component not used/not executed, vulnerability doesn't apply OS mismatch, vendor already patched/SBOM out of date)",
+        "Verify vendor evidence review (code analysis showing component unused, patch notes, OS verification)",
+        "Review false positive rate tracking by vendor (identify high false positive vendors)",
+        "Verify SBOM quality improvement requests for vendors with high false positive rates"
+      ],
+      "evidence": [
+        "False positive review process documentation (vendor evidence submission, security team review, resolution)",
+        "False positive tracking database with causes (component unused, OS mismatch, SBOM outdated)",
+        "Vendor evidence examples (code analysis, patch notes, version verification)",
+        "False positive rate metrics by vendor (target ≤15% overall)",
+        "SBOM quality improvement requests for vendors with >20% false positive rates"
+      ],
+      "scoring": {
+        "yes_if": "False positive process defined; vendor evidence reviewed by security team; false positive rates tracked by vendor; ≤15% overall rate; quality improvement requests sent to high false positive vendors",
+        "partial_if": "False positive process exists but >15% rate OR not tracked by vendor OR no quality improvement requests",
+        "no_if": "No false positive management OR no vendor evidence review OR >30% false positive rate"
+      }
+    },
+    {
+      "id": "im-vendors-1-8",
+      "question": "Do you monitor vendor security breaches in real-time (≤1h alerts) from breach databases/threat intel/news, assess impact within ≤24h, and require vendor remediation plans for Critical incidents (≤48h)?",
+      "verification": [
+        "Review breach monitoring sources (HIBP, Risk Based Security, vendor disclosures, threat intel feeds, news monitoring)",
+        "Examine real-time monitoring and alerting (24/7, automated alerts within ≤1h of disclosure, reviewed within ≤24h)",
+        "Verify impact assessment process (does breach include our data? Which data types? Customer impact?)",
+        "Review stakeholder notification (legal, compliance, affected business units) and vendor remediation plan requirements (≤48h for Critical)",
+        "Verify breach tracking to closure (date, type, data exposed, impact, vendor response, resolution)"
+      ],
+      "evidence": [
+        "Breach monitoring system configuration (HIBP, Risk Based Security, threat intel feeds, news alerts)",
+        "Real-time alert logs (≤1h notification, ≤24h review for all vendor breaches)",
+        "Breach impact assessment reports (data types, customer impact, affected systems)",
+        "Vendor remediation plan requests and timelines (≤48h for Critical incidents)",
+        "Breach tracking database with all incidents logged to closure"
+      ],
+      "scoring": {
+        "yes_if": "Breaches monitored 24/7; automated alerts ≤1h; impact assessed ≤24h; Critical incidents require remediation plan ≤48h; all breaches tracked to closure; stakeholders notified",
+        "partial_if": "Monitoring exists but alert latency >1h OR impact assessment >24h OR no remediation plan requirement",
+        "no_if": "No breach monitoring OR no real-time alerts OR no impact assessment process"
+      }
+    },
+    {
+      "id": "im-vendors-1-9",
+      "question": "Do you track vendor incident remediation timelines, verify remediation evidence, and escalate SLA misses (Critical ≤48h response, ≤30d remediation; High ≤7d response, ≤60d remediation)?",
+      "verification": [
+        "Review incident response timeline tracking (detection → notification → containment → remediation → verification)",
+        "Examine remediation step tracking (patch deployed, accounts reset, logs reviewed) and verification evidence requirements (pen test, SOC 2 report, attestation)",
+        "Verify incident SLA (Critical ≤48h response + ≤30d remediation, High ≤7d response + ≤60d remediation)",
+        "Review escalation process for SLA misses (vendor executive team, contract suspension, vendor termination evaluation)",
+        "Verify independent remediation validation for Critical incidents (audits, penetration testing)"
+      ],
+      "evidence": [
+        "Incident timeline tracking logs (detection to verification with timestamps)",
+        "Remediation verification evidence (patches, account resets, log reviews, pen tests, SOC 2 reports)",
+        "SLA compliance tracking (Critical ≤48h/≤30d, High ≤7d/≤60d)",
+        "Escalation records for SLA misses (executive engagement, contract actions)",
+        "Independent validation reports for Critical incidents (audits, penetration tests)"
+      ],
+      "scoring": {
+        "yes_if": "Incident timelines tracked; remediation verified with evidence; SLA enforced (Critical ≤48h/≤30d, High ≤7d/≤60d); escalation process defined and followed; independent validation for Critical incidents",
+        "partial_if": "Tracking exists but SLA not enforced OR verification incomplete OR no independent validation for Critical",
+        "no_if": "No incident tracking OR no remediation verification OR no SLA enforcement"
+      }
+    },
+    {
+      "id": "im-vendors-1-10",
+      "question": "Do you update vendor risk scores based on vulnerabilities (Critical +10-20, breach +20-30, unpatched CVE >30d +5-10/month) with tier escalation and enhanced monitoring?",
+      "verification": [
+        "Review vulnerability-driven risk score adjustment triggers (major breach affecting customer data, unpatched critical CVE >30d with public exploit, ≥3 incidents in 12 months, compliance violations)",
+        "Examine risk score impact calculation (Critical vulnerabilities +10-20 points, major breach +20-30 points, unpatched CVE >30d +5-10 points per month)",
+        "Verify tier escalation consequences (High → Critical tier, enhanced monitoring daily vs. weekly, remediation requirements pen test/audit, vendor review contract/replacement)",
+        "Review de-escalation criteria (verified patch deployed, incident closed, compliance restored, sustained improvement)",
+        "Verify risk score tracking and vendor impact monitoring"
+      ],
+      "evidence": [
+        "Risk score adjustment algorithm documentation (vulnerability triggers, point calculations, tier thresholds)",
+        "Risk score update logs showing vulnerability/breach impacts (Critical +10-20, breach +20-30, unpatched +5-10/month)",
+        "Tier escalation records (High → Critical) with monitoring changes and remediation requirements",
+        "De-escalation tracking (patch verification, incident closure, compliance restoration)",
+        "Vendor risk scorecards showing score trends and tier changes"
+      ],
+      "scoring": {
+        "yes_if": "Risk scores updated for vulnerabilities/breaches with defined point system; tier escalation triggers enhanced monitoring and remediation requirements; de-escalation criteria defined; risk trends tracked",
+        "partial_if": "Risk score updates exist but point system not defined OR tier escalation missing OR no de-escalation criteria",
+        "no_if": "No vulnerability-driven risk score adjustment OR no tier escalation OR risk scores static"
+      }
+    },
+    {
+      "id": "im-vendors-1-11",
+      "question": "Do you track vulnerabilities in vendor subprocessors (≥3 levels deep) by requesting SBOMs, scanning for CVEs, and tracking remediation including critical subprocessors (AWS/Azure/GCP/Stripe/Auth0)?",
+      "verification": [
+        "Review subprocessor vulnerability tracking scope (vendor → subprocessor → sub-subprocessor ≥3 levels, critical subprocessors handling PHI/PII or core infrastructure)",
+        "Examine subprocessor SBOM collection process (contractual requirement, collection cadence)",
+        "Verify subprocessor SBOM scanning for CVEs (daily scans, same tools as vendor SBOMs)",
+        "Review subprocessor remediation tracking (via vendor or directly for critical subprocessors)",
+        "Verify subprocessor breach and vulnerability monitoring (AWS, Azure, GCP, Stripe, Auth0 alerts)"
+      ],
+      "evidence": [
+        "Subprocessor SBOM collection records (contractual requirements, SBOM coverage ≥3 levels)",
+        "Subprocessor CVE scanning reports (Grype, Trivy, Dependency-Track for subprocessor SBOMs)",
+        "Subprocessor remediation tracking (via vendor coordination or direct engagement)",
+        "Critical subprocessor monitoring alerts (AWS, Azure, GCP, Stripe, Auth0 breach/vulnerability alerts)",
+        "Supply chain risk documentation (cascading failure risk, subprocessor service disruption impacts)"
+      ],
+      "scoring": {
+        "yes_if": "Subprocessor SBOMs collected ≥3 levels deep; scanned daily for CVEs; remediation tracked; critical subprocessors monitored (AWS/Azure/GCP/Stripe/Auth0); breach alerts configured",
+        "partial_if": "Subprocessor tracking exists but <3 levels deep OR not all critical subprocessors monitored OR scanning less than daily",
+        "no_if": "No subprocessor vulnerability tracking OR no SBOM collection OR no remediation tracking"
+      }
+    },
+    {
+      "id": "im-vendors-1-12",
+      "question": "Do you identify dependency concentration risk (same vulnerable component/subprocessor affecting multiple vendors) and implement mitigations (diversification, compensating controls, staggered patching) with target concentration ≤30%?",
+      "verification": [
+        "Review dependency concentration detection (same vulnerable library across vendors e.g., log4j in 50 vendors, same subprocessor breach e.g., AWS affecting 30 vendors)",
+        "Examine concentration risk assessment (blast radius, coordinated patching requirements, single point of failure analysis)",
+        "Verify mitigation strategies (vendor diversification to avoid single points of failure, compensating controls WAF/network segmentation, staggered patching to prevent service disruption)",
+        "Review concentration index calculation (max % vendors depending on single component/subprocessor, target ≤30%)",
+        "Verify concentration tracking and trend monitoring"
+      ],
+      "evidence": [
+        "Dependency concentration analysis reports (vulnerable components across vendors, subprocessor dependencies)",
+        "Blast radius calculations (number of vendors affected by single vulnerability, service disruption scenarios)",
+        "Mitigation implementation records (vendor diversification, compensating controls deployment, patching schedules)",
+        "Concentration index metrics (% vendors per component/subprocessor, target ≤30% tracking)",
+        "Concentration trend tracking (quarterly reviews, risk reduction initiatives)"
+      ],
+      "scoring": {
+        "yes_if": "Concentration risk tracked; blast radius calculated for shared vulnerabilities; mitigations implemented (diversification, compensating controls, staggered patching); concentration index ≤30%; quarterly reviews",
+        "partial_if": "Concentration tracking exists but index >30% OR no mitigations OR blast radius not calculated",
+        "no_if": "No dependency concentration tracking OR no shared vulnerability detection OR concentration index >50%"
+      }
+    },
+    {
+      "id": "im-vendors-1-13",
+      "question": "Do you request vendors remediate vulnerabilities via portal/email/API with SLA deadlines (Critical ≤7d response + ≤30d remediation, High ≤7d + ≤60d), track progress weekly/biweekly, escalate non-compliance, and verify fixes with updated SBOMs?",
+      "verification": [
+        "Review vendor remediation request process (identify vulnerability → notify via portal/email/API → set deadline per SLA → track progress → verify fix)",
+        "Examine remediation SLA (Critical ≤7d response + ≤30d remediation, High ≤7d response + ≤60d remediation)",
+        "Verify progress tracking frequency (weekly for Critical, biweekly for High) and status updates",
+        "Review escalation process (no response or SLA miss → vendor account manager → vendor CISO → contract review → potential termination)",
+        "Verify remediation verification (updated SBOM, patch notes, testing) and automated tracking (API, alerts)"
+      ],
+      "evidence": [
+        "Vendor remediation request logs (portal/email/API notifications with audit trail)",
+        "Remediation SLA tracking (Critical ≤7d/≤30d, High ≤7d/≤60d compliance metrics)",
+        "Progress tracking records (weekly Critical updates, biweekly High updates)",
+        "Escalation documentation (account manager → CISO → contract review chain)",
+        "Remediation verification evidence (updated SBOMs, patch notes, test results, automated parsing)"
+      ],
+      "scoring": {
+        "yes_if": "Remediation requests automated via portal/API; SLA enforced (Critical ≤7d/≤30d, High ≤7d/≤60d); progress tracked weekly/biweekly; escalation process defined and followed; verification automated with SBOM parsing",
+        "partial_if": "Remediation process exists but not automated OR SLA compliance <90% OR escalation not followed",
+        "no_if": "No vendor remediation request process OR no SLA enforcement OR no verification"
+      }
+    },
+    {
+      "id": "im-vendors-1-14",
+      "question": "Do you implement compensating controls when vendor remediation is delayed (enhanced monitoring, network segmentation, input validation, rate limiting, WAF rules), track them in risk register, and remove when vendor patches verified?",
+      "verification": [
+        "Review compensating control implementation (enhanced monitoring SIEM alerts, network segmentation isolate vendor integration, input validation sanitize vendor data, rate limiting prevent API abuse, WAF rules block exploit patterns)",
+        "Examine compensating control documentation in risk register (vulnerability ID, control type, effectiveness assessment, owner, removal date)",
+        "Verify compensating control effectiveness validation (penetration testing, red team exercises, residual risk measurement)",
+        "Review control removal process (verify vendor remediation, disable compensating controls, document closure)",
+        "Verify compensating control lifecycle management"
+      ],
+      "evidence": [
+        "Compensating control implementation records (SIEM rules, network segmentation, input validation, rate limiting, WAF configurations)",
+        "Risk register entries (vulnerability ID, control, effectiveness, owner, removal date)",
+        "Effectiveness validation reports (pen tests, red team results, residual risk assessments)",
+        "Control removal documentation (vendor patch verification, control disablement, closure records)",
+        "Compensating control lifecycle tracking (implementation → validation → removal)"
+      ],
+      "scoring": {
+        "yes_if": "Compensating controls implemented for delayed vendor remediation; documented in risk register with effectiveness/owner/removal date; validated with pen testing; removed when vendor patches verified; lifecycle managed",
+        "partial_if": "Compensating controls exist but not documented in risk register OR effectiveness not validated OR not removed after vendor patches",
+        "no_if": "No compensating controls for delayed remediation OR no tracking OR no effectiveness validation"
+      }
+    },
+    {
+      "id": "im-vendors-1-15",
+      "question": "Do you review vendor contracts for persistent security issues (≥3 same-component vulnerabilities, ≥3 SLA violations/12mo, major breaches, risk score >70 for ≥6mo) and renegotiate security terms or consider replacement?",
+      "verification": [
+        "Review contract review triggers (≥3 repeated vulnerabilities in same component, ≥3 missed remediation SLAs in 12 months, major breaches with PHI/PII exposure, risk score >70 for ≥6 months)",
+        "Examine contract renegotiation options (stricter SLAs, mandatory pen testing, enhanced audit rights, security requirements SBOM provision/vulnerability disclosure/cyber insurance)",
+        "Verify vendor review meeting process (security + procurement + legal, present security issues + remediation failures, negotiate improved terms or initiate replacement search)",
+        "Review vendor replacement evaluation criteria (unacceptable security posture, repeated non-compliance, cost-benefit analysis)",
+        "Verify contract review tracking and outcomes documentation"
+      ],
+      "evidence": [
+        "Contract review trigger tracking (repeated vulnerabilities, SLA violations, breaches, risk score trends)",
+        "Vendor review meeting records (security + procurement + legal, security issue presentations, negotiation outcomes)",
+        "Contract renegotiation documentation (stricter SLAs, new security requirements, enhanced audit rights)",
+        "Vendor replacement evaluations (security posture assessments, cost-benefit analyses, alternative vendor research)",
+        "Contract review outcomes tracking (renegotiation success, vendor replacement, continued monitoring)"
+      ],
+      "scoring": {
+        "yes_if": "Contract review triggered for persistent issues (≥3 vulnerabilities, ≥3 SLA violations, breaches, risk >70 for ≥6mo); vendor review meetings held (security + procurement + legal); renegotiation or replacement evaluated; outcomes documented",
+        "partial_if": "Review process exists but not triggered for all criteria OR no cross-functional meetings OR no replacement evaluation",
+        "no_if": "No contract review for security issues OR no vendor review meetings OR persistent issues ignored"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "SBOM coverage and vulnerability detection",
+      "target": "≥80% of software vendors provide SBOMs (≥95% Critical vendors); vendor vulnerabilities detected within ≤24 hours of CVE disclosure; ≥95% SBOM scan coverage; quarterly SBOM updates",
+      "measurement": "Track % vendors providing SBOMs (by tier: Critical/High/Medium/Low); measure CVE detection latency (time from NVD publication to vendor notification); track SBOM scan coverage (% vendor software scanned daily); monitor SBOM update frequency",
+      "data_source": "Vendor contract database (SBOM provisions), SBOM repository (vendor submissions), vulnerability scanning system (Grype/Trivy/Dependency-Track), CVE feed timestamps (NVD, OSV), SBOM quality metrics",
+      "frequency": "Monthly SBOM coverage reports; daily CVE detection latency tracking; quarterly SBOM quality reviews",
+      "baseline": "Current state: [X]% vendors provide SBOMs, [Y]h CVE detection latency, [Z]% SBOM coverage",
+      "validation": "Review SBOM collection records; verify CVE feed integration timestamps; audit SBOM scan coverage; validate SBOM update frequency per vendor; verify Critical vendor SBOM compliance ≥95%"
+    },
+    {
+      "metric": "Vendor MTTR and SLA compliance",
+      "target": "Critical vendor vulnerabilities MTTR ≤30 days, High ≤60 days, Medium ≤90 days (from discovery to verified remediation); ≥90% Critical vulnerabilities remediated within SLA, ≥85% High; vendor notification SLA ≥90% (Critical ≤7d, High ≤30d, Medium ≤60d)",
+      "measurement": "Calculate vendor MTTR (discovery date to verified remediation date); track SLA compliance rate (% vulnerabilities remediated within deadlines by severity); monitor vendor response times (notification to first response); segment MTTR by vendor tier and vulnerability type",
+      "data_source": "Vulnerability tracking system (discovery dates, remediation dates, verification timestamps), vendor communication logs (notification timestamps, response times), SLA tracking database (deadline compliance), vendor portal audit trails",
+      "frequency": "Weekly MTTR tracking for Critical/High; monthly SLA compliance reports; quarterly vendor benchmarking",
+      "baseline": "Current state: Critical MTTR [X] days, High [Y] days, Medium [Z] days; SLA compliance [A]% Critical, [B]% High",
+      "validation": "Audit vulnerability lifecycle timestamps; verify remediation verification evidence (updated SBOMs, patch notes, tests); compare MTTR against industry benchmarks (BitSight median 45d for High); validate SLA compliance calculations; verify vendor response time tracking"
+    },
+    {
+      "metric": "Platform patching and dependency management",
+      "target": "≥95% of platform CVEs patched within SLA (Critical ≤24h, High ≤7d, Medium ≤30d); zero high/critical vulnerabilities in vendor platform dependencies >30 days old; daily dependency scans; automated CVE alerts",
+      "measurement": "Track platform patching SLA compliance (% CVEs patched within deadlines by severity); monitor platform dependency age (days since CVE disclosure for unpatched dependencies); verify daily scan execution; measure CVE alert latency (CVE publication to alert)",
+      "data_source": "Vulnerability scanners (Nessus, Qualys, OpenVAS), dependency scanning tools (Snyk, Dependabot, GitHub Security Advisories), patching logs (timestamps, SLA compliance), CVE monitoring system (alert timestamps), platform configuration scans (CIS benchmarks)",
+      "frequency": "Daily platform vulnerability and dependency scans; weekly patching SLA compliance tracking; monthly platform security reports",
+      "baseline": "Current state: [X]% platform CVEs patched within SLA, [Y] high/critical dependencies >30d old, [Z]h CVE alert latency",
+      "validation": "Review platform scan reports; verify patching timestamps against SLA deadlines; audit dependency scan coverage; validate CVE alert configuration; confirm zero high/critical dependencies >30d old"
+    },
+    {
+      "metric": "Breach response and incident tracking",
+      "target": "All vendor breaches assessed within ≤24 hours, impact determined within ≤48 hours; breach monitoring 24/7 with automated alerts ≤1h; Critical incident remediation plans ≤48h; incident SLA compliance ≥90% (Critical ≤48h response/≤30d remediation, High ≤7d/≤60d)",
+      "measurement": "Track breach assessment time (breach disclosure to initial assessment); measure impact determination time (assessment to impact report); monitor alert latency (breach publication to alert); track incident SLA compliance (% incidents meeting response and remediation deadlines)",
+      "data_source": "Breach monitoring systems (HIBP, Risk Based Security, threat intel feeds), breach assessment logs (timestamps, impact reports), incident tracking system (response times, remediation dates, SLA compliance), vendor communication records (remediation plan requests, timelines)",
+      "frequency": "Real-time breach monitoring; daily incident SLA tracking; weekly breach response reviews; monthly incident trend analysis",
+      "baseline": "Current state: [X]h average breach assessment time, [Y]h impact determination, [Z]% incident SLA compliance",
+      "validation": "Audit breach monitoring alert timestamps; verify impact assessment documentation; review incident timeline tracking; validate remediation plan requirements; confirm incident SLA enforcement; verify independent validation for Critical incidents"
+    },
+    {
+      "metric": "Supply chain vulnerability management",
+      "target": "Subprocessor vulnerabilities tracked ≥3 levels deep; critical subprocessors monitored (AWS/Azure/GCP/Stripe/Auth0); dependency concentration index ≤30%; blast radius calculated for shared vulnerabilities; staggered patching implemented",
+      "measurement": "Track subprocessor SBOM collection depth (levels); monitor critical subprocessor coverage (% monitored); calculate concentration index (max % vendors per component/subprocessor); measure blast radius (vendors affected per vulnerability); verify staggered patching schedules",
+      "data_source": "Subprocessor SBOM repository (collection depth, coverage), subprocessor vulnerability scans (Grype/Trivy for subprocessor SBOMs), concentration analysis system (dependency mapping, vendor counts), blast radius calculations (vulnerability impact analysis), patching schedules",
+      "frequency": "Daily subprocessor SBOM scans; monthly concentration index calculations; quarterly blast radius analyses; continuous critical subprocessor monitoring",
+      "baseline": "Current state: [X] levels subprocessor tracking, [Y]% critical subprocessor coverage, [Z]% concentration index, [A] avg blast radius",
+      "validation": "Review subprocessor SBOM collection records; verify critical subprocessor monitoring configuration; audit concentration index calculations; validate blast radius assessments; confirm mitigation implementations (diversification, compensating controls, staggered patching)"
+    },
+    {
+      "metric": "Remediation tracking and contract enforcement",
+      "target": "≥90% vendor SLA compliance; false positive rate ≤15%; compensating controls tracked in risk register with effectiveness validation; contract reviews for persistent issues (≥3 vulnerabilities, ≥3 SLA violations, risk >70 for ≥6mo); escalation process 100% followed",
+      "measurement": "Track vendor SLA compliance rate (% vulnerabilities remediated within deadlines); monitor false positive rate (% contested vulnerabilities validated as false positives); count compensating controls (active, validated, removed); track contract review triggers and outcomes; verify escalation adherence",
+      "data_source": "SLA compliance tracking system (remediation deadlines, completion timestamps), false positive database (vendor evidence, security reviews, resolution), risk register (compensating controls, effectiveness validation, removal dates), contract review records (triggers, meetings, outcomes), escalation logs",
+      "frequency": "Weekly SLA compliance tracking; monthly false positive rate reviews; quarterly contract review trigger assessments; continuous escalation monitoring",
+      "baseline": "Current state: [X]% SLA compliance, [Y]% false positive rate, [Z] active compensating controls, [A] contract reviews initiated",
+      "validation": "Audit SLA compliance calculations; review false positive resolution documentation; verify compensating control lifecycle management; validate contract review trigger criteria; confirm escalation process execution; verify vendor response time tracking"
+    }
+  ]
+}
