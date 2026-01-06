@@ -8,6 +8,12 @@
 
 ---
 
+> **Note on Code Examples**
+>
+> Code snippets throughout this handbook are **illustrative examples only**. They are intended to demonstrate security concepts and provide context for implementation patterns—not to serve as production-ready code. Always adapt examples to your specific environment, follow your organization's coding standards, and conduct thorough security reviews before deployment.
+
+---
+
 ## What is HAIAMM?
 
 HAIAMM is a comprehensive framework for securing Human-Assisted Intelligence (HAI) systems. It provides actionable guidance for organizations building, deploying, and operating AI applications—from simple LLM integrations to fully autonomous agent systems.
@@ -69,7 +75,7 @@ Each domain contains four business functions with twelve practices:
 
 ---
 
-### ![Governance](../images/governance_small_logo.png) Governance
+### ![Governance](../images/governance_logo.png) Governance
 
 *How you govern AI security agents*
 
@@ -93,7 +99,7 @@ Each domain contains four business functions with twelve practices:
 
 ---
 
-### ![Verification](../images/verification_small_logo.png) Verification
+### ![Verification](../images/verification_thumbnail_small_logo.png) Verification
 
 *How you verify AI agents work correctly*
 
@@ -105,7 +111,7 @@ Each domain contains four business functions with twelve practices:
 
 ---
 
-### ![Operations](../images/operations_small_logo.png) Operations
+### ![Operations](../images/operations_thumbnail_small_logo.png) Operations
 
 *How you run AI agents safely*
 
@@ -266,7 +272,7 @@ HAIAMM maps directly to industry-recognized AI security risks:
 | LLM02: Sensitive Information Disclosure | PC, DR, ML |
 | LLM03: Supply Chain | SA, IM, EH |
 | LLM04: Data and Model Poisoning | TA, DR, ST |
-| LLM05: Improper Output Handling | SR, CR, ST |
+| LLM05: Improper Output Handling | SR, IR, ST |
 | LLM06: Excessive Agency | SA, PC, ML |
 | LLM07: System Prompt Leakage | EH, ST, ML |
 | LLM08: Vector and Embedding Weaknesses | SA, ST, EH |

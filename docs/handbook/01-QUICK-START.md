@@ -8,6 +8,12 @@
 
 ---
 
+> **Note on Code Examples**
+>
+> Code snippets in this guide are **illustrative examples only**—intended to demonstrate concepts, not serve as production-ready code. Adapt all examples to your environment and security requirements.
+
+---
+
 ## What is HAIAMM?
 
 HAIAMM (Human-Assisted Intelligence Assurance Maturity Model) is a practical framework for securing AI systems. It covers everything from simple LLM integrations to fully autonomous agent deployments across six security domains and twelve practices.
