@@ -1,3 +1,5 @@
+![HAIAMM Logo](images/HAIAMM_logo.png)
+
 # HAIAMM + Verifhai: Secure Your AI-Operated Security
 
 ## Complete Pitch Deck
@@ -302,28 +304,28 @@ This is what makes HAIAMM v2.2 different. We don't just say "implement goal inte
 
 # 12 Practices Across 4 Business Functions
 
-**GOVERNANCE** - How you govern AI security agents
+![Governance](images/governance_small_logo.png) **GOVERNANCE** - How you govern AI security agents
 | Practice | Focus |
 |----------|-------|
 | **SM** Strategy & Metrics | Security strategy, KPIs, ROI |
 | **PC** Policy & Compliance | Policies, standards, regulations |
 | **EG** Education & Guidance | Training, awareness, culture |
 
-**BUILDING** - How you build AI agents securely
+![Building](images/building_small_logo.png) **BUILDING** - How you build AI agents securely
 | Practice | Focus |
 |----------|-------|
 | **TA** Threat Assessment | Threat modeling, AI-specific risks |
 | **SR** Security Requirements | CAN/CANNOT/MUST definitions |
 | **SA** Secure Architecture | Defense-in-depth, isolation |
 
-**VERIFICATION** - How you verify AI agents work correctly
+![Verification](images/verification_small_logo.png) **VERIFICATION** - How you verify AI agents work correctly
 | Practice | Focus |
 |----------|-------|
 | **DR** Design Review | Architecture security reviews |
 | **IR** Implementation Review | Code and config security |
 | **ST** Security Testing | AI-specific testing, red team |
 
-**OPERATIONS** - How you run AI agents safely
+![Operations](images/operations_small_logo.png) **OPERATIONS** - How you run AI agents safely
 | Practice | Focus |
 |----------|-------|
 | **IM** Issue Management | Vulnerability tracking, incidents |

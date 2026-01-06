@@ -1,3 +1,5 @@
+![HAIAMM Logo](../images/HAIAMM_logo.png)
+
 # HAIAMM Handbook v2.2
 
 ## Human-Assisted Intelligence Assurance Maturity Model
@@ -65,28 +67,48 @@ HAIAMM organizes AI security into six domains, each addressing a critical aspect
 
 Each domain contains four business functions with twelve practices:
 
-**Governance**
+---
+
+### ![Governance](../images/governance_small_logo.png) Governance
+
+*How you govern AI security agents*
+
 | Practice | Code | Purpose |
 |----------|------|---------|
 | Strategy & Metrics | SM | Define AI security strategy and measure effectiveness |
 | Policy & Compliance | PC | Establish policies and ensure regulatory compliance |
 | Education & Guidance | EG | Train teams on AI security best practices |
 
-**Building**
+---
+
+### ![Building](../images/building_small_logo.png) Building
+
+*How you build AI agents securely*
+
 | Practice | Code | Purpose |
 |----------|------|---------|
 | Threat Assessment | TA | Identify and prioritize AI-specific threats |
 | Security Requirements | SR | Define security requirements for AI systems |
 | Secure Architecture | SA | Design secure AI system architectures |
 
-**Verification**
+---
+
+### ![Verification](../images/verification_small_logo.png) Verification
+
+*How you verify AI agents work correctly*
+
 | Practice | Code | Purpose |
 |----------|------|---------|
 | Design Review | DR | Review AI system designs for security flaws |
 | Implementation Review | IR | Review AI implementations for vulnerabilities |
 | Security Testing | ST | Test AI systems for security weaknesses |
 
-**Operations**
+---
+
+### ![Operations](../images/operations_small_logo.png) Operations
+
+*How you run AI agents safely*
+
 | Practice | Code | Purpose |
 |----------|------|---------|
 | Issue Management | IM | Track and remediate security issues |

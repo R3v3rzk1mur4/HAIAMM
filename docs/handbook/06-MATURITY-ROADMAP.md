@@ -1,3 +1,5 @@
+![HAIAMM Logo](../images/HAIAMM_logo.png)
+
 # HAIAMM Maturity Roadmap
 
 **Level 1 → 2 → 3 progression guide**

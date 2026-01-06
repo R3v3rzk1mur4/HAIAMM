@@ -1,3 +1,5 @@
+![HAIAMM Logo](../images/HAIAMM_logo.png)
+
 # HAIAMM First 30 Days
 
 **A practical day-by-day implementation roadmap**

@@ -1,3 +1,5 @@
+![HAIAMM Logo](../images/HAIAMM_logo.png)
+
 # HAIAMM Quick Start Guide
 
 **Get started securing your AI systems in 10 minutes**
@@ -213,10 +215,10 @@ agent_permissions:
 
 | Category | Practices | Purpose |
 |----------|-----------|---------|
-| **Governance** | SM, PC, EG | Strategy, policies, training |
-| **Building** | TA, SR, SA | Threats, requirements, architecture |
-| **Verification** | DR, IR, ST | Design review, implementation review, testing |
-| **Operations** | IM, EH, ML | Issues, hardening, monitoring |
+| ![Governance](../images/governance_small_logo.png) **Governance** | SM, PC, EG | Strategy, policies, training |
+| ![Building](../images/building_small_logo.png) **Building** | TA, SR, SA | Threats, requirements, architecture |
+| ![Verification](../images/verification_small_logo.png) **Verification** | DR, IR, ST | Design review, implementation review, testing |
+| ![Operations](../images/operations_small_logo.png) **Operations** | IM, EH, ML | Issues, hardening, monitoring |
 
 ### The 3 Maturity Levels (How Well)
 

@@ -1,3 +1,5 @@
+![HAIAMM Logo](../images/HAIAMM_logo.png)
+
 # HAIAMM Tools & Resources
 
 **Recommended tools organized by practice**

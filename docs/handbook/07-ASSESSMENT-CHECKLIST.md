@@ -1,3 +1,5 @@
+![HAIAMM Logo](../images/HAIAMM_logo.png)
+
 # HAIAMM Assessment Checklist
 
 **Rapid self-assessment (30 minutes)**

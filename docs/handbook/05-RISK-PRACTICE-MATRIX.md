@@ -1,3 +1,5 @@
+![HAIAMM Logo](../images/HAIAMM_logo.png)
+
 # HAIAMM Risk-Practice Matrix
 
 **Which practices address which risks**

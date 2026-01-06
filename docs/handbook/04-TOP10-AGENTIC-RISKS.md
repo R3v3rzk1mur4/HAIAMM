@@ -1,3 +1,5 @@
+![HAIAMM Logo](../images/HAIAMM_logo.png)
+
 # OWASP Top 10 for Agentic Applications - HAIAMM Mapping
 
 **Comprehensive security controls and measurement methodology for AI agent risks**

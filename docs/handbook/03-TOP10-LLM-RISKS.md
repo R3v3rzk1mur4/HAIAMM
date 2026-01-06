@@ -1,3 +1,5 @@
+![HAIAMM Logo](../images/HAIAMM_logo.png)
+
 # OWASP Top 10 for LLM Applications - HAIAMM Mapping
 
 **Security controls for LLM application risks**
