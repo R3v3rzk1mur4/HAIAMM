@@ -2,11 +2,12 @@
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/[your-repo]/HAIAMM.svg?style=social&label=Star)](https://github.com/[your-repo]/HAIAMM)
+[![GitHub stars](https://img.shields.io/github/stars/[your-repo]/HAIAMM.svg?style=social&label=Star)](https://github.com/R3v3rzk1mur4/HAIAMM)
 
-**The First Open Source Maturity Framework for Human Assisted Intelligence Governance and Assurance**
+**This is a Open Source Maturity Framework for assurance of Human Assisted Intelligence systems and programs**
 
-HAIAMM assesses the maturity of organizations designing and implementing Human Assisted Intelligence (HAI) solutions - providing foundational practices ensuring trust, safety, and security. Most organizations leverage Human Assisted Intelligence to augment engineering capabilities such as; security testing or code remediation or for automation workflows, generating documentation, detect and response to threats, customer service chatbots, and decision support. HAIAMM provides a comprehensive framework across governance, building, verification, and operations with appropriate human oversight. Measuring outcomes. 
+HAIAMM assesses the maturity of organizations designing and implementing Human Assisted Intelligence (HAI) solutions - providing foundational practices that ensure trust, safety, and security.
+Most organizations leverage Human Assisted Intelligence to augment engineering capabilities such as; security testing or code remediation or for automation workflows, generating documentation, detect and response to threats, customer service chatbots, and decision support. HAIAMM provides a comprehensive framework across governance, building, verification, and operations with appropriate human oversight. Measuring outcomes. 
 
 **The Critical Question:** You're implementing Human Assisted Intelligence across your organization - but how do you ensure it delivers trust, safety, and security with proper governance and human oversight?
 
