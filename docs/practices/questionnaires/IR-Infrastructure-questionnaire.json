@@ -1,0 +1,400 @@
+{
+  "practice": "IR",
+  "domain": "infrastructure",
+  "name": "Implementation Review - Infrastructure Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ir-infrastructure-1-1",
+      "question": "Do you review 100% of infrastructure AI security code changes before production deployment with peer review and security sign-off?",
+      "verification": [
+        "Review PR review coverage (100% of code changes reviewed by ≥1 peer)",
+        "Check review SLA compliance (reviews completed ≤24 hours)",
+        "Verify security-focused review for high-risk code (auto-remediation, credential handling, privilege escalation)",
+        "Confirm pre-commit automated checks (linting, formatting, secrets detection)",
+        "Review code review checklist usage (functionality, security, blast radius, error handling, testing, documentation)"
+      ],
+      "evidence": [
+        "PR review logs (100% coverage, reviewer names, timestamps)",
+        "Security review records for high-risk changes",
+        "Pre-commit hook configuration (secrets scanning, linting)",
+        "Code review checklist templates and completed reviews",
+        "SLA compliance metrics (≤24h review time ≥95%)"
+      ],
+      "scoring": {
+        "yes_if": "100% of code reviewed, ≤24h SLA ≥95%, high-risk code gets security review, pre-commit checks enforced, checklist used",
+        "partial_if": "≥80% code reviewed or SLA compliance 70-95% or limited security review",
+        "no_if": "<80% code review coverage or no security-focused review"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-2",
+      "question": "Do you review multi-cloud API integration correctness across AWS, Azure, and GCP with error handling and rate limiting?",
+      "verification": [
+        "Review AWS API integration (Boto3 usage, pagination, rate limiting, error handling)",
+        "Check Azure API integration (Azure SDK, managed identity, ARM validation, error handling)",
+        "Verify GCP API integration (client libraries, service accounts, quota management, error handling)",
+        "Confirm cross-cloud normalization logic (resource mapping to common schema)",
+        "Review API credential management (secrets manager, no hardcoded credentials, rotation support)"
+      ],
+      "evidence": [
+        "Multi-cloud API code review records (AWS, Azure, GCP)",
+        "Pagination implementation (NextToken, nextLink, pageToken handling)",
+        "Rate limiting implementation (exponential backoff, throttling)",
+        "Cross-cloud resource mapping logic",
+        "Secrets manager integration code (no hardcoded credentials)"
+      ],
+      "scoring": {
+        "yes_if": "All 3 cloud providers reviewed, pagination correct, rate limiting implemented, error handling robust, zero hardcoded credentials",
+        "partial_if": "Multi-cloud reviewed but missing rate limiting or pagination issues",
+        "no_if": "Single cloud only or hardcoded credentials found"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-3",
+      "question": "Do you review resource discovery implementation for comprehensive coverage with pagination, regional coverage, and error resilience?",
+      "verification": [
+        "Review discovery coverage (all target resource types: EC2, S3, RDS, VMs, Storage, etc.)",
+        "Check pagination handling (loops through all pages, handles 100+ resources)",
+        "Verify regional coverage (discovers resources in all regions/zones)",
+        "Confirm error resilience (discovery continues despite individual API failures)",
+        "Review metadata extraction (tags, creation time, dependencies)"
+      ],
+      "evidence": [
+        "Resource discovery code review (coverage list)",
+        "Pagination logic review (NextToken/nextLink/pageToken handling)",
+        "Regional iteration code (all regions/zones covered)",
+        "Error handling implementation (individual failures don't halt discovery)",
+        "Tag and metadata extraction logic"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive resource coverage, pagination correct, all regions/zones, error resilient, metadata extracted",
+        "partial_if": "Discovery implemented but limited resource types or single-region only",
+        "no_if": "No pagination handling or discovery fails on errors"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-4",
+      "question": "Do you review detection pipeline implementation including real-time event processing, anomaly detection models, and alert correlation?",
+      "verification": [
+        "Review event stream integration (CloudTrail, Activity Logs, Audit Logs ingestion)",
+        "Check event parsing logic (JSON validation, schema handling, error handling)",
+        "Verify stream processing implementation (Kafka/Kinesis, backpressure handling, consumer groups)",
+        "Confirm anomaly detection model code (training pipeline, inference latency ≤100ms, model versioning)",
+        "Review alert correlation and deduplication logic"
+      ],
+      "evidence": [
+        "Event ingestion code review (CloudTrail/Activity Logs/Audit Logs)",
+        "Event parsing implementation with error handling",
+        "Stream processing architecture (Kafka/Kinesis configuration)",
+        "Anomaly detection model code (training, inference, drift detection)",
+        "Alert correlation rules and deduplication logic"
+      ],
+      "scoring": {
+        "yes_if": "Event ingestion correct, parsing robust, stream processing handles backpressure, model inference ≤100ms, correlation implemented",
+        "partial_if": "Detection pipeline implemented but no model drift detection or limited error handling",
+        "no_if": "No real-time processing or inference latency >200ms"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-5",
+      "question": "Do you review blast radius limit enforcement with hard-coded limits, rate limiting, and resource type restrictions?",
+      "verification": [
+        "Review hard-coded limits in code (MAX_RESOURCES_PER_REMEDIATION constant enforced)",
+        "Check rate limiting implementation (MAX_REMEDIATIONS_PER_HOUR enforced)",
+        "Verify resource type blacklist (production DBs, VPCs, IAM root never auto-remediated)",
+        "Confirm blast radius limit testing (test with limit+1 resources, verify blocked)",
+        "Review enforcement logic (remediation refuses to proceed if exceeds limits)"
+      ],
+      "evidence": [
+        "Blast radius limit constants in code (MAX_RESOURCES_PER_REMEDIATION)",
+        "Rate limiting implementation (token bucket or sliding window)",
+        "Resource type blacklist configuration",
+        "Blast radius limit tests (test cases with over-limit scenarios)",
+        "Enforcement code (validation before remediation execution)"
+      ],
+      "scoring": {
+        "yes_if": "Hard limits enforced in code, rate limiting implemented, blacklist defined, tests verify enforcement",
+        "partial_if": "Limits defined but not enforced or no rate limiting",
+        "no_if": "No blast radius limits or unlimited auto-remediation possible"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-6",
+      "question": "Do you review pre-change validation with impact assessment, dependency discovery, and dry-run mode?",
+      "verification": [
+        "Review impact assessment code (analyzes dependencies, estimates impact before remediation)",
+        "Check dependency discovery logic (identifies resource dependencies: EC2 → SG → VPC)",
+        "Verify dry-run mode implementation (simulates changes without applying, logs planned actions)",
+        "Confirm high-impact escalation (>10 dependent resources triggers manual review)",
+        "Review validation testing (dry-run tested, impact assessment validated)"
+      ],
+      "evidence": [
+        "Impact assessment implementation code",
+        "Dependency discovery logic (API calls to find dependencies)",
+        "Dry-run mode implementation (--dry-run flag)",
+        "High-impact escalation rules (threshold-based routing)",
+        "Pre-change validation test cases"
+      ],
+      "scoring": {
+        "yes_if": "Impact assessment implemented, dependencies discovered, dry-run mode works, high-impact escalates, tested",
+        "partial_if": "Some validation but no dry-run or dependency discovery incomplete",
+        "no_if": "No pre-change validation or remediations applied blindly"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-7",
+      "question": "Do you review post-change verification and rollback implementation with state backup and health checks?",
+      "verification": [
+        "Review remediation success verification (re-scan after remediation, confirm issue resolved)",
+        "Check health checks implementation (monitor for service degradation, error rate spikes)",
+        "Verify state backup logic (pre-change configuration stored, encrypted, ≥30 day retention)",
+        "Confirm rollback implementation (restores previous state via cloud API, validated)",
+        "Review rollback timeout (triggers if remediation hangs >5 minutes)"
+      ],
+      "evidence": [
+        "Post-remediation verification code (re-scan logic)",
+        "Health check monitoring implementation",
+        "State backup code (configuration snapshot storage)",
+        "Rollback logic implementation (restore previous state)",
+        "Rollback test cases (test for each remediation type)"
+      ],
+      "scoring": {
+        "yes_if": "Success verification implemented, health checks monitor degradation, state backed up, rollback works, timeout enforced",
+        "partial_if": "Verification exists but no health checks or rollback not tested",
+        "no_if": "No verification or no rollback capability"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-8",
+      "question": "Do you review approval workflow implementation with high-risk detection and ticketing integration?",
+      "verification": [
+        "Review high-risk classification logic (production resources, security groups, IAM, databases)",
+        "Check approval routing implementation (Jira/ServiceNow API integration, owner assignment)",
+        "Verify approval enforcement (remediation blocked until approved)",
+        "Confirm audit logging (all approvals/rejections logged with user and justification)",
+        "Review SLA tracking (high-risk approvals required ≤24 hours)"
+      ],
+      "evidence": [
+        "High-risk detection rules code",
+        "Ticketing system integration (Jira/ServiceNow API calls)",
+        "Approval enforcement logic (check approval status before execution)",
+        "Approval audit logs (user, timestamp, justification)",
+        "Approval SLA tracking"
+      ],
+      "scoring": {
+        "yes_if": "High-risk detected correctly, ticketing integrated, approval enforced, audit logged, SLA tracked",
+        "partial_if": "Approval workflow exists but manual routing or no SLA tracking",
+        "no_if": "No approval workflow or high-risk actions auto-remediate"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-9",
+      "question": "Do you review Infrastructure-as-Code security scanning with HCL/JSON parsing and policy enforcement?",
+      "verification": [
+        "Review IaC parsing implementation (Terraform HCL, CloudFormation JSON/YAML, Kubernetes YAML)",
+        "Check security policy detection (no public S3, encryption required, no wildcard IAM)",
+        "Verify pre-deployment validation (scans before terraform apply or CloudFormation deploy)",
+        "Confirm policy-as-code implementation (OPA/Rego or Sentinel policies tested)",
+        "Review CI/CD integration (GitHub Actions, GitLab CI, Jenkins pipeline integration)"
+      ],
+      "evidence": [
+        "IaC parsing code (HCL, JSON, YAML parser implementations)",
+        "Security policy rules (Checkov, tfsec, Terrascan configuration)",
+        "Pre-deployment validation in CI/CD pipelines",
+        "Policy-as-code testing (OPA/Rego test cases)",
+        "CI/CD pipeline security gate configuration"
+      ],
+      "scoring": {
+        "yes_if": "IaC parsing correct, security policies enforced, pre-deployment validation, policy tests comprehensive, CI/CD integrated",
+        "partial_if": "IaC scanning exists but limited policy coverage or no CI/CD integration",
+        "no_if": "No IaC scanning or policies not enforced"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-10",
+      "question": "Do you review authentication, authorization, and RBAC implementation with SSO, MFA, and least privilege?",
+      "verification": [
+        "Review user authentication implementation (SSO via SAML/OAuth, MFA enforcement)",
+        "Check API authentication (API keys, JWT tokens, OAuth validation)",
+        "Verify RBAC implementation (roles: Analyst, Operator, Admin with permission checks)",
+        "Confirm session management (secure tokens, 30-minute idle timeout)",
+        "Review permission enforcement (checks before all operations, least privilege tested)"
+      ],
+      "evidence": [
+        "Authentication code review (SSO integration, MFA enforcement)",
+        "API authentication implementation",
+        "RBAC code with role definitions and permission checks",
+        "Session management implementation (token security, timeout)",
+        "RBAC test cases (each role's permissions validated)"
+      ],
+      "scoring": {
+        "yes_if": "SSO integrated, MFA enforced, API auth required, RBAC implemented with least privilege, session secure",
+        "partial_if": "Auth implemented but no MFA or coarse-grained RBAC",
+        "no_if": "No authentication or shared admin accounts"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-11",
+      "question": "Do you review audit logging implementation with comprehensive coverage, log immutability, and SIEM forwarding?",
+      "verification": [
+        "Review logging coverage (all cloud API calls, remediations, user actions, auth events)",
+        "Check structured logging format (JSON with timestamp, user, action, resource, result)",
+        "Verify log immutability (write-once storage like S3 Object Lock, cryptographic signing)",
+        "Confirm SIEM integration (syslog, HTTP, native SIEM forwarding with buffering)",
+        "Review log sampling (100% of security events logged, no sampling)"
+      ],
+      "evidence": [
+        "Audit logging code (comprehensive event coverage)",
+        "Structured logging implementation (JSON format)",
+        "Immutable storage configuration (S3 Object Lock, log signing)",
+        "SIEM integration code (forwarding with reliability)",
+        "Logging coverage verification (100% security events)"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive coverage, structured JSON logs, immutable storage, SIEM integrated, 100% of security events logged",
+        "partial_if": "Logging exists but not immutable or limited SIEM integration",
+        "no_if": "Logs can be deleted/modified or critical events not logged"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-12",
+      "question": "Do you review secrets handling with no secrets in logs, encryption at rest/in transit, and KMS integration?",
+      "verification": [
+        "Review log redaction (API keys, passwords, tokens, PII automatically redacted)",
+        "Check encryption at rest (cloud credentials, user data encrypted with AES-256-GCM)",
+        "Verify encryption in transit (TLS 1.3 or 1.2 minimum, certificate validation)",
+        "Confirm KMS integration (keys stored in KMS, rotated annually)",
+        "Review secrets testing (logs checked for accidental credential leakage)"
+      ],
+      "evidence": [
+        "Log redaction implementation code",
+        "Encryption at rest configuration (AES-256-GCM, KMS integration)",
+        "TLS configuration (version 1.2+, certificate validation)",
+        "KMS key management (storage, rotation policy)",
+        "Secrets leakage testing (scan logs for credentials)"
+      ],
+      "scoring": {
+        "yes_if": "Secrets redacted from logs, encryption comprehensive (rest + transit), KMS integrated, keys rotated, tested",
+        "partial_if": "Encryption exists but using TLS 1.0/1.1 or secrets occasionally in logs",
+        "no_if": "Secrets in logs or no encryption"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-13",
+      "question": "Do you review test coverage with ≥80% code coverage including unit, integration, and chaos engineering tests?",
+      "verification": [
+        "Review code coverage metrics (≥80% overall, 100% for critical paths: remediation, blast radius)",
+        "Check unit test quality (positive, negative, edge cases tested, not just execution)",
+        "Verify multi-cloud integration tests (real cloud API testing or comprehensive mocking)",
+        "Confirm remediation safety tests (blast radius limits, rollback, approval workflow)",
+        "Review chaos engineering tests (failure injection, load testing, resilience validation)"
+      ],
+      "evidence": [
+        "Code coverage reports (pytest-cov, coverage.py showing ≥80%)",
+        "Unit test suite (test cases for positive, negative, edge scenarios)",
+        "Integration test suite (multi-cloud API tests)",
+        "Remediation safety test cases (blast radius, rollback, approval)",
+        "Chaos engineering test results (failure injection, load tests)"
+      ],
+      "scoring": {
+        "yes_if": "≥80% coverage, 100% critical paths, quality tests (edge cases), multi-cloud tested, chaos tests implemented",
+        "partial_if": "Test coverage 60-80% or limited chaos testing",
+        "no_if": "Coverage <60% or critical paths untested"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-14",
+      "question": "Do you review prompt injection defenses for LLM-based infrastructure tools with ≥95% injection blocking?",
+      "verification": [
+        "Review prompt structure (clear separation of system prompts and user input)",
+        "Check input sanitization (cloud resource metadata sanitized before LLM processing)",
+        "Verify output validation (LLM recommendations validated against security policies)",
+        "Confirm human approval requirement (all LLM-recommended remediations require approval)",
+        "Review prompt injection testing (malicious tags, role-playing attacks tested, ≥95% blocked)"
+      ],
+      "evidence": [
+        "Prompt structure code (system vs user input separation)",
+        "Input sanitization implementation (remove instruction patterns)",
+        "Output validation logic (policy compliance checks)",
+        "Human approval workflow for LLM recommendations",
+        "Prompt injection test results (≥95% blocked)"
+      ],
+      "scoring": {
+        "yes_if": "Prompt structure secure, input sanitized, output validated, human approval required, ≥95% injection blocked",
+        "partial_if": "Some defenses but injection blocking 70-95% or no output validation",
+        "no_if": "No prompt injection defenses or blocking <70%"
+      }
+    },
+    {
+      "id": "ir-infrastructure-1-15",
+      "question": "Do you review performance and scalability with horizontal scaling, database optimization, and caching?",
+      "verification": [
+        "Review horizontal scaling support (stateless design, shared state in DB/Redis)",
+        "Check database query optimization (proper indexes, pagination, no N+1 queries)",
+        "Verify caching implementation (frequently accessed data cached, TTL/event-driven invalidation)",
+        "Confirm connection pooling (database and API connection pooling)",
+        "Review asynchronous processing (heavy tasks run asynchronously via Celery or background jobs)"
+      ],
+      "evidence": [
+        "Stateless architecture code (no in-memory state)",
+        "Database query optimization (indexes, pagination)",
+        "Caching implementation (Redis/Memcached with invalidation)",
+        "Connection pooling configuration",
+        "Asynchronous task processing (Celery, background jobs)"
+      ],
+      "scoring": {
+        "yes_if": "Horizontally scalable, queries optimized, caching implemented, connection pooling, async processing for heavy tasks",
+        "partial_if": "Performance considered but missing caching or N+1 query issues",
+        "no_if": "Not horizontally scalable or major performance issues"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Code Review Coverage",
+      "target": "100% of infrastructure AI code changes reviewed before production",
+      "measurement": "Coverage % = (Reviewed PRs / Total PRs) × 100; Review SLA compliance % ≤24h",
+      "data_source": "GitHub/GitLab PR data, code review tracking system",
+      "frequency": "Continuous (every PR), weekly SLA reports",
+      "baseline": "Initial code review coverage and SLA baseline",
+      "validation": "PR audit confirms 100% coverage, no unreviewed merges"
+    },
+    {
+      "metric": "Security Control Implementation",
+      "target": "Zero hardcoded credentials, 100% authentication required, 100% security actions logged",
+      "measurement": "Hardcoded credential count from scanning; Auth coverage %; Logging coverage %",
+      "data_source": "TruffleHog/git-secrets scans, authentication audit, log coverage audit",
+      "frequency": "Every commit (secrets scan), quarterly security audit",
+      "baseline": "Initial security control assessment",
+      "validation": "Independent security audit, penetration testing"
+    },
+    {
+      "metric": "Remediation Safety",
+      "target": "100% blast radius compliance, 100% rollback tests pass, zero outages from auto-remediation",
+      "measurement": "Blast radius violations count; Rollback test pass rate; Production incident count",
+      "data_source": "Remediation logs, test results, incident tracking",
+      "frequency": "Continuous compliance monitoring, quarterly test validation",
+      "baseline": "Initial remediation safety baseline",
+      "validation": "Production incident analysis, chaos engineering validation"
+    },
+    {
+      "metric": "Test Coverage",
+      "target": "≥80% code coverage overall, 100% critical paths, ≥99% test pass rate",
+      "measurement": "Coverage % from pytest-cov; Critical path coverage %; Test pass rate",
+      "data_source": "Code coverage tools, test execution reports",
+      "frequency": "Every commit (coverage report), continuous test execution",
+      "baseline": "Initial test coverage baseline",
+      "validation": "Manual critical path review, test quality audit"
+    },
+    {
+      "metric": "Multi-Cloud API Quality",
+      "target": "All 3 cloud providers (AWS, Azure, GCP) correctly implemented with pagination and error handling",
+      "measurement": "Cloud provider integration quality score (pagination, rate limiting, error handling)",
+      "data_source": "Code review records, integration test results",
+      "frequency": "Every cloud API code change review",
+      "baseline": "Initial multi-cloud implementation quality",
+      "validation": "Real cloud API testing, error injection validation"
+    }
+  ]
+}

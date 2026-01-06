@@ -1,0 +1,418 @@
+{
+  "practice": "ML",
+  "domain": "endpoints",
+  "name": "Monitoring & Logging - Endpoints Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ml-endpoints-1-1",
+      "question": "Do you maintain comprehensive threat detection logging with 100% coverage, ≥90 day retention in SIEM, and privacy-preserving threat indicators?",
+      "verification": [
+        "Review threat detection logging (all malware detections, ransomware blocks, behavioral anomalies logged 100%)",
+        "Check log context (threat type, file path, hash, user, endpoint, action taken: quarantine/block/alert)",
+        "Verify privacy compliance (log threat indicators only: hashes, signatures; never user file content)",
+        "Confirm SIEM retention (≥90 days in SIEM, ≥1 year for compliance archive)",
+        "Review log completeness (sample detections verified in SIEM, zero missing logs)"
+      ],
+      "evidence": [
+        "Threat detection logging configuration (100% coverage)",
+        "Log sample showing threat context (type, hash, action, no user content)",
+        "SIEM retention policy (≥90 days, compliance archive ≥1 year)",
+        "Log completeness validation (detection → SIEM verification)",
+        "Privacy audit results (zero user content in threat logs)"
+      ],
+      "scoring": {
+        "yes_if": "100% threat detection logging, comprehensive context (threat type, hash, action), privacy-preserving (no user content), ≥90 day SIEM retention",
+        "partial_if": "≥90% logging or limited context or retention <90 days",
+        "no_if": "<90% logging or user content leaked or no SIEM integration"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-2",
+      "question": "Do you maintain comprehensive endpoint activity logging covering process, network, file, and registry activity for behavioral analysis and threat hunting?",
+      "verification": [
+        "Review process activity logging (process creation/termination, command-line arguments, parent process)",
+        "Check network activity logging (connections, DNS queries, data transfers with IP, port, bytes)",
+        "Verify file activity logging (file creation/modification/deletion in sensitive locations)",
+        "Confirm registry activity logging (Windows: registry key creation/modification for security-relevant keys)",
+        "Review logging purpose (behavioral analysis, threat hunting, incident investigation enabled)"
+      ],
+      "evidence": [
+        "Endpoint activity logging configuration (process, network, file, registry)",
+        "Log samples showing each activity type (process, network, file, registry)",
+        "Threat hunting queries using activity logs (IOC searches, lateral movement detection)",
+        "Incident investigation examples (activity logs used for investigation)",
+        "Privacy validation (activity logs contain no user content, only metadata)"
+      ],
+      "scoring": {
+        "yes_if": "All 4 activity types logged (process, network, file, registry), comprehensive context, threat hunting enabled, privacy-preserving",
+        "partial_if": "3/4 activity types or limited context or no threat hunting capability",
+        "no_if": "<3 activity types or no endpoint activity logging"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-3",
+      "question": "Do you maintain authentication logging covering user login/logout, failed logins, and privilege escalation with alerts on suspicious activity?",
+      "verification": [
+        "Review authentication logging (user login/logout, failed login attempts, privilege escalation)",
+        "Check log context (user, timestamp, method: password/biometric/SSO, success/failure reason)",
+        "Verify alert rules (repeated failed logins: ≥5 in 30 min, unusual login times: outside work hours, impossible travel)",
+        "Confirm cross-platform coverage (Windows, macOS, Linux, mobile authentication logged)",
+        "Review alert response (authentication alerts trigger investigation, automated response for severe cases)"
+      ],
+      "evidence": [
+        "Authentication logging configuration (login/logout, failures, privilege escalation)",
+        "Log samples showing authentication events (user, timestamp, method, result)",
+        "Alert rules documentation (failed login thresholds, unusual time detection)",
+        "Cross-platform coverage validation (all platforms logging authentication)",
+        "Alert response examples (investigation triggered by authentication alerts)"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive authentication logging (login/logout/failures/privilege escalation), alert rules (failed logins, unusual times), cross-platform, alerts trigger response",
+        "partial_if": "Limited authentication logging or no alert rules or single platform only",
+        "no_if": "No authentication logging or no alerting"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-4",
+      "question": "Do you maintain agent status monitoring with ≥98% healthy agents, <30 minute offline alerts, and agent coverage tracking?",
+      "verification": [
+        "Review agent status monitoring (running, stopped, crashed, unresponsive, updating)",
+        "Check agent metrics (uptime, last check-in time, agent version)",
+        "Verify offline alerting (alert if agent offline >30 minutes, repeated crashes)",
+        "Confirm coverage targets (≥98% endpoints with healthy agents)",
+        "Review agent health dashboard (real-time visibility, historical trends, coverage by platform/department)"
+      ],
+      "evidence": [
+        "Agent status monitoring configuration (status types tracked)",
+        "Agent metrics dashboard (uptime, check-in, version)",
+        "Offline alert configuration (<30 min threshold)",
+        "Current agent coverage (≥98% healthy agents)",
+        "Agent health dashboard screenshots (real-time visibility)"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive status monitoring (running/stopped/crashed/updating), <30 min offline alerts, ≥98% coverage target, health dashboard",
+        "partial_if": "Limited status monitoring or >60 min offline alerts or <95% coverage",
+        "no_if": "No agent status monitoring or <90% coverage or no alerting"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-5",
+      "question": "Do you maintain agent performance monitoring with alerts when CPU >5% or memory >200MB, detecting agent malfunctions?",
+      "verification": [
+        "Review performance metrics (CPU %, memory usage, disk I/O, network usage)",
+        "Check performance thresholds (alert if CPU >5%, memory >200MB, exceeds design limits)",
+        "Verify performance dashboards (real-time resource usage, historical trends, outlier detection)",
+        "Confirm malfunction detection (identify agents with performance issues, correlate with crashes/failures)",
+        "Review performance remediation (investigate high-resource agents, update/restart/rollback if needed)"
+      ],
+      "evidence": [
+        "Performance monitoring configuration (CPU, memory, disk, network metrics)",
+        "Performance threshold alerts (CPU >5%, memory >200MB)",
+        "Performance dashboards (real-time and historical resource usage)",
+        "Malfunction detection examples (high-resource agents identified)",
+        "Performance remediation workflow (investigation and resolution process)"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive performance monitoring (CPU, memory, disk, network), threshold alerts (CPU >5%, memory >200MB), dashboards, malfunction detection, remediation",
+        "partial_if": "Limited metrics (CPU + memory only) or higher thresholds (CPU >10%)",
+        "no_if": "No performance monitoring or no threshold alerts"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-6",
+      "question": "Do you maintain agent update monitoring tracking version distribution, update success/failure rates, and staged rollout progress?",
+      "verification": [
+        "Review update metrics (agent version distribution across endpoints, update success/failure rate)",
+        "Check update failure alerts (alert on update failures, incompatible versions detected)",
+        "Verify rollout tracking (monitor staged rollout: canary 10% → 50% → 100%, rollout health at each stage)",
+        "Confirm update compliance (target: ≥95% endpoints on current or current-1 version)",
+        "Review rollback monitoring (track automatic rollbacks on update failures)"
+      ],
+      "evidence": [
+        "Agent update monitoring dashboard (version distribution, success/failure rates)",
+        "Update failure alert configuration (failure threshold, incompatibility detection)",
+        "Staged rollout tracking (canary → full deployment progress)",
+        "Update compliance metrics (≥95% on current/current-1 version)",
+        "Rollback monitoring (automatic rollback tracking)"
+      ],
+      "scoring": {
+        "yes_if": "Version distribution tracked, success/failure monitoring, staged rollout tracking, ≥95% update compliance, rollback monitoring",
+        "partial_if": "Limited update monitoring or <90% compliance or no rollout tracking",
+        "no_if": "No update monitoring or <85% compliance"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-7",
+      "question": "Do you maintain endpoint configuration compliance monitoring with ≥95% compliant endpoints, CIS Benchmarks, and alerts on non-compliance?",
+      "verification": [
+        "Review configuration monitoring (disk encryption, firewall status, OS patch level, password policy)",
+        "Check compliance benchmarks (CIS Benchmarks for Windows, macOS, Linux)",
+        "Verify non-compliance alerts (alert on encryption disabled, firewall off, outdated OS)",
+        "Confirm compliance targets (≥95% endpoints compliant with security baseline)",
+        "Review compliance remediation (auto-remediate where possible, manual review for exceptions)"
+      ],
+      "evidence": [
+        "Configuration monitoring coverage (encryption, firewall, patch level, password policy)",
+        "CIS Benchmark compliance dashboards (compliance % by benchmark)",
+        "Non-compliance alert examples (encryption disabled, firewall off)",
+        "Current compliance metrics (≥95% endpoints compliant)",
+        "Compliance remediation workflow (auto-remediate + manual review)"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive config monitoring (encryption, firewall, patches, passwords), CIS Benchmarks, non-compliance alerts, ≥95% compliance, remediation workflow",
+        "partial_if": "Limited config monitoring or <90% compliance or no CIS Benchmarks",
+        "no_if": "No config monitoring or <85% compliance or no alerting"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-8",
+      "question": "Do you maintain configuration drift detection with approved baselines, unauthorized change detection, and auto-remediation or alerts?",
+      "verification": [
+        "Review baseline configuration (approved security configurations for each platform/role)",
+        "Check drift detection (detect deviations: security settings changed, agent tampered with, firewall rules modified)",
+        "Verify drift remediation (auto-remediate drift where safe, alert for manual review when risky)",
+        "Confirm drift frequency (continuous monitoring, drift detected within 15 minutes)",
+        "Review drift analysis (track common drift sources, tune baselines, reduce false positives)"
+      ],
+      "evidence": [
+        "Baseline configuration documentation (approved configs per platform/role)",
+        "Drift detection configuration (settings monitored, detection logic)",
+        "Drift remediation policy (auto-remediate vs manual review criteria)",
+        "Drift detection latency (detection within 15 minutes)",
+        "Drift analysis reports (common sources, baseline tuning)"
+      ],
+      "scoring": {
+        "yes_if": "Baselines defined, drift detection (≤15 min), auto-remediation where safe, manual review for risky changes, drift analysis",
+        "partial_if": "Baselines defined but limited drift detection (>30 min) or no auto-remediation",
+        "no_if": "No baselines or no drift detection"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-9",
+      "question": "Do you maintain privacy-preserving telemetry with zero user content/PII logged and regular privacy audits?",
+      "verification": [
+        "Review privacy policy (never log user file content, personal data, passwords, communications)",
+        "Check telemetry validation (log threat indicators: hashes, signatures, process names; not user content)",
+        "Verify privacy audits (regular audits of telemetry data: sample logs, search for PII/content)",
+        "Confirm audit frequency (quarterly privacy audits, immediate audit on privacy incident)",
+        "Review privacy violations (track privacy audit findings, zero user content/PII leakage incidents)"
+      ],
+      "evidence": [
+        "Privacy policy documentation (what never logged: user content, PII, passwords)",
+        "Telemetry samples showing privacy compliance (threat indicators, no user content)",
+        "Privacy audit reports (quarterly audits, zero violations found)",
+        "Privacy audit methodology (sampling, PII search, content detection)",
+        "Privacy incident tracking (zero user content/PII leakage incidents)"
+      ],
+      "scoring": {
+        "yes_if": "Privacy policy enforced (no user content/PII), regular audits (quarterly), zero privacy violations, audit methodology validated",
+        "partial_if": "Privacy policy defined but audits <quarterly or limited audit scope",
+        "no_if": "No privacy policy or privacy violations found or no audits"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-10",
+      "question": "Do you maintain BYOD monitoring with work/personal data separation, work-only monitoring validated, and GDPR/CCPA compliance?",
+      "verification": [
+        "Review BYOD monitoring (agent monitors work apps/data only, personal apps excluded)",
+        "Check separation validation (verify no personal data captured: personal emails, photos, browsing, messages)",
+        "Verify MDM integration (work profile/managed app separation enforced)",
+        "Confirm GDPR/CCPA compliance (user consent for work monitoring, data subject rights, ≤90 day retention)",
+        "Review BYOD audits (regular validation that personal data not captured)"
+      ],
+      "evidence": [
+        "BYOD monitoring policy (work apps/data only, personal excluded)",
+        "Separation validation results (no personal data in telemetry)",
+        "MDM integration configuration (work profile/managed app enforcement)",
+        "GDPR/CCPA compliance (consent, data rights, ≤90 day retention)",
+        "BYOD audit reports (quarterly validation, zero personal data captured)"
+      ],
+      "scoring": {
+        "yes_if": "Work/personal separation enforced, validation shows zero personal data, MDM integrated, GDPR/CCPA compliant, quarterly audits",
+        "partial_if": "Separation defined but limited validation or no MDM integration",
+        "no_if": "No work/personal separation or personal data captured or no BYOD policy"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-11",
+      "question": "Do you maintain endpoint query capability (Osquery, EDR queries) for threat hunting and incident investigation?",
+      "verification": [
+        "Review query capability (live query tools: Osquery, EDR query languages, custom scripts)",
+        "Check query use cases (threat hunting: search for IOCs across all endpoints, incident investigation: gather forensic data)",
+        "Verify query examples ('Find all endpoints with process X', 'Check registry key Y', 'List network connections to IP Z')",
+        "Confirm query performance (queries return results within 60 seconds for 1000 endpoints)",
+        "Review query access controls (only SOC analysts, IR team have query access, queries logged for audit)"
+      ],
+      "evidence": [
+        "Query capability documentation (Osquery, EDR query tools available)",
+        "Query use case examples (threat hunting, investigation queries)",
+        "Sample query results (IOC searches, forensic data collection)",
+        "Query performance metrics (result latency <60s for 1000 endpoints)",
+        "Query access controls (RBAC, audit logging of queries)"
+      ],
+      "scoring": {
+        "yes_if": "Query capability available (Osquery/EDR), threat hunting and investigation use cases, query examples, performance <60s, access controls + audit",
+        "partial_if": "Query capability available but limited use cases or performance >120s",
+        "no_if": "No query capability or no access controls"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-12",
+      "question": "Do you maintain cross-platform monitoring for Windows, macOS, Linux, and mobile with platform-specific event logging?",
+      "verification": [
+        "Review Windows monitoring (Windows Event Log: Security, System, Application; Sysmon; ETW events)",
+        "Check macOS monitoring (Unified Logging, Endpoint Security Framework events)",
+        "Verify Linux monitoring (auditd, eBPF events, syslog)",
+        "Confirm mobile monitoring (iOS: MDM logs, app installation, compliance; Android: MDM, SafetyNet, app permissions)",
+        "Review cross-platform consistency (same security events logged on all platforms where applicable)"
+      ],
+      "evidence": [
+        "Windows monitoring configuration (Event Log, Sysmon, ETW)",
+        "macOS monitoring configuration (Unified Logging, ESF)",
+        "Linux monitoring configuration (auditd, eBPF, syslog)",
+        "Mobile monitoring configuration (iOS MDM, Android MDM/SafetyNet)",
+        "Cross-platform consistency validation (security events logged uniformly)"
+      ],
+      "scoring": {
+        "yes_if": "All 4 platform types monitored (Windows, macOS, Linux, mobile), platform-specific tools used, cross-platform consistency validated",
+        "partial_if": "3/4 platform types or limited platform-specific logging",
+        "no_if": "<3 platform types or no platform-specific monitoring"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-13",
+      "question": "Do you monitor detection performance with ≥95% malware detection, ≤5% false positives, and ≤60s detection latency?",
+      "verification": [
+        "Review detection performance metrics (malware detection rate, false positive rate, detection latency)",
+        "Check detection targets (≥95% malware detection on known samples, ≤5% false positives on legitimate software)",
+        "Verify detection latency (time from malware execution to alert ≤60 seconds)",
+        "Confirm performance dashboards (real-time detection metrics, historical trends, performance degradation alerts)",
+        "Review performance analysis (root cause analysis for detection failures, false positives)"
+      ],
+      "evidence": [
+        "Detection performance dashboard (detection rate, FP rate, latency metrics)",
+        "Current performance (≥95% detection, ≤5% FP, ≤60s latency)",
+        "Performance tracking (daily metrics, trend analysis)",
+        "Performance degradation alerts (detection rate drops, latency increases)",
+        "Performance analysis reports (failure root cause, FP tuning)"
+      ],
+      "scoring": {
+        "yes_if": "≥95% detection, ≤5% FP, ≤60s latency, real-time dashboards, performance degradation alerts, root cause analysis",
+        "partial_if": "≥85% detection or ≤10% FP or ≤120s latency, or limited dashboards",
+        "no_if": "<85% detection or >10% FP or >120s latency or no performance monitoring"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-14",
+      "question": "Do you monitor response performance with network isolation ≤60 seconds and file quarantine ≤10 seconds?",
+      "verification": [
+        "Review response performance metrics (time to isolate, time to quarantine, response success rate)",
+        "Check isolation performance (network isolation completed ≤60 seconds from threat detection)",
+        "Verify quarantine performance (file quarantine completed ≤10 seconds from threat detection)",
+        "Confirm response success rate (isolation success ≥99%, quarantine success ≥99%)",
+        "Review response failures (track failed responses, root cause analysis, remediation)"
+      ],
+      "evidence": [
+        "Response performance dashboard (isolation time, quarantine time, success rates)",
+        "Current performance (isolation ≤60s, quarantine ≤10s, success ≥99%)",
+        "Response tracking (daily metrics, trend analysis)",
+        "Response failure tracking (failed responses, root cause, remediation)",
+        "Response latency alerts (isolation >60s, quarantine >10s)"
+      ],
+      "scoring": {
+        "yes_if": "Isolation ≤60s, quarantine ≤10s, success ≥99%, real-time dashboards, failure tracking + root cause analysis",
+        "partial_if": "Isolation ≤120s or quarantine ≤30s or success ≥95%, or limited tracking",
+        "no_if": "Isolation >120s or quarantine >30s or success <95% or no response monitoring"
+      }
+    },
+    {
+      "id": "ml-endpoints-1-15",
+      "question": "Do you maintain compliance and audit logging covering GDPR/HIPAA requirements and all agent actions?",
+      "verification": [
+        "Review GDPR compliance logging (log data access on endpoints, data transfers, deletions, retention 3 years)",
+        "Check HIPAA compliance logging (log PHI access from endpoints, retention 6 years)",
+        "Verify agent action logging (all scans, files scanned, threats detected, actions taken)",
+        "Confirm retention compliance (GDPR 3 years, HIPAA 6 years, general security logs ≥1 year)",
+        "Review audit readiness (compliance logs available for audits, searchable, exportable)"
+      ],
+      "evidence": [
+        "GDPR compliance logging configuration (data access, transfers, deletions)",
+        "HIPAA compliance logging configuration (PHI access)",
+        "Agent action logging (scans, detections, actions)",
+        "Retention policy compliance (GDPR 3 years, HIPAA 6 years)",
+        "Audit readiness validation (logs available, searchable, exportable)"
+      ],
+      "scoring": {
+        "yes_if": "GDPR logging (3 year retention), HIPAA logging (6 year retention), agent action logging, audit-ready (searchable, exportable)",
+        "partial_if": "GDPR or HIPAA logging but retention <required or limited agent action logging",
+        "no_if": "No compliance logging or retention <1 year or not audit-ready"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Agent Coverage and Health",
+      "target": "≥98% endpoints with healthy agents, <30 min offline detection",
+      "measurement": "Agent coverage % = (Healthy agents / Total endpoints) × 100; Offline detection time",
+      "data_source": "Agent status monitoring, endpoint inventory",
+      "frequency": "Real-time monitoring, daily reporting",
+      "baseline": "Current agent deployment coverage",
+      "validation": "Agent health dashboard shows ≥98% coverage 24/7"
+    },
+    {
+      "metric": "Logging Coverage",
+      "target": "100% security events logged (threats, endpoint activity, authentication, config changes)",
+      "measurement": "Log coverage % = (Logged events / Total security events) × 100",
+      "data_source": "Log ingestion metrics, SIEM",
+      "frequency": "Real-time monitoring, daily validation",
+      "baseline": "Current logging coverage assessment",
+      "validation": "Sample event verification confirms 100% logging"
+    },
+    {
+      "metric": "Detection Performance",
+      "target": "≥95% malware detection, ≤5% false positives, ≤60s detection latency",
+      "measurement": "Detection rate %, FP rate %, latency P95",
+      "data_source": "Detection performance monitoring, security testing results",
+      "frequency": "Daily performance metrics, quarterly security testing",
+      "baseline": "Baseline detection performance from security testing",
+      "validation": "Security testing validates targets, real-time monitoring confirms sustained performance"
+    },
+    {
+      "metric": "Response Performance",
+      "target": "Network isolation ≤60s, file quarantine ≤10s, ≥99% success rate",
+      "measurement": "Isolation time P95, quarantine time P95, success rate %",
+      "data_source": "Response performance monitoring",
+      "frequency": "Real-time monitoring, daily reporting",
+      "baseline": "Baseline response performance from testing",
+      "validation": "Response dashboards show P95 latency and success rate"
+    },
+    {
+      "metric": "Privacy Compliance",
+      "target": "Zero user content/PII leakage, 100% BYOD work/personal separation, quarterly audits pass",
+      "measurement": "Privacy audit findings; BYOD separation validation",
+      "data_source": "Privacy audit reports, telemetry analysis",
+      "frequency": "Quarterly privacy audits",
+      "baseline": "Zero privacy violations baseline",
+      "validation": "Privacy audits find zero user content/PII in telemetry"
+    },
+    {
+      "metric": "Configuration Compliance",
+      "target": "≥95% endpoints compliant with security baseline (CIS Benchmarks)",
+      "measurement": "Compliance % = (Compliant endpoints / Total endpoints) × 100",
+      "data_source": "Configuration monitoring dashboards",
+      "frequency": "Real-time monitoring, weekly reporting",
+      "baseline": "Current configuration compliance rate",
+      "validation": "Configuration dashboards show ≥95% compliance consistently"
+    },
+    {
+      "metric": "Agent Update Compliance",
+      "target": "≥95% endpoints on current or current-1 agent version",
+      "measurement": "Update compliance % = (Endpoints on current/current-1 / Total endpoints) × 100",
+      "data_source": "Agent update monitoring",
+      "frequency": "Real-time monitoring, post-update validation",
+      "baseline": "Current agent version distribution",
+      "validation": "Update monitoring shows ≥95% compliance within 7 days of release"
+    }
+  ]
+}

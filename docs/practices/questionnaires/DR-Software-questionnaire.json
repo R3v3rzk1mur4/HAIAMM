@@ -1,0 +1,331 @@
+{
+  "practice": "DR",
+  "domain": "software",
+  "name": "Design Review - Software Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "dr-software-1-1",
+      "question": "Do you have a mandatory design review process for AI security systems before implementation?",
+      "verification": [
+        "Review design review process documentation (triggers, participants, timeline)",
+        "Check that reviews are mandatory (design approval required before implementation)",
+        "Verify multi-role participation (AI engineer, security architect, ML engineer, platform engineer, developer rep)",
+        "Confirm review materials distributed ≥3 days before meeting",
+        "Sample 5 recent projects and verify design reviews conducted"
+      ],
+      "evidence": [
+        "Design review process documentation",
+        "Design review meeting schedules and participants",
+        "Design review records for 5 recent projects (approval decisions)",
+        "Review timeline compliance metrics"
+      ],
+      "scoring": {
+        "yes_if": "Mandatory process established, multi-role participation, materials ≥3 days advance, 100% of sampled projects reviewed",
+        "partial_if": "Process exists but not always followed or single-role reviews",
+        "no_if": "No formal design review process or reviews optional"
+      }
+    },
+    {
+      "id": "dr-software-1-2",
+      "question": "Do you review AI model design for architecture justification, accuracy achievability, and explainability?",
+      "verification": [
+        "Review model selection justification (why this model type vs alternatives)",
+        "Check accuracy requirements defined and achievable with proposed architecture",
+        "Verify explainability requirements met (can model explain decisions)",
+        "Confirm performance requirements (latency, throughput targets)",
+        "Validate model complexity is appropriate (not over-engineered, not too simple)"
+      ],
+      "evidence": [
+        "Model design documents with architecture justification",
+        "Accuracy requirements and feasibility analysis",
+        "Explainability design (SHAP, LIME, attention mechanisms)",
+        "Performance targets and expected latency/throughput",
+        "Complexity analysis and trade-off documentation"
+      ],
+      "scoring": {
+        "yes_if": "Model selection justified, accuracy achievable, explainability designed, performance targets defined, complexity appropriate",
+        "partial_if": "Some aspects reviewed but missing explainability or limited justification",
+        "no_if": "No model design review or ad-hoc model selection"
+      }
+    },
+    {
+      "id": "dr-software-1-3",
+      "question": "Do you review training approach including data sources, labeling strategy, and data sufficiency (≥10,000 examples)?",
+      "verification": [
+        "Review training data sources (identified and accessible)",
+        "Check labeling strategy (who labels, quality assurance process)",
+        "Verify data size sufficient (≥10,000 examples per vulnerability class)",
+        "Confirm data diversity for generalization (multiple languages, frameworks, patterns)",
+        "Review bias mitigation (training data balanced across vulnerability types)"
+      ],
+      "evidence": [
+        "Training data source documentation",
+        "Labeling strategy and QA process documentation",
+        "Data size estimates per class (≥10,000 target)",
+        "Data diversity analysis (languages, frameworks covered)",
+        "Bias mitigation plan"
+      ],
+      "scoring": {
+        "yes_if": "Data sources identified, labeling strategy defined, ≥10,000 examples per class, diversity ensured, bias addressed",
+        "partial_if": "Data sources identified but <10,000 examples or limited diversity",
+        "no_if": "No training data review or insufficient data (<1,000 examples)"
+      }
+    },
+    {
+      "id": "dr-software-1-4",
+      "question": "Do you review model evaluation design with validation strategy, metrics, and success criteria?",
+      "verification": [
+        "Review validation strategy (train/validation/test split, cross-validation)",
+        "Check evaluation metrics defined (precision, recall, F1, false positive rate)",
+        "Verify success criteria (what accuracy needed for production)",
+        "Confirm failure handling (what happens if model underperforms)"
+      ],
+      "evidence": [
+        "Validation strategy documentation",
+        "Evaluation metrics and targets (e.g., precision ≥70%, recall ≥95%)",
+        "Success criteria thresholds for production deployment",
+        "Failure handling plan (model rollback, alert, fallback)"
+      ],
+      "scoring": {
+        "yes_if": "Validation strategy defined, metrics specified, success criteria clear, failure handling planned",
+        "partial_if": "Some evaluation design but metrics unclear or no failure handling",
+        "no_if": "No evaluation design or no success criteria"
+      }
+    },
+    {
+      "id": "dr-software-1-5",
+      "question": "Do you review data pipeline design including collection, processing, privacy, and feedback loops?",
+      "verification": [
+        "Review data collection design (sources, access permissions, privacy protection)",
+        "Check data processing (preprocessing, quality assurance, versioning)",
+        "Verify data storage security (encryption, access controls)",
+        "Confirm feedback loop design (collection, validation, retraining triggers)",
+        "Review A/B testing strategy for model improvements"
+      ],
+      "evidence": [
+        "Data pipeline architecture diagram",
+        "Data collection permissions and privacy safeguards",
+        "Data preprocessing and QA process documentation",
+        "Feedback collection mechanism design",
+        "Model retraining trigger criteria (monthly, or X feedback accumulated)"
+      ],
+      "scoring": {
+        "yes_if": "Complete pipeline design (collection, processing, storage secure, feedback loop, A/B testing)",
+        "partial_if": "Pipeline designed but missing feedback loop or privacy protections",
+        "no_if": "No data pipeline design review"
+      }
+    },
+    {
+      "id": "dr-software-1-6",
+      "question": "Do you review IDE integration design for real-time analysis, latency targets (≤3 seconds), and user controls?",
+      "verification": [
+        "Review supported IDEs (VS Code, IntelliJ, etc.)",
+        "Check real-time analysis design with latency target ≤3 seconds",
+        "Verify inline remediation suggestions designed",
+        "Confirm user controls (severity filtering, suppression)",
+        "Validate performance impact acceptable (no IDE lag)"
+      ],
+      "evidence": [
+        "IDE integration design document",
+        "Real-time analysis architecture with latency targets",
+        "Remediation suggestion design mockups/specs",
+        "User control specifications",
+        "Performance impact analysis (CPU, memory usage)"
+      ],
+      "scoring": {
+        "yes_if": "IDE integration designed, latency ≤3s target, inline suggestions, user controls, performance validated",
+        "partial_if": "IDE integration designed but latency target >3s or limited user controls",
+        "no_if": "No IDE integration design or no performance targets"
+      }
+    },
+    {
+      "id": "dr-software-1-7",
+      "question": "Do you review CI/CD integration design with gating strategy and performance budget (≤10% build time increase)?",
+      "verification": [
+        "Review pipeline integration points (pre-commit, PR, build, deployment)",
+        "Check gating strategy (when block pipeline vs warn)",
+        "Verify incremental analysis design (only changed code analyzed)",
+        "Confirm performance budget ≤10% build time increase"
+      ],
+      "evidence": [
+        "CI/CD integration architecture",
+        "Gating strategy policy (block criteria vs warning criteria)",
+        "Incremental analysis design documentation",
+        "Performance budget analysis (expected build time impact)"
+      ],
+      "scoring": {
+        "yes_if": "Integration points defined, gating strategy clear, incremental analysis, ≤10% build time impact",
+        "partial_if": "Integration designed but no gating strategy or performance budget >10%",
+        "no_if": "No CI/CD integration design"
+      }
+    },
+    {
+      "id": "dr-software-1-8",
+      "question": "Do you review API design with documented endpoints, schemas, error handling, and versioning strategy?",
+      "verification": [
+        "Review API endpoint documentation (REST, authentication, rate limiting)",
+        "Check request/response schemas defined (OpenAPI, JSON Schema)",
+        "Verify error handling designed (graceful degradation)",
+        "Confirm API versioning strategy (how handle breaking changes)"
+      ],
+      "evidence": [
+        "API design documentation (OpenAPI spec or equivalent)",
+        "Request/response schema definitions",
+        "Error handling design (status codes, error messages)",
+        "API versioning policy"
+      ],
+      "scoring": {
+        "yes_if": "API endpoints documented, schemas defined, error handling designed, versioning strategy established",
+        "partial_if": "API documented but missing schemas or no versioning strategy",
+        "no_if": "No API design review or undocumented API"
+      }
+    },
+    {
+      "id": "dr-software-1-9",
+      "question": "Do you review infrastructure design for deployment model, scalability, high availability, and resource estimates?",
+      "verification": [
+        "Review deployment model selection (cloud, on-premise, hybrid) with justification",
+        "Check scalability approach (horizontal scaling, auto-scaling)",
+        "Verify high availability design (multi-zone, redundancy, failover)",
+        "Confirm resource estimates (compute, memory, storage needs)"
+      ],
+      "evidence": [
+        "Infrastructure architecture diagram",
+        "Deployment model justification (cost, security, compliance)",
+        "Scalability design (auto-scaling policies, load balancing)",
+        "HA design (multi-zone deployment, failover mechanisms)",
+        "Resource capacity planning (instance types, storage estimates)"
+      ],
+      "scoring": {
+        "yes_if": "Deployment model justified, scalability designed, HA architecture, resource estimates complete",
+        "partial_if": "Infrastructure designed but missing HA or resource estimates unclear",
+        "no_if": "No infrastructure design review or single-instance deployment without justification"
+      }
+    },
+    {
+      "id": "dr-software-1-10",
+      "question": "Do you review performance design including caching strategy, database design, and queue architecture?",
+      "verification": [
+        "Review caching strategy (what cached, cache invalidation policy)",
+        "Check database design (schema, indexing, query optimization)",
+        "Verify queue architecture for async processing (message queue choice)",
+        "Confirm load balancing strategy"
+      ],
+      "evidence": [
+        "Caching design documentation (cache layers, TTL, invalidation)",
+        "Database schema design with indexes",
+        "Queue architecture design (RabbitMQ, Kafka, SQS choice)",
+        "Load balancer configuration design"
+      ],
+      "scoring": {
+        "yes_if": "Caching strategy defined, database designed with indexes, queue architecture specified, load balancing planned",
+        "partial_if": "Some performance design but missing caching or queue architecture",
+        "no_if": "No performance design review"
+      }
+    },
+    {
+      "id": "dr-software-1-11",
+      "question": "Do you review monitoring design with metrics collection, alerting thresholds, and dashboards?",
+      "verification": [
+        "Review metrics collection design (what metrics, how collected)",
+        "Check alerting thresholds (when alert on-call, escalation criteria)",
+        "Verify dashboards designed (what visualized, key indicators)",
+        "Confirm logging strategy (what logged, retention policy)"
+      ],
+      "evidence": [
+        "Monitoring design documentation (metrics specification)",
+        "Alerting threshold configuration design",
+        "Dashboard mockups or specifications",
+        "Logging strategy (log levels, retention, SIEM integration)"
+      ],
+      "scoring": {
+        "yes_if": "Metrics defined, alerting thresholds set, dashboards designed, logging strategy complete",
+        "partial_if": "Monitoring designed but missing dashboards or unclear thresholds",
+        "no_if": "No monitoring design"
+      }
+    },
+    {
+      "id": "dr-software-1-12",
+      "question": "Do you review security design including authentication, authorization, encryption, and adversarial defenses?",
+      "verification": [
+        "Review authentication mechanism (OAuth, API keys, SAML)",
+        "Check authorization model (RBAC, ABAC, least privilege)",
+        "Verify encryption (at rest for models/data, in transit TLS)",
+        "Confirm adversarial defense design (input validation, model poisoning prevention, rate limiting)"
+      ],
+      "evidence": [
+        "Authentication/authorization design documentation",
+        "Encryption design (what encrypted, key management)",
+        "Adversarial defense design (input validation, anomaly detection)",
+        "Threat model showing defenses mapped to threats"
+      ],
+      "scoring": {
+        "yes_if": "Authentication designed, authorization (RBAC/ABAC), encryption complete, adversarial defenses planned",
+        "partial_if": "Security designed but missing encryption or adversarial defenses",
+        "no_if": "No security design review"
+      }
+    },
+    {
+      "id": "dr-software-1-13",
+      "question": "Do you review design documentation for completeness including architecture diagrams, sequence diagrams, and threat models?",
+      "verification": [
+        "Review architecture diagrams (system components, data flows)",
+        "Check sequence diagrams (key workflows, API interactions)",
+        "Verify data models (database schemas, data structures)",
+        "Confirm threat model (threats identified, mitigations designed)",
+        "Review design trade-offs documentation (why chose X over Y)"
+      ],
+      "evidence": [
+        "Architecture diagrams (component, data flow, deployment)",
+        "Sequence diagrams for key workflows",
+        "Data model documentation (ER diagrams, schemas)",
+        "Threat model document",
+        "Design decision log (trade-offs, alternatives considered)"
+      ],
+      "scoring": {
+        "yes_if": "Complete documentation (architecture, sequence, data models, threat model, trade-offs)",
+        "partial_if": "Documentation exists but missing threat model or trade-off analysis",
+        "no_if": "Minimal or no design documentation"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Design Quality",
+      "target": "≥90% of designs approved or approved with conditions (not rejected)",
+      "measurement": "Approval rate = (Approved + Approved with conditions) / Total reviews × 100",
+      "data_source": "Design review tracking system, review outcome records",
+      "frequency": "Quarterly aggregate of all design reviews",
+      "baseline": "Initial design review outcomes to establish baseline",
+      "validation": "Independent review of design quality, production defect correlation"
+    },
+    {
+      "metric": "Defect Prevention",
+      "target": "≥70% reduction in design-related defects found in production vs pre-review baseline",
+      "measurement": "Defect reduction % = ((Baseline defects - Current defects) / Baseline defects) × 100",
+      "data_source": "Production defect tracking, root cause analysis",
+      "frequency": "Quarterly defect analysis",
+      "baseline": "6-month pre-review period defect count",
+      "validation": "Defect root cause categorization (design vs implementation)"
+    },
+    {
+      "metric": "Review Coverage",
+      "target": "100% of AI security system designs reviewed before implementation",
+      "measurement": "Coverage % = (Projects with design review / Total AI projects) × 100",
+      "data_source": "Project tracking, design review records",
+      "frequency": "Monthly coverage audit",
+      "baseline": "Project inventory and review coverage baseline",
+      "validation": "Random audit of projects to verify review compliance"
+    },
+    {
+      "metric": "Review Timeliness",
+      "target": "≥95% of reviews completed within 1 week of submission",
+      "measurement": "Timeliness % = (Reviews completed ≤7 days / Total reviews) × 100",
+      "data_source": "Design review tracking system (submission and completion dates)",
+      "frequency": "Monthly review cycle time analysis",
+      "baseline": "Initial review turnaround time",
+      "validation": "Review meeting schedules and follow-up completion tracking"
+    }
+  ]
+}

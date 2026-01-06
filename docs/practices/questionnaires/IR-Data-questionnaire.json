@@ -1,0 +1,402 @@
+{
+  "practice": "IR",
+  "domain": "data",
+  "name": "Implementation Review - Data Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ir-data-1-1",
+      "question": "Do you conduct code reviews for data classification implementations with 100% review coverage, ≥5 substantive comments per 100 lines, and ≥95% completed within 2 business days?",
+      "verification": [
+        "Review code review process (all data security code reviewed before merge to main branch)",
+        "Check review coverage (100% of classification model code, pattern matching code, classification logic reviewed)",
+        "Verify review quality (≥5 substantive comments per 100 lines of code, not just style comments)",
+        "Confirm review turnaround (≥95% of reviews completed within 2 business days)",
+        "Review reviewer qualifications (reviewers understand ML, data security, privacy requirements)"
+      ],
+      "evidence": [
+        "Code review tool configuration (all data security code requires review before merge)",
+        "Code review metrics (100% coverage, comments per 100 lines, turnaround time)",
+        "Sample code reviews (substantive security/privacy/accuracy comments)",
+        "Review turnaround compliance (≥95% within 2 days)",
+        "Reviewer roster (qualified ML, security, privacy reviewers)"
+      ],
+      "scoring": {
+        "yes_if": "100% review coverage, ≥5 substantive comments per 100 lines, ≥95% within 2 days turnaround, qualified reviewers (ML + security + privacy expertise)",
+        "partial_if": "≥90% coverage or ≥3 comments per 100 lines or ≥85% within 2 days",
+        "no_if": "<90% coverage or <3 comments per 100 lines or <85% within 2 days or unqualified reviewers"
+      }
+    },
+    {
+      "id": "ir-data-1-2",
+      "question": "Do you review classification model implementations validating architecture matches design, ≥90% accuracy maintained, and secure model versioning/serialization?",
+      "verification": [
+        "Review model architecture validation (implementation matches approved design, feature engineering correct)",
+        "Check accuracy testing (≥90% accuracy on sensitive data types: PII, PHI, PCI, trade secrets)",
+        "Verify model versioning (track classification model versions, model version in all classification decisions)",
+        "Confirm model serialization security (encrypted model files, access controls on model storage)",
+        "Review A/B testing implementation (compare new model vs current before full rollout)"
+      ],
+      "evidence": [
+        "Model architecture validation (design vs implementation comparison)",
+        "Accuracy test results (≥90% on sensitive data types)",
+        "Model versioning system (version tracking, decision audit trail)",
+        "Model serialization security (encryption, access controls)",
+        "A/B testing framework (new model comparison before rollout)"
+      ],
+      "scoring": {
+        "yes_if": "Architecture matches design, ≥90% accuracy maintained, model versioning implemented, encrypted model serialization, A/B testing framework",
+        "partial_if": "Architecture matches but accuracy <90% or limited versioning or no encryption",
+        "no_if": "Architecture deviates from design or accuracy <85% or no versioning or unencrypted models"
+      }
+    },
+    {
+      "id": "ir-data-1-3",
+      "question": "Do you review pattern matching code validating comprehensive regex patterns (SSN, credit cards, API keys), optimized performance, and context analysis for false positive reduction?",
+      "verification": [
+        "Review regex pattern comprehensiveness (covers all sensitive data types: SSN, credit cards, API keys, phone numbers, emails, etc.)",
+        "Check performance optimization (efficient regex, no catastrophic backtracking, test with malicious inputs)",
+        "Verify context analysis (reduces false positives via context: 'SSN: 123-45-6789' vs random numbers)",
+        "Confirm multi-language support (handles all target languages correctly: English, Spanish, French, etc.)",
+        "Review pattern versioning (track pattern changes over time, rollback capability)"
+      ],
+      "evidence": [
+        "Regex pattern library (comprehensive coverage: SSN, cards, keys, phones, emails)",
+        "Performance test results (regex efficient, no catastrophic backtracking)",
+        "Context analysis implementation (false positive reduction via context)",
+        "Multi-language support testing (all target languages validated)",
+        "Pattern version control (change tracking, rollback capability)"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive patterns (≥10 sensitive data types), performance optimized (no backtracking), context analysis (FP reduction), multi-language support, pattern versioning",
+        "partial_if": "Limited patterns (<10 types) or performance issues or no context analysis",
+        "no_if": "Patterns missing major types (<5 types) or catastrophic backtracking or no versioning"
+      }
+    },
+    {
+      "id": "ir-data-1-4",
+      "question": "Do you review classification logic validating appropriate thresholds, correct tie-breaking, unknown data handling, and performance ≤100ms per document?",
+      "verification": [
+        "Review classification thresholds (confidence score thresholds validated: >0.9 = high confidence, 0.7-0.9 = medium, <0.7 = low/unknown)",
+        "Check tie-breaking logic (when multiple classifications possible: choose most restrictive, escalate to human review)",
+        "Verify unknown data handling (fallback behavior for unclassifiable data: default to restrictive, flag for review)",
+        "Confirm performance optimization (classification completes within ≤100ms per document)",
+        "Review batch classification support (efficient bulk classification for large datasets)"
+      ],
+      "evidence": [
+        "Classification threshold configuration (high/medium/low confidence thresholds)",
+        "Tie-breaking logic implementation (most restrictive choice, escalation process)",
+        "Unknown data handling (fallback to restrictive, review flagging)",
+        "Performance test results (≤100ms per document)",
+        "Batch classification implementation (efficient bulk processing)"
+      ],
+      "scoring": {
+        "yes_if": "Appropriate thresholds (validated confidence scores), correct tie-breaking (most restrictive), unknown handling (default restrictive + review), performance ≤100ms, batch support",
+        "partial_if": "Thresholds defined but not validated or performance ≤200ms or limited batch support",
+        "no_if": "No thresholds or incorrect tie-breaking or performance >200ms or no batch support"
+      }
+    },
+    {
+      "id": "ir-data-1-5",
+      "question": "Do you review DLP real-time scanning implementations validating latency ≤100ms, asynchronous processing, resource limits, robust error handling, and result caching?",
+      "verification": [
+        "Review scanning performance (latency ≤100ms per document to avoid blocking user operations)",
+        "Check asynchronous processing (scanning doesn't block user operations: file saves, email sends)",
+        "Verify resource limits (memory limits, CPU limits per scan to prevent resource exhaustion)",
+        "Confirm error handling robustness (scanner crashes don't affect applications, graceful degradation)",
+        "Review result caching (avoid re-scanning identical content, cache hit rate ≥60%)"
+      ],
+      "evidence": [
+        "Scanning performance test results (latency ≤100ms per document)",
+        "Asynchronous processing implementation (non-blocking design)",
+        "Resource limit configuration (memory caps, CPU limits per scan)",
+        "Error handling implementation (crash isolation, graceful degradation)",
+        "Caching implementation (cache hit rate ≥60%, cache invalidation strategy)"
+      ],
+      "scoring": {
+        "yes_if": "Latency ≤100ms, asynchronous (non-blocking), resource limits enforced (memory + CPU caps), robust error handling (crash isolation), caching (≥60% hit rate)",
+        "partial_if": "Latency ≤200ms or limited async or resource limits not enforced or cache hit <50%",
+        "no_if": "Latency >200ms or blocking operations or no resource limits or no error handling"
+      }
+    },
+    {
+      "id": "ir-data-1-6",
+      "question": "Do you review DLP channel monitoring implementations covering ≥5 channels (email, chat, file upload, clipboard, API, cloud sync, removable media)?",
+      "verification": [
+        "Review email scanning integration (SMTP, API hooks for Exchange/Gmail/Office365)",
+        "Check chat scanning implementation (Slack, Teams, enterprise chat platforms)",
+        "Verify file upload scanning (web uploads, cloud sync, file shares)",
+        "Confirm clipboard monitoring (copy/paste operations between applications)",
+        "Review API monitoring (REST API requests/responses containing sensitive data)",
+        "Check cloud sync monitoring (Dropbox, Google Drive, OneDrive)",
+        "Verify removable media monitoring (USB drives, external disks)"
+      ],
+      "evidence": [
+        "Email scanning integration (SMTP hooks, API integrations)",
+        "Chat scanning implementation (Slack, Teams, chat platforms)",
+        "File upload scanning (web, cloud sync, file share integration)",
+        "Clipboard monitoring (copy/paste interception)",
+        "API monitoring (REST API request/response scanning)",
+        "Cloud sync monitoring (Dropbox, Drive, OneDrive)",
+        "Removable media monitoring (USB, external disk detection)"
+      ],
+      "scoring": {
+        "yes_if": "≥5 channels implemented (email, chat, file upload, clipboard, API, cloud sync, removable media), all integrations tested and working",
+        "partial_if": "3-4 channels implemented or limited integration testing",
+        "no_if": "<3 channels or major channels missing (email, file upload) or integrations not tested"
+      }
+    },
+    {
+      "id": "ir-data-1-7",
+      "question": "Do you review DLP enforcement mechanisms validating safe blocking, structure-preserving redaction, clear user notifications, secure quarantine, and comprehensive audit logging?",
+      "verification": [
+        "Review blocking mechanism safety (doesn't corrupt files, graceful failure, allows user override with approval)",
+        "Check redaction code (preserves document structure: redact sensitive parts, keep rest intact)",
+        "Verify user notification clarity (explains what was blocked, why, override process)",
+        "Confirm quarantine mechanism security (encrypted quarantine storage, access controls, retention policy)",
+        "Review override workflow (analysts can approve false positives within 24 hours)",
+        "Check audit logging comprehensiveness (all DLP actions logged: block, redact, quarantine, override)"
+      ],
+      "evidence": [
+        "Blocking mechanism implementation (safe blocking, graceful failure, override capability)",
+        "Redaction implementation (structure-preserving, partial document redaction)",
+        "User notification system (clear explanations, override instructions)",
+        "Quarantine security (encryption, access controls, retention policy)",
+        "Override workflow (analyst approval within 24 hours)",
+        "Audit logging (comprehensive DLP action logging for compliance)"
+      ],
+      "scoring": {
+        "yes_if": "Safe blocking (no corruption, graceful failure), structure-preserving redaction, clear notifications (what, why, override), secure quarantine (encrypted, access controls), override workflow (<24h), comprehensive audit logging",
+        "partial_if": "Blocking safe but redaction loses structure or notifications unclear or limited audit logging",
+        "no_if": "Blocking corrupts files or no redaction capability or no quarantine security or no audit logging"
+      }
+    },
+    {
+      "id": "ir-data-1-8",
+      "question": "Do you review privacy-preserving AI implementations (federated learning, differential privacy, homomorphic encryption) validating correctness and privacy guarantees?",
+      "verification": [
+        "Review federated learning implementation (client-side training correct, secure gradient aggregation, encrypted model distribution, convergence validation)",
+        "Check differential privacy implementation (correct noise addition: Laplace/Gaussian for ε/δ, privacy budget tracking, query limits enforced, composition theorem applied)",
+        "Verify homomorphic encryption code (uses vetted libraries: Microsoft SEAL/HElib, encrypted computation correctness, secure key management, acceptable performance)",
+        "Confirm privacy guarantees validated (mathematical proof or empirical validation of privacy properties)",
+        "Review secure multi-party computation (protocol correctness, secure party communication, input/output validation)"
+      ],
+      "evidence": [
+        "Federated learning implementation (client training, secure aggregation, convergence validation)",
+        "Differential privacy implementation (noise addition, ε budget tracking, query limits, composition)",
+        "Homomorphic encryption implementation (vetted libraries, correctness, key management)",
+        "Privacy guarantee validation (mathematical proofs or empirical validation)",
+        "SMPC implementation (protocol correctness, secure communication, validation)"
+      ],
+      "scoring": {
+        "yes_if": "Federated learning correct (if used), differential privacy correct (ε budget, noise, composition), homomorphic encryption uses vetted libraries (if used), privacy guarantees validated (proof or empirical), SMPC correct (if used)",
+        "partial_if": "Implementation correct but privacy guarantees not formally validated or limited testing",
+        "no_if": "Implementation incorrect or privacy guarantees violated or uses custom crypto (not vetted libraries)"
+      }
+    },
+    {
+      "id": "ir-data-1-9",
+      "question": "Do you review GDPR compliance automation validating complete SAR/deletion/portability implementations covering all systems with ≥95% recall and deletion verification ≥99%?",
+      "verification": [
+        "Review Data Subject Access Request (SAR) code (retrieves all user data across all systems: databases, backups, logs, caches with ≥95% recall)",
+        "Check data deletion code completeness (deletes from all systems: databases, backups, logs, caches, file storage with ≥95% recall, ≥99% deletion verification)",
+        "Verify data portability code (exports data in machine-readable format: JSON, XML, CSV)",
+        "Confirm consent management code (validates consent before processing, respects withdrawals)",
+        "Review automated deletion after retention (no manual intervention, scheduled jobs work correctly)",
+        "Check right to rectification (users can correct their data, changes propagate to all systems)"
+      ],
+      "evidence": [
+        "SAR implementation (all systems covered, ≥95% recall validation)",
+        "Deletion implementation (all systems covered, ≥95% recall, ≥99% verification)",
+        "Portability implementation (machine-readable export: JSON/XML/CSV)",
+        "Consent management implementation (validation before processing, withdrawal handling)",
+        "Automated deletion (retention period enforcement, scheduled jobs)",
+        "Rectification implementation (data correction, cross-system propagation)"
+      ],
+      "scoring": {
+        "yes_if": "SAR complete (all systems, ≥95% recall), deletion complete (all systems, ≥95% recall, ≥99% verification), portability (machine-readable), consent management, automated deletion, rectification",
+        "partial_if": "SAR/deletion implemented but <90% recall or limited system coverage or manual deletion",
+        "no_if": "Incomplete SAR/deletion (<85% recall) or missing systems or no consent management"
+      }
+    },
+    {
+      "id": "ir-data-1-10",
+      "question": "Do you review CCPA compliance automation validating opt-out mechanism, do-not-sell enforcement, data disclosure, and ≤45 day deletion timeline?",
+      "verification": [
+        "Review opt-out mechanism implementation (users can opt out of data sale, opt-out preference persisted)",
+        "Check do-not-sell enforcement (no data sharing when user opted out, enforcement across all channels)",
+        "Verify data disclosure code (provides categories of data collected: identifiers, commercial, internet activity, geolocation, etc.)",
+        "Confirm CCPA deletion timeline (deletion within 45 days of request, not 30 days like GDPR)",
+        "Review non-discrimination enforcement (equal service quality despite exercising CCPA rights)"
+      ],
+      "evidence": [
+        "Opt-out mechanism implementation (preference persistence, UI integration)",
+        "Do-not-sell enforcement (cross-channel enforcement, opt-out validation before sharing)",
+        "Data disclosure implementation (category listing: identifiers, commercial, internet, geolocation)",
+        "CCPA deletion timeline (≤45 day completion, tracking dashboard)",
+        "Non-discrimination implementation (service quality maintained for opt-outs)"
+      ],
+      "scoring": {
+        "yes_if": "Opt-out mechanism implemented, do-not-sell enforced (all channels), data disclosure (categories listed), deletion ≤45 days, non-discrimination enforced",
+        "partial_if": "Opt-out implemented but limited enforcement or disclosure incomplete or deletion >45 days",
+        "no_if": "No opt-out mechanism or no do-not-sell enforcement or deletion >60 days"
+      }
+    },
+    {
+      "id": "ir-data-1-11",
+      "question": "Do you review data retention implementations validating hard-coded retention periods, automated deletion triggers, deletion verification, and legal hold support?",
+      "verification": [
+        "Review retention policies in code (hard-coded retention periods per data type: PII 90 days, audit logs 1 year, etc.)",
+        "Check automated deletion triggers (scheduled jobs run daily, event-driven deletion for user requests)",
+        "Verify deletion verification (confirm data actually deleted, not just marked for deletion)",
+        "Confirm legal hold support (prevent deletion when legal hold active, legal hold workflow integrated)",
+        "Review retention policy exceptions (handle exceptions with approval workflow, documented justifications)"
+      ],
+      "evidence": [
+        "Retention policy code (hard-coded periods per data type)",
+        "Automated deletion triggers (scheduled jobs, event-driven deletion)",
+        "Deletion verification implementation (actual deletion confirmation, not just soft-delete flag)",
+        "Legal hold support (deletion prevention, workflow integration)",
+        "Exception handling (approval workflow, justification documentation)"
+      ],
+      "scoring": {
+        "yes_if": "Retention periods hard-coded (per data type), automated deletion (scheduled + event-driven), deletion verified (actual deletion confirmed), legal hold support (deletion prevented), exception workflow (approval + justification)",
+        "partial_if": "Retention periods defined but manual deletion or limited verification or no legal hold support",
+        "no_if": "No retention periods or manual deletion only or no deletion verification"
+      }
+    },
+    {
+      "id": "ir-data-1-12",
+      "question": "Do you review cross-border transfer controls validating data residency enforcement, transfer logging, SCC validation, and transfer impact assessment?",
+      "verification": [
+        "Review data residency enforcement (data never leaves permitted regions: code validates region before write)",
+        "Check transfer logging (log all cross-border data movements: source region, destination region, data volume, legal basis)",
+        "Verify Standard Contractual Clauses (SCC) validation (code verifies SCC in place before transfer to third country)",
+        "Confirm transfer impact assessment (automated assessment of transfer risk: adequacy decision present, SCC valid, transfer encryption)"
+      ],
+      "evidence": [
+        "Data residency enforcement code (region validation before write, transfer blocking)",
+        "Transfer logging implementation (cross-border movement tracking: source, destination, volume, legal basis)",
+        "SCC validation code (pre-transfer SCC verification)",
+        "Transfer impact assessment (automated risk assessment: adequacy, SCC, encryption)"
+      ],
+      "scoring": {
+        "yes_if": "Data residency enforced (region validation, blocking), transfer logging (source, destination, volume, legal basis), SCC validation (pre-transfer check), impact assessment (automated risk assessment)",
+        "partial_if": "Residency enforced but limited logging or manual SCC validation or no impact assessment",
+        "no_if": "No residency enforcement or no transfer logging or no SCC validation"
+      }
+    },
+    {
+      "id": "ir-data-1-13",
+      "question": "Do you review database and object storage security implementations validating TLS connections, no hardcoded credentials, SQL injection prevention, encryption at rest, and access logging?",
+      "verification": [
+        "Review database security (TLS for all connections, credentials from secrets manager not hardcoded, parameterized queries/ORM for SQL injection prevention, RBAC enforced, encryption at rest enabled)",
+        "Check object storage security (no public buckets, encryption enforcement for uploads, versioning enabled, lifecycle policies per retention, access logging, short-expiration pre-signed URLs)",
+        "Verify encryption implementation (AES-256, keys in KMS not code, annual key rotation, unique random IVs, authenticated encryption GCM not ECB, vetted crypto libraries)",
+        "Confirm backup security (backups encrypted, separate backup permissions, automated restore tests, immutable backups via object lock, retention-based auto-delete)"
+      ],
+      "evidence": [
+        "Database security code (TLS connections, secrets manager, parameterized queries, RBAC, encryption at rest)",
+        "Object storage security (private buckets, encryption enforcement, versioning, lifecycle policies, access logs, pre-signed URL security)",
+        "Encryption implementation (AES-256, KMS keys, rotation, unique IVs, GCM mode, vetted libraries)",
+        "Backup security (encryption, separate permissions, restore tests, immutability, retention auto-delete)"
+      ],
+      "scoring": {
+        "yes_if": "Database secure (TLS, secrets manager, SQL injection prevention, RBAC, encryption), object storage secure (private, encryption, versioning, lifecycle, logging), encryption correct (AES-256, KMS, rotation, GCM, vetted libs), backups secure (encrypted, separate perms, tests, immutable, retention)",
+        "partial_if": "Database secure but object storage has issues (public buckets, no encryption) or encryption uses ECB mode or backups not immutable",
+        "no_if": "Hardcoded credentials or SQL injection vulnerabilities or no encryption or no backup security"
+      }
+    },
+    {
+      "id": "ir-data-1-14",
+      "question": "Do you maintain ≥80% unit test coverage for classification, DLP, privacy, and compliance code with integration, performance, and security tests?",
+      "verification": [
+        "Review unit test coverage (≥80% code coverage for critical paths: classification models, DLP detection, privacy mechanisms, compliance automation)",
+        "Check integration test coverage (end-to-end DLP: data scanned → classified → blocked/allowed, channel integration tests, database integration tests, compliance workflow tests)",
+        "Verify performance test coverage (classification latency ≤100ms, DLP scanning throughput ≥10,000 docs/hour, database query performance ≤100ms, scalability tests with millions of documents)",
+        "Confirm security test coverage (adversarial evasion tests, privacy attack tests: membership inference/model inversion, injection vulnerability tests, access control tests)"
+      ],
+      "evidence": [
+        "Unit test coverage reports (≥80% coverage for classification, DLP, privacy, compliance)",
+        "Integration test suite (end-to-end DLP, channel integration, database integration, compliance workflows)",
+        "Performance test results (latency ≤100ms, throughput ≥10,000 docs/hour, query ≤100ms, scalability validated)",
+        "Security test suite (evasion tests, privacy attacks, injection tests, access control tests)"
+      ],
+      "scoring": {
+        "yes_if": "≥80% unit test coverage (classification, DLP, privacy, compliance), integration tests (end-to-end, channels, DB, compliance), performance tests (latency, throughput, scalability), security tests (evasion, privacy attacks, injection, access control)",
+        "partial_if": "≥70% unit coverage or limited integration tests or performance tests missing or security tests limited",
+        "no_if": "<70% unit coverage or no integration tests or no performance tests or no security tests"
+      }
+    },
+    {
+      "id": "ir-data-1-15",
+      "question": "Do you conduct automated code analysis with SAST (Bandit, Semgrep, CodeQL), hardcoded secret detection (TruffleHog), and dependency scanning (Snyk, Safety)?",
+      "verification": [
+        "Review SAST for data handling code (tools: Bandit for Python, Semgrep for multi-language, CodeQL for advanced analysis)",
+        "Check hardcoded secret detection (TruffleHog, git-secrets scan for credentials, API keys, tokens in code)",
+        "Verify dependency vulnerability scanning (Snyk, Safety scan for vulnerable dependencies)",
+        "Confirm code quality metrics (cyclomatic complexity ≤15, code duplication ≤5%)",
+        "Review security scanning (sensitive data in logs, insecure encryption usage: weak algorithms/ECB mode, missing input validation, excessive permissions)"
+      ],
+      "evidence": [
+        "SAST tool configuration (Bandit, Semgrep, CodeQL for data security code)",
+        "Secret detection configuration (TruffleHog, git-secrets in CI/CD pipeline)",
+        "Dependency scanning (Snyk, Safety in CI/CD, vulnerability alerts)",
+        "Code quality metrics (complexity ≤15, duplication ≤5%)",
+        "Security scan results (no PII in logs, secure encryption, input validation, least privilege)"
+      ],
+      "scoring": {
+        "yes_if": "SAST (Bandit/Semgrep/CodeQL), secret detection (TruffleHog/git-secrets), dependency scanning (Snyk/Safety), code quality (complexity ≤15, duplication ≤5%), security scanning (logs, encryption, validation, permissions)",
+        "partial_if": "SAST configured but limited secret detection or no dependency scanning or code quality metrics not met",
+        "no_if": "No SAST or no secret detection or no dependency scanning or hardcoded secrets found"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Review Coverage",
+      "target": "100% of data security code reviewed before merge",
+      "measurement": "Coverage % = (Reviewed commits / Total commits to data security code) × 100",
+      "data_source": "Code review tool (GitHub PR, GitLab MR, Gerrit)",
+      "frequency": "Real-time enforcement, weekly reporting",
+      "baseline": "Current code review coverage",
+      "validation": "Code review tool blocks merges without review approval"
+    },
+    {
+      "metric": "Classification Accuracy",
+      "target": "≥90% accuracy maintained in production",
+      "measurement": "Accuracy % on production data samples (monthly validation)",
+      "data_source": "Classification monitoring, accuracy validation tests",
+      "frequency": "Monthly production accuracy validation",
+      "baseline": "Pre-production accuracy from testing",
+      "validation": "Monthly accuracy tests on production data samples"
+    },
+    {
+      "metric": "DLP Effectiveness",
+      "target": "≥85% exfiltration attempts blocked, ≤5% false positive rate",
+      "measurement": "Block rate % on test exfiltration attempts; FP rate % on benign data transfers",
+      "data_source": "DLP monitoring, security testing",
+      "frequency": "Quarterly security testing, continuous monitoring",
+      "baseline": "DLP effectiveness from security testing",
+      "validation": "Quarterly red team exercises validate block rate"
+    },
+    {
+      "metric": "Privacy Compliance",
+      "target": "Zero privacy violations, differential privacy guarantees verified",
+      "measurement": "Privacy violation count; Differential privacy ε budget compliance",
+      "data_source": "Privacy monitoring, incident tracking",
+      "frequency": "Real-time monitoring, quarterly privacy audits",
+      "baseline": "Zero violations baseline",
+      "validation": "Privacy audits verify differential privacy guarantees"
+    },
+    {
+      "metric": "Test Coverage",
+      "target": "≥80% unit test coverage for classification, DLP, privacy, compliance code",
+      "measurement": "Code coverage % for critical data security code paths",
+      "data_source": "Code coverage tools (Coverage.py, JaCoCo, Istanbul)",
+      "frequency": "Per commit (CI/CD), weekly reporting",
+      "baseline": "Current test coverage baseline",
+      "validation": "CI/CD enforces ≥80% coverage, blocks merges below threshold"
+    }
+  ]
+}

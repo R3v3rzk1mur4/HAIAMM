@@ -1,0 +1,424 @@
+{
+  "practice": "Implementation Review",
+  "domain": "Vendors",
+  "name": "IR-Vendors",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ir-vendors-1-1",
+      "question": "Do you review risk scoring algorithm implementation with weighted scoring (data 30%, security 25%, compliance 20%, operational 15%, financial 10%), normalization to 0-100 scale, and edge case handling (missing data, extreme values, NaN)?",
+      "verification": [
+        "Review weighted scoring implementation (verify weights data handling 30%, security 25%, compliance 20%, operational 15%, financial 10%; check code calculates weighted sum correctly)",
+        "Check normalization implementation (verify each dimension normalized to 0-100 scale, review normalization formulas BitSight 300-900 → 0-100, SecurityScorecard A-F → numerical)",
+        "Verify aggregation logic (final risk score = weighted sum of normalized dimensions, validate calculation correct)",
+        "Test edge cases (missing data: verify imputation or explicit handling, extreme values: verify clamping to 0-100, NaN handling: verify rejection or default)",
+        "Review data quality checks (input validation reject invalid scores/dates/categories, outlier detection flag suspicious values)"
+      ],
+      "evidence": [
+        "Risk scoring algorithm code (weighted scoring implementation, weight constants data 30%/security 25%/compliance 20%/operational 15%/financial 10%, weighted sum calculation)",
+        "Normalization code (0-100 scale conversion for each dimension, BitSight 300-900 normalization, SecurityScorecard A-F to numerical, boundary handling)",
+        "Edge case handling code (missing data imputation/explicit handling, extreme value clamping, NaN rejection/default values)",
+        "Data quality checks (input validation for scores/dates/categories, outlier detection thresholds, validation error handling)",
+        "Unit tests for risk scoring (test cases for edge cases: missing data, extreme values, NaN; test normalization boundaries; test weighted sum calculation)"
+      ],
+      "scoring": {
+        "yes_if": "Risk scoring implementation reviewed with weighted scoring (data 30%, security 25%, compliance 20%, operational 15%, financial 10%), normalization (0-100 scale, BitSight/SecurityScorecard conversion), edge case handling (missing data, extreme values, NaN), data quality checks, unit tests",
+        "partial_if": "Implementation reviewed but weights incorrect or no normalization or limited edge case handling (<3 cases) or no data quality checks",
+        "no_if": "No risk scoring implementation reviewed or no weighted scoring or no normalization or no edge case handling"
+      }
+    },
+    {
+      "id": "ir-vendors-1-2",
+      "question": "Do you review ML classification model implementation with training code (feature engineering, Random Forest/Gradient Boosting, hyperparameter tuning, cross-validation), evaluation (≥85% accuracy target, confusion matrix), and serving code (model loading, prediction API, confidence scores, versioning)?",
+      "verification": [
+        "Review training code (training data loading features/labels/train-test split, feature engineering encoding categorical/scaling numerical, model selection Random Forest/Gradient Boosting, hyperparameter tuning GridSearchCV/RandomizedSearchCV, cross-validation k-fold/stratified for imbalanced)",
+        "Check model evaluation (accuracy metrics accuracy/precision/recall/F1, confusion matrix analysis identify misclassifications, target ≥85% agreement with human expert labels, class imbalance handling SMOTE/class weights)",
+        "Verify model serving code (model loading pickle/joblib/ONNX for production, prediction API tested inputs/outputs/latency, confidence scores returned probability distribution across risk tiers, model versioning track which version used)",
+        "Review retraining pipeline (triggering logic retrain monthly or accuracy <80%, data collection new labeled assessments, model comparison new vs. current deploy if improves ≥5%, rollback capability)",
+        "Check model monitoring (track performance over time accuracy/drift, alert on degradation accuracy drops ≥5%)"
+      ],
+      "evidence": [
+        "ML training code (data loading train/test split, feature engineering encoding/scaling, model selection Random Forest/Gradient Boosting, hyperparameter tuning GridSearchCV/RandomizedSearchCV, cross-validation k-fold/stratified)",
+        "Model evaluation code (accuracy metrics accuracy/precision/recall/F1, confusion matrix, ≥85% accuracy validation, class imbalance handling SMOTE/weights)",
+        "Model serving code (model loading pickle/joblib/ONNX, prediction API inputs/outputs/latency, confidence scores probability distribution, versioning tracking)",
+        "Retraining pipeline (triggering logic monthly or <80% accuracy, data collection labeled assessments, model comparison deploy if ≥5% improvement, rollback)",
+        "Model monitoring (performance tracking accuracy/drift over time, degradation alerts accuracy drops ≥5%, monitoring dashboard)"
+      ],
+      "scoring": {
+        "yes_if": "ML classification implementation reviewed with training (feature engineering, Random Forest/Gradient Boosting, hyperparameter tuning, cross-validation), evaluation (≥85% accuracy target, confusion matrix, imbalance handling), serving (model loading, prediction API, confidence scores, versioning), retraining (monthly or <80%, model comparison, rollback), monitoring",
+        "partial_if": "ML implementation reviewed but <80% accuracy target or no hyperparameter tuning or no cross-validation or no confidence scores or no retraining pipeline",
+        "no_if": "No ML implementation reviewed or no training code or no evaluation or <75% accuracy target or no serving code"
+      }
+    },
+    {
+      "id": "ir-vendors-1-3",
+      "question": "Do you review API integration implementation for BitSight, SecurityScorecard, HaveIBeenPwned with authentication, response parsing, rate limiting, timeout handling, retry logic with exponential backoff, circuit breaker, and caching?",
+      "verification": [
+        "Review BitSight API integration (authentication API key/headers, endpoint URLs ratings/findings/portfolio, request parameters company GUID/date ranges, response parsing JSON structure/field mapping, rating normalization BitSight 300-900 → 0-100)",
+        "Check SecurityScorecard API integration (authentication API token, endpoint URLs, response parsing letter grades A-F → numerical scores, factor scores extraction network security/DNS health/patching)",
+        "Verify breach database APIs (HaveIBeenPwned domain/email breach checks, response parsing breach dates/types/affected accounts, breach severity classification)",
+        "Review general API code (rate limiting track API calls/implement backoff respect 100-1000 req/hr, timeout handling 30-60 seconds, retry logic exponential backoff on transient failures, circuit breaker fail fast if API consistently down, caching cache responses to reduce API calls)",
+        "Check API error handling (test error responses verify handling, test rate limiting/retries/timeouts, mock API responses for testing)"
+      ],
+      "evidence": [
+        "BitSight API integration code (authentication, endpoint URLs, request parameters, response parsing, rating normalization 300-900 → 0-100)",
+        "SecurityScorecard API integration code (authentication, endpoint URLs, response parsing A-F → numerical, factor scores extraction)",
+        "Breach database API code (HaveIBeenPwned integration, domain/email checks, response parsing, severity classification)",
+        "General API handling code (rate limiting track/backoff 100-1000 req/hr, timeout 30-60 sec, retry exponential backoff, circuit breaker pattern, caching strategy)",
+        "API integration tests (mock API responses unittest.mock/responses, test successful responses, test error responses, test rate limiting/retries/timeouts)"
+      ],
+      "scoring": {
+        "yes_if": "API integration implementation reviewed for ≥3 sources (BitSight, SecurityScorecard, HaveIBeenPwned) with authentication, response parsing (rating normalization, breach classification), rate limiting (respect 100-1000 req/hr, backoff), timeout handling (30-60 sec), retry logic (exponential backoff), circuit breaker, caching, tests",
+        "partial_if": "API integration reviewed but <3 sources or no rate limiting or no retry logic or no circuit breaker or no caching or no tests",
+        "no_if": "No API integration implementation reviewed or single source only or no error handling or no rate limiting or no tests"
+      }
+    },
+    {
+      "id": "ir-vendors-1-4",
+      "question": "Do you review entity resolution implementation with fuzzy matching (Levenshtein distance, domain name matching, DUNS matching, ≥80% similarity threshold), deduplication (primary key DUNS>domain>name, merge strategy, conflict resolution), and tests for known duplicates and non-duplicates?",
+      "verification": [
+        "Review fuzzy matching implementation (Levenshtein distance calculation correct string similarity, domain name matching extract domain from URL compare, DUNS number matching exact match preferred, threshold tuning similarity ≥80% for medium confidence match)",
+        "Check deduplication logic (primary key selection DUNS > domain > name, merge strategy latest data per field preserve lineage, conflict resolution flag conflicting data for human review)",
+        "Verify confidence scoring (high confidence exact DUNS match, medium confidence domain + name similarity ≥80%, low confidence name similarity only, human review flag low-confidence matches)",
+        "Review testing (test with known duplicates ensure correctly identified, test with similar but different vendors ensure not incorrectly merged, test edge cases empty strings/special characters)",
+        "Check entity resolution accuracy target (≥95% correct vendor matching, validate on test set)"
+      ],
+      "evidence": [
+        "Fuzzy matching implementation (Levenshtein distance calculation, domain name matching extraction/comparison, DUNS matching exact, threshold ≥80% similarity)",
+        "Deduplication logic (primary key selection DUNS>domain>name, merge strategy latest data/preserve lineage, conflict resolution flag for human review)",
+        "Confidence scoring (high DUNS exact, medium domain+name ≥80%, low name only, human review trigger low confidence)",
+        "Entity resolution tests (test cases known duplicates correctly identified, non-duplicates not merged, edge cases empty/special chars)",
+        "Entity resolution accuracy validation (≥95% correct matching target, test set evaluation, confusion matrix duplicates vs. non-duplicates)"
+      ],
+      "scoring": {
+        "yes_if": "Entity resolution implementation reviewed with fuzzy matching (Levenshtein distance, domain matching, DUNS exact, ≥80% threshold), deduplication (primary key DUNS>domain>name, merge strategy, conflict resolution), confidence scoring (high/medium/low, human review), tests (known duplicates, non-duplicates, edge cases), ≥95% accuracy target",
+        "partial_if": "Entity resolution reviewed but no fuzzy matching or <80% threshold or no deduplication or no confidence scoring or no tests or <90% accuracy",
+        "no_if": "No entity resolution implementation reviewed or exact matching only or no deduplication or no tests or <85% accuracy"
+      }
+    },
+    {
+      "id": "ir-vendors-1-5",
+      "question": "Do you review continuous monitoring implementation with event-driven architecture (webhooks, event stream Kafka/Kinesis, idempotency) and polling architecture (tiered schedule Critical daily/High weekly/Medium monthly/Low quarterly, change detection, state management)?",
+      "verification": [
+        "Review event-driven architecture (webhook subscription code BitSight/SecurityScorecard webhooks, event parsing extract vendor ID/change type/new value, event validation schema validation reject malformed, event stream processing Kafka/Kinesis consumer code, idempotency handle duplicate events gracefully)",
+        "Check polling architecture (polling schedule enforced Critical daily/High weekly/Medium monthly/Low quarterly, polling logic fetch vendor data compare to previous state, change detection identify rating changes/breaches/expiring certs, state management store previous vendor state for comparison)",
+        "Verify alert latency (event-driven ≤5 min for rating change ≤24 hr for breach, polling within schedule window)",
+        "Review monitoring coverage (100% of critical vendors monitored daily, all vendors monitored at appropriate frequency)",
+        "Check monitoring tests (test webhook processing, test polling scheduler, test change detection, test state comparison)"
+      ],
+      "evidence": [
+        "Event-driven monitoring code (webhook subscriptions BitSight/SecurityScorecard, event parsing vendor ID/change/value, event validation schema, event stream Kafka/Kinesis consumer, idempotency duplicate handling)",
+        "Polling architecture code (polling schedule enforced Critical daily/High weekly/Medium monthly/Low quarterly, polling logic fetch/compare to previous, change detection rating/breach/cert, state management previous state storage)",
+        "Alert latency implementation (event-driven targets ≤5 min rating ≤24 hr breach, polling within schedule window, latency monitoring)",
+        "Monitoring coverage tracking (100% critical vendors daily monitoring, tiered monitoring all vendors, coverage verification)",
+        "Monitoring tests (webhook processing tests, polling scheduler tests, change detection tests, state comparison tests, end-to-end monitoring flow tests)"
+      ],
+      "scoring": {
+        "yes_if": "Continuous monitoring implementation reviewed with event-driven (webhooks BitSight/SecurityScorecard, event stream Kafka/Kinesis, idempotency, ≤5 min/≤24 hr latency) and polling (tiered schedule Critical daily/High weekly/Medium monthly/Low quarterly, change detection, state management), 100% critical coverage, tests",
+        "partial_if": "Monitoring implementation reviewed but event-driven only or polling only or no idempotency or no tiering or alert latency >15 min or <100% critical coverage or no tests",
+        "no_if": "No monitoring implementation reviewed or manual only or no event-driven or no polling or <80% coverage or no tests"
+      }
+    },
+    {
+      "id": "ir-vendors-1-6",
+      "question": "Do you review change detection and alert generation implementation with rating change thresholds (≥10 points or grade drop), breach detection (≤24 hr), certification expiration (90/30/7 day warnings), severity assignment (Critical/High/Medium/Low), deduplication, and routing (Critical: page, High: ticket, Medium/Low: digest)?",
+      "verification": [
+        "Review rating change detection (threshold checks alert if drop ≥10 points or letter grade drop, trend analysis detect consistent downward trend, alert generation create alert with severity/details/vendor)",
+        "Check breach detection (new breach identified compare to known breaches, severity classification customer data breach = critical, alert within ≤24 hours from public disclosure)",
+        "Verify certification expiration (calculate days until expiration, alert thresholds 90 days/30 days/7 days before expiration, escalating severity)",
+        "Review alert severity assignment (Critical: breach with customer data/rating failing <500 or D/F/bankruptcy, High: rating drop ≥20 points/cert expiration <30 days, Medium: rating drop 10-20 points, Low: minor changes <10 points)",
+        "Check alert deduplication (prevent duplicate alerts same issue, time window deduplication suppress within 1 hour of same issue)",
+        "Verify alert routing (Critical alerts → page on-call PagerDuty/Opsgenie, High alerts → create ticket Jira/ServiceNow API, Medium/Low → email digest)"
+      ],
+      "evidence": [
+        "Change detection code (rating change thresholds ≥10 points/grade drop, trend analysis downward, alert generation severity/details/vendor)",
+        "Breach detection code (new breach identification compare to known, severity classification customer data critical, ≤24 hr alert from disclosure)",
+        "Certification expiration code (days until expiration calculation, alert thresholds 90/30/7 days, escalating severity)",
+        "Alert severity assignment (Critical: breach customer data/rating failing/bankruptcy, High: drop ≥20/cert <30d, Medium: drop 10-20, Low: minor <10)",
+        "Alert deduplication (duplicate prevention same issue, time window 1 hour suppression)",
+        "Alert routing code (Critical: PagerDuty/Opsgenie paging, High: Jira/ServiceNow ticket creation, Medium/Low: email digest)"
+      ],
+      "scoring": {
+        "yes_if": "Change detection and alert implementation reviewed with rating change (≥10 points/grade drop, trend analysis), breach detection (≤24 hr, severity classification), cert expiration (90/30/7 day warnings), severity assignment (4 tiers Critical/High/Medium/Low), deduplication (1 hour window), routing (Critical: page, High: ticket, Medium/Low: digest), tests",
+        "partial_if": "Change detection reviewed but <3 change types or no breach detection or cert warning <60 days or <4 severity tiers or no deduplication or no routing",
+        "no_if": "No change detection implementation reviewed or <2 change types or no alert generation or no severity assignment or no routing"
+      }
+    },
+    {
+      "id": "ir-vendors-1-7",
+      "question": "Do you review SBOM parsing implementation with format support (SPDX JSON/XML/YAML/tag-value, CycloneDX JSON/XML), parser libraries (spdx-tools, cyclonedx-python-lib), schema validation, and data extraction (components, versions, licenses, dependency relationships)?",
+      "verification": [
+        "Review SBOM format support (SPDX parser JSON/XML/YAML/tag-value formats, CycloneDX parser JSON/XML formats, parser library usage spdx-tools/cyclonedx-python-lib, schema validation validate against official SPDX/CycloneDX schemas)",
+        "Check data extraction (component names/versions/vendors extracted correctly, license information parsed SPDX license IDs, dependency relationships extracted parent-child component links)",
+        "Verify parsing error handling (invalid SBOM format rejection, missing required fields error messages, malformed SBOM graceful handling)",
+        "Review normalization (normalize to internal component schema name/version/vendor/license/vulnerabilities, consistent field mapping)",
+        "Check SBOM parsing tests (test with valid SBOMs SPDX/CycloneDX, test with invalid SBOMs verify rejection, test with large SBOMs ≥10,000 components performance ≤30 sec)"
+      ],
+      "evidence": [
+        "SBOM parsing code (SPDX parser JSON/XML/YAML/tag-value, CycloneDX parser JSON/XML, parser library usage spdx-tools/cyclonedx-python-lib, schema validation official schemas)",
+        "Data extraction code (component names/versions/vendors extraction, license parsing SPDX IDs, dependency relationships parent-child links)",
+        "Parsing error handling (invalid format rejection, missing fields error messages, malformed SBOM graceful handling)",
+        "Normalization code (internal component schema name/version/vendor/license/vulnerabilities, field mapping consistency)",
+        "SBOM parsing tests (valid SPDX/CycloneDX test cases, invalid SBOM rejection tests, large SBOM ≥10K components performance ≤30 sec)"
+      ],
+      "scoring": {
+        "yes_if": "SBOM parsing implementation reviewed with multi-format support (SPDX JSON/XML/YAML/tag-value, CycloneDX JSON/XML), parser libraries (spdx-tools, cyclonedx-python-lib), schema validation (official schemas), data extraction (components, versions, licenses, dependencies), error handling, normalization, tests (valid/invalid/large ≤30 sec)",
+        "partial_if": "SBOM parsing reviewed but <3 formats or no parser libraries or no schema validation or incomplete data extraction or no error handling or no tests",
+        "no_if": "No SBOM parsing implementation reviewed or single format only or no schema validation or no data extraction or no tests"
+      }
+    },
+    {
+      "id": "ir-vendors-1-8",
+      "question": "Do you review vulnerability scanning implementation with CVE database integration (NVD API, GitHub Advisory), CVE/CPE matching (component name+version→CVEs, version ranges), transitive dependency analysis (≥5 levels deep, recursive propagation, graph traversal), and CVSS v3.1 severity scoring with exploitability checking?",
+      "verification": [
+        "Review CVE database integration (NVD API integration fetch CVE data, GitHub Advisory Database integration, CVE matching logic component name+version → CVEs, version range handling vulnerable if version ≥1.0, <2.0)",
+        "Check CPE matching (CPE string construction cpe:2.3:a:vendor:product:version, CPE dictionary search match CPE to CVEs, precision vs. recall tuning)",
+        "Verify transitive dependency analysis (dependency graph construction ≥5 levels deep, recursive vulnerability propagation if sub-dependency vulnerable flag parent, graph traversal algorithms DFS/BFS for dependency tree)",
+        "Review severity scoring (CVSS scores extracted from NVD 0-10 scale, exploitability check Exploit-DB/Metasploit modules increase priority if actively exploited, reachability analysis determine if vulnerable code reachable, priority calculation CVSS + exploitability + reachability)",
+        "Check vulnerability accuracy (CVE matching precision ≥90% minimize false positives, CVE matching recall ≥85% minimize false negatives, test with known vulnerable components verify CVEs detected, test with patched components verify no false positives)"
+      ],
+      "evidence": [
+        "CVE database integration code (NVD API fetch CVE data, GitHub Advisory integration, CVE matching component name+version, version range handling ≥1.0/<2.0)",
+        "CPE matching code (CPE string construction cpe:2.3:a:vendor:product:version, CPE dictionary search, tuning precision/recall)",
+        "Transitive dependency analysis (dependency graph construction ≥5 levels, recursive propagation flag parent if sub-dependency vulnerable, graph traversal DFS/BFS)",
+        "Severity scoring code (CVSS extraction from NVD 0-10, exploitability check Exploit-DB/Metasploit, reachability analysis, priority calculation CVSS+exploitability+reachability)",
+        "Vulnerability scanning tests (CVE matching precision ≥90%/recall ≥85%, test known vulnerable components detected, test patched components no false positives, transitive analysis ≥5 levels validation)"
+      ],
+      "scoring": {
+        "yes_if": "Vulnerability scanning implementation reviewed with CVE database integration (NVD API, GitHub Advisory), CVE/CPE matching (component+version, version ranges, CPE strings), transitive analysis (≥5 levels, recursive propagation, graph traversal DFS/BFS), CVSS v3.1 scoring (exploitability check, reachability, priority calculation), accuracy (precision ≥90%, recall ≥85%), tests",
+        "partial_if": "Vulnerability scanning reviewed but no transitive analysis or <3 levels or no exploitability check or no reachability or precision <85% or recall <80% or no tests",
+        "no_if": "No vulnerability scanning implementation reviewed or direct dependencies only or no CVE matching or no CVSS scoring or precision/recall <75% or no tests"
+      }
+    },
+    {
+      "id": "ir-vendors-1-9",
+      "question": "Do you review supply chain attack detection implementation for typosquatting (Levenshtein distance ≤2 to popular packages, homoglyph detection), suspicious packages (newly created <30 days with low downloads, abandoned ≥2 years, excessive permissions), and anomalous updates (major version jumps, maintainer changes, sudden activity)?",
+      "verification": [
+        "Review typosquatting detection (Levenshtein distance to popular package names flag distance ≤2, homoglyph detection Unicode character similarity Cyrillic vs. Latin, suspicious name patterns common misspellings)",
+        "Check suspicious package detection (package age checks flag packages <30 days old, download count checks low downloads + recent creation = suspicious, abandoned package detection no updates ≥2 years)",
+        "Verify anomalous update detection (major version jumps flagged 1.0 → 2.0 require review, maintainer change detection package ownership changed flag recent, sudden activity spikes unusual number of updates)",
+        "Review detection tuning (balance false positives vs. false negatives, whitelist known good packages, detection thresholds configurable)",
+        "Check alert workflow (severity classification for detections, routing to security team, vendor notification, remediation tracking)"
+      ],
+      "evidence": [
+        "Typosquatting detection code (Levenshtein distance ≤2 to popular packages, homoglyph detection Unicode homoglyphs Cyrillic/Latin, suspicious name patterns)",
+        "Suspicious package detection (age checks <30 days old, download count low + recent, abandoned detection ≥2 years no updates, excessive permissions filesystem/network)",
+        "Anomalous update detection (major version jumps 1.0→2.0 flagged, maintainer change detection ownership changed, sudden activity spike unusual updates)",
+        "Detection tuning (false positive vs. false negative balance, whitelist known good packages, configurable thresholds)",
+        "Supply chain attack tests (test typosquatting detection known examples, test suspicious package detection, test anomalous update detection, validate whitelist, measure false positive rate)"
+      ],
+      "scoring": {
+        "yes_if": "Supply chain attack detection implementation reviewed for typosquatting (Levenshtein ≤2, homoglyphs Unicode, suspicious names), suspicious packages (new <30 days + low downloads, abandoned ≥2 years, excessive permissions), anomalous updates (major version jumps, maintainer changes, sudden activity), detection tuning (false positive balance, whitelist), alert workflow, tests",
+        "partial_if": "Supply chain detection reviewed but <3 detection types or no typosquatting or no anomalous updates or no tuning or no whitelist or no tests",
+        "no_if": "No supply chain attack detection implementation reviewed or single detection type only or no alerts or no tests"
+      }
+    },
+    {
+      "id": "ir-vendors-1-10",
+      "question": "Do you review compliance automation implementation with jurisdiction detection (IP geolocation for data subjects, vendor location, data flow mapping cross-border transfers), contract analysis NLP (PDF/DOCX parsing, clause extraction, NER for key terms using spaCy/NLTK/Hugging Face), and compliance reporting (PDF generation, CSV export, scheduling)?",
+      "verification": [
+        "Review jurisdiction detection (data subject location IP geolocation for user data GDPR for EU/CCPA for CA using MaxMind GeoIP2/ip-api, vendor location headquarters/data centers from profile, data flow analysis map source → destination identify cross-border US → EU requires SCCs)",
+        "Check contract analysis NLP (PDF/DOCX parsing extract text from contracts, clause extraction identify data processing/liability/SLA clauses, NER Named Entity Recognition for key terms parties/dates/requirements using spaCy/NLTK/Hugging Face transformers)",
+        "Verify clause verification (check for required clauses GDPR DPA/HIPAA BAA, flag missing clauses, detect red-flag clauses unlimited liability/no termination rights)",
+        "Review compliance reporting (data aggregation compliance status by vendor/by framework, report formatting PDF generation ReportLab/CSV export, scheduling cron jobs for quarterly reports)",
+        "Check evidence package creation (collect all vendor artifacts contracts/certs/questionnaires, organize by vendor/framework/audit period, generate audit trail who accessed/when)"
+      ],
+      "evidence": [
+        "Jurisdiction detection code (IP geolocation MaxMind GeoIP2/ip-api for data subjects GDPR EU/CCPA CA, vendor location headquarters/data centers, data flow mapping source→destination cross-border US→EU SCCs)",
+        "Contract analysis NLP code (PDF/DOCX parsing text extraction, clause extraction data processing/liability/SLA, NER spaCy/NLTK/Hugging Face for parties/dates/requirements)",
+        "Clause verification code (required clause checks GDPR DPA/HIPAA BAA, missing clause flagging, red-flag detection unlimited liability/no termination)",
+        "Compliance reporting code (data aggregation vendor/framework status, PDF generation ReportLab, CSV export, cron scheduling quarterly reports)",
+        "Evidence package code (artifact collection contracts/certs/questionnaires, organization vendor/framework/audit period, audit trail generation access tracking)"
+      ],
+      "scoring": {
+        "yes_if": "Compliance automation implementation reviewed with jurisdiction detection (IP geolocation MaxMind/ip-api GDPR EU/CCPA CA, vendor location, data flow mapping cross-border US→EU SCCs), contract NLP (PDF/DOCX parsing, clause extraction, NER spaCy/NLTK/Hugging Face), clause verification (required GDPR DPA/HIPAA BAA, missing/red-flag), reporting (PDF ReportLab, CSV, cron quarterly), evidence packages",
+        "partial_if": "Compliance automation reviewed but no jurisdiction detection or no contract NLP or manual clause review or no reporting automation or no evidence packages",
+        "no_if": "No compliance automation implementation reviewed or manual only or no jurisdiction detection or no contract analysis or no reporting"
+      }
+    },
+    {
+      "id": "ir-vendors-1-11",
+      "question": "Do you review vendor dependency mapping implementation with graph database integration (Neo4j/Neptune connection, graph schema nodes=vendors/edges=dependencies, Cypher/Gremlin queries), multi-level mapping (≥3 levels: direct/subprocessors/sub-subprocessors), graph traversal (path finding, cycle detection), and concentration risk detection?",
+      "verification": [
+        "Review graph database integration (Neo4j/Neptune connection code database drivers, graph schema design nodes vendors with properties name/risk/tier/certs, edges dependencies with properties data flow/type/criticality, graph query language Cypher for Neo4j/Gremlin for Neptune, batch import optimization bulk insert)",
+        "Check multi-level mapping (Level 1 direct vendors load from vendor database, Level 2 subprocessors from vendor disclosures, Level 3+ sub-subprocessors recursive relationship mapping ≥3 levels for critical)",
+        "Verify graph traversal (path finding algorithms find all paths vendor A to vendor B, shortest path/longest path calculations, cycle detection circular dependencies)",
+        "Review concentration risk detection (shared subprocessor analysis query subprocessors used by >5 vendors, concentration score higher if more vendors share, risk scoring high concentration = high risk SPOF)",
+        "Check visualization (graph rendering D3.js/vis.js/Cytoscape.js, node coloring by risk red high/green low, edge styling solid direct/dashed indirect, interactive zoom/pan/click for details)"
+      ],
+      "evidence": [
+        "Graph database integration code (Neo4j/Neptune drivers, graph schema nodes vendors properties/edges dependencies properties, Cypher/Gremlin queries, batch import bulk insert)",
+        "Multi-level mapping code (Level 1 direct vendors from database, Level 2 subprocessors from disclosures, Level 3+ sub-subprocessors recursive ≥3 levels critical)",
+        "Graph traversal code (path finding all paths A to B, shortest/longest path calculations, cycle detection circular dependencies)",
+        "Concentration risk detection (shared subprocessor query >5 vendors, concentration score calculation more vendors = higher, risk scoring concentration = SPOF)",
+        "Visualization code (graph rendering D3.js/vis.js/Cytoscape.js, node coloring risk red/green, edge styling direct/indirect, interactive zoom/pan/drill-down)"
+      ],
+      "scoring": {
+        "yes_if": "Dependency mapping implementation reviewed with graph database (Neo4j/Neptune drivers, schema nodes vendors/edges dependencies, Cypher/Gremlin, batch import), multi-level (≥3 levels: direct/subprocessors/sub-subprocessors), graph traversal (path finding, shortest/longest, cycle detection), concentration risk (shared subprocessor >5 vendors, concentration score, SPOF risk), visualization (D3.js/vis.js/Cytoscape.js, coloring, interactive)",
+        "partial_if": "Dependency mapping reviewed but <3 levels or no graph database or no graph traversal or no concentration risk detection or no visualization",
+        "no_if": "No dependency mapping implementation reviewed or direct vendors only or no graph database or no concentration detection"
+      }
+    },
+    {
+      "id": "ir-vendors-1-12",
+      "question": "Do you review test coverage with unit tests (risk scoring, API integration mocks, entity resolution), integration tests (end-to-end vendor onboarding/monitoring/SBOM flows, database integration), performance tests (≥1,000 vendors, ≥10,000 component SBOMs ≤30 sec, ≥5 level graph queries ≤5 sec), and accuracy validation (ML ≥85%, CVE precision ≥90%/recall ≥85%, entity resolution ≥95%)?",
+      "verification": [
+        "Review unit tests (risk scoring tests known inputs/outputs, edge cases missing data/extreme values/zero scores, normalization 0-100 range; API integration tests mock responses unittest.mock/responses library, successful responses parsing, error responses handling, rate limiting/retries/timeouts; entity resolution tests known duplicates matched, non-duplicates not matched, edge cases empty/special chars)",
+        "Check integration tests (end-to-end vendor onboarding flow registration → risk assessment → monitoring setup, end-to-end monitoring flow event received → change detected → alert generated → ticket created, end-to-end SBOM analysis flow uploaded → parsed → vulnerabilities scanned → findings reported; database integration tests graph operations insert vendors/query dependencies, data normalization pipeline raw → normalized)",
+        "Verify performance tests (scale tests ≥1,000 vendors verify performance acceptable, SBOM analysis ≥10,000 components ≤30 sec, graph queries ≥5 levels ≤5 sec; load tests API integrations under load 100+ concurrent requests, event processing throughput 100+ events/second)",
+        "Review accuracy validation (risk assessment accuracy ML model predictions vs. human expert labels accuracy/precision/recall/F1 target ≥85% agreement; CVE matching accuracy test known vulnerable components CVEs detected precision ≥90%/recall ≥85%, test patched components no false positives; entity resolution accuracy ≥95% correct vendor matching)",
+        "Check test coverage metrics (unit test coverage ≥80% line coverage ≥70% branch coverage, integration test coverage all critical workflows tested, API error handling 100% error codes handled)"
+      ],
+      "evidence": [
+        "Unit test suite (risk scoring tests inputs/outputs/edge cases/normalization, API integration tests mocks/parsing/errors/rate limiting, entity resolution tests duplicates/non-duplicates/edge cases)",
+        "Integration test suite (end-to-end vendor onboarding flow, end-to-end monitoring flow, end-to-end SBOM analysis flow, database integration tests graph/normalization)",
+        "Performance test suite (scale tests ≥1K vendors, SBOM ≥10K components ≤30 sec, graph queries ≥5 levels ≤5 sec, load tests API 100+ concurrent, event processing 100+ events/sec)",
+        "Accuracy validation tests (ML accuracy ≥85% agreement vs. experts, CVE precision ≥90%/recall ≥85% known vulnerable/patched components, entity resolution ≥95% correct matching)",
+        "Test coverage report (unit tests ≥80% line/≥70% branch, integration tests all critical workflows, API error handling 100% codes)"
+      ],
+      "scoring": {
+        "yes_if": "Test coverage reviewed with unit tests (risk scoring, API integration mocks, entity resolution), integration tests (end-to-end onboarding/monitoring/SBOM flows, database integration), performance tests (≥1K vendors, ≥10K components ≤30 sec, ≥5 level queries ≤5 sec, 100+ concurrent API, 100+ events/sec), accuracy validation (ML ≥85%, CVE precision ≥90%/recall ≥85%, entity resolution ≥95%), coverage (≥80% line/≥70% branch, all critical workflows, 100% API errors)",
+        "partial_if": "Test coverage reviewed but unit tests only or no integration tests or no performance tests or accuracy targets <80% or coverage <70% line/<60% branch",
+        "no_if": "No test coverage reviewed or no unit tests or no integration tests or accuracy targets <75% or coverage <60%"
+      }
+    },
+    {
+      "id": "ir-vendors-1-13",
+      "question": "Do you review security code with input validation (vendor names, domains, DUNS validated; SQL injection prevention parameterized queries/ORM; XSS prevention output encoding/CSP; path traversal prevention no ../), authentication/authorization (API keys/OAuth, RBAC, least privilege), and data protection (encryption at rest sensitive vendor data, TLS in transit, secrets management API keys not hardcoded, PII handling)?",
+      "verification": [
+        "Review input validation (all user inputs validated vendor names/domains/DUNS, SQL injection prevention parameterized queries/ORM usage no string concatenation, XSS prevention output encoding/CSP headers, path traversal prevention validate file paths no ../ allowed)",
+        "Check authentication & authorization (API authentication API keys/OAuth tokens, RBAC implemented role-based access control for vendor data, least privilege users have minimum required permissions, session management secure session handling)",
+        "Verify data protection (encryption at rest sensitive vendor data encrypted in database TDE/application-level, encryption in transit TLS for all API calls TLS 1.3 or 1.2+, secrets management API keys in secrets manager AWS Secrets Manager/HashiCorp Vault not hardcoded, PII handling vendor contact info/financial data protected access controls/encryption)",
+        "Review security testing (penetration testing vendor risk platform, vulnerability scanning SAST/DAST, dependency scanning for vulnerabilities, security code review for common vulnerabilities OWASP Top 10)",
+        "Check compliance (data protection regulations GDPR/CCPA for vendor data, audit logging access to sensitive vendor data, security incident response plan for vendor data breaches)"
+      ],
+      "evidence": [
+        "Input validation code (vendor names/domains/DUNS validation, SQL injection prevention parameterized queries/ORM, XSS prevention output encoding/CSP, path traversal prevention no ../)",
+        "Authentication & authorization code (API authentication keys/OAuth, RBAC role-based access vendor data, least privilege minimum permissions, session management)",
+        "Data protection code (encryption at rest sensitive vendor data TDE/app-level, TLS in transit TLS 1.3/1.2+ all APIs, secrets management AWS Secrets Manager/Vault no hardcoded keys, PII handling vendor contact/financial protected)",
+        "Security testing results (penetration testing vendor platform, vulnerability scanning SAST/DAST, dependency scanning, security code review OWASP Top 10)",
+        "Security compliance (GDPR/CCPA vendor data compliance, audit logging sensitive vendor data access, incident response plan vendor breaches)"
+      ],
+      "scoring": {
+        "yes_if": "Security code reviewed with input validation (vendor names/domains/DUNS, SQL injection parameterized/ORM, XSS output encoding/CSP, path traversal no ../), authentication/authorization (API keys/OAuth, RBAC, least privilege, session management), data protection (encryption at rest TDE/app-level, TLS in transit 1.3/1.2+ all APIs, secrets management Vault no hardcoded, PII handling vendor contact/financial), security testing (pentest, SAST/DAST, dependency scan, code review OWASP), compliance (GDPR/CCPA, audit logging, incident response)",
+        "partial_if": "Security reviewed but incomplete input validation or no SQL/XSS prevention or no RBAC or no encryption at rest or secrets hardcoded or no security testing",
+        "no_if": "No security review or no input validation or no authentication or no data protection or secrets hardcoded or no testing"
+      }
+    },
+    {
+      "id": "ir-vendors-1-14",
+      "question": "Do you review data normalization and quality implementation with schema mapping (vendor profile fields, risk scores 0-100, dates ISO 8601, boolean standardization), null handling (distinguish not applicable/unknown/not provided, appropriate defaults), and data quality monitoring (validation checks, anomaly detection, data lineage)?",
+      "verification": [
+        "Review schema mapping (vendor profile fields correctly mapped name/industry/size/location, risk scores normalized BitSight/SecurityScorecard/custom → 0-100 scale, date formats standardized ISO 8601 YYYY-MM-DD, boolean standardization yes/no/true/false/1/0 → consistent boolean)",
+        "Check null handling (distinguish null types not applicable/unknown/not provided, default values appropriate e.g. unknown cert expiration → max date for sorting, null propagation in calculations handle gracefully)",
+        "Verify data quality checks (input validation reject invalid data, range checks scores 0-100, date validity checks, referential integrity vendor dependencies valid)",
+        "Review data quality monitoring (validation checks automated on data ingestion, anomaly detection sudden data volume changes/schema drift, data lineage tracking track data provenance from source to normalized)",
+        "Check data quality metrics (data quality score percentage of records passing validation, error rates by source track which APIs/sources have issues, data freshness stale data detection)"
+      ],
+      "evidence": [
+        "Schema mapping code (vendor profile fields name/industry/size/location, risk score normalization BitSight/SecurityScorecard → 0-100, date standardization ISO 8601 YYYY-MM-DD, boolean standardization consistent)",
+        "Null handling code (null type distinction not applicable/unknown/not provided, default values appropriate, null propagation in calculations)",
+        "Data quality checks (input validation rejection, range checks 0-100, date validity, referential integrity vendor dependencies)",
+        "Data quality monitoring (validation checks automated ingestion, anomaly detection volume/schema drift, data lineage tracking provenance)",
+        "Data quality metrics (quality score % passing validation, error rates by source API/source tracking, data freshness stale detection)"
+      ],
+      "scoring": {
+        "yes_if": "Data normalization and quality implementation reviewed with schema mapping (profile fields, risk scores → 0-100, dates ISO 8601, booleans consistent), null handling (distinguish not applicable/unknown/not provided, defaults, propagation), quality checks (validation, range 0-100, date validity, referential integrity), monitoring (automated validation, anomaly detection volume/drift, lineage tracking), metrics (quality score % passing, error rates by source, freshness)",
+        "partial_if": "Data quality reviewed but no schema mapping or no null handling or no quality checks or no monitoring or no metrics",
+        "no_if": "No data normalization or quality implementation reviewed or no schema mapping or no null handling or no validation"
+      }
+    },
+    {
+      "id": "ir-vendors-1-15",
+      "question": "Do you review performance implementation with API response time (≤2 sec P95), risk score calculation (≤1 sec per vendor), SBOM parsing (≤30 sec for 10K components), graph queries (≤5 sec for 5-level traversal), caching strategies, database query optimization, and monitoring (latency tracking, performance degradation alerts)?",
+      "verification": [
+        "Review API response time (P95 latency ≤2 seconds for vendor risk APIs, performance testing under load 100+ concurrent requests, caching to reduce latency cache vendor data/API responses, timeout handling 30-60 seconds)",
+        "Check risk score calculation performance (≤1 second per vendor calculation, batch processing for bulk calculations, optimization avoid redundant calculations cache intermediate results, profiling identify bottlenecks)",
+        "Verify SBOM parsing performance (≤30 seconds for 10,000-component SBOM, streaming parsing for large SBOMs avoid loading entire file to memory, parallel processing parse multiple SBOMs concurrently, profiling identify parser bottlenecks)",
+        "Review graph query performance (≤5 seconds for 5-level dependency traversal, query optimization use indexes/limit result sets, caching frequently accessed paths, graph database tuning Neo4j/Neptune configuration)",
+        "Check caching strategies (cache vendor data refresh daily critical/weekly others, cache API responses reduce calls, cache graph query results frequently accessed paths, cache invalidation strategy stale data eviction)",
+        "Verify database query optimization (indexes on frequently queried fields vendor name/DUNS/domain, query profiling identify slow queries, connection pooling reuse database connections, batch operations bulk insert/update)",
+        "Review performance monitoring (latency tracking P50/P95/P99 for APIs/calculations/queries, performance degradation alerts latency exceeds thresholds, performance dashboard real-time metrics, profiling CPU/memory usage)"
+      ],
+      "evidence": [
+        "API performance code (P95 latency ≤2 sec implementation, load testing 100+ concurrent, caching vendor data/API responses, timeout 30-60 sec)",
+        "Risk score calculation performance (≤1 sec per vendor, batch processing bulk, optimization cache intermediate results, profiling bottlenecks)",
+        "SBOM parsing performance (≤30 sec for 10K components, streaming parsing avoid full memory load, parallel processing multiple SBOMs, profiling bottlenecks)",
+        "Graph query performance (≤5 sec for 5-level traversal, query optimization indexes/limit results, caching frequent paths, graph DB tuning Neo4j/Neptune)",
+        "Caching implementation (cache vendor data daily critical/weekly, API response caching, graph query result caching, invalidation stale eviction)",
+        "Database optimization (indexes vendor name/DUNS/domain, query profiling slow queries, connection pooling, batch operations insert/update)",
+        "Performance monitoring (latency tracking P50/P95/P99 APIs/calculations/queries, degradation alerts exceed thresholds, performance dashboard real-time, profiling CPU/memory)"
+      ],
+      "scoring": {
+        "yes_if": "Performance implementation reviewed with API response (≤2 sec P95, load testing 100+ concurrent, caching, timeout 30-60 sec), risk calculation (≤1 sec, batch processing, optimization cache, profiling), SBOM parsing (≤30 sec 10K, streaming, parallel, profiling), graph queries (≤5 sec 5-level, optimization indexes/limit, caching, DB tuning), caching strategies (vendor data/API/graph, invalidation), DB optimization (indexes, profiling, pooling, batch), monitoring (latency P50/P95/P99, alerts, dashboard, profiling)",
+        "partial_if": "Performance reviewed but API >3 sec P95 or risk calc >2 sec or SBOM parsing >60 sec or graph queries >10 sec or no caching or no monitoring",
+        "no_if": "No performance implementation reviewed or API >5 sec or risk calc >5 sec or SBOM >120 sec or no optimization or no monitoring"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "ML classification and entity resolution accuracy",
+      "target": "ML classification accuracy ≥85% agreement with human expert labels; Entity resolution accuracy ≥95% (correct vendor matching)",
+      "measurement": "ML: Confusion matrix predictions vs. expert labels, calculate accuracy/precision/recall/F1; Entity resolution: Test set of known duplicates and non-duplicates, calculate accuracy (correctly matched + correctly not matched) / total",
+      "data_source": "ML model evaluation on test set (quarterly), entity resolution test cases (100+ vendor pairs with ground truth labels)",
+      "frequency": "ML model: quarterly evaluation on new test set; Entity resolution: monthly on test cases",
+      "baseline": "ML: Initial model accuracy 75-80% before tuning; Entity resolution: 70-85% manual matching pre-automation",
+      "validation": "ML: Independent expert review 100 random predictions quarterly verify ≥85% agreement; Entity resolution: Manual audit 50 random vendor pairs monthly verify correct matching/non-matching"
+    },
+    {
+      "metric": "CVE matching and vulnerability detection accuracy",
+      "target": "CVE matching precision ≥90% (minimize false positives); CVE matching recall ≥85% (minimize false negatives)",
+      "measurement": "Precision = true positives / (true positives + false positives); Recall = true positives / (true positives + false negatives); Test with known vulnerable components (should detect CVEs) and patched components (should not flag)",
+      "data_source": "Vulnerability scanning test suite (known vulnerable components from NVD, patched components verified safe), production SBOM scans (manually validated findings)",
+      "frequency": "Automated testing with every SBOM scan, manual validation monthly on sample of findings",
+      "baseline": "Precision: 70-85% before tuning (many false positives from version mismatches); Recall: 75-90% (some CVEs missed due to CPE matching gaps)",
+      "validation": "Monthly manual review of 100 random vulnerability findings: verify true positives (CVE actually affects component), identify false positives (version mismatch, CPE error); Quarterly test with NIST's known vulnerable software dataset"
+    },
+    {
+      "metric": "API integration reliability and performance",
+      "target": "API integration reliability ≥99% successful API calls (BitSight, SecurityScorecard, breach DBs); API response time ≤2 seconds P95",
+      "measurement": "Reliability: Count successful API calls / total API calls; Performance: P95 latency for API calls from request to response",
+      "data_source": "API integration monitoring logs (success/failure counts, latency measurements per API call)",
+      "frequency": "Continuous monitoring, daily review of metrics, weekly trend analysis",
+      "baseline": "Reliability: 90-95% without retry logic; Performance: P95 3-5 seconds without caching",
+      "validation": "Daily synthetic API calls to validate reliability (test accounts for BitSight/SecurityScorecard); Weekly performance testing under load (100+ concurrent requests verify P95 ≤2 sec)"
+    },
+    {
+      "metric": "Monitoring coverage and breach detection latency",
+      "target": "100% of critical vendors monitored daily; ≥90% of breaches detected within ≤24 hours; ≥95% of critical alerts delivered within ≤5 minutes",
+      "measurement": "Coverage: Count critical vendors with daily monitoring / total critical vendors; Breach detection: Median and P95 time from public breach disclosure to detection in our system; Alert latency: Median and P95 time from alert generation to delivery",
+      "data_source": "Vendor monitoring system logs (polling/webhook events by vendor tier), breach detection timestamps vs. HaveIBeenPwned/public disclosure timestamps, alert delivery logs (generation to delivery time)",
+      "frequency": "Coverage: daily automated check; Breach detection: measured per incident; Alert latency: continuous monitoring",
+      "baseline": "Coverage: 0-50% critical vendor daily monitoring pre-automation; Breach detection: 7-30 days manual discovery; Alert latency: hours to days manual alerts",
+      "validation": "Daily monitoring coverage check (automated script verify all critical vendors have daily poll or webhook subscription); Post-incident review for breaches (compare our detection time to public disclosure time); Alert latency validation (synthetic alerts to verify delivery within 5 min)"
+    },
+    {
+      "metric": "SBOM parsing and transitive analysis performance",
+      "target": "SBOM parsing ≤30 seconds for 10,000-component SBOM; Transitive dependency analysis ≥5 levels deep; Graph queries ≤5 seconds for 5-level dependency traversal",
+      "measurement": "SBOM parsing: Measure time from SBOM upload to parsing complete for 10K component SBOMs; Transitive analysis: Measure maximum dependency depth achieved; Graph queries: Measure P95 latency for 5-level traversal queries",
+      "data_source": "SBOM parsing performance logs (upload to parse complete time, component count), dependency graph analysis logs (depth achieved per SBOM), graph database query performance logs (query latency by depth)",
+      "frequency": "SBOM parsing: measured per SBOM upload; Transitive analysis: validated per SBOM; Graph queries: continuous monitoring",
+      "baseline": "SBOM parsing: 60-120 seconds for 10K components without optimization; Transitive analysis: 1-2 levels manual; Graph queries: 10-30 seconds without indexes",
+      "validation": "Weekly performance testing (test SBOM parsing with standard 10K component SBOM verify ≤30 sec); Monthly transitive analysis validation (manual inspection of dependency graphs verify ≥5 levels for critical vendors); Daily graph query performance monitoring (synthetic queries verify ≤5 sec)"
+    },
+    {
+      "metric": "Test coverage and code quality",
+      "target": "Unit test coverage ≥80% line coverage, ≥70% branch coverage; Integration test coverage: all critical workflows tested (vendor onboarding, monitoring, SBOM analysis); API error handling: 100% of API error codes handled",
+      "measurement": "Unit test coverage: Code coverage tool (pytest-cov, coverage.py) line and branch coverage percentage; Integration tests: Count critical workflows with automated tests / total critical workflows; API error handling: Count API error codes with handling logic / total possible error codes",
+      "data_source": "Code coverage reports (pytest-cov, coverage.py), integration test suite (test cases by workflow), API integration code review (error code handling)",
+      "frequency": "Unit test coverage: measured with every CI/CD build; Integration tests: quarterly review; API error handling: quarterly code review",
+      "baseline": "Unit test coverage: 40-60% line, 30-50% branch typical pre-emphasis; Integration tests: 0-50% workflows tested; API error handling: 50-70% codes handled",
+      "validation": "CI/CD enforced coverage gates (builds fail if coverage drops below ≥80% line/≥70% branch); Quarterly integration test audit (verify all critical workflows onboarding/monitoring/SBOM have automated end-to-end tests); Quarterly API code review (verify all HTTP error codes 4xx/5xx have explicit handling, no unhandled exceptions)"
+    },
+    {
+      "metric": "Security implementation and vulnerability management",
+      "target": "Zero SQL injection/XSS/path traversal vulnerabilities in production code; 100% of API keys in secrets manager (not hardcoded); Encryption at rest for 100% of sensitive vendor data (PII, financial); TLS 1.3 or 1.2+ for 100% of API calls",
+      "measurement": "Vulnerabilities: Count SQL injection/XSS/path traversal vulnerabilities from SAST/DAST/pentesting; Secrets management: Grep codebase for hardcoded API keys, count findings; Encryption at rest: Audit database tables with sensitive vendor data, verify encryption enabled; TLS: Audit all API integration code, verify TLS version ≥1.2",
+      "data_source": "SAST/DAST scan results (Semgrep, Bandit, OWASP ZAP), penetration testing reports, code audit for hardcoded secrets (automated grep), database encryption audit, TLS configuration review (code + runtime monitoring)",
+      "frequency": "SAST/DAST: every CI/CD build; Penetration testing: quarterly; Secrets audit: weekly automated scan; Encryption audit: monthly; TLS audit: quarterly",
+      "baseline": "Vulnerabilities: 5-20 OWASP Top 10 issues typical pre-security review; Secrets: 10-30% API keys hardcoded; Encryption: 50-70% sensitive tables encrypted; TLS: 70-90% APIs use TLS 1.2+",
+      "validation": "Quarterly penetration testing by external security firm (verify zero SQL injection/XSS/path traversal exploitable); Weekly automated secret scanning (Trufflehog, GitGuardian verify zero hardcoded API keys); Monthly database encryption audit (verify all tables with vendor PII/financial data have TDE or application-level encryption); Quarterly TLS audit (runtime inspection verify all API calls use TLS 1.3 or 1.2+, reject TLS 1.1)"
+    }
+  ]
+}

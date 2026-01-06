@@ -1,0 +1,418 @@
+{
+  "practice": "EH",
+  "domain": "infrastructure",
+  "name": "Environment Hardening - Infrastructure Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "eh-infrastructure-1-1",
+      "question": "Do you have comprehensive cloud account hardening including root/global admin MFA, multi-account structure, and restrictive organization policies?",
+      "verification": [
+        "Review AWS root account protection (MFA enabled, access keys deleted, strong password, CloudTrail alerts on usage)",
+        "Check Azure Global Admin protection (MFA via conditional access, ≤5 admins, PIM for just-in-time access)",
+        "Verify GCP Organization Owner protection (MFA with hardware keys, ≤3 owners, IAM conditions, usage monitoring)",
+        "Confirm multi-account/subscription/project structure (separate prod/staging/dev/security accounts)",
+        "Review organization policies (SCPs deny public S3/disable CloudTrail, Azure policies deny public IPs, GCP policies require OS Login)"
+      ],
+      "evidence": [
+        "Root/Global Admin/Owner account MFA configuration and usage alerts",
+        "Multi-account/subscription/project architecture diagram",
+        "Service Control Policies (AWS), Azure Policies, GCP Organization Policies documentation",
+        "Privileged account inventory (≤5 global admins)",
+        "Organization policy enforcement validation"
+      ],
+      "scoring": {
+        "yes_if": "Root/admin accounts have MFA, multi-account structure implemented, restrictive organization policies enforced, privileged accounts limited",
+        "partial_if": "Some hardening but missing MFA on admin accounts or single account only",
+        "no_if": "No MFA on privileged accounts or no organization policies"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-2",
+      "question": "Do you enforce least privilege IAM with ≥90% users/roles having only required permissions, MFA for 100% privileged and ≥95% all users?",
+      "verification": [
+        "Review IAM access analysis (AWS IAM Access Analyzer, Azure Access Reviews, GCP IAM Recommender for unused permissions)",
+        "Check least privilege implementation (no wildcard * permissions, specific resources, conditions)",
+        "Verify MFA enforcement (100% privileged accounts, ≥95% all human users, hardware MFA for privileged)",
+        "Confirm quarterly access reviews (remove unused permissions, right-size policies)",
+        "Review service account hardening (dedicated per service, minimal permissions, quarterly key rotation)"
+      ],
+      "evidence": [
+        "IAM access analysis reports (unused permissions identified)",
+        "IAM policy audit (≥90% users follow least privilege)",
+        "MFA coverage metrics (100% privileged, ≥95% all users)",
+        "Quarterly access review records",
+        "Service account inventory and permission audit"
+      ],
+      "scoring": {
+        "yes_if": "≥90% least privilege compliance, MFA 100% privileged + ≥95% all users, quarterly reviews, service accounts hardened",
+        "partial_if": "Some IAM hardening but MFA 80-95% or least privilege 70-90%",
+        "no_if": "MFA <80% or least privilege <70% or wildcard permissions common"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-3",
+      "question": "Do you implement network segmentation with multi-tier architecture, private subnets for compute, and zero unnecessary public exposure?",
+      "verification": [
+        "Review VPC/VNet architecture (public subnet for LBs only, private subnets for apps/CSPM, database subnet isolated)",
+        "Check network isolation by environment (separate VPC/VNet per prod/staging/dev)",
+        "Verify security group/NSG hardening (default deny, least privilege rules, no unnecessary 0.0.0.0/0)",
+        "Confirm private endpoints (VPC endpoints, Private Link, Private Service Connect for cloud services)",
+        "Review bastion/VPN hardening (MFA, IP whitelist, session recording, minimal software)"
+      ],
+      "evidence": [
+        "Network architecture diagram (multi-tier, environment separation)",
+        "Subnet configuration (public/private/database/management tiers)",
+        "Security group/NSG audit (default deny, least privilege rules)",
+        "Private endpoint configuration (S3, DynamoDB, Storage, SQL, etc.)",
+        "Bastion host and VPN hardening configuration"
+      ],
+      "scoring": {
+        "yes_if": "Multi-tier architecture, private subnets for compute, environment separation, least privilege SGs, private endpoints used, bastion hardened",
+        "partial_if": "Network segmentation exists but some compute in public subnets or weak SG rules",
+        "no_if": "Flat network or compute resources have public IPs or 0.0.0.0/0 SG rules common"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-4",
+      "question": "Do you enforce encryption everywhere: 100% data at rest (customer-managed keys), 100% data in transit (TLS 1.2+), and zero unencrypted resources?",
+      "verification": [
+        "Review encryption at rest (S3 SSE-KMS, EBS encryption by default, RDS TDE, Azure Storage/Disk encryption, GCS CMEK)",
+        "Check encryption in transit (TLS 1.2+ only, strong ciphers, HSTS, mTLS for service-to-service)",
+        "Verify S3/Blob/GCS hardening (Block Public Access, versioning, MFA Delete, access logging)",
+        "Confirm database encryption (TDE enabled, force SSL/TLS connections, encrypted backups)",
+        "Review encryption policy enforcement (SCPs/policies deny unencrypted resources)"
+      ],
+      "evidence": [
+        "Encryption at rest configuration (all storage, databases, backups encrypted)",
+        "TLS configuration (version 1.2+, strong ciphers, certificate management)",
+        "S3/Blob/GCS security configuration (Block Public Access, versioning, logging)",
+        "Database encryption validation (TDE, SSL enforcement)",
+        "Organization policies enforcing encryption (deny unencrypted resources)"
+      ],
+      "scoring": {
+        "yes_if": "100% encryption at rest with customer-managed keys, 100% TLS 1.2+ in transit, zero public storage, database TDE, policies enforce encryption",
+        "partial_if": "Most resources encrypted but some using AWS-managed keys or TLS 1.0/1.1 still allowed",
+        "no_if": "Unencrypted resources exist or no encryption enforcement policies"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-5",
+      "question": "Do you have comprehensive audit logging with CloudTrail/Activity Log/Cloud Audit Logs enabled in all accounts/regions, ≥90 day retention, and log protection?",
+      "verification": [
+        "Review cloud audit logging (CloudTrail all regions + data events, Activity Log all subscriptions, Cloud Audit Logs all types)",
+        "Check VPC/NSG/VPC Flow Logs (all networks, capture accepted + rejected traffic)",
+        "Verify log forwarding to SIEM (real-time streaming, normalization, ≥90 day hot storage)",
+        "Confirm log protection (separate log account, CloudTrail validation, S3 Object Lock, immutable storage)",
+        "Review log access controls (read-only for analysts, access audited, alert on unusual access)"
+      ],
+      "evidence": [
+        "Audit logging configuration (CloudTrail, Activity Log, Cloud Audit Logs coverage)",
+        "VPC/NSG flow log configuration (all networks covered)",
+        "SIEM integration (log forwarding, retention ≥90 days)",
+        "Log protection implementation (separate account, validation, WORM)",
+        "Log access controls and access audit logs"
+      ],
+      "scoring": {
+        "yes_if": "100% accounts/regions logging, flow logs enabled, SIEM integrated ≥90 day retention, logs protected in separate account, access controlled",
+        "partial_if": "Most accounts logging but <100% coverage or retention <90 days",
+        "no_if": "Logging coverage <80% or no log protection or retention <30 days"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-6",
+      "question": "Do you have cloud-native threat detection enabled (GuardDuty, Defender for Cloud, Security Command Center) with SIEM integration and automated response?",
+      "verification": [
+        "Review AWS GuardDuty (enabled all regions/accounts, findings forwarded to SIEM)",
+        "Check Azure Defender for Cloud (enabled for VMs, storage, SQL, Kubernetes, App Service)",
+        "Verify GCP Security Command Center (Premium tier for threat detection, compliance, vulnerability scanning)",
+        "Confirm automated response (high-severity: page on-call + auto-isolate, medium: ticket, low: digest)",
+        "Review finding investigation SLA (100% high-severity findings investigated ≤24 hours)"
+      ],
+      "evidence": [
+        "GuardDuty configuration (all regions, all accounts enabled)",
+        "Defender for Cloud configuration (all workload types protected)",
+        "Security Command Center configuration (Premium tier, all features)",
+        "Automated response playbooks (isolation, ticketing, alerting)",
+        "Finding investigation metrics (SLA compliance for high-severity)"
+      ],
+      "scoring": {
+        "yes_if": "GuardDuty/Defender/SCC enabled everywhere, SIEM integrated, automated response configured, 100% high-severity investigated ≤24h",
+        "partial_if": "Threat detection enabled but limited automated response or investigation SLA 24-48h",
+        "no_if": "No cloud-native threat detection or findings not integrated with SIEM"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-7",
+      "question": "Do you maintain ≥95% compliance with CIS Benchmarks and enforce required resource tags (Environment, Owner, DataClassification) on 100% resources?",
+      "verification": [
+        "Review CIS Benchmark compliance (AWS/Azure/GCP Foundations Benchmarks, automated daily scans)",
+        "Check AWS Config/Azure Policy/GCP Config Connector (track configuration, compliance rules, drift detection)",
+        "Verify compliance reporting (≥95% CIS compliance target, trend over time)",
+        "Confirm tag enforcement (SCPs/policies deny untagged resources, required: Environment, Owner, DataClassification)",
+        "Review tag compliance (100% resources have required tags, automated remediation for missing tags)"
+      ],
+      "evidence": [
+        "CIS Benchmark compliance reports (≥95% compliance)",
+        "Configuration tracking implementation (AWS Config, Azure Policy, GCP Config)",
+        "Compliance dashboards (CIS score trends)",
+        "Tag enforcement policies (deny untagged resource creation)",
+        "Tag compliance reports (100% coverage)"
+      ],
+      "scoring": {
+        "yes_if": "≥95% CIS compliance, automated daily scans, config tracking enabled, 100% resources have required tags, tag enforcement policies active",
+        "partial_if": "Compliance monitored but 80-95% CIS or tag coverage 80-100%",
+        "no_if": "CIS compliance <80% or no tag enforcement or coverage <80%"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-8",
+      "question": "Do you enforce remediation safety with blast radius limits (≤10 resources per action, ≤100/hour), 100% state backups, and 100% rollback success?",
+      "verification": [
+        "Review blast radius limits (hard-coded: ≤10 resources per remediation, ≤100/hour, ≤1000/day)",
+        "Check graduated automation levels (alert-only for high-risk, auto-remediate low-risk, approval for high-risk)",
+        "Verify pre-change validation (dependency analysis, risk scoring, approval routing for high-risk)",
+        "Confirm state backup (100% of remediations have pre-change snapshot, ≥30 day retention)",
+        "Review rollback capability (automated rollback on failure, manual rollback available, 100% success in quarterly drills)"
+      ],
+      "evidence": [
+        "Blast radius limit configuration (hard-coded constants in code)",
+        "Graduated automation framework (alert/auto/approval levels)",
+        "Pre-change validation implementation (dependency discovery, risk scoring)",
+        "State backup storage (S3/Blob/GCS with versioning, 100% coverage)",
+        "Rollback test results (quarterly drills, 100% success rate)"
+      ],
+      "scoring": {
+        "yes_if": "Blast radius limits enforced (≤10 per action, ≤100/hour), graduated automation, pre-change validation, 100% state backups, rollback 100% successful",
+        "partial_if": "Limits defined but not hard-coded or state backup coverage <100% or rollback success 90-100%",
+        "no_if": "No blast radius limits or state backups <90% or rollback not tested"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-9",
+      "question": "Do you harden containers and Kubernetes with restricted pod security, network policies, least privilege RBAC, and scanned minimal images?",
+      "verification": [
+        "Review pod security standards (Restricted standard enforced, no privileged containers, non-root user, read-only root FS)",
+        "Check network policies (default deny all, explicit allow required traffic, namespace isolation)",
+        "Verify RBAC hardening (least privilege roles, no cluster-admin unless necessary, service accounts per app)",
+        "Confirm image security (vulnerability scanning with Trivy/Clair/Snyk, minimal base images, signed images)",
+        "Review admission controllers (Pod Security Admission or OPA Gatekeeper enforce policies)"
+      ],
+      "evidence": [
+        "Pod Security Standard enforcement (Restricted standard)",
+        "Kubernetes Network Policy configuration (default deny, explicit allows)",
+        "RBAC audit (least privilege roles, no unnecessary cluster-admin)",
+        "Container image scanning reports (zero critical vulnerabilities)",
+        "Admission controller configuration (policy enforcement)"
+      ],
+      "scoring": {
+        "yes_if": "Restricted pod security enforced, network policies default deny, RBAC least privilege, images scanned with zero critical vulns, admission control active",
+        "partial_if": "Some container hardening but privileged containers allowed or no network policies",
+        "no_if": "No pod security standards or containers run as root or images not scanned"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-10",
+      "question": "Do you harden serverless functions with minimal IAM permissions, VPC integration, encrypted environment variables, and dependency scanning?",
+      "verification": [
+        "Review Lambda/Azure Functions/Cloud Functions IAM (function-specific roles, no wildcards, least privilege)",
+        "Check VPC integration (functions run in private subnet, use VPC endpoints for cloud services)",
+        "Verify environment variable encryption (KMS-encrypted for sensitive configs)",
+        "Confirm timeout and concurrency limits (prevent runaway functions, DoS protection)",
+        "Review dependency scanning (scan Python/Node.js dependencies, minimal dependencies, pinned versions)"
+      ],
+      "evidence": [
+        "Serverless function IAM policy audit (least privilege, no wildcards)",
+        "VPC integration configuration (private subnet deployment)",
+        "Environment variable encryption (KMS-encrypted)",
+        "Function limits (timeout, concurrency, memory configured)",
+        "Dependency scan results (vulnerabilities addressed)"
+      ],
+      "scoring": {
+        "yes_if": "Minimal IAM permissions, VPC integration, encrypted env vars, timeout/concurrency limits set, dependencies scanned",
+        "partial_if": "Some hardening but functions have broad IAM or no VPC integration",
+        "no_if": "Functions have wildcard IAM permissions or plaintext env vars"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-11",
+      "question": "Do you harden databases with network isolation (private subnets, no public IPs), IAM authentication, TDE encryption, and comprehensive audit logging?",
+      "verification": [
+        "Review database network isolation (databases in private subnets, security groups allow only from app tier)",
+        "Check database authentication (IAM auth for RDS/Azure SQL/Cloud SQL, disable default users, strong passwords)",
+        "Verify database encryption (TDE enabled for all databases, customer-managed keys, encrypted backups)",
+        "Confirm SSL/TLS enforcement (force SSL, reject unencrypted connections)",
+        "Review database audit logging (log all connections, auth attempts, queries, forward to SIEM)"
+      ],
+      "evidence": [
+        "Database subnet configuration (private subnets, no public IPs)",
+        "Database authentication configuration (IAM auth, strong password policy)",
+        "Database encryption validation (TDE enabled, CMEK, encrypted backups)",
+        "SSL enforcement configuration (force_ssl parameter)",
+        "Database audit log configuration (comprehensive logging)"
+      ],
+      "scoring": {
+        "yes_if": "Databases in private subnets, IAM auth enabled, TDE with CMEK, SSL enforced, audit logging comprehensive",
+        "partial_if": "Some database hardening but public IPs exist or no IAM auth",
+        "no_if": "Databases publicly accessible or no TDE or no audit logging"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-12",
+      "question": "Do you manage all secrets in centralized secrets manager with zero hardcoded secrets, automated quarterly rotation, and access auditing?",
+      "verification": [
+        "Review secrets manager implementation (AWS Secrets Manager, Azure Key Vault, GCP Secret Manager for all secrets)",
+        "Check zero hardcoded secrets (automated secrets scanning in CI/CD, no credentials in code/config/env vars)",
+        "Verify automated rotation (quarterly rotation for database passwords, API keys, service account keys)",
+        "Confirm secrets access policies (IAM restricts access to specific services/users, least privilege)",
+        "Review secrets access auditing (log all secret retrievals, alert on unusual access)"
+      ],
+      "evidence": [
+        "Secrets manager configuration (all secrets stored centrally)",
+        "Secrets scanning reports (zero hardcoded secrets found)",
+        "Automated rotation configuration (≤90 day rotation)",
+        "Secrets IAM policies (least privilege access)",
+        "Secrets access audit logs"
+      ],
+      "scoring": {
+        "yes_if": "All secrets in manager, zero hardcoded secrets, automated rotation ≤90 days, access restricted and audited",
+        "partial_if": "Secrets manager used but some hardcoded secrets or manual rotation",
+        "no_if": "Hardcoded secrets in code/config or no centralized secret management"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-13",
+      "question": "Do you scan Infrastructure-as-Code for security issues pre-deployment with ≥90% IaC deployment coverage and secure state file management?",
+      "verification": [
+        "Review IaC security scanning (Checkov, tfsec, Terrascan, cfn-lint, cfn_nag integrated in CI/CD)",
+        "Check CI/CD integration (block deployment if critical security issues detected)",
+        "Verify policy as code (OPA/Rego or Sentinel enforce security policies, e.g., all S3 buckets encrypted)",
+        "Confirm IaC coverage (≥90% of infrastructure changes deployed via IaC, not manual console)",
+        "Review Terraform state security (S3 backend with encryption + versioning, DynamoDB locking, IAM restricted access)"
+      ],
+      "evidence": [
+        "IaC scanning tool configuration (Checkov, tfsec in CI/CD)",
+        "CI/CD pipeline security gates (blocks on critical findings)",
+        "Policy as code implementation (OPA/Sentinel policies)",
+        "IaC deployment coverage metrics (≥90% via IaC)",
+        "Terraform state backend security (encryption, locking, access controls)"
+      ],
+      "scoring": {
+        "yes_if": "IaC scanned pre-deployment, CI/CD blocks critical issues, policy as code enforced, ≥90% IaC coverage, state files secure",
+        "partial_if": "IaC scanning exists but not blocking or coverage 70-90%",
+        "no_if": "No IaC scanning or coverage <70% or state files insecure"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-14",
+      "question": "Do you implement SSO with centralized identity provider, disable direct cloud user creation, and maintain break-glass accounts with usage alerting?",
+      "verification": [
+        "Review SSO implementation (centralized IdP: Okta, Azure AD, Google Workspace via SAML/OIDC federation)",
+        "Check direct user creation disabled (all users provisioned via SSO, cloud console user creation blocked)",
+        "Verify break-glass accounts (2-3 emergency local accounts, strong unique passwords in secure vault, offline storage)",
+        "Confirm break-glass alerting (alert on any break-glass account usage, immediate incident investigation)",
+        "Review SSO benefits (centralized MFA, automated deprovisioning, centralized access reviews)"
+      ],
+      "evidence": [
+        "SSO configuration (SAML/OIDC federation to AWS/Azure/GCP)",
+        "Policy blocking direct user creation",
+        "Break-glass account documentation (inventory, password vault)",
+        "Break-glass usage alerts (monitoring configuration)",
+        "SSO user provisioning logs (all users via SSO)"
+      ],
+      "scoring": {
+        "yes_if": "SSO implemented, direct user creation disabled, 2-3 break-glass accounts with strong passwords and usage alerts, centralized access management",
+        "partial_if": "SSO exists but direct user creation still allowed or no break-glass alerting",
+        "no_if": "No SSO or users created directly in cloud or no break-glass accounts"
+      }
+    },
+    {
+      "id": "eh-infrastructure-1-15",
+      "question": "Do you implement continuous compliance scanning with real-time event-driven checks and ≥80% auto-remediation within ≤5 minutes?",
+      "verification": [
+        "Review real-time compliance monitoring (event-driven checks on CloudTrail/Activity Log events)",
+        "Check automated remediation (AWS Config auto-remediation, Azure Policy remediation, GCP Cloud Functions)",
+        "Verify remediation latency (≥80% of compliance violations auto-remediated ≤5 minutes)",
+        "Confirm compliance as code (OPA/Rego, Sentinel, Cloud Custodian policies version controlled)",
+        "Review infrastructure testing (InSpec, Serverspec for automated compliance validation)"
+      ],
+      "evidence": [
+        "Event-driven compliance check configuration",
+        "Automated remediation implementation (Config/Policy/Functions)",
+        "Remediation latency metrics (≥80% within ≤5 min)",
+        "Compliance policies in version control (Git)",
+        "Infrastructure test suite (InSpec/Serverspec)"
+      ],
+      "scoring": {
+        "yes_if": "Real-time event-driven compliance, ≥80% auto-remediation ≤5 min, compliance as code, infrastructure tests automated",
+        "partial_if": "Some automated compliance but remediation 50-80% or latency 5-15 min",
+        "no_if": "Manual compliance checking or auto-remediation <50%"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "IAM Security",
+      "target": "≥90% least privilege, 100% privileged MFA, ≥95% all user MFA, zero root account usage",
+      "measurement": "Least privilege % from IAM analysis; MFA coverage % from user inventory; Root usage count from CloudTrail",
+      "data_source": "IAM Access Analyzer, Azure Access Reviews, GCP IAM Recommender, user inventory, CloudTrail",
+      "frequency": "Continuous monitoring, quarterly IAM reviews",
+      "baseline": "Initial IAM security assessment",
+      "validation": "Independent IAM audit, penetration testing"
+    },
+    {
+      "metric": "Encryption Coverage",
+      "target": "100% data encrypted at rest with CMEK, 100% in transit with TLS 1.2+, zero unencrypted resources",
+      "measurement": "Encryption at rest % from resource scan; TLS version compliance % from config audit; Unencrypted resource count",
+      "data_source": "AWS Config, Azure Policy, GCP Asset Inventory, TLS configuration scans",
+      "frequency": "Continuous monitoring, weekly compliance scans",
+      "baseline": "Initial encryption coverage",
+      "validation": "Automated resource scans, compliance audits"
+    },
+    {
+      "metric": "Network Security",
+      "target": "Zero unnecessary public exposure, 100% compute in private subnets, ≥95% security group rules least privilege",
+      "measurement": "Public IP count (excluding approved LBs); Private subnet coverage %; SG rule compliance % from audit",
+      "data_source": "VPC/VNet configuration, security group analyzer",
+      "frequency": "Continuous monitoring, weekly network audits",
+      "baseline": "Initial network security posture",
+      "validation": "Network penetration testing, external port scans"
+    },
+    {
+      "metric": "Logging and Monitoring",
+      "target": "100% accounts/regions logging, logs retained ≥90 days, 100% high-severity threat detections investigated ≤24h",
+      "measurement": "Logging coverage %; Retention compliance %; High-severity investigation SLA compliance %",
+      "data_source": "CloudTrail, Activity Log, Cloud Audit Logs configuration; SIEM retention; investigation tracking",
+      "frequency": "Continuous monitoring, weekly coverage audits",
+      "baseline": "Initial logging coverage and retention",
+      "validation": "Log delivery validation, SIEM availability checks"
+    },
+    {
+      "metric": "Compliance",
+      "target": "≥95% CIS Benchmark compliance, 100% resources have required tags, zero config drift unresolved ≥7 days",
+      "measurement": "CIS compliance % from automated scans; Tag coverage % from resource inventory; Drift age from detection",
+      "data_source": "CIS compliance scanners, tag compliance reports, drift detection system",
+      "frequency": "Daily CIS scans, continuous tag monitoring, weekly drift reports",
+      "baseline": "Initial CIS and tag compliance baseline",
+      "validation": "Third-party compliance audit"
+    },
+    {
+      "metric": "Remediation Safety",
+      "target": "Zero blast radius violations, 100% remediations have state backups, 100% rollback success in drills",
+      "measurement": "Blast radius violation count; State backup coverage %; Rollback test success rate",
+      "data_source": "Remediation logs, state backup storage, rollback test results",
+      "frequency": "Continuous blast radius monitoring, quarterly rollback drills",
+      "baseline": "Initial remediation safety baseline",
+      "validation": "Quarterly rollback drills, production incident analysis"
+    },
+    {
+      "metric": "Container and Serverless Security",
+      "target": "Zero critical vulnerabilities in container images, 100% functions with least privilege IAM, pod security enforced",
+      "measurement": "Critical vuln count from image scans; Function IAM compliance % from policy audit; Pod security admission rate",
+      "data_source": "Image scanning (Trivy/Clair), function IAM audit, admission controller logs",
+      "frequency": "Every image build, continuous function monitoring, pod admission tracking",
+      "baseline": "Initial container/serverless security baseline",
+      "validation": "Runtime security monitoring, penetration testing"
+    }
+  ]
+}

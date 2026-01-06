@@ -59,13 +59,13 @@ OE         ✓         ✓               ✓          ✓     ✓          ✓
 
 | Metric | Value | Industry Comparison | Assessment |
 |--------|-------|---------------------|------------|
-| **Total Practices** | 78 | OWASP SAMM: 12 | ❌ 6.5× more complex |
-| **Assessment Questions** | 702 | OWASP SAMM: ~150 | ❌ 4.7× more questions |
-| **Assessment Time** | 18-24 hours | OWASP SAMM: 4-8 hours | ❌ 3× longer |
-| **Domains Covered** | 6 | OWASP SAMM: 1 (software) | ✅ More comprehensive |
-| **Maturity Levels** | 3 per practice | OWASP SAMM: 3 per practice | ✅ Consistent |
+| **Total Practices** | 78 |   SAMM: 12 | ❌ 6.5× more complex |
+| **Assessment Questions** | 702 |   SAMM: ~150 | ❌ 4.7× more questions |
+| **Assessment Time** | 18-24 hours |   SAMM: 4-8 hours | ❌ 3× longer |
+| **Domains Covered** | 6 |   SAMM: 1 (software) | ✅ More comprehensive |
+| **Maturity Levels** | 3 per practice |   SAMM: 3 per practice | ✅ Consistent |
 
-**Conclusion:** HAIAMM is **4-6× more complex** than industry standard OWASP SAMM.
+**Conclusion:** HAIAMM is **4-6× more complex** than industry standard   SAMM.
 
 ### 1.3 Cognitive Load Analysis
 
@@ -79,7 +79,7 @@ OE         ✓         ✓               ✓          ✓     ✓          ✓
 **Estimated concepts to master:** ~30 before starting assessment
 
 **Comparison:**
-- **OWASP SAMM:** ~15 concepts (4 business functions, 12 practices, 3 levels)
+- **  SAMM:** ~15 concepts (4 business functions, 12 practices, 3 levels)
 - **NIST Cybersecurity Framework:** ~10 concepts (5 functions, framework tiers)
 - **ISO 27001:** ~20 concepts (10 control domains, PDCA cycle)
 
@@ -121,7 +121,7 @@ OE         ✓         ✓               ✓          ✓     ✓          ✓
 **Grand Total for Initial Rollout:** 96-200 hours (2.4 to 5 person-months)
 
 **Comparison:**
-- **OWASP SAMM:** 40-80 hours (1-2 person-months)
+- **  SAMM:** 40-80 hours (1-2 person-months)
 - **NIST CSF:** 30-60 hours (0.75-1.5 person-months)
 
 **Assessment:** HAIAMM rollout is **2-3× more resource-intensive** than alternatives.
@@ -141,12 +141,11 @@ Analysis of practice applicability across domains:
 | **SR** (Security Requirements) | ⚠️ Partial | MEDIUM - Requirements differ but elicitation same |
 | **SA** (Secure Architecture) | ✅ Yes | LOW - Architecture differs significantly by domain |
 | **DR** (Design Review) | ❌ No | HIGH - Review process same across domains |
-| **CR** (Code/Config Review) | ⚠️ Partial | MEDIUM - Techniques differ but process same |
+| **IR** (Implementation Review) | ⚠️ Partial | MEDIUM - Techniques differ but process same |
 | **ST** (Security Testing) | ⚠️ Partial | MEDIUM - Test types differ but approach same |
 | **IM** (Issue Management) | ❌ No | HIGH - Issue tracking process domain-agnostic |
 | **EH** (Environment Hardening) | ✅ Yes | LOW - Hardening techniques domain-specific |
 | **ML** (Model Lifecycle) | ✅ Yes | LOW - Model management domain-specific |
-| **OE** (Operational Enablement) | ❌ No | HIGH - Operations processes domain-agnostic |
 
 **Redundancy Summary:**
 - **HIGH redundancy:** 4 practices (31%) - Could be domain-agnostic
@@ -248,7 +247,7 @@ Analysis of practice applicability across domains:
 - ✅ Dramatically reduced complexity
 - ✅ Easier to comprehend (13 vs 78 concepts)
 - ✅ Faster rollout (4-6 hours vs 18-24 hours)
-- ✅ Aligns with OWASP SAMM structure (familiar to security teams)
+- ✅ Aligns with   SAMM structure (familiar to security teams)
 - ✅ Reduces redundant questions
 
 **Cons:**
@@ -607,7 +606,7 @@ Add adaptive logic to all tiers:
 **Qualitative Benefits:**
 - Improved user satisfaction (easier to start)
 - Better word-of-mouth (less intimidating to recommend)
-- Stronger competitive position vs. OWASP SAMM (equally deep, faster start)
+- Stronger competitive position vs.   SAMM (equally deep, faster start)
 
 ---
 
@@ -812,7 +811,7 @@ ALTER TABLE assessments ADD COLUMN questions_answered INTEGER;
 ### Final Answer to User Questions
 
 **"Do you think it is too complex?"**
-> **Yes.** 702 questions and 18-24 hours is 4-6× more complex than industry standard OWASP SAMM. This is addressable.
+> **Yes.** 702 questions and 18-24 hours is 4-6× more complex than industry standard SAMM. This is addressable.
 
 **"Hard to comprehend?"**
 > **Moderately.** The matrix structure (13 practices × 6 domains) requires understanding ~30 concepts before starting. The framework itself is well-designed, but the sheer scope is overwhelming. Tiered approach simplifies initial comprehension.

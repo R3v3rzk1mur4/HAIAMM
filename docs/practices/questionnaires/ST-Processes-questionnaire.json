@@ -1,0 +1,360 @@
+{
+  "practice": "ST",
+  "domain": "processes",
+  "name": "Security Testing - Processes Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "st-processes-1-1",
+      "question": "Do you test ML alert triage classification accuracy with a balanced dataset of ≥1,000 labeled alerts?",
+      "verification": [
+        "Review test dataset composition (≥1,000 alerts, 50% true positives, 50% false positives/benign, expert-labeled)",
+        "Check that ML classifier is tested against this dataset with predictions compared to expert labels",
+        "Verify metrics calculated: accuracy, precision (≥70%), recall (≥95%), F1-score (≥80%), confusion matrix",
+        "Confirm edge cases tested: novel attack types, adversarial alerts, noisy/malformed data"
+      ],
+      "evidence": [
+        "Test dataset with ≥1,000 labeled alerts showing distribution (TP/FP/benign)",
+        "Classification test results showing precision ≥70%, recall ≥95%, F1 ≥80%",
+        "Confusion matrix analysis identifying classification errors",
+        "Edge case test results (zero-day, adversarial, noisy alerts)"
+      ],
+      "scoring": {
+        "yes_if": "Dataset ≥1,000 alerts, balanced, all metrics meet targets (P≥70%, R≥95%, F1≥80%), edge cases tested",
+        "partial_if": "Dataset exists but <1,000 samples or metrics below targets, limited edge case testing",
+        "no_if": "No classification accuracy testing or dataset <500 alerts"
+      }
+    },
+    {
+      "id": "st-processes-1-2",
+      "question": "Do you test AI severity scoring accuracy against expert assessments?",
+      "verification": [
+        "Review test dataset of ≥500 alerts with expert-assigned severity scores",
+        "Check that AI severity scores are compared to expert scores",
+        "Verify ≥85% agreement within ±10 points on 0-100 scale",
+        "Confirm severity tier agreement ≥90% (Critical/High/Medium/Low)",
+        "Test context-based adjustments (production server = higher severity)"
+      ],
+      "evidence": [
+        "Test dataset with ≥500 alerts and expert severity assignments",
+        "Severity scoring test results showing ≥85% agreement (±10 points)",
+        "Severity tier confusion matrix showing ≥90% tier agreement",
+        "Context adjustment test results (production vs test environment scoring)"
+      ],
+      "scoring": {
+        "yes_if": "Dataset ≥500 alerts, ≥85% score agreement, ≥90% tier agreement, context testing performed",
+        "partial_if": "Testing exists but agreement below targets or no context testing",
+        "no_if": "No severity scoring testing or very limited dataset (<100 alerts)"
+      }
+    },
+    {
+      "id": "st-processes-1-3",
+      "question": "Do you test alert prioritization logic including SLA escalation and starvation prevention?",
+      "verification": [
+        "Test high-severity + high-criticality asset alerts escalate within ≤5 minutes",
+        "Verify critical alerts bypass queue for immediate assignment",
+        "Test low-priority alert escalation when age >24 hours (no starvation)",
+        "Confirm priority queue reviewed over time to ensure no alerts stuck indefinitely"
+      ],
+      "evidence": [
+        "Prioritization test results showing high-priority escalation ≤5 minutes",
+        "Critical alert bypass test results (queue position verification)",
+        "Starvation prevention test results (old low-priority alerts eventually escalate)",
+        "Priority queue audit logs showing no alerts indefinitely delayed"
+      ],
+      "scoring": {
+        "yes_if": "High-priority ≤5min, critical bypass works, starvation prevention validated, queue audit clean",
+        "partial_if": "Priority logic works but escalation timing not optimal or limited starvation testing",
+        "no_if": "No prioritization testing or alerts can starve indefinitely"
+      }
+    },
+    {
+      "id": "st-processes-1-4",
+      "question": "Do you validate blast radius limits are enforced by attempting over-limit actions?",
+      "verification": [
+        "Test attempts to execute playbooks exceeding limits (>50 IPs, >20 accounts, >5 hosts)",
+        "Verify 100% of limit violations blocked before execution",
+        "Confirm error logged and alert sent when limit exceeded",
+        "Test all limit types: network blocks, account disables, host isolations, rate limits (actions/hour, actions/day)"
+      ],
+      "evidence": [
+        "Blast radius limit testing logs showing over-limit attempts blocked (0% executed)",
+        "Error logs showing rejection messages for limit violations",
+        "Alert configuration and sample alerts for limit violation attempts",
+        "Rate limit test results (verify actions/hour and actions/day limits enforced)"
+      ],
+      "scoring": {
+        "yes_if": "100% of over-limit attempts blocked, all limit types tested, errors logged, alerts triggered",
+        "partial_if": "Most limits enforced but some limit types not tested or occasional bypass",
+        "no_if": "Limit enforcement not tested or limits can be bypassed"
+      }
+    },
+    {
+      "id": "st-processes-1-5",
+      "question": "Do you test automated rollback for all reversible actions with 100% success rate?",
+      "verification": [
+        "Test rollback for all action types: block IP → unblock, disable account → enable, isolate host → de-isolate, add firewall rule → remove",
+        "Execute action, inject failure, verify rollback executes successfully",
+        "Confirm system state restored to pre-action state (no residual changes)",
+        "Test irreversible actions flagged correctly (delete files, reset passwords cannot rollback)"
+      ],
+      "evidence": [
+        "Rollback test matrix covering all reversible action types",
+        "Rollback success rate results (target: 100% successful)",
+        "Post-rollback validation logs showing state restoration",
+        "Irreversible action identification and extra approval requirement validation"
+      ],
+      "scoring": {
+        "yes_if": "All reversible action types tested, 100% rollback success, state validated, irreversible actions protected",
+        "partial_if": "≥80% rollback success or not all action types tested",
+        "no_if": "Rollback testing <80% success or major action types not tested"
+      }
+    },
+    {
+      "id": "st-processes-1-6",
+      "question": "Do you test dry-run mode accuracy by comparing simulation to actual execution?",
+      "verification": [
+        "Run playbooks in simulation mode (no actual changes)",
+        "Execute same playbooks in production and compare results",
+        "Verify simulation ≥95% accurate vs actual execution",
+        "Confirm high-risk changes correctly identified in simulation (delete files, disable critical accounts, isolate production servers)"
+      ],
+      "evidence": [
+        "Dry-run test results for ≥10 playbooks",
+        "Simulation vs actual execution comparison showing ≥95% accuracy",
+        "High-risk change identification test results",
+        "Impact assessment accuracy verification (estimated vs actual affected users/services)"
+      ],
+      "scoring": {
+        "yes_if": "Dry-run implemented, ≥95% accuracy vs actual, high-risk changes correctly identified",
+        "partial_if": "Dry-run exists but accuracy 70-95% or high-risk identification incomplete",
+        "no_if": "No dry-run mode or accuracy <70%"
+      }
+    },
+    {
+      "id": "st-processes-1-7",
+      "question": "Do you test post-change verification and automated rollback on failure?",
+      "verification": [
+        "Test successful actions with verification (e.g., IP blocked → verify in firewall)",
+        "Test failed actions with verification (e.g., firewall API error → IP not blocked detected)",
+        "Verify failed changes detected within ≤1 minute and rollback triggered",
+        "Test verification timeout handling (≤30 seconds, timeout = failure → rollback)"
+      ],
+      "evidence": [
+        "Post-change verification test results for all action types",
+        "Failure detection test logs showing detection within ≤1 minute",
+        "Automated rollback trigger test results",
+        "Verification timeout test results (timeout triggers rollback)"
+      ],
+      "scoring": {
+        "yes_if": "Verification tested for all action types, failure detection ≤1min, auto-rollback triggered, timeout handling validated",
+        "partial_if": "Verification works but detection slow (>1min) or not all action types tested",
+        "no_if": "No post-change verification or no automated rollback on failure"
+      }
+    },
+    {
+      "id": "st-processes-1-8",
+      "question": "Do you test kill switch functionality to halt all automation within ≤10 seconds?",
+      "verification": [
+        "Trigger kill switch during active playbook execution",
+        "Verify all playbook executions halt within ≤10 seconds",
+        "Confirm new playbooks blocked from starting",
+        "Test in-flight actions complete current step gracefully (no corruption)",
+        "Verify re-enable requires manager approval and root cause analysis"
+      ],
+      "evidence": [
+        "Kill switch test logs showing halt time ≤10 seconds",
+        "Verification that new playbooks blocked during kill switch active",
+        "Graceful shutdown validation (no workflow corruption)",
+        "Re-enable approval workflow documentation and test results"
+      ],
+      "scoring": {
+        "yes_if": "Kill switch halts all automation ≤10s, new playbooks blocked, graceful shutdown, re-enable requires approval + RCA",
+        "partial_if": "Kill switch works but halt time >10s or re-enable process not rigorous",
+        "no_if": "No kill switch or kill switch doesn't stop all automation"
+      }
+    },
+    {
+      "id": "st-processes-1-9",
+      "question": "Do you conduct adversarial testing for alert manipulation and orchestration abuse?",
+      "verification": [
+        "Test crafted alerts designed to evade detection or trigger false positives",
+        "Verify ≥85% of manipulation attempts detected",
+        "Test orchestration abuse scenarios (trigger excessive remediation, unauthorized actions)",
+        "Confirm all abuse attempts blocked and alerts generated"
+      ],
+      "evidence": [
+        "Adversarial alert test results showing ≥85% detection rate",
+        "Alert manipulation techniques tested (evasion, false positive injection)",
+        "Orchestration abuse test results (DoS attempts, unauthorized action attempts)",
+        "Abuse detection alerts and blocking evidence"
+      ],
+      "scoring": {
+        "yes_if": "Adversarial testing conducted, ≥85% manipulation detected, abuse attempts blocked 100%, alerts generated",
+        "partial_if": "Limited adversarial testing or detection rate 60-85%",
+        "no_if": "No adversarial testing or detection <60%"
+      }
+    },
+    {
+      "id": "st-processes-1-10",
+      "question": "Do you test approval workflow enforcement and attempt bypass scenarios?",
+      "verification": [
+        "Test that 100% of high-risk actions trigger approval workflow",
+        "Attempt to bypass approval (API manipulation, playbook modification, privilege escalation)",
+        "Verify all bypass attempts fail and are logged/alerted",
+        "Test approval timeout handling and escalation"
+      ],
+      "evidence": [
+        "Approval enforcement test results (100% high-risk actions require approval)",
+        "Bypass attempt test logs showing all attempts blocked",
+        "Bypass detection alerts and security event logs",
+        "Approval timeout and escalation test results"
+      ],
+      "scoring": {
+        "yes_if": "100% approval enforcement, zero successful bypasses, all bypass attempts logged/alerted",
+        "partial_if": "Approval generally enforced but bypass testing limited or some edge cases not covered",
+        "no_if": "Approval can be bypassed or no bypass testing conducted"
+      }
+    },
+    {
+      "id": "st-processes-1-11",
+      "question": "Do you test all security tool integrations with ≥80% coverage?",
+      "verification": [
+        "Test integrations for: SIEM, EDR, firewall, cloud, ticketing (≥80% of organization's tools)",
+        "Verify all integrations work correctly (successful API calls, correct data exchange)",
+        "Test error handling (API timeouts, auth failures, rate limiting, service unavailable)",
+        "Confirm graceful degradation when tools unavailable"
+      ],
+      "evidence": [
+        "Integration test matrix showing ≥80% tool coverage",
+        "Integration test results (successful operations for each tool)",
+        "Error handling test results (timeouts, failures handled gracefully)",
+        "Graceful degradation test results (workflows adapt to unavailable tools)"
+      ],
+      "scoring": {
+        "yes_if": "≥80% tools tested, all work correctly, comprehensive error handling, graceful degradation validated",
+        "partial_if": "60-80% tool coverage or limited error handling testing",
+        "no_if": "<60% tool coverage or integrations not systematically tested"
+      }
+    },
+    {
+      "id": "st-processes-1-12",
+      "question": "Do you test SOAR performance meeting targets for throughput, MTTR, and automation rate?",
+      "verification": [
+        "Test alert processing throughput (target: ≥1,000 alerts/hour)",
+        "Measure MTTR in testing (target: ≤10 hours vs manual baseline)",
+        "Verify automation rate (≥70% auto-triaged, ≥50% auto-remediated)",
+        "Test playbook execution success rate (target: ≥95%)"
+      ],
+      "evidence": [
+        "Performance test results showing throughput ≥1,000 alerts/hour",
+        "MTTR measurement comparing automated vs manual response",
+        "Automation rate metrics from testing (% auto-triaged, % auto-remediated)",
+        "Playbook success rate statistics (≥95% target)"
+      ],
+      "scoring": {
+        "yes_if": "All performance targets met (≥1,000 alerts/h, ≤10h MTTR, ≥70% auto-triaged, ≥50% auto-remediated, ≥95% success)",
+        "partial_if": "Some targets met but not all, or performance inconsistent",
+        "no_if": "Performance not tested or multiple targets missed"
+      }
+    },
+    {
+      "id": "st-processes-1-13",
+      "question": "Do you conduct resilience testing including service failure, queue overflow, and tool unavailability?",
+      "verification": [
+        "Test service failure recovery (kill orchestration services, measure recovery time ≤5 minutes)",
+        "Test queue overflow handling under alert spikes (verify no alert loss)",
+        "Test behavior when security tools unavailable (workflows adapt, alerts generated)",
+        "Verify no workflow data loss during failures"
+      ],
+      "evidence": [
+        "Service failure test results showing recovery ≤5 minutes",
+        "Queue overflow test results (alert spike handling, no data loss)",
+        "Tool unavailability test results (workflow adaptation, alerting)",
+        "Data integrity verification after failure tests (no workflow corruption)"
+      ],
+      "scoring": {
+        "yes_if": "All resilience tests passed (≤5min recovery, no data loss, queue handles spikes, tool unavailability handled)",
+        "partial_if": "Most resilience tests passed but recovery >5min or some data loss scenarios",
+        "no_if": "Limited resilience testing or system doesn't recover from failures"
+      }
+    },
+    {
+      "id": "st-processes-1-14",
+      "question": "Do you test human oversight mechanisms including approval workflows, overrides, and audit capabilities?",
+      "verification": [
+        "Test approval workflow routing (correct reviewers receive requests, escalation after timeout)",
+        "Test analyst override mechanism (analysts can override AI decisions, overrides logged)",
+        "Test spot-check auditing (≥10% random sample of actions auditable)",
+        "Verify audit system captures all actions with sufficient detail"
+      ],
+      "evidence": [
+        "Approval workflow test results (routing, escalation)",
+        "Override mechanism test results (successful overrides, logging validation)",
+        "Spot-check audit test results (≥10% sample coverage)",
+        "Audit log completeness verification (100% actions logged with detail)"
+      ],
+      "scoring": {
+        "yes_if": "Approval workflows tested and functional, overrides work and logged, audit coverage ≥10%, all actions captured",
+        "partial_if": "Mechanisms exist but testing incomplete or audit coverage <10%",
+        "no_if": "Human oversight mechanisms not tested or non-functional"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Triage Accuracy",
+      "target": "≥95% true positive detection (recall), ≥70% precision, ≥80% F1-score",
+      "measurement": "Recall = TP / (TP + FN); Precision = TP / (TP + FP); F1 = 2 × (Precision × Recall) / (Precision + Recall)",
+      "data_source": "Alert triage test dataset (≥1,000 labeled alerts)",
+      "frequency": "Monthly testing with updated dataset",
+      "baseline": "Pre-AI baseline (rule-based triage accuracy) or initial AI model performance",
+      "validation": "Cross-validation (k-fold), testing on multiple time periods"
+    },
+    {
+      "metric": "Safety - Zero Production Outages",
+      "target": "Zero production outages from AI automation in testing, 100% blast radius limits enforced, 100% rollback success rate",
+      "measurement": "Production outage count = 0; Blast radius enforcement = (Actions within limits / Total actions) × 100; Rollback success = (Successful rollbacks / Total rollbacks) × 100",
+      "data_source": "Blast radius test logs, rollback test results, production incident tracking",
+      "frequency": "Continuous blast radius testing, quarterly rollback tests",
+      "baseline": "Zero tolerance for production outages from automation",
+      "validation": "Red team testing, quarterly safety audits"
+    },
+    {
+      "metric": "Performance - MTTR and Automation Rate",
+      "target": "MTTR ≤10 hours (vs. 40 hours manual baseline), ≥70% automation rate, ≥1,000 alerts/hour throughput",
+      "measurement": "MTTR = Average (Containment time - Alert time); Automation rate = (Automated alerts / Total alerts) × 100; Throughput = Alerts processed / Hour",
+      "data_source": "Performance test results, MTTR measurements, throughput load tests",
+      "frequency": "Quarterly performance testing, continuous production monitoring",
+      "baseline": "Manual response MTTR (40 hours), pre-automation alert handling throughput",
+      "validation": "Compare automated vs manual MTTR, throughput load testing"
+    },
+    {
+      "metric": "Integration Reliability",
+      "target": "≥99.9% tool integration uptime, ≥90% of integrations tested",
+      "measurement": "Integration uptime = (Available time / Total time) × 100 per integration; Test coverage = (Tested integrations / Total integrations) × 100",
+      "data_source": "Integration monitoring logs, integration test matrix",
+      "frequency": "Continuous integration monitoring, quarterly integration testing",
+      "baseline": "Initial integration availability baseline",
+      "validation": "Integration health checks, error rate monitoring"
+    },
+    {
+      "metric": "Adversarial Robustness",
+      "target": "≥85% adversarial attack detection, zero successful approval bypasses",
+      "measurement": "Adversarial detection rate = (Detected attacks / Total attack attempts) × 100; Bypass success count = 0",
+      "data_source": "Adversarial testing logs, red team exercise results",
+      "frequency": "Quarterly adversarial testing, annual red team exercises",
+      "baseline": "Initial adversarial testing baseline",
+      "validation": "Independent red team validation"
+    },
+    {
+      "metric": "Resilience",
+      "target": "System recovers within ≤5 minutes from all tested failures, zero workflow data loss",
+      "measurement": "Recovery time = Time from failure to full service restoration; Data loss count = 0",
+      "data_source": "Chaos engineering test results, failure injection logs",
+      "frequency": "Quarterly resilience testing (chaos engineering)",
+      "baseline": "Initial recovery time baseline",
+      "validation": "Multiple failure scenario testing, data integrity verification"
+    }
+  ]
+}

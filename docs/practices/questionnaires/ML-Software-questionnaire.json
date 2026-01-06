@@ -1,0 +1,327 @@
+{
+  "practice": "ML",
+  "domain": "software",
+  "name": "Monitoring & Logging - Software Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ml-software-1-1",
+      "question": "Do you log all authentication and authorization events including login attempts, permission checks, and access denials?",
+      "verification": [
+        "Review login event logging (successful, failed, source IP, timestamp)",
+        "Check permission check logging (what accessed, who, granted/denied)",
+        "Verify access denial logging (attempted resource, user, reason)",
+        "Confirm API key usage logging (which key, which endpoint, timestamp)",
+        "Review log retention (≥90 days active, ≥1 year archived)"
+      ],
+      "evidence": [
+        "Authentication logs (login attempts, outcomes)",
+        "Authorization logs (permission checks, denials)",
+        "API key usage audit logs",
+        "Log retention policy and verification of compliance"
+      ],
+      "scoring": {
+        "yes_if": "All auth events logged (login, permission checks, denials, API usage), retention ≥90 days active + 1 year archive",
+        "partial_if": "Auth logging exists but incomplete (missing denials or API usage), or retention <90 days",
+        "no_if": "No authentication logging or retention <30 days"
+      }
+    },
+    {
+      "id": "ml-software-1-2",
+      "question": "Do you log AI model inference requests and predictions (privacy-preserving) with performance metrics?",
+      "verification": [
+        "Review inference request logging (timestamp, code snippet hash, not full code for privacy)",
+        "Check prediction logging (vulnerability type, severity, confidence score)",
+        "Verify inference latency logging (time per prediction)",
+        "Confirm model version logging (which model version served request)",
+        "Review privacy protection (no sensitive code logged)"
+      ],
+      "evidence": [
+        "Inference logs (requests, predictions, latency)",
+        "Privacy controls (code hashing, PII removal)",
+        "Model version tracking logs",
+        "Latency metrics per inference"
+      ],
+      "scoring": {
+        "yes_if": "Inference logged (requests, predictions, latency, model version), privacy-preserving (hashing/sanitization)",
+        "partial_if": "Inference logged but no privacy protection or missing latency metrics",
+        "no_if": "No inference logging or sensitive code logged plaintext"
+      }
+    },
+    {
+      "id": "ml-software-1-3",
+      "question": "Do you monitor model performance metrics including accuracy, precision, recall, and drift detection in production?",
+      "verification": [
+        "Review accuracy monitoring (continuous tracking vs baseline)",
+        "Check precision/recall monitoring (detect degradation)",
+        "Verify drift detection (distribution shift in inputs or predictions)",
+        "Confirm alerts on degradation (accuracy drops >5%, drift detected)",
+        "Review retraining triggers based on performance metrics"
+      ],
+      "evidence": [
+        "Model performance dashboard (accuracy, precision, recall over time)",
+        "Drift detection configuration and alerts",
+        "Performance degradation alerts (accuracy threshold violations)",
+        "Retraining trigger logs (when model retrained based on metrics)"
+      ],
+      "scoring": {
+        "yes_if": "Accuracy/precision/recall monitored continuously, drift detection active, alerts on degradation, retraining triggered",
+        "partial_if": "Performance monitored but no drift detection or manual retraining only",
+        "no_if": "No production model performance monitoring"
+      }
+    },
+    {
+      "id": "ml-software-1-4",
+      "question": "Do you log security-relevant events including vulnerability detections, false positives, and security incidents?",
+      "verification": [
+        "Review vulnerability detection logging (what found, where, severity, when)",
+        "Check false positive logging (user feedback, suppression reasons)",
+        "Verify security incident logging (unauthorized access, anomalies, abuse)",
+        "Confirm alert generation logging (what alerts triggered, who received)",
+        "Review incident response logging (actions taken, resolution)"
+      ],
+      "evidence": [
+        "Vulnerability detection logs (findings with context)",
+        "False positive feedback logs (user suppressions)",
+        "Security incident logs (unauthorized access, anomalies)",
+        "Alert logs (generated alerts, recipients)",
+        "Incident response audit trail"
+      ],
+      "scoring": {
+        "yes_if": "All security events logged (detections, FPs, incidents, alerts, responses), comprehensive context",
+        "partial_if": "Security logging exists but missing false positive tracking or incident response",
+        "no_if": "No security event logging"
+      }
+    },
+    {
+      "id": "ml-software-1-5",
+      "question": "Do you monitor system performance including latency (p50, p95, p99), throughput, and resource utilization?",
+      "verification": [
+        "Review latency monitoring (p50, p95, p99 percentiles)",
+        "Check throughput monitoring (requests per second)",
+        "Verify resource utilization (CPU, memory, GPU usage)",
+        "Confirm error rate monitoring (4xx, 5xx errors)",
+        "Review SLA compliance tracking (latency SLA: p95 ≤100ms)"
+      ],
+      "evidence": [
+        "Performance dashboard (latency percentiles, throughput)",
+        "Resource utilization metrics (CPU, memory, GPU)",
+        "Error rate tracking (HTTP status codes)",
+        "SLA compliance reports (latency target vs actual)"
+      ],
+      "scoring": {
+        "yes_if": "Latency percentiles monitored, throughput tracked, resource utilization visible, error rates tracked, SLA monitored",
+        "partial_if": "Performance monitored but missing percentiles or resource utilization",
+        "no_if": "No performance monitoring or only average latency (no percentiles)"
+      }
+    },
+    {
+      "id": "ml-software-1-6",
+      "question": "Do you have centralized log aggregation with structured logging and searchability?",
+      "verification": [
+        "Review log aggregation system (ELK Stack, Splunk, CloudWatch Logs, Datadog)",
+        "Check structured logging (JSON format with standard fields)",
+        "Verify log searchability (full-text search, filtering by fields)",
+        "Confirm log correlation (trace IDs, request IDs across services)",
+        "Review log parsing and indexing performance"
+      ],
+      "evidence": [
+        "Log aggregation platform configuration",
+        "Structured log examples (JSON with standard schema)",
+        "Search capabilities demonstration",
+        "Distributed tracing implementation (trace IDs)",
+        "Log ingestion and indexing performance metrics"
+      ],
+      "scoring": {
+        "yes_if": "Centralized aggregation, structured JSON logs, searchable, correlated with trace IDs, performant",
+        "partial_if": "Aggregation exists but unstructured logs or limited searchability",
+        "no_if": "No centralized logging or logs in flat files only"
+      }
+    },
+    {
+      "id": "ml-software-1-7",
+      "question": "Do you have real-time monitoring dashboards for security, performance, and system health?",
+      "verification": [
+        "Review security dashboard (active findings, high-severity alerts, incident status)",
+        "Check performance dashboard (latency, throughput, error rates, SLA compliance)",
+        "Verify health dashboard (service uptime, component status, dependency health)",
+        "Confirm model dashboard (accuracy trends, inference volume, drift alerts)",
+        "Review dashboard accessibility (role-based access, on-call visibility)"
+      ],
+      "evidence": [
+        "Security monitoring dashboard screenshots/access",
+        "Performance dashboard with real-time metrics",
+        "System health dashboard (service status)",
+        "Model performance dashboard",
+        "Dashboard access controls (RBAC)"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive dashboards (security, performance, health, model), real-time updates, RBAC access",
+        "partial_if": "Dashboards exist but not real-time or missing model monitoring",
+        "no_if": "No monitoring dashboards"
+      }
+    },
+    {
+      "id": "ml-software-1-8",
+      "question": "Do you have automated alerting for critical events with appropriate escalation and on-call integration?",
+      "verification": [
+        "Review alert configuration (critical: service down, high: performance degradation, medium: warnings)",
+        "Check alerting channels (PagerDuty, email, Slack, phone)",
+        "Verify alert escalation (tiered escalation, escalation timeouts)",
+        "Confirm on-call integration (rosters, schedules, coverage)",
+        "Review alert noise management (deduplication, correlation, silencing)"
+      ],
+      "evidence": [
+        "Alert rule configuration (thresholds, severity levels)",
+        "Alerting channel setup (PagerDuty, Slack integrations)",
+        "Escalation policy documentation",
+        "On-call rotation schedule and coverage",
+        "Alert noise metrics (alert volume, page frequency)"
+      ],
+      "scoring": {
+        "yes_if": "Automated alerts (critical/high/medium), multi-channel, escalation policies, on-call integration, noise managed",
+        "partial_if": "Alerting exists but no escalation or limited channels",
+        "no_if": "No automated alerting or email-only alerts"
+      }
+    },
+    {
+      "id": "ml-software-1-9",
+      "question": "Do you maintain audit trails for compliance with immutable logging and tamper protection?",
+      "verification": [
+        "Review audit trail scope (all security-relevant actions logged)",
+        "Check log immutability (write-once storage, log signing)",
+        "Verify tamper protection (checksums, cryptographic hashing)",
+        "Confirm audit log retention (≥7 years for security/compliance logs)",
+        "Review audit log access controls (restricted access, access audited)"
+      ],
+      "evidence": [
+        "Audit trail documentation (what's logged)",
+        "Immutable storage configuration (S3 Object Lock, WORM storage)",
+        "Log integrity verification (signing, checksums)",
+        "Compliance retention policy (7+ years)",
+        "Audit log access controls and access logs"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive audit trail, immutable storage, tamper protection, ≥7 year retention, access restricted and audited",
+        "partial_if": "Audit logging exists but not immutable or retention <7 years",
+        "no_if": "No audit trail or logs can be deleted/modified"
+      }
+    },
+    {
+      "id": "ml-software-1-10",
+      "question": "Do you monitor and log third-party integration health and API usage?",
+      "verification": [
+        "Review integration health monitoring (IDE, CI/CD, SCM integration status)",
+        "Check API usage logging (which integrations, call volume, errors)",
+        "Verify integration error tracking (failures, retries, circuit breaker state)",
+        "Confirm dependency monitoring (external service health)",
+        "Review integration SLA tracking (uptime, latency per integration)"
+      ],
+      "evidence": [
+        "Integration health dashboard",
+        "API usage logs (per integration)",
+        "Integration error logs (failures, circuit breaker events)",
+        "Dependency health monitoring",
+        "Integration SLA reports"
+      ],
+      "scoring": {
+        "yes_if": "All integrations monitored (health, usage, errors, dependencies), SLA tracked",
+        "partial_if": "Integration monitoring exists but limited error tracking or no SLA",
+        "no_if": "No integration monitoring"
+      }
+    },
+    {
+      "id": "ml-software-1-11",
+      "question": "Do you implement distributed tracing for end-to-end request tracking across services?",
+      "verification": [
+        "Review tracing implementation (OpenTelemetry, Jaeger, Zipkin)",
+        "Check trace coverage (all services instrumented)",
+        "Verify trace sampling strategy (100% for errors, sampling for normal traffic)",
+        "Confirm trace visualization (flame graphs, dependency maps)",
+        "Review trace retention (recent traces queryable for debugging)"
+      ],
+      "evidence": [
+        "Distributed tracing platform (OpenTelemetry, Jaeger)",
+        "Service instrumentation coverage (all services traced)",
+        "Trace sampling configuration",
+        "Trace visualization examples (flame graphs)",
+        "Trace storage and retention policy"
+      ],
+      "scoring": {
+        "yes_if": "Distributed tracing implemented (OpenTelemetry/Jaeger), all services instrumented, sampling configured, visualizations available",
+        "partial_if": "Tracing exists but incomplete coverage or no sampling strategy",
+        "no_if": "No distributed tracing"
+      }
+    },
+    {
+      "id": "ml-software-1-12",
+      "question": "Do you conduct log analysis for security incidents, anomalies, and trend identification?",
+      "verification": [
+        "Review log analysis practices (regular review, automated analysis)",
+        "Check anomaly detection (unusual patterns, spikes, outliers)",
+        "Verify security incident investigation (log correlation, timeline reconstruction)",
+        "Confirm trend analysis (performance trends, error trends, usage patterns)",
+        "Review SIEM integration (logs fed to SIEM for correlation)"
+      ],
+      "evidence": [
+        "Log analysis procedures documentation",
+        "Anomaly detection configuration (ML-based or rule-based)",
+        "Security incident investigation examples (using logs)",
+        "Trend analysis reports",
+        "SIEM integration (log forwarding)"
+      ],
+      "scoring": {
+        "yes_if": "Regular log analysis, anomaly detection active, incident investigation uses logs, trend analysis, SIEM integration",
+        "partial_if": "Log analysis ad-hoc or limited anomaly detection",
+        "no_if": "Logs collected but not analyzed"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Log Coverage",
+      "target": "100% of critical events logged (auth, security, model inference, errors)",
+      "measurement": "Coverage audit = (Logged event types / Critical event types) × 100",
+      "data_source": "Log inventory, event catalog",
+      "frequency": "Quarterly coverage audit",
+      "baseline": "Initial log coverage assessment",
+      "validation": "Sample verification of event logging"
+    },
+    {
+      "metric": "Monitoring Coverage",
+      "target": "100% of services monitored (performance, health, security), ≤5min MTTD for critical issues",
+      "measurement": "Service monitoring % = (Monitored services / Total services) × 100; MTTD from incident timestamps",
+      "data_source": "Monitoring platform, incident logs",
+      "frequency": "Monthly monitoring coverage check, continuous MTTD tracking",
+      "baseline": "Initial service inventory and monitoring baseline",
+      "validation": "Incident postmortems validate detection time"
+    },
+    {
+      "metric": "Alert Quality",
+      "target": "≥80% precision (true alerts / total alerts), ≤5% missed critical events",
+      "measurement": "Alert precision from on-call feedback; Missed event rate from postmortems",
+      "data_source": "Alert logs, on-call incident reports",
+      "frequency": "Monthly alert quality review",
+      "baseline": "Initial alert precision baseline",
+      "validation": "On-call team feedback, incident reviews"
+    },
+    {
+      "metric": "Performance SLA",
+      "target": "p95 latency ≤100ms, ≥99.9% uptime, SLA compliance ≥99%",
+      "measurement": "Latency p95 from metrics; Uptime % = (Available time / Total time) × 100; SLA compliance from monitoring",
+      "data_source": "Performance monitoring platform",
+      "frequency": "Continuous monitoring, monthly SLA reports",
+      "baseline": "Initial performance and uptime baseline",
+      "validation": "Independent uptime monitoring (external)"
+    },
+    {
+      "metric": "Audit Trail Integrity",
+      "target": "100% audit log integrity verified, zero tampering detected, ≥7 year retention compliance",
+      "measurement": "Integrity verification % = (Verified logs / Total logs) × 100; Tamper detection count; Retention compliance check",
+      "data_source": "Log integrity verification system, retention audits",
+      "frequency": "Weekly integrity verification, quarterly retention audits",
+      "baseline": "Initial audit log integrity baseline",
+      "validation": "Third-party audit, compliance assessments"
+    }
+  ]
+}

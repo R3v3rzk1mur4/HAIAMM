@@ -1,0 +1,322 @@
+{
+  "practice": "IM",
+  "domain": "software",
+  "name": "Issue Management - Software Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "im-software-1-1",
+      "question": "Do you perform continuous vulnerability scanning with daily CVE monitoring and assessment within SLA (critical ≤24h, high ≤7d)?",
+      "verification": [
+        "Review CVE monitoring sources (NVD, vendor advisories, security research)",
+        "Check scanning frequency (continuous or at least daily)",
+        "Verify CVE assessment SLA compliance (critical ≤24h, high ≤7d)",
+        "Confirm vulnerability database up-to-date (latest CVEs)",
+        "Review false positive management (suppression workflow)"
+      ],
+      "evidence": [
+        "CVE monitoring configuration (feeds, alerts)",
+        "Vulnerability scan schedule and results",
+        "CVE assessment tracking (time to assessment)",
+        "SLA compliance metrics (≥95% within targets)",
+        "False positive suppression documentation"
+      ],
+      "scoring": {
+        "yes_if": "Daily CVE monitoring, continuous/daily scanning, ≥95% assessments within SLA (critical ≤24h, high ≤7d), FP management",
+        "partial_if": "Scanning exists but weekly only or SLA compliance 70-95%",
+        "no_if": "No continuous scanning or SLA compliance <70%"
+      }
+    },
+    {
+      "id": "im-software-1-2",
+      "question": "Do you scan dependencies for vulnerabilities with automated remediation guidance?",
+      "verification": [
+        "Review dependency scanning tools (Snyk, Dependabot, WhiteSource, OWASP Dependency-Check)",
+        "Check scanning coverage (100% of dependencies scanned)",
+        "Verify remediation guidance (upgrade suggestions, patches, workarounds)",
+        "Confirm automated PR creation for dependency updates (Dependabot, Renovate)",
+        "Review transitive dependency scanning (deep dependency tree)"
+      ],
+      "evidence": [
+        "Dependency scanning tool configuration",
+        "Scan coverage metrics (100% dependencies)",
+        "Remediation guidance examples (upgrade paths)",
+        "Automated update PR examples",
+        "Transitive dependency scan results"
+      ],
+      "scoring": {
+        "yes_if": "100% dependencies scanned, remediation guidance provided, automated PRs, transitive dependencies covered",
+        "partial_if": "Dependency scanning exists but <100% coverage or manual updates only",
+        "no_if": "No dependency scanning or only direct dependencies scanned"
+      }
+    },
+    {
+      "id": "im-software-1-3",
+      "question": "Do you track and prioritize vulnerabilities with risk scoring and business impact assessment?",
+      "verification": [
+        "Review vulnerability risk scoring (CVSS base + environmental + temporal)",
+        "Check business impact assessment (criticality of affected system)",
+        "Verify priority assignment (P0: critical prod, P1: high prod, P2: medium, P3: low)",
+        "Confirm exploitability assessment (public exploits available?)",
+        "Review compensating controls evaluation (mitigations reduce risk?)"
+      ],
+      "evidence": [
+        "Vulnerability risk scoring methodology",
+        "Business impact classification matrix",
+        "Priority assignment examples",
+        "Exploitability assessment process",
+        "Compensating controls documentation"
+      ],
+      "scoring": {
+        "yes_if": "CVSS + environmental scoring, business impact assessed, priorities assigned, exploitability checked, compensating controls considered",
+        "partial_if": "Basic prioritization but missing environmental scoring or business impact",
+        "no_if": "No prioritization or CVSS base score only"
+      }
+    },
+    {
+      "id": "im-software-1-4",
+      "question": "Do you remediate vulnerabilities within SLA (critical ≤30 days, high ≤90 days) with tracking and validation?",
+      "verification": [
+        "Review remediation SLA (critical ≤30 days, high ≤90 days, medium ≤180 days)",
+        "Check remediation tracking (issue tracker with SLA countdown)",
+        "Verify remediation methods (patch, upgrade, configuration change, accept risk)",
+        "Confirm validation testing (verify fix effective, no regression)",
+        "Review exception process (documented risk acceptance for unpatched)"
+      ],
+      "evidence": [
+        "Remediation SLA policy and compliance metrics (≥90%)",
+        "Vulnerability tracking system (Jira, ServiceNow)",
+        "Remediation records (fixes applied, methods used)",
+        "Post-remediation validation testing results",
+        "Risk acceptance documentation for exceptions"
+      ],
+      "scoring": {
+        "yes_if": "SLA defined (critical ≤30d, high ≤90d), ≥90% compliance, remediation tracked, validation tested, exceptions documented",
+        "partial_if": "SLA exists but compliance 70-90% or limited validation",
+        "no_if": "No SLA or compliance <70%"
+      }
+    },
+    {
+      "id": "im-software-1-5",
+      "question": "Do you manage AI model vulnerabilities including adversarial robustness and model drift?",
+      "verification": [
+        "Review model vulnerability assessment (adversarial robustness, poisoning, extraction)",
+        "Check model drift detection and remediation",
+        "Verify model retraining triggers (accuracy degradation, new attack patterns)",
+        "Confirm model versioning and rollback (can rollback to previous version)",
+        "Review adversarial training implementation (hardening against attacks)"
+      ],
+      "evidence": [
+        "Model vulnerability assessment reports",
+        "Model drift monitoring and alerts",
+        "Model retraining logs and triggers",
+        "Model version control system",
+        "Adversarial training implementation"
+      ],
+      "scoring": {
+        "yes_if": "Model vulnerabilities assessed, drift monitored, retraining automated, versioning/rollback, adversarial training",
+        "partial_if": "Some model vulnerability management but no drift monitoring or manual retraining",
+        "no_if": "No model vulnerability management"
+      }
+    },
+    {
+      "id": "im-software-1-6",
+      "question": "Do you track false positives and false negatives with continuous model improvement?",
+      "verification": [
+        "Review false positive tracking (user feedback, suppression reasons)",
+        "Check false negative tracking (missed vulnerabilities discovered later)",
+        "Verify feedback loop to model retraining (FP/FN used in training)",
+        "Confirm trend analysis (FP/FN rates improving over time)",
+        "Review model performance metrics (precision, recall tracking)"
+      ],
+      "evidence": [
+        "False positive feedback system and logs",
+        "False negative detection and tracking",
+        "Model retraining with FP/FN feedback",
+        "FP/FN trend analysis (rates decreasing)",
+        "Model performance dashboard (precision/recall over time)"
+      ],
+      "scoring": {
+        "yes_if": "FP tracked with feedback, FN tracked, feedback loop to retraining, trends improving, performance monitored",
+        "partial_if": "FP/FN tracked but no feedback loop or metrics not trending better",
+        "no_if": "No FP/FN tracking"
+      }
+    },
+    {
+      "id": "im-software-1-7",
+      "question": "Do you manage code quality issues including technical debt and security anti-patterns?",
+      "verification": [
+        "Review technical debt tracking (identified, prioritized, addressed)",
+        "Check security anti-pattern detection (hardcoded secrets, SQL injection patterns)",
+        "Verify code smell detection and remediation (complexity, duplication)",
+        "Confirm refactoring prioritization (security > performance > maintainability)",
+        "Review code quality trend (improving over time)"
+      ],
+      "evidence": [
+        "Technical debt register and remediation tracking",
+        "Security anti-pattern detection (SAST findings)",
+        "Code smell metrics (SonarQube, Code Climate)",
+        "Refactoring prioritization framework",
+        "Code quality trend reports"
+      ],
+      "scoring": {
+        "yes_if": "Technical debt tracked and addressed, anti-patterns detected, code smells remediated, security prioritized, quality improving",
+        "partial_if": "Code quality monitored but debt not systematically addressed",
+        "no_if": "No technical debt tracking or code quality management"
+      }
+    },
+    {
+      "id": "im-software-1-8",
+      "question": "Do you manage integration vulnerabilities with API security testing and third-party risk assessment?",
+      "verification": [
+        "Review API security testing (authentication, authorization, injection, rate limiting)",
+        "Check third-party integration risk assessment (vendor security posture)",
+        "Verify API versioning and deprecation management",
+        "Confirm integration monitoring (health, errors, anomalies)",
+        "Review integration dependency updates (keep integrations current)"
+      ],
+      "evidence": [
+        "API security test results",
+        "Third-party vendor security assessments",
+        "API versioning and deprecation policy",
+        "Integration monitoring dashboards",
+        "Integration dependency update tracking"
+      ],
+      "scoring": {
+        "yes_if": "API security tested, third-party risk assessed, versioning managed, integrations monitored, dependencies updated",
+        "partial_if": "Integration security considered but limited testing or no vendor assessments",
+        "no_if": "No integration security management"
+      }
+    },
+    {
+      "id": "im-software-1-9",
+      "question": "Do you maintain a vulnerability disclosure program with secure reporting and responsible disclosure?",
+      "verification": [
+        "Review vulnerability disclosure policy (security.txt, dedicated page)",
+        "Check secure reporting channel (encrypted email, bug bounty platform)",
+        "Verify triage process (acknowledge ≤24h, assess ≤7 days)",
+        "Confirm disclosure timeline (90-day coordinated disclosure)",
+        "Review bug bounty program if applicable (rewards, scope)"
+      ],
+      "evidence": [
+        "Vulnerability disclosure policy (published, accessible)",
+        "Secure reporting mechanism (PGP key, HackerOne, Bugcrowd)",
+        "Triage and response process documentation",
+        "Disclosure timeline policy (coordinated disclosure)",
+        "Bug bounty program details (if applicable)"
+      ],
+      "scoring": {
+        "yes_if": "Disclosure policy published, secure reporting, ≤24h acknowledgment, 90-day disclosure, bug bounty (optional)",
+        "partial_if": "Disclosure policy exists but no secure channel or slow triage",
+        "no_if": "No vulnerability disclosure program"
+      }
+    },
+    {
+      "id": "im-software-1-10",
+      "question": "Do you track vulnerability metrics with dashboards and executive reporting?",
+      "verification": [
+        "Review vulnerability metrics dashboard (open vulns by severity, aging, trends)",
+        "Check SLA compliance metrics (remediation within SLA %)",
+        "Verify mean time to remediate (MTTR by severity)",
+        "Confirm executive reporting (monthly/quarterly security posture)",
+        "Review KPIs (vulnerability density, coverage, remediation velocity)"
+      ],
+      "evidence": [
+        "Vulnerability metrics dashboard",
+        "SLA compliance reports (≥90% target)",
+        "MTTR metrics (critical ≤30d, high ≤90d)",
+        "Executive security reports",
+        "Security KPI tracking"
+      ],
+      "scoring": {
+        "yes_if": "Metrics dashboard real-time, SLA tracked, MTTR measured, executive reports regular, KPIs defined",
+        "partial_if": "Metrics tracked but manual reports or no executive visibility",
+        "no_if": "No vulnerability metrics or tracking"
+      }
+    },
+    {
+      "id": "im-software-1-11",
+      "question": "Do you conduct root cause analysis for recurring vulnerabilities with preventive measures?",
+      "verification": [
+        "Review RCA process for recurring vulnerability classes",
+        "Check preventive measures (secure coding training, linting rules, architecture changes)",
+        "Verify implementation of fixes (systemic improvements, not just patches)",
+        "Confirm effectiveness tracking (recurrence rate decreasing)",
+        "Review knowledge sharing (RCA findings shared with team)"
+      ],
+      "evidence": [
+        "RCA documentation for recurring vulnerabilities",
+        "Preventive measures implemented (training, tooling)",
+        "Systemic improvement tracking",
+        "Recurrence rate metrics (decreasing trend)",
+        "Knowledge sharing artifacts (postmortems, training)"
+      ],
+      "scoring": {
+        "yes_if": "RCA conducted for recurring issues, preventive measures implemented, effectiveness tracked, recurrence decreasing, knowledge shared",
+        "partial_if": "Some RCA but limited preventive measures or no effectiveness tracking",
+        "no_if": "No RCA or recurring vulnerabilities not addressed systemically"
+      }
+    },
+    {
+      "id": "im-software-1-12",
+      "question": "Do you coordinate with security community including threat intelligence and information sharing?",
+      "verification": [
+        "Review threat intelligence integration (feeds, ISACs, industry groups)",
+        "Check CVE assignment process (can assign CVEs for discovered issues)",
+        "Verify information sharing (responsible disclosure to affected parties)",
+        "Confirm participation in security community (conferences, working groups)",
+        "Review security advisory publication (for your software)"
+      ],
+      "evidence": [
+        "Threat intelligence feed integration",
+        "CVE assignment capability (CNA status or process)",
+        "Information sharing examples (coordinated disclosure)",
+        "Security community participation evidence",
+        "Published security advisories"
+      ],
+      "scoring": {
+        "yes_if": "Threat intel integrated, CVE assignment capability, information sharing active, community participation, advisories published",
+        "partial_if": "Some threat intel use but limited community engagement",
+        "no_if": "No security community coordination"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Vulnerability Discovery",
+      "target": "100% of dependencies scanned, daily CVE monitoring, ≥95% assessment within SLA",
+      "measurement": "Scan coverage %; CVE monitoring uptime; Assessment SLA compliance %",
+      "data_source": "Vulnerability scanners, dependency scanners, CVE feeds",
+      "frequency": "Continuous scanning, daily CVE check, weekly SLA reports",
+      "baseline": "Initial vulnerability discovery baseline",
+      "validation": "Independent vulnerability assessment"
+    },
+    {
+      "metric": "Vulnerability Remediation",
+      "target": "Critical ≤30 days, high ≤90 days, ≥90% SLA compliance",
+      "measurement": "MTTR by severity; SLA compliance % = (Remediated within SLA / Total) × 100",
+      "data_source": "Vulnerability tracking system, remediation logs",
+      "frequency": "Weekly remediation progress, monthly SLA reports",
+      "baseline": "Initial MTTR and SLA baseline",
+      "validation": "Vulnerability scan validation of remediation"
+    },
+    {
+      "metric": "Vulnerability Trend",
+      "target": "Open critical vulnerabilities trending to zero, vulnerability density decreasing",
+      "measurement": "Open critical count over time; Vulnerability density = Vulns / KLOC",
+      "data_source": "Vulnerability tracking, codebase metrics",
+      "frequency": "Monthly trend analysis",
+      "baseline": "Initial vulnerability inventory",
+      "validation": "Quarter-over-quarter comparison"
+    },
+    {
+      "metric": "Model Accuracy Maintenance",
+      "target": "≤5% false positive rate, ≥95% true positive rate, monthly retraining",
+      "measurement": "FP rate = FP / (TP + FP); TP rate = TP / (TP + FN); Retraining frequency",
+      "data_source": "Model performance monitoring, user feedback",
+      "frequency": "Continuous monitoring, monthly analysis",
+      "baseline": "Initial model performance",
+      "validation": "A/B testing, expert validation"
+    }
+  ]
+}

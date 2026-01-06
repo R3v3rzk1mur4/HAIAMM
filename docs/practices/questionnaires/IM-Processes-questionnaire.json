@@ -1,0 +1,321 @@
+{
+  "practice": "IM",
+  "domain": "processes",
+  "name": "Issue Management - Processes Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "im-processes-1-1",
+      "question": "Do you perform daily CVE monitoring for your SOAR platform and assess critical CVEs within 24 hours?",
+      "verification": [
+        "Review CVE monitoring process for SOAR platform (Splunk SOAR, Palo Alto XSOAR, IBM Resilient, Swimlane, etc.)",
+        "Check CVE sources monitored (vendor security bulletins, NVD, security research)",
+        "Verify critical platform CVE assessment SLA: Critical ≤24 hours, High ≤7 days",
+        "Sample last 5 critical/high CVEs and verify assessment within SLA"
+      ],
+      "evidence": [
+        "CVE monitoring configuration (automated alerts, RSS feeds, vendor notifications)",
+        "CVE assessment logs for last 5 critical/high CVEs with timestamps",
+        "SLA compliance metrics showing ≥95% CVEs assessed within timeframes",
+        "Patch status tracking showing remediation progress"
+      ],
+      "scoring": {
+        "yes_if": "Daily CVE monitoring active, ≥95% critical CVEs assessed ≤24h, high CVEs ≤7 days",
+        "partial_if": "CVE monitoring exists but SLA compliance 70-95% or delayed assessments",
+        "no_if": "No systematic CVE monitoring or SLA compliance <70%"
+      }
+    },
+    {
+      "id": "im-processes-1-2",
+      "question": "Do you conduct weekly configuration scans to detect SOAR platform misconfigurations?",
+      "verification": [
+        "Review configuration scanning process (automated weekly scans)",
+        "Check scan coverage: weak authentication, excessive permissions, insecure APIs, missing encryption",
+        "Verify configuration benchmarks used (vendor best practices, CIS benchmarks)",
+        "Confirm misconfigurations are tracked and remediated"
+      ],
+      "evidence": [
+        "Configuration scan schedule and last 4 weekly scan results",
+        "Configuration scanning tool/script and benchmark configuration",
+        "Sample misconfiguration findings with remediation status",
+        "Trend analysis showing misconfiguration reduction over time"
+      ],
+      "scoring": {
+        "yes_if": "Weekly automated scans, comprehensive coverage (auth, perms, APIs, encryption), benchmarks applied, remediation tracked",
+        "partial_if": "Scans conducted but not weekly, or limited coverage, or remediation tracking incomplete",
+        "no_if": "No configuration scanning or ad-hoc only"
+      }
+    },
+    {
+      "id": "im-processes-1-3",
+      "question": "Do you perform security reviews of playbooks on creation/update and quarterly for all playbooks?",
+      "verification": [
+        "Review playbook security review process (automated SAST + manual review)",
+        "Check review coverage: hardcoded credentials, SQL/command injection, insufficient validation",
+        "Verify reviews conducted on playbook creation/update AND quarterly for all playbooks",
+        "Sample 10 recent playbooks and confirm security review occurred"
+      ],
+      "evidence": [
+        "Playbook security review process documentation",
+        "SAST tool configuration and scan results (if automated)",
+        "Security review records for 10 recent playbooks (reviewer, date, findings)",
+        "Quarterly review schedule and completion status for all production playbooks"
+      ],
+      "scoring": {
+        "yes_if": "Security reviews on creation/update, quarterly reviews for all playbooks, comprehensive coverage (creds, injection, validation)",
+        "partial_if": "Reviews conducted but not consistently or quarterly reviews incomplete",
+        "no_if": "No systematic playbook security reviews or <50% coverage"
+      }
+    },
+    {
+      "id": "im-processes-1-4",
+      "question": "Do you identify and remediate playbook logic flaws through code review, testing, and incident analysis?",
+      "verification": [
+        "Review process for detecting logic flaws (race conditions, insufficient rollback, missing error handling)",
+        "Check that code reviews specifically look for logic vulnerabilities",
+        "Verify testing includes logic flaw detection",
+        "Confirm incident analysis includes root cause investigation for logic errors"
+      ],
+      "evidence": [
+        "Logic flaw detection checklist used in code reviews",
+        "Sample logic flaw findings from reviews/testing/incidents",
+        "Remediation records showing logic flaws fixed",
+        "Incident postmortem reports identifying logic-related issues"
+      ],
+      "scoring": {
+        "yes_if": "Systematic logic flaw detection through reviews/testing/incidents, flaws tracked and remediated, safeguards added",
+        "partial_if": "Some logic flaw detection but not comprehensive or remediation tracking incomplete",
+        "no_if": "No focus on logic flaws or reactive only (wait for production failures)"
+      }
+    },
+    {
+      "id": "im-processes-1-5",
+      "question": "Do you conduct quarterly security reviews of API integrations with security tools?",
+      "verification": [
+        "Review integration security assessment process for SIEM, EDR, firewall, cloud, ticketing, threat intel tools",
+        "Check assessment coverage: API authentication flaws, authorization bypass, injection vulnerabilities",
+        "Verify quarterly review schedule and completion",
+        "Sample 5 recent integration security reviews and confirm findings remediated"
+      ],
+      "evidence": [
+        "Integration security review schedule (quarterly)",
+        "Integration security assessment checklist (auth, authz, injection)",
+        "Last quarterly review results for all integrations",
+        "Remediation tracking for integration vulnerabilities found"
+      ],
+      "scoring": {
+        "yes_if": "Quarterly integration security reviews conducted for ≥90% of integrations, comprehensive testing, findings remediated",
+        "partial_if": "Reviews conducted but not quarterly or <90% integration coverage",
+        "no_if": "No systematic integration security reviews"
+      }
+    },
+    {
+      "id": "im-processes-1-6",
+      "question": "Do you scan for hardcoded secrets and store all credentials in a secrets manager?",
+      "verification": [
+        "Review credential management practices (secrets manager usage: HashiCorp Vault, AWS Secrets Manager)",
+        "Check for automated secret scanning (detect hardcoded credentials in playbooks)",
+        "Verify credential rotation policy (quarterly rotation minimum)",
+        "Confirm credential access is audited"
+      ],
+      "evidence": [
+        "Secrets manager configuration showing SOAR credential storage",
+        "Secret scanning tool configuration and scan results (zero hardcoded secrets found)",
+        "Credential rotation logs (last rotation dates ≤90 days ago)",
+        "Credential access audit logs"
+      ],
+      "scoring": {
+        "yes_if": "All credentials in secrets manager, automated secret scanning (zero hardcoded found), rotation ≤90 days, access audited",
+        "partial_if": "Most credentials in secrets manager but some hardcoded, or rotation >90 days",
+        "no_if": "Hardcoded credentials in playbooks or no secrets manager"
+      }
+    },
+    {
+      "id": "im-processes-1-7",
+      "question": "Do you conduct quarterly red team exercises to test blast radius limit bypass attempts?",
+      "verification": [
+        "Review red team testing schedule (quarterly exercises)",
+        "Check that red team attempts to bypass blast radius limits (>50 IPs, >20 accounts, >5 systems)",
+        "Verify all bypass vulnerabilities are documented and fixed",
+        "Confirm limit enforcement strengthened after discoveries"
+      ],
+      "evidence": [
+        "Quarterly red team exercise schedule and last 2 exercise reports",
+        "Blast radius bypass test results (all attempts should fail)",
+        "Vulnerability remediation records (if bypasses discovered)",
+        "Limit enforcement improvements implemented after exercises"
+      ],
+      "scoring": {
+        "yes_if": "Quarterly red team exercises conducted, bypass attempts tested, zero successful bypasses (or all fixed), enforcement strengthened",
+        "partial_if": "Red team exercises conducted but not quarterly or limited bypass testing",
+        "no_if": "No red team testing of blast radius limits"
+      }
+    },
+    {
+      "id": "im-processes-1-8",
+      "question": "Do you test rollback mechanism reliability and remediate any failures?",
+      "verification": [
+        "Review rollback testing process (inject failures during automation, validate rollback)",
+        "Check detection of rollback failures, incomplete rollbacks, residual changes",
+        "Verify rollback mechanism improvements (better logic, verification, error handling)",
+        "Confirm rollback success rate target (100% for reversible actions)"
+      ],
+      "evidence": [
+        "Rollback testing logs (failure injection tests)",
+        "Rollback success rate metrics (target: 100%)",
+        "Rollback failure investigation reports (if any failures)",
+        "Rollback mechanism improvements implemented"
+      ],
+      "scoring": {
+        "yes_if": "Regular rollback testing with failure injection, 100% success rate, failures investigated and fixed",
+        "partial_if": "Rollback testing conducted but success rate <100% or improvements not systematic",
+        "no_if": "No rollback reliability testing"
+      }
+    },
+    {
+      "id": "im-processes-1-9",
+      "question": "Do you test alert triage model against adversarial attacks and retrain when vulnerabilities found?",
+      "verification": [
+        "Review adversarial testing process (red team crafts malicious alerts to evade detection or trigger false positives)",
+        "Check detection bypass rate measurement",
+        "Verify model retraining with adversarial examples when vulnerabilities discovered",
+        "Confirm feature engineering improvements to increase robustness"
+      ],
+      "evidence": [
+        "Adversarial testing reports (red team exercises)",
+        "Detection bypass rate metrics (target: ≤15%)",
+        "Model retraining logs after adversarial vulnerability discovery",
+        "Feature engineering improvements for adversarial robustness"
+      ],
+      "scoring": {
+        "yes_if": "Regular adversarial testing, bypass rate ≤15%, model retrained with adversarial examples, feature improvements implemented",
+        "partial_if": "Some adversarial testing but bypass rate >15% or retraining not systematic",
+        "no_if": "No adversarial testing of triage model"
+      }
+    },
+    {
+      "id": "im-processes-1-10",
+      "question": "Do you monitor triage model accuracy and retrain when it drops below thresholds?",
+      "verification": [
+        "Review model accuracy monitoring (continuous tracking of true positive rate, precision)",
+        "Check accuracy thresholds (≥95% TP rate, ≥70% precision)",
+        "Verify automated alerts when accuracy drops below threshold",
+        "Confirm retraining process triggered by accuracy degradation or monthly routine retraining"
+      ],
+      "evidence": [
+        "Model accuracy monitoring dashboard (real-time metrics)",
+        "Accuracy threshold alerts configuration",
+        "Model retraining logs (last retraining date, trigger reason)",
+        "Accuracy trend analysis showing maintained or improved performance"
+      ],
+      "scoring": {
+        "yes_if": "Continuous accuracy monitoring, thresholds configured (≥95% TP, ≥70% precision), alerts on degradation, retraining within 7 days for critical issues or monthly routine",
+        "partial_if": "Monitoring exists but not real-time, or retraining delayed >7 days for critical issues",
+        "no_if": "No accuracy monitoring or no systematic retraining"
+      }
+    },
+    {
+      "id": "im-processes-1-11",
+      "question": "Do you have a documented platform patching workflow with testing and rollback capability?",
+      "verification": [
+        "Review SOAR platform patch management process (dev → staging → production)",
+        "Check that patches are tested before production deployment",
+        "Verify rollback capability maintained for failed patches",
+        "Confirm patch SLA compliance: Critical ≤24 hours, High ≤7 days"
+      ],
+      "evidence": [
+        "Patch management process documentation",
+        "Patch testing logs (staging environment tests)",
+        "Rollback procedure documentation and tests",
+        "Patch compliance metrics (≥95% within SLA)"
+      ],
+      "scoring": {
+        "yes_if": "Documented process with dev→staging→prod, patches tested, rollback capability verified, ≥95% SLA compliance",
+        "partial_if": "Process exists but testing limited or SLA compliance 70-95%",
+        "no_if": "No formal patch process or direct-to-production patching"
+      }
+    },
+    {
+      "id": "im-processes-1-12",
+      "question": "Do you have a playbook update workflow with code review, testing, and staging deployment?",
+      "verification": [
+        "Review playbook update process (fix code → code review → testing → deploy)",
+        "Check that updated playbooks are tested in staging before production",
+        "Verify critical playbook vulnerability fixes within 48 hours",
+        "Confirm validation of fixes (vulnerabilities no longer exploitable)"
+      ],
+      "evidence": [
+        "Playbook update workflow documentation",
+        "Sample playbook vulnerability fixes with timeline (last 5 fixes)",
+        "Staging test results for fixed playbooks",
+        "Validation testing showing vulnerabilities remediated"
+      ],
+      "scoring": {
+        "yes_if": "Documented workflow (fix→review→test→deploy), staging testing required, critical fixes ≤48h, validation performed",
+        "partial_if": "Workflow exists but staging testing not always performed or fixes delayed >48h",
+        "no_if": "No formal playbook update process or direct production fixes"
+      }
+    },
+    {
+      "id": "im-processes-1-13",
+      "question": "Do you track and report on vulnerability metrics including patch compliance, playbook security, integration security, and model accuracy?",
+      "verification": [
+        "Review vulnerability metrics dashboard or reporting",
+        "Check SOAR platform patch compliance (target: ≥95% patched within SLA)",
+        "Verify playbook security score (target: 100% pass security review before production)",
+        "Check integration vulnerability count (target: ≤5 high/critical open)",
+        "Verify model accuracy tracking (target: ≥95% TP detection, ≥70% precision)"
+      ],
+      "evidence": [
+        "Vulnerability metrics dashboard or monthly reports",
+        "Patch compliance metrics (current: ≥95%)",
+        "Playbook security review pass rate (target: 100%)",
+        "Integration vulnerability inventory (current open count)",
+        "Model accuracy metrics (current TP rate, precision)"
+      ],
+      "scoring": {
+        "yes_if": "All metrics tracked and reported, targets met (≥95% patch, 100% playbook review, ≤5 integration vulns, ≥95% TP, ≥70% precision)",
+        "partial_if": "Metrics tracked but some targets not met or reporting irregular",
+        "no_if": "No vulnerability metrics tracking or very limited visibility"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Platform Patch Compliance",
+      "target": "≥95% patched within SLA (Critical ≤24h, High ≤7 days), zero critical misconfigurations",
+      "measurement": "Patch compliance % = (Systems patched within SLA / Total systems) × 100; Misconfiguration count from weekly scans",
+      "data_source": "Patch management system, configuration scan results",
+      "frequency": "Weekly for patches, weekly for configuration scans",
+      "baseline": "Initial patch state and configuration baseline assessment",
+      "validation": "Vulnerability scanning, penetration testing, configuration audits"
+    },
+    {
+      "metric": "Playbook Security",
+      "target": "100% playbooks pass security review before production deployment",
+      "measurement": "Review pass rate = (Playbooks passing security review / Total production playbooks) × 100",
+      "data_source": "Playbook security review tracking system",
+      "frequency": "Continuous (on playbook creation/update), quarterly full review",
+      "baseline": "Initial security review of all existing playbooks",
+      "validation": "SAST tool validation, penetration testing of playbooks"
+    },
+    {
+      "metric": "Integration Security",
+      "target": "≥95% integrations secure (zero critical vulnerabilities)",
+      "measurement": "Secure integration % = (Integrations with zero critical/high vulns / Total integrations) × 100",
+      "data_source": "Integration security assessment results, vulnerability tracking",
+      "frequency": "Quarterly integration security reviews",
+      "baseline": "Initial security assessment of all integrations",
+      "validation": "API security testing, authentication/authorization testing"
+    },
+    {
+      "metric": "Model Robustness",
+      "target": "≥95% detection accuracy maintained, ≤15% adversarial bypass rate",
+      "measurement": "Detection accuracy = True Positive Rate; Adversarial bypass rate = (Successful evasions / Total adversarial attempts) × 100",
+      "data_source": "Model accuracy monitoring, adversarial testing results",
+      "frequency": "Continuous accuracy monitoring, quarterly adversarial testing",
+      "baseline": "Initial model accuracy and adversarial robustness baseline",
+      "validation": "Independent red team validation, cross-validation on test sets"
+    }
+  ]
+}

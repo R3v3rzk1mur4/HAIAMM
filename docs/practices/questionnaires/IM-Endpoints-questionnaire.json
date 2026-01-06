@@ -1,0 +1,418 @@
+{
+  "practice": "IM",
+  "domain": "endpoints",
+  "name": "Issue Management - Endpoints Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "im-endpoints-1-1",
+      "question": "Do you scan endpoint agent code daily with SAST, dependency scanners, and binary analysis for vulnerabilities?",
+      "verification": [
+        "Review agent code scanning (SAST for source code vulnerabilities, dependency scanners for vulnerable libraries, binary analysis for compiled agents)",
+        "Check scanning frequency (daily scans of agent codebase, pre-release validation before agent updates)",
+        "Verify vulnerability detection (identify code vulnerabilities, vulnerable dependencies, insecure configurations in agent code)",
+        "Confirm scan coverage (agent binaries, all dependencies, third-party libraries, agent configuration files)",
+        "Review vulnerability tracking (all agent vulnerabilities tracked, assigned to developers, resolution deadlines)"
+      ],
+      "evidence": [
+        "Agent code scanning configuration (SAST tools, dependency scanners, binary analysis)",
+        "Scanning frequency (daily scans, pre-release scans)",
+        "Vulnerability detection results (code issues, vulnerable dependencies)",
+        "Scan coverage (binaries, dependencies, libraries, configs)",
+        "Vulnerability tracking system (issue tracking, assignment, deadlines)"
+      ],
+      "scoring": {
+        "yes_if": "Daily agent code scanning (SAST, dependency, binary), pre-release validation, comprehensive coverage (binaries, dependencies, libraries), vulnerability tracking with assignments",
+        "partial_if": "Weekly scanning or limited tools (SAST only) or no pre-release validation",
+        "no_if": "No agent code scanning or manual scanning only or no vulnerability tracking"
+      }
+    },
+    {
+      "id": "im-endpoints-1-2",
+      "question": "Do you manage agent updates with staged rollout (≤10% canary), automated rollback, and critical ≤24h/high ≤7d SLAs?",
+      "verification": [
+        "Review staged rollout process (canary deployment: ≤10% → 50% → 100%, monitor health at each stage)",
+        "Check automated rollback (rollback triggered if failure rate >5%, health checks fail, or performance degrades)",
+        "Verify agent vulnerability SLAs (critical agent vulnerabilities patched ≤24 hours, high ≤7 days)",
+        "Confirm update validation (health checks post-update: agent running, detection working, resource usage normal)",
+        "Review SLA compliance (≥95% of agent vulnerabilities remediated within SLA)"
+      ],
+      "evidence": [
+        "Staged rollout configuration (≤10% canary, 50%, 100% stages)",
+        "Automated rollback implementation (failure triggers: >5% failure, health checks, performance)",
+        "Agent vulnerability SLA policy (critical ≤24h, high ≤7d)",
+        "Post-update validation (health checks implemented)",
+        "SLA compliance metrics (≥95% agent vulnerabilities remediated within SLA)"
+      ],
+      "scoring": {
+        "yes_if": "Staged rollout (≤10% canary), automated rollback (failure >5%), critical ≤24h and high ≤7d SLAs, health checks, ≥95% SLA compliance",
+        "partial_if": "Staged rollout but manual rollback or SLAs not consistently met (<90% compliance)",
+        "no_if": "No staged rollout or no rollback or critical >48h or <85% SLA compliance"
+      }
+    },
+    {
+      "id": "im-endpoints-1-3",
+      "question": "Do you scan endpoint operating systems daily across Windows, macOS, Linux, iOS, and Android for missing patches, CVEs, and misconfigurations?",
+      "verification": [
+        "Review OS vulnerability scanning (tools: Qualys, Rapid7, Tenable, Microsoft Defender, platform-specific scanners)",
+        "Check platform coverage (Windows 10/11/Server, macOS Ventura/Sonoma, Linux Ubuntu/RHEL/Debian, iOS, Android)",
+        "Verify scan coverage (missing OS patches, CVEs, OS misconfigurations, weak settings)",
+        "Confirm scanning frequency (daily scans of all endpoints, continuous monitoring)",
+        "Review vulnerability reporting (OS vulnerabilities reported to teams, dashboards showing OS patch status)"
+      ],
+      "evidence": [
+        "OS vulnerability scanning tools (Qualys, Rapid7, Tenable, Defender)",
+        "Platform coverage (Windows, macOS, Linux, iOS, Android versions scanned)",
+        "Scan coverage (patches, CVEs, misconfigurations detected)",
+        "Scanning frequency (daily scans, continuous monitoring)",
+        "Vulnerability reporting (dashboards, team notifications)"
+      ],
+      "scoring": {
+        "yes_if": "Daily OS scanning across ≥4 platforms (Windows, macOS, Linux, mobile), comprehensive coverage (patches, CVEs, misconfigs), vulnerability reporting, continuous monitoring",
+        "partial_if": "Daily scanning but <4 platforms or limited coverage (patches only) or weekly scanning",
+        "no_if": "<3 platforms or no daily scanning or no vulnerability reporting"
+      }
+    },
+    {
+      "id": "im-endpoints-1-4",
+      "question": "Do you scan installed applications for outdated versions, known vulnerabilities, and unsafe configurations?",
+      "verification": [
+        "Review application scanning (browsers, productivity apps, development tools, third-party software)",
+        "Check vulnerability detection (outdated versions, known CVEs, unsafe configurations)",
+        "Verify application inventory (maintain inventory of installed applications across all endpoints)",
+        "Confirm scanning frequency (daily application vulnerability scans)",
+        "Review remediation process (outdated apps auto-updated or flagged for manual update, unsafe configs remediated)"
+      ],
+      "evidence": [
+        "Application scanning configuration (browsers, productivity, dev tools, third-party apps)",
+        "Vulnerability detection (outdated versions, CVEs, unsafe configs)",
+        "Application inventory (complete inventory of installed apps)",
+        "Scanning frequency (daily scans)",
+        "Remediation process (auto-update or manual update workflow, config remediation)"
+      ],
+      "scoring": {
+        "yes_if": "Daily application scanning, comprehensive coverage (browsers, productivity, dev tools), vulnerability detection (versions, CVEs, configs), application inventory, remediation process",
+        "partial_if": "Weekly scanning or limited app coverage (browsers only) or no inventory",
+        "no_if": "No application scanning or no vulnerability detection or no remediation"
+      }
+    },
+    {
+      "id": "im-endpoints-1-5",
+      "question": "Do you scan mobile devices using MDM/MTD for OS version, app vulnerabilities, and jailbreak/root detection?",
+      "verification": [
+        "Review mobile scanning tools (Mobile Device Management: Intune, Jamf; Mobile Threat Defense: Lookout, Zimperium)",
+        "Check OS version scanning (detect mobile devices with outdated OS: iOS >1 year old, Android >1 year old)",
+        "Verify app vulnerability scanning (detect apps with known vulnerabilities on mobile devices)",
+        "Confirm jailbreak/root detection (detect jailbroken iOS, rooted Android devices)",
+        "Review mobile remediation (block outdated devices, quarantine jailbroken/rooted devices, force app updates)"
+      ],
+      "evidence": [
+        "Mobile scanning tools (MDM: Intune/Jamf, MTD: Lookout/Zimperium)",
+        "OS version detection (iOS and Android outdated OS detection)",
+        "App vulnerability scanning (mobile app CVE detection)",
+        "Jailbreak/root detection (iOS jailbreak, Android root detection)",
+        "Mobile remediation policy (block outdated, quarantine jailbroken/rooted, force updates)"
+      ],
+      "scoring": {
+        "yes_if": "MDM + MTD scanning, OS version detection (iOS/Android >1 year), app vulnerability scanning, jailbreak/root detection, remediation policy (block/quarantine)",
+        "partial_if": "MDM scanning but no MTD or limited detection (OS only) or no remediation",
+        "no_if": "No mobile scanning or no jailbreak/root detection or no remediation"
+      }
+    },
+    {
+      "id": "im-endpoints-1-6",
+      "question": "Do you scan endpoint configurations daily for insecure settings (firewall disabled, encryption disabled, weak passwords, unnecessary services) using CIS Benchmarks?",
+      "verification": [
+        "Review configuration scanning (detect firewall disabled, encryption disabled, weak passwords, unnecessary services running)",
+        "Check CIS Benchmark compliance (scan against CIS Benchmarks for Windows, macOS, Linux)",
+        "Verify scanning frequency (daily configuration scans of all endpoints)",
+        "Confirm vulnerability reporting (configuration issues reported, dashboards showing compliance %)",
+        "Review auto-remediation (auto-remediate safe config issues: re-enable firewall, disable unnecessary services)"
+      ],
+      "evidence": [
+        "Configuration scanning coverage (firewall, encryption, passwords, services)",
+        "CIS Benchmark scanning (Windows, macOS, Linux CIS compliance)",
+        "Scanning frequency (daily scans)",
+        "Configuration issue reporting (dashboards, compliance metrics)",
+        "Auto-remediation policy (safe config issues auto-remediated)"
+      ],
+      "scoring": {
+        "yes_if": "Daily config scanning, comprehensive coverage (firewall, encryption, passwords, services), CIS Benchmark compliance, issue reporting, auto-remediation (safe issues)",
+        "partial_if": "Weekly scanning or limited coverage (firewall + encryption only) or no CIS Benchmarks",
+        "no_if": "No config scanning or no CIS Benchmarks or no issue reporting"
+      }
+    },
+    {
+      "id": "im-endpoints-1-7",
+      "question": "Do you conduct weekly privilege escalation checks on high-value endpoints using BeRoot, LinPEAS, or WinPEAS?",
+      "verification": [
+        "Review privilege escalation scanning tools (BeRoot, LinPEAS for Linux, WinPEAS for Windows)",
+        "Check scan scope (high-value endpoints: executive laptops, admin workstations, privileged user endpoints)",
+        "Verify scanning frequency (weekly privilege escalation scans on high-value endpoints)",
+        "Confirm vulnerability detection (detect local privilege escalation vulnerabilities: weak permissions, misconfigured services, kernel exploits)",
+        "Review remediation process (privilege escalation vulnerabilities remediated within SLA, compensating controls if patching delayed)"
+      ],
+      "evidence": [
+        "Privilege escalation scanning tools (BeRoot, LinPEAS, WinPEAS)",
+        "High-value endpoint inventory (executives, admins, privileged users)",
+        "Scanning frequency (weekly scans of high-value endpoints)",
+        "Vulnerability detection results (privilege escalation issues found)",
+        "Remediation process (SLA-based remediation, compensating controls)"
+      ],
+      "scoring": {
+        "yes_if": "Weekly privilege escalation scans on high-value endpoints, tools used (BeRoot/LinPEAS/WinPEAS), vulnerability detection, remediation process with SLAs",
+        "partial_if": "Monthly scans or limited endpoint coverage (<50% high-value) or no remediation SLAs",
+        "no_if": "No privilege escalation scanning or no high-value endpoint targeting"
+      }
+    },
+    {
+      "id": "im-endpoints-1-8",
+      "question": "Do you track cross-platform CVEs and patches across Windows, macOS, Linux, and mobile from official security sources?",
+      "verification": [
+        "Review Windows CVE tracking (sources: Microsoft Security Response Center, Windows Update)",
+        "Check macOS CVE tracking (sources: Apple Security Updates)",
+        "Verify Linux CVE tracking (sources: Ubuntu Security Advisories, RHEL/Debian security bulletins, distribution package managers)",
+        "Confirm mobile CVE tracking (sources: Apple Security Updates, Google Android Security Bulletins)",
+        "Review CVE response process (CVEs assessed for applicability, patches deployed within SLA, compensating controls if no patch)"
+      ],
+      "evidence": [
+        "Windows CVE tracking (MSRC, Windows Update integration)",
+        "macOS CVE tracking (Apple Security Updates monitoring)",
+        "Linux CVE tracking (Ubuntu/RHEL/Debian security advisories)",
+        "Mobile CVE tracking (Apple/Google security bulletins)",
+        "CVE response workflow (assessment, patch deployment, compensating controls)"
+      ],
+      "scoring": {
+        "yes_if": "Cross-platform CVE tracking (Windows, macOS, Linux, mobile), official sources monitored (MSRC, Apple, distribution advisories, Google), CVE response process (assessment, patching, compensating controls)",
+        "partial_if": "Limited platform coverage (3/4 platforms) or no CVE response process",
+        "no_if": "<3 platforms or no official source monitoring or no CVE tracking"
+      }
+    },
+    {
+      "id": "im-endpoints-1-9",
+      "question": "Do you implement automated patch deployment via WSUS, SCCM, Jamf, or Intune with critical auto-deployment and staged rollout for major updates?",
+      "verification": [
+        "Review automated patching tools (WSUS, SCCM for Windows; Jamf for macOS; Intune for cross-platform; apt/yum/dnf for Linux)",
+        "Check critical patch auto-deployment (critical patches auto-deployed within SLA: ≤24 hours)",
+        "Verify staged rollout for major updates (major OS/app updates: canary 10% → 50% → 100%)",
+        "Confirm patch testing (patches tested in staging environment before production deployment)",
+        "Review patch failure handling (failed patches retried, escalated if persistent failure)"
+      ],
+      "evidence": [
+        "Automated patching tools (WSUS, SCCM, Jamf, Intune, Linux package managers)",
+        "Critical patch auto-deployment policy (auto-deploy critical ≤24h)",
+        "Staged rollout configuration (major updates: 10% → 50% → 100%)",
+        "Patch testing process (staging environment validation)",
+        "Patch failure handling (retry, escalation workflow)"
+      ],
+      "scoring": {
+        "yes_if": "Automated patching (WSUS/SCCM/Jamf/Intune), critical auto-deployment (≤24h), staged rollout for major updates, patch testing (staging), failure handling",
+        "partial_if": "Automated patching but manual critical patches or no staged rollout or no testing",
+        "no_if": "No automated patching or critical >48h or no patch testing"
+      }
+    },
+    {
+      "id": "im-endpoints-1-10",
+      "question": "Do you isolate endpoints with critical unpatched vulnerabilities that are network-facing until patched, with manual override for business-critical systems?",
+      "verification": [
+        "Review endpoint isolation triggers (critical unpatched vulnerability + network-facing endpoint)",
+        "Check isolation method (network isolation prevents lateral movement, endpoint quarantined until patched)",
+        "Verify manual override process (business-critical systems can request isolation override with approvals)",
+        "Confirm isolation monitoring (isolated endpoints tracked, patching prioritized, isolation removed post-patch)",
+        "Review isolation effectiveness (isolated endpoints cannot spread malware, critical services maintain limited access)"
+      ],
+      "evidence": [
+        "Endpoint isolation policy (triggers: critical unpatched + network-facing)",
+        "Isolation method (network isolation, quarantine)",
+        "Manual override process (business-critical approval workflow)",
+        "Isolation tracking (isolated endpoint inventory, patching priority, removal post-patch)",
+        "Isolation effectiveness validation (lateral movement prevented, critical services accessible)"
+      ],
+      "scoring": {
+        "yes_if": "Endpoint isolation for critical unpatched + network-facing, network isolation method, manual override (business-critical approval), isolation tracking, effectiveness validated",
+        "partial_if": "Isolation policy but manual isolation or no override process or limited tracking",
+        "no_if": "No endpoint isolation or critical vulnerabilities unaddressed or no tracking"
+      }
+    },
+    {
+      "id": "im-endpoints-1-11",
+      "question": "Do you implement compensating controls (enhanced monitoring, network restrictions, feature disablement) until permanent remediation, with tracking?",
+      "verification": [
+        "Review compensating controls (enhanced monitoring for vulnerable endpoints, network access restrictions, disable vulnerable features)",
+        "Check control implementation (compensating controls deployed within 24 hours of vulnerability identification)",
+        "Verify control tracking (all compensating controls documented, tracked until permanent remediation)",
+        "Confirm control effectiveness (controls reduce risk while permanent fix pending: monitoring detects exploitation attempts, restrictions limit exposure)",
+        "Review control removal (compensating controls removed after permanent patch deployed)"
+      ],
+      "evidence": [
+        "Compensating controls policy (enhanced monitoring, network restrictions, feature disable)",
+        "Control implementation SLA (deployed within 24 hours)",
+        "Compensating controls tracking system (documentation, permanent remediation status)",
+        "Control effectiveness validation (risk reduction, exploitation detection)",
+        "Control removal process (removed post-patch)"
+      ],
+      "scoring": {
+        "yes_if": "Compensating controls implemented (monitoring, restrictions, feature disable), deployed ≤24h, tracked until permanent fix, effectiveness validated, removed post-patch",
+        "partial_if": "Compensating controls available but >48h deployment or limited tracking",
+        "no_if": "No compensating controls or no tracking or controls not removed post-patch"
+      }
+    },
+    {
+      "id": "im-endpoints-1-12",
+      "question": "Do you implement risk-based prioritization by exploitability × asset criticality with P0-P3 tiers (actively exploited, public exploits, moderate risk, minimal risk)?",
+      "verification": [
+        "Review prioritization framework (Critical/P0: actively exploited + internet-facing/sensitive, High/P1: high CVSS + public exploits + privileged users, Medium/P2: moderate risk + internal + compensating controls, Low/P3: minimal risk + difficult exploit)",
+        "Check asset criticality assessment (endpoints categorized: internet-facing, sensitive data, privileged users, standard users)",
+        "Verify exploitability assessment (actively exploited, public exploits available, proof-of-concept only, theoretical)",
+        "Confirm prioritization automation (vulnerabilities auto-assigned priority based on exploitability + asset criticality)",
+        "Review prioritization validation (security team reviews prioritization, adjusts based on business context)"
+      ],
+      "evidence": [
+        "Risk-based prioritization framework (P0-P3 definitions: exploitability × criticality)",
+        "Asset criticality categorization (internet-facing, sensitive, privileged, standard)",
+        "Exploitability assessment (actively exploited, public exploits, PoC, theoretical)",
+        "Prioritization automation (auto-assignment based on risk factors)",
+        "Prioritization validation (security review, business context adjustment)"
+      ],
+      "scoring": {
+        "yes_if": "Risk-based prioritization (exploitability × asset criticality), P0-P3 tiers defined (actively exploited, public exploits, moderate, minimal), asset categorization, exploitability assessment, automation + validation",
+        "partial_if": "Prioritization framework but manual prioritization or limited asset categorization",
+        "no_if": "No risk-based prioritization or severity-only prioritization or no asset context"
+      }
+    },
+    {
+      "id": "im-endpoints-1-13",
+      "question": "Do you implement remediation SLAs with critical ≤24h, high ≤7d, medium ≤30d, low ≤90d and track SLA compliance?",
+      "verification": [
+        "Review remediation SLA policy (critical ≤24 hours, high ≤7 days, medium ≤30 days, low ≤90 days)",
+        "Check SLA tracking (all vulnerabilities tracked from identification to remediation, SLA countdown visible)",
+        "Verify SLA compliance (≥95% of vulnerabilities remediated within SLA)",
+        "Confirm SLA exceptions (exceptions require approval, documented justification, compensating controls)",
+        "Review SLA breach handling (SLA breaches escalated, root cause analysis, improvement actions)"
+      ],
+      "evidence": [
+        "Remediation SLA policy (critical ≤24h, high ≤7d, medium ≤30d, low ≤90d)",
+        "SLA tracking dashboard (vulnerability age, SLA countdown, compliance %)",
+        "Current SLA compliance (≥95% remediated within SLA)",
+        "SLA exception process (approval, justification, compensating controls)",
+        "SLA breach handling (escalation, root cause analysis, improvements)"
+      ],
+      "scoring": {
+        "yes_if": "SLAs defined (critical ≤24h, high ≤7d, medium ≤30d, low ≤90d), SLA tracking (dashboard, countdown), ≥95% compliance, exception process (approval, compensating controls), breach handling",
+        "partial_if": "SLAs defined but <90% compliance or no exception process or limited tracking",
+        "no_if": "No SLAs or <85% compliance or no SLA tracking"
+      }
+    },
+    {
+      "id": "im-endpoints-1-14",
+      "question": "Do you maintain ≥95% patch compliance within SLA across all endpoints?",
+      "verification": [
+        "Review patch compliance measurement (% endpoints fully patched within SLA for their vulnerabilities)",
+        "Check current compliance (≥95% endpoints patched within SLA: critical ≤24h, high ≤7d)",
+        "Verify compliance reporting (real-time dashboards showing patch compliance %, trending)",
+        "Confirm non-compliance tracking (endpoints not meeting SLA identified, prioritized for remediation)",
+        "Review compliance improvement (quarterly reviews of patch compliance, improvement initiatives for <95%)"
+      ],
+      "evidence": [
+        "Patch compliance measurement methodology (% endpoints patched within SLA)",
+        "Current patch compliance (≥95% within SLA)",
+        "Compliance dashboards (real-time compliance %, trends)",
+        "Non-compliance tracking (endpoints below SLA, remediation priority)",
+        "Compliance improvement process (quarterly reviews, improvement initiatives)"
+      ],
+      "scoring": {
+        "yes_if": "≥95% patch compliance within SLA, real-time dashboards (compliance %, trends), non-compliance tracking, quarterly reviews + improvement initiatives",
+        "partial_if": "≥90% compliance or limited dashboards or no improvement process",
+        "no_if": "<90% compliance or no patch tracking or no compliance measurement"
+      }
+    },
+    {
+      "id": "im-endpoints-1-15",
+      "question": "Do you track vulnerability metrics with ≤5% endpoints having critical/high vulnerabilities, MTTR critical ≤24h/high ≤7d, and ≤2% patch failure rate?",
+      "verification": [
+        "Review vulnerable endpoint metric (≤5% endpoints with unpatched critical or high severity vulnerabilities)",
+        "Check MTTR (Mean Time to Remediate: critical vulnerabilities ≤24 hours, high vulnerabilities ≤7 days)",
+        "Verify patch failure rate (≤2% of patch deployments fail or cause issues)",
+        "Confirm metrics tracking (real-time dashboards showing vulnerable endpoint %, MTTR, patch failure rate)",
+        "Review metrics improvement (quarterly analysis of metrics, improvement initiatives if targets not met)"
+      ],
+      "evidence": [
+        "Vulnerable endpoint metric (current: ≤5% with critical/high vulnerabilities)",
+        "MTTR tracking (critical ≤24h, high ≤7d)",
+        "Patch failure rate (current: ≤2% failure rate)",
+        "Metrics dashboards (real-time vulnerable %, MTTR, failure rate)",
+        "Metrics improvement process (quarterly analysis, improvement initiatives)"
+      ],
+      "scoring": {
+        "yes_if": "≤5% vulnerable endpoints (critical/high), MTTR critical ≤24h and high ≤7d, ≤2% patch failure rate, real-time dashboards, quarterly improvement process",
+        "partial_if": "≤10% vulnerable or MTTR critical ≤48h/high ≤14d or ≤5% failure rate, or limited dashboards",
+        "no_if": ">10% vulnerable or MTTR critical >48h/high >14d or >5% failure or no metrics tracking"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Patch Compliance",
+      "target": "≥95% endpoints patched within SLA (critical ≤24h, high ≤7d, medium ≤30d, low ≤90d)",
+      "measurement": "Patch compliance % = (Endpoints patched within SLA / Total endpoints with vulnerabilities) × 100",
+      "data_source": "Patch management systems, vulnerability scanners",
+      "frequency": "Real-time monitoring, daily reporting",
+      "baseline": "Current patch compliance rate",
+      "validation": "Vulnerability scans confirm patch deployment"
+    },
+    {
+      "metric": "Vulnerability Coverage",
+      "target": "100% endpoints scanned daily for OS, application, and configuration vulnerabilities",
+      "measurement": "Scan coverage % = (Endpoints scanned / Total endpoints) × 100",
+      "data_source": "Vulnerability scanning tools (Qualys, Rapid7, Tenable)",
+      "frequency": "Daily scans, real-time monitoring",
+      "baseline": "Current scan coverage",
+      "validation": "Scan reports show 100% endpoint coverage daily"
+    },
+    {
+      "metric": "Mean Time to Remediate (MTTR)",
+      "target": "Critical vulnerabilities ≤24h, high vulnerabilities ≤7d",
+      "measurement": "MTTR = Average time from vulnerability identification to remediation",
+      "data_source": "Vulnerability management system (identification to remediation timestamps)",
+      "frequency": "Real-time calculation, daily reporting",
+      "baseline": "Current MTTR baseline (critical and high separately)",
+      "validation": "MTTR dashboards show P50, P95 remediation times"
+    },
+    {
+      "metric": "Vulnerable Endpoints",
+      "target": "≤5% endpoints with unpatched critical or high severity vulnerabilities",
+      "measurement": "Vulnerable endpoint % = (Endpoints with critical/high vulns / Total endpoints) × 100",
+      "data_source": "Vulnerability scanners, patch management dashboards",
+      "frequency": "Real-time monitoring, daily reporting",
+      "baseline": "Current vulnerable endpoint percentage",
+      "validation": "Vulnerability dashboards show real-time vulnerable endpoint count"
+    },
+    {
+      "metric": "Patch Failure Rate",
+      "target": "≤2% patch deployment failures or issues",
+      "measurement": "Failure rate % = (Failed patches / Total patch deployments) × 100",
+      "data_source": "Patch management systems (WSUS, SCCM, Jamf, Intune)",
+      "frequency": "Per patch deployment, weekly reporting",
+      "baseline": "Current patch failure rate",
+      "validation": "Patch deployment reports show success/failure rates"
+    },
+    {
+      "metric": "Agent Vulnerability SLA",
+      "target": "≥95% agent vulnerabilities remediated within SLA (critical ≤24h, high ≤7d)",
+      "measurement": "Agent SLA compliance % = (Agent vulns remediated within SLA / Total agent vulns) × 100",
+      "data_source": "Agent code scanning, agent update tracking",
+      "frequency": "Per agent update, weekly reporting",
+      "baseline": "Current agent vulnerability SLA compliance",
+      "validation": "Agent update tracking shows SLA compliance rate"
+    },
+    {
+      "metric": "Cross-Platform Scan Coverage",
+      "target": "100% coverage across Windows, macOS, Linux, iOS, and Android",
+      "measurement": "Platform scan coverage % per platform",
+      "data_source": "Vulnerability scanners, endpoint inventory",
+      "frequency": "Daily scans, weekly platform coverage reports",
+      "baseline": "Current platform-specific scan coverage",
+      "validation": "Scan reports show 100% coverage for each platform"
+    }
+  ]
+}

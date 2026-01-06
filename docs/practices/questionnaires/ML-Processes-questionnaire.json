@@ -1,0 +1,367 @@
+{
+  "practice": "ML",
+  "domain": "processes",
+  "name": "Monitoring & Logging - Processes Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ml-processes-1-1",
+      "question": "Do you log all AI alert triage decisions including classification, severity, and reasoning?",
+      "verification": [
+        "Review SOAR logging configuration for alert triage events",
+        "Sample 20 recent alerts and verify each has: alert received timestamp, classification (TP/FP/investigate), severity score, AI reasoning/confidence",
+        "Check that logs include alert source, alert type, and classification confidence",
+        "Verify logs are structured (JSON) and include all required context fields"
+      ],
+      "evidence": [
+        "SOAR alert triage log samples (20+ alerts showing complete classification data)",
+        "Logging configuration showing triage event capture",
+        "Sample log entries with alert source, type, classification, severity, confidence, reasoning",
+        "Log schema documentation showing required fields for triage events"
+      ],
+      "scoring": {
+        "yes_if": "100% of sampled alerts logged with all required fields (classification, severity, confidence, reasoning)",
+        "partial_if": "≥70% of alerts logged but missing some context fields or incomplete data",
+        "no_if": "<70% of alerts logged or critical fields missing (classification, severity)"
+      }
+    },
+    {
+      "id": "ml-processes-1-2",
+      "question": "Do you monitor and log AI triage model performance metrics in real-time?",
+      "verification": [
+        "Check if triage accuracy metrics are calculated and logged (true positive rate, precision, false positive rate)",
+        "Verify real-time metric tracking (dashboards show current performance)",
+        "Review alert configuration for accuracy threshold violations (≥95% TP rate, ≥70% precision)",
+        "Confirm analyst overrides are logged with AI vs analyst classification comparison"
+      ],
+      "evidence": [
+        "Triage model performance dashboard showing real-time metrics",
+        "Weekly/daily metric aggregation reports (last 4 weeks)",
+        "Alert configuration for accuracy threshold violations",
+        "Sample analyst override logs (10+ examples) showing AI classification, analyst classification, override reason"
+      ],
+      "scoring": {
+        "yes_if": "Real-time metrics tracked (TP rate ≥95%, precision ≥70%), alerts configured for threshold violations, all overrides logged",
+        "partial_if": "Metrics tracked but not real-time, or some overrides not logged",
+        "no_if": "No metric tracking or no alerts on accuracy degradation"
+      }
+    },
+    {
+      "id": "ml-processes-1-3",
+      "question": "Do you log complete playbook execution lifecycle including all steps, actions, and results?",
+      "verification": [
+        "Sample 10 recent playbook executions and verify each has: trigger event, start time, all step executions, completion/failure status, duration",
+        "Check that each step logs: action type, inputs (sanitized), outputs, result (success/failure)",
+        "Verify automation actions logged with: action, target (IP/account/system), timestamp, result",
+        "Review playbook error logging for failures (stack traces, error messages)"
+      ],
+      "evidence": [
+        "Playbook execution logs (10+ complete executions showing full lifecycle)",
+        "Sample playbook with step-by-step execution trace",
+        "Automation action logs showing IP blocks, account disables, system isolations",
+        "Playbook failure logs with error messages and stack traces (if any failures occurred)"
+      ],
+      "scoring": {
+        "yes_if": "100% of playbook executions logged with complete lifecycle, all steps traced, all actions logged",
+        "partial_if": "≥80% of playbooks logged but some steps or actions missing",
+        "no_if": "<80% coverage or critical lifecycle events not logged (trigger, completion, failures)"
+      }
+    },
+    {
+      "id": "ml-processes-1-4",
+      "question": "Do you log and track blast radius for all automated actions with limit validation?",
+      "verification": [
+        "Review orchestration safety logs for blast radius tracking (IPs blocked, accounts disabled, systems isolated per action)",
+        "Sample 10 recent automation actions and verify blast radius metrics logged",
+        "Check that blast radius limits are validated (≤50 IPs, ≤20 accounts, ≤5 systems per action)",
+        "Verify alerts configured for blast radius limit violations"
+      ],
+      "evidence": [
+        "Blast radius tracking logs (10+ automation actions with resource counts)",
+        "Blast radius limit configuration (max IPs, accounts, systems per action)",
+        "Alert configuration for limit violations or approaching limits",
+        "Sample logs showing blast radius validation before action execution"
+      ],
+      "scoring": {
+        "yes_if": "100% of automation actions log blast radius, limits validated before execution, alerts configured for violations",
+        "partial_if": "Blast radius logged but not always validated, or no alerts configured",
+        "no_if": "Blast radius not tracked or no limit validation"
+      }
+    },
+    {
+      "id": "ml-processes-1-5",
+      "question": "Do you log rollback actions including triggers, steps, and success/failure status?",
+      "verification": [
+        "Review rollback logging configuration",
+        "Sample recent rollbacks (if any) and verify logs include: rollback trigger reason, failed action, rollback steps executed, success/failure",
+        "Check pre-change snapshots are logged before automation (for rollback capability)",
+        "Verify post-rollback validation results are logged"
+      ],
+      "evidence": [
+        "Rollback execution logs (if rollbacks occurred) showing complete rollback process",
+        "Pre-change snapshot logs showing state captured before automation",
+        "Rollback testing logs (quarterly rollback tests) showing successful rollback validation",
+        "Rollback success rate metric (target: 100% successful rollbacks)"
+      ],
+      "scoring": {
+        "yes_if": "All rollbacks logged completely, pre-change snapshots captured, rollback success validated and logged",
+        "partial_if": "Rollbacks logged but missing some context (trigger reason, validation results)",
+        "no_if": "Rollback events not logged or no pre-change snapshots"
+      }
+    },
+    {
+      "id": "ml-processes-1-6",
+      "question": "Do you log all security tool integration API calls and errors?",
+      "verification": [
+        "Review integration logging for SIEM, EDR, firewall, cloud, ticketing tool API calls",
+        "Sample 20 recent API calls and verify logs include: integration name, endpoint, timestamp, result, sanitized parameters",
+        "Check integration error logging (timeouts, auth failures, rate limiting, service unavailable)",
+        "Verify credential usage logged (which credential used, which integration, timestamp - but not credential values)"
+      ],
+      "evidence": [
+        "Integration API call logs (20+ calls across multiple integrations)",
+        "Integration error logs showing various error types with retry attempts",
+        "Credential usage audit logs (showing credential access but not values)",
+        "Alert configuration for repeated integration failures or circuit breaker triggers"
+      ],
+      "scoring": {
+        "yes_if": "100% of integration API calls logged, all errors captured with context, credential usage audited",
+        "partial_if": "≥80% of API calls logged but some errors or credential usage not captured",
+        "no_if": "<80% of integration activity logged or no error logging"
+      }
+    },
+    {
+      "id": "ml-processes-1-7",
+      "question": "Do you monitor and log alert processing performance and MTTR metrics?",
+      "verification": [
+        "Check if alert processing throughput is tracked (alerts per hour)",
+        "Verify triage latency monitoring (time from alert to classification)",
+        "Review MTTR tracking (time from alert to containment/remediation)",
+        "Confirm performance targets met: ≥1,000 alerts/hour, ≤30 seconds triage latency, ≤10 hours MTTR"
+      ],
+      "evidence": [
+        "Performance monitoring dashboard showing alert throughput, triage latency, MTTR",
+        "Weekly performance reports (last 4 weeks) showing trends",
+        "MTTR comparison to manual baseline (demonstrate ≥50% reduction)",
+        "Alert triage latency metrics showing ≤30 second average"
+      ],
+      "scoring": {
+        "yes_if": "All performance metrics tracked and logged, targets met (≥1,000 alerts/hour, ≤30s latency, ≤10h MTTR)",
+        "partial_if": "Metrics tracked but some targets not met, or tracking not real-time",
+        "no_if": "Performance not monitored or no MTTR tracking"
+      }
+    },
+    {
+      "id": "ml-processes-1-8",
+      "question": "Do you track automation rate and false automation metrics?",
+      "verification": [
+        "Check if automation rate is calculated (% alerts auto-triaged, % auto-remediated)",
+        "Review false automation tracking (playbooks executed on false positives, incorrect actions)",
+        "Verify targets: ≥70% alerts auto-triaged, ≥50% auto-remediated, ≤2% false automation rate",
+        "Confirm trend analysis shows increasing automation rate over time"
+      ],
+      "evidence": [
+        "Automation rate dashboard showing % auto-triaged and % auto-remediated",
+        "Monthly automation rate trend report (last 6 months)",
+        "False automation incident logs with impact analysis",
+        "False automation rate metric (current rate and trend)"
+      ],
+      "scoring": {
+        "yes_if": "Automation rate tracked and meets targets (≥70% auto-triaged, ≥50% auto-remediated), false automation ≤2%",
+        "partial_if": "Metrics tracked but targets not met, or false automation not separately tracked",
+        "no_if": "No automation rate tracking or false automation not monitored"
+      }
+    },
+    {
+      "id": "ml-processes-1-9",
+      "question": "Do you log all approval workflow requests, decisions, and timeouts?",
+      "verification": [
+        "Review approval logging for high-risk actions (infrastructure changes, bulk actions, data deletion)",
+        "Sample 10 recent approval requests and verify logs include: playbook, action, risk level, approvers, timestamp",
+        "Check approval decisions logged with: approver, decision (approve/reject), timestamp, justification",
+        "Verify approval timeouts logged with default action taken"
+      ],
+      "evidence": [
+        "Approval request logs (10+ requests showing complete workflow)",
+        "Approval decision logs with justifications",
+        "Approval SLA tracking showing latency metrics (target: ≤30 minutes)",
+        "Approval timeout logs (if any timeouts occurred) with default actions"
+      ],
+      "scoring": {
+        "yes_if": "100% of approval workflows logged completely, SLA tracked (≤30 min), timeouts handled and logged",
+        "partial_if": "Approvals logged but missing context (justification, risk level) or SLA not tracked",
+        "no_if": "Approval workflows not logged or no timeout handling"
+      }
+    },
+    {
+      "id": "ml-processes-1-10",
+      "question": "Do you log manual analyst interventions and conduct spot-check audits of automation?",
+      "verification": [
+        "Review manual intervention logs (analyst overrides, manual actions, playbook modifications)",
+        "Check that interventions include: user, action, reason, timestamp",
+        "Verify spot-check audit logging (≥10% random sample of automated actions audited)",
+        "Confirm audit results logged (correct/incorrect assessment of automation quality)"
+      ],
+      "evidence": [
+        "Manual intervention logs (if interventions occurred) with user, action, reason",
+        "Spot-check audit logs showing ≥10% sample coverage",
+        "Audit results showing automation quality assessment (correct vs incorrect actions)",
+        "Analysis of manual intervention patterns to identify automation improvement opportunities"
+      ],
+      "scoring": {
+        "yes_if": "All manual interventions logged, spot-check audits cover ≥10% of actions, audit results tracked",
+        "partial_if": "Interventions logged but audits <10% coverage or results not analyzed",
+        "no_if": "Manual interventions not logged or no spot-check audits performed"
+      }
+    },
+    {
+      "id": "ml-processes-1-11",
+      "question": "Do you log SOAR platform security events and monitor for automation abuse?",
+      "verification": [
+        "Review SOAR security event logging (login attempts, unauthorized access, config changes, playbook modifications)",
+        "Check that security events include: user, action, timestamp, source IP",
+        "Verify anomaly detection for automation abuse (unusual playbook patterns, excessive actions, failed approvals)",
+        "Confirm alerts configured for potential abuse or compromise"
+      ],
+      "evidence": [
+        "SOAR security event logs (logins, config changes, playbook edits)",
+        "Abuse detection rules or anomaly detection configuration",
+        "Sample abuse alerts (if any anomalies detected) with investigation results",
+        "Access audit logs showing who accessed SOAR platform and when"
+      ],
+      "scoring": {
+        "yes_if": "All SOAR security events logged, abuse monitoring active, alerts configured for anomalies",
+        "partial_if": "Security events logged but no abuse detection or incomplete monitoring",
+        "no_if": "SOAR platform security events not logged"
+      }
+    },
+    {
+      "id": "ml-processes-1-12",
+      "question": "Do you maintain tamper-proof audit logs with integrity protection and access controls?",
+      "verification": [
+        "Review audit trail integrity mechanisms (write-once storage, log signing, separate log infrastructure)",
+        "Check access controls for logs (restricted deletion, audit log access logged)",
+        "Verify log retention meets requirements (≥90 days in SIEM, ≥1 year in cold storage)",
+        "Confirm log integrity validation (checksums, signatures verified)"
+      ],
+      "evidence": [
+        "Audit log storage configuration showing write-once or immutable storage",
+        "Log signing/integrity verification mechanism documentation",
+        "Log access control policy showing who can access/delete logs",
+        "Log retention policy and verification of retention compliance (90+ days, 1+ year cold storage)"
+      ],
+      "scoring": {
+        "yes_if": "Logs protected from tampering (write-once/signed), access restricted and audited, retention ≥90 days SIEM + 1 year cold",
+        "partial_if": "Some integrity protection but not comprehensive, or retention <90 days",
+        "no_if": "No log integrity protection or logs can be deleted without audit trail"
+      }
+    },
+    {
+      "id": "ml-processes-1-13",
+      "question": "Do you have real-time dashboards and executive reporting for SOAR operations?",
+      "verification": [
+        "Review SOAR operations dashboard showing real-time metrics (alerts processed, automation rate, MTTR, playbook success rate)",
+        "Check dashboard includes system health indicators (integration status, queue depth, performance)",
+        "Verify executive reporting exists (periodic reports to CISO, SOC management)",
+        "Confirm reports include: automation metrics, MTTR trends, incidents handled, ROI analysis"
+      ],
+      "evidence": [
+        "Screenshots or access to real-time SOAR operations dashboard",
+        "Sample executive report (last quarterly report) showing key metrics and trends",
+        "Dashboard documentation listing all tracked metrics",
+        "Evidence of executive review (meeting minutes, feedback on reports)"
+      ],
+      "scoring": {
+        "yes_if": "Real-time dashboard operational with all key metrics, executive reports produced regularly (at least quarterly)",
+        "partial_if": "Dashboard exists but not real-time, or executive reporting irregular",
+        "no_if": "No operational dashboard or no executive reporting"
+      }
+    },
+    {
+      "id": "ml-processes-1-14",
+      "question": "Do you have alerts configured for SOAR system issues and automation quality problems?",
+      "verification": [
+        "Review alert configuration for critical SOAR issues (platform down, integrations failing, automation storm)",
+        "Check alerts for high-priority issues (integration failures, playbook errors, blast radius exceeded)",
+        "Verify automation quality alerts (high false automation rate, triage accuracy drop, repeated failures)",
+        "Confirm alert routing (critical → page on-call, high/medium → ticketing)"
+      ],
+      "evidence": [
+        "Alert rule configuration showing SOAR system and quality alerts",
+        "Sample alerts (if any triggered) showing proper routing and escalation",
+        "On-call rotation documentation for critical SOAR alerts",
+        "Alert response SLA and verification of timely response to recent alerts"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive alerts configured for SOAR issues and quality problems, proper routing, on-call established",
+        "partial_if": "Some alerts configured but coverage incomplete, or routing not properly configured",
+        "no_if": "No SOAR-specific alerts or no alert routing configured"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Logging Coverage",
+      "target": "100% playbook executions logged, 100% automation actions logged, all security events captured",
+      "measurement": "(Logged events / Total events) × 100 for playbooks, actions, security events",
+      "data_source": "SOAR logging system, SIEM aggregation reports",
+      "frequency": "Weekly",
+      "baseline": "Audit initial logging coverage to establish baseline",
+      "validation": "Sample verification: randomly select 20 playbooks, verify 100% have complete logs"
+    },
+    {
+      "metric": "Triage Accuracy",
+      "target": "≥95% true positive detection, ≥70% precision, model performance monitored real-time",
+      "measurement": "True Positive Rate = TP / (TP + FN); Precision = TP / (TP + FP)",
+      "data_source": "Alert triage logs with analyst validation/overrides",
+      "frequency": "Daily aggregation, real-time monitoring",
+      "baseline": "Pre-AI triage baseline (if available) or first month of AI triage",
+      "validation": "Compare AI classifications to analyst overrides and post-incident analysis"
+    },
+    {
+      "metric": "Automation Rate",
+      "target": "≥70% alerts auto-triaged, ≥50% auto-remediated, tracked per playbook type",
+      "measurement": "Auto-triage rate = (Auto-triaged alerts / Total alerts) × 100; Auto-remediation rate = (Auto-remediated alerts / Total alerts) × 100",
+      "data_source": "SOAR alert and playbook execution logs",
+      "frequency": "Daily tracking, weekly reporting",
+      "baseline": "Pre-automation baseline (manual triage/response rates)",
+      "validation": "Trend analysis shows increasing automation rate over time"
+    },
+    {
+      "metric": "Mean Time to Respond (MTTR)",
+      "target": "≤10 hours (≥50% reduction vs. manual response), trending downward over time",
+      "measurement": "MTTR = Average (Containment timestamp - Alert timestamp)",
+      "data_source": "Alert logs and incident response timestamps",
+      "frequency": "Weekly calculation, monthly trend analysis",
+      "baseline": "Manual response MTTR (pre-automation baseline)",
+      "validation": "Compare automated vs manual MTTR, verify ≥50% reduction"
+    },
+    {
+      "metric": "Safety - Blast Radius Compliance",
+      "target": "Zero blast radius violations, 100% of rollbacks successful, all violations logged and alerted",
+      "measurement": "Blast radius violations count, rollback success rate = (Successful rollbacks / Total rollbacks) × 100",
+      "data_source": "Orchestration safety logs, rollback execution logs",
+      "frequency": "Real-time monitoring, weekly reports",
+      "baseline": "Zero tolerance baseline (no violations acceptable)",
+      "validation": "Verify all automation actions within limits (≤50 IPs, ≤20 accounts, ≤5 systems)"
+    },
+    {
+      "metric": "Performance - Alert Processing",
+      "target": "≥1,000 alerts/hour throughput, ≥95% playbook success rate, ≤30 seconds triage latency",
+      "measurement": "Throughput = Alerts processed / Hour; Success rate = (Successful playbooks / Total playbooks) × 100; Latency = Average (Classification timestamp - Alert received timestamp)",
+      "data_source": "SOAR performance monitoring, alert and playbook execution logs",
+      "frequency": "Real-time monitoring, hourly/daily aggregation",
+      "baseline": "Initial performance baseline during SOAR deployment",
+      "validation": "Compare to target thresholds, alert on degradation"
+    },
+    {
+      "metric": "Compliance - Audit Trail Integrity",
+      "target": "100% compliance actions logged, audit trail integrity verified, zero log tampering detected",
+      "measurement": "Compliance logging coverage = (Logged compliance actions / Total compliance actions) × 100; Log integrity = Signature/checksum verification pass rate",
+      "data_source": "Compliance automation logs, log integrity verification system",
+      "frequency": "Continuous compliance action logging, weekly integrity verification",
+      "baseline": "100% target from day one (no tolerance for missing compliance logs)",
+      "validation": "Third-party audit verification, compliance framework assessments (PCI-DSS, HIPAA, SOC2)"
+    }
+  ]
+}

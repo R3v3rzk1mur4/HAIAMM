@@ -1,0 +1,418 @@
+{
+  "practice": "ST",
+  "domain": "endpoints",
+  "name": "Security Testing - Endpoints Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "st-endpoints-1-1",
+      "question": "Do you conduct malware detection testing on known malware samples with ≥95% detection rate?",
+      "verification": [
+        "Review malware test dataset (VirusTotal samples, EMBER dataset, custom malware zoo with ≥10,000 samples)",
+        "Check detection testing methodology (automated scanning, detection rate calculation)",
+        "Verify detection rate results (≥95% on known malware)",
+        "Confirm test coverage (multiple malware families: trojans, worms, backdoors, rootkits)",
+        "Review detection validation (confirm true positives, investigate false negatives)"
+      ],
+      "evidence": [
+        "Malware test dataset documentation (sources, sample count, diversity)",
+        "Detection testing results (≥95% detection rate on known malware)",
+        "Test coverage breakdown (malware families tested)",
+        "Detection analysis (true positive confirmation, false negative root cause)",
+        "Quarterly malware testing reports"
+      ],
+      "scoring": {
+        "yes_if": "≥95% detection rate on known malware, comprehensive dataset (≥10,000 samples), multiple families tested, quarterly testing",
+        "partial_if": "≥85% detection rate or limited dataset (<10,000 samples)",
+        "no_if": "<85% detection rate or no malware testing conducted"
+      }
+    },
+    {
+      "id": "st-endpoints-1-2",
+      "question": "Do you conduct behavioral analytics testing with ≥85% true positive rate and ≤10% false positive rate on endpoint activity?",
+      "verification": [
+        "Review behavioral testing methodology (simulate normal and malicious behavior on test endpoints)",
+        "Check true positive rate (≥85% of malicious behavior detected: suspicious process execution, abnormal file access, lateral movement)",
+        "Verify false positive rate (≤10% of normal activity flagged as suspicious)",
+        "Confirm test scenarios (user behavior: login patterns, file access, network connections, application usage)",
+        "Review baseline establishment (test on endpoints with known normal behavior baselines)"
+      ],
+      "evidence": [
+        "Behavioral testing plan (normal vs malicious scenarios)",
+        "True positive rate results (≥85% on malicious behavior)",
+        "False positive rate results (≤10% on normal activity)",
+        "Test scenario documentation (behavior types tested)",
+        "Baseline testing results (detection accuracy across different baseline profiles)"
+      ],
+      "scoring": {
+        "yes_if": "≥85% TP rate and ≤10% FP rate, comprehensive scenarios (normal + malicious), baseline-aware testing",
+        "partial_if": "≥75% TP or ≤15% FP but not both, or limited scenario coverage",
+        "no_if": "<75% TP or >15% FP or no behavioral testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-3",
+      "question": "Do you conduct ransomware detection testing with detection within ≤60 seconds and ≥90% file encryption prevention?",
+      "verification": [
+        "Review ransomware testing methodology (deploy ransomware samples in isolated environment, measure detection time)",
+        "Check detection latency (time from encryption start to alert ≤60 seconds)",
+        "Verify prevention rate (≥90% of files prevented from encryption through early termination)",
+        "Confirm ransomware variants tested (multiple families: WannaCry-like, Ryuk-like, LockBit-like)",
+        "Review volume shadow copy protection (verify backup deletion attempts detected and blocked)"
+      ],
+      "evidence": [
+        "Ransomware testing results (detection latency ≤60s)",
+        "Prevention rate results (≥90% file encryption prevented)",
+        "Ransomware variant coverage (multiple families tested)",
+        "Volume shadow copy protection test results (100% deletion attempts blocked)",
+        "Quarterly ransomware testing reports"
+      ],
+      "scoring": {
+        "yes_if": "≤60s detection, ≥90% prevention, multiple variants tested, shadow copy protected, quarterly testing",
+        "partial_if": "≤120s detection or ≥70% prevention but not both, or limited variant coverage",
+        "no_if": ">120s detection or <70% prevention or no ransomware testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-4",
+      "question": "Do you conduct zero-day detection testing with ≥70% detection rate on previously unseen malware?",
+      "verification": [
+        "Review zero-day test dataset (newly discovered malware from threat feeds, private samples, never seen by endpoint agent)",
+        "Check detection methodology (behavioral analysis, anomaly detection, heuristics without signature matching)",
+        "Verify detection rate (≥70% of zero-day samples detected)",
+        "Confirm dataset freshness (samples obtained within last 30 days, no prior exposure to detection system)",
+        "Review false negative analysis (why 30% missed: evasion techniques, behavior mimicking legitimate software)"
+      ],
+      "evidence": [
+        "Zero-day test dataset (sources, sample acquisition date, novelty validation)",
+        "Detection rate results (≥70% on zero-day malware)",
+        "Detection methodology (behavioral, heuristic, ML-based approaches used)",
+        "False negative root cause analysis",
+        "Quarterly zero-day testing reports"
+      ],
+      "scoring": {
+        "yes_if": "≥70% zero-day detection, fresh samples (<30 days), behavioral/heuristic detection, false negative analysis, quarterly testing",
+        "partial_if": "≥50% detection or samples >30 days old or no false negative analysis",
+        "no_if": "<50% detection or signature-only detection or no zero-day testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-5",
+      "question": "Do you conduct adversarial evasion testing with ≥70% detection of obfuscated, polymorphic, and packed malware?",
+      "verification": [
+        "Review evasion testing methodology (obfuscation, polymorphic code, packing, anti-analysis, anti-debugging, anti-VM)",
+        "Check evasion techniques tested (code obfuscation, runtime packing, fileless malware, in-memory execution, DLL injection)",
+        "Verify detection rate (≥70% of evasion attempts still detected)",
+        "Confirm adversarial sample generation (use packers: UPX, Themida; obfuscators; polymorphic engines)",
+        "Review evasion analysis (which techniques bypass detection, mitigation roadmap)"
+      ],
+      "evidence": [
+        "Evasion testing plan (techniques tested: packing, obfuscation, anti-analysis)",
+        "Detection rate results (≥70% evasion attempts detected)",
+        "Adversarial sample generation methodology (tools used: packers, obfuscators)",
+        "Evasion analysis (successful bypass techniques, mitigation plan)",
+        "Quarterly evasion testing reports"
+      ],
+      "scoring": {
+        "yes_if": "≥70% evasion detection, multiple techniques tested (≥5 types), adversarial generation, evasion analysis, quarterly testing",
+        "partial_if": "≥50% detection or limited techniques (<5 types) or no evasion analysis",
+        "no_if": "<50% detection or single technique only or no evasion testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-6",
+      "question": "Do you conduct agent tampering protection testing with 100% of tampering attempts blocked and alerts generated?",
+      "verification": [
+        "Review tampering testing methodology (attempt to kill agent process, delete agent files, disable agent service, modify agent configuration)",
+        "Check tampering protection mechanisms (process protection, file integrity monitoring, self-healing, kernel-level hooks)",
+        "Verify tampering block rate (100% of attempts blocked: process kill prevented, file deletion blocked, config changes reverted)",
+        "Confirm alert generation (all tampering attempts trigger immediate alerts to SOC)",
+        "Review privilege escalation testing (test tampering with admin/root privileges)"
+      ],
+      "evidence": [
+        "Tampering testing plan (attack scenarios: process kill, file deletion, service disable, config modification)",
+        "Tampering block rate (100% of attempts blocked)",
+        "Alert generation validation (100% of tampering attempts generate alerts)",
+        "Privilege escalation test results (admin/root tampering blocked)",
+        "Quarterly tampering testing reports"
+      ],
+      "scoring": {
+        "yes_if": "100% tampering blocked, alerts generated for all attempts, multiple attack scenarios (≥4 types), admin/root tested, quarterly testing",
+        "partial_if": "≥90% tampering blocked or limited scenarios (<4 types) or no privilege escalation testing",
+        "no_if": "<90% tampering blocked or no alert generation or no tampering testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-7",
+      "question": "Do you conduct performance testing validating CPU ≤5%, memory ≤200MB, and file access latency increase ≤100ms under normal operation?",
+      "verification": [
+        "Review performance testing methodology (monitor agent resource usage during normal endpoint usage, continuous monitoring over ≥24 hours)",
+        "Check CPU usage (average ≤5%, peak ≤10% during scans)",
+        "Verify memory footprint (resident set size ≤200MB)",
+        "Confirm file access latency (measure increase in file open/read latency ≤100ms overhead)",
+        "Review performance testing environments (test on representative hardware: low-end laptops, high-end workstations, VMs)"
+      ],
+      "evidence": [
+        "Performance testing results (CPU ≤5%, memory ≤200MB, latency ≤100ms)",
+        "Testing methodology (24+ hour monitoring, normal usage simulation)",
+        "Hardware coverage (low-end, mid-range, high-end devices tested)",
+        "Performance dashboards (real-time resource usage charts)",
+        "Quarterly performance testing reports"
+      ],
+      "scoring": {
+        "yes_if": "CPU ≤5%, memory ≤200MB, latency ≤100ms, 24+ hour testing, multiple hardware types (≥3), quarterly testing",
+        "partial_if": "CPU ≤7% or memory ≤300MB or latency ≤150ms, or limited hardware coverage",
+        "no_if": "CPU >7% or memory >300MB or latency >150ms or no performance testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-8",
+      "question": "Do you conduct battery impact testing on mobile devices with ≤5% battery drain per day?",
+      "verification": [
+        "Review mobile battery testing methodology (monitor battery usage over 24 hours, normal mobile usage patterns)",
+        "Check battery drain rate (agent contributes ≤5% per day)",
+        "Verify mobile platforms tested (iOS and Android)",
+        "Confirm testing devices (multiple models: flagship, mid-range, older devices with degraded batteries)",
+        "Review optimization validation (background execution limits, scan scheduling during charging, differential scanning)"
+      ],
+      "evidence": [
+        "Battery testing results (≤5% drain per day on mobile)",
+        "Testing methodology (24+ hour monitoring, normal usage patterns)",
+        "Platform and device coverage (iOS and Android, multiple models)",
+        "Optimization validation (background limits, charging-aware scanning)",
+        "Quarterly mobile battery testing reports"
+      ],
+      "scoring": {
+        "yes_if": "≤5% battery drain per day, iOS + Android tested, multiple device models (≥3 per platform), optimization validated, quarterly testing",
+        "partial_if": "≤7% drain or single platform or limited device coverage (≤2 models)",
+        "no_if": ">7% drain or no mobile testing conducted"
+      }
+    },
+    {
+      "id": "st-endpoints-1-9",
+      "question": "Do you conduct telemetry privacy testing validating zero user content or PII captured in telemetry data?",
+      "verification": [
+        "Review telemetry privacy testing methodology (capture all telemetry sent to cloud, analyze for user content/PII)",
+        "Check user content validation (zero files contents, document text, images, personal communications)",
+        "Verify PII validation (zero personally identifiable information: names, emails, phone numbers, addresses unless necessary for security)",
+        "Confirm data minimization (only security-relevant metadata collected: file hashes, process names, network IPs)",
+        "Review BYOD testing (on BYOD devices, verify no personal app/file data captured)"
+      ],
+      "evidence": [
+        "Telemetry analysis results (zero user content, zero unnecessary PII)",
+        "Data minimization validation (only security metadata collected)",
+        "BYOD privacy testing results (work/personal data separation validated)",
+        "Privacy testing methodology (telemetry capture and analysis process)",
+        "Quarterly privacy testing reports"
+      ],
+      "scoring": {
+        "yes_if": "Zero user content, zero unnecessary PII, data minimization validated, BYOD tested, quarterly testing",
+        "partial_if": "Limited user content (<1%) or PII present with justification",
+        "no_if": "User content >1% or PII present without justification or no privacy testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-10",
+      "question": "Do you conduct BYOD testing validating work/personal data separation with agent only monitoring work apps/data?",
+      "verification": [
+        "Review BYOD testing methodology (configure test endpoints as BYOD, install work and personal apps/files)",
+        "Check work/personal boundary enforcement (agent monitors only work apps: corporate email, work files in enterprise container)",
+        "Verify personal app exclusion (agent does not monitor personal apps: personal email, photos, browsing, messaging)",
+        "Confirm mobile MDM integration (work profile separation on Android, managed apps on iOS)",
+        "Review user consent validation (users explicitly consent to work monitoring only)"
+      ],
+      "evidence": [
+        "BYOD testing results (work/personal separation validated)",
+        "Work app monitoring validation (only enterprise apps/files monitored)",
+        "Personal app exclusion validation (personal apps not monitored)",
+        "MDM integration testing (work profile/managed app separation)",
+        "User consent mechanism testing"
+      ],
+      "scoring": {
+        "yes_if": "Work/personal separation validated, only work apps monitored, personal apps excluded, MDM integrated, consent tested",
+        "partial_if": "Partial separation (some personal monitoring) or no MDM integration",
+        "no_if": "No work/personal separation or full device monitoring or no BYOD testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-11",
+      "question": "Do you conduct GDPR compliance testing with ≤90 day auto-deletion and data subject rights implementation validated?",
+      "verification": [
+        "Review GDPR testing methodology (test data retention, access requests, deletion requests, consent management)",
+        "Check data retention testing (telemetry >90 days auto-deleted, deletion job runs daily, validation of deletion)",
+        "Verify data access testing (users can request all their data, data provided within 30 days)",
+        "Confirm deletion testing (users can request data deletion, deletion completed within 30 days, validation of permanent deletion)",
+        "Review consent testing (users can withdraw consent, monitoring stops immediately)"
+      ],
+      "evidence": [
+        "GDPR testing results (retention ≤90 days, access/deletion working)",
+        "Data retention testing (auto-deletion validated, >90 day data purged)",
+        "Data access testing (user data retrieval within 30 days)",
+        "Deletion testing (user data deletion within 30 days, permanent removal validated)",
+        "Consent withdrawal testing (monitoring stops on consent withdrawal)"
+      ],
+      "scoring": {
+        "yes_if": "≤90 day retention validated, data access working (<30 days), deletion working (<30 days), consent withdrawal working, quarterly testing",
+        "partial_if": "Retention ≤120 days or access/deletion >30 days or consent issues",
+        "no_if": "Retention >120 days or no access/deletion or no GDPR testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-12",
+      "question": "Do you conduct cross-platform testing on ≥4 platforms (Windows, macOS, Linux, iOS, Android) with ≥90% feature parity?",
+      "verification": [
+        "Review cross-platform testing coverage (Windows 10/11, macOS Ventura/Sonoma, Linux Ubuntu/RHEL/Debian, iOS, Android)",
+        "Check feature parity (≥90% of features work on all platforms, platform-specific constraints documented)",
+        "Verify platform-specific testing (Windows: kernel driver, macOS: Endpoint Security Framework, Linux: eBPF, mobile: app sandboxing)",
+        "Confirm OS version coverage (test multiple patch levels, major versions)",
+        "Review cross-platform detection consistency (same threats detected on all platforms)"
+      ],
+      "evidence": [
+        "Cross-platform testing matrix (≥4 platforms, OS versions tested)",
+        "Feature parity analysis (≥90% features on all platforms)",
+        "Platform-specific testing results (kernel driver, ESF, eBPF validated)",
+        "OS version coverage (multiple patch levels/versions tested)",
+        "Cross-platform detection consistency report (same detection rules work on all platforms)"
+      ],
+      "scoring": {
+        "yes_if": "≥4 platforms tested, ≥90% feature parity, platform-specific mechanisms validated, multiple OS versions, detection consistency validated",
+        "partial_if": "3-4 platforms or ≥75% feature parity or limited OS version coverage",
+        "no_if": "<3 platforms or <75% feature parity or no cross-platform testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-13",
+      "question": "Do you conduct automated response testing validating isolation, process termination, and file quarantine work safely without system instability?",
+      "verification": [
+        "Review response testing methodology (test each response action: network isolation, process termination, file quarantine)",
+        "Check isolation testing (isolate endpoint from network, validate only target isolated, other endpoints unaffected, network stability maintained)",
+        "Verify termination testing (terminate malicious processes cleanly, no system crashes, dependent processes handled gracefully)",
+        "Confirm quarantine testing (files quarantined securely, encrypted, recoverable if false positive, original files deleted)",
+        "Review blast radius testing (responses don't cascade to other endpoints, max 100 endpoints isolated simultaneously)"
+      ],
+      "evidence": [
+        "Response testing results (isolation, termination, quarantine all work safely)",
+        "Isolation testing (only target endpoint isolated, network stable)",
+        "Termination testing (processes terminate cleanly, no crashes)",
+        "Quarantine testing (files recoverable, encrypted, deletion validated)",
+        "Blast radius testing (max 100 endpoints, no cascading effects)"
+      ],
+      "scoring": {
+        "yes_if": "All 3 response types tested (isolation, termination, quarantine), safe operation validated, blast radius limited (≤100), quarterly testing",
+        "partial_if": "2/3 response types tested or limited blast radius testing",
+        "no_if": "<2 response types or no safety validation or no response testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-14",
+      "question": "Do you conduct resilience testing validating offline operation, agent update success ≥99%, and automatic crash recovery?",
+      "verification": [
+        "Review resilience testing methodology (test offline operation, agent updates, crash recovery)",
+        "Check offline operation testing (disconnect endpoints from cloud, validate agent continues detecting, alerts queued for later upload)",
+        "Verify agent update testing (staged rollout: 10% canary → 50% → 100%, success rate ≥99%, failed updates rollback automatically)",
+        "Confirm crash recovery testing (kill agent process, validate auto-restart within 60s, no data loss, queued alerts preserved)",
+        "Review update rollback testing (introduce intentional update failures, validate automatic rollback to previous version)"
+      ],
+      "evidence": [
+        "Resilience testing results (offline operation, updates ≥99% success, crash recovery working)",
+        "Offline operation testing (detection continues, alerts queued)",
+        "Agent update testing (≥99% success rate, staged rollout validated, rollback working)",
+        "Crash recovery testing (auto-restart <60s, no data loss)",
+        "Update rollback testing (automatic rollback on failure)"
+      ],
+      "scoring": {
+        "yes_if": "Offline operation validated, update success ≥99%, auto-restart <60s, rollback working, quarterly testing",
+        "partial_if": "Update success ≥95% or auto-restart <120s or limited rollback testing",
+        "no_if": "Update success <95% or no crash recovery or no resilience testing"
+      }
+    },
+    {
+      "id": "st-endpoints-1-15",
+      "question": "Do you conduct false positive testing on legitimate software with ≤5% false positive rate?",
+      "verification": [
+        "Review false positive testing methodology (test on common legitimate software: browsers, productivity tools, dev tools, system utilities)",
+        "Check software coverage (test ≥100 common applications: Chrome, Firefox, Office, Slack, VSCode, Git, Docker, etc.)",
+        "Verify false positive rate (≤5% of legitimate software flagged as malicious)",
+        "Confirm false positive analysis (root cause: overly aggressive heuristics, behavioral signatures too broad)",
+        "Review whitelisting validation (legitimate software can be whitelisted, whitelist management process)"
+      ],
+      "evidence": [
+        "False positive testing results (≤5% FP rate on legitimate software)",
+        "Software coverage (≥100 common applications tested)",
+        "False positive analysis (root cause identification, tuning recommendations)",
+        "Whitelisting validation (whitelist management working)",
+        "Quarterly false positive testing reports"
+      ],
+      "scoring": {
+        "yes_if": "≤5% FP rate, ≥100 applications tested, false positive analysis, whitelisting validated, quarterly testing",
+        "partial_if": "≤10% FP rate or limited application coverage (<100 apps)",
+        "no_if": ">10% FP rate or no false positive testing"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Malware Detection Accuracy",
+      "target": "≥95% known malware detection, ≥70% zero-day detection, ≥70% evasion detection",
+      "measurement": "Detection rate % = (Detected samples / Total samples) × 100",
+      "data_source": "Security testing reports, malware test datasets (VirusTotal, EMBER)",
+      "frequency": "Quarterly",
+      "baseline": "Industry benchmarks for endpoint detection",
+      "validation": "Independent third-party testing (AV-TEST, AV-Comparatives)"
+    },
+    {
+      "metric": "Behavioral Detection Accuracy",
+      "target": "≥85% true positive rate, ≤10% false positive rate on endpoint behavior",
+      "measurement": "TP rate % and FP rate % on behavioral testing scenarios",
+      "data_source": "Behavioral analytics testing results",
+      "frequency": "Quarterly",
+      "baseline": "UEBA industry benchmarks",
+      "validation": "Red team exercises validate detection of real attack behavior"
+    },
+    {
+      "metric": "Ransomware Protection",
+      "target": "Detection ≤60s, ≥90% file encryption prevention",
+      "measurement": "Detection latency and prevention rate on ransomware samples",
+      "data_source": "Ransomware testing results",
+      "frequency": "Quarterly",
+      "baseline": "Ransomware detection benchmarks (detect within 1 minute)",
+      "validation": "Multiple ransomware families tested (WannaCry, Ryuk, LockBit variants)"
+    },
+    {
+      "metric": "Performance Compliance",
+      "target": "100% of endpoints meet resource constraints: ≤5% CPU, ≤200MB memory, ≤100ms latency, ≤5% battery/day mobile",
+      "measurement": "Performance test compliance % across all test endpoints",
+      "data_source": "Performance testing results, agent telemetry",
+      "frequency": "Quarterly, continuous agent telemetry monitoring",
+      "baseline": "Endpoint agent performance benchmarks",
+      "validation": "User-reported performance issues ≤1% of endpoints"
+    },
+    {
+      "metric": "Privacy Compliance",
+      "target": "Zero user content/PII leakage, 100% GDPR compliance (≤90 day retention, data rights working)",
+      "measurement": "Privacy testing validation; GDPR testing pass rate",
+      "data_source": "Privacy testing results, GDPR compliance testing",
+      "frequency": "Quarterly",
+      "baseline": "GDPR requirements baseline",
+      "validation": "Zero privacy incidents reported"
+    },
+    {
+      "metric": "Cross-Platform Reliability",
+      "target": "≥90% feature parity across ≥4 platforms, zero platform-specific failures",
+      "measurement": "Feature parity % and platform-specific failure count",
+      "data_source": "Cross-platform testing matrix",
+      "frequency": "Per release, quarterly regression testing",
+      "baseline": "Target platform list and feature set",
+      "validation": "User-reported platform issues ≤1% per platform"
+    },
+    {
+      "metric": "False Positive Rate",
+      "target": "≤5% false positive rate on legitimate software",
+      "measurement": "FP rate % = (False positives / Total legitimate software) × 100",
+      "data_source": "False positive testing results, user-reported false positives",
+      "frequency": "Quarterly",
+      "baseline": "Industry benchmarks (≤5% acceptable)",
+      "validation": "User-reported false positives ≤10 per month per 10,000 endpoints"
+    }
+  ]
+}

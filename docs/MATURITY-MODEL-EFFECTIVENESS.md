@@ -15,11 +15,13 @@
 - Becomes bureaucratic exercise, not genuine improvement
 - "We achieved Level 2!" but security is still terrible
 - Process compliance ≠ effective security
+- Organizations implementing AI as to augment Human capabilities lack structured planning
 
 **Real Example:**
 - Company achieves CMMI Level 5 (highest maturity)
 - Still ships software full of vulnerabilities
 - Passed all the boxes, missed actual security
+- Companies scrambling to create an AI GRC (Legal, Infra, Data, Security) team 
 
 **Why This Happens:**
 - Maturity models focus on *having processes*, not *effective outcomes*

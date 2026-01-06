@@ -1,0 +1,418 @@
+{
+  "practice": "ML",
+  "domain": "infrastructure",
+  "name": "Monitoring & Logging - Infrastructure Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ml-infrastructure-1-1",
+      "question": "Do you have 100% cloud audit logging enabled across all accounts, regions, and critical services (CloudTrail, Activity Log, Cloud Audit Logs)?",
+      "verification": [
+        "Review AWS CloudTrail configuration (all regions enabled, multi-region trail, log file validation, ≥90 day retention)",
+        "Check Azure Activity Log (all subscriptions, forwarded to Log Analytics, ≥90 day retention)",
+        "Verify GCP Cloud Audit Logs (admin, data access, system event, policy denied logs enabled)",
+        "Confirm VPC Flow Logs / NSG Flow Logs / VPC Flow Logs enabled for all networks",
+        "Review coverage validation (100% of accounts, 100% of regions, ≥95% of critical services)"
+      ],
+      "evidence": [
+        "CloudTrail configuration (all regions, multi-region trail, validation enabled)",
+        "Activity Log configuration (all subscriptions, Log Analytics workspace)",
+        "Cloud Audit Logs configuration (all log types enabled, 400 day retention)",
+        "VPC/NSG/VPC Flow Logs configuration (all networks covered)",
+        "Logging coverage report (account, region, service coverage metrics)"
+      ],
+      "scoring": {
+        "yes_if": "100% accounts have logging enabled, 100% regions covered, ≥95% critical services, flow logs enabled, ≥90 day retention",
+        "partial_if": "≥80% coverage but missing some accounts/regions or retention <90 days",
+        "no_if": "Coverage <80% or critical services not logging"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-2",
+      "question": "Do you log all security events including authentication, authorization, IAM changes, and network security events?",
+      "verification": [
+        "Review authentication event logging (login success/failure, MFA challenges, SSO, source IP, user agent)",
+        "Check authorization event logging (role assumption, privilege changes, permission checks)",
+        "Verify IAM change logging (user/role creation/deletion, policy changes with before/after values)",
+        "Confirm network security logging (firewall rule matches, VPN connections, load balancer logs, DNS queries)",
+        "Review threat detection integration (GuardDuty, Defender for Cloud, Security Command Center forwarded to SIEM)"
+      ],
+      "evidence": [
+        "Authentication logs (login attempts, MFA, SSO assertions)",
+        "Authorization logs (role assumptions, privilege escalation patterns)",
+        "IAM change audit trail (policy modifications with context)",
+        "Network security logs (firewall, VPN, load balancer, DNS)",
+        "Cloud-native threat detection integration (GuardDuty, Defender, SCC)"
+      ],
+      "scoring": {
+        "yes_if": "All security events logged (auth, authz, IAM, network, threat detection), ≥90 day retention, forwarded to SIEM",
+        "partial_if": "Most security events logged but missing DNS or load balancer logs",
+        "no_if": "Missing authentication logging or IAM changes not logged"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-3",
+      "question": "Do you maintain comprehensive remediation action logging with 100% audit trail including detections, decisions, actions, and rollbacks?",
+      "verification": [
+        "Review detection event logging (misconfiguration detected, severity, resource, detection rule, timestamp)",
+        "Check remediation decision logging (AI model version, confidence, risk assessment, approval workflow)",
+        "Verify remediation action logging (resources modified, API calls, before/after state, result)",
+        "Confirm approval workflow logging (approval requested/granted/denied, approver, justification)",
+        "Review rollback logging (rollback triggered, actions taken, state restoration validation)"
+      ],
+      "evidence": [
+        "Detection event logs (all misconfigurations logged with context)",
+        "AI decision audit trail (model version, confidence scores, risk assessments)",
+        "Remediation action logs (complete before/after state, API calls made)",
+        "Approval workflow logs (all approvals/denials with justifications)",
+        "Rollback event logs (state backups, restoration validation)"
+      ],
+      "scoring": {
+        "yes_if": "100% of remediations logged (detection → decision → action → result), state backups created, rollbacks logged",
+        "partial_if": "Remediation logging exists but missing state backups or approval workflows",
+        "no_if": "Remediation actions not logged or no audit trail"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-4",
+      "question": "Do you monitor blast radius in real-time with alerts at 80% of limits and complete violation logging?",
+      "verification": [
+        "Review real-time blast radius tracking (resources affected per remediation, remediations per hour)",
+        "Check blast radius limit violation logging (remediation blocked, limit type, attempted scope)",
+        "Verify blast radius analytics (average per remediation, max observed, trend over time)",
+        "Confirm real-time dashboard (current blast radius usage visible)",
+        "Review alerts (alert when approaching 80% of blast radius limits)"
+      ],
+      "evidence": [
+        "Real-time blast radius monitoring dashboard",
+        "Blast radius limit violation logs (all blocked remediations logged)",
+        "Blast radius analytics and trends",
+        "Alert configuration (80% threshold alerts)",
+        "Blast radius compliance metrics (100% of limits enforced)"
+      ],
+      "scoring": {
+        "yes_if": "Real-time blast radius tracking, violations logged, alerts at 80% threshold, analytics tracked, dashboard available",
+        "partial_if": "Blast radius monitored but no real-time alerts or analytics",
+        "no_if": "No blast radius monitoring or violations not logged"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-5",
+      "question": "Do you detect configuration changes in real-time (≤5 minutes) with before/after value logging and drift detection?",
+      "verification": [
+        "Review real-time change detection (CloudTrail/Activity Log/Audit Logs streaming, ≤5 min latency)",
+        "Check before/after value logging (resource ID, property, old value, new value, who, when)",
+        "Verify configuration snapshots (periodic snapshots every 6-24 hours with versioning)",
+        "Confirm drift detection (compare actual vs. approved baseline, alert on unauthorized changes)",
+        "Review drift analytics (drift events per day, resources with frequent drift)"
+      ],
+      "evidence": [
+        "Real-time change detection configuration (event streaming to SIEM)",
+        "Before/after change logs (comprehensive property tracking)",
+        "Configuration snapshot storage (S3/Azure Storage/Cloud Storage with versioning)",
+        "Drift detection implementation (baseline comparison, alerts)",
+        "Drift analytics dashboard (patterns, trends, remediation)"
+      ],
+      "scoring": {
+        "yes_if": "Real-time detection ≤5 min, before/after logged, snapshots taken, drift detected and alerted, analytics tracked",
+        "partial_if": "Change detection exists but latency >5 min or no drift detection",
+        "no_if": "No real-time change detection or before/after values not logged"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-6",
+      "question": "Do you monitor compliance continuously with automated scans, dashboards, and reports for ≥3 frameworks (CIS, PCI-DSS, HIPAA, SOC 2)?",
+      "verification": [
+        "Review compliance framework coverage (CIS Benchmarks, PCI-DSS, HIPAA, SOC 2, custom policies)",
+        "Check continuous compliance validation (automated scans daily or real-time)",
+        "Verify compliance dashboards (compliance score by framework/cloud/account, trend over time, drill-down)",
+        "Confirm automated reporting (weekly/monthly/quarterly reports in PDF/CSV/JSON)",
+        "Review compliance evidence collection (logs, screenshots, remediation actions for auditors)"
+      ],
+      "evidence": [
+        "Compliance framework configuration (≥3 frameworks enabled)",
+        "Automated compliance scan results (daily or real-time)",
+        "Compliance dashboards (real-time visibility for security team)",
+        "Automated compliance reports (generated on schedule)",
+        "Compliance evidence artifacts (logs, screenshots, audit trails)"
+      ],
+      "scoring": {
+        "yes_if": "≥3 frameworks monitored, automated daily/real-time scans, dashboards available, automated reports, evidence collected",
+        "partial_if": "Compliance monitored but <3 frameworks or manual reporting",
+        "no_if": "No automated compliance monitoring or no dashboards"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-7",
+      "question": "Do you monitor CSPM system performance with ≥10,000 events/sec processing, ≤60s detection latency (P95), and ≥95% remediation success rate?",
+      "verification": [
+        "Review detection system metrics (events processed per second, detection latency P50/P95/P99)",
+        "Check scanning performance (resources scanned per hour, scan duration, 100% coverage every 24 hours)",
+        "Verify remediation performance (remediations per hour, remediation latency, success rate)",
+        "Confirm cloud API metrics (API calls/sec, API latency, error rate, throttling events)",
+        "Review API quota monitoring (current usage vs. limits, alerts at 80% quota)"
+      ],
+      "evidence": [
+        "Detection engine metrics (≥10,000 events/sec throughput, ≤60s P95 latency)",
+        "Scanning performance metrics (≥10,000 resources/hour)",
+        "Remediation metrics (≤15 min latency, ≥95% success rate)",
+        "Cloud API performance dashboard (per-service metrics)",
+        "API quota monitoring (alerts before hitting limits)"
+      ],
+      "scoring": {
+        "yes_if": "≥10,000 events/sec, detection latency P95 ≤60s, ≥10,000 resources/hour scan, remediation ≥95% success, API monitored",
+        "partial_if": "Performance monitored but throughput 5,000-10,000 events/sec or latency 60-120s",
+        "no_if": "No performance monitoring or throughput <5,000 events/sec"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-8",
+      "question": "Do you have centralized SIEM integration with log normalization, enrichment, and ≥90 day hot storage + ≥1 year cold storage?",
+      "verification": [
+        "Review SIEM integration (all cloud logs forwarded to unified SIEM: Splunk, Elastic, Sentinel, Sumo Logic)",
+        "Check log normalization (common schema like ECS or CEF, cloud-specific fields mapped)",
+        "Verify log enrichment (resource tags, account names, business unit, environment added)",
+        "Confirm storage tiers (≥90 days hot storage in SIEM, ≥1 year cold storage in S3/Blob/Cloud Storage)",
+        "Review log encryption and integrity (encryption at rest/in transit, CloudTrail validation, WORM storage)"
+      ],
+      "evidence": [
+        "SIEM integration configuration (all cloud sources forwarded)",
+        "Log normalization schema (ECS/CEF implementation)",
+        "Log enrichment implementation (tagging, metadata addition)",
+        "Storage tier configuration (hot: 90 days, cold: 1+ year)",
+        "Log security configuration (encryption, integrity validation)"
+      ],
+      "scoring": {
+        "yes_if": "All logs in unified SIEM, normalized schema, enriched with context, ≥90 day hot + ≥1 year cold, encrypted and integrity-protected",
+        "partial_if": "SIEM integration exists but limited enrichment or retention <90 days hot",
+        "no_if": "No centralized SIEM or logs not normalized"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-9",
+      "question": "Do you have unified cross-cloud security monitoring with single pane of glass, cross-cloud threat correlation, and unified compliance reporting?",
+      "verification": [
+        "Review unified security dashboard (single view for all clouds: AWS, Azure, GCP)",
+        "Check cross-cloud threat detection (correlate threats across clouds, detect pivot attacks)",
+        "Verify cross-cloud incident response (incidents trigger investigation across all clouds)",
+        "Confirm unified compliance reporting (single compliance report covering all clouds)",
+        "Review cross-cloud benchmarking (compare security posture across clouds)"
+      ],
+      "evidence": [
+        "Unified security dashboard (single pane of glass for all clouds)",
+        "Cross-cloud correlation rules (multi-cloud attack detection)",
+        "Cross-cloud incident response playbooks",
+        "Unified compliance reports (AWS + Azure + GCP combined)",
+        "Cross-cloud security posture comparison"
+      ],
+      "scoring": {
+        "yes_if": "Single pane of glass dashboard, cross-cloud correlation, unified incident response, combined compliance reports, benchmarking",
+        "partial_if": "Multi-cloud visibility but limited correlation or separate compliance reports",
+        "no_if": "Separate dashboards per cloud or no cross-cloud correlation"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-10",
+      "question": "Do you have log retention policies compliant with regulations (PCI: 1 year, HIPAA: 6 years, SOX: 7 years) with data lifecycle automation?",
+      "verification": [
+        "Review compliance-driven retention (PCI-DSS: ≥1 year, HIPAA: ≥6 years, SOX: ≥7 years)",
+        "Check data lifecycle management (auto-transition hot → warm → cold, auto-deletion after retention)",
+        "Verify legal hold capability (mark logs for preservation, prevent deletion during litigation)",
+        "Confirm log access controls (read-only for analysts, write only for log shippers, access audited)",
+        "Review retention validation (periodic audits verify policy compliance)"
+      ],
+      "evidence": [
+        "Log retention policy documentation (compliance requirements mapped)",
+        "Data lifecycle automation configuration (hot/warm/cold transitions)",
+        "Legal hold implementation (preservation capability)",
+        "Log access controls (RBAC, access audit logs)",
+        "Retention compliance audit reports"
+      ],
+      "scoring": {
+        "yes_if": "Retention policies meet all compliance requirements, automated lifecycle management, legal hold capability, access controlled",
+        "partial_if": "Retention policies defined but manual lifecycle management",
+        "no_if": "Retention <1 year or no lifecycle management"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-11",
+      "question": "Do you have full-text search with sub-second performance, saved searches, security dashboards, and cross-cloud querying capability?",
+      "verification": [
+        "Review full-text search capability (keyword search across all logs, sub-second response for hot storage)",
+        "Check structured query capability (SPL/KQL/Lucene, filters, time-range queries)",
+        "Verify cross-cloud queries (single query across AWS/Azure/GCP logs)",
+        "Confirm saved searches (common queries saved, shared with team, scheduled execution)",
+        "Review security dashboards (pre-built: security overview, compliance, remediation, performance)"
+      ],
+      "evidence": [
+        "Search performance metrics (sub-second for recent logs)",
+        "Structured query examples (SPL/KQL/Lucene)",
+        "Cross-cloud query capability demonstration",
+        "Saved search library (common security queries)",
+        "Security dashboard suite (multiple pre-built dashboards)"
+      ],
+      "scoring": {
+        "yes_if": "Full-text search sub-second, structured queries available, cross-cloud queries work, saved searches library, dashboards deployed",
+        "partial_if": "Search available but performance >1s or limited cross-cloud capability",
+        "no_if": "No centralized search or performance >5s"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-12",
+      "question": "Do you have event correlation, anomaly detection, and threat intelligence integration for log analysis?",
+      "verification": [
+        "Review event correlation (link related events like IAM user created → admin granted → S3 bucket public)",
+        "Check anomaly detection (ML/statistical analysis for unusual patterns: login location, API spikes, data access)",
+        "Verify threat intelligence integration (commercial or open-source feeds, IP/domain/hash enrichment)",
+        "Confirm user/entity behavior analytics (UEBA for baselines, detect account compromise, privilege escalation)",
+        "Review network anomaly detection (DDoS, data exfiltration, lateral movement, DNS tunneling)"
+      ],
+      "evidence": [
+        "Event correlation rules (multi-step attack detection)",
+        "Anomaly detection implementation (ML models: Isolation Forest, statistical analysis)",
+        "Threat intelligence feed integration (AlienVault OTX, abuse.ch, commercial feeds)",
+        "UEBA baselines and alerts (user/entity behavior anomalies)",
+        "Network anomaly detection (traffic analysis, DNS monitoring)"
+      ],
+      "scoring": {
+        "yes_if": "Event correlation active, anomaly detection deployed (ML or statistical), threat intel integrated, UEBA implemented",
+        "partial_if": "Some correlation and anomaly detection but no threat intel or UEBA",
+        "no_if": "No event correlation or anomaly detection"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-13",
+      "question": "Do you have severity-based alerting with deduplication, enrichment, and MTTR ≤4 hours for critical incidents?",
+      "verification": [
+        "Review severity-based alert routing (critical: page on-call, high: ticket, medium: email, low: weekly report)",
+        "Check alert deduplication (prevent duplicate alerts within time window, reduce alert fatigue)",
+        "Verify alert enrichment (resource context, user context, threat intelligence, related events, runbook links)",
+        "Confirm incident response integration (ticketing: Jira/ServiceNow, collaboration: Slack/Teams, SOAR playbooks)",
+        "Review incident metrics (MTTA ≤15 min for critical, MTTR ≤4 hours for critical)"
+      ],
+      "evidence": [
+        "Alert routing configuration (severity-based channels)",
+        "Alert deduplication implementation (time windows, identical alert suppression)",
+        "Alert enrichment examples (context-rich alerts)",
+        "Incident response tool integration (ticketing, chat, SOAR)",
+        "Incident response metrics (MTTA, MTTR dashboards)"
+      ],
+      "scoring": {
+        "yes_if": "Severity-based routing, deduplication active, enrichment comprehensive, ticketing/SOAR integrated, MTTR ≤4h for critical",
+        "partial_if": "Alerting configured but limited enrichment or MTTR 4-8 hours",
+        "no_if": "No alert deduplication or MTTR >8 hours"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-14",
+      "question": "Do you have automated incident timeline reconstruction, blast radius determination, and evidence preservation for forensics?",
+      "verification": [
+        "Review automated timeline generation (query logs around incident, correlate events, chronological visualization)",
+        "Check blast radius determination (identify all affected resources, timeline of malicious actions)",
+        "Verify evidence preservation (copy relevant logs to secure storage, apply legal hold)",
+        "Confirm chain of custody (document who accessed logs, when, why for legal proceedings)",
+        "Review incident response automation (auto-create tickets, notify teams, execute SOAR playbooks)"
+      ],
+      "evidence": [
+        "Timeline reconstruction capability (automated query and visualization)",
+        "Blast radius analysis tools (affected resource identification)",
+        "Evidence preservation process (secure storage, legal hold)",
+        "Chain of custody documentation (access logs, audit trail)",
+        "Incident response automation (ticketing, notifications, SOAR)"
+      ],
+      "scoring": {
+        "yes_if": "Automated timeline reconstruction, blast radius determined, evidence preserved, chain of custody maintained, SOAR integrated",
+        "partial_if": "Some incident tooling but manual timeline reconstruction or no evidence preservation",
+        "no_if": "No automated incident tools or evidence not preserved"
+      }
+    },
+    {
+      "id": "ml-infrastructure-1-15",
+      "question": "Do you monitor cost with cloud spending tracking, CSPM system cost monitoring, and cost anomaly detection?",
+      "verification": [
+        "Review cloud cost tracking (cost per service, per account, trend over time using Cost Explorer/Cost Management/Billing)",
+        "Check CSPM system cost monitoring (compute, storage, data transfer costs tracked)",
+        "Verify cost anomaly detection (alert on spending spikes, unexpected charges)",
+        "Confirm cost optimization (identify opportunities: reduce log volume, optimize storage tiers)",
+        "Review budget management (set budgets, alert when approaching limits)"
+      ],
+      "evidence": [
+        "Cloud cost dashboards (AWS Cost Explorer, Azure Cost Management, GCP Billing)",
+        "CSPM system cost breakdown (compute vs. storage vs. data transfer)",
+        "Cost anomaly alerts (spending spike detection)",
+        "Cost optimization recommendations",
+        "Budget tracking and alerts"
+      ],
+      "scoring": {
+        "yes_if": "Cloud costs tracked per service/account, CSPM costs monitored, anomaly detection active, optimization identified, budgets set",
+        "partial_if": "Cost tracked but limited anomaly detection or no CSPM-specific monitoring",
+        "no_if": "No cost monitoring or budgets"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Logging Coverage",
+      "target": "100% accounts/regions/critical services logging, log completeness ≥99.9%",
+      "measurement": "Coverage % = (Logging enabled / Total) × 100; Completeness = (Logs delivered / Logs generated) × 100",
+      "data_source": "Cloud audit configuration, log delivery metrics",
+      "frequency": "Continuous monitoring, weekly coverage audit",
+      "baseline": "Initial logging coverage and completeness baseline",
+      "validation": "Automated checks for logging configuration, log delivery validation"
+    },
+    {
+      "metric": "Detection and Ingestion Performance",
+      "target": "Detection latency ≥90% ≤5 min, log ingestion ≥95% ≤15 min, SIEM uptime ≥99.9%",
+      "measurement": "Detection latency P95 from timestamps; Ingestion latency from log generation to SIEM availability; Uptime % = Available time / Total time",
+      "data_source": "Detection metrics, log timestamps, SIEM availability monitoring",
+      "frequency": "Continuous real-time monitoring",
+      "baseline": "Initial performance baseline",
+      "validation": "Synthetic log injection for latency testing"
+    },
+    {
+      "metric": "Remediation Audit Trail",
+      "target": "100% remediation actions logged, 100% state backups, 100% blast radius violations logged",
+      "measurement": "Remediation logging % = (Logged actions / Total actions) × 100; Backup coverage %; Violation logging %",
+      "data_source": "Remediation logs, state backup storage, blast radius monitoring",
+      "frequency": "Continuous tracking, quarterly audit",
+      "baseline": "Initial remediation logging baseline",
+      "validation": "Sample audit of remediation actions verify complete logging"
+    },
+    {
+      "metric": "Alert Quality and Response",
+      "target": "False positive ≤5%, MTTA ≤15 min for critical, MTTR ≤4 hours for critical incidents",
+      "measurement": "FP rate = FP / (TP + FP); MTTA = Time from alert to acknowledgment; MTTR = Time from alert to resolution",
+      "data_source": "Alert logs, incident tracking system (Jira/ServiceNow)",
+      "frequency": "Continuous tracking, monthly quality review",
+      "baseline": "Initial alert quality and response time baseline",
+      "validation": "On-call team feedback, incident postmortems"
+    },
+    {
+      "metric": "Compliance Reporting",
+      "target": "100% compliance reports generated on schedule, log retention 100% compliant with policies",
+      "measurement": "Report generation compliance %; Retention compliance % = (Logs retained per policy / Total logs) × 100",
+      "data_source": "Compliance reporting system, log retention audits",
+      "frequency": "Weekly/monthly/quarterly report generation, quarterly retention audits",
+      "baseline": "Initial compliance reporting baseline",
+      "validation": "Third-party audit, compliance assessments"
+    },
+    {
+      "metric": "Log Integrity",
+      "target": "100% log integrity verified, zero tampering detected, log access 100% audited",
+      "measurement": "Integrity verification % from CloudTrail validation/WORM; Tamper detection count; Access audit coverage %",
+      "data_source": "Log integrity verification system, access audit logs",
+      "frequency": "Weekly integrity verification, continuous access auditing",
+      "baseline": "Initial log integrity baseline",
+      "validation": "Independent verification, compliance audits"
+    },
+    {
+      "metric": "Cross-Cloud Visibility",
+      "target": "Single pane of glass for all clouds, unified compliance reports, cross-cloud correlation active",
+      "measurement": "Dashboard availability (all clouds visible); Unified report generation %; Correlation rule coverage",
+      "data_source": "SIEM dashboards, compliance reports, correlation rule configuration",
+      "frequency": "Continuous dashboard monitoring, monthly compliance reporting",
+      "baseline": "Initial multi-cloud visibility baseline",
+      "validation": "User feedback, cross-cloud incident testing"
+    }
+  ]
+}

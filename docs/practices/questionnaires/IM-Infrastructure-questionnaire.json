@@ -1,0 +1,418 @@
+{
+  "practice": "IM",
+  "domain": "infrastructure",
+  "name": "Issue Management - Infrastructure Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "im-infrastructure-1-1",
+      "question": "Do you deploy comprehensive multi-cloud CSPM scanning with 100% account/region coverage and continuous + batch scanning?",
+      "verification": [
+        "Review multi-cloud CSPM deployment (AWS Security Hub, Azure Defender for Cloud, GCP Security Command Center, third-party: Prisma Cloud/Wiz/Orca)",
+        "Check scanning coverage (100% of cloud accounts, all regions, all resource types)",
+        "Verify misconfiguration detection (IAM, network exposure, storage security, encryption gaps, logging, compliance)",
+        "Confirm scanning frequency (continuous real-time ≤5 min latency, batch full scan every 6-24 hours, on-demand)",
+        "Review alert routing (critical: page on-call, high: ticket with 7-day SLA, medium/low: weekly digest)"
+      ],
+      "evidence": [
+        "CSPM deployment configuration (all clouds covered)",
+        "Scanning coverage metrics (100% accounts, regions, resource types)",
+        "Misconfiguration detection categories (IAM, network, storage, encryption, logging, compliance)",
+        "Scanning frequency logs (real-time + batch scan results)",
+        "Alert routing configuration (severity-based channels)"
+      ],
+      "scoring": {
+        "yes_if": "Multi-cloud CSPM deployed, 100% coverage, continuous + batch scanning, comprehensive misconfiguration detection, severity-based alerting",
+        "partial_if": "CSPM deployed but coverage <100% or only batch scanning",
+        "no_if": "No CSPM or coverage <80% or no continuous scanning"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-2",
+      "question": "Do you scan Infrastructure-as-Code pre-deployment with CI/CD integration blocking critical findings for 100% of IaC deployments?",
+      "verification": [
+        "Review IaC scanning tools (Checkov, tfsec, Terrascan, Snyk IaC for Terraform; cfn-lint, cfn_nag for CloudFormation; kubesec, kube-score for K8s)",
+        "Check CI/CD integration (scans on every pull request, blocks merge if critical findings)",
+        "Verify common IaC vulnerabilities detected (hardcoded secrets, overly permissive SGs, missing encryption, public resources, missing logging)",
+        "Confirm policy as code (OPA/Rego or Sentinel enforce security policies)",
+        "Review IaC remediation workflow (fix in IaC not manual console, re-scan verification, deploy to all environments)"
+      ],
+      "evidence": [
+        "IaC scanning tool configuration (Checkov, tfsec, cfn-lint in CI/CD)",
+        "CI/CD pipeline security gates (blocks on critical findings)",
+        "IaC vulnerability detection coverage (secrets, SGs, encryption, public access, logging)",
+        "Policy as code implementation (OPA/Sentinel policies)",
+        "IaC remediation process documentation"
+      ],
+      "scoring": {
+        "yes_if": "IaC scanned pre-deployment, CI/CD blocks critical findings, comprehensive vulnerability detection, policy as code, fix-in-IaC workflow",
+        "partial_if": "IaC scanning exists but not blocking or coverage limited",
+        "no_if": "No IaC scanning or no CI/CD integration"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-3",
+      "question": "Do you scan containers and Kubernetes with image vulnerability scanning and K8s configuration validation for ≥95% coverage?",
+      "verification": [
+        "Review container image scanning (Trivy, Clair, Snyk Container, Aqua at build, push, deployment)",
+        "Check Kubernetes configuration scanning (kube-bench for CIS compliance, kube-hunter for pen testing, Polaris, Kubescape)",
+        "Verify K8s security findings (privileged containers, RBAC issues, missing network policies, secrets management, image security)",
+        "Confirm scanning coverage (≥95% of images scanned, 100% of K8s clusters scanned)",
+        "Review policy enforcement (block deployment of images with critical vulnerabilities, continuous daily re-scanning)"
+      ],
+      "evidence": [
+        "Container image scanning configuration (Trivy/Clair in CI/CD)",
+        "Kubernetes scanning tools (kube-bench, Polaris, Kubescape results)",
+        "K8s security findings (pod security, RBAC, network policies, secrets)",
+        "Scanning coverage metrics (≥95% images, 100% clusters)",
+        "Deployment blocking policy (critical vulnerabilities blocked)"
+      ],
+      "scoring": {
+        "yes_if": "Container images scanned at build/push/deploy, K8s config scanned, ≥95% coverage, critical vulns blocked, continuous re-scanning",
+        "partial_if": "Scanning exists but coverage 80-95% or not blocking critical vulns",
+        "no_if": "No container/K8s scanning or coverage <80%"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-4",
+      "question": "Do you conduct network vulnerability scanning weekly for all network devices with authenticated scans and segmentation validation?",
+      "verification": [
+        "Review network device scanning (firewalls, load balancers, VPN gateways scanned weekly with Nessus, Qualys, Rapid7)",
+        "Check cloud network scanning (security groups, NACLs, route tables, VPC peering audited for overly permissive rules)",
+        "Verify network vulnerability findings (outdated firmware, weak auth, unnecessary services, insecure protocols, firewall rule sprawl)",
+        "Confirm segmentation validation (quarterly zone isolation tests, micro-segmentation validation, attack path analysis)",
+        "Review authenticated scanning (credentials provided for deeper scanning, patch levels verified)"
+      ],
+      "evidence": [
+        "Network device scan schedule (weekly) and results",
+        "Cloud network configuration audit reports",
+        "Network vulnerability findings (firmware, auth, services, protocols, rules)",
+        "Segmentation validation test results (quarterly)",
+        "Authenticated scan configuration (credential management)"
+      ],
+      "scoring": {
+        "yes_if": "Weekly network device scans, cloud network audited, authenticated scans, quarterly segmentation validation, findings tracked",
+        "partial_if": "Network scanning exists but monthly only or no segmentation validation",
+        "no_if": "No network scanning or no authenticated scans"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-5",
+      "question": "Do you monitor cloud provider security bulletins with ≤24 hour impact assessment and SLA-based remediation (critical ≤24h, high ≤7d)?",
+      "verification": [
+        "Review security bulletin monitoring (AWS Security Bulletins, Azure Security Updates, GCP Security Advisories subscriptions)",
+        "Check impact assessment process (new bulletin → assess affected services/accounts/regions within ≤24 hours)",
+        "Verify risk scoring (exploitability, exposure, business impact calculation)",
+        "Confirm remediation SLA tracking (critical ≤24h, high ≤7d, medium ≤30d for bulletin remediations)",
+        "Review bulletin tracking (Bulletin ID, affected resources, remediation status, completion date)"
+      ],
+      "evidence": [
+        "Security bulletin subscriptions (AWS, Azure, GCP, third-party feeds)",
+        "Impact assessment documentation (assessment within ≤24h of bulletin)",
+        "Risk scoring methodology for bulletins",
+        "Bulletin remediation SLA compliance metrics",
+        "Bulletin tracking system (ID, resources, status, completion)"
+      ],
+      "scoring": {
+        "yes_if": "All cloud bulletins monitored, impact assessed ≤24h, risk scored, SLA tracked (critical ≤24h, high ≤7d), tracking system",
+        "partial_if": "Bulletins monitored but assessment >24h or SLA compliance 70-90%",
+        "no_if": "No bulletin monitoring or no impact assessment process"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-6",
+      "question": "Do you implement risk-based prioritization with P0 (≤24h), P1 (≤7d), P2 (≤30d), P3 (≤90d) SLAs and ≥95% SLA compliance?",
+      "verification": [
+        "Review risk scoring methodology (Risk = Severity × Exploitability × Exposure × Business Impact)",
+        "Check prioritization tiers (P0: critical internet-facing, P1: high internal, P2: medium compliance, P3: low best-practice)",
+        "Verify contextual prioritization (asset criticality: prod>staging>dev, compensating controls lower priority, false positive suppression)",
+        "Confirm SLA definitions and tracking (P0 ≤24h, P1 ≤7d, P2 ≤30d, P3 ≤90d with dashboard and alerts)",
+        "Review SLA compliance (≥95% of findings remediated within SLA, exception approval process, quarterly exception review)"
+      ],
+      "evidence": [
+        "Risk scoring formula documentation",
+        "Prioritization tier definitions (P0-P3 with examples)",
+        "Contextual prioritization factors (asset criticality, compensating controls)",
+        "SLA tracking dashboard (real-time compliance by severity/cloud/account)",
+        "SLA compliance metrics (≥95% target, exception tracking)"
+      ],
+      "scoring": {
+        "yes_if": "Risk-based prioritization implemented, clear P0-P3 tiers with SLAs, contextual factors considered, ≥95% SLA compliance, exceptions managed",
+        "partial_if": "Prioritization exists but SLA compliance 80-95% or limited contextual factors",
+        "no_if": "No prioritization framework or SLA compliance <80%"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-7",
+      "question": "Do you implement automated remediation for ≥50% of low-risk issues with blast radius limits, pre-change validation, and rollback capability?",
+      "verification": [
+        "Review auto-remediation candidates (enable encryption, enable MFA, close unnecessary ports, enable logging, apply tags)",
+        "Check auto-remediation safeguards (blast radius: ≤10 resources per action, ≤100/hour; pre-change validation; approval workflows for high-risk)",
+        "Verify rollback capability (state backup before remediation, automated rollback on failure, notification to owners)",
+        "Confirm graduated automation (alert-only → monitor → auto-remediate after validation)",
+        "Review auto-remediation rate (≥50% of low-risk findings auto-remediated)"
+      ],
+      "evidence": [
+        "Auto-remediation playbooks (encryption, MFA, ports, logging, tags)",
+        "Blast radius limit configuration (≤10 per action, ≤100/hour)",
+        "Pre-change validation implementation (impact assessment, dependency analysis)",
+        "Rollback mechanism (state backup, automated rollback)",
+        "Auto-remediation metrics (≥50% of low-risk auto-remediated)"
+      ],
+      "scoring": {
+        "yes_if": "≥50% low-risk auto-remediated, blast radius limits enforced, pre-change validation, rollback capability, graduated automation",
+        "partial_if": "Some auto-remediation but <50% or missing blast radius limits",
+        "no_if": "No auto-remediation or <30% auto-remediated"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-8",
+      "question": "Do you maintain manual remediation workflows with automated ticketing, remediation guidance, and post-remediation verification?",
+      "verification": [
+        "Review automated ticket creation (ServiceNow, Jira, Azure DevOps, GitHub Issues integration)",
+        "Check ticket details (vulnerability description, affected resource, remediation steps, SLA deadline, auto-assigned to owner)",
+        "Verify remediation guidance (step-by-step instructions, runbook links, AI-suggested remediation commands)",
+        "Confirm SLA tracking and alerts (notify at 50% SLA, escalate at 80%, page manager when missed)",
+        "Review post-remediation verification (re-scan resource, confirm issue resolved, automated verification)"
+      ],
+      "evidence": [
+        "Ticketing system integration configuration",
+        "Ticket template with all required fields",
+        "Remediation guidance library (runbooks, step-by-step guides)",
+        "SLA tracking and alerting configuration",
+        "Post-remediation verification process (re-scan, confirmation)"
+      ],
+      "scoring": {
+        "yes_if": "Automated ticketing, comprehensive ticket details, remediation guidance included, SLA alerts, post-remediation verification",
+        "partial_if": "Ticketing exists but manual creation or limited guidance",
+        "no_if": "No automated ticketing or no remediation guidance"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-9",
+      "question": "Do you track comprehensive vulnerability metrics including MTTR (critical ≤24h, high ≤7d), open backlog (≤10 critical, ≤50 high), and ≥95% SLA compliance?",
+      "verification": [
+        "Review MTTR metrics (by severity: critical ≤24h, high ≤7d, medium ≤30d, low ≤90d; by cloud provider; by team)",
+        "Check open backlog tracking (total open by severity, aging >30/60/90 days, week-over-week trend)",
+        "Verify SLA compliance metrics (% remediated within SLA ≥95%, breach count and RCA, improvement trend)",
+        "Confirm vulnerability density (findings per account, findings per application, year-over-year ≥30% reduction)",
+        "Review remediation efficiency (auto-remediation rate ≥50%, manual remediation time, reopened ticket %)"
+      ],
+      "evidence": [
+        "MTTR dashboard (by severity, cloud, team)",
+        "Open backlog tracking (severity breakdown, aging, trends)",
+        "SLA compliance reports (≥95% target, breach analysis)",
+        "Vulnerability density metrics (per account, per app, YoY reduction)",
+        "Remediation efficiency metrics (auto-remediation %, manual time, reopen %)"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive MTTR tracking, backlog monitored (≤10 critical, ≤50 high), ≥95% SLA compliance, density tracked, efficiency measured",
+        "partial_if": "Metrics tracked but SLA compliance 80-95% or backlog exceeds targets",
+        "no_if": "No metrics tracking or SLA compliance <80%"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-10",
+      "question": "Do you provide multi-level vulnerability reporting with executive dashboards, operational dashboards, and compliance reports?",
+      "verification": [
+        "Review executive dashboard (for CISO/CTO/board: total critical/high, SLA compliance %, MTTR, trend over time, monthly/quarterly reports)",
+        "Check operational dashboard (for SecOps/engineering: open findings by severity/owner, SLA deadlines approaching, drill-down details, real-time)",
+        "Verify compliance reports (for auditors/compliance: CIS/PCI-DSS/HIPAA/SOC 2 posture, findings by control, remediation evidence, PDF/CSV quarterly)",
+        "Confirm trend analysis (time-series weekly/monthly/quarterly, identify improving/stable/worsening trends, root cause investigation)",
+        "Review comparative analysis (benchmarking to industry peers, cloud provider comparison, team comparison)"
+      ],
+      "evidence": [
+        "Executive dashboard (high-level metrics, trends, monthly reports)",
+        "Operational dashboard (detailed findings, SLA tracking, real-time)",
+        "Compliance report templates (CIS, PCI-DSS, HIPAA, SOC 2)",
+        "Trend analysis charts (time-series, YoY comparisons)",
+        "Comparative analysis reports (peer benchmarking, cloud comparison)"
+      ],
+      "scoring": {
+        "yes_if": "Executive dashboard monthly, operational dashboard real-time, compliance reports quarterly, trend analysis, comparative analysis",
+        "partial_if": "Dashboards exist but limited drill-down or no compliance reports",
+        "no_if": "No dashboards or only manual reports"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-11",
+      "question": "Do you map vulnerabilities to compliance frameworks (CIS ≥95%, PCI-DSS, HIPAA, SOC 2) with audit evidence collection?",
+      "verification": [
+        "Review CIS Benchmark mapping (findings mapped to CIS controls, compliance score ≥95%, prioritize critical controls)",
+        "Check industry regulation mapping (PCI-DSS, HIPAA, SOC 2, GDPR findings mapped to requirements)",
+        "Verify compliance gap analysis (identify failing controls, remediation plan, audit deadline prioritization)",
+        "Confirm audit evidence collection (before/after screenshots, change logs from CloudTrail/Activity Logs, compliance scan results, centralized repository)",
+        "Review continuous compliance validation (weekly scans not waiting for audit, automated evidence collection, immutable audit trail)"
+      ],
+      "evidence": [
+        "CIS Benchmark compliance reports (≥95% compliance score)",
+        "Industry compliance mapping (PCI-DSS, HIPAA, SOC 2, GDPR)",
+        "Compliance gap analysis and remediation plans",
+        "Audit evidence repository (screenshots, logs, scan results)",
+        "Continuous compliance validation (weekly scan results)"
+      ],
+      "scoring": {
+        "yes_if": "CIS ≥95% compliance, industry regulations mapped, gap analysis conducted, audit evidence collected, weekly validation",
+        "partial_if": "Compliance monitored but CIS 80-95% or limited evidence collection",
+        "no_if": "No compliance mapping or CIS <80%"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-12",
+      "question": "Do you manage third-party cloud service vulnerabilities with inventory, bulletin monitoring, and security assessments?",
+      "verification": [
+        "Review third-party service inventory (all SaaS/PaaS cataloged: Datadog, Snowflake, Twilio, etc.; data classification, integration method, owner)",
+        "Check vendor bulletin monitoring (subscribe to vendor security bulletins, monitor security news, assess impact on our usage)",
+        "Verify third-party security assessments (vendor questionnaires, SOC 2/ISO 27001 certifications, pen testing for critical integrations)",
+        "Confirm contractual SLAs (vendor notifies within 24h of incidents, security requirements in contracts)",
+        "Review third-party vulnerability tracking (findings tracked, remediation or vendor mitigation validated)"
+      ],
+      "evidence": [
+        "Third-party service inventory (catalog with data classification)",
+        "Vendor security bulletin subscriptions",
+        "Third-party security assessment results (questionnaires, certifications)",
+        "Vendor contracts (security SLAs, notification requirements)",
+        "Third-party vulnerability tracking (findings and mitigations)"
+      ],
+      "scoring": {
+        "yes_if": "Complete third-party inventory, bulletin monitoring, security assessments conducted, contractual SLAs, vulnerability tracking",
+        "partial_if": "Inventory exists but limited monitoring or no security assessments",
+        "no_if": "No third-party inventory or no vulnerability monitoring"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-13",
+      "question": "Do you validate cross-cloud configuration parity with ≥95% consistency across AWS, Azure, and GCP?",
+      "verification": [
+        "Review security baseline definition (CIS Benchmarks, organization-specific standards for all clouds)",
+        "Check configuration comparison (compare AWS vs Azure vs GCP: encryption standards, logging, network, IAM)",
+        "Verify parity validation (≥95% configuration consistency across clouds)",
+        "Confirm drift remediation (align all clouds to highest security standard, document approved exceptions)",
+        "Review parity monitoring (continuous monitoring, alert on cross-cloud drift)"
+      ],
+      "evidence": [
+        "Unified security baseline (applies to all clouds)",
+        "Cross-cloud configuration comparison reports",
+        "Configuration parity metrics (≥95% consistency)",
+        "Cross-cloud drift remediation tracking",
+        "Parity monitoring alerts"
+      ],
+      "scoring": {
+        "yes_if": "Security baseline defined for all clouds, configuration compared, ≥95% parity, drift remediated, continuous monitoring",
+        "partial_if": "Some cross-cloud comparison but parity 80-95% or manual checking",
+        "no_if": "No cross-cloud parity validation or parity <80%"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-14",
+      "question": "Do you implement DevSecOps integration with IDE security plugins, pre-commit hooks, and PR security gates for ≥80% developer adoption?",
+      "verification": [
+        "Review IDE integration (VS Code, IntelliJ security plugins: Snyk, AWS Toolkit, Checkov; real-time security feedback)",
+        "Check pre-commit hooks (scan code before commit, block commits with critical issues: hardcoded secrets, public S3)",
+        "Verify PR security gates (automated scans on every PR, block merge if critical findings, findings shown as PR comments)",
+        "Confirm developer adoption (≥80% developers use IDE plugins, ≥90% commits scanned, 100% PRs scanned)",
+        "Review shift-left metrics (% builds passing security tests ≥95%, post-deployment validation, rollback on validation failure)"
+      ],
+      "evidence": [
+        "IDE plugin deployment (Snyk, AWS Toolkit, Checkov adoption rates)",
+        "Pre-commit hook configuration (git hooks, secrets scanning)",
+        "PR security gate implementation (CI/CD security scans, merge blocking)",
+        "Developer adoption metrics (≥80% plugin usage, ≥90% commit scanning)",
+        "Shift-left security metrics (build pass rate ≥95%)"
+      ],
+      "scoring": {
+        "yes_if": "IDE plugins deployed, pre-commit hooks active, PR gates block critical findings, ≥80% developer adoption, ≥95% builds pass security",
+        "partial_if": "DevSecOps tools deployed but adoption 60-80% or gates non-blocking",
+        "no_if": "No IDE integration or no PR security gates or adoption <60%"
+      }
+    },
+    {
+      "id": "im-infrastructure-1-15",
+      "question": "Do you conduct vulnerability trend analysis with year-over-year ≥30% reduction in critical/high findings and vulnerability density tracking?",
+      "verification": [
+        "Review time-series analysis (track metrics weekly, monthly, quarterly, yearly; identify improving/stable/worsening trends)",
+        "Check year-over-year reduction (≥30% reduction in critical/high findings compared to previous year)",
+        "Verify vulnerability density (≤5 high/critical findings per 100 cloud resources)",
+        "Confirm root cause analysis (if worsening, investigate: new services, config drift, inadequate training)",
+        "Review comparative analysis (benchmark to industry peers, cloud provider comparison, team comparison for best practices)"
+      ],
+      "evidence": [
+        "Time-series trend charts (weekly, monthly, quarterly, yearly)",
+        "Year-over-year comparison (≥30% reduction target)",
+        "Vulnerability density metrics (per 100 resources)",
+        "Root cause analysis for trend changes",
+        "Comparative analysis reports (peer benchmarking)"
+      ],
+      "scoring": {
+        "yes_if": "Time-series tracking, YoY ≥30% reduction, density ≤5 per 100 resources, RCA for changes, comparative analysis",
+        "partial_if": "Trends tracked but YoY reduction 15-30% or density 5-10 per 100",
+        "no_if": "No trend analysis or YoY reduction <15% or density >10 per 100"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Scanning Coverage",
+      "target": "100% cloud accounts/regions scanned, ≥95% container images scanned, weekly network device scans, 100% IaC scanned pre-deployment",
+      "measurement": "Coverage % = (Scanned resources / Total resources) × 100 by category (cloud, containers, network, IaC)",
+      "data_source": "CSPM, container scanners, network scanners, IaC scanning tools",
+      "frequency": "Continuous cloud/IaC scanning, weekly network scans, per-build container scans",
+      "baseline": "Initial scanning coverage assessment",
+      "validation": "Independent scan validation, coverage audit"
+    },
+    {
+      "metric": "Remediation Performance (MTTR)",
+      "target": "Critical ≤24 hours, High ≤7 days, Medium ≤30 days, Low ≤90 days; ≥95% SLA compliance",
+      "measurement": "MTTR = Time from detection to remediation closure by severity; SLA compliance % = (Within SLA / Total) × 100",
+      "data_source": "Vulnerability tracking system (Jira, ServiceNow), CSPM timestamps",
+      "frequency": "Continuous tracking, daily MTTR reports, weekly SLA reviews",
+      "baseline": "Initial MTTR and SLA baseline",
+      "validation": "Timestamp audit, SLA compliance verification"
+    },
+    {
+      "metric": "Open Vulnerability Backlog",
+      "target": "≤10 critical, ≤50 high, ≤200 medium open findings; trending downward month-over-month",
+      "measurement": "Open finding count by severity; Trend analysis: (Current month - Previous month) / Previous month × 100",
+      "data_source": "CSPM, vulnerability tracking system",
+      "frequency": "Real-time dashboard, weekly backlog reviews, monthly trend analysis",
+      "baseline": "Initial vulnerability backlog",
+      "validation": "Independent CSPM scan validation"
+    },
+    {
+      "metric": "Auto-Remediation Rate",
+      "target": "≥50% of low-risk findings auto-remediated, zero incidents from auto-remediation",
+      "measurement": "Auto-remediation % = (Auto-remediated / Total low-risk findings) × 100; Incident count from auto-remediation",
+      "data_source": "Remediation logs, incident tracking",
+      "frequency": "Continuous monitoring, weekly auto-remediation reports",
+      "baseline": "Initial manual remediation baseline",
+      "validation": "Remediation audit, incident postmortems"
+    },
+    {
+      "metric": "Vulnerability Reduction",
+      "target": "Year-over-year ≥30% reduction in critical/high findings, vulnerability density ≤5 per 100 cloud resources",
+      "measurement": "YoY reduction % = (Previous year - Current year) / Previous year × 100; Density = Findings / (Cloud resources / 100)",
+      "data_source": "CSPM historical data, cloud resource inventory",
+      "frequency": "Quarterly trend analysis, annual YoY comparison",
+      "baseline": "Initial year vulnerability baseline",
+      "validation": "Multi-year trend validation, industry benchmarking"
+    },
+    {
+      "metric": "Compliance Posture",
+      "target": "CIS Benchmark ≥95% compliance, industry compliance (PCI-DSS, HIPAA, SOC 2) ≤5 minor findings, zero major findings",
+      "measurement": "CIS compliance % = (Passed controls / Total controls) × 100; Industry audit finding counts by severity",
+      "data_source": "CSPM compliance scans, third-party audit reports",
+      "frequency": "Weekly CIS scans, quarterly compliance reports, annual audits",
+      "baseline": "Initial compliance baseline",
+      "validation": "Third-party compliance audits"
+    },
+    {
+      "metric": "DevSecOps Adoption",
+      "target": "≥80% developers use IDE security plugins, ≥90% commits scanned, 100% PRs scanned, ≥95% builds pass security",
+      "measurement": "Adoption % from IDE telemetry, plugin usage; Scan coverage % from git hooks, CI/CD logs; Build pass rate",
+      "data_source": "IDE telemetry, git analytics, CI/CD pipeline metrics",
+      "frequency": "Continuous monitoring, monthly adoption reports",
+      "baseline": "Initial DevSecOps baseline (pre-tool deployment)",
+      "validation": "Developer surveys, tool usage analytics"
+    }
+  ]
+}

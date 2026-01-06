@@ -1,0 +1,401 @@
+{
+  "practice": "IR",
+  "domain": "software",
+  "name": "Implementation Review - Software Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ir-software-1-1",
+      "question": "Do you have a mandatory code review process with 100% PR coverage completed within ≤2 business days?",
+      "verification": [
+        "Review code review policy (all code changes via PRs, pre-merge reviews)",
+        "Check review participation (peer review + security review for sensitive code)",
+        "Verify automated tools integrated (static analysis, linters, security scanners)",
+        "Confirm review timeline: ≤2 business days standard, ≤4 hours critical",
+        "Sample 10 recent PRs and verify 100% reviewed before merge"
+      ],
+      "evidence": [
+        "Code review process documentation",
+        "PR review statistics (100% coverage, average review time)",
+        "Automated tool integration (SAST, linters in CI/CD)",
+        "Sample PR reviews (10 PRs with review comments and approval)"
+      ],
+      "scoring": {
+        "yes_if": "100% PR coverage, ≤2 day turnaround, automated tools integrated, peer + security review for sensitive code",
+        "partial_if": "≥90% coverage or review time ≤5 days but not optimal",
+        "no_if": "<90% coverage or no mandatory review process"
+      }
+    },
+    {
+      "id": "ir-software-1-2",
+      "question": "Do you review AI model implementation for architecture alignment, reproducibility, and secure serialization?",
+      "verification": [
+        "Review model code matches approved design",
+        "Check hyperparameters documented and justified",
+        "Verify random seeds set for reproducibility",
+        "Confirm model versioning implemented (track model versions)",
+        "Review model serialization security (encryption for model files)"
+      ],
+      "evidence": [
+        "Model implementation code review records",
+        "Hyperparameter documentation",
+        "Reproducibility configuration (random seeds, dependencies pinned)",
+        "Model versioning system (MLflow, DVC, or custom)",
+        "Model file encryption implementation"
+      ],
+      "scoring": {
+        "yes_if": "Implementation matches design, reproducible, versioned, serialization secure",
+        "partial_if": "Mostly aligned but missing versioning or encryption",
+        "no_if": "No model implementation review or major deviations from design"
+      }
+    },
+    {
+      "id": "ir-software-1-3",
+      "question": "Do you review training code for data leakage prevention and appropriate augmentation?",
+      "verification": [
+        "Review train/validation/test split implementation (no data leakage)",
+        "Check data augmentation appropriate (doesn't introduce bias)",
+        "Verify training loop correct (batch processing, gradient updates)",
+        "Confirm early stopping and checkpointing implemented",
+        "Review distributed training if applicable (gradient synchronization)"
+      ],
+      "evidence": [
+        "Training code review records",
+        "Data split validation (no overlap between train/val/test)",
+        "Data augmentation code and rationale",
+        "Training loop implementation review",
+        "Checkpoint and early stopping configuration"
+      ],
+      "scoring": {
+        "yes_if": "No data leakage, augmentation appropriate, training loop correct, checkpointing implemented",
+        "partial_if": "Training code reviewed but minor issues (e.g., no early stopping)",
+        "no_if": "Data leakage detected or training loop incorrect"
+      }
+    },
+    {
+      "id": "ir-software-1-4",
+      "question": "Do you review inference code for correct preprocessing, efficient batch processing, and error handling?",
+      "verification": [
+        "Review preprocessing matches training (same normalization, encoding)",
+        "Check batch processing for efficiency (avoid single-sample inference overhead)",
+        "Verify inference latency meets targets (≤100ms for real-time)",
+        "Confirm graceful handling of malformed inputs",
+        "Review model output interpretation (probabilities → class labels correct)"
+      ],
+      "evidence": [
+        "Inference code review records",
+        "Preprocessing consistency validation",
+        "Batch processing implementation",
+        "Latency benchmarks (meets ≤100ms target)",
+        "Error handling for malformed inputs"
+      ],
+      "scoring": {
+        "yes_if": "Preprocessing consistent, batch processing efficient, latency ≤100ms, error handling robust",
+        "partial_if": "Inference works but latency >100ms or limited error handling",
+        "no_if": "Preprocessing inconsistent or no error handling"
+      }
+    },
+    {
+      "id": "ir-software-1-5",
+      "question": "Do you review data pipeline implementation for secure collection, quality assurance, and privacy protection?",
+      "verification": [
+        "Review data collection code (secure API access, read-only permissions)",
+        "Check data quality validation (schema validation, deduplication, error detection)",
+        "Verify privacy protection (PII detection, anonymization, consent validation)",
+        "Confirm data versioning (track training data versions)",
+        "Review feedback loop implementation (collection, validation, storage)"
+      ],
+      "evidence": [
+        "Data pipeline code review records",
+        "Data collection security review (API authentication, permissions)",
+        "Data quality validation implementation",
+        "Privacy protection measures (PII scanning, anonymization)",
+        "Data versioning system (DVC, custom solution)"
+      ],
+      "scoring": {
+        "yes_if": "Secure collection, quality validation, privacy protected, versioned, feedback loop implemented",
+        "partial_if": "Pipeline implemented but missing privacy protection or versioning",
+        "no_if": "No data pipeline review or major security issues"
+      }
+    },
+    {
+      "id": "ir-software-1-6",
+      "question": "Do you review IDE plugin implementation for performance (≤3s latency) and secure API communication?",
+      "verification": [
+        "Review analysis latency (≤3 seconds for real-time feedback)",
+        "Check incremental analysis (only analyze changed code)",
+        "Verify API communication security (HTTPS, authentication, authorization)",
+        "Confirm user controls implemented (severity filtering, suppression)",
+        "Review plugin resource usage (doesn't slow down IDE)"
+      ],
+      "evidence": [
+        "IDE plugin code review records",
+        "Performance benchmarks (latency ≤3s)",
+        "Incremental analysis implementation",
+        "API security review (HTTPS, auth, authz)",
+        "Resource usage measurements (CPU, memory)"
+      ],
+      "scoring": {
+        "yes_if": "Latency ≤3s, incremental analysis, API secure, user controls, minimal resource impact",
+        "partial_if": "Plugin works but latency 3-5s or limited user controls",
+        "no_if": "Latency >5s or insecure API communication"
+      }
+    },
+    {
+      "id": "ir-software-1-7",
+      "question": "Do you review CI/CD integration for correct gating logic and minimal pipeline slowdown (≤10% increase)?",
+      "verification": [
+        "Review integration point implementation (pre-commit, PR, build hooks)",
+        "Check gating logic (correctly blocks/warns based on severity)",
+        "Verify incremental scanning (only changed files)",
+        "Confirm build time impact ≤10%",
+        "Review error handling (graceful degradation if service unavailable)"
+      ],
+      "evidence": [
+        "CI/CD integration code review records",
+        "Gating logic implementation and test results",
+        "Incremental scanning verification",
+        "Build time impact measurements (before/after comparison)",
+        "Graceful degradation testing"
+      ],
+      "scoring": {
+        "yes_if": "Gating logic correct, incremental scanning, build impact ≤10%, graceful degradation",
+        "partial_if": "Integration works but build impact 10-20% or no graceful degradation",
+        "no_if": "Gating logic incorrect or build impact >20%"
+      }
+    },
+    {
+      "id": "ir-software-1-8",
+      "question": "Do you review API implementation for security, error handling, rate limiting, and documentation?",
+      "verification": [
+        "Review authentication implementation (OAuth, API keys, secure)",
+        "Check authorization enforcement (RBAC, validate permissions)",
+        "Verify input validation (schema validation, SQL injection prevention)",
+        "Confirm rate limiting (prevent abuse)",
+        "Review error handling (consistent error responses, no sensitive info leaked)",
+        "Check API documentation (OpenAPI spec, examples)"
+      ],
+      "evidence": [
+        "API code review records",
+        "Authentication/authorization implementation review",
+        "Input validation code",
+        "Rate limiting configuration",
+        "Error handling standardization",
+        "API documentation (OpenAPI/Swagger spec)"
+      ],
+      "scoring": {
+        "yes_if": "Authentication secure, authorization enforced, input validated, rate limited, errors handled, documented",
+        "partial_if": "API implemented but missing rate limiting or incomplete documentation",
+        "no_if": "No authentication or SQL injection vulnerabilities present"
+      }
+    },
+    {
+      "id": "ir-software-1-9",
+      "question": "Do you review infrastructure code for secure deployment, high availability, and monitoring?",
+      "verification": [
+        "Review deployment code (Terraform, CloudFormation, Kubernetes manifests)",
+        "Check security configuration (least privilege, network isolation, encryption)",
+        "Verify high availability (multi-zone deployment, auto-scaling)",
+        "Confirm monitoring and alerting (metrics, dashboards, alerts)",
+        "Review secrets management (no hardcoded credentials, use secrets manager)"
+      ],
+      "evidence": [
+        "Infrastructure code review records",
+        "Deployment configuration review (IaC templates)",
+        "Security configuration audit (IAM policies, network rules)",
+        "HA configuration (multi-zone, auto-scaling policies)",
+        "Monitoring setup (Prometheus, CloudWatch, dashboards)",
+        "Secrets scanning results (zero hardcoded secrets)"
+      ],
+      "scoring": {
+        "yes_if": "Secure deployment, HA configured, monitoring comprehensive, zero hardcoded secrets",
+        "partial_if": "Infrastructure code reviewed but missing HA or limited monitoring",
+        "no_if": "Hardcoded secrets or no infrastructure code review"
+      }
+    },
+    {
+      "id": "ir-software-1-10",
+      "question": "Do you review database implementation for schema correctness, indexing, and security?",
+      "verification": [
+        "Review schema implementation (matches design, proper data types)",
+        "Check indexing (indexes on query fields, performance optimization)",
+        "Verify query efficiency (no N+1 queries, use prepared statements)",
+        "Confirm access control (least privilege database users)",
+        "Review backup and recovery (automated backups, tested restore)"
+      ],
+      "evidence": [
+        "Database code review records",
+        "Schema implementation vs design comparison",
+        "Index analysis (explain plan for key queries)",
+        "Query performance benchmarks",
+        "Database access control configuration",
+        "Backup/restore testing results"
+      ],
+      "scoring": {
+        "yes_if": "Schema correct, well-indexed, efficient queries, least privilege, backups tested",
+        "partial_if": "Database implemented but missing some indexes or backup not tested",
+        "no_if": "SQL injection vulnerabilities or no access control"
+      }
+    },
+    {
+      "id": "ir-software-1-11",
+      "question": "Do you review security implementation for authentication, encryption, and access control?",
+      "verification": [
+        "Review authentication code (OAuth implementation, session management)",
+        "Check encryption at rest (model files, training data, sensitive findings)",
+        "Verify encryption in transit (TLS 1.2+, certificate validation)",
+        "Confirm access control (RBAC implementation, permission checks)",
+        "Review credential management (secrets manager, no hardcoding)"
+      ],
+      "evidence": [
+        "Authentication code review records",
+        "Encryption implementation review (at rest, in transit)",
+        "TLS configuration (version, ciphers)",
+        "RBAC implementation code",
+        "Credential management audit (zero hardcoded secrets)"
+      ],
+      "scoring": {
+        "yes_if": "Authentication secure, encryption comprehensive (rest + transit), RBAC implemented, credentials managed properly",
+        "partial_if": "Security implemented but using TLS 1.0/1.1 or missing encryption at rest",
+        "no_if": "No authentication or plaintext sensitive data"
+      }
+    },
+    {
+      "id": "ir-software-1-12",
+      "question": "Do you have ≥80% unit test coverage and ≥70% integration test coverage?",
+      "verification": [
+        "Review unit test coverage report (≥80% line coverage)",
+        "Check integration test coverage (≥70% of critical workflows)",
+        "Verify test quality (assertions present, not just execution)",
+        "Confirm edge cases tested (error conditions, boundary values)",
+        "Review test maintainability (clear test names, DRY principle)"
+      ],
+      "evidence": [
+        "Code coverage reports (pytest-cov, coverage.py, JaCoCo)",
+        "Unit test suite (≥80% coverage)",
+        "Integration test suite (≥70% workflow coverage)",
+        "Edge case test examples",
+        "Test code review records"
+      ],
+      "scoring": {
+        "yes_if": "≥80% unit test coverage, ≥70% integration coverage, quality assertions, edge cases tested",
+        "partial_if": "60-80% unit coverage or 50-70% integration coverage",
+        "no_if": "<60% unit coverage or <50% integration coverage"
+      }
+    },
+    {
+      "id": "ir-software-1-13",
+      "question": "Do you have security-specific tests including prompt injection, adversarial inputs, and OWASP Top 10?",
+      "verification": [
+        "Review prompt injection tests (for LLM integrations)",
+        "Check adversarial input tests (model robustness)",
+        "Verify OWASP Top 10 coverage (SQL injection, XSS, etc.)",
+        "Confirm authentication/authorization tests",
+        "Review fuzz testing implementation"
+      ],
+      "evidence": [
+        "Security test suite (prompt injection, adversarial)",
+        "OWASP Top 10 test coverage report",
+        "Authentication/authorization test results",
+        "Fuzz testing implementation and results"
+      ],
+      "scoring": {
+        "yes_if": "Prompt injection tested, adversarial inputs tested, OWASP Top 10 coverage, auth/authz tested, fuzz testing implemented",
+        "partial_if": "Some security testing but missing prompt injection or fuzzing",
+        "no_if": "No security-specific testing"
+      }
+    },
+    {
+      "id": "ir-software-1-14",
+      "question": "Do you use automated static analysis tools (SAST, linters) with zero critical vulnerabilities?",
+      "verification": [
+        "Review SAST tools integrated (Bandit, Semgrep, SonarQube, etc.)",
+        "Check linters configured (language-specific: pylint, eslint, etc.)",
+        "Verify zero critical vulnerabilities in latest scan",
+        "Confirm automated scanning in CI/CD (every commit)",
+        "Review vulnerability remediation SLA (Critical ≤24h, High ≤7d)"
+      ],
+      "evidence": [
+        "SAST tool configuration (Bandit, Semgrep, SonarQube)",
+        "Latest scan results (zero critical vulnerabilities)",
+        "CI/CD integration (automated scanning)",
+        "Vulnerability remediation tracking (SLA compliance)"
+      ],
+      "scoring": {
+        "yes_if": "SAST + linters integrated, zero critical vulns, automated in CI/CD, SLA for remediation",
+        "partial_if": "Tools integrated but 1-3 critical vulns or not in CI/CD",
+        "no_if": ">3 critical vulnerabilities or no SAST tools"
+      }
+    },
+    {
+      "id": "ir-software-1-15",
+      "question": "Do you track code quality metrics including complexity, maintainability, and technical debt?",
+      "verification": [
+        "Review code complexity metrics (cyclomatic complexity ≤10 per function)",
+        "Check maintainability index (≥65 considered maintainable)",
+        "Verify code duplication tracking (≤5% duplication)",
+        "Confirm technical debt monitoring (tracked, prioritized, addressed)",
+        "Review documentation coverage (public APIs documented)"
+      ],
+      "evidence": [
+        "Code quality dashboard (complexity, maintainability metrics)",
+        "Complexity analysis results (≤10 cyclomatic complexity)",
+        "Code duplication report (≤5%)",
+        "Technical debt tracking system",
+        "Documentation coverage report"
+      ],
+      "scoring": {
+        "yes_if": "Complexity ≤10, maintainability ≥65, duplication ≤5%, tech debt tracked, APIs documented",
+        "partial_if": "Metrics tracked but targets not met or tech debt not prioritized",
+        "no_if": "No code quality metrics tracking"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Code Review Coverage",
+      "target": "100% of code changes reviewed before merge",
+      "measurement": "Coverage % = (PRs reviewed / Total PRs) × 100",
+      "data_source": "GitHub/GitLab PR statistics",
+      "frequency": "Weekly",
+      "baseline": "Initial PR review coverage assessment",
+      "validation": "Random PR audit to verify review quality"
+    },
+    {
+      "metric": "Review Turnaround Time",
+      "target": "≥95% of reviews completed within 2 business days",
+      "measurement": "Timeliness % = (Reviews ≤2 days / Total reviews) × 100",
+      "data_source": "PR review timestamps (submitted → approved)",
+      "frequency": "Weekly",
+      "baseline": "Initial review turnaround baseline",
+      "validation": "Monitor review bottlenecks and team capacity"
+    },
+    {
+      "metric": "Test Coverage",
+      "target": "≥80% unit test coverage, ≥70% integration test coverage",
+      "measurement": "Coverage from pytest-cov, coverage.py, JaCoCo",
+      "data_source": "CI/CD coverage reports",
+      "frequency": "Every commit",
+      "baseline": "Initial test coverage measurement",
+      "validation": "Manual review of untested critical paths"
+    },
+    {
+      "metric": "Security Vulnerabilities",
+      "target": "Zero critical security vulnerabilities, ≤5 high vulnerabilities",
+      "measurement": "Vulnerability count from SAST scans",
+      "data_source": "SAST tools (Bandit, Semgrep, SonarQube)",
+      "frequency": "Every commit",
+      "baseline": "Initial security baseline scan",
+      "validation": "Periodic penetration testing validation"
+    },
+    {
+      "metric": "Code Quality",
+      "target": "Cyclomatic complexity ≤10, maintainability index ≥65, code duplication ≤5%",
+      "measurement": "Metrics from static analysis tools",
+      "data_source": "SonarQube, Code Climate, or similar",
+      "frequency": "Weekly",
+      "baseline": "Initial code quality assessment",
+      "validation": "Trend analysis over time, refactoring impact"
+    }
+  ]
+}

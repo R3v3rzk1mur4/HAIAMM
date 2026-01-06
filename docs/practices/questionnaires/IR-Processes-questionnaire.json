@@ -1,0 +1,522 @@
+{
+  "practice": "IR",
+  "domain": "processes",
+  "name": "Implementation Review - Processes Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ir-processes-1-1",
+      "question": "Have you reviewed ML classification model implementation for correctness including feature extraction, preprocessing, and inference?",
+      "verification": [
+        "Review model loading code (correct version, from secure source)",
+        "Verify feature extraction matches training (correct order, all required features)",
+        "Check preprocessing implementation (normalization, encoding, missing value handling)",
+        "Confirm inference latency ≤100ms per alert",
+        "Test with known inputs and edge cases (malformed alerts, missing fields)"
+      ],
+      "evidence": [
+        "Model loading and version checking code review",
+        "Feature extraction code with mapping to training features",
+        "Preprocessing pipeline implementation",
+        "Performance benchmarks showing inference latency ≤100ms",
+        "Test results with known inputs and edge cases"
+      ],
+      "scoring": {
+        "yes_if": "Model implementation correct (loading, features, preprocessing), latency ≤100ms, tested with edge cases",
+        "partial_if": "Implementation mostly correct but latency >100ms or limited edge case testing",
+        "no_if": "Major implementation issues or no performance testing"
+      }
+    },
+    {
+      "id": "ir-processes-1-2",
+      "question": "Have you reviewed severity scoring algorithm implementation to verify context adjustments are correctly applied?",
+      "verification": [
+        "Review severity calculation formula implementation (base × asset_criticality × exploitability × business_impact)",
+        "Check that scores are normalized to 0-100 range",
+        "Verify edge case handling (missing context, divide-by-zero protection)",
+        "Spot-check severity adjustments against expert assessments"
+      ],
+      "evidence": [
+        "Severity scoring algorithm code review",
+        "Formula implementation with all context factors",
+        "Edge case handling code (defaults, zero protection)",
+        "Validation results comparing AI severity to expert assessments"
+      ],
+      "scoring": {
+        "yes_if": "Formula correctly implemented, normalized 0-100, edge cases handled, validated against experts",
+        "partial_if": "Implementation correct but limited edge case handling or no validation",
+        "no_if": "Incorrect formula or no normalization"
+      }
+    },
+    {
+      "id": "ir-processes-1-3",
+      "question": "Have you reviewed workflow execution implementation including DAG representation, parallel execution, and state persistence?",
+      "verification": [
+        "Review DAG representation code (nodes=actions, edges=dependencies, stored correctly)",
+        "Check topological sort implementation (correct ordering, cycle detection)",
+        "Verify parallel execution (independent steps concurrent, dependent steps sequential)",
+        "Confirm state persisted to database after each step with atomic updates",
+        "Test crash recovery (kill mid-workflow, verify resume without duplicate actions)"
+      ],
+      "evidence": [
+        "Workflow DAG implementation code",
+        "Topological sort and cycle detection code",
+        "Parallel execution implementation (ThreadPoolExecutor/asyncio/Celery)",
+        "State persistence code with transaction handling",
+        "Crash recovery test results"
+      ],
+      "scoring": {
+        "yes_if": "DAG correctly implemented, parallel execution working, state persistence atomic, crash recovery tested",
+        "partial_if": "Workflow execution works but no parallel execution or state persistence incomplete",
+        "no_if": "Major issues in workflow execution or no state persistence"
+      }
+    },
+    {
+      "id": "ir-processes-1-4",
+      "question": "Have you reviewed timeout and retry logic implementation with exponential backoff and circuit breaker?",
+      "verification": [
+        "Review timeout implementation (per-step timeouts, triggers error handler)",
+        "Check retry logic (exponential backoff: 1s, 2s, 4s, 8s, 16s; max 3-5 retries)",
+        "Verify circuit breaker (tracks failures, opens after threshold, closes after cooldown)",
+        "Confirm error classification (transient retry, permanent fail immediately)",
+        "Test timeout handling, retry logic, and circuit breaker activation"
+      ],
+      "evidence": [
+        "Timeout implementation code (signal.alarm/asyncio.wait_for/threading.Timer)",
+        "Retry logic with exponential backoff implementation",
+        "Circuit breaker implementation (state management, thresholds)",
+        "Error classification logic (transient vs permanent)",
+        "Test results for timeout, retry, and circuit breaker scenarios"
+      ],
+      "scoring": {
+        "yes_if": "Timeouts implemented, exponential backoff correct, circuit breaker working, error classification proper, all tested",
+        "partial_if": "Basic retry but not exponential backoff, or no circuit breaker, or limited testing",
+        "no_if": "No timeout handling or retry logic"
+      }
+    },
+    {
+      "id": "ir-processes-1-5",
+      "question": "Have you reviewed blast radius limit enforcement to verify hard-coded limits prevent exceeding thresholds?",
+      "verification": [
+        "Review limit constants (MAX_IP_BLOCKS=50, MAX_ACCOUNT_DISABLES=20, MAX_HOST_ISOLATIONS=5)",
+        "Check enforcement logic (scope checked before execution, raises exception if exceeded)",
+        "Verify rate limiting (actions per hour/day tracked and enforced)",
+        "Confirm critical asset exceptions (production servers require approval)",
+        "Test limit enforcement (attempt over-limit action, verify rejection)"
+      ],
+      "evidence": [
+        "Blast radius limit constants definition",
+        "Enforcement code (pre-execution checks, exception handling)",
+        "Rate limiting implementation (tracking per time period)",
+        "Critical asset exception handling code",
+        "Limit enforcement test results (over-limit attempts rejected)"
+      ],
+      "scoring": {
+        "yes_if": "Limits hard-coded as constants, enforcement prevents execution, rate limiting working, exceptions handled, tested",
+        "partial_if": "Limits defined but enforcement can be bypassed, or no rate limiting, or not tested",
+        "no_if": "No hard-coded limits or limits not enforced"
+      }
+    },
+    {
+      "id": "ir-processes-1-6",
+      "question": "Have you reviewed graduated automation level enforcement to ensure correct behavior per level?",
+      "verification": [
+        "Review automation level configuration (Level 0-3 defined per action)",
+        "Check enforcement logic (Level 0: notify only, Level 1: await approval, Level 2/3: auto-execute with checks)",
+        "Verify approval integration (Level 1 triggers approval, blocks until response)",
+        "Confirm analyst override support (can force manual approval)",
+        "Test each automation level behavior"
+      ],
+      "evidence": [
+        "Automation level configuration (per action type)",
+        "Level enforcement code (conditional execution based on level)",
+        "Approval workflow integration code",
+        "Override mechanism implementation",
+        "Test results for all automation levels"
+      ],
+      "scoring": {
+        "yes_if": "4 levels configured, enforcement correct per level, approval integration working, overrides supported, all tested",
+        "partial_if": "Levels defined but enforcement inconsistent or approval not fully integrated",
+        "no_if": "No automation levels or all actions treated equally"
+      }
+    },
+    {
+      "id": "ir-processes-1-7",
+      "question": "Have you reviewed pre/post-change validation implementation including dry-run mode and verification queries?",
+      "verification": [
+        "Review dry-run mode (simulation without actual changes, results returned)",
+        "Check precondition validation (host reachable, account active, rule doesn't exist)",
+        "Verify post-change verification queries (firewall: check IP blocked, AD: check account disabled)",
+        "Confirm verification timeout (≤30s, timeout triggers rollback)",
+        "Test dry-run mode and verification logic"
+      ],
+      "evidence": [
+        "Dry-run mode implementation code",
+        "Precondition check implementations per action type",
+        "Post-change verification queries code",
+        "Verification timeout and rollback trigger logic",
+        "Test results for dry-run and verification"
+      ],
+      "scoring": {
+        "yes_if": "Dry-run implemented, preconditions checked, post-change verified, timeout triggers rollback, all tested",
+        "partial_if": "Some validation but dry-run missing or post-change verification incomplete",
+        "no_if": "No change validation or actions execute without verification"
+      }
+    },
+    {
+      "id": "ir-processes-1-8",
+      "question": "Have you reviewed rollback implementation with inverse actions and success validation?",
+      "verification": [
+        "Review rollback action implementations (unblock IP, enable account, de-isolate host)",
+        "Check rollback triggers (verification failed, manual request, adverse impact)",
+        "Verify rollback success validation (query system state, confirm restored)",
+        "Confirm irreversible actions flagged (delete files, reset passwords marked non-rollbackable)",
+        "Test rollback for all reversible actions"
+      ],
+      "evidence": [
+        "Rollback action code (inverse operations per action type)",
+        "Rollback trigger implementation",
+        "Rollback validation queries (confirm state restored)",
+        "Irreversible action documentation and flags",
+        "Rollback test results for all action types"
+      ],
+      "scoring": {
+        "yes_if": "Rollback actions implemented, triggers working, success validated, irreversible actions documented, all tested",
+        "partial_if": "Rollback exists but validation incomplete or not all action types covered",
+        "no_if": "No automated rollback or major action types missing"
+      }
+    },
+    {
+      "id": "ir-processes-1-9",
+      "question": "Have you reviewed kill switch implementation with immediate halt and graceful shutdown?",
+      "verification": [
+        "Review kill switch endpoint/command (API POST /api/killswitch or CLI command)",
+        "Check global flag mechanism (AUTOMATION_DISABLED=True, all executions check flag)",
+        "Verify graceful shutdown (in-flight workflows complete current step atomically)",
+        "Confirm re-enable process (requires privileged action, manager approval, RCA)",
+        "Test kill switch activation and re-enable"
+      ],
+      "evidence": [
+        "Kill switch API/CLI implementation code",
+        "Global flag and execution check implementation",
+        "Graceful shutdown logic (atomic step completion)",
+        "Re-enable approval workflow and RCA requirement",
+        "Kill switch test results (activation and re-enable)"
+      ],
+      "scoring": {
+        "yes_if": "Kill switch implemented with API/CLI, global flag checked, graceful shutdown, re-enable requires approval + RCA, tested",
+        "partial_if": "Kill switch exists but ungraceful shutdown or no approval for re-enable",
+        "no_if": "No kill switch implementation"
+      }
+    },
+    {
+      "id": "ir-processes-1-10",
+      "question": "Have you reviewed API integration implementation for all tools including authentication, request construction, and response parsing?",
+      "verification": [
+        "Review credential retrieval (from secrets manager, properly formatted in headers)",
+        "Check API endpoint correctness (SIEM, EDR, firewall, etc.)",
+        "Verify request construction (correct parameters, content-type headers)",
+        "Confirm response parsing (JSON parsed, relevant fields extracted)",
+        "Test each integration with real API or mocks"
+      ],
+      "evidence": [
+        "Credential retrieval code (secrets manager integration)",
+        "API endpoint configurations per tool",
+        "Request construction code with proper formatting",
+        "Response parsing implementation",
+        "Integration test results per tool"
+      ],
+      "scoring": {
+        "yes_if": "All integrations reviewed, credentials from secrets manager, requests/responses correct, all tested",
+        "partial_if": "Most integrations correct but some hardcoded credentials or incomplete testing",
+        "no_if": "Major integration issues or credentials hardcoded"
+      }
+    },
+    {
+      "id": "ir-processes-1-11",
+      "question": "Have you reviewed integration error handling with circuit breaker and fallback logic per tool?",
+      "verification": [
+        "Review circuit breaker per integration (tracks failures, opens after 5 consecutive, closes after 5min)",
+        "Check retry logic (exponential backoff per integration, max retries)",
+        "Verify error classification (500/503 transient → retry, 401/404 permanent → fail)",
+        "Confirm fallback logic (primary tool fails → backup tool, or mark manual)",
+        "Test error handling per integration"
+      ],
+      "evidence": [
+        "Per-integration circuit breaker implementations",
+        "Retry logic code per integration",
+        "Error classification logic (HTTP status code handling)",
+        "Fallback implementation (backup tool switching)",
+        "Error handling test results per integration"
+      ],
+      "scoring": {
+        "yes_if": "Circuit breakers per integration, retry logic correct, error classification proper, fallbacks working, all tested",
+        "partial_if": "Some error handling but missing circuit breakers or fallbacks",
+        "no_if": "No integration error handling or workflows crash on failures"
+      }
+    },
+    {
+      "id": "ir-processes-1-12",
+      "question": "Have you reviewed credential management to ensure no hardcoded secrets and proper secrets manager integration?",
+      "verification": [
+        "Scan codebase for hardcoded secrets (git log, environment files, config files)",
+        "Review secrets retrieval (runtime fetch from secrets manager, cached with TTL)",
+        "Verify secrets never logged (check logging code, log samples)",
+        "Confirm rotation support (no hardcoded credentials, fresh fetch or TTL cache)",
+        "Check API keys have least privilege permissions"
+      ],
+      "evidence": [
+        "Secret scanning report (zero hardcoded secrets found)",
+        "Secrets manager integration code (runtime retrieval)",
+        "Logging code review (secrets not logged)",
+        "Rotation support validation (credentials refresh)",
+        "API key permission audit (least privilege verified)"
+      ],
+      "scoring": {
+        "yes_if": "Zero hardcoded secrets, runtime retrieval from secrets manager, never logged, rotation supported, least privilege",
+        "partial_if": "Secrets manager used but some credentials in environment variables or limited rotation support",
+        "no_if": "Hardcoded secrets in code or credentials in plaintext config files"
+      }
+    },
+    {
+      "id": "ir-processes-1-13",
+      "question": "Have you reviewed approval workflow implementation with proper blocking, timeout handling, and decision processing?",
+      "verification": [
+        "Review approval trigger (high-risk actions correctly trigger approval)",
+        "Check approval request (sent via API/email/Slack with action details)",
+        "Verify workflow pause (blocks execution until approval received)",
+        "Confirm approval decision handling (approved → continue, rejected → abort, timeout → queue manual)",
+        "Test approval workflow (approve, reject, timeout paths)"
+      ],
+      "evidence": [
+        "Approval trigger code (high-risk action detection)",
+        "Approval request implementation (notification mechanism)",
+        "Workflow blocking code (pause until response)",
+        "Decision handling logic (approve/reject/timeout)",
+        "Approval workflow test results"
+      ],
+      "scoring": {
+        "yes_if": "Approval triggers correct, requests sent with details, workflow blocks properly, all decisions handled, tested",
+        "partial_if": "Approval workflow exists but timeout not handled or limited testing",
+        "no_if": "No approval workflow or high-risk actions auto-execute"
+      }
+    },
+    {
+      "id": "ir-processes-1-14",
+      "question": "Have you reviewed override mechanism implementation with justification capture and model feedback?",
+      "verification": [
+        "Review override types support (classification, recommendation, automation level)",
+        "Check justification requirement (required field, captured and logged)",
+        "Verify override effect (workflow reflects override, AI decision ignored)",
+        "Confirm override logging (who, what, when, why recorded)",
+        "Check feedback integration (overrides feed to model training pipeline)"
+      ],
+      "evidence": [
+        "Override mechanism code (all types supported)",
+        "Justification capture implementation (required field)",
+        "Override application code (workflow execution changes)",
+        "Override logging implementation (comprehensive fields)",
+        "Model training feedback loop integration"
+      ],
+      "scoring": {
+        "yes_if": "All override types supported, justification required and logged, overrides applied correctly, feedback to model, tested",
+        "partial_if": "Override capability exists but justification optional or no feedback loop",
+        "no_if": "No override mechanism or overrides not logged"
+      }
+    },
+    {
+      "id": "ir-processes-1-15",
+      "question": "Have you reviewed queue implementation for persistence, capacity, and priority handling?",
+      "verification": [
+        "Review queue technology (RabbitMQ, Kafka, Redis Streams, AWS SQS) for appropriateness",
+        "Check persistence (messages persisted to disk, survive restarts)",
+        "Verify capacity (≥10,000 messages, backpressure when full)",
+        "Confirm priority implementation (Critical alerts processed first)",
+        "Load test queue (inject 10,000 messages, verify no loss)"
+      ],
+      "evidence": [
+        "Queue technology selection and configuration",
+        "Persistence configuration (disk storage enabled)",
+        "Capacity limits and backpressure handling",
+        "Priority queue implementation",
+        "Load test results (10,000 messages, zero loss, throughput measured)"
+      ],
+      "scoring": {
+        "yes_if": "Queue persisted, capacity ≥10,000, priority implemented, backpressure handled, load tested",
+        "partial_if": "Queue works but not persisted, or capacity <10,000, or no priority handling",
+        "no_if": "In-memory only queue or no capacity management"
+      }
+    },
+    {
+      "id": "ir-processes-1-16",
+      "question": "Have you reviewed graceful degradation implementation for AI model, tool, and database failures?",
+      "verification": [
+        "Review AI model failure handling (fallback to rule-based triage, alert on downtime)",
+        "Check tool failure handling (continue with available tools, mark failed actions manual)",
+        "Verify database failure handling (in-memory state, alert on outage)",
+        "Confirm degradation alerts (specify what's degraded, estimate impact)",
+        "Test each degradation scenario"
+      ],
+      "evidence": [
+        "Rule-based triage fallback implementation",
+        "Tool failure adaptation code (workflow continuation)",
+        "In-memory state fallback implementation",
+        "Degradation alerting code (notification mechanism)",
+        "Degradation scenario test results (model, tool, database failures)"
+      ],
+      "scoring": {
+        "yes_if": "All failure modes have graceful degradation, alerts sent, all tested",
+        "partial_if": "Some degradation but workflows crash on certain failures",
+        "no_if": "No graceful degradation or system fails completely on component failure"
+      }
+    },
+    {
+      "id": "ir-processes-1-17",
+      "question": "Have you reviewed comprehensive safety testing including blast radius, automation levels, rollback, and kill switch?",
+      "verification": [
+        "Review blast radius tests (attempt over-limit, verify rejection at threshold)",
+        "Check automation level tests (verify Level 0-3 behaviors correct)",
+        "Verify rollback tests (all reversible actions tested)",
+        "Confirm kill switch tests (activation halts all, re-enable requires approval)",
+        "Ensure ≥95% safety mechanism test coverage"
+      ],
+      "evidence": [
+        "Blast radius test suite (limit enforcement tests)",
+        "Automation level test suite (all levels tested)",
+        "Rollback test suite (all reversible action types)",
+        "Kill switch test suite (activation and re-enable)",
+        "Safety test coverage report (≥95%)"
+      ],
+      "scoring": {
+        "yes_if": "All safety mechanisms tested (blast radius, levels, rollback, kill switch), ≥95% coverage, zero bypasses possible",
+        "partial_if": "Most safety tested but coverage 70-95% or some mechanisms not fully tested",
+        "no_if": "Safety testing <70% coverage or major mechanisms not tested"
+      }
+    },
+    {
+      "id": "ir-processes-1-18",
+      "question": "Have you reviewed integration testing with ≥90% tool coverage and end-to-end workflow tests?",
+      "verification": [
+        "Review per-integration tests (each tool: SIEM, EDR, firewall, IAM, ticketing tested)",
+        "Check end-to-end workflow tests (complete workflows tested: detect → investigate → contain → remediate)",
+        "Verify error path testing (timeouts, failures, malformed responses per integration)",
+        "Confirm critical integrations tested against real APIs (production or staging)",
+        "Ensure ≥90% integration test coverage"
+      ],
+      "evidence": [
+        "Per-integration test suite (all tools covered)",
+        "End-to-end workflow test suite (critical workflows)",
+        "Error handling test suite (per integration)",
+        "Real API test results (critical integrations)",
+        "Integration test coverage report (≥90%)"
+      ],
+      "scoring": {
+        "yes_if": "≥90% tools tested, end-to-end workflows tested, error paths tested, critical integrations use real APIs",
+        "partial_if": "70-90% coverage or limited end-to-end testing or all mocked",
+        "no_if": "<70% integration testing or no end-to-end tests"
+      }
+    },
+    {
+      "id": "ir-processes-1-19",
+      "question": "Have you reviewed chaos testing to validate resilience under failure injection?",
+      "verification": [
+        "Review failure injection tests (kill AI model, kill tool APIs, kill database, network partition, high latency)",
+        "Check graceful degradation validation (system continues operating, no crashes)",
+        "Verify recovery validation (services restart, state restored, automation resumes)",
+        "Confirm chaos testing schedule (weekly in staging, monthly in production)",
+        "Ensure all failure scenarios tested"
+      ],
+      "evidence": [
+        "Chaos testing suite (all failure types)",
+        "Graceful degradation test results (system continues)",
+        "Recovery test results (full recovery verified)",
+        "Chaos testing schedule documentation",
+        "Failure scenario coverage matrix (all scenarios tested)"
+      ],
+      "scoring": {
+        "yes_if": "All failure scenarios tested, graceful degradation verified, recovery validated, regular schedule established",
+        "partial_if": "Some chaos testing but limited scenarios or no regular schedule",
+        "no_if": "No chaos testing or resilience not validated under failures"
+      }
+    },
+    {
+      "id": "ir-processes-1-20",
+      "question": "Have you reviewed performance testing to validate throughput, latency, and concurrency targets?",
+      "verification": [
+        "Review throughput tests (≥1,000 alerts/minute processing rate)",
+        "Check latency tests (p95 ≤5 minutes for Critical alerts end-to-end)",
+        "Verify concurrency tests (100 workflows simultaneously, no deadlocks/race conditions)",
+        "Confirm load tests (sustained high volume for 24 hours, no degradation)",
+        "Validate performance targets met and bottlenecks identified"
+      ],
+      "evidence": [
+        "Throughput test results (≥1,000 alerts/minute)",
+        "Latency test results (p95 ≤5 minutes)",
+        "Concurrency test results (100 parallel workflows)",
+        "Load test results (24 hour sustained test)",
+        "Performance bottleneck analysis and documentation"
+      ],
+      "scoring": {
+        "yes_if": "All performance targets met (≥1,000/min, p95 ≤5min, concurrent safe), load tested 24h, bottlenecks identified",
+        "partial_if": "Performance tested but some targets missed or limited load testing",
+        "no_if": "No performance testing or major targets missed"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Safety Validation",
+      "target": "Zero production outages from AI automation in testing, ≤1% rollback rate, blast radius limits never exceeded",
+      "measurement": "Outage count = 0; Rollback rate = (Rollbacks / Total actions) × 100; Limit violations = 0",
+      "data_source": "Testing logs, safety mechanism test results, blast radius tracking",
+      "frequency": "Continuous during testing phase, weekly reports",
+      "baseline": "Zero tolerance baseline for safety violations",
+      "validation": "Red team validation, safety test suite execution"
+    },
+    {
+      "metric": "Code Quality",
+      "target": "≥80% code coverage, zero critical security vulnerabilities (SAST scan), zero hardcoded secrets",
+      "measurement": "Coverage % from pytest-cov/coverage.py; SAST vulnerability count; Secret scan findings count",
+      "data_source": "Code coverage tools, SAST scanners (Bandit, SonarQube), secret scanners (truffleHog, git-secrets)",
+      "frequency": "Every commit (CI/CD), weekly comprehensive scans",
+      "baseline": "Initial codebase scan to establish baseline",
+      "validation": "Peer code review, automated CI/CD checks"
+    },
+    {
+      "metric": "Reliability",
+      "target": "≥99.9% workflow completion rate, state persistence verified (100% crash recovery tests pass)",
+      "measurement": "Completion rate = (Completed workflows / Total workflows) × 100; Crash recovery pass rate = (Successful recoveries / Total crash tests) × 100",
+      "data_source": "Workflow execution logs, crash recovery test results",
+      "frequency": "Continuous workflow monitoring, weekly crash recovery testing",
+      "baseline": "Initial reliability testing baseline",
+      "validation": "Chaos engineering, fault injection testing"
+    },
+    {
+      "metric": "Performance",
+      "target": "MTTR reduction ≥50% vs. manual response, ≥1,000 alerts/minute throughput, p95 latency ≤5 minutes",
+      "measurement": "MTTR = Avg(Containment - Alert time); Throughput = Alerts processed / Minute; p95 latency from percentile calculation",
+      "data_source": "Performance test logs, MTTR measurements, latency metrics",
+      "frequency": "Weekly performance testing during development, continuous in production",
+      "baseline": "Manual response MTTR (typically 20-40 hours), pre-automation throughput",
+      "validation": "Load testing, real-world incident comparison"
+    },
+    {
+      "metric": "Integration Quality",
+      "target": "≥90% of tool integrations tested, all critical workflows tested end-to-end",
+      "measurement": "Integration test coverage = (Tested integrations / Total integrations) × 100; Workflow coverage = (Tested critical workflows / Total critical workflows) × 100",
+      "data_source": "Integration test suite results, workflow test coverage reports",
+      "frequency": "Every integration change, weekly comprehensive testing",
+      "baseline": "Integration inventory and critical workflow identification",
+      "validation": "Real API testing for critical integrations, end-to-end validation"
+    },
+    {
+      "metric": "Test Coverage - Safety",
+      "target": "≥95% of safety mechanisms tested, ≥90% integration test coverage, chaos tests pass for all failure scenarios",
+      "measurement": "Safety test coverage %; Integration test coverage %; Chaos test pass rate = (Passed scenarios / Total scenarios) × 100",
+      "data_source": "Test suite execution results, coverage reports",
+      "frequency": "Every code change (CI/CD), weekly comprehensive test runs",
+      "baseline": "Initial test coverage assessment",
+      "validation": "Independent security review, penetration testing"
+    }
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "practice": "EH",
+  "domain": "processes",
+  "name": "Environment Hardening - Processes Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "eh-processes-1-1",
+      "question": "Is your SOAR platform configured with hardened security settings including MFA, network restrictions, and encryption?",
+      "verification": [
+        "Review SOAR platform authentication configuration (verify MFA enabled for all accounts)",
+        "Check network access controls (private IPs, firewall rules restricting access)",
+        "Verify encryption settings (TLS for all connections, encryption at rest for sensitive data)",
+        "Review patch management process and verify critical patches applied within 24h, high within 7 days"
+      ],
+      "evidence": [
+        "SOAR platform configuration export showing MFA enforcement (100% of users)",
+        "Firewall rules or network ACLs restricting SOAR access to authorized IPs/networks",
+        "TLS/SSL certificate configuration and encryption-at-rest settings",
+        "Patch compliance report showing ≥95% patches applied within SLA (Critical ≤24h, High ≤7d)"
+      ],
+      "scoring": {
+        "yes_if": "MFA enforced 100%, network restricted, TLS + encryption at rest enabled, ≥95% patch compliance within SLA",
+        "partial_if": "Most settings configured but gaps exist (e.g., MFA <100%, patch SLA not met)",
+        "no_if": "Missing critical hardening (no MFA, public access, no encryption, poor patch compliance)"
+      }
+    },
+    {
+      "id": "eh-processes-1-2",
+      "question": "Do you enforce least privilege access controls with RBAC and separation of duties for SOAR users?",
+      "verification": [
+        "Review RBAC configuration (roles: viewer, analyst, admin, automation engineer)",
+        "Check separation of duties (playbook creation, approval, execution permissions separated)",
+        "Verify quarterly access reviews conducted with documentation",
+        "Confirm unused accounts are removed promptly"
+      ],
+      "evidence": [
+        "RBAC role definitions and user-to-role assignments",
+        "Documentation showing separation of playbook creation/approval/execution permissions",
+        "Quarterly access review reports (last 2 quarters) with approval signatures",
+        "Access removal logs showing unused accounts deactivated"
+      ],
+      "scoring": {
+        "yes_if": "RBAC implemented with 4+ roles, separation of duties enforced, quarterly reviews completed, unused accounts removed",
+        "partial_if": "RBAC exists but incomplete separation of duties or reviews inconsistent",
+        "no_if": "No RBAC or shared admin accounts, no access reviews"
+      }
+    },
+    {
+      "id": "eh-processes-1-3",
+      "question": "Are all playbooks security-reviewed and approved before production deployment?",
+      "verification": [
+        "Review playbook security review process documentation",
+        "Sample 10 recent production playbooks and verify security review was conducted",
+        "Check review coverage: hardcoded credentials, injection flaws, insufficient validation, logic errors",
+        "Verify approval required for high-risk playbooks (modify infrastructure, delete data)"
+      ],
+      "evidence": [
+        "Playbook security review checklist or process documentation",
+        "Security review records for 10 recent playbooks (reviewer, date, findings, approval)",
+        "Examples of playbook reviews catching security issues (if any found and fixed)",
+        "Approval workflow configuration for high-risk playbook types"
+      ],
+      "scoring": {
+        "yes_if": "100% of production playbooks security-reviewed, high-risk playbooks require approval, comprehensive review checklist used",
+        "partial_if": "≥70% playbooks reviewed but process inconsistent or incomplete checklist",
+        "no_if": "<70% playbooks reviewed or no security review process"
+      }
+    },
+    {
+      "id": "eh-processes-1-4",
+      "question": "Do all playbooks validate and sanitize inputs to prevent injection attacks?",
+      "verification": [
+        "Review input validation standards for playbooks",
+        "Sample 10 playbooks and verify input validation for: alert data, user inputs, external data sources",
+        "Check that validation uses whitelisting and rejects unexpected data",
+        "Verify protection against injection (command injection, SQL injection, LDAP injection)"
+      ],
+      "evidence": [
+        "Input validation coding standards or guidelines for playbook development",
+        "Code samples from 10 playbooks showing input validation implementation",
+        "Security testing results showing injection attack resistance",
+        "Examples of malformed input being rejected by validation"
+      ],
+      "scoring": {
+        "yes_if": "100% of playbooks implement input validation with whitelisting, injection attacks prevented",
+        "partial_if": "≥70% playbooks have input validation but not comprehensive or inconsistent",
+        "no_if": "<70% playbooks validate inputs or validation uses blacklisting only"
+      }
+    },
+    {
+      "id": "eh-processes-1-5",
+      "question": "Are playbooks digitally signed to prevent tampering?",
+      "verification": [
+        "Check if playbook signing mechanism is implemented",
+        "Verify playbook signatures are validated before execution",
+        "Sample 5 recent playbook executions and confirm signature verification occurred",
+        "Test that tampered playbooks are rejected (if testing capability exists)"
+      ],
+      "evidence": [
+        "Playbook signing configuration and key management documentation",
+        "Signature verification logs showing validation before execution",
+        "Playbook integrity verification process documentation",
+        "Test results showing tampered playbook detection (if tested)"
+      ],
+      "scoring": {
+        "yes_if": "All playbooks digitally signed, signatures verified before every execution, tampering detected",
+        "partial_if": "Signing implemented but not enforced for all playbooks or verification inconsistent",
+        "no_if": "No playbook signing or signature verification"
+      }
+    },
+    {
+      "id": "eh-processes-1-6",
+      "question": "Are hard-coded blast radius limits enforced by the orchestration engine?",
+      "verification": [
+        "Review blast radius limit configuration (≤50 IPs blocked, ≤20 accounts disabled, ≤5 systems isolated per action)",
+        "Verify limits are hard-coded in orchestration engine and cannot be bypassed",
+        "Test that actions exceeding limits are rejected (attempt to block 100 IPs, verify rejection)",
+        "Confirm rate limiting enforced (max actions per minute/hour/day)"
+      ],
+      "evidence": [
+        "Orchestration engine configuration showing hard-coded blast radius limits",
+        "Test results showing limit enforcement (actions exceeding limits rejected)",
+        "Rate limiting configuration (actions per time period)",
+        "Logs showing attempted limit violations being blocked"
+      ],
+      "scoring": {
+        "yes_if": "Hard-coded limits enforced (≤50 IPs, ≤20 accounts, ≤5 systems), cannot be bypassed, rate limiting active",
+        "partial_if": "Limits configured but can be bypassed or not enforced for all action types",
+        "no_if": "No blast radius limits or limits are soft/bypassable"
+      }
+    },
+    {
+      "id": "eh-processes-1-7",
+      "question": "Do you require approval workflows for high-risk automation actions?",
+      "verification": [
+        "Review approval workflow configuration for high-risk actions (infrastructure changes, bulk account actions, data deletion, system isolation)",
+        "Sample 5 high-risk action requests and verify approval was required",
+        "Check that automation pauses for approval and doesn't proceed without it",
+        "Verify auto-reject on timeout (e.g., 30 minutes)"
+      ],
+      "evidence": [
+        "Approval workflow configuration listing high-risk action types",
+        "Sample approval requests (5+ examples) showing pause-for-approval behavior",
+        "Approval decision logs with timestamps showing approval latency",
+        "Timeout configuration and logs showing auto-reject on timeout"
+      ],
+      "scoring": {
+        "yes_if": "100% of high-risk actions require approval, automation pauses correctly, timeouts auto-reject",
+        "partial_if": "Approvals required but some high-risk actions bypass, or no timeout handling",
+        "no_if": "No approval workflows or high-risk actions can execute without approval"
+      }
+    },
+    {
+      "id": "eh-processes-1-8",
+      "question": "Do you capture pre-change snapshots and implement automated rollback on failure?",
+      "verification": [
+        "Review pre-change snapshot process (network rules, account states, system configurations captured before changes)",
+        "Sample 5 recent automation actions and verify snapshots were taken",
+        "Check automated rollback configuration (triggers: action failure, verification failure)",
+        "Verify rollback testing conducted quarterly with ≥95% success rate"
+      ],
+      "evidence": [
+        "Pre-change snapshot logs (5+ examples showing state capture before automation)",
+        "Automated rollback configuration and trigger conditions",
+        "Quarterly rollback test results showing ≥95% success rate",
+        "Rollback execution logs (if rollbacks occurred) showing ≤5 minute rollback time"
+      ],
+      "scoring": {
+        "yes_if": "Pre-change snapshots captured 100%, automated rollback configured, quarterly tests ≥95% success, rollback ≤5 min",
+        "partial_if": "Snapshots taken but rollback not fully automated or test success <95%",
+        "no_if": "No pre-change snapshots or no automated rollback capability"
+      }
+    },
+    {
+      "id": "eh-processes-1-9",
+      "question": "Are integration credentials stored in a secrets manager and rotated regularly?",
+      "verification": [
+        "Verify all SOAR integration credentials stored in secrets manager (Vault, AWS Secrets Manager, Azure Key Vault)",
+        "Check credential rotation policy (quarterly rotation minimum)",
+        "Review recent credential rotations (verify occurred within last 90 days)",
+        "Confirm integration accounts use least privilege permissions"
+      ],
+      "evidence": [
+        "Secrets manager configuration showing SOAR credential storage",
+        "Credential rotation policy document (quarterly minimum)",
+        "Credential rotation logs (last 2 rotations) with timestamps",
+        "Integration service account permissions review showing least privilege"
+      ],
+      "scoring": {
+        "yes_if": "100% credentials in secrets manager, rotated ≤90 days ago, least privilege enforced",
+        "partial_if": "Most credentials in secrets manager but some hardcoded, or rotation >90 days",
+        "no_if": "Credentials hardcoded in playbooks or no secrets manager"
+      }
+    },
+    {
+      "id": "eh-processes-1-10",
+      "question": "Are SOAR API integrations secured with authentication, authorization, rate limiting, and logging?",
+      "verification": [
+        "Review API security configuration (authentication required for all calls)",
+        "Check authorization validation (permissions verified before operations)",
+        "Verify rate limiting configured to prevent API abuse",
+        "Confirm all API calls logged for audit"
+      ],
+      "evidence": [
+        "API authentication configuration (API keys, OAuth, mTLS)",
+        "Authorization rules showing permission checks before operations",
+        "Rate limiting configuration (requests per minute/hour)",
+        "API audit logs showing all calls with authentication/authorization details"
+      ],
+      "scoring": {
+        "yes_if": "Authentication + authorization enforced, rate limiting active, 100% API calls logged",
+        "partial_if": "Some API security controls missing or logging incomplete",
+        "no_if": "APIs accessible without authentication or no logging"
+      }
+    },
+    {
+      "id": "eh-processes-1-11",
+      "question": "Are security tool integrations isolated with separate service accounts?",
+      "verification": [
+        "Review integration service account architecture",
+        "Verify each integration (SIEM, EDR, firewall, cloud, etc.) uses separate service account",
+        "Check that compromise of one integration account doesn't grant access to others",
+        "Confirm service accounts have minimal required permissions for their specific integration"
+      ],
+      "evidence": [
+        "Service account inventory showing separate accounts per integration",
+        "Permission matrix showing isolated permissions per integration",
+        "Integration isolation architecture diagram",
+        "Test results or security review confirming integration isolation"
+      ],
+      "scoring": {
+        "yes_if": "Separate service accounts per integration, isolated permissions, blast radius contained",
+        "partial_if": "Some integrations share accounts or permissions overlap",
+        "no_if": "Shared service account across integrations or overly broad permissions"
+      }
+    },
+    {
+      "id": "eh-processes-1-12",
+      "question": "Do you implement graduated automation levels with appropriate safeguards?",
+      "verification": [
+        "Review automation level framework (Level 1: Alert Only, Level 2: Recommend, Level 3: Auto-Execute Reversible, Level 4: Auto-Execute Irreversible)",
+        "Check that playbooks are classified by automation level",
+        "Verify safeguards for Level 3 (rollback capability, blast radius limits, approval override)",
+        "Confirm safeguards for Level 4 (approval workflow, extensive logging, post-action review)"
+      ],
+      "evidence": [
+        "Automation level policy document defining 4 levels with criteria",
+        "Playbook inventory showing automation level classification",
+        "Level 3 safeguard configuration (rollback, limits, overrides)",
+        "Level 4 approval workflows and post-action review process"
+      ],
+      "scoring": {
+        "yes_if": "4-level framework implemented, all playbooks classified, appropriate safeguards enforced per level",
+        "partial_if": "Framework exists but not all playbooks classified or safeguards incomplete",
+        "no_if": "No graduated automation framework or all automation treated equally"
+      }
+    },
+    {
+      "id": "eh-processes-1-13",
+      "question": "Do you test all playbooks in staging before production deployment?",
+      "verification": [
+        "Review playbook deployment process (requires staging testing)",
+        "Sample 5 recent production playbook deployments and verify staging test occurred",
+        "Check that dry-run mode is used (execute without making changes, validate logic)",
+        "Verify post-deployment validation in staging matches production expectations"
+      ],
+      "evidence": [
+        "Playbook deployment process documentation requiring staging tests",
+        "Staging test results for 5 recent playbooks (dry-run logs, validation results)",
+        "Comparison of staging vs production results showing consistency",
+        "Evidence that failed staging tests prevent production deployment"
+      ],
+      "scoring": {
+        "yes_if": "100% of playbooks tested in staging, dry-run validation performed, deployment blocked on staging failures",
+        "partial_if": "≥70% playbooks tested in staging but not enforced, or dry-run not always used",
+        "no_if": "No staging environment or playbooks deployed directly to production"
+      }
+    },
+    {
+      "id": "eh-processes-1-14",
+      "question": "Do you have SOAR resilience controls including queue hardening, service redundancy, and health checks?",
+      "verification": [
+        "Review queue configuration (persistent to disk, survives restarts)",
+        "Check queue monitoring (alerts on depth/age thresholds, overflow handling)",
+        "Verify service redundancy (multiple SOAR instances, load balancing, auto-failover)",
+        "Confirm health checks implemented (liveness, readiness, dependency monitoring)"
+      ],
+      "evidence": [
+        "Queue configuration showing disk persistence and durability settings",
+        "Queue monitoring alerts and overflow handling policy",
+        "High availability architecture diagram (multiple instances, failover)",
+        "Health check configuration (liveness/readiness endpoints, dependency checks)"
+      ],
+      "scoring": {
+        "yes_if": "Queue durable and monitored, redundant services with auto-failover, comprehensive health checks, ≥99.9% uptime",
+        "partial_if": "Some resilience controls but single points of failure exist, or uptime <99.9%",
+        "no_if": "Single instance SOAR, no queue persistence, or no health monitoring"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Platform Security",
+      "target": "≥95% patched within SLA (Critical ≤24h), 100% MFA enforcement, zero unauthorized access",
+      "measurement": "Patch compliance % = (Patched systems within SLA / Total systems) × 100; MFA % = (Users with MFA / Total users) × 100; Unauthorized access count from logs",
+      "data_source": "Patch management system, authentication logs, access audit logs",
+      "frequency": "Weekly patch compliance, daily MFA check, continuous access monitoring",
+      "baseline": "Initial assessment of current patch state and MFA adoption",
+      "validation": "Security audit verification, penetration testing"
+    },
+    {
+      "metric": "Blast Radius Compliance",
+      "target": "100% of automated actions within blast radius limits, zero violations",
+      "measurement": "Compliance % = (Actions within limits / Total actions) × 100; Violation count",
+      "data_source": "Orchestration engine blast radius logs",
+      "frequency": "Real-time monitoring, daily reports",
+      "baseline": "Zero tolerance (100% compliance from day one)",
+      "validation": "Automated validation before every action, quarterly manual audits"
+    },
+    {
+      "metric": "Rollback Capability",
+      "target": "100% successful rollback in testing, ≤5 minute rollback time",
+      "measurement": "Rollback success rate = (Successful rollbacks / Total rollback tests) × 100; Average rollback time",
+      "data_source": "Quarterly rollback test logs, production rollback logs (if any)",
+      "frequency": "Quarterly testing, continuous production monitoring",
+      "baseline": "Initial rollback capability testing baseline",
+      "validation": "Quarterly rollback drills across all playbook types"
+    },
+    {
+      "metric": "Approval Enforcement",
+      "target": "100% of high-risk actions require approval, zero bypasses detected",
+      "measurement": "Approval enforcement % = (High-risk actions with approval / Total high-risk actions) × 100; Bypass attempt count",
+      "data_source": "Approval workflow logs, security event logs",
+      "frequency": "Real-time monitoring, weekly reports",
+      "baseline": "Zero tolerance (100% enforcement from day one)",
+      "validation": "Red team testing attempting to bypass approvals, audit log review"
+    },
+    {
+      "metric": "Logging and Audit",
+      "target": "100% of automation actions logged, logs protected from tampering, 7-year retention",
+      "measurement": "Logging coverage % = (Logged actions / Total actions) × 100; Log integrity verification pass rate; Retention compliance check",
+      "data_source": "SOAR logging system, log management platform",
+      "frequency": "Continuous logging, weekly integrity checks, monthly retention audits",
+      "baseline": "100% logging coverage from SOAR deployment",
+      "validation": "Log integrity verification (signatures/checksums), compliance audits"
+    },
+    {
+      "metric": "Resilience and Uptime",
+      "target": "≥99.9% SOAR uptime, ≤5 minute recovery from failures",
+      "measurement": "Uptime % = (Available time / Total time) × 100; MTTR = Average recovery time from incidents",
+      "data_source": "Service monitoring system, incident response logs",
+      "frequency": "Continuous availability monitoring, monthly uptime reports",
+      "baseline": "Initial uptime measurement during first 30 days post-deployment",
+      "validation": "Chaos engineering tests, failover drills"
+    }
+  ]
+}

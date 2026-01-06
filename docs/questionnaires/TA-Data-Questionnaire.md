@@ -1,0 +1,675 @@
+# Threat Assessment (TA) - Data Domain Assessment Questionnaire
+## HAIAMM v2.1
+
+---
+
+## Purpose
+
+This questionnaire assesses organizational maturity in identifying and analyzing threats specific to AI-operated data security operations. It evaluates threat modeling, risk prioritization, threat intelligence monitoring, and adversarial testing practices for AI agents performing data discovery, classification, DLP, access monitoring, privacy compliance, and DSAR automation in the Data domain.
+
+---
+
+## Instructions
+
+- Answer each question honestly based on current organizational practices
+- Select "Yes" only if you have documented evidence of the practice
+- Provide specific evidence in the "Evidence Repository" section
+- Calculate your maturity level using the scoring guide at the end
+
+---
+
+## Level 1: Foundational (0-3 points)
+
+### Question 1.1: AI-Specific Data Security Threat Scenarios
+
+**Question:** Have you documented threat scenarios specific to AI agents performing data security operations (classification, DLP, access monitoring, privacy compliance)?
+
+**Answer:** ☐ Yes ☐ No
+
+**Evidence Required:**
+- [ ] Inventory of AI data security agents documented:
+  - AI data discovery and classification tools (e.g., BigID, Varonis, Microsoft Purview, OneTrust)
+  - AI-powered Data Loss Prevention (DLP) systems
+  - AI access anomaly detection and monitoring
+  - AI privacy compliance scanning (GDPR, CCPA, HIPAA)
+  - AI-assisted Data Subject Access Request (DSAR) automation
+  - AI encryption key management or data masking systems
+  - AI database activity monitoring (DAM) tools
+
+- [ ] **Adversarial manipulation & evasion threat scenarios** documented (minimum 3):
+  - Adversarial data patterns for DLP evasion (steganography, encoding, fragmentation, protocol tunneling)
+  - Data obfuscation for classification evasion (PII in images, encoded formats, non-standard schemas)
+  - Prompt injection in AI privacy tools (manipulating AI compliance scanners, DSAR automation)
+  - Model inversion attacks (extracting sensitive training data from classification models)
+  - Access pattern mimicry to evade AI access anomaly detection
+  - Slow data exfiltration below AI DLP thresholds
+
+- [ ] **Data poisoning & training corruption threat scenarios** documented (minimum 2):
+  - Classification model poisoning (injecting mislabeled data to corrupt AI classification)
+  - DLP bypass training (feeding AI DLP with exfiltration patterns labeled as "legitimate")
+  - Access baseline corruption (poisoning AI access monitoring baselines)
+
+- [ ] **Operational security failure scenarios** documented (minimum 3):
+  - False negative - catastrophic misclassification (AI marks PII database as "public")
+  - False negative - missed data exfiltration (AI DLP fails to detect sophisticated theft)
+  - False negative - undetected insider threat (authorized user stealing within permissions)
+  - False positive - business disruption (AI DLP blocks legitimate data transfers)
+  - Model drift - evolving data patterns degrading classification accuracy
+
+- [ ] **Privacy violations by AI itself scenarios** documented (minimum 2):
+  - AI training data privacy violations (AI trained on sensitive data without consent)
+  - AI model data leakage (AI inadvertently exposes sensitive training data)
+  - Excessive AI data access (overly broad permissions violating data minimization)
+  - Cross-border data transfer violations (AI telemetry to vendors violating GDPR Chapter V)
+  - Purpose limitation violations (AI data used for secondary purposes beyond security)
+
+- [ ] **Regulatory & compliance threat scenarios** documented (minimum 2):
+  - GDPR non-compliance (processing without legal basis, inadequate data subject rights)
+  - CCPA/CPRA violations (failing to support consumer rights, selling data without consent)
+  - HIPAA violations (accessing PHI without authorization, inadequate audit trails)
+  - PCI-DSS violations (AI accessing cardholder data without proper segmentation)
+
+**Evidence Location:** ___________________________________________
+
+**Notes:**
+___________________________________________________________________
+___________________________________________________________________
+
+---
+
+### Question 1.2: Threat Awareness Training for Data Security Teams
+
+**Question:** Have DPOs, data security teams, legal counsel, and leadership received training on threats unique to AI-operated data security and AI-related privacy risks?
+
+**Answer:** ☐ Yes ☐ No
+
+**Evidence Required:**
+- [ ] **Data Protection Officers & Privacy Teams** training delivered:
+  - Adversarial ML techniques targeting AI data security (model inversion, membership inference, classification poisoning)
+  - Privacy risks of AI data security tools themselves (AI training data, model data leakage, excessive access, cross-border transfers)
+  - How to validate AI data classification accuracy (sampling methodology, privacy impact assessment for AI tools)
+  - Regulatory implications of AI data processing (GDPR Article 22 automated decision-making, Article 35 DPIA requirements)
+  - When to distrust AI privacy determinations (human review required for edge cases)
+  - Data subject rights when AI processes personal data (right to explanation, right to object, right to human review)
+
+- [ ] **Data Security Teams** training delivered:
+  - How AI DLP can be evaded (adversarial data patterns, encoding, steganography, covert channels)
+  - Validating AI data classification (sampling sensitive data, testing classification accuracy, identifying edge cases)
+  - Supply chain risks in AI data security platforms (vendor access to classified data, model integrity, update validation)
+  - Incident response for AI data security failures (mass misclassification, missed exfiltration, privacy breach by AI tool)
+  - Balancing AI access to data vs. principle of least privilege
+
+- [ ] **Database Administrators & IT Operations** training delivered:
+  - What happens when AI data security tools make mistakes (over-classification blocking applications, misclassification exposing data)
+  - How to recognize AI data security actions vs. application issues
+  - Escalation procedures when AI disrupts business operations
+  - Credential management for AI data security tools (privileged database access)
+
+- [ ] **Legal Counsel & Compliance** training delivered:
+  - Regulatory obligations for AI data processing (GDPR, CCPA, sector-specific regulations)
+  - Liability for AI data security failures (who is responsible when AI misclassifies data)
+  - Contractual requirements for AI data security vendors (data processing agreements, liability caps, breach notification)
+  - Data subject rights implications (can individuals object to AI data processing, request human review)
+  - Regulatory reporting for AI privacy incidents (GDPR Article 33/34 breach notification)
+
+- [ ] Training completion tracked:
+  - Target: ≥80% completion within 90 days of AI data security tool deployment
+  - Training includes real-world examples (adversarial ML research, case studies, regulatory enforcement actions)
+  - Training effectiveness validated (pre/post assessments, knowledge retention)
+
+**Evidence Location:** ___________________________________________
+
+**Notes:**
+___________________________________________________________________
+___________________________________________________________________
+
+---
+
+### Question 1.3: AI Data Security Agent Inventory and Governance
+
+**Question:** Is there an inventory mapping each AI data security agent to potential threat scenarios, failure modes, regulatory obligations, and data types processed?
+
+**Answer:** ☐ Yes ☐ No
+
+**Evidence Required:**
+- [ ] Comprehensive AI data security agent inventory:
+  - Each AI data security tool documented (product name, vendor, deployment date, version)
+  - Data security functions performed (data discovery, classification, DLP, access monitoring, privacy compliance, DSAR automation, encryption management, data masking)
+  - Data types processed by each AI tool (PII, PHI, PCI, confidential, internal, public)
+  - Data sources accessed (databases, file shares, cloud storage, SaaS applications, backups)
+  - Regulatory scope (GDPR, CCPA, HIPAA, PCI-DSS, FERPA, SOX applicable)
+
+- [ ] Each AI agent mapped to threat scenarios:
+  - Minimum 3 threat scenarios per AI data security agent
+  - Specific failure modes documented (false negatives, false positives, model drift, misclassification)
+  - Adversarial exploitation scenarios (DLP evasion, classification bypass, access monitoring circumvention)
+  - Privacy violation scenarios (data leakage by AI tool, cross-border transfers, excessive access)
+
+- [ ] Privacy governance for AI data security tools documented:
+  - Data Protection Impact Assessment (DPIA) completed for each AI data security tool (GDPR Article 35)
+  - Legal basis for AI data processing documented (GDPR Article 6: legitimate interest, legal obligation, consent)
+  - Data Processing Agreements (DPAs) with AI data security vendors
+  - Cross-border data transfer mechanisms documented (Standard Contractual Clauses, adequacy decisions)
+  - Purpose limitation documented (AI processes data only for stated security purposes)
+
+- [ ] Executive awareness briefing delivered:
+  - CISO/CPO/General Counsel briefed on AI-specific data protection threats
+  - Regulatory compliance risks communicated (GDPR fines up to 4% revenue, CCPA violations, HIPAA penalties)
+  - Business impact of AI data security failures discussed (breach costs, reputation damage, customer trust)
+
+**Evidence Location:** ___________________________________________
+
+**Notes:**
+___________________________________________________________________
+___________________________________________________________________
+
+---
+
+## Level 2: Comprehensive (4-6 points)
+
+### Question 2.1: Detailed Abuse Cases for AI Data Security Exploitation
+
+**Question:** Have you developed detailed abuse cases showing how adversaries could exploit or bypass AI data security defenses (misclassification, DLP evasion, insider baseline poisoning, model inversion)?
+
+**Answer:** ☐ Yes ☐ No
+
+**Evidence Required:**
+- [ ] Minimum 3-5 abuse cases per critical AI data security agent documented:
+  - Each abuse case includes: Attacker Goal, Attack Path (step-by-step), Prerequisites, Impact, Likelihood
+  - Abuse cases cover diverse threat scenarios (not just external attackers - include insider threats, supply chain, AI tool failures)
+
+- [ ] **Classification Model Poisoning abuse case** documented:
+  - Attack path: Compromised account → inject mislabeled training data → AI learns incorrect patterns → systematic misclassification → mass data exposure
+  - Prerequisites: Access to AI classification administration, knowledge of training process
+  - Impact: Critical (mass data breach, regulatory fines, customer lawsuits)
+  - Likelihood assessment: Medium (requires privileged access but high-value target)
+
+- [ ] **Adversarial DLP Evasion abuse case** documented:
+  - Attack path: Compromised account/insider → research AI DLP detection patterns → develop evasion techniques (steganography, encoding, fragmentation) → slowly exfiltrate sensitive data undetected
+  - Prerequisites: Access to sensitive data, technical skill for evasion, patience
+  - Impact: Critical (IP theft, customer data breach, regulatory penalties)
+  - Likelihood assessment: Medium-High (evasion techniques are public, AI DLP has known limitations)
+
+- [ ] **Insider Threat Baseline Poisoning abuse case** documented:
+  - Attack path: Legitimate access → gradually increase data access to poison AI baseline → AI learns elevated access is "normal" → exfiltrate at "normal" rate undetected
+  - Prerequisites: Legitimate data access, patience (weeks/months), knowledge of AI baselines
+  - Impact: Critical (insider data theft, customer breach, competitive damage)
+  - Likelihood assessment: Medium-High (insider threats common, baseline poisoning intuitive)
+
+- [ ] **Model Inversion / Privacy Attack abuse case** documented:
+  - Attack path: API access → thousands of classification queries → analyze responses to infer training data properties → reconstruct sensitive PII from training set
+  - Prerequisites: API access, ML expertise, computational resources
+  - Impact: High (privacy violation, GDPR breach, AI tool leaked data it was supposed to protect)
+  - Likelihood assessment: Medium (model inversion is academic research, requires expertise)
+
+- [ ] **Privacy Violation by AI Tool abuse case** documented:
+  - Attack path: Deploy AI classification platform → AI scans sensitive data → AI transmits telemetry/training data to vendor across borders → violates GDPR Chapter V → regulatory penalty
+  - Prerequisites: AI vendor with cross-border processing, inadequate contractual safeguards
+  - Impact: Critical (GDPR violation up to 4% revenue, breach notification required)
+  - Likelihood assessment: Medium (many AI vendors have cross-border processing)
+
+- [ ] Attack trees developed showing multiple paths to data breach:
+  - Root goal: "Exfiltrate customer PII despite AI DLP"
+  - Branches: Evade DLP detection, corrupt data classification, exploit model inversion, compromise AI tool, exploit insider access within baseline
+
+**Evidence Location:** ___________________________________________
+
+**Notes:**
+___________________________________________________________________
+___________________________________________________________________
+
+---
+
+### Question 2.2: Risk-Prioritized Threat Assessment with Mitigation Strategies
+
+**Question:** Are AI data security threats prioritized by risk (likelihood × business impact × regulatory consequence) with documented mitigation strategies for high-priority threats?
+
+**Answer:** ☐ Yes ☐ No
+
+**Evidence Required:**
+- [ ] Likelihood assessment framework defined:
+  - **High Likelihood**: Attack technique publicly documented, tools available, low-moderate skill required (e.g., insider threat baseline poisoning)
+  - **Medium Likelihood**: Moderate-advanced skill required, technique known but requires customization (e.g., adversarial DLP evasion)
+  - **Low Likelihood**: Advanced attack requiring significant skill/resources, theoretical or nation-state level (e.g., sophisticated model inversion)
+
+- [ ] Impact assessment framework by data sensitivity tier:
+  - **Restricted/Regulated Data (PII, PHI, PCI, Trade Secrets)**:
+    - Critical: Mass data breach, regulatory fines >$1M (GDPR 4% revenue, HIPAA $1.5M/year), class action lawsuits
+    - High: Limited exposure (<1,000 records), regulatory investigation, customer notification
+    - Medium: Near-miss detected before exposure, internal remediation
+  - **Confidential/Internal Data**:
+    - Critical: IP theft, competitive damage, employee data breach, business disruption
+    - High: Internal data exposure, limited business impact
+  - **Public Data**: Low impact for exposure (already public), but misclassification can disrupt business
+
+- [ ] Regulatory impact multiplier documented:
+  - GDPR violations: 2-4% global annual revenue (€20M or 4% whichever higher)
+  - CCPA violations: $2,500-$7,500 per violation
+  - HIPAA violations: $100-$50,000 per violation, up to $1.5M annual maximum
+  - PCI-DSS violations: Fines, increased transaction fees, loss of payment processing
+
+- [ ] Risk prioritization matrix created:
+  - Each threat scenario scored: Likelihood (1-3) × Impact (1-3) × Regulatory Risk (0-3) = Risk Score (1-9+)
+  - Priority levels assigned: Immediate (score 8-9+), High (score 5-7), Medium (score 2-4), Low (score 0-1)
+  - Example high-priority threats identified:
+    - Classification model poisoning (Medium likelihood × Critical impact × GDPR/CCPA = Immediate)
+    - False negative - missed data exfiltration (High likelihood × Critical impact × Regulatory risk = Immediate)
+    - Insider threat baseline poisoning (Medium-High likelihood × Critical impact × GDPR/CCPA = Immediate)
+
+- [ ] Mitigation strategies documented for "Immediate" and "High" priority threats:
+  - **For "Classification model poisoning"**: Immutable training data controls, change management for classification rules, human validation sampling, classification audit trails, separation of duties
+  - **For "Adversarial DLP evasion"**: Multi-layered DLP (AI + signature + heuristic + network forensics), encrypted traffic inspection, UEBA, data watermarking
+  - **For "Insider threat baseline poisoning"**: Hard thresholds on data access (not just baselines), peer group comparison analytics, privileged access management (PAM), data exfiltration alerts independent of baselines
+  - **For "AI tool privacy violations"**: Vendor privacy due diligence, Data Processing Agreements (DPAs), on-premise AI deployment for highest sensitivity data, model training data residency controls
+
+- [ ] Evidence of mitigation implementation:
+  - AI classification validation procedures implemented
+  - DLP tuning and multi-layered detection deployed
+  - Compensating controls for high-risk scenarios
+  - Privacy safeguards documented (DPIAs, DPAs, data residency controls)
+
+- [ ] Quarterly threat model reviews:
+  - Threat model updated based on observed incidents, near-misses, regulatory enforcement actions, vendor advisories
+  - Risk scores re-evaluated as threat landscape evolves
+  - New threats added, obsolete threats removed
+
+**Evidence Location:** ___________________________________________
+
+**Notes:**
+___________________________________________________________________
+___________________________________________________________________
+
+---
+
+### Question 2.3: Data Sensitivity Differentiation and Regulatory Compliance
+
+**Question:** Do you differentiate threat risk assessment based on data sensitivity (restricted/PII/PHI vs. confidential vs. internal vs. public) and regulatory applicability (GDPR, CCPA, HIPAA, PCI-DSS)?
+
+**Answer:** ☐ Yes ☐ No
+
+**Evidence Required:**
+- [ ] Data sensitivity classification scheme defined:
+  - **Restricted/Regulated**: PII (GDPR/CCPA), PHI (HIPAA), PCI (cardholder data), Trade Secrets, Financial Data (SOX)
+  - **Confidential**: Business confidential, employee data (non-PII), internal financial data, contracts, M&A data
+  - **Internal**: Internal-only business data, non-sensitive employee info, operational data
+  - **Public**: Publicly available data, marketing materials, published reports
+
+- [ ] Threat risk assessment differentiated by data sensitivity:
+  - Restricted/Regulated data threats prioritized highest (highest impact, regulatory fines)
+  - Confidential data threats assessed for business impact (IP theft, competitive damage)
+  - Internal/Public data threats assessed for business disruption (over-classification blocking operations)
+  - Risk scoring adjusted by data sensitivity: Same threat scenario has different risk scores for PII vs. internal data
+
+- [ ] Regulatory applicability mapped to AI data security operations:
+  - **GDPR (if processing EU personal data)**:
+    - Article 6: Legal basis for AI data processing documented
+    - Article 22: Automated decision-making and right to human review
+    - Article 25: Privacy-by-design and privacy-by-default requirements
+    - Article 35: DPIA (Data Protection Impact Assessment) completed for AI data security tools
+    - Chapter V: Cross-border data transfer mechanisms (SCCs, adequacy decisions)
+  - **CCPA/CPRA (if processing California consumer data)**:
+    - Consumer rights support (access, deletion, opt-out)
+    - Automated decision-making opt-outs
+    - Do-not-sell obligations
+  - **HIPAA (if processing protected health information)**:
+    - Administrative, physical, technical safeguards for AI processing PHI
+    - Business Associate Agreements (BAAs) with AI vendors
+    - Minimum necessary access for AI agents
+  - **PCI-DSS (if processing cardholder data)**:
+    - Cardholder data environment (CDE) segmentation from AI tools
+    - Encryption and access controls for AI accessing payment data
+    - Audit logging and monitoring requirements
+
+- [ ] Regulatory compliance documentation:
+  - DPIA completed for AI data processing (GDPR Article 35)
+  - Legal basis documented for each AI data security tool (legitimate interest, legal obligation, consent)
+  - Data subject rights procedures (access, deletion, portability, objection, human review)
+  - Data Processing Agreements (DPAs) with AI data security vendors
+  - Cross-border transfer compliance (SCCs, adequacy decisions, data localization)
+
+- [ ] Cascading regulatory impact analysis:
+  - Recognition that single data breach can trigger multiple regulatory violations simultaneously (e.g., GDPR + CCPA + HIPAA for healthcare data of California EU residents)
+  - Combined regulatory fines quantified in risk assessment
+  - Multi-jurisdictional litigation risk assessed
+
+**Evidence Location:** ___________________________________________
+
+**Notes:**
+___________________________________________________________________
+___________________________________________________________________
+
+---
+
+## Level 3: Industry-Leading (7-9 points)
+
+### Question 3.1: Active Threat Intelligence Monitoring for AI Data Security
+
+**Question:** Do you actively monitor adversarial ML research, privacy/compliance guidance, regulatory enforcement actions, and vulnerability databases for emerging threats to AI data security tools?
+
+**Answer:** ☐ Yes ☐ No
+
+**Evidence Required:**
+- [ ] **Academic research monitoring** (theoretical attacks):
+  - Adversarial ML conferences: NeurIPS, ICML, ICLR papers on model inversion, membership inference, classification poisoning
+  - Security & privacy research: IEEE Security & Privacy, USENIX Security, Privacy Enhancing Technologies Symposium (PETS)
+  - Data privacy research: IAPP research on AI privacy implications, regulatory guidance
+  - ML privacy techniques: Differential privacy, federated learning, secure multi-party computation research
+  - Frequency: Monthly review of academic publications
+
+- [ ] **Real-world exploits & breach intelligence monitoring**:
+  - CVE Database: Monitor CVEs for AI/ML libraries in data security tools, data classification platforms, DLP systems
+  - Data breach disclosures: Analyze breaches caused by or enabled by AI security tool failures
+  - Regulatory enforcement actions: GDPR fines, CCPA actions, HIPAA settlements related to inadequate AI data protection
+  - AI privacy incidents database: Track incidents where AI systems caused data exposure or privacy violations
+  - Frequency: Daily for critical CVEs and major breaches, weekly for breach analysis
+
+- [ ] **Regulatory & compliance intelligence monitoring**:
+  - GDPR guidance: European Data Protection Board (EDPB) guidelines on AI processing, automated decision-making
+  - CCPA/CPRA updates: California Privacy Protection Agency (CPPA) regulations
+  - HIPAA AI guidance: HHS Office for Civil Rights guidance on AI in healthcare
+  - PCI DSS updates: PCI Security Standards Council guidance on AI for cardholder data protection
+  - EU AI Act: Provisions affecting AI data security systems
+  - Supervisory authority decisions: National DPA decisions on AI data processing legality
+  - Frequency: Weekly for regulatory updates, monthly for guidance documents
+
+- [ ] **Attack technique database monitoring**:
+  - MITRE ATLAS: Adversarial attacks against AI systems (evasion, poisoning, model theft, privacy violations)
+  - OWASP ML Top 10: Vulnerabilities in machine learning applications
+  - Privacy attack research: Model inversion, membership inference, data reconstruction attacks
+  - DLP evasion techniques: Security research on bypassing data loss prevention
+  - Frequency: Monthly review and quarterly threat model updates
+
+- [ ] **Industry & vendor intelligence monitoring**:
+  - AI data security vendor research: Vendor blog posts on emerging threats, detection improvements
+  - Vendor security advisories: Vulnerability disclosures, updates, best practices
+  - Privacy technology vendor research: AI privacy tool vulnerabilities and updates
+  - Data protection communities: IAPP, CSA Privacy working groups, industry-specific forums
+  - Peer networks: Information sharing with peer organizations on AI data security failures
+  - Frequency: Weekly vendor advisories, monthly community engagement
+
+- [ ] Monitoring cadence established:
+  - **Daily**: Critical CVEs affecting AI data security tools, major data breach disclosures, regulatory enforcement actions
+  - **Weekly**: Privacy regulatory updates, vendor security advisories, data breach analysis
+  - **Monthly**: Academic research papers, AI privacy conference proceedings, regulatory guidance updates
+  - **Quarterly**: Update threat models with new techniques, reassess risk priorities, DPO/security team training on emerging threats
+  - **Annually**: Comprehensive threat landscape review, regulatory landscape assessment, vendor privacy due diligence refresh
+
+- [ ] Threat intelligence backlog maintained:
+  - Emerging threats documented in structured format (attack technique, affected tools, regulatory implications, prerequisites, observed in wild, mitigation recommendations)
+  - Intelligence findings integrated into threat model quarterly updates
+  - Findings shared with data security roadmap and regulatory compliance planning
+
+**Evidence Location:** ___________________________________________
+
+**Notes:**
+___________________________________________________________________
+___________________________________________________________________
+
+---
+
+### Question 3.2: Periodic Adversarial Testing Against AI Data Security Agents
+
+**Question:** Do you conduct periodic adversarial testing (classification accuracy validation, DLP evasion tests, privacy attack testing, data security red team exercises) against AI data security agents?
+
+**Answer:** ☐ Yes ☐ No
+
+**Evidence Required:**
+- [ ] **Quarterly AI Data Classification Accuracy Testing** implemented:
+  - Test dataset: 500-1,000 data samples with known ground truth classification (PII, PHI, PCI, confidential, public)
+  - Edge cases included: PII in unusual formats, sensitive data in images/audio, encrypted data, obfuscated data, novel schemas
+  - Diverse data sources tested: Log files, screenshots, archived data, cloud storage, SaaS applications, databases, file shares
+  - Accuracy metrics measured: Precision ≥95%, Recall ≥95%, F1 score
+  - Misclassification patterns documented (false negatives, false positives)
+  - Success criteria: ≥95% precision and ≥95% recall; if <95%, retrain model or add compensating controls
+  - Output: Classification accuracy report with edge cases AI struggles with, retraining recommendations
+
+- [ ] **Quarterly AI DLP Evasion Testing** implemented:
+  - Red team attempts data exfiltration using evasion techniques:
+    - Steganography (data hidden in images, audio, video)
+    - Encoding (Base64, ROT13, encryption)
+    - Fragmentation (small chunks below AI thresholds)
+    - Protocol tunneling (DNS, ICMP, custom protocols)
+    - Encrypted channels (personal VPN, cloud storage)
+    - API exfiltration (GraphQL, custom APIs AI doesn't monitor)
+  - Test sensitive data exfiltrated (not real customer data, controlled environment)
+  - Detection rate measured across all evasion methods
+  - Success criteria: AI DLP detects ≥90% of exfiltration attempts; if <90%, enhance with network forensics, encrypted traffic inspection, UEBA
+  - Output: DLP evasion test report with undetected methods, detection gaps, mitigation recommendations
+
+- [ ] **Semi-Annual Model Inversion & Privacy Attack Testing** implemented:
+  - Model inversion testing: Query AI classification API to attempt reconstruction of training data
+  - Membership inference testing: Determine if specific sensitive records were in training dataset
+  - Information leakage measurement: What sensitive data can be extracted without direct database access
+  - Comparison: Deliberately vulnerable model (no privacy protections) vs. production model (differential privacy, k-anonymity)
+  - Success criteria: Production AI model leaks <1% of training data information; if >1%, implement differential privacy, federated learning, or restrictive API access controls
+  - Output: Privacy attack testing report with information leakage quantification, model privacy improvements, regulatory compliance implications (GDPR Article 25)
+
+- [ ] **Annual Data Security Red Team Exercise** implemented:
+  - Full adversarial simulation: Red team attempts to exfiltrate sensitive data despite AI data security defenses
+  - Real-world attacker TTPs used (insider threat, credential theft, DLP evasion, classification exploitation)
+  - Attack goals:
+    - Identify and exfiltrate customer PII (>1,000 records) despite AI DLP
+    - Exploit AI data misclassification to access restricted data
+    - Poison AI classification to create persistent backdoor
+    - Maintain unauthorized data access for 30+ days undetected by AI access monitoring
+  - Duration: 2-4 weeks with rules of engagement (no actual exfiltration of real customer data, use synthetic/test data, no production disruption)
+  - Output: Red team report documenting successful techniques, AI detection gaps, classification vulnerabilities, prioritized remediation roadmap
+
+- [ ] Adversarial testing results drive improvements:
+  - Findings shared with AI data security vendors (responsible disclosure)
+  - Work with vendors to patch vulnerabilities, improve classification models, implement privacy-enhancing technologies
+  - Threat models updated based on testing insights
+  - DLP policies refined, classification accuracy enhanced, regulatory compliance strengthened
+
+**Evidence Location:** ___________________________________________
+
+**Notes:**
+___________________________________________________________________
+___________________________________________________________________
+
+---
+
+### Question 3.3: Model Drift Monitoring and Regulatory Compliance Validation
+
+**Question:** Is there a process to detect and respond to model drift (degraded AI classification accuracy over time) and validate ongoing regulatory compliance (DPIA updates, data subject rights testing)?
+
+**Answer:** ☐ Yes ☐ No
+
+**Evidence Required:**
+- [ ] **Model Drift Monitoring** implemented:
+  - "Golden dataset" maintained: 500-1,000 data samples with validated ground truth classification
+  - Golden dataset updated quarterly with new data types, business data patterns
+  - Monthly classification accuracy testing: AI classifies golden dataset, precision/recall measured
+  - Trend analysis: Monitor classification accuracy over time for degradation
+  - Environmental change monitoring: New business applications, regulatory changes (new data types considered PII), schema migrations
+  - Alert threshold: Classification accuracy degrades >5% from baseline triggers investigation
+  - Success criteria: Maintain ≥95% classification accuracy on golden dataset; if degrades, investigate drift causes and initiate model retraining
+  - Output: Monthly classification accuracy dashboard, drift alerts with root cause analysis, retraining recommendations
+
+- [ ] **Model drift response process** established:
+  - Drift investigation: Identify root causes (new data types, schema changes, business process evolution, regulatory changes)
+  - Model retraining: Update training data, retrain classification models, validate accuracy improvements
+  - Compensating controls: If retraining delayed, implement temporary controls (manual review, rule-based classification for edge cases)
+  - Change management: Document drift causes, retraining activities, accuracy improvements
+  - Stakeholder communication: Notify DPO, data security team, business units of classification accuracy changes
+
+- [ ] **Regulatory Compliance Validation Program** implemented:
+  - **GDPR Article 35 DPIA (Data Protection Impact Assessment)**:
+    - DPIA completed for each AI data security tool processing personal data
+    - DPIA refreshed annually or when AI processing changes significantly
+    - DPIA documents: Nature/scope/context of processing, necessity/proportionality, risks to data subjects, mitigation measures
+  - **Data Subject Rights Testing** (GDPR Articles 15-22, CCPA consumer rights):
+    - Validate AI can support DSAR (Data Subject Access Request) - locate all personal data within 30 days (GDPR) or 45 days (CCPA)
+    - Test right to deletion: AI can identify and delete all personal data across systems
+    - Test right to portability: AI can export personal data in structured, machine-readable format
+    - Test right to object: AI respects objections to automated processing
+    - Test right to human review: Process for human review of AI data classification/access decisions
+    - Success criteria: ≥95% of data subject rights requests fulfilled within regulatory timeframes
+  - **Cross-Border Transfer Compliance**:
+    - Verify AI data processing respects data localization requirements (GDPR Chapter V, CCPA, sector-specific)
+    - Transfer mechanisms validated (Standard Contractual Clauses, adequacy decisions, Binding Corporate Rules)
+    - AI model training data residency controls documented
+    - AI vendor telemetry and cross-border data flows mapped and compliant
+  - **Purpose Limitation Testing**:
+    - Validate AI data security processes data only for stated security purposes
+    - Test that AI data is not repurposed (employee monitoring without consent, business analytics, marketing)
+    - Purpose limitation controls audited annually
+  - **Legal Basis Validation** (GDPR Article 6):
+    - Legal basis documented for each AI data processing activity (legitimate interest, legal obligation, consent)
+    - Legitimate Interest Assessments (LIA) completed where applicable
+    - Consent mechanisms validated (if consent is legal basis)
+    - Legal basis reviewed annually or when AI processing changes
+
+- [ ] **Privacy-Preserving AI Techniques** implemented for highest sensitivity data:
+  - Differential privacy: Adding noise to datasets to protect individual privacy while preserving statistical utility
+  - Federated learning: Training AI models on distributed data without centralizing sensitive data
+  - Secure multi-party computation (SMPC): Collaborative data analysis without revealing individual inputs
+  - Homomorphic encryption: Performing computations on encrypted data without decryption (if feasible)
+  - K-anonymity or pseudonymization for training data
+
+- [ ] Continuous compliance improvement:
+  - Quarterly privacy training program reviews with DPO
+  - Privacy training strategy informed by regulatory trends and incident learning
+  - Regulatory compliance findings integrated into data security roadmap
+  - Regulatory audit preparation: Evidence collection systems, compliance dashboards, automated reporting
+
+**Evidence Location:** ___________________________________________
+
+**Notes:**
+___________________________________________________________________
+___________________________________________________________________
+
+---
+
+## Scoring Guide
+
+### Simplified Scoring Method
+- **Level 1 (Foundational)**: All 3 questions in Level 1 answered "Yes" = 3 points
+- **Level 2 (Comprehensive)**: All 3 questions in Level 1 AND Level 2 answered "Yes" = 6 points
+- **Level 3 (Industry-Leading)**: All 9 questions answered "Yes" = 9 points
+
+### Precise Scoring Method
+- Each question worth 1 point
+- Partial credit: If ≥70% of evidence checkboxes completed = 0.7 points, ≥50% = 0.5 points
+- **Total Score**: Sum of all question scores (0-9 points)
+- **Maturity Level**:
+  - 0-3 points: Level 1 (Foundational) or below
+  - 4-6 points: Level 2 (Comprehensive)
+  - 7-9 points: Level 3 (Industry-Leading)
+
+**Your Score:** _______ / 9 points
+
+**Your Maturity Level:** _______________________
+
+---
+
+## Evidence Repository
+
+| Question | Evidence Description | Location/Link | Date |
+|----------|---------------------|---------------|------|
+| 1.1 | AI data security threat scenario documentation | | |
+| 1.1 | Inventory of AI data security agents | | |
+| 1.2 | Threat awareness training materials and completion records | | |
+| 1.3 | AI data security agent inventory with threat mapping | | |
+| 1.3 | DPIAs for AI data security tools | | |
+| 2.1 | Abuse cases and attack trees documentation | | |
+| 2.2 | Risk prioritization matrix | | |
+| 2.2 | Mitigation strategies for high-priority threats | | |
+| 2.3 | Data sensitivity classification scheme | | |
+| 2.3 | Regulatory compliance documentation (DPIAs, DPAs, legal basis) | | |
+| 3.1 | Threat intelligence monitoring subscriptions and reports | | |
+| 3.2 | Adversarial testing reports (classification accuracy, DLP evasion, privacy attacks, red team) | | |
+| 3.3 | Model drift monitoring dashboard | | |
+| 3.3 | Regulatory compliance validation reports (DPIA updates, data subject rights testing) | | |
+
+---
+
+## Data Domain-Specific Notes
+
+### AI-Specific Threat Surface for Data Security
+
+AI agents performing data security introduce novel threats beyond traditional data protection:
+- **Adversarial ML Attacks**: Model inversion, membership inference, classification poisoning, DLP evasion
+- **Operational Failures**: False negatives (missed exfiltration), false positives (business disruption), model drift
+- **Privacy Violations by AI Tools**: AI training data privacy, model data leakage, excessive access, cross-border transfers
+- **Regulatory Complexity**: GDPR, CCPA, HIPAA, PCI-DSS each with different AI implications
+
+### Prompt Injection Attacks on AI Data Security
+
+AI data security systems using LLMs (DLP, data classification, privacy compliance scanners, DSAR automation) are vulnerable to prompt injection attacks derived from Arcanum PI Taxonomy by Jason Haddix (CC BY 4.0):
+
+**Attack Intents (Data Domain)**:
+- System Prompt Leak: Extract data classification rules, DLP policies, privacy compliance logic
+- Data Exfiltration via Prompt: Extract classified data, PII, or sensitive records through prompt manipulation
+- Jailbreak Data Access Controls: Bypass data access policies enforced by AI
+- Classification Manipulation: Force AI to misclassify sensitive data as public
+- Privacy Policy Bypass: Circumvent GDPR/CCPA enforcement via AI manipulation
+
+**Attack Techniques**:
+- Document Injection: Malicious prompts embedded in documents AI scans for classification
+- RAG Poisoning: Injecting malicious documents into knowledge bases for privacy compliance AI
+- Metadata Manipulation: Prompt injection in file metadata, database comments, schema annotations
+- Query Injection: Malicious prompts in user-submitted data access requests
+- Role-Playing: Impersonating DPO or compliance officer in prompts
+
+**Mitigations**: Input validation, prompt delimiters, output validation, data sanitization, access scoping, human review for sensitive requests, RAG document validation, anomaly detection, audit logging
+
+### Regulatory Considerations
+
+- **GDPR**: Article 6 (legal basis), Article 22 (automated decision-making), Article 25 (privacy-by-design), Article 35 (DPIA), Chapter V (cross-border transfers)
+- **CCPA/CPRA**: Consumer rights (access, deletion, opt-out), automated decision-making opt-outs, do-not-sell obligations
+- **HIPAA**: Administrative/physical/technical safeguards for AI processing PHI, Business Associate Agreements (BAAs), minimum necessary access
+- **PCI-DSS**: Cardholder data environment segmentation, encryption, access controls, audit logging
+
+### Privacy Paradox
+
+AI data security tools need access to sensitive data to protect it, creating circular risk:
+- AI agents become attractive targets (compromise AI = access all classified data)
+- AI vendors may process customer sensitive data (cross-border transfers, training data, telemetry)
+- Balancing AI effectiveness (broad data access) vs. data minimization (GDPR Article 5(1)(c))
+
+### Data-Specific Attack Vectors
+
+- Database credential theft (AI tools often have privileged database access)
+- Shadow data discovery (sensitive data in locations AI doesn't monitor)
+- Encryption key compromise (AI manages or accesses encryption keys)
+- Data masking bypass (exploiting flaws in AI-powered anonymization)
+- API data exfiltration (APIs AI DLP doesn't monitor)
+- Backup data exposure (sensitive data in backups AI doesn't classify)
+
+---
+
+## Assessment Summary
+
+**Assessment Date:** _____________________
+
+**Assessor Name:** _____________________
+
+**Organization/Team:** _____________________
+
+**Current Maturity Level:** _____________________
+
+### Strengths
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+### Gaps
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+### Recommended Improvements
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+### Next Assessment Date:** _____________________
+
+---
+
+**Document Version:** HAIAMM v2.1
+**Practice:** Threat Assessment (TA)
+**Domain:** Data
+**Questionnaire Version:** 1.0
+**Last Updated:** December 2025

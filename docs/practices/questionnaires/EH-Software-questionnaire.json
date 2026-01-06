@@ -1,0 +1,321 @@
+{
+  "practice": "EH",
+  "domain": "software",
+  "name": "Environment Hardening - Software Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "eh-software-1-1",
+      "question": "Do you deploy AI code security systems with hardened configurations including MFA, network restrictions, and encryption?",
+      "verification": [
+        "Review authentication configuration (MFA enforced for all users)",
+        "Check network access controls (IP whitelist, VPN required, firewall rules)",
+        "Verify encryption at rest (model files, training data, findings encrypted)",
+        "Confirm encryption in transit (TLS 1.2+ for all communications)",
+        "Review platform hardening (OS patches, security benchmarks applied)"
+      ],
+      "evidence": [
+        "MFA enforcement configuration (100% coverage)",
+        "Network access control rules",
+        "Encryption configuration (at rest: AES-256, in transit: TLS 1.2+)",
+        "OS hardening documentation (CIS benchmarks)",
+        "Patch compliance reports (critical ≤24h, high ≤7d)"
+      ],
+      "scoring": {
+        "yes_if": "MFA 100%, network restricted, encryption comprehensive (rest + transit), OS hardened, patches current",
+        "partial_if": "Most hardening in place but MFA <100% or using TLS 1.0/1.1",
+        "no_if": "No MFA or public network access or no encryption"
+      }
+    },
+    {
+      "id": "eh-software-1-2",
+      "question": "Do you enforce least privilege access with RBAC and separation of duties?",
+      "verification": [
+        "Review RBAC implementation (roles: admin, security analyst, developer, viewer)",
+        "Check permission granularity (read, write, admin per resource type)",
+        "Verify separation of duties (development, deployment, administration separate)",
+        "Confirm service account least privilege (minimal required permissions)",
+        "Review access reviews (quarterly, automated where possible)"
+      ],
+      "evidence": [
+        "RBAC role definitions and assignments",
+        "Permission matrix (roles × resources)",
+        "Separation of duties documentation",
+        "Service account permissions audit",
+        "Quarterly access review reports"
+      ],
+      "scoring": {
+        "yes_if": "RBAC implemented with granular permissions, separation of duties enforced, service accounts least privilege, quarterly reviews",
+        "partial_if": "RBAC exists but coarse-grained or no separation of duties",
+        "no_if": "No RBAC or shared admin accounts"
+      }
+    },
+    {
+      "id": "eh-software-1-3",
+      "question": "Do you store all secrets in a secrets manager with automatic rotation?",
+      "verification": [
+        "Review secrets storage (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault)",
+        "Check secrets rotation (automated quarterly rotation minimum)",
+        "Verify zero hardcoded secrets (secrets scanning in CI/CD)",
+        "Confirm secrets access auditing (who accessed which secret when)",
+        "Review secrets encryption (encrypted at rest and in transit)"
+      ],
+      "evidence": [
+        "Secrets manager configuration",
+        "Automated rotation policy (≤90 days)",
+        "Secrets scanning reports (zero findings)",
+        "Secrets access audit logs",
+        "Encryption configuration for secrets"
+      ],
+      "scoring": {
+        "yes_if": "All secrets in manager, automated rotation ≤90 days, zero hardcoded secrets, access audited, encrypted",
+        "partial_if": "Secrets manager used but manual rotation or some hardcoded secrets",
+        "no_if": "Hardcoded secrets in code or plaintext in config files"
+      }
+    },
+    {
+      "id": "eh-software-1-4",
+      "question": "Do you implement defense-in-depth with WAF, rate limiting, and input validation?",
+      "verification": [
+        "Review WAF deployment (protects API endpoints)",
+        "Check WAF rules (OWASP Top 10 coverage, custom rules)",
+        "Verify rate limiting (per-user, per-IP, per-API key limits)",
+        "Confirm input validation (schema validation, whitelist validation)",
+        "Review DDoS protection (CloudFlare, AWS Shield)"
+      ],
+      "evidence": [
+        "WAF configuration and rule set",
+        "OWASP Top 10 coverage validation",
+        "Rate limiting configuration (thresholds)",
+        "Input validation implementation",
+        "DDoS protection setup"
+      ],
+      "scoring": {
+        "yes_if": "WAF deployed with OWASP rules, rate limiting enforced, input validation comprehensive, DDoS protection active",
+        "partial_if": "WAF deployed but limited rules or no rate limiting",
+        "no_if": "No WAF or no input validation"
+      }
+    },
+    {
+      "id": "eh-software-1-5",
+      "question": "Do you harden containers and infrastructure with minimal base images, non-root users, and security scanning?",
+      "verification": [
+        "Review base images (minimal distroless or Alpine-based)",
+        "Check containers run as non-root (UID ≠ 0)",
+        "Verify image scanning (Trivy, Clair, Snyk integrated in CI/CD)",
+        "Confirm no critical vulnerabilities in production images",
+        "Review container runtime security (AppArmor, SELinux, seccomp profiles)"
+      ],
+      "evidence": [
+        "Dockerfile review (FROM minimal base, USER non-root)",
+        "Image scanning reports (zero critical vulnerabilities)",
+        "Container security policy (non-root enforcement)",
+        "Runtime security configuration (AppArmor/SELinux)"
+      ],
+      "scoring": {
+        "yes_if": "Minimal base images, non-root users, automated scanning, zero critical vulns, runtime security enforced",
+        "partial_if": "Containers hardened but running as root or not scanned",
+        "no_if": "Full OS base images or containers run as root with no scanning"
+      }
+    },
+    {
+      "id": "eh-software-1-6",
+      "question": "Do you implement secure CI/CD pipelines with signed commits, protected branches, and security gates?",
+      "verification": [
+        "Review commit signing (GPG signatures required)",
+        "Check protected branches (main/production require reviews, no force push)",
+        "Verify security gates (SAST, dependency scan, secrets scan must pass)",
+        "Confirm deployment approvals (production deployments require approval)",
+        "Review pipeline isolation (separate credentials per environment)"
+      ],
+      "evidence": [
+        "Commit signing policy and enforcement",
+        "Branch protection rules",
+        "Security gate configuration (blocking on failures)",
+        "Deployment approval workflow",
+        "Pipeline credential segregation"
+      ],
+      "scoring": {
+        "yes_if": "Commits signed, branches protected, security gates blocking, deployment approvals required, credentials segregated",
+        "partial_if": "Some pipeline security but no commit signing or gates non-blocking",
+        "no_if": "No branch protection or no security gates"
+      }
+    },
+    {
+      "id": "eh-software-1-7",
+      "question": "Do you maintain a secure supply chain with SBOM, dependency scanning, and provenance tracking?",
+      "verification": [
+        "Review SBOM generation (Software Bill of Materials created)",
+        "Check dependency scanning (SCA tools: Snyk, Dependabot, WhiteSource)",
+        "Verify vulnerability remediation SLA (critical ≤24h, high ≤7d)",
+        "Confirm provenance tracking (build provenance, SLSA compliance)",
+        "Review license compliance (approved licenses only)"
+      ],
+      "evidence": [
+        "SBOM generation process and artifacts",
+        "Dependency scanning reports (current vulnerabilities)",
+        "Vulnerability remediation tracking (SLA compliance)",
+        "Build provenance documentation (SLSA level)",
+        "License compliance report"
+      ],
+      "scoring": {
+        "yes_if": "SBOM generated, dependencies scanned, SLA met (critical ≤24h, high ≤7d), provenance tracked, licenses compliant",
+        "partial_if": "Dependency scanning exists but SLA not met or no SBOM",
+        "no_if": "No dependency scanning or critical vulns unpatched >7 days"
+      }
+    },
+    {
+      "id": "eh-software-1-8",
+      "question": "Do you implement network segmentation with private subnets, security groups, and minimal exposure?",
+      "verification": [
+        "Review network architecture (private subnets for compute, public for load balancers only)",
+        "Check security group rules (least privilege, no 0.0.0.0/0 inbound except LB)",
+        "Verify service mesh or network policies (Istio, Calico, NetworkPolicies)",
+        "Confirm no direct internet access from compute (NAT gateway for outbound)",
+        "Review VPC peering/transit gateway security (encrypted, restricted)"
+      ],
+      "evidence": [
+        "Network architecture diagram",
+        "Security group configuration (least privilege rules)",
+        "Service mesh or network policy configuration",
+        "NAT gateway setup (outbound only)",
+        "VPC connectivity security review"
+      ],
+      "scoring": {
+        "yes_if": "Private subnets, security groups least privilege, service mesh/policies, no direct internet, encrypted connectivity",
+        "partial_if": "Network segmentation exists but some broad security groups or direct internet access",
+        "no_if": "Flat network or 0.0.0.0/0 inbound rules on compute"
+      }
+    },
+    {
+      "id": "eh-software-1-9",
+      "question": "Do you implement database hardening with encryption, access controls, and audit logging?",
+      "verification": [
+        "Review database encryption (at rest: transparent encryption, in transit: SSL/TLS)",
+        "Check database access controls (least privilege users, no shared credentials)",
+        "Verify audit logging (all DDL/DML operations logged)",
+        "Confirm backup encryption (backups encrypted at rest)",
+        "Review database patching (critical ≤24h, high ≤7d)"
+      ],
+      "evidence": [
+        "Database encryption configuration (TDE or equivalent)",
+        "Database user permissions audit (least privilege)",
+        "Database audit log configuration",
+        "Backup encryption verification",
+        "Database patch compliance reports"
+      ],
+      "scoring": {
+        "yes_if": "Database encrypted (rest + transit), least privilege access, audit logging enabled, backups encrypted, patches current",
+        "partial_if": "Database hardened but missing audit logging or backup encryption",
+        "no_if": "No database encryption or shared database credentials"
+      }
+    },
+    {
+      "id": "eh-software-1-10",
+      "question": "Do you implement application-level security controls including CSRF protection, secure headers, and session management?",
+      "verification": [
+        "Review CSRF protection (tokens, SameSite cookies)",
+        "Check security headers (CSP, X-Frame-Options, HSTS, X-Content-Type-Options)",
+        "Verify session management (secure cookies, HTTP-only, SameSite, timeout)",
+        "Confirm XSS protection (input sanitization, output encoding)",
+        "Review clickjacking protection (X-Frame-Options: DENY)"
+      ],
+      "evidence": [
+        "CSRF protection implementation",
+        "Security headers configuration and validation",
+        "Session management configuration (cookie flags)",
+        "XSS prevention implementation (sanitization/encoding)",
+        "Clickjacking protection (frame-ancestors CSP or X-Frame-Options)"
+      ],
+      "scoring": {
+        "yes_if": "CSRF protected, security headers comprehensive, sessions secure, XSS prevented, clickjacking blocked",
+        "partial_if": "Some app security but missing CSP or insecure cookie flags",
+        "no_if": "No CSRF protection or no security headers"
+      }
+    },
+    {
+      "id": "eh-software-1-11",
+      "question": "Do you implement logging and monitoring security with tamper-proof logs and SIEM integration?",
+      "verification": [
+        "Review log integrity (write-once storage, log signing)",
+        "Check SIEM integration (logs forwarded to centralized SIEM)",
+        "Verify security event alerting (unauthorized access, anomalies)",
+        "Confirm log retention (≥7 years for audit/compliance logs)",
+        "Review log access controls (restricted access, access audited)"
+      ],
+      "evidence": [
+        "Tamper-proof log storage configuration",
+        "SIEM integration setup (log forwarding)",
+        "Security alerting configuration",
+        "Log retention policy (7+ years)",
+        "Log access controls and access audit"
+      ],
+      "scoring": {
+        "yes_if": "Logs tamper-proof, SIEM integrated, security alerts configured, ≥7 year retention, access restricted",
+        "partial_if": "Logging implemented but not tamper-proof or retention <7 years",
+        "no_if": "Logs can be deleted/modified or no SIEM integration"
+      }
+    },
+    {
+      "id": "eh-software-1-12",
+      "question": "Do you conduct regular security assessments including vulnerability scanning and penetration testing?",
+      "verification": [
+        "Review vulnerability scanning (automated weekly scans)",
+        "Check penetration testing schedule (annual minimum, after major changes)",
+        "Verify findings remediation (critical ≤30 days, high ≤90 days)",
+        "Confirm retest validation (fixes verified)",
+        "Review security posture trending (improving over time)"
+      ],
+      "evidence": [
+        "Vulnerability scan reports (weekly)",
+        "Penetration test reports (annual)",
+        "Findings remediation tracking (SLA compliance)",
+        "Retest validation results",
+        "Security posture trend analysis"
+      ],
+      "scoring": {
+        "yes_if": "Weekly vulnerability scans, annual pentests, findings remediated within SLA, retested, posture improving",
+        "partial_if": "Security assessments conducted but not regular or slow remediation",
+        "no_if": "No vulnerability scanning or no penetration testing"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Hardening Compliance",
+      "target": "≥95% security controls implemented (MFA, encryption, RBAC, etc.)",
+      "measurement": "Compliance % = (Implemented controls / Required controls) × 100",
+      "data_source": "Security control inventory, compliance audits",
+      "frequency": "Quarterly compliance assessment",
+      "baseline": "Initial security control assessment",
+      "validation": "Third-party security audit"
+    },
+    {
+      "metric": "Vulnerability Management",
+      "target": "Zero critical vulnerabilities, ≤5 high vulnerabilities, critical ≤24h remediation SLA",
+      "measurement": "Vulnerability count by severity; Remediation time from discovery to fix",
+      "data_source": "Vulnerability scanners, dependency scanners, remediation tracking",
+      "frequency": "Continuous scanning, weekly reports",
+      "baseline": "Initial vulnerability baseline",
+      "validation": "Independent security scanning"
+    },
+    {
+      "metric": "Secrets Security",
+      "target": "Zero hardcoded secrets, 100% secrets in manager, automated rotation ≤90 days",
+      "measurement": "Hardcoded secret count from scanning; Secrets manager coverage %; Rotation compliance %",
+      "data_source": "Secrets scanning tools, secrets manager audit",
+      "frequency": "Every commit (secrets scan), quarterly rotation audit",
+      "baseline": "Initial secrets security assessment",
+      "validation": "Code review, penetration testing"
+    },
+    {
+      "metric": "Patch Compliance",
+      "target": "≥95% patches applied within SLA (critical ≤24h, high ≤7d)",
+      "measurement": "Patch compliance % = (Patched within SLA / Total patches) × 100",
+      "data_source": "Patch management system, vulnerability scanners",
+      "frequency": "Weekly patch compliance reports",
+      "baseline": "Initial patch state",
+      "validation": "Vulnerability scan validation of patch effectiveness"
+    }
+  ]
+}

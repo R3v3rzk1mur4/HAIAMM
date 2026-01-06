@@ -1,0 +1,285 @@
+{
+  "practice": "DR",
+  "domain": "data",
+  "name": "Design Review - Data Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "dr-data-1-1",
+      "question": "Do you conduct design reviews for AI data security systems with multi-role participation (DPO, security architect, ML engineer, legal/compliance, data governance) before implementation?",
+      "verification": [
+        "Review design review process documentation (triggers: new AI capability, major changes, new data sources, regulatory requirements)",
+        "Check participant roles (AI data security engineer, Data Protection Officer, security architect, ML engineer, legal/compliance, data governance)",
+        "Verify review timing (design review before implementation, materials distributed ≥3 days before, 1-2 hour meetings for standard designs)",
+        "Confirm review artifacts (architecture diagrams, data flow diagrams, DPIA, threat model, regulatory mapping)",
+        "Sample 3 recent AI data security projects and verify design reviews conducted"
+      ],
+      "evidence": [
+        "Design review process documentation (triggers, participants, timing)",
+        "Design review records with multi-role participation (≥6 roles: AI engineer, DPO, security, ML engineer, legal, data governance)",
+        "Review artifacts (architecture diagrams, DPIA, threat model)",
+        "Review timing compliance (before implementation, materials ≥3 days before)",
+        "Sample project design review records"
+      ],
+      "scoring": {
+        "yes_if": "Mandatory process with 6+ role participation (DPO, security, ML, legal, data governance), comprehensive artifacts (diagrams, DPIA, threat model), proper timing (before implementation), 100% of sampled projects reviewed",
+        "partial_if": "Reviews conducted but limited participation (<6 roles) or incomplete artifacts",
+        "no_if": "No formal design review or single-role reviews only"
+      }
+    },
+    {
+      "id": "dr-data-1-2",
+      "question": "Have you designed AI classification models with justified model selection, multi-modal support, and accuracy requirements ≥92% structured/≥88% unstructured data?",
+      "verification": [
+        "Review model selection justification (why transformers vs NER vs pattern matching for classification task)",
+        "Check multi-modal classification design (text, images via OCR, structured data strategies)",
+        "Verify accuracy requirements (≥92% structured data, ≥88% unstructured data, achievable given training data)",
+        "Confirm context-aware classification (same data, different sensitivity in different contexts)",
+        "Review explainability design (model can explain why data classified as PII)"
+      ],
+      "evidence": [
+        "Model selection justification document (transformers, NER, pattern matching trade-offs)",
+        "Multi-modal classification design (text, image OCR, structured data handling)",
+        "Accuracy requirement specifications (≥92% structured, ≥88% unstructured)",
+        "Context-aware classification design (context-dependent sensitivity)",
+        "Explainability mechanism design (classification reasoning)"
+      ],
+      "scoring": {
+        "yes_if": "Model selection justified, multi-modal design (text, images, structured), accuracy requirements defined (≥92% structured, ≥88% unstructured), context-aware, explainability designed",
+        "partial_if": "Model selected but limited multi-modal support (text only) or accuracy targets not defined",
+        "no_if": "No model design or unrealistic accuracy expectations or no explainability"
+      }
+    },
+    {
+      "id": "dr-data-1-3",
+      "question": "Have you designed AI classification training approach with privacy-compliant training data (no actual PII), diversity for generalization, and differential privacy ε ≤ 10?",
+      "verification": [
+        "Review training data sources (privacy-compliant: no actual PII, anonymized/tokenized)",
+        "Check labeling strategy (who labels sensitive data, security clearance for labelers)",
+        "Verify training data diversity (multiple data types: SSN, credit cards, PHI, trade secrets for generalization)",
+        "Confirm bias mitigation (training data balanced, no demographic bias in classification)",
+        "Review differential privacy integration (privacy budget ε ≤ 10 to prevent training data memorization)"
+      ],
+      "evidence": [
+        "Training data source documentation (privacy-compliant, anonymized/tokenized, no actual PII)",
+        "Labeling strategy (labeler qualifications, security clearance)",
+        "Training data diversity analysis (multiple PII types: SSN, credit cards, PHI, trade secrets)",
+        "Bias mitigation design (balanced training data, demographic fairness)",
+        "Differential privacy design (ε ≤ 10 privacy budget)"
+      ],
+      "scoring": {
+        "yes_if": "Privacy-compliant training data (no actual PII, anonymized), diverse data types (SSN, cards, PHI, secrets), bias mitigation, differential privacy ε ≤ 10",
+        "partial_if": "Privacy-compliant data but limited diversity or no differential privacy",
+        "no_if": "Training data contains actual PII or no privacy protection or no diversity"
+      }
+    },
+    {
+      "id": "dr-data-1-4",
+      "question": "Have you designed multi-channel DLP architecture (email, endpoint, network, cloud) with centralized policy engine and detection requirements ≥93% email/≥95% endpoint/≥94% network?",
+      "verification": [
+        "Review DLP channel coverage (email DLP, endpoint DLP, network DLP, cloud DLP)",
+        "Check policy engine design (centralized policy management, policy consistency across channels)",
+        "Verify real-time vs out-of-band strategy (inline blocking for critical data, post-analysis for bulk scanning)",
+        "Confirm detection requirements (≥93% email, ≥95% endpoint, ≥94% network accuracy)",
+        "Review evasion detection design (encrypted files, steganography, encoding, protocol abuse detection)"
+      ],
+      "evidence": [
+        "DLP architecture documentation (email, endpoint, network, cloud channels)",
+        "Centralized policy engine design (policy management, cross-channel consistency)",
+        "Real-time vs batch strategy (inline blocking, post-analysis trade-offs)",
+        "Detection requirement specifications (≥93% email, ≥95% endpoint, ≥94% network)",
+        "Evasion detection design (encrypted files, steganography, encoding, protocol abuse)"
+      ],
+      "scoring": {
+        "yes_if": "Multi-channel DLP (email, endpoint, network, cloud), centralized policy engine, detection targets defined (≥93% email, ≥95% endpoint, ≥94% network), evasion detection designed",
+        "partial_if": "3/4 channels or no centralized policy or detection targets not defined",
+        "no_if": "<3 channels or no DLP architecture or no evasion detection"
+      }
+    },
+    {
+      "id": "dr-data-1-5",
+      "question": "Have you designed DLP decision architecture with risk scoring (data sensitivity + recipient risk + channel security + user trust), action selection logic, and false positive mitigation target ≤8%?",
+      "verification": [
+        "Review risk scoring design (data sensitivity × recipient risk × channel security × user trust = overall risk)",
+        "Check action selection logic (Allow, Alert, Block, Encrypt based on risk score thresholds)",
+        "Verify user experience impact (latency ≤200ms email, ≤500ms file upload)",
+        "Confirm override processes (self-service override for non-critical, security review for critical data)",
+        "Review false positive mitigation strategy (target ≤8% false positive rate)"
+      ],
+      "evidence": [
+        "Risk scoring framework (data sensitivity, recipient risk, channel security, user trust factors)",
+        "Action selection logic (Allow/Alert/Block/Encrypt decision tree based on risk score)",
+        "User experience impact analysis (latency ≤200ms email, ≤500ms file upload)",
+        "Override process design (self-service for non-critical, security review for critical)",
+        "False positive mitigation strategy (target ≤8%, mitigation techniques)"
+      ],
+      "scoring": {
+        "yes_if": "Risk scoring (4 factors: sensitivity, recipient, channel, trust), action logic (Allow/Alert/Block/Encrypt), latency targets (≤200ms email, ≤500ms file), override processes, FP target ≤8%",
+        "partial_if": "Risk scoring but limited factors (<4) or no latency targets or FP target >10%",
+        "no_if": "No risk scoring or simple block/allow only or FP target >15%"
+      }
+    },
+    {
+      "id": "dr-data-1-6",
+      "question": "Have you designed privacy-preserving AI with data minimization (metadata-only analysis, sampling), anonymization before processing, and AI access minimization (read-only, time-limited ≤24h)?",
+      "verification": [
+        "Review data minimization strategy (metadata-only analysis: file name, schema, access patterns without reading content where possible)",
+        "Check sampling approach (analyze sample of data, not entire dataset to minimize privacy exposure)",
+        "Verify anonymization before AI processing (replace actual PII with tokens: 'John Smith' → '[NAME]')",
+        "Confirm AI access minimization (read-only, scoped to repositories being scanned, time-limited credentials ≤24h)",
+        "Review privacy by design (AI defaults to most restrictive classification when uncertain)"
+      ],
+      "evidence": [
+        "Data minimization strategy (metadata-only analysis, sampling approach)",
+        "Anonymization design (tokenization before AI processing: PII → tokens)",
+        "AI access minimization (read-only, scoped access, time-limited ≤24h credentials)",
+        "Privacy by design validation (default to restrictive classification)",
+        "Privacy protection mechanisms (metadata-first, minimal data exposure)"
+      ],
+      "scoring": {
+        "yes_if": "Data minimization (metadata-only, sampling), anonymization before processing (PII → tokens), AI access minimization (read-only, scoped, ≤24h), privacy by default (restrictive when uncertain)",
+        "partial_if": "Data minimization but no anonymization or AI access not time-limited",
+        "no_if": "No data minimization or AI processes actual PII or unlimited AI access"
+      }
+    },
+    {
+      "id": "dr-data-1-7",
+      "question": "Have you designed adversarial defenses against prompt injection, classification poisoning, and DLP evasion?",
+      "verification": [
+        "Review prompt injection prevention (for LLM-based AI data security: input sanitization, prompt delimiters, output validation)",
+        "Check classification poisoning prevention (immutable training data, change management, human validation sampling)",
+        "Verify DLP evasion detection (multi-layered DLP: AI + signature + heuristic, encrypted traffic inspection, UEBA)",
+        "Confirm model privacy protection (model inversion defenses, target ≤0.1% extraction success)",
+        "Review AI vendor privacy requirements (DPA signed per GDPR Article 28, no training on customer data, data residency controls)"
+      ],
+      "evidence": [
+        "Prompt injection prevention design (input sanitization, prompt delimiters, output validation)",
+        "Classification poisoning prevention (immutable training data, change management, human validation)",
+        "DLP evasion detection (multi-layered: AI + signature + heuristic, encrypted traffic inspection, UEBA)",
+        "Model inversion defenses (target ≤0.1% extraction success)",
+        "AI vendor privacy requirements (DPA, no customer data training, data residency)"
+      ],
+      "scoring": {
+        "yes_if": "Prompt injection prevention (LLM-based AI), classification poisoning prevention (immutable data, change mgmt), DLP evasion detection (multi-layered), model inversion defenses (≤0.1%), AI vendor DPA",
+        "partial_if": "2/3 adversarial defenses or limited model privacy protection",
+        "no_if": "<2 adversarial defenses or no model privacy protection or no AI vendor DPA"
+      }
+    },
+    {
+      "id": "dr-data-1-8",
+      "question": "Have you designed GDPR automation for Article 15 (DSAR ≥95% recall, ≤48h search, ≤72h report), Article 17 (deletion ≥95% recall, ≥99% confidence, ≤30 days), and Article 20 (portability)?",
+      "verification": [
+        "Review Article 15 DSAR automation (search strategy: full-text + PII matching across all systems, ≥95% recall, ≤48h search, ≤72h report, machine-readable export: JSON/XML/CSV)",
+        "Check Article 17 deletion automation (discovery ≥95% recall across all systems, deletion verification ≥99% confidence, soft-delete to quarantine ≥30 days before hard delete, ≤30 day timeline)",
+        "Verify Article 20 portability automation (machine-readable data export, structured format)",
+        "Confirm Article 30 RoPA auto-generation (records of processing from data lineage)",
+        "Review Article 35 DPIA integration (design review triggers DPIA for high-risk processing)"
+      ],
+      "evidence": [
+        "Article 15 DSAR automation design (search ≥95% recall, ≤48h search, ≤72h report, JSON/XML/CSV export)",
+        "Article 17 deletion automation design (discovery ≥95% recall, verification ≥99% confidence, soft-delete ≥30 days, ≤30 day completion)",
+        "Article 20 portability automation design (machine-readable export, structured format)",
+        "Article 30 RoPA auto-generation (from data lineage)",
+        "Article 35 DPIA integration (design review triggers DPIA)"
+      ],
+      "scoring": {
+        "yes_if": "DSAR automation (≥95% recall, ≤48h search, ≤72h report), deletion automation (≥95% recall, ≥99% confidence, soft-delete ≥30d, ≤30d completion), portability automation, RoPA auto-gen, DPIA integration",
+        "partial_if": "DSAR automation but deletion manual or limited automation (recall <90%)",
+        "no_if": "No GDPR automation or manual DSAR/deletion only"
+      }
+    },
+    {
+      "id": "dr-data-1-9",
+      "question": "Have you designed CCPA automation for data inventory, do-not-sell enforcement, and consumer rights automation (access, deletion, opt-out within 45 days)?",
+      "verification": [
+        "Review data inventory automation (real-time inventory as AI discovers/classifies data)",
+        "Check do-not-sell enforcement (AI tracks and enforces do-not-sell flags)",
+        "Verify consumer rights automation (access, deletion, opt-out fulfilled within 45 days CCPA requirement)",
+        "Confirm multi-jurisdiction design (regulatory conflict resolution: GDPR deletion vs US legal hold → escalation to legal)",
+        "Review cross-border flow detection (≥90% detection of GDPR Chapter V violations, jurisdiction determination: EU citizen = GDPR, California = CCPA, China = PIPL)"
+      ],
+      "evidence": [
+        "CCPA data inventory automation design (real-time inventory from AI classification)",
+        "Do-not-sell enforcement design (flag tracking, enforcement mechanisms)",
+        "Consumer rights automation (access, deletion, opt-out within 45 days)",
+        "Multi-jurisdiction conflict resolution design (GDPR vs legal hold escalation)",
+        "Cross-border flow detection design (≥90% GDPR Chapter V violation detection, jurisdiction logic)"
+      ],
+      "scoring": {
+        "yes_if": "CCPA inventory automation (real-time from AI), do-not-sell enforcement, consumer rights automation (≤45 days), multi-jurisdiction conflict resolution, cross-border flow detection (≥90%)",
+        "partial_if": "CCPA automation but manual inventory or >45 days or limited cross-border detection",
+        "no_if": "No CCPA automation or no multi-jurisdiction support"
+      }
+    },
+    {
+      "id": "dr-data-1-10",
+      "question": "Have you designed automated data lineage discovery with ≥80% sensitive data flow coverage, visualization, and compliance use cases (Article 30 RoPA, DSAR fulfillment)?",
+      "verification": [
+        "Review lineage discovery methods (query log analysis, application monitoring, network traffic analysis)",
+        "Check coverage targets (≥80% of sensitive data flows mapped)",
+        "Verify lineage visualization design (data flow diagrams, interactive exploration)",
+        "Confirm compliance use cases (Article 30 RoPA generation, DSAR fulfillment, risk analysis)",
+        "Review cross-border flow detection (identify EU PII → US servers, Chinese data → outside China, transfer mechanism validation: SCCs, adequacy decisions, BCRs)"
+      ],
+      "evidence": [
+        "Lineage discovery design (query logs, app monitoring, network traffic analysis)",
+        "Coverage target specifications (≥80% sensitive data flows mapped)",
+        "Lineage visualization design (data flow diagrams, interactive exploration UI)",
+        "Compliance use cases (Article 30 RoPA, DSAR fulfillment, risk analysis)",
+        "Cross-border flow detection (EU PII → US detection, transfer mechanism validation: SCCs, adequacy, BCRs)"
+      ],
+      "scoring": {
+        "yes_if": "Automated lineage discovery (query logs, app monitoring, network), ≥80% coverage target, visualization (flow diagrams, interactive), compliance use cases (RoPA, DSAR, risk), cross-border detection + validation",
+        "partial_if": "Lineage discovery but <70% coverage or manual visualization or limited compliance use cases",
+        "no_if": "No automated lineage or <60% coverage or no compliance use cases"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Design Review Coverage",
+      "target": "100% of AI data security system designs reviewed before implementation",
+      "measurement": "Coverage % = (Projects with design review / Total AI data security projects) × 100",
+      "data_source": "Design review tracking, project inventory",
+      "frequency": "Quarterly",
+      "baseline": "Initial project inventory and review coverage",
+      "validation": "Project audit to verify review compliance"
+    },
+    {
+      "metric": "Design Quality",
+      "target": "≥90% of designs approved or approved with conditions (not rejected)",
+      "measurement": "Approval rate % = (Approved + Approved with conditions) / Total designs reviewed × 100",
+      "data_source": "Design review decisions",
+      "frequency": "Quarterly",
+      "baseline": "Initial design approval rate",
+      "validation": "Design review records show approval decisions"
+    },
+    {
+      "metric": "Privacy Protection",
+      "target": "Zero AI-caused data exposure incidents in production",
+      "measurement": "Count of data exposure incidents caused by AI data security systems",
+      "data_source": "Incident tracking, security monitoring",
+      "frequency": "Monthly review, real-time monitoring",
+      "baseline": "Zero incidents baseline",
+      "validation": "Incident reports confirm zero AI-caused exposures"
+    },
+    {
+      "metric": "Compliance Achievement",
+      "target": "Zero GDPR/CCPA violations from AI-operated systems",
+      "measurement": "Count of regulatory violations attributed to AI data security systems",
+      "data_source": "Compliance tracking, regulatory audit findings",
+      "frequency": "Quarterly compliance reviews, annual audits",
+      "baseline": "Zero violations baseline",
+      "validation": "Regulatory audits find zero violations from AI systems"
+    },
+    {
+      "metric": "DPO Participation",
+      "target": "Data Protection Officer participates in ≥90% of reviews involving personal data processing",
+      "measurement": "DPO participation % = (Reviews with DPO / Reviews involving personal data) × 100",
+      "data_source": "Design review attendance records",
+      "frequency": "Quarterly",
+      "baseline": "Current DPO participation rate",
+      "validation": "Review records show DPO participation"
+    }
+  ]
+}

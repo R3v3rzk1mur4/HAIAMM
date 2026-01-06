@@ -1,8 +1,7 @@
-![HAIAMM Logo](../images/HAIAMM_logo.png)
 
 # HAIAMM Handbook v2.2
 
-## Human-Assisted Intelligence Assurance Maturity Model
+## Human Assisted Intelligence Assurance Maturity Model
 
 **Practical Security for AI Systems, LLM Applications, and Autonomous Agents**
 

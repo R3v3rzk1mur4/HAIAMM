@@ -1,0 +1,402 @@
+{
+  "practice": "ST",
+  "domain": "data",
+  "name": "Security Testing - Data Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "st-data-1-1",
+      "question": "Do you test AI classification accuracy with ≥90% overall accuracy, ≥85% recall per type, ≥90% precision per type across all sensitive data types (PII, PHI, PCI, credentials, source code, financial)?",
+      "verification": [
+        "Review classification test dataset (≥10,000 samples per data type: PII, PHI, PCI, credentials, source code, financial data, balanced representation)",
+        "Check overall accuracy (≥90% across all data types)",
+        "Verify per-type recall (≥85% per type: don't miss sensitive data)",
+        "Confirm per-type precision (≥90% per type: don't over-flag benign data)",
+        "Review testing methodology (synthetic data generation, anonymized production samples)"
+      ],
+      "evidence": [
+        "Classification test dataset (≥10,000 samples per type: PII, PHI, PCI, credentials, source code, financial)",
+        "Overall accuracy results (≥90% across all types)",
+        "Per-type recall results (≥85% for PII, PHI, PCI, credentials, source code, financial)",
+        "Per-type precision results (≥90% for all types)",
+        "Quarterly classification accuracy testing reports"
+      ],
+      "scoring": {
+        "yes_if": "≥90% overall accuracy, ≥85% recall per type (PII, PHI, PCI, credentials, source, financial), ≥90% precision per type, ≥10,000 samples per type, quarterly testing",
+        "partial_if": "≥85% overall or ≥80% recall or ≥85% precision or limited dataset (<5,000 samples per type)",
+        "no_if": "<85% overall or <80% recall or <85% precision or no classification testing"
+      }
+    },
+    {
+      "id": "st-data-1-2",
+      "question": "Do you test multi-language classification with ≥85% accuracy across all supported languages (English, Spanish, German, French, Chinese, Japanese, Arabic, Cyrillic) with no >10% accuracy drop?",
+      "verification": [
+        "Review multi-language test coverage (English, Spanish, German, French, Chinese, Japanese, Arabic, Cyrillic scripts)",
+        "Check per-language accuracy (≥85% for all supported languages)",
+        "Verify accuracy consistency (no >10% accuracy drop for any language compared to English baseline)",
+        "Confirm language diversity in training data (balanced language representation)",
+        "Review character set handling (UTF-8, special characters, right-to-left scripts)"
+      ],
+      "evidence": [
+        "Multi-language test coverage (≥8 languages: English, Spanish, German, French, Chinese, Japanese, Arabic, Cyrillic)",
+        "Per-language accuracy results (≥85% for all languages)",
+        "Accuracy drop analysis (no >10% drop for any language)",
+        "Language diversity in training (balanced representation)",
+        "Character set handling validation (UTF-8, RTL, special chars)"
+      ],
+      "scoring": {
+        "yes_if": "≥85% accuracy for all supported languages (≥8 languages), no >10% accuracy drop, balanced language training data, UTF-8/RTL handling validated",
+        "partial_if": "≥80% accuracy or >10% drop for some languages or limited language coverage (<8 languages)",
+        "no_if": "<80% accuracy or >20% drop or English-only testing"
+      }
+    },
+    {
+      "id": "st-data-1-3",
+      "question": "Do you test classification edge cases with ≥70% obfuscation detection, ≤5% false positive rate, and ≤15% cross-domain accuracy degradation?",
+      "verification": [
+        "Review obfuscation testing (base64 encoded, spaced/dashed formats, leetspeak, homoglyphs with ≥70% detection)",
+        "Check false positive rate (tested on normal business documents, code, technical docs with ≤5% FP rate)",
+        "Verify cross-domain testing (test on unfamiliar domains/industries not in training with ≤15% accuracy degradation)",
+        "Confirm partial data testing (last 4 SSN, masked credit cards correctly classified as lower risk)",
+        "Review context sensitivity testing (≥80% accuracy on context-dependent cases: PII in code comments vs production)"
+      ],
+      "evidence": [
+        "Obfuscation test results (≥70% detection: base64, spaced, leetspeak, homoglyphs)",
+        "False positive test results (≤5% FP rate on 10,000 normal business documents)",
+        "Cross-domain test results (≤15% accuracy degradation on unfamiliar domains)",
+        "Partial data test results (correct lower-risk classification)",
+        "Context sensitivity test results (≥80% accuracy on context cases)"
+      ],
+      "scoring": {
+        "yes_if": "≥70% obfuscation detection, ≤5% false positive rate, ≤15% cross-domain degradation, partial data handling, ≥80% context sensitivity",
+        "partial_if": "≥60% obfuscation or ≤10% FP or ≤20% degradation or limited context testing",
+        "no_if": "<60% obfuscation or >10% FP or >20% degradation or no edge case testing"
+      }
+    },
+    {
+      "id": "st-data-1-4",
+      "question": "Do you test multi-channel DLP with ≥90% detection across email, chat, file upload, cloud sync, removable media with channel-specific latency targets (email ≤100ms, chat ≤50ms, upload ≤200ms/MB)?",
+      "verification": [
+        "Review email DLP testing (≥90% detection: PII in body/attachments/subject, ≤100ms latency)",
+        "Check chat DLP testing (≥90% detection on Slack/Teams/Discord, ≤50ms latency for real-time requirement)",
+        "Verify file upload DLP testing (≥90% detection on cloud storage/ticketing/file sharing, blocked before cloud sync)",
+        "Confirm clipboard DLP testing (≥85% detection, user warned before paste to external app)",
+        "Review cloud sync DLP testing (≥90% detection on OneDrive/iCloud/Drive, sync paused with notification)",
+        "Check removable media DLP testing (≥90% detection on USB/external drives, copy blocked with notification)"
+      ],
+      "evidence": [
+        "Email DLP test results (≥90% detection, ≤100ms latency)",
+        "Chat DLP test results (≥90% detection on Slack/Teams/Discord, ≤50ms latency)",
+        "File upload DLP test results (≥90% detection, blocked before sync)",
+        "Clipboard DLP test results (≥85% detection, user warnings)",
+        "Cloud sync DLP test results (≥90% detection, sync pause)",
+        "Removable media DLP test results (≥90% detection, copy blocking)"
+      ],
+      "scoring": {
+        "yes_if": "≥90% detection across ≥5 channels (email, chat, upload, clipboard, cloud sync, removable media), latency targets met (email ≤100ms, chat ≤50ms, upload ≤200ms/MB)",
+        "partial_if": "≥85% detection or 3-4 channels or latency targets not met (email >100ms)",
+        "no_if": "<85% detection or <3 channels or no latency testing"
+      }
+    },
+    {
+      "id": "st-data-1-5",
+      "question": "Do you test DLP performance with ≥10,000 documents/hour throughput, ≥100,000 emails/hour, and transparent scanning (no user-perceived delay)?",
+      "verification": [
+        "Review throughput testing (≥10,000 documents/hour scanning capacity, ≥100,000 emails/hour)",
+        "Check real-time scanning latency (email ≤100ms, chat ≤50ms, file upload ≤200ms/MB with no user-perceived delay)",
+        "Verify large file testing (multi-GB files: video with sensitive audio, large databases scanned successfully with configurable timeout)",
+        "Confirm scalability testing (performance maintained under load: peak email volume, high file upload concurrency)",
+        "Review resource usage (DLP scanning CPU ≤20%, memory ≤4GB under normal load)"
+      ],
+      "evidence": [
+        "Throughput test results (≥10,000 docs/hour, ≥100,000 emails/hour)",
+        "Real-time latency test results (email ≤100ms, chat ≤50ms, upload ≤200ms/MB)",
+        "Large file test results (multi-GB files scanned, timeout configuration)",
+        "Scalability test results (performance under peak load)",
+        "Resource usage metrics (CPU ≤20%, memory ≤4GB)"
+      ],
+      "scoring": {
+        "yes_if": "≥10,000 docs/hour, ≥100,000 emails/hour, real-time latency targets met (email ≤100ms, chat ≤50ms), large file scanning, scalability validated, resource usage acceptable",
+        "partial_if": "≥5,000 docs/hour or ≥50,000 emails/hour or latency targets partially met or limited scalability testing",
+        "no_if": "<5,000 docs/hour or <50,000 emails/hour or no latency testing or no scalability testing"
+      }
+    },
+    {
+      "id": "st-data-1-6",
+      "question": "Do you test DLP response mechanisms with 100% blocking effectiveness, 100% redaction accuracy with structure preservation, and ≥80% user notification clarity?",
+      "verification": [
+        "Review blocking testing (100% of blocks prevent transmission, no data corruption, graceful failure)",
+        "Check redaction testing (100% of sensitive data redacted: SSN in PDF visual redaction, PII in JSON structural redaction, sensitive cells in Excel; document structure preserved; redaction irreversible)",
+        "Verify encryption testing (sensitive files auto-encrypted before cloud sync/email)",
+        "Confirm user notification testing (≥80% of users understand why blocked per user study, specific data type flagged, remediation steps provided)",
+        "Review override testing (legitimate overrides work with business justification, all overrides logged: user, timestamp, justification, security review)"
+      ],
+      "evidence": [
+        "Blocking test results (100% prevention, no corruption, graceful failure)",
+        "Redaction test results (100% sensitive data redacted, structure preserved, irreversible)",
+        "Encryption test results (auto-encryption before sync/email)",
+        "User notification clarity (≥80% user comprehension, specific data type, remediation)",
+        "Override test results (overrides working, logged, audited)"
+      ],
+      "scoring": {
+        "yes_if": "100% blocking effectiveness, 100% redaction (structure preserved, irreversible), auto-encryption, ≥80% notification clarity, override mechanism (logged, audited)",
+        "partial_if": "≥95% blocking or ≥95% redaction or notification clarity <80% or limited override auditing",
+        "no_if": "<95% blocking or <95% redaction or structure not preserved or no user notifications"
+      }
+    },
+    {
+      "id": "st-data-1-7",
+      "question": "Do you test DLP accuracy with ≤5% false positive rate on legitimate data and ≤10% false negative rate on red team exfiltration attempts?",
+      "verification": [
+        "Review false positive testing (tested on 10,000 normal business documents with no sensitive data, ≤5% FP rate)",
+        "Check false negative testing (red team attempts exfiltration via all channels, ≤10% FN rate: ≥90% detection)",
+        "Verify FP/FN trade-off analysis (balance between over-blocking and under-blocking)",
+        "Confirm quarterly red team exercises (regular adversarial testing to validate detection)",
+        "Review FP remediation (false positives analyzed, patterns tuned to reduce FP rate)"
+      ],
+      "evidence": [
+        "False positive test results (≤5% FP rate on 10,000 normal documents)",
+        "False negative test results (≤10% FN rate: ≥90% detection on red team exfiltration)",
+        "FP/FN trade-off analysis (balance validation)",
+        "Quarterly red team exercise reports (adversarial testing)",
+        "FP remediation process (analysis, pattern tuning)"
+      ],
+      "scoring": {
+        "yes_if": "≤5% false positive rate (on 10,000 normal docs), ≤10% false negative rate (≥90% detection on red team exfiltration), FP/FN balance, quarterly red team exercises, FP remediation",
+        "partial_if": "≤10% FP or ≤15% FN or limited red team testing (annual only)",
+        "no_if": ">10% FP or >15% FN or no red team testing or no FP analysis"
+      }
+    },
+    {
+      "id": "st-data-1-8",
+      "question": "Do you test classification evasion with ≥70% detection of encoding, ≥60% obfuscation, ≥70% format evasion (steganography, QR codes, audio)?",
+      "verification": [
+        "Review encoding evasion testing (base64, hex, URL, binary encoding with ≥70% detection)",
+        "Check obfuscation evasion testing (steganography in images, paraphrasing, typos/misspellings, word splitting with ≥60% detection)",
+        "Verify format evasion testing (sensitive data in QR codes, image text screenshots, audio transcription, encrypted archives with ≥70% detection)",
+        "Confirm adversarial example testing (crafted inputs designed to fool classifier with ≥80% adversarial robustness)",
+        "Review evasion technique catalog (document known evasion techniques, mitigations, detection rates)"
+      ],
+      "evidence": [
+        "Encoding evasion test results (≥70% detection: base64, hex, URL, binary)",
+        "Obfuscation evasion test results (≥60% detection: steganography, paraphrasing, typos, word splitting)",
+        "Format evasion test results (≥70% detection: QR codes, image text, audio, encrypted archives)",
+        "Adversarial example test results (≥80% robustness)",
+        "Evasion technique catalog (techniques, mitigations, detection rates)"
+      ],
+      "scoring": {
+        "yes_if": "≥70% encoding detection, ≥60% obfuscation detection, ≥70% format evasion detection, ≥80% adversarial robustness, evasion catalog maintained",
+        "partial_if": "≥60% encoding or ≥50% obfuscation or ≥60% format or limited adversarial testing",
+        "no_if": "<60% encoding or <50% obfuscation or <60% format or no evasion testing"
+      }
+    },
+    {
+      "id": "st-data-1-9",
+      "question": "Do you test DLP evasion resistance against channel hopping, fragmentation, tunneling, and timing attacks?",
+      "verification": [
+        "Review channel hopping testing (blocked on email → try chat → try USB: DLP blocks across all channels with no gaps)",
+        "Check fragmentation attack testing (credit card sent in pieces across emails: context-aware DLP detects fragmentation patterns)",
+        "Verify tunneling attack testing (exfiltration via encrypted chat, VPN, Tor: encrypted channels flagged for inspection or blocked by policy)",
+        "Confirm timing attack testing (slow exfiltration 1 record/hour over months: UEBA detects anomalous pattern)",
+        "Review DLP evasion catalog (document DLP evasion techniques, mitigations, detection effectiveness)"
+      ],
+      "evidence": [
+        "Channel hopping test results (DLP blocks all channels, no gaps)",
+        "Fragmentation attack test results (context-aware detection of fragmentation)",
+        "Tunneling attack test results (encrypted channels flagged/blocked)",
+        "Timing attack test results (UEBA detects slow exfiltration)",
+        "DLP evasion catalog (techniques, mitigations, effectiveness)"
+      ],
+      "scoring": {
+        "yes_if": "Channel hopping blocked (all channels covered), fragmentation detected (context-aware), tunneling flagged/blocked (encrypted channels), timing attacks detected (UEBA), evasion catalog maintained",
+        "partial_if": "Channel hopping blocked but fragmentation not detected or tunneling not flagged or no UEBA",
+        "no_if": "Channel hopping gaps or no fragmentation detection or no tunneling defense or no timing detection"
+      }
+    },
+    {
+      "id": "st-data-1-10",
+      "question": "Do you test model robustness with ≤10% accuracy drop under 5% data poisoning, ≤10% model inversion, ≤60% model extraction, and ≥80% adversarial robustness?",
+      "verification": [
+        "Review data poisoning testing (inject 5% mislabeled samples: PII labeled as benign, retrain, measure accuracy drop ≤10%)",
+        "Check model inversion testing (query classification model to reconstruct training samples, reconstruction accuracy ≤10%: model doesn't leak training data)",
+        "Verify model extraction testing (query model extensively, build substitute model, substitute accuracy ≤60% of original: model not easily stolen)",
+        "Confirm adversarial examples testing (craft inputs to fool classifier, adversarial robustness ≥80%: detect ≥80% of adversarial examples)",
+        "Review model security controls (API rate limiting, authentication/authorization, query logging for abuse detection)"
+      ],
+      "evidence": [
+        "Data poisoning test results (≤10% accuracy drop with 5% poisoned data)",
+        "Model inversion test results (≤10% reconstruction accuracy)",
+        "Model extraction test results (substitute model ≤60% of original accuracy)",
+        "Adversarial robustness test results (≥80% adversarial detection)",
+        "Model security controls (rate limiting, auth, query logging)"
+      ],
+      "scoring": {
+        "yes_if": "≤10% accuracy drop (5% poisoning), ≤10% model inversion, ≤60% model extraction, ≥80% adversarial robustness, security controls (rate limiting, auth, logging)",
+        "partial_if": "≤15% accuracy drop or ≤20% inversion or ≤70% extraction or ≥70% robustness or limited security controls",
+        "no_if": ">15% accuracy drop or >20% inversion or >70% extraction or <70% robustness or no security controls"
+      }
+    },
+    {
+      "id": "st-data-1-11",
+      "question": "Do you test federated learning with ≥90% of centralized accuracy, zero raw data leakage, Byzantine robustness, and convergence within 100 rounds?",
+      "verification": [
+        "Review aggregation correctness (federated model accuracy ≥90% of centralized model on same data)",
+        "Check privacy preservation (inspect network traffic, validate only encrypted gradients transmitted, zero raw data found)",
+        "Verify Byzantine robustness (some clients send poisoned gradients, aggregation algorithm detects/rejects malicious updates)",
+        "Confirm convergence testing (model converges within 100 rounds to final accuracy ≥85%)",
+        "Review federated learning security (secure aggregation protocol, encrypted model distribution)"
+      ],
+      "evidence": [
+        "Aggregation correctness results (federated ≥90% of centralized accuracy)",
+        "Privacy preservation validation (zero raw data in network traffic, only encrypted gradients)",
+        "Byzantine robustness test results (malicious updates detected/rejected)",
+        "Convergence test results (convergence within 100 rounds, accuracy ≥85%)",
+        "Federated learning security (secure aggregation, encrypted distribution)"
+      ],
+      "scoring": {
+        "yes_if": "Federated ≥90% of centralized accuracy, zero raw data leakage (network inspection), Byzantine robustness (malicious detection), convergence ≤100 rounds (accuracy ≥85%), secure aggregation + encryption",
+        "partial_if": "Federated ≥80% accuracy or limited privacy validation or no Byzantine testing or convergence >100 rounds",
+        "no_if": "Federated <80% accuracy or raw data leakage or no Byzantine robustness or convergence >150 rounds"
+      }
+    },
+    {
+      "id": "st-data-1-12",
+      "question": "Do you test differential privacy with correct privacy budget (ε/δ), membership inference ≤55%, model inversion ≤15%, attribute inference ≤60%, and correct composition?",
+      "verification": [
+        "Review privacy budget validation (configure ε=8, δ=1e-5, validate noise addition matches parameters, privacy budget tracking correct)",
+        "Check membership inference resistance (given record, determine if in training set: attack success ≤55%, close to random 50%)",
+        "Verify model inversion resistance (reconstruct sensitive training data from model: reconstruction accuracy ≤15%, significant privacy preservation)",
+        "Confirm attribute inference resistance (infer sensitive attributes of training records: attack accuracy ≤60%, limited attribute leakage)",
+        "Review composition testing (multiple queries on same dataset, composition theorem applied correctly, total ε tracked accurately)"
+      ],
+      "evidence": [
+        "Privacy budget validation (ε=8, δ=1e-5 parameters correct, noise magnitude correct)",
+        "Membership inference test results (attack success ≤55%)",
+        "Model inversion test results (reconstruction accuracy ≤15%)",
+        "Attribute inference test results (attack accuracy ≤60%)",
+        "Composition test results (composition theorem correct, total ε accurate)"
+      ],
+      "scoring": {
+        "yes_if": "Privacy budget correct (ε/δ validated, noise correct), membership inference ≤55%, model inversion ≤15%, attribute inference ≤60%, composition correct (total ε tracked)",
+        "partial_if": "Privacy budget correct but membership ≤60% or inversion ≤25% or attribute ≤70% or limited composition testing",
+        "no_if": "Privacy budget incorrect or membership >60% or inversion >25% or attribute >70% or no composition testing"
+      }
+    },
+    {
+      "id": "st-data-1-13",
+      "question": "Do you test homomorphic encryption with 100% computation correctness, ≤100x performance overhead, and zero plaintext leakage?",
+      "verification": [
+        "Review computation correctness (encrypted classification, aggregation, search results match plaintext computation 100%)",
+        "Check performance testing (encrypted computation ≤100x slower than plaintext: acceptable overhead)",
+        "Verify security testing (inspect memory, network traffic during encrypted computation: zero plaintext found, only ciphertexts)",
+        "Confirm key management security (encryption keys protected, rotated, access controlled)",
+        "Review homomorphic encryption library (uses vetted libraries: Microsoft SEAL, HElib, not custom crypto)"
+      ],
+      "evidence": [
+        "Computation correctness test results (100% encrypted results match plaintext)",
+        "Performance test results (encrypted ≤100x slower than plaintext)",
+        "Security test results (zero plaintext leakage in memory/network)",
+        "Key management security (keys protected, rotated, access controlled)",
+        "Vetted library usage (Microsoft SEAL, HElib)"
+      ],
+      "scoring": {
+        "yes_if": "100% computation correctness, ≤100x performance overhead (acceptable), zero plaintext leakage (memory/network inspection), secure key management, vetted libraries (SEAL, HElib)",
+        "partial_if": "100% correctness but >100x overhead or limited security testing or key management issues",
+        "no_if": "<100% correctness or >200x overhead or plaintext leakage or custom crypto (not vetted)"
+      }
+    },
+    {
+      "id": "st-data-1-14",
+      "question": "Do you test k-anonymity and l-diversity with 100% of records satisfying k-anonymity requirement and sensitive attribute diversity validated?",
+      "verification": [
+        "Review k-anonymity validation (for k=5, validate every record indistinguishable from ≥4 others: 100% of records satisfy k-anonymity)",
+        "Check l-diversity validation (sensitive attributes have diversity: each equivalence class has ≥l diverse sensitive values)",
+        "Verify t-closeness validation (distribution of sensitive attributes in equivalence classes close to overall distribution)",
+        "Confirm anonymization testing (anonymized data cannot be re-identified: linking attacks fail)",
+        "Review data utility testing (anonymized data maintains statistical utility for analysis)"
+      ],
+      "evidence": [
+        "k-anonymity validation results (100% of records satisfy k-anonymity requirement)",
+        "l-diversity validation results (equivalence classes have ≥l diverse sensitive values)",
+        "t-closeness validation results (attribute distribution close to overall)",
+        "Anonymization testing (re-identification attacks fail)",
+        "Data utility testing (anonymized data maintains statistical utility)"
+      ],
+      "scoring": {
+        "yes_if": "100% k-anonymity (every record indistinguishable from ≥k-1 others), l-diversity validated (diverse sensitive attributes), t-closeness validated, re-identification attacks fail, data utility maintained",
+        "partial_if": "≥95% k-anonymity or limited l-diversity testing or no t-closeness or limited re-identification testing",
+        "no_if": "<95% k-anonymity or no l-diversity or no re-identification testing or data utility lost"
+      }
+    },
+    {
+      "id": "st-data-1-15",
+      "question": "Do you conduct compliance testing validating GDPR DSAR ≥95% recall/≤48h search, deletion ≥95% recall/≥99% verification, and CCPA deletion ≤45 days?",
+      "verification": [
+        "Review GDPR DSAR testing (test Data Subject Access Request: ≥95% recall across all systems, ≤48h search time, ≤72h report generation, machine-readable export JSON/XML/CSV)",
+        "Check GDPR deletion testing (test right to be forgotten: ≥95% recall across all systems: databases/backups/logs/caches, ≥99% deletion verification confidence, ≤30 day completion)",
+        "Verify GDPR portability testing (test data portability: machine-readable export, structured format)",
+        "Confirm CCPA deletion testing (deletion within ≤45 days of request, not 30 days like GDPR)",
+        "Review cross-border transfer testing (≥90% detection of GDPR Chapter V violations: EU PII → third country without SCCs/adequacy)"
+      ],
+      "evidence": [
+        "GDPR DSAR test results (≥95% recall, ≤48h search, ≤72h report, JSON/XML/CSV export)",
+        "GDPR deletion test results (≥95% recall all systems, ≥99% verification, ≤30 days)",
+        "GDPR portability test results (machine-readable export, structured format)",
+        "CCPA deletion test results (≤45 day completion)",
+        "Cross-border transfer test results (≥90% Chapter V violation detection)"
+      ],
+      "scoring": {
+        "yes_if": "GDPR DSAR (≥95% recall, ≤48h search, ≤72h report, machine-readable), GDPR deletion (≥95% recall, ≥99% verification, ≤30 days), GDPR portability, CCPA deletion ≤45 days, cross-border detection ≥90%",
+        "partial_if": "GDPR DSAR ≥90% recall or deletion ≥90% recall or CCPA >45 days or cross-border <85%",
+        "no_if": "DSAR <90% recall or deletion <90% recall or CCPA >60 days or no cross-border testing"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Classification Accuracy",
+      "target": "≥90% overall accuracy, ≥85% recall per type, ≥90% precision per type",
+      "measurement": "Accuracy %, recall %, precision % on test datasets per data type",
+      "data_source": "Classification testing results, production validation samples",
+      "frequency": "Quarterly comprehensive testing, monthly production validation",
+      "baseline": "Pre-deployment classification accuracy",
+      "validation": "Quarterly tests on ≥10,000 samples per type validate targets"
+    },
+    {
+      "metric": "DLP Effectiveness",
+      "target": "≥85% exfiltration blocked, ≤5% false positives, multi-channel coverage",
+      "measurement": "Block rate % on red team exfiltration, FP rate % on legitimate data",
+      "data_source": "DLP testing results, red team exercises",
+      "frequency": "Quarterly red team exercises, continuous DLP monitoring",
+      "baseline": "DLP effectiveness from pre-deployment testing",
+      "validation": "Quarterly red team exercises validate ≥85% block rate"
+    },
+    {
+      "metric": "Privacy Protection",
+      "target": "Differential privacy ε budget correct, membership inference ≤55%, model inversion ≤15%",
+      "measurement": "Privacy attack success rates, privacy budget validation",
+      "data_source": "Privacy testing results, attack simulation",
+      "frequency": "Quarterly privacy testing, annual third-party audit",
+      "baseline": "Privacy guarantees from design",
+      "validation": "Privacy attacks validate guarantees: membership ≤55%, inversion ≤15%"
+    },
+    {
+      "metric": "Compliance Automation Accuracy",
+      "target": "GDPR DSAR/deletion ≥95% recall, CCPA deletion ≤45 days, cross-border detection ≥90%",
+      "measurement": "DSAR/deletion recall %, completion time, cross-border detection rate",
+      "data_source": "Compliance testing results, regulatory audit findings",
+      "frequency": "Quarterly compliance testing, annual regulatory audits",
+      "baseline": "Compliance requirements (GDPR, CCPA)",
+      "validation": "Regulatory audits confirm compliance automation accuracy"
+    },
+    {
+      "metric": "Adversarial Robustness",
+      "target": "≥70% evasion detection, ≥80% adversarial robustness, ≤10% poisoning impact",
+      "measurement": "Evasion detection %, adversarial example detection %, accuracy drop with poisoning",
+      "data_source": "Adversarial testing results, security exercises",
+      "frequency": "Quarterly adversarial testing, continuous threat monitoring",
+      "baseline": "Pre-deployment adversarial robustness",
+      "validation": "Security testing validates evasion detection ≥70%, robustness ≥80%"
+    }
+  ]
+}

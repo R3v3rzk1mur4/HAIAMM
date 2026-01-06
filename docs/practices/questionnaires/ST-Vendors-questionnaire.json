@@ -1,0 +1,309 @@
+{
+  "practice": "Security Testing",
+  "domain": "Vendors",
+  "name": "ST-Vendors",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "st-vendors-1-1",
+      "question": "Do you test risk scoring accuracy with ≥85% agreement with expert assessments (±10 points on 0-100 scale), risk tier classification ≥90% accuracy, and historical validation (high-risk vendors ≥2x breach rate vs. low-risk, AUC ≥0.70)?",
+      "verification": [
+        "Review risk scoring accuracy testing (test dataset 100+ vendors with expert-assigned risk scores diverse industries/risk levels, test coverage all risk dimensions security/data handling/compliance/financial/operational/supply chain, success criteria ≥85% agreement ±10 points, validation method compare ML-generated vs. expert manual assessments, edge cases startups limited data/acquired vendors entity changes/offshore vendors limited transparency)",
+        "Check risk tier classification testing (test dataset 50+ vendors per tier Critical/High/Medium/Low, success criteria ≥90% accuracy tier classification ≤5% tier misses Critical→Low, boundary testing vendors near tier boundaries score 49 vs. 51, temporal testing verify tier changes when risk scores change)",
+        "Verify historical validation (test dataset vendors with known breaches 2020-2024, success criteria high-risk vendors ≥2x breach rate vs. low-risk, ROC curve analysis AUC Area Under Curve ≥0.70 for breach prediction)",
+        "Review risk trend analysis testing (test scenarios vendor improves security score increases/vendor breach score drops, success criteria score changes align with real-world events, temporal lag score updates ≤24 hr of triggering event)",
+        "Check multi-factor weighting testing (test scenarios vary dimension weights data handling 30% → 50% verify score changes, validation ensure weight changes impact scores appropriately, audit document justification for all weight assignments)"
+      ],
+      "evidence": [
+        "Risk scoring accuracy test results (100+ vendor test set expert vs. ML scores, agreement rate ≥85% ±10 points, dimension coverage security/data/compliance/financial/operational/supply chain, edge case results startups/acquired/offshore)",
+        "Risk tier classification test results (50+ vendors per tier, ≥90% accuracy, ≤5% Critical→Low misses, boundary testing near thresholds, temporal testing tier changes with scores)",
+        "Historical validation test results (vendors with known breaches 2020-2024, high-risk ≥2x breach rate vs. low-risk, ROC curve AUC ≥0.70 breach prediction)",
+        "Risk trend analysis test results (vendor improvement score increase, breach score drop, alignment with real-world events, temporal lag ≤24 hr)",
+        "Multi-factor weighting test results (varied weights impact scores appropriately, justification documentation for weight assignments)"
+      ],
+      "scoring": {
+        "yes_if": "Risk scoring accuracy tested (≥85% agreement ±10 points, 100+ vendors, all dimensions, edge cases), tier classification tested (≥90% accuracy, 50+ per tier, ≤5% Critical→Low misses, boundary/temporal testing), historical validation (known breaches 2020-2024, high-risk ≥2x breach rate, AUC ≥0.70), trend analysis (score changes align events, ≤24 hr lag), weighting testing",
+        "partial_if": "Risk scoring tested but <80% agreement or <50 vendors or missing dimensions or tier accuracy <85% or no historical validation or AUC <0.65",
+        "no_if": "No risk scoring accuracy testing or <75% agreement or <25 vendors or tier accuracy <80% or no historical validation or AUC <0.60"
+      }
+    },
+    {
+      "id": "st-vendors-1-2",
+      "question": "Do you test data integration for all sources (questionnaires, BitSight, SecurityScorecard, UpGuard, breach databases, SBOMs, threat intel) with happy path, error handling (API timeouts, rate limits, auth failures, malformed responses), and entity resolution (≥95% accuracy matching, ≤2% false merges)?",
+      "verification": [
+        "Review multi-source integration testing (sources questionnaires/BitSight/SecurityScorecard/UpGuard/breach databases HIBP Risk Based Security/SBOMs/threat intel feeds, happy path testing all sources return data correctly parsed and stored, error handling testing API timeouts/rate limits/authentication failures/malformed responses, success criteria all sources integrate correctly handle API errors gracefully retry with backoff, fallback testing system continues with available sources when one source fails)",
+        "Check entity resolution testing (test scenarios same vendor different names Microsoft vs. Microsoft Corporation, DUNS number matching, fuzzy name matching Levenshtein distance; negative cases different vendors similar names don't merge incorrectly, success criteria ≥95% accuracy matching same vendor across sources ≤2% false merges, edge cases vendor rebrands/M&A Oracle acquires Sun Microsystems)",
+        "Verify data normalization testing (test coverage all vendor fields normalized company name/ratings/certifications/locations/compliance status, rating normalization BitSight 300-900 → 0-100, SecurityScorecard A-F → 0-100, success criteria all vendor data correctly normalized to common format, validation spot-check 100+ vendor records for normalization accuracy)",
+        "Review data freshness testing (test scenarios stale data detection BitSight data >30 days old trigger refresh, success criteria stale data flagged automatic refresh triggered, alerting notify if critical vendor data cannot be refreshed)",
+        "Check data quality testing (validation rules required fields present vendor name/risk score/last update date, valid data ranges scores 0-100, completeness ≥90% of vendors have data from ≥3 sources, success criteria invalid data rejected incomplete data flagged for review)"
+      ],
+      "evidence": [
+        "Multi-source integration test results (all sources questionnaires/BitSight/SecurityScorecard/UpGuard/breach DBs/SBOMs/threat intel tested, happy path all sources parse/store correctly, error handling timeouts/rate limits/auth failures/malformed responses, fallback testing system continues with available sources)",
+        "Entity resolution test results (same vendor different names ≥95% accuracy, DUNS/fuzzy matching Levenshtein, negative cases different vendors ≤2% false merges, edge cases rebrands/M&A)",
+        "Data normalization test results (all fields normalized name/ratings/certs/locations/compliance, BitSight 300-900 → 0-100, SecurityScorecard A-F → 0-100, spot-check 100+ records accuracy)",
+        "Data freshness test results (stale data >30 days flagged, automatic refresh triggered, alerting critical vendor data cannot refresh)",
+        "Data quality test results (required fields validated, data ranges 0-100, completeness ≥90% vendors ≥3 sources, invalid rejected, incomplete flagged)"
+      ],
+      "scoring": {
+        "yes_if": "Data integration tested for ≥6 sources (questionnaires, BitSight, SecurityScorecard, UpGuard, breach DBs, SBOMs, threat intel) with happy path, error handling (timeouts, rate limits, auth failures, malformed responses, retry backoff, fallback), entity resolution (≥95% accuracy, ≤2% false merges, DUNS/fuzzy matching, edge cases rebrands/M&A), normalization (all fields, BitSight/SecurityScorecard → 0-100, 100+ records spot-check), freshness (stale >30 days flagged, auto-refresh), quality (required fields, ranges 0-100, ≥90% vendors ≥3 sources)",
+        "partial_if": "Data integration tested but <5 sources or no error handling or entity resolution <90% accuracy or >5% false merges or no normalization testing or no freshness testing or no quality testing",
+        "no_if": "No data integration testing or <3 sources or no error handling or entity resolution <85% accuracy or >10% false merges or no normalization or no quality checks"
+      }
+    },
+    {
+      "id": "st-vendors-1-3",
+      "question": "Do you test continuous monitoring with change detection (rating drops ≥20 points, breaches, certification expiration, M&A, financial distress) within ≤24 hours, alert latency (breach detection ≤24 hr from public disclosure), monitoring frequency (Critical daily, High weekly, Medium monthly, Low quarterly), and alert deduplication?",
+      "verification": [
+        "Review change detection testing (changes security rating drops ≥20 points/breaches/certification expiration/M&A activity/financial distress indicators, test method simulate vendor changes verify alerts triggered, success criteria all critical changes detected ≤24 hours, alert validation verify alert contains change details/severity/recommended actions)",
+        "Check alert latency testing (test dataset historical breaches with known public disclosure dates, measurement time from public disclosure to system alert, success criteria vendor breaches detected ≤24 hours from public disclosure, sources RSS feeds/breach databases/news monitoring/vendor notifications)",
+        "Verify monitoring frequency testing (test scenarios Critical vendors monitored daily/High weekly/Medium monthly/Low quarterly, validation verify monitoring jobs run on schedule all vendors monitored, success criteria 100% of vendors monitored per tier schedule ≤1% missed checks, backfill verify missed checks backfilled ≤24 hours)",
+        "Review alert prioritization testing (test scenarios Critical vendor breach severity Critical, medium vendor rating drop severity Medium, success criteria alert severity correctly assigned based on vendor tier + change severity, validation verify alert routing Critical → page on-call, Medium → email)",
+        "Check alert deduplication testing (test method trigger same alert multiple times vendor breach reported by multiple sources, success criteria only one alert generated subsequent reports linked to original, temporal window deduplicate alerts within 24-hour window)",
+        "Verify alert escalation testing (test scenarios Critical alert not acknowledged in 1 hour → escalate to manager, success criteria escalation triggers correctly escalation path followed, validation verify escalation notifications sent audit trail captured)"
+      ],
+      "evidence": [
+        "Change detection test results (rating drops ≥20 points, breaches, cert expiration, M&A, financial distress all detected ≤24 hr, alerts contain details/severity/actions)",
+        "Alert latency test results (historical breaches public disclosure dates, breach detection ≤24 hr from disclosure, sources RSS/breach DBs/news/vendor notifications)",
+        "Monitoring frequency test results (Critical daily, High weekly, Medium monthly, Low quarterly schedule verified, 100% vendors monitored per tier, ≤1% missed checks, backfill ≤24 hr)",
+        "Alert prioritization test results (Critical vendor breach → Critical severity, medium vendor drop → Medium severity, severity assigned correctly vendor tier + change severity, routing verified Critical page, Medium email)",
+        "Alert deduplication test results (same alert multiple times only one alert generated, subsequent linked to original, 24-hour temporal window deduplication)",
+        "Alert escalation test results (Critical alert not acknowledged 1 hr → manager escalation, escalation triggers correctly, notifications sent, audit trail captured)"
+      ],
+      "scoring": {
+        "yes_if": "Continuous monitoring tested with change detection (rating drops ≥20 points, breaches, cert expiration, M&A, financial distress all ≤24 hr, alerts with details/severity/actions), alert latency (breach detection ≤24 hr from public disclosure, historical breaches tested, RSS/breach DBs/news/vendor sources), monitoring frequency (Critical daily, High weekly, Medium monthly, Low quarterly verified, 100% vendors per tier, ≤1% missed, backfill ≤24 hr), prioritization (severity assigned correctly tier + change, routing verified), deduplication (same alert once, subsequent linked, 24-hr window), escalation (not acknowledged 1 hr → manager, notifications, audit trail)",
+        "partial_if": "Monitoring tested but <4 change types or detection >48 hr or breach latency >48 hr or monitoring frequency not verified or <95% vendors per tier or no deduplication or no escalation testing",
+        "no_if": "No monitoring testing or <2 change types or detection >72 hr or breach latency >7 days or <90% vendors monitored or no alert prioritization or no deduplication"
+      }
+    },
+    {
+      "id": "st-vendors-1-4",
+      "question": "Do you test SBOM parsing for all formats (SPDX JSON/XML/YAML/tag-value, CycloneDX JSON/XML, SWID) with 100+ valid SBOMs 100% correctly parsed, malformed SBOM error handling, and vulnerability scanning (≥95% vulnerable package detection true positives, ≤5% false positives, transitive dependency ≥5 levels deep)?",
+      "verification": [
+        "Review SBOM parsing testing (formats SPDX JSON/XML/YAML/tag-value, CycloneDX JSON/XML, SWID tags; valid SBOM testing 100+ valid SBOMs diverse formats/languages/ecosystems, success criteria 100% of valid SBOMs parsed correctly all components extracted; malformed SBOM testing missing fields/invalid JSON/encoding issues, error handling graceful failure log parse errors alert vendor to provide corrected SBOM)",
+        "Check vulnerability scanning testing (test dataset 50+ known vulnerable packages with CVEs, 100+ clean packages no known CVEs; CVE database NVD/GitHub Security Advisories/vendor-specific databases, success criteria ≥95% vulnerable package detection true positives ≤5% false positives, version matching test exact version log4j 2.14.0, version range match 2.0-2.14.1, edge cases renamed packages/forked packages/backported patches)",
+        "Verify transitive dependency testing (test dataset complex dependency trees React → Babel → core-js → ... ≥5 levels, success criteria dependencies traced ≥5 levels deep complete graph constructed, circular dependency handling detect cycles avoid infinite loops, graph validation verify all transitive dependencies discovered)",
+        "Review supply chain attack testing (typosquatting test detection packages similar names reqests vs. requests, pytohn vs. python; suspicious package updates sudden maintainer changes/version number jumps/binary additions; anomalous behavior network calls in install scripts/file system access/obfuscated code; success criteria ≥80% of supply chain attack indicators detected, known attacks test against historical event-stream/ua-parser-js/codecov)",
+        "Check SBOM diff testing (test scenarios new SBOM uploaded compare against previous version, success criteria new components/removed components/updated components correctly identified, alert notify on new vulnerable components/removed security-critical components)"
+      ],
+      "evidence": [
+        "SBOM parsing test results (SPDX JSON/XML/YAML/tag-value, CycloneDX JSON/XML, SWID tested; 100+ valid SBOMs 100% parsed correctly all components extracted; malformed SBOM tests missing fields/invalid JSON/encoding, error handling graceful failure/log/alert vendor)",
+        "Vulnerability scanning test results (50+ vulnerable packages with CVEs, 100+ clean packages; ≥95% vulnerable detection true positives, ≤5% false positives; version matching exact/range log4j 2.14.0/2.0-2.14.1; edge cases renamed/forked/backported; NVD/GitHub Advisory/vendor databases)",
+        "Transitive dependency test results (complex trees React→Babel→core-js ≥5 levels, dependencies traced ≥5 levels complete graph, circular dependency detection cycles/no infinite loops, graph validation all transitive discovered)",
+        "Supply chain attack test results (typosquatting reqests/pytohn detected, suspicious updates maintainer changes/version jumps/binaries, anomalous behavior network calls/filesystem/obfuscation; ≥80% indicators detected, known attacks event-stream/ua-parser-js/codecov tested)",
+        "SBOM diff test results (new SBOM vs. previous version, new/removed/updated components correctly identified, alerts new vulnerable/removed security-critical components)"
+      ],
+      "scoring": {
+        "yes_if": "SBOM parsing tested for all formats (SPDX JSON/XML/YAML/tag-value, CycloneDX JSON/XML, SWID) with 100+ valid SBOMs 100% parsed correctly all components extracted, malformed SBOM error handling (graceful failure, log, alert vendor), vulnerability scanning (50+ vulnerable packages, 100+ clean, ≥95% true positives, ≤5% false positives, exact/range version matching, edge cases renamed/forked/backported, NVD/GitHub Advisory), transitive dependency (≥5 levels deep, complete graph, circular detection no infinite loops), supply chain attack (typosquatting, suspicious updates, anomalous behavior, ≥80% indicators, known attacks tested), SBOM diff (new/removed/updated components, alerts)",
+        "partial_if": "SBOM parsing tested but <3 formats or <50 valid SBOMs or <95% parsed or no malformed testing or vulnerability detection <90% true positives or >10% false positives or transitive <3 levels or supply chain <70% indicators or no diff testing",
+        "no_if": "No SBOM parsing testing or single format only or <25 valid SBOMs or <90% parsed or vulnerability detection <85% true positives or >15% false positives or no transitive dependency or <60% supply chain indicators or no diff testing"
+      }
+    },
+    {
+      "id": "st-vendors-1-5",
+      "question": "Do you test compliance automation with regulatory mapping (GDPR, CCPA, HIPAA, PCI-DSS jurisdiction detection correct for all), automated contract analysis (≥85% compliance gap detection vs. manual legal review, NLP clause extraction), multi-jurisdiction validation, DPA validation (≥90% issues identified), and certificate verification (valid accepted, expired/invalid flagged, 90-day expiration alerts)?",
+      "verification": [
+        "Review regulatory mapping testing (test scenarios EU customer data GDPR, California residents CCPA, healthcare data HIPAA, payment data PCI-DSS; success criteria correct regulatory requirements identified for all jurisdictions, multi-jurisdiction test vendors operating EU + US = GDPR + CCPA, validation verify all applicable regulations identified no regulations missed)",
+        "Check automated compliance checking (test dataset 50+ vendor contracts DPAs/MSAs/SLAs, NLP analysis extract compliance clauses data retention/encryption/breach notification/subprocessors, success criteria ≥85% of compliance gaps detected automatically vs. manual legal review, gap detection missing clauses/non-compliant terms/conflicting obligations, edge cases non-standard contract language/cross-referenced clauses)",
+        "Verify multi-jurisdiction testing (GDPR testing data processing agreements/legitimate interests/right to erasure/data transfers, CCPA testing sale opt-out/consumer rights/service provider agreements, HIPAA testing Business Associate Agreements/minimum necessary/breach notification, PCI-DSS testing cardholder data handling/SAQ validation/AOC verification; success criteria all regulatory requirements validated correctly, validation spot-check 20+ vendors per regulation for compliance accuracy)",
+        "Review DPA validation testing (test scenarios valid DPA all required clauses, invalid DPA missing breach notification; success criteria ≥90% of DPA issues identified automatically, required clauses purpose limitation/data security/subprocessor disclosure/audit rights/data return/deletion)",
+        "Check certificate validation testing (test scenarios valid SOC 2 Type II, expired ISO 27001, forged certificate; success criteria valid certificates accepted expired/invalid certificates flagged, verification check certificate authenticity issuer/signatures, expiration dates; alerting notify when vendor certificates expire within 90 days)"
+      ],
+      "evidence": [
+        "Regulatory mapping test results (GDPR EU customer data, CCPA CA residents, HIPAA healthcare, PCI-DSS payment; correct requirements all jurisdictions, multi-jurisdiction EU+US GDPR+CCPA, all applicable regulations identified)",
+        "Automated compliance checking test results (50+ contracts DPAs/MSAs/SLAs, NLP clause extraction data retention/encryption/breach notification/subprocessors; ≥85% gap detection vs. manual legal review, missing clauses/non-compliant terms/conflicting obligations, edge cases non-standard/cross-referenced)",
+        "Multi-jurisdiction test results (GDPR DPAs/legitimate interests/erasure/transfers, CCPA opt-out/consumer rights/service provider, HIPAA BAAs/minimum necessary/breach notification, PCI-DSS cardholder/SAQ/AOC; all requirements validated correctly, spot-check 20+ vendors per regulation)",
+        "DPA validation test results (valid DPA all clauses, invalid DPA missing breach notification; ≥90% issues identified automatically, required clauses purpose limitation/data security/subprocessor disclosure/audit rights/data return/deletion)",
+        "Certificate validation test results (valid SOC 2 Type II accepted, expired ISO 27001 flagged, forged certificate flagged; certificate authenticity issuer/signatures verification, 90-day expiration alerts)"
+      ],
+      "scoring": {
+        "yes_if": "Compliance automation tested with regulatory mapping (GDPR, CCPA, HIPAA, PCI-DSS jurisdiction detection correct all, multi-jurisdiction EU+US GDPR+CCPA, all applicable identified), automated contract analysis (50+ contracts, NLP clause extraction, ≥85% gap detection vs. manual legal review, missing/non-compliant/conflicting, edge cases non-standard/cross-referenced), multi-jurisdiction validation (GDPR DPAs/erasure/transfers, CCPA opt-out/consumer rights, HIPAA BAAs/breach, PCI-DSS cardholder/SAQ/AOC; all requirements validated, 20+ vendors per regulation spot-check), DPA validation (≥90% issues identified, required clauses), certificate verification (valid accepted, expired/invalid/forged flagged, authenticity issuer/signatures, 90-day expiration alerts)",
+        "partial_if": "Compliance tested but <4 jurisdictions or automated contract <80% gap detection or <30 contracts or no multi-jurisdiction validation or DPA <85% issues or no certificate verification or no expiration alerts",
+        "no_if": "No compliance testing or <2 jurisdictions or automated contract <75% gap detection or <20 contracts or no multi-jurisdiction or DPA <80% issues or no certificate verification"
+      }
+    },
+    {
+      "id": "st-vendors-1-6",
+      "question": "Do you test vendor ecosystem with dependency mapping (≥3 levels deep: direct/subprocessors/sub-subprocessors, spot-check 20+ vendors all disclosed captured), concentration risk detection (shared dependencies, single points of failure, risk scoring), graph database queries (≤1 sec typical 1K vendors 5K edges, ≤5 sec large 10K vendors 50K edges), and impact analysis (vendor disruption simulation ≤10 sec)?",
+      "verification": [
+        "Review dependency mapping testing (test scenarios direct subprocessors vendor → AWS, indirect subprocessors vendor → AWS → AWS subcontractors; success criteria dependencies mapped ≥3 levels deep vendor → subprocessor → sub-subprocessor, data sources vendor questionnaires/subprocessor lists/DPAs/public disclosures, validation spot-check 20+ vendors verify all disclosed subprocessors captured)",
+        "Check concentration risk testing (test scenarios multiple vendors same cloud provider AWS/same payment processor Stripe/same auth provider Auth0, success criteria all single points of failure identified concentration risk scored, risk calculation if 50% vendors depend on AWS AWS outage = 50% vendor disruption risk, validation verify concentration risks reported in vendor ecosystem dashboard)",
+        "Verify graph database testing (query types find all vendors depending on X transitive, find shortest path between vendors, detect circular dependencies; success criteria graph queries complete ≤1 second typical org 1,000 vendors 5,000 edges, performance test large graphs 10,000 vendors 50,000 edges → queries complete ≤5 seconds, validation verify query results correct compare against manual analysis)",
+        "Review impact analysis testing (test scenarios AWS outage impacts which vendors, Stripe breach impacts which payment flows; success criteria impact analysis identifies all affected vendors ≤10 seconds, blast radius calculate percentage of vendors affected by single dependency failure)",
+        "Check vendor network visualization testing (rendering test graph visualization nodes vendors edges dependencies, success criteria graph renders correctly interactive zoom/pan/filter loads ≤3 seconds, usability test with security team verify insights discoverable)"
+      ],
+      "evidence": [
+        "Dependency mapping test results (direct vendor→AWS, indirect vendor→AWS→AWS subcontractors; ≥3 levels deep vendor→subprocessor→sub-subprocessor, data sources questionnaires/subprocessor lists/DPAs/public disclosures, spot-check 20+ vendors all disclosed captured)",
+        "Concentration risk test results (multiple vendors same AWS/Stripe/Auth0, all SPOFs identified concentration risk scored, risk calculation 50% vendors AWS → 50% disruption risk, concentration risks in dashboard)",
+        "Graph database test results (query types vendors depending on X, shortest path, circular dependencies; queries ≤1 sec typical 1K vendors 5K edges, large graphs 10K vendors 50K edges ≤5 sec, results correct vs. manual analysis)",
+        "Impact analysis test results (AWS outage impacts which vendors, Stripe breach impacts which payment flows; all affected vendors identified ≤10 sec, blast radius % vendors affected single dependency failure)",
+        "Vendor network visualization test results (graph rendering nodes vendors edges dependencies, renders correctly, interactive zoom/pan/filter, loads ≤3 sec, usability security team insights discoverable)"
+      ],
+      "scoring": {
+        "yes_if": "Vendor ecosystem tested with dependency mapping (≥3 levels deep: direct/subprocessors/sub-subprocessors, data sources questionnaires/subprocessor lists/DPAs/public disclosures, spot-check 20+ vendors all disclosed captured), concentration risk detection (shared dependencies AWS/Stripe/Auth0, SPOFs identified, concentration risk scored, risk calculation 50% vendors AWS → 50% disruption, dashboard reporting), graph database queries (vendors depending on X, shortest path, circular dependencies; ≤1 sec typical 1K vendors 5K edges, ≤5 sec large 10K vendors 50K edges, results correct vs. manual), impact analysis (AWS outage/Stripe breach impacts which vendors, all affected ≤10 sec, blast radius % affected), visualization (graph renders, interactive zoom/pan/filter, ≤3 sec load, usability security team)",
+        "partial_if": "Vendor ecosystem tested but <3 levels or spot-check <10 vendors or no concentration risk or graph queries >2 sec typical or >10 sec large or no impact analysis or no visualization",
+        "no_if": "No vendor ecosystem testing or direct vendors only or no concentration risk or graph queries >5 sec typical or >30 sec large or no impact analysis"
+      }
+    },
+    {
+      "id": "st-vendors-1-7",
+      "question": "Do you test performance and scalability with vendor scale (≥1,000 vendors, API response ≤2 sec, 50+ concurrent users), assessment throughput (≥100 vendor assessments/hour), SBOM processing (≥50 SBOMs/hour, ≥10K components ≤10 min), data ingestion (1,000 vendor ratings ≤30 min), and database scalability (10K vendors, 100K assessments, 1M audit logs, all queries ≤5 sec)?",
+      "verification": [
+        "Review vendor scale testing (test dataset 1,000 vendors realistic distribution 100 Critical/300 High/400 Medium/200 Low, success criteria supports ≥1,000 vendors without degradation API response time ≤2 seconds, load testing simulate concurrent users 50+ security analysts accessing system, database performance verify query performance vendor search ≤1 second risk dashboard load ≤3 seconds)",
+        "Check assessment throughput testing (test method batch assess 500 vendors measure time to completion, success criteria ≥100 vendor assessments/hour includes data fetching/scoring/reporting, bottleneck identification profile to identify slow operations API calls/ML inference/database writes, optimization parallelize where possible fetch from multiple APIs concurrently)",
+        "Verify SBOM processing testing (test dataset 100 SBOMs varying sizes 10 components to 10,000 components, success criteria ≥50 SBOMs/hour includes parsing/vulnerability scanning/dependency resolution, large SBOM testing test enterprise SBOMs ≥10,000 components complete ≤10 minutes, parallel processing verify concurrent SBOM processing 10 SBOMs in parallel)",
+        "Review data ingestion performance testing (test scenarios fetch 1,000 vendor ratings from BitSight/SecurityScorecard, success criteria data ingestion completes ≤30 minutes for 1,000 vendors, rate limit handling verify system respects API rate limits retries appropriately)",
+        "Check database scalability testing (test data 10,000 vendors/100,000 assessments/1,000,000 audit log entries, success criteria all queries complete ≤5 seconds writes complete ≤1 second, indexing verify appropriate indexes vendor name/risk score/assessment date)"
+      ],
+      "evidence": [
+        "Vendor scale test results (1,000 vendors 100 Critical/300 High/400 Medium/200 Low, supports ≥1K vendors without degradation, API response ≤2 sec, load testing 50+ concurrent users, database performance vendor search ≤1 sec dashboard ≤3 sec)",
+        "Assessment throughput test results (batch assess 500 vendors time to completion, ≥100 assessments/hour includes data fetching/scoring/reporting, bottleneck identification profile slow operations API calls/ML inference/DB writes, optimization parallelized API fetching)",
+        "SBOM processing test results (100 SBOMs 10 to 10K components, ≥50 SBOMs/hour includes parsing/vulnerability scanning/dependency resolution, large SBOMs ≥10K components ≤10 min, parallel processing 10 SBOMs concurrently)",
+        "Data ingestion test results (fetch 1,000 vendor ratings BitSight/SecurityScorecard, ingestion completes ≤30 min for 1K vendors, rate limit handling respects API limits retries appropriately)",
+        "Database scalability test results (10K vendors, 100K assessments, 1M audit logs; all queries ≤5 sec, writes ≤1 sec, indexes vendor name/risk score/assessment date)"
+      ],
+      "scoring": {
+        "yes_if": "Performance and scalability tested with vendor scale (≥1,000 vendors 100 Critical/300 High/400 Medium/200 Low, supports ≥1K without degradation, API response ≤2 sec, load testing 50+ concurrent users, database performance vendor search ≤1 sec dashboard ≤3 sec), assessment throughput (batch 500 vendors, ≥100 assessments/hour includes data fetching/scoring/reporting, bottleneck profiling, parallelized optimization), SBOM processing (100 SBOMs 10-10K components, ≥50 SBOMs/hour, large ≥10K components ≤10 min, parallel 10 SBOMs concurrently), data ingestion (1,000 ratings BitSight/SecurityScorecard ≤30 min, rate limit handling respects/retries), database scalability (10K vendors, 100K assessments, 1M audit logs; queries ≤5 sec, writes ≤1 sec, indexes)",
+        "partial_if": "Performance tested but <500 vendors or API response >3 sec or <25 concurrent users or assessment throughput <75/hour or SBOM processing <40/hour or large SBOMs >20 min or data ingestion >60 min or database queries >10 sec",
+        "no_if": "No performance testing or <250 vendors or API response >5 sec or assessment throughput <50/hour or SBOM processing <25/hour or large SBOMs >30 min or data ingestion >120 min or database queries >20 sec"
+      }
+    },
+    {
+      "id": "st-vendors-1-8",
+      "question": "Do you test adversarial scenarios with risk score manipulation (≥80% gaming attempts detected: fake certifications, manipulated ratings, hidden subprocessors), data source poisoning (bad data detected and flagged: false breach reports, fabricated vendor data, multi-source validation), SBOM manipulation (≥70% tampering detected: removed vulnerabilities, outdated SBOMs), and compliance document forgery (≥90% forged documents detected: fake SOC 2, altered ISO 27001, validation with issuers)?",
+      "verification": [
+        "Review risk score manipulation testing (attack scenarios vendor purchases positive reviews/creates fake certifications/hides subprocessors, method simulate vendor attempts to inflate scores fake SOC 2 report/manipulated security ratings, success criteria ≥80% of gaming attempts detected certificate validation/cross-reference checks, detection flag vendors with inconsistent data high self-assessment/low third-party rating)",
+        "Check data source poisoning testing (attack scenarios compromised breach database reports false all clear/malicious insider updates vendor data, method inject false vendor information into sources fake vendor/false ratings/fabricated breach data, success criteria bad data detected flagged for review outlier detection/multi-source validation, validation cross-reference critical data across ≥2 independent sources before accepting)",
+        "Verify SBOM manipulation testing (attack scenarios vendor removes vulnerable components from SBOM/provides outdated SBOM, method compare vendor-provided SBOM against independently-generated SBOM if available, success criteria SBOM tampering detected ≥70% of the time, detection flag SBOMs with missing common dependencies/SBOMs older than ≥90 days)",
+        "Review compliance document forgery testing (attack scenarios forged SOC 2 report/expired ISO 27001 with altered date/fake audit letter, method validate certificates against issuer databases check digital signatures, success criteria ≥90% of forged documents detected, validation verify certificate authenticity with issuing authority email/phone verification)",
+        "Check social engineering testing (attack scenarios attacker impersonates vendor requests risk score reduction, method simulate phishing attempts/unauthorized data changes, success criteria all unauthorized changes blocked authentication required, controls multi-factor authentication/approval workflows for risk score overrides)"
+      ],
+      "evidence": [
+        "Risk score manipulation test results (attack scenarios fake certifications/manipulated ratings/hidden subprocessors, simulated inflation attempts fake SOC 2/manipulated ratings, ≥80% gaming attempts detected certificate validation/cross-reference, detection inconsistent data high self-assessment/low third-party rating)",
+        "Data source poisoning test results (attack scenarios false all clear breach DB/malicious insider vendor data, injected false information fake vendor/false ratings/fabricated breach, bad data detected/flagged outlier detection/multi-source validation, critical data cross-referenced ≥2 independent sources)",
+        "SBOM manipulation test results (attack scenarios removed vulnerable components/outdated SBOM, comparison vendor-provided vs. independently-generated if available, ≥70% tampering detected, detection missing common dependencies/SBOMs >90 days old)",
+        "Compliance document forgery test results (attack scenarios forged SOC 2/altered ISO 27001 date/fake audit letter, validation against issuer databases/digital signatures, ≥90% forged documents detected, verification with issuing authority email/phone)",
+        "Social engineering test results (attack scenarios vendor impersonation requests score reduction, simulated phishing/unauthorized changes, all unauthorized blocked authentication required, controls MFA/approval workflows for score overrides)"
+      ],
+      "scoring": {
+        "yes_if": "Adversarial scenarios tested with risk score manipulation (fake certifications, manipulated ratings, hidden subprocessors simulated; ≥80% gaming attempts detected certificate validation/cross-reference; detection inconsistent data high self-assessment/low third-party), data source poisoning (false all clear breach DB, malicious insider vendor data injected; bad data detected/flagged outlier detection/multi-source validation; critical data cross-referenced ≥2 sources), SBOM manipulation (removed vulnerable components, outdated SBOM simulated; vendor-provided vs. independent comparison; ≥70% tampering detected; missing common dependencies/SBOMs >90 days flagged), compliance forgery (forged SOC 2, altered ISO 27001, fake audit letter; validation issuer databases/digital signatures; ≥90% forged detected; verification issuing authority email/phone), social engineering (vendor impersonation, phishing/unauthorized changes simulated; all unauthorized blocked authentication required; MFA/approval workflows)",
+        "partial_if": "Adversarial tested but risk manipulation <70% detected or no data source poisoning or SBOM manipulation <60% detected or compliance forgery <85% detected or no social engineering testing",
+        "no_if": "No adversarial testing or risk manipulation <60% detected or SBOM manipulation <50% detected or compliance forgery <80% detected or no multi-source validation"
+      }
+    },
+    {
+      "id": "st-vendors-1-9",
+      "question": "Do you test resilience with data source failure testing (system continues with available sources, alerts on missing data, graceful degradation, auto-recovery and backfill), API rate limit testing (graceful backoff exponential 1s/2s/4s/8s/16s, circuit breaker after 5 failures stop 5 min then retry), database failure testing (failover to replica ≤30 sec, read operations continue), and concurrent user testing (100+ users, no deadlocks/race conditions, response times ≤5 sec)?",
+      "verification": [
+        "Review data source failure testing (test scenarios BitSight API down/SecurityScorecard API timeout/breach database unavailable, success criteria system continues with available sources alerts on missing data, graceful degradation risk scores calculated with available data flagged as partial assessment, recovery verify system auto-recovers when failed source available backfills missing data)",
+        "Check API rate limit testing (test method simulate API rate limits HTTP 429 responses, success criteria graceful backoff retry exponential delay 1s/2s/4s/8s/16s, circuit breaker after 5 consecutive failures stop retrying 5 minutes then retry, validation verify no data loss all vendors eventually assessed)",
+        "Verify breach database lag testing (test scenarios breach database last updated >7 days ago/API returns stale data, success criteria alerts when breach data >7 days old risk scores flagged as potentially outdated, monitoring daily checks on data source freshness escalate if >14 days stale)",
+        "Review database failure testing (test scenarios primary database down failover to replica/database connection timeout, success criteria system fails over to read replica ≤30 seconds read operations continue, recovery verify system recovers when primary restored replication catches up)",
+        "Check network partition testing (test scenarios microservice cannot reach database/API gateway cannot reach backend, success criteria timeouts handled gracefully errors logged alerts triggered, retry automatic retry with backoff for transient network failures)",
+        "Verify concurrent user testing (test scenarios 100+ users accessing system simultaneously viewing dashboards/running assessments/generating reports, success criteria no deadlocks/no race conditions all requests complete successfully, performance response times remain ≤5 seconds under concurrent load)",
+        "Review long-running operation testing (test scenarios SBOM analysis takes >10 minutes/vendor assessment hangs, success criteria operations timeout appropriately 10-minute timeout, partial results saved retry option available, monitoring alert on operations exceeding expected duration)"
+      ],
+      "evidence": [
+        "Data source failure test results (BitSight down, SecurityScorecard timeout, breach DB unavailable; system continues with available sources, alerts on missing data, graceful degradation partial assessments flagged, auto-recovery backfills missing data)",
+        "API rate limit test results (simulated HTTP 429 responses, graceful backoff exponential 1s/2s/4s/8s/16s, circuit breaker 5 failures → stop 5 min → retry, no data loss all vendors eventually assessed)",
+        "Breach database lag test results (breach DB >7 days old, API stale data; alerts breach data >7 days old, risk scores flagged potentially outdated, monitoring daily freshness checks escalate >14 days stale)",
+        "Database failure test results (primary database down failover to replica, connection timeout; failover to read replica ≤30 sec, read operations continue, recovery primary restored replication catches up)",
+        "Network partition test results (microservice cannot reach DB, API gateway cannot reach backend; timeouts handled gracefully, errors logged, alerts triggered, automatic retry with backoff transient failures)",
+        "Concurrent user test results (100+ users simultaneously viewing dashboards/running assessments/generating reports; no deadlocks, no race conditions, all requests complete successfully, response times ≤5 sec under load)",
+        "Long-running operation test results (SBOM analysis >10 min, vendor assessment hangs; operations timeout 10-min, partial results saved, retry option available, monitoring alerts operations exceeding expected duration)"
+      ],
+      "scoring": {
+        "yes_if": "Resilience tested with data source failure (BitSight down, SecurityScorecard timeout, breach DB unavailable; system continues with available sources, alerts missing data, graceful degradation partial assessments flagged, auto-recovery backfills), API rate limit (simulated HTTP 429, graceful backoff exponential 1s/2s/4s/8s/16s, circuit breaker 5 failures → stop 5 min → retry, no data loss all vendors eventually assessed), breach DB lag (>7 days alerts, risk scores flagged outdated, monitoring daily freshness escalate >14 days), database failure (primary down failover to replica ≤30 sec, read operations continue, recovery primary restored replication catches up), network partition (microservice cannot reach DB, API gateway cannot reach backend; timeouts gracefully, errors logged, alerts triggered, automatic retry backoff), concurrent users (100+ simultaneously dashboards/assessments/reports; no deadlocks/race conditions, all requests complete, response times ≤5 sec), long-running operations (SBOM >10 min, vendor assessment hangs; timeout 10-min, partial results saved, retry option, monitoring alerts exceeding duration)",
+        "partial_if": "Resilience tested but no data source failure or API rate limit no exponential backoff or no circuit breaker or database failover >60 sec or concurrent users <50 or response times >10 sec or no long-running operation testing",
+        "no_if": "No resilience testing or no data source failure or no API rate limit or no database failure or concurrent users <25 or response times >20 sec"
+      }
+    },
+    {
+      "id": "st-vendors-1-10",
+      "question": "Do you measure test coverage with ≥80% code coverage (line coverage ≥80%, branch coverage ≥70%), 100% of critical paths tested (risk scoring, SBOM vulnerability matching, compliance validation), API error handling 100% error codes handled, and quarterly test review (remove obsolete tests, add tests for new features, refresh test datasets annually)?",
+      "verification": [
+        "Review test coverage measurement (metrics code coverage ≥80% line coverage branch coverage ≥70%, functional coverage all features tested, edge case coverage boundary conditions/error paths; tools pytest-cov Python/JaCoCo Java/Istanbul JavaScript, success criteria ≥80% code coverage 100% of critical paths tested)",
+        "Check critical path testing (targets risk scoring algorithm/SBOM vulnerability matching/compliance validation; success criteria 100% of critical paths have automated tests, validation verify all critical business logic tested, review identify untested critical paths add tests)",
+        "Verify API error handling coverage (measurement count API error codes with handling logic / total possible error codes, test coverage test all HTTP error codes 4xx client errors/5xx server errors, success criteria 100% of API error codes handled no unhandled exceptions)",
+        "Review test suite maintenance (test review review tests quarterly remove obsolete tests add tests for new features, test data refresh test datasets annually new vendors/new vulnerabilities/new regulations, validation verify tests still passing update for API changes)",
+        "Check test quality metrics (mutation testing mutmut Python/PIT Java/Stryker JavaScript, mutation score ≥80% tests catch ≥80% of injected bugs, property-based testing Hypothesis Python/QuickCheck Haskell/fast-check JavaScript for invariants)"
+      ],
+      "evidence": [
+        "Test coverage report (code coverage ≥80% line coverage, ≥70% branch coverage; functional coverage all features tested, edge case coverage boundary conditions/error paths; tools pytest-cov/JaCoCo/Istanbul; ≥80% code coverage 100% critical paths tested)",
+        "Critical path test results (risk scoring algorithm, SBOM vulnerability matching, compliance validation; 100% critical paths have automated tests, all critical business logic tested, identified untested paths added tests)",
+        "API error handling coverage report (count error codes with handling / total possible error codes; all HTTP 4xx/5xx error codes tested, 100% API error codes handled no unhandled exceptions)",
+        "Test suite maintenance records (quarterly test review removed obsolete/added new features, annual test data refresh new vendors/vulnerabilities/regulations, tests passing updated for API changes)",
+        "Test quality metrics (mutation testing mutmut/PIT/Stryker, mutation score ≥80% tests catch ≥80% bugs; property-based testing Hypothesis/QuickCheck/fast-check for invariants)"
+      ],
+      "scoring": {
+        "yes_if": "Test coverage measured with ≥80% code coverage (line ≥80%, branch ≥70%), functional coverage all features tested, edge case coverage boundary conditions/error paths; tools pytest-cov/JaCoCo/Istanbul; 100% critical paths tested (risk scoring, SBOM vulnerability matching, compliance validation), API error handling 100% error codes handled all HTTP 4xx/5xx no unhandled exceptions, test suite maintenance (quarterly review removed obsolete/added new features, annual test data refresh new vendors/vulnerabilities/regulations, tests passing updated API changes), test quality (mutation testing ≥80% score, property-based testing for invariants)",
+        "partial_if": "Test coverage measured but <75% code coverage or <65% branch coverage or critical paths <95% tested or API error handling <95% codes or no test suite maintenance or no mutation testing",
+        "no_if": "No test coverage measurement or <70% code coverage or <60% branch coverage or critical paths <90% tested or API error handling <90% codes or no test suite maintenance"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Risk assessment accuracy and validation",
+      "target": "≥85% agreement with expert assessments (±10 points on 0-100 scale); Risk tier classification ≥90% accuracy; Historical validation high-risk vendors ≥2x breach rate vs. low-risk, AUC ≥0.70 for breach prediction",
+      "measurement": "Risk scoring: Compare ML-generated scores vs. expert manual assessments, calculate agreement rate ±10 points; Tier classification: Confusion matrix ML vs. expert tier assignments, calculate accuracy; Historical validation: Breach rate high-risk vendors / breach rate low-risk vendors, ROC curve AUC for breach prediction",
+      "data_source": "Risk scoring: 100+ vendor test set with expert-assigned scores (diverse industries, risk levels); Tier classification: 50+ vendors per tier with expert tier assignments; Historical validation: Vendors with known breaches 2020-2024, breach dates and outcomes",
+      "frequency": "Risk scoring accuracy: quarterly evaluation on new test set; Tier classification: quarterly; Historical validation: annual retrospective analysis",
+      "baseline": "Risk scoring: Initial ML model 75-80% agreement before tuning; Tier classification: 80-85% accuracy rule-based; Historical validation: AUC 0.55-0.65 random baseline",
+      "validation": "Independent expert review 100 random vendor risk scores quarterly verify ≥85% agreement ±10 points; Tier classification audit 200 vendors quarterly verify ≥90% accuracy; Historical validation retrospective analysis all vendor breaches year verify high-risk ≥2x breach rate, ROC curve AUC ≥0.70"
+    },
+    {
+      "metric": "Data integration reliability and entity resolution accuracy",
+      "target": "All data sources (questionnaires, BitSight, SecurityScorecard, UpGuard, breach databases, SBOMs, threat intel) integrate correctly, handle API errors gracefully (retry with backoff); Entity resolution ≥95% accuracy matching same vendor across sources, ≤2% false merges",
+      "measurement": "Data integration: Count successful integrations / total sources, error handling test all API error codes (timeouts, rate limits, auth failures, malformed responses) verify graceful handling; Entity resolution: Test set known duplicate vendors and known different vendors, calculate accuracy (correct matches + correct non-matches) / total",
+      "data_source": "Data integration: API integration logs (success/failure by source), error handling test results (simulated API errors); Entity resolution: Test set 200+ vendor pairs (100 duplicates, 100 non-duplicates) with ground truth labels",
+      "frequency": "Data integration: continuous monitoring, weekly review; Entity resolution: monthly testing on test set",
+      "baseline": "Data integration: 80-90% success rate without retry logic; Entity resolution: 80-90% accuracy manual matching pre-automation",
+      "validation": "Weekly synthetic API calls to all sources validate connectivity and error handling; Monthly entity resolution audit (manual review 50 random vendor pairs verify correct matching/non-matching)"
+    },
+    {
+      "metric": "Continuous monitoring coverage and breach detection latency",
+      "target": "100% of vendors monitored per tier schedule (Critical daily, High weekly, Medium monthly, Low quarterly); All critical changes detected within ≤24 hours; Vendor breaches detected ≤24 hours from public disclosure; ≤10% false positive rate on alerts",
+      "measurement": "Monitoring coverage: Count vendors monitored per tier / total vendors per tier; Change detection latency: Time from change event to system detection (median, P95); Breach detection latency: Time from public disclosure to system alert (median, P95); False positive rate: False positive alerts / total alerts",
+      "data_source": "Monitoring coverage: Vendor monitoring system logs (polling/webhook events by vendor tier); Change detection: Simulated vendor changes with timestamps; Breach detection: Historical breaches public disclosure dates vs. system alert timestamps; False positives: Alert validation (manual review alerts determine true/false positives)",
+      "frequency": "Monitoring coverage: daily automated check; Change detection latency: tested weekly with simulated changes; Breach detection latency: measured per incident; False positive rate: monthly review of alerts",
+      "baseline": "Monitoring coverage: 40-70% vendors monitored manually pre-automation; Change detection: 24-72 hours manual; Breach detection: 7-30 days manual discovery; False positive rate: 15-25% without tuning",
+      "validation": "Daily monitoring coverage check (automated script verify all vendors monitored per tier schedule); Weekly change detection test (simulate rating drop/breach/cert expiration verify ≤24 hr detection); Post-incident breach detection review (compare our detection time to public disclosure); Monthly false positive audit (manual review 100 random alerts verify ≤10% false positives)"
+    },
+    {
+      "metric": "SBOM parsing and vulnerability scanning accuracy",
+      "target": "100% of valid SBOMs parsed correctly (SPDX, CycloneDX, SWID); ≥95% vulnerable package detection (true positives), ≤5% false positives; Transitive dependency analysis ≥5 levels deep; Supply chain attack detection ≥80% of indicators detected",
+      "measurement": "SBOM parsing: Count valid SBOMs parsed successfully / total valid SBOMs; Vulnerability detection: Precision = true positives / (true positives + false positives); Recall = true positives / (true positives + false negatives); Transitive depth: Maximum dependency depth achieved; Supply chain: Count attack indicators detected / total indicators in test set",
+      "data_source": "SBOM parsing: Test set 100+ valid SBOMs (SPDX, CycloneDX, SWID diverse formats/ecosystems); Vulnerability detection: Test set 50+ known vulnerable packages (with CVEs), 100+ clean packages (no known CVEs); Transitive depth: Complex dependency trees (React→Babel→core-js→... ≥5 levels); Supply chain: Known attack examples (typosquatting, suspicious packages, anomalous updates)",
+      "frequency": "SBOM parsing: tested monthly with new SBOMs; Vulnerability detection: quarterly evaluation on test set; Transitive depth: validated per SBOM upload; Supply chain: monthly test with known attack patterns",
+      "baseline": "SBOM parsing: 85-95% without robust error handling; Vulnerability detection: Precision 80-90%, Recall 75-85% before tuning; Transitive depth: 1-2 levels manual; Supply chain: 50-70% detection without dedicated detection",
+      "validation": "Monthly SBOM parsing test (100+ valid SBOMs all formats verify 100% parsed correctly, all components extracted); Quarterly vulnerability detection audit (test set 50 vulnerable + 100 clean packages verify ≥95% true positives ≤5% false positives); Monthly transitive analysis validation (complex dependency trees verify ≥5 levels deep complete graph); Monthly supply chain test (known attacks typosquatting/suspicious packages/anomalous updates verify ≥80% detected)"
+    },
+    {
+      "metric": "Compliance automation and certificate validation accuracy",
+      "target": "100% of regulatory requirements validated in testing (GDPR, CCPA, HIPAA, PCI-DSS); ≥85% compliance gap detection vs. manual legal review; ≥90% of DPA issues identified automatically; ≥90% forged certificates detected",
+      "measurement": "Regulatory validation: Count regulations correctly validated / total applicable regulations; Compliance gap detection: Count gaps detected automatically / count gaps detected by manual legal review; DPA issues: Count DPA issues identified automatically / total DPA issues (manual review ground truth); Certificate forgery: Count forged certificates detected / total forged certificates in test set",
+      "data_source": "Regulatory validation: Test scenarios EU customer data (GDPR), CA residents (CCPA), healthcare (HIPAA), payment (PCI-DSS); Compliance gap detection: 50+ vendor contracts with manual legal review ground truth; DPA issues: 30+ DPAs (valid and invalid) with manual review ground truth; Certificate forgery: Test set 30 certificates (20 valid, 10 forged)",
+      "frequency": "Regulatory validation: quarterly test all jurisdictions; Compliance gap detection: quarterly on new contracts; DPA issues: monthly on new DPAs; Certificate forgery: monthly with test set",
+      "baseline": "Regulatory validation: 60-80% manual process; Compliance gap detection: 0-40% automated pre-NLP; DPA issues: 0-50% automated; Certificate forgery: 50-70% detection without verification",
+      "validation": "Quarterly regulatory validation test (GDPR, CCPA, HIPAA, PCI-DSS scenarios verify 100% requirements validated, spot-check 20+ vendors per regulation); Quarterly compliance gap audit (50+ contracts manual legal review compare to automated detection verify ≥85% gap detection); Monthly DPA validation (30+ DPAs manual review compare to automated detection verify ≥90% issues identified); Monthly certificate forgery test (30 certificates 20 valid 10 forged verify ≥90% forged detected, valid accepted)"
+    },
+    {
+      "metric": "Performance, scalability, and throughput",
+      "target": "Supports ≥1,000 vendors without degradation (API response ≤2 sec, 50+ concurrent users); ≥100 vendor assessments/hour; ≥50 SBOMs/hour, large SBOMs ≥10K components ≤10 min; Database scalability (10K vendors, 100K assessments, 1M audit logs, all queries ≤5 sec)",
+      "measurement": "Vendor scale: P95 API response time with 1,000 vendors; Concurrent users: Response times under 50+ concurrent user load; Assessment throughput: Vendor assessments completed / hour; SBOM throughput: SBOMs processed / hour; Large SBOM performance: Time to process 10K component SBOM; Database queries: P95 query latency with 10K vendors, 100K assessments, 1M audit logs",
+      "data_source": "Vendor scale: Load testing results (1,000 vendors, API response times); Concurrent users: Load testing 50+ concurrent users (response times); Assessment throughput: Batch assessment logs (500 vendors, time to completion); SBOM throughput: SBOM processing logs (100 SBOMs, varying sizes, time to completion); Database queries: Performance testing logs (10K vendors, 100K assessments, 1M audit logs, query latencies)",
+      "frequency": "Vendor scale: quarterly load testing; Concurrent users: quarterly; Assessment throughput: monthly; SBOM throughput: monthly; Database queries: quarterly",
+      "baseline": "Vendor scale: P95 API 3-5 sec without optimization; Concurrent users: 10-20 users without optimization; Assessment throughput: 50-75/hour manual; SBOM throughput: 25-40/hour; Database queries: P95 10-20 sec without indexes",
+      "validation": "Quarterly load test (1,000 vendors realistic distribution 100 Critical/300 High/400 Medium/200 Low, verify API response P95 ≤2 sec, 50+ concurrent users response times ≤5 sec); Monthly assessment throughput test (batch assess 500 vendors verify ≥100/hour); Monthly SBOM throughput test (100 SBOMs 10-10K components verify ≥50/hour, large SBOMs ≥10K components ≤10 min); Quarterly database scalability test (10K vendors, 100K assessments, 1M audit logs verify all queries P95 ≤5 sec, writes ≤1 sec)"
+    },
+    {
+      "metric": "Adversarial attack detection and resilience",
+      "target": "≥80% adversarial attack detection (risk score manipulation, data source poisoning, SBOM tampering, compliance forgery); System recovers from failures within ≤5 minutes; No data loss during failures; ≤10% false positive rate on alerts",
+      "measurement": "Attack detection: Count attacks detected / total simulated attacks by type (risk manipulation, data poisoning, SBOM tampering, compliance forgery); Resilience: Time from failure injection to system recovery (median, P95); Data loss: Verify no data lost during failures (compare pre-failure vs. post-recovery data); False positive rate: False positive alerts / total alerts",
+      "data_source": "Attack detection: Simulated adversarial attacks (fake certifications, manipulated ratings, false breach data, tampered SBOMs, forged certificates); Resilience: Chaos engineering tests (API failures, database failures, network partitions, data loss verification); False positive rate: Alert validation (manual review)",
+      "frequency": "Attack detection: monthly adversarial testing; Resilience: quarterly chaos engineering; Data loss: validated per resilience test; False positive rate: monthly alert review",
+      "baseline": "Attack detection: 50-70% without dedicated detection; Resilience: 10-30 min manual recovery; Data loss: 5-15% data loss typical; False positive rate: 15-25% without tuning",
+      "validation": "Monthly adversarial testing (simulate risk score manipulation fake certifications/manipulated ratings, data source poisoning false breach data, SBOM tampering removed vulnerabilities, compliance forgery forged SOC 2/ISO 27001; verify ≥80% detected); Quarterly chaos engineering (inject API failures, database failures, network partitions; verify system recovers ≤5 min, no data loss comparing pre-failure vs. post-recovery data); Monthly false positive audit (manual review 100 random alerts verify ≤10% false positives)"
+    }
+  ]
+}

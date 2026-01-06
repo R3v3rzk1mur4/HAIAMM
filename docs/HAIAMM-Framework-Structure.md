@@ -13,13 +13,13 @@
 
 - ✅ "Human Assisted Intelligence" (no hyphen between Assisted and Intelligence)
 - ✅ Abbreviated as "HAI" when referring to systems
-- ✅ Full name: HAIAMM (not HAI-AMM)
+- ✅ Full name: HAIAMM Human Assisted Intelligence Assurance Maturity Model
 
 ---
 
 ## Framework Purpose
 
-HAIAMM provides a maturity framework for organizations designing and implementing artificial intelligence solutions to:
+HAIAMM is a maturity framework for organizations designing and implementing artificial intelligence solutions to assist human capabilities in a organization or business:
 
 - **Automate workflows** - AI systems handling business processes
 - **Conduct tasks and analysis** - Security testing, code analysis for vulnerabilities, data processing
@@ -32,7 +32,7 @@ HAIAMM provides a maturity framework for organizations designing and implementin
 
 ## Framework Foundation
 
-**Based on:** OWASP OpenSAMM v1.0 with extensions from Pravir Chandra's "Future Directions" (3/27/2015)
+**Based on:** OWASP Open Software Assurance Maturity Model v1.0 with extensions from Pravir Chandra's "Future Directions" presented in (3/27/2015)
 
 **Key Innovations:**
 1. **Multi-Domain Architecture** - 6 domains covering complete technology stack
@@ -61,7 +61,7 @@ HAIAMM provides a maturity framework for organizations designing and implementin
 Organizations building and deploying HAI solutions perform 4 business functions:
 
 ### 1. Governance
-**Purpose:** How you govern, measure, and educate around HAI
+**Purpose:** How you govern, measure, and educate around secure Human Assisted Intelligence
 
 **Practices:**
 - Strategy & Metrics (SM)
@@ -71,7 +71,7 @@ Organizations building and deploying HAI solutions perform 4 business functions:
 ---
 
 ### 2. Building
-**Purpose:** How you design and build HAI systems responsibly
+**Purpose:** How you design and build HAI systems responsibly secure
 
 **Practices:**
 - Threat Assessment (TA)
@@ -81,7 +81,7 @@ Organizations building and deploying HAI solutions perform 4 business functions:
 ---
 
 ### 3. Verification
-**Purpose:** How you verify HAI systems work correctly and safely
+**Purpose:** How you verify HAI systems work correctly and safely, secure
 
 **Practices:**
 - Design Review (DR)
@@ -161,7 +161,7 @@ Each practice-domain combination has **3 maturity levels:**
 ### Level 1: Foundational
 - **Focus:** Essential practices for minimally viable HAI governance
 - **Characteristics:** Basic processes, documented, happening at least once
-- **Example:** "We have documented security requirements for this HAI system"
+- **Example:** "We have documented security requirements for this Human Assisted Intelligence systems assisting security testing of APIs"
 
 ### Level 2: Comprehensive
 - **Focus:** Systematic, organization-wide practices
@@ -192,11 +192,7 @@ Each practice-domain combination has **3 maturity levels:**
 - ✅ Practice names capitalized: "Strategy & Metrics", "Design Review"
 - ✅ Business functions capitalized: "Governance", "Building", "Verification", "Operations"
 - ✅ Domains capitalized: "Software", "Data", "Infrastructure", "Vendors", "Processes", "Endpoints"
-
-### Hyphenation
-- ❌ "Human-Assisted Intelligence" (incorrect - no hyphen)
 - ✅ "Human Assisted Intelligence" (correct)
-- ✅ "HAI system" (not "HAI-system")
 - ✅ "practice-domain combination" (hyphenated compound modifier)
 
 ### Abbreviations
@@ -291,7 +287,7 @@ Each practice-domain combination has **3 maturity levels:**
 ## What HAIAMM is NOT
 
 **HAIAMM is not designed for:**
-- ❌ Fully autonomous AI systems (no human oversight)
+- ❌ Fully autonomous AI systems (no human oversight). Perhaps future versions will be
 - ❌ General AI ethics frameworks (broader scope than HAIAMM)
 - ❌ AI model development best practices only (HAIAMM covers full lifecycle)
 - ❌ AI risk management frameworks only (HAIAMM covers trust, safety, security, and maturity)
@@ -299,7 +295,7 @@ Each practice-domain combination has **3 maturity levels:**
 **HAIAMM complements:**
 - ✅ NIST AI Risk Management Framework (adds maturity assessment)
 - ✅ ISO/IEC 27001 (extends for HAI-specific controls)
-- ✅ OWASP SAMM (adds multi-domain + HAI-specific practices)
+- ✅ SAMM (adds multi-domain + HAI-specific practices)
 - ✅ Industry regulations (EU AI Act, etc.) - provides implementation framework
 
 ---

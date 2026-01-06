@@ -1,0 +1,396 @@
+{
+  "practice": "ML",
+  "domain": "data",
+  "name": "Monitoring & Logging - Data Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ml-data-1-1",
+      "question": "Do you maintain comprehensive sensitive data access logging with 100% coverage for Restricted/PII/PHI, context capture (user, classification, resource, action), and regulatory retention (GDPR ≥3 years, HIPAA ≥6 years)?",
+      "verification": [
+        "Review classified data access logging (100% for Restricted/PII/PHI, 10% sampling for Internal)",
+        "Check context capture (user ID, data classification, resource path, timestamp, action: read/write/delete/download, access method: API/database/file system)",
+        "Verify database query logging (sensitive tables/columns, bulk downloads >1000 rows, SELECT * on sensitive tables)",
+        "Confirm object storage logging (AWS S3, Azure Blob, GCS: read/write/delete/list on sensitive buckets)",
+        "Review retention compliance (GDPR ≥3 years, HIPAA ≥6 years, PCI-DSS ≥1 year)"
+      ],
+      "evidence": [
+        "Data access logging configuration (100% Restricted/PII/PHI, 10% Internal sampling)",
+        "Log context documentation (user, classification, resource, action, method)",
+        "Database query logs (sensitive tables, bulk downloads, SELECT * queries)",
+        "Object storage access logs (S3 Access Logging, Azure Storage Analytics, GCS Audit Logs)",
+        "Retention policy (GDPR ≥3 years, HIPAA ≥6 years, PCI-DSS ≥1 year)"
+      ],
+      "scoring": {
+        "yes_if": "100% logging for Restricted/PII/PHI, comprehensive context (user, classification, resource, action, method), database query logging (sensitive tables, bulk, SELECT *), object storage logging (S3/Azure/GCS), retention compliant (GDPR ≥3y, HIPAA ≥6y, PCI ≥1y)",
+        "partial_if": "≥90% logging or limited context or retention <required (GDPR <3y, HIPAA <6y)",
+        "no_if": "<90% logging or no context or retention <1 year or no compliance logging"
+      }
+    },
+    {
+      "id": "ml-data-1-2",
+      "question": "Do you detect anomalous data access with baseline establishment, real-time alerts on mass downloads (>100 files/hour), off-hours access, geographic anomalies, and insider threat indicators?",
+      "verification": [
+        "Review baseline establishment (30-day baseline: files per user per day, typical access times, common sources)",
+        "Check anomalous access detection (mass download >100 sensitive files in 1 hour, off-hours access at 2 AM when user works 9-5, geographic anomaly from new country, lateral movement outside typical department/role)",
+        "Verify real-time alerting (alerts to security team, optional access throttling)",
+        "Confirm insider threat monitoring (employee accessing data unrelated to job, terminated employee access, elevated access spike before resignation, USB transfers of classified data)",
+        "Review HR integration (correlate with resignation dates, performance issues)"
+      ],
+      "evidence": [
+        "Baseline configuration (30-day baseline, statistical analysis: mean, std dev)",
+        "Anomalous access detection rules (mass download, off-hours, geographic, lateral movement)",
+        "Real-time alerting configuration (security team alerts, access throttling)",
+        "Insider threat indicators (unrelated data access, terminated employee, resignation spike, USB transfers)",
+        "HR system integration (resignation correlation, performance issues)"
+      ],
+      "scoring": {
+        "yes_if": "Baseline established (30-day), anomalous detection (mass download >100/hour, off-hours, geographic, lateral movement), real-time alerts (security team, throttling), insider threat monitoring (unrelated access, terminated, resignation spike, USB), HR integration",
+        "partial_if": "Baseline established but limited anomaly detection (2/4 types) or no real-time alerts or no HR integration",
+        "no_if": "No baseline or <2 anomaly types or no insider threat monitoring"
+      }
+    },
+    {
+      "id": "ml-data-1-3",
+      "question": "Do you log all AI classification decisions with 100% metadata, manual overrides with justification, and classification changes with reason tracking?",
+      "verification": [
+        "Review AI classification result logging (100% metadata: data item, classification label: Public/Internal/Confidential/Restricted/PII/PHI/PCI, confidence score 0-100%, model version; 10% with detailed features privacy-preserving)",
+        "Check manual classification override logging (user ID, data item, original classification, new classification, justification/reason)",
+        "Verify classification change logging (previous classification, new classification, reason: policy change/manual review/new data, timestamp)",
+        "Confirm weekly override analysis (most common override reasons reported)",
+        "Review audit trail (all classification decisions auditable for compliance)"
+      ],
+      "evidence": [
+        "AI classification logging (100% metadata: item, label, confidence, model version; 10% detailed features)",
+        "Manual override logging (user, data item, original, new, justification)",
+        "Classification change logging (previous, new, reason, timestamp)",
+        "Weekly override reports (common reasons analyzed)",
+        "Classification audit trail (all decisions auditable)"
+      ],
+      "scoring": {
+        "yes_if": "100% AI classification metadata logged (item, label, confidence, model version), manual overrides logged (user, justification), classification changes tracked (previous, new, reason), weekly override analysis, audit trail",
+        "partial_if": "≥90% logging or limited override logging (no justification) or no classification change tracking",
+        "no_if": "<90% logging or no override logging or no audit trail"
+      }
+    },
+    {
+      "id": "ml-data-1-4",
+      "question": "Do you monitor classification model performance with real-time accuracy metrics (≥90% overall, ≥85% per type), drift detection (>20% feature shift alert), and confidence distribution analysis (<80% route to human review)?",
+      "verification": [
+        "Review accuracy metrics (precision, recall, F1, false positive rate, false negative rate per data type: PII, PHI, PCI, credentials; calculated from ground truth: manual reviews, user feedback; real-time calculation, hourly aggregation, daily reports)",
+        "Check accuracy alerts (alert if accuracy drops below threshold: ≤90% overall, ≤85% per data type)",
+        "Verify drift detection (data drift: monitor feature statistics, alert when distribution shifts >20% from baseline; concept drift: monitor accuracy degradation over time, trigger retraining)",
+        "Confirm confidence distribution monitoring (track distribution, route low confidence <80% to human review)",
+        "Review per-data-type performance (breakdown: PII SSN/email/phone, PHI diagnosis/records, PCI credit card, credentials keys/passwords; identify weak areas)"
+      ],
+      "evidence": [
+        "Accuracy metrics dashboard (precision, recall, F1, FP/FN per type: PII, PHI, PCI, credentials; real-time, hourly, daily)",
+        "Accuracy alert configuration (≤90% overall, ≤85% per type thresholds)",
+        "Drift detection configuration (data drift >20% feature shift, concept drift accuracy degradation triggers retraining)",
+        "Confidence distribution analysis (low confidence <80% routed to human review)",
+        "Per-data-type performance breakdown (PII, PHI, PCI, credentials; weak area identification)"
+      ],
+      "scoring": {
+        "yes_if": "Real-time accuracy metrics (precision, recall, F1, FP/FN per type), alerts (≤90% overall, ≤85% per type), drift detection (>20% shift alerts, retraining triggers), confidence routing (<80% to human), per-type breakdown (weak areas identified)",
+        "partial_if": "Accuracy metrics but no real-time alerts or limited drift detection or no confidence routing",
+        "no_if": "No accuracy metrics or no drift detection or no per-type breakdown"
+      }
+    },
+    {
+      "id": "ml-data-1-5",
+      "question": "Do you monitor classification coverage with ≥95% data classified, unclassified tracking, and classification latency ≤1 hour for new data?",
+      "verification": [
+        "Review classification coverage metrics (% of data classified vs unclassified, classification backlog size)",
+        "Check coverage alerts (alert if classification coverage drops below 95%)",
+        "Verify classification latency monitoring (time from data creation to classification completion; targets: ≤1 hour for new data, real-time for DLP scanning)",
+        "Confirm latency alerts (alert if classification latency >24 hours)",
+        "Review comprehensive data inventory (ensure all data discovered and classified)"
+      ],
+      "evidence": [
+        "Classification coverage metrics (% classified, backlog size)",
+        "Coverage alert configuration (alert at <95% coverage)",
+        "Classification latency metrics (time from creation to classification; targets: ≤1h new, real-time DLP)",
+        "Latency alert configuration (alert at >24h latency)",
+        "Comprehensive data inventory (all data discovered and classified)"
+      ],
+      "scoring": {
+        "yes_if": "≥95% data classified (coverage metrics tracked), coverage alerts (<95%), classification latency ≤1h for new data (real-time DLP), latency alerts (>24h), comprehensive data inventory",
+        "partial_if": "≥90% classified or latency ≤24h or limited inventory or no alerts",
+        "no_if": "<90% classified or latency >24h or no coverage tracking"
+      }
+    },
+    {
+      "id": "ml-data-1-6",
+      "question": "Do you log all DLP policy violations with comprehensive context (user, classification, sensitive types, channel, action, destination, severity), exfiltration attempts with real-time alerts, and false positive tracking?",
+      "verification": [
+        "Review DLP event logging (all violations logged: blocked, alerted, audit-only; context: user ID, data classification, sensitive types: PII/PHI/PCI, channel: email/chat/upload/clipboard/cloud sync/USB/print/screen capture, action: blocked/warned/alerted/logged, destination)",
+        "Check severity levels (Critical: Restricted to external blocked, High: Confidential to unauthorized blocked, Medium: potential FP user override with justification, Low: warning educated but allowed)",
+        "Verify exfiltration attempt logging (personal email Gmail/Yahoo/Outlook.com, personal cloud Dropbox/Drive, USB, large volume >1GB/hour; context: user, volume, classification, destination, timestamp, blocked/allowed; real-time alert to security, automatic SIEM case)",
+        "Confirm false positive tracking (user reports FP, user overrides with justification, analyst reviews/updates policy; purpose: tune DLP reduce FP, measure accuracy, identify legitimate workflows; target: ≤5% FP rate per rule)"
+      ],
+      "evidence": [
+        "DLP event logging configuration (all violations: blocked/alerted/audit; comprehensive context: user, classification, types, channel, action, destination)",
+        "DLP severity levels (Critical external, High unauthorized, Medium FP override, Low warning)",
+        "Exfiltration attempt logging (personal email/cloud/USB, large volume >1GB/hour; real-time alerts, SIEM cases)",
+        "False positive tracking (user reports, override justifications, analyst reviews, policy tuning; ≤5% FP rate target)"
+      ],
+      "scoring": {
+        "yes_if": "100% DLP violation logging (comprehensive context: user, classification, types, channel, action, destination), severity levels (Critical/High/Medium/Low), exfiltration logging (personal email/cloud/USB, >1GB/hour, real-time alerts, SIEM cases), FP tracking (reports, justifications, tuning, ≤5% target)",
+        "partial_if": "≥90% logging or limited context or no severity levels or no exfiltration alerts or FP rate >10%",
+        "no_if": "<90% logging or no context or no exfiltration logging or no FP tracking"
+      }
+    },
+    {
+      "id": "ml-data-1-7",
+      "question": "Do you monitor DLP effectiveness with ≥85% detection rate, 100% channel coverage, bypass attempt detection, and performance (email ≤100ms, chat ≤50ms, upload ≤200ms/MB, throughput ≥10K docs/hour, ≥100K emails/hour)?",
+      "verification": [
+        "Review DLP detection rate (% of known sensitive data exfiltration attempts blocked; testing: regular red team exercises, synthetic data exfiltration; target: ≥85% detection)",
+        "Check DLP channel coverage (channels: email, chat, file upload, clipboard, cloud sync, USB, print, screen capture; target: 100% coverage for all defined channels)",
+        "Verify DLP bypass detection (encoding evasion base64, obfuscation typos/spacing/leetspeak, channel hopping blocked on email→tries chat, fragmentation PII in pieces; response: alert security, flag user, enhance rules)",
+        "Confirm DLP scanning latency (email ≤100ms, chat ≤50ms, file upload ≤200ms/MB; alerts if user-perceptible delay >1 second)",
+        "Review DLP throughput (≥10,000 documents/hour, ≥100,000 emails/hour; capacity planning: track trends, predict scaling)"
+      ],
+      "evidence": [
+        "DLP detection rate (≥85% on red team exercises, synthetic exfiltration tests)",
+        "DLP channel coverage (100% for email, chat, upload, clipboard, cloud sync, USB, print, screen capture)",
+        "DLP bypass detection (encoding, obfuscation, channel hopping, fragmentation; alerts, user flags, rule enhancements)",
+        "DLP scanning latency (email ≤100ms, chat ≤50ms, upload ≤200ms/MB; alerts at >1s delay)",
+        "DLP throughput (≥10K docs/hour, ≥100K emails/hour; capacity planning)"
+      ],
+      "scoring": {
+        "yes_if": "≥85% detection rate (red team validated), 100% channel coverage (≥8 channels), bypass detection (encoding, obfuscation, hopping, fragmentation), latency targets (email ≤100ms, chat ≤50ms, upload ≤200ms/MB), throughput (≥10K docs/hour, ≥100K emails/hour)",
+        "partial_if": "≥75% detection or 80% channel coverage or limited bypass detection or latency >150ms or throughput ≥5K docs/hour",
+        "no_if": "<75% detection or <70% channel coverage or no bypass detection or latency >200ms or throughput <5K docs/hour"
+      }
+    },
+    {
+      "id": "ml-data-1-8",
+      "question": "Do you monitor differential privacy budget with real-time tracking, alerts at 80%/95%/100% consumption, automatic query blocking at 100%, and noise addition verification?",
+      "verification": [
+        "Review privacy budget tracking (total ε budget, budget consumed per query, budget remaining, queries performed; real-time dashboard showing budget consumption over time)",
+        "Check privacy budget alerts (warning at 80% consumed, critical at 95% consumed, automatic query blocking at 100% consumed; purpose: enforce limits, prevent exhaustion breaking privacy guarantees)",
+        "Verify per-user/dataset tracking (budget consumed per user, per dataset, per application; purpose: identify heavy users, enforce per-user limits, detect abuse)",
+        "Confirm noise addition verification (log noise magnitude, verify matches configured ε and δ; periodic audits ensure implementation correct; purpose: detect bugs in privacy implementation)"
+      ],
+      "evidence": [
+        "Privacy budget tracking dashboard (total ε, consumed per query, remaining, queries; real-time visualization)",
+        "Privacy budget alert configuration (80% warning, 95% critical, 100% blocking)",
+        "Per-user/dataset budget tracking (per user, per dataset, per application consumption)",
+        "Noise addition verification (noise magnitude logs, ε/δ parameter validation, periodic audits)"
+      ],
+      "scoring": {
+        "yes_if": "Real-time privacy budget tracking (total ε, consumed, remaining, queries, dashboard), alerts (80% warning, 95% critical, 100% blocking), per-user/dataset tracking (identify heavy users, enforce limits), noise verification (magnitude logs, ε/δ validation, audits)",
+        "partial_if": "Budget tracking but no real-time dashboard or limited alerts (no 80% warning) or no per-user tracking or no noise verification",
+        "no_if": "No budget tracking or no alerts or no query blocking at 100% or no noise verification"
+      }
+    },
+    {
+      "id": "ml-data-1-9",
+      "question": "Do you monitor federated learning with training metrics (active participants, dropout, accuracy per round, convergence), privacy attack detection (gradient inversion), and data leakage detection (zero raw data transmitted)?",
+      "verification": [
+        "Review federated training metrics (active participants, dropped participants, model accuracy per round, convergence progress, gradient update statistics: magnitude/distribution, aggregation rounds completed, time per round)",
+        "Check federated alerts (convergence failure, participant dropout >20%)",
+        "Verify privacy attack detection (unusual gradient patterns suggesting data reconstruction attempts; monitoring: gradient magnitude, participant behavior anomalies; response: flag suspicious participants, investigate)",
+        "Confirm data leakage detection (network traffic inspection, verify only model updates sent; periodic audits ensure no raw data leakage; target: zero raw data leakage events)"
+      ],
+      "evidence": [
+        "Federated training metrics (participants, dropout, accuracy per round, convergence, gradient stats, aggregation rounds, time per round)",
+        "Federated alert configuration (convergence failure, dropout >20%)",
+        "Privacy attack detection (gradient pattern monitoring, participant anomalies, suspicious flagging)",
+        "Data leakage detection (network inspection, model update verification, raw data audits; zero leakage target)"
+      ],
+      "scoring": {
+        "yes_if": "Comprehensive federated metrics (participants, dropout, accuracy, convergence, gradients, rounds, time), alerts (convergence failure, dropout >20%), privacy attack detection (gradient patterns, anomalies, flagging), data leakage detection (network inspection, zero raw data)",
+        "partial_if": "Basic metrics (participants, accuracy) but limited attack detection or no leakage detection or no alerts",
+        "no_if": "No federated metrics or no attack detection or raw data leakage found"
+      }
+    },
+    {
+      "id": "ml-data-1-10",
+      "question": "Do you monitor homomorphic encryption with encrypted computation logging, performance metrics (latency, overhead), and plaintext leakage detection (zero leakage target)?",
+      "verification": [
+        "Review encrypted computation logging (events: data encrypted, computation performed on encrypted data, results decrypted; metrics: computation latency, encryption overhead; purpose: performance monitoring, audit trail)",
+        "Check plaintext leakage detection (monitoring: memory inspection, network traffic analysis; validation: ensure no plaintext exposed during encrypted computation; target: zero plaintext leakage events)",
+        "Verify homomorphic encryption performance (computation latency tracked, encryption overhead measured)",
+        "Confirm audit trail (all encrypted operations logged for compliance)"
+      ],
+      "evidence": [
+        "Encrypted computation logging (data encrypted, computation, decryption events; latency, overhead metrics)",
+        "Plaintext leakage detection (memory inspection, network analysis, zero plaintext exposure validation; zero leakage target)",
+        "Homomorphic encryption performance metrics (computation latency, encryption overhead)",
+        "Encrypted operation audit trail (all operations logged for compliance)"
+      ],
+      "scoring": {
+        "yes_if": "Encrypted computation logging (encrypt, compute, decrypt events; latency, overhead metrics), plaintext leakage detection (memory/network inspection, zero exposure validation, zero leakage target), performance tracking (latency, overhead), audit trail",
+        "partial_if": "Computation logging but limited leakage detection (no memory inspection) or no performance tracking or no audit trail",
+        "no_if": "No computation logging or no leakage detection or plaintext leakage found"
+      }
+    },
+    {
+      "id": "ml-data-1-11",
+      "question": "Do you maintain GDPR compliance logging with DSAR (≤30 day response, 20-day warning alerts), deletion (≤30 days, verification logged), consent (collection, withdrawal, updates), and cross-border transfer tracking?",
+      "verification": [
+        "Review DSAR logging (events: SAR received, data collected, response sent, deadline status; context: data subject ID, request date, completion date, data provided, compliance within 30 days Article 15; metrics: SAR response time; alerts: at 20 days if not completed 10-day warning)",
+        "Check deletion request logging (events: request received, data identified, deletion executed, verification completed; context: data subject ID, data locations databases/backups/logs/archives, deletion timestamp, verification method; compliance: Article 17 within 30 days, verification logged for ALL systems)",
+        "Verify consent logging (events: consent collected, consent purpose, consent withdrawal, consent updates; context: data subject ID, consent purpose e.g. 'AI training', consent timestamp, withdrawal timestamp; purpose: Article 6 lawful basis, Article 7 consent; retention: ≥3 years evidence)",
+        "Confirm cross-border transfer logging (events: data transferred to third country, transfer mechanism SCCs/adequacy; context: data subject, destination country, transfer mechanism, timestamp, legal basis; purpose: Chapter V compliance; alerts: transfers to countries without adequacy high risk)"
+      ],
+      "evidence": [
+        "DSAR logging (received, collected, sent, deadline; ≤30 day response Article 15, 20-day warning alerts)",
+        "Deletion request logging (received, identified, executed, verified; ≤30 days Article 17, ALL systems verification)",
+        "Consent logging (collected, purpose, withdrawal, updates; Article 6/7, ≥3 year retention)",
+        "Cross-border transfer logging (third country transfers, SCCs/adequacy, destination, mechanism; Chapter V, no-adequacy alerts)"
+      ],
+      "scoring": {
+        "yes_if": "DSAR logging (≤30 day response Article 15, 20-day warnings), deletion logging (≤30 days Article 17, ALL systems verified), consent logging (collection, withdrawal, updates, Article 6/7, ≥3y retention), cross-border logging (transfers, SCCs/adequacy, Chapter V, alerts)",
+        "partial_if": "DSAR/deletion logged but >30 days or limited verification (not all systems) or consent <3y retention or no cross-border logging",
+        "no_if": "No DSAR logging or deletion >45 days or no consent logging or no cross-border tracking"
+      }
+    },
+    {
+      "id": "ml-data-1-12",
+      "question": "Do you maintain GDPR Article 30 data processing activity logging and DPIA logging for high-risk processing?",
+      "verification": [
+        "Review Article 30 processing activity logging (events: all data processing: collection, storage, analysis, deletion; context: purpose, legal basis, data categories, recipients, retention period; purpose: maintain record of processing activities Article 30 requirement; retention: ≥3 years)",
+        "Check DPIA logging (events: DPIA conducted, DPIA reviewed, high-risk processing approved/rejected; context: processing activity, risks identified, mitigations, DPO approval; purpose: Article 35 compliance)"
+      ],
+      "evidence": [
+        "Article 30 processing activity logging (all processing: collection, storage, analysis, deletion; purpose, legal basis, categories, recipients, retention; ≥3 year retention)",
+        "DPIA logging (conducted, reviewed, approved/rejected; processing activity, risks, mitigations, DPO approval; Article 35)"
+      ],
+      "scoring": {
+        "yes_if": "Article 30 logging (all processing: collection, storage, analysis, deletion; purpose, legal basis, categories, recipients, retention; ≥3y retention), DPIA logging (conducted, reviewed, approved/rejected, risks, mitigations, DPO approval, Article 35)",
+        "partial_if": "Article 30 logging but <3y retention or limited DPIA logging (no DPO approval) or incomplete context",
+        "no_if": "No Article 30 logging or no DPIA logging or retention <1 year"
+      }
+    },
+    {
+      "id": "ml-data-1-13",
+      "question": "Do you maintain CCPA compliance logging with right to know (≤45 days), right to delete (≤45 days), opt-out/do-not-sell enforcement, and non-discrimination validation?",
+      "verification": [
+        "Review right to know logging (events: consumer requests 'what data?', data disclosed; compliance: response within 45 days CCPA)",
+        "Check right to delete logging (events: deletion request, execution, confirmation sent; compliance: deletion within 45 days, confirmation to consumer)",
+        "Verify opt-out logging (events: consumer opts out of data sale, opt-out enforced; context: consumer ID, opt-out timestamp, enforcement verification; purpose: CCPA compliance do-not-sell)",
+        "Confirm non-discrimination logging (events: service provided to opted-out consumers; validation: verify equal service quality for opted-out users; purpose: CCPA non-discrimination requirement)"
+      ],
+      "evidence": [
+        "Right to know logging (consumer requests, data disclosed, ≤45 day response CCPA)",
+        "Right to delete logging (request, execution, confirmation, ≤45 days, consumer confirmation)",
+        "Opt-out logging (consumer opt-out, enforcement, timestamp, verification; do-not-sell CCPA)",
+        "Non-discrimination logging (service to opted-out, equal quality validation, CCPA non-discrimination)"
+      ],
+      "scoring": {
+        "yes_if": "Right to know (≤45 day response CCPA), right to delete (≤45 days, confirmation), opt-out logging (do-not-sell enforcement, verification), non-discrimination (service quality validation for opted-out)",
+        "partial_if": "Know/delete logged but >45 days or limited opt-out logging (no enforcement verification) or no non-discrimination validation",
+        "no_if": "No CCPA logging or know/delete >60 days or no opt-out logging or no non-discrimination"
+      }
+    },
+    {
+      "id": "ml-data-1-14",
+      "question": "Do you maintain HIPAA compliance logging with PHI access (user, resource, timestamp, action), audit trail (≥6 years), minimum necessary validation, and breach notification logging?",
+      "verification": [
+        "Review PHI access logging (events: all PHI access read/write/delete; context: user ID, PHI resource, timestamp, action, purpose/justification; retention: ≥6 years HIPAA)",
+        "Check minimum necessary validation (events: access validated against user role, excessive access flagged; purpose: HIPAA minimum necessary principle; validation: users only access PHI required for job function)",
+        "Verify audit trail generation (all PHI access logged for audit, tamper-evident logs, ≥6 year retention)",
+        "Confirm breach notification logging (events: potential breach detected, investigation conducted, notification sent; context: affected individuals, PHI involved, notification timeline; compliance: HIPAA breach notification within 60 days)"
+      ],
+      "evidence": [
+        "PHI access logging (all access read/write/delete; user, resource, timestamp, action, purpose; ≥6 year retention HIPAA)",
+        "Minimum necessary validation (role-based validation, excessive access flagging, job function verification)",
+        "PHI audit trail (tamper-evident logs, ≥6 year retention, all access logged)",
+        "Breach notification logging (breach detection, investigation, notification, affected individuals, timeline; ≤60 day HIPAA)"
+      ],
+      "scoring": {
+        "yes_if": "PHI access logging (all access, user, resource, action, purpose, ≥6y retention HIPAA), minimum necessary validation (role-based, excessive flagging), audit trail (tamper-evident, ≥6y), breach notification (detection, investigation, ≤60 day HIPAA)",
+        "partial_if": "PHI access logged but <6y retention or limited minimum necessary validation or audit trail <6y or no breach notification",
+        "no_if": "No PHI access logging or retention <3y or no minimum necessary or no audit trail"
+      }
+    },
+    {
+      "id": "ml-data-1-15",
+      "question": "Do you monitor data lifecycle and retention with creation/modification/deletion logging, automated retention enforcement, legal hold tracking, and retention policy compliance dashboards?",
+      "verification": [
+        "Review data lifecycle logging (events: data created, modified, deleted; context: data classification, creator, modifier, timestamps, retention period assigned)",
+        "Check automated retention enforcement (events: data retention period expired, automated deletion triggered, deletion executed; verification: deletion confirmed not just marked; compliance: retention policies enforced automatically no manual intervention)",
+        "Verify legal hold tracking (events: legal hold placed, data preserved, legal hold released; context: case ID, data items held, hold duration; compliance: data under hold NOT deleted even if retention expired)",
+        "Confirm retention policy compliance dashboards (metrics: % data with retention policy assigned, % data deleted on schedule, retention policy exceptions; alerts: data exceeding retention period not deleted)"
+      ],
+      "evidence": [
+        "Data lifecycle logging (created, modified, deleted; classification, creator, modifier, timestamps, retention period)",
+        "Automated retention enforcement (retention expired, deletion triggered, executed; deletion confirmed, automatic enforcement)",
+        "Legal hold tracking (hold placed, data preserved, hold released; case ID, data items, duration; deletion prevented)",
+        "Retention compliance dashboards (% policy assigned, % deleted on schedule, exceptions, over-retention alerts)"
+      ],
+      "scoring": {
+        "yes_if": "Data lifecycle logging (created, modified, deleted, classification, retention period), automated retention enforcement (retention expired triggers deletion, confirmed execution, automatic), legal hold tracking (placed, preserved, released, deletion prevented), compliance dashboards (% assigned, % deleted, exceptions, alerts)",
+        "partial_if": "Lifecycle logging but manual retention enforcement or limited legal hold tracking or no compliance dashboards",
+        "no_if": "No lifecycle logging or no retention enforcement or no legal hold support or no compliance tracking"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Data Access Logging Coverage",
+      "target": "100% of Restricted/PII/PHI access logged, regulatory retention compliant (GDPR ≥3y, HIPAA ≥6y)",
+      "measurement": "Logging coverage % = (Logged accesses / Total accesses) × 100; Retention compliance validation",
+      "data_source": "Data access logs, log retention systems",
+      "frequency": "Real-time logging, quarterly retention audits",
+      "baseline": "Current logging coverage baseline",
+      "validation": "Quarterly audits confirm 100% coverage and retention compliance"
+    },
+    {
+      "metric": "Classification Model Performance",
+      "target": "≥90% overall accuracy, ≥85% per type, real-time monitoring, drift detection",
+      "measurement": "Accuracy % (precision, recall, F1) per data type, drift detection alerts",
+      "data_source": "Classification monitoring, manual review ground truth",
+      "frequency": "Real-time calculation, hourly aggregation, daily reports",
+      "baseline": "Pre-deployment classification accuracy",
+      "validation": "Manual reviews validate accuracy, drift alerts trigger retraining"
+    },
+    {
+      "metric": "DLP Effectiveness",
+      "target": "≥85% detection rate, 100% channel coverage, ≤5% false positive rate",
+      "measurement": "Detection rate % on red team exercises, channel coverage %, FP rate %",
+      "data_source": "DLP monitoring, red team results, false positive tracking",
+      "frequency": "Quarterly red team exercises, continuous DLP monitoring",
+      "baseline": "DLP effectiveness from testing",
+      "validation": "Red team validates ≥85% detection, FP tracking confirms ≤5%"
+    },
+    {
+      "metric": "Privacy Budget Compliance",
+      "target": "100% privacy budget enforcement, automatic blocking at 100%, noise verification",
+      "measurement": "Budget tracking accuracy, blocking at 100%, noise parameter validation",
+      "data_source": "Privacy budget monitoring, noise addition logs",
+      "frequency": "Real-time budget tracking, quarterly noise audits",
+      "baseline": "Privacy budget limits (ε/δ parameters)",
+      "validation": "Budget enforced at 100%, audits confirm correct noise"
+    },
+    {
+      "metric": "GDPR Compliance Logging",
+      "target": "DSAR ≤30 days, deletion ≤30 days with ALL systems verified, consent ≥3y retention, cross-border tracking",
+      "measurement": "DSAR response time, deletion time, ALL systems verification, consent retention, cross-border log coverage",
+      "data_source": "GDPR compliance logs, SAR/deletion tracking",
+      "frequency": "Per request tracking, quarterly compliance audits",
+      "baseline": "GDPR requirements (Articles 15, 17, 6, 7, Chapter V)",
+      "validation": "Regulatory audits confirm compliance logging complete"
+    },
+    {
+      "metric": "CCPA Compliance Logging",
+      "target": "Know/delete ≤45 days, opt-out enforcement, non-discrimination validation",
+      "measurement": "Response time for know/delete requests, opt-out enforcement rate, service quality for opted-out",
+      "data_source": "CCPA compliance logs, opt-out tracking",
+      "frequency": "Per request tracking, quarterly compliance audits",
+      "baseline": "CCPA requirements (45-day response, do-not-sell, non-discrimination)",
+      "validation": "Compliance audits confirm ≤45 day responses, opt-out enforced"
+    },
+    {
+      "metric": "Anomalous Access Detection",
+      "target": "Baseline established (30-day), anomalies detected (mass download, off-hours, geographic, lateral), insider threats monitored",
+      "measurement": "Baseline establishment, anomaly detection rate, insider threat indicator alerts",
+      "data_source": "Access monitoring, anomaly detection system",
+      "frequency": "Real-time anomaly detection, monthly baseline updates",
+      "baseline": "30-day normal access baseline",
+      "validation": "Security testing validates anomaly detection triggers alerts"
+    }
+  ]
+}

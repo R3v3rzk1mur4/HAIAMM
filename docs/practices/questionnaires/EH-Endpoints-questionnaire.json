@@ -1,0 +1,418 @@
+{
+  "practice": "EH",
+  "domain": "endpoints",
+  "name": "Environment Hardening - Endpoints Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "eh-endpoints-1-1",
+      "question": "Do you apply OS security baselines with ≥95% endpoints compliant with CIS Benchmarks for Windows, macOS, and Linux?",
+      "verification": [
+        "Review security baseline implementation (CIS Benchmarks for Windows, macOS, Linux)",
+        "Check baseline coverage (disable unnecessary services, secure boot, firewall enabled, password policy)",
+        "Verify deployment tools (Group Policy for Windows, MDM profiles for macOS/mobile, Ansible/Puppet for Linux)",
+        "Confirm compliance measurement (≥95% endpoints compliant with CIS Benchmarks)",
+        "Review non-compliance remediation (auto-remediate where possible, manual review for exceptions)"
+      ],
+      "evidence": [
+        "CIS Benchmark implementation documentation (Windows, macOS, Linux baselines)",
+        "Baseline coverage (services disabled, secure boot, firewall, password policy)",
+        "Deployment tool configuration (Group Policy, MDM, Ansible/Puppet)",
+        "Current compliance metrics (≥95% endpoints CIS compliant)",
+        "Non-compliance remediation workflow"
+      ],
+      "scoring": {
+        "yes_if": "CIS Benchmarks applied to all platforms (Windows, macOS, Linux), ≥95% compliance, automated deployment (GPO/MDM/Ansible), non-compliance remediation",
+        "partial_if": "CIS Benchmarks applied but <90% compliance or manual deployment only",
+        "no_if": "No CIS Benchmarks or <85% compliance or no baseline enforcement"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-2",
+      "question": "Do you maintain patch management with critical OS patches ≤24 hours, high ≤7 days, and ≥95% endpoints patched within SLA?",
+      "verification": [
+        "Review patch automation (WSUS for Windows, Software Update for macOS, unattended-upgrades for Linux)",
+        "Check patch SLAs (critical patches ≤24 hours, high priority ≤7 days)",
+        "Verify patch compliance (≥95% endpoints patched within SLA)",
+        "Confirm patch testing (patches tested on canary group before full rollout)",
+        "Review patch failure handling (auto-retry, manual intervention for persistent failures, escalation)"
+      ],
+      "evidence": [
+        "Patch automation configuration (WSUS, Software Update, unattended-upgrades)",
+        "Patch SLA policy (critical ≤24h, high ≤7d)",
+        "Current patch compliance (≥95% within SLA)",
+        "Patch testing process (canary group validation)",
+        "Patch failure handling workflow (retry, escalation)"
+      ],
+      "scoring": {
+        "yes_if": "Automated patching (WSUS/Software Update/unattended-upgrades), critical ≤24h and high ≤7d SLAs, ≥95% compliance, canary testing, failure handling",
+        "partial_if": "Automated patching but SLAs not met (critical ≤48h) or <90% compliance",
+        "no_if": "Manual patching or critical >48h or <85% compliance"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-3",
+      "question": "Do you enforce disk encryption with 100% of corporate endpoints encrypted using BitLocker, FileVault, LUKS, or native mobile encryption?",
+      "verification": [
+        "Review encryption implementation (Windows: BitLocker with TPM + PIN/password, macOS: FileVault, Linux: LUKS, mobile: native iOS/Android encryption)",
+        "Check encryption coverage (100% corporate endpoints, BYOD work containers)",
+        "Verify encryption enforcement (MDM enforces encryption, non-encrypted endpoints blocked from network)",
+        "Confirm recovery key management (recovery keys escrowed securely, accessible for IT support)",
+        "Review encryption compliance monitoring (real-time compliance dashboards, alerts on encryption disabled)"
+      ],
+      "evidence": [
+        "Encryption implementation (BitLocker, FileVault, LUKS, mobile native)",
+        "Current encryption coverage (100% corporate endpoints)",
+        "Encryption enforcement policy (MDM enforcement, network access control)",
+        "Recovery key escrow (secure storage, IT access for recovery)",
+        "Encryption compliance dashboard (real-time monitoring, 100% compliance)"
+      ],
+      "scoring": {
+        "yes_if": "100% encryption coverage, platform-appropriate encryption (BitLocker/FileVault/LUKS/mobile native), MDM enforcement, recovery key escrow, compliance monitoring",
+        "partial_if": "≥95% encryption coverage or manual enforcement or no recovery key escrow",
+        "no_if": "<95% coverage or no encryption enforcement or no compliance monitoring"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-4",
+      "question": "Do you implement agent protection with anti-tamper, kernel-level protection, and self-healing capabilities?",
+      "verification": [
+        "Review anti-tamper mechanisms (prevent agent process termination, file deletion, configuration changes)",
+        "Check kernel-level protection (driver-level protection on Windows, kext on macOS, eBPF on Linux)",
+        "Verify self-healing (agent auto-restarts if terminated within 60s, auto-repairs if files modified)",
+        "Confirm tamper detection (all tampering attempts logged and alerted to SOC)",
+        "Review protection testing (quarterly tampering tests validate 100% of tampering blocked)"
+      ],
+      "evidence": [
+        "Anti-tamper implementation (process protection, file integrity monitoring)",
+        "Kernel-level protection (Windows driver, macOS kext, Linux eBPF)",
+        "Self-healing implementation (auto-restart <60s, auto-repair)",
+        "Tamper detection alerts (100% tampering attempts alerted)",
+        "Protection testing results (quarterly tests, 100% tampering blocked)"
+      ],
+      "scoring": {
+        "yes_if": "Anti-tamper implemented, kernel-level protection (driver/kext/eBPF), self-healing (<60s restart, auto-repair), tamper alerts, quarterly testing (100% blocked)",
+        "partial_if": "Anti-tamper implemented but no kernel-level protection or self-healing >120s",
+        "no_if": "No anti-tamper or tampering can succeed or no self-healing"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-5",
+      "question": "Do you enforce agent resource limits with CPU ≤5%, memory ≤200MB, and alerts on resource limit exceedance?",
+      "verification": [
+        "Review resource limit configuration (CPU ≤5%, memory ≤200MB, disk I/O minimal)",
+        "Check resource monitoring (real-time monitoring of agent resource usage across all endpoints)",
+        "Verify resource limit alerts (alert if agent exceeds CPU >5% or memory >200MB for >5 minutes)",
+        "Confirm resource limit enforcement (agent self-throttles if approaching limits, or OS limits enforced)",
+        "Review resource exceedance handling (investigate high-resource agents, update/restart/rollback if malfunction)"
+      ],
+      "evidence": [
+        "Resource limit policy (CPU ≤5%, memory ≤200MB)",
+        "Resource monitoring dashboards (real-time CPU, memory, disk I/O)",
+        "Resource limit alert configuration (CPU >5%, memory >200MB thresholds)",
+        "Resource limit enforcement (self-throttling or OS cgroups/limits)",
+        "Resource exceedance handling workflow (investigation, remediation)"
+      ],
+      "scoring": {
+        "yes_if": "Resource limits defined (CPU ≤5%, memory ≤200MB), real-time monitoring, alerts on exceedance, enforcement (throttling or OS limits), exceedance handling",
+        "partial_if": "Limits defined but no enforcement or alerts only without remediation",
+        "no_if": "No resource limits or no monitoring or agents regularly exceed limits"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-6",
+      "question": "Do you implement secure agent updates with code signing, staged rollout (≤10% canary), and automated rollback on failure?",
+      "verification": [
+        "Review update signing (all agent updates code-signed, signature verified before installation)",
+        "Check staged rollout (canary deployment: ≤10% → 50% → 100%, monitor health at each stage)",
+        "Verify automated rollback (rollback triggered if update failure rate >5% or health checks fail)",
+        "Confirm update validation (health checks post-update: agent running, detection working, resource usage normal)",
+        "Review update security (updates delivered over HTTPS, update server certificate pinning)"
+      ],
+      "evidence": [
+        "Update signing process (code signing certificate, signature verification)",
+        "Staged rollout configuration (≤10% canary, 50%, 100% stages)",
+        "Automated rollback implementation (failure triggers, rollback process)",
+        "Post-update validation (health checks: agent running, detection working)",
+        "Update security (HTTPS delivery, certificate pinning)"
+      ],
+      "scoring": {
+        "yes_if": "Code-signed updates, staged rollout (≤10% canary), automated rollback (failure >5%), health checks, secure delivery (HTTPS + pinning)",
+        "partial_if": "Code-signed but no staged rollout or manual rollback only",
+        "no_if": "No code signing or no rollback capability or updates can break agents"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-7",
+      "question": "Do you implement application whitelisting using AppLocker (Windows), Gatekeeper (macOS), or similar controls to block unapproved software?",
+      "verification": [
+        "Review application whitelisting (Windows: AppLocker or WDAC, macOS: Gatekeeper + notarization requirement)",
+        "Check whitelist coverage (approved applications defined, unapproved blocked from execution)",
+        "Verify enforcement (whitelisting enforced on ≥95% endpoints, exceptions documented)",
+        "Confirm whitelist management (periodic review of approved apps, process to add new apps)",
+        "Review user impact (users can request new apps, approval within 24-48 hours, low false positives)"
+      ],
+      "evidence": [
+        "Application whitelisting implementation (AppLocker, WDAC, Gatekeeper)",
+        "Approved application list (whitelist documentation)",
+        "Enforcement coverage (≥95% endpoints with whitelisting enforced)",
+        "Whitelist management process (periodic review, approval workflow)",
+        "User impact metrics (request turnaround time, false positive rate)"
+      ],
+      "scoring": {
+        "yes_if": "Whitelisting implemented (AppLocker/WDAC/Gatekeeper), ≥95% coverage, whitelist managed (periodic review, approval process), low user impact",
+        "partial_if": "Whitelisting implemented but <90% coverage or high user friction",
+        "no_if": "No application whitelisting or <80% coverage or no whitelist management"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-8",
+      "question": "Do you implement browser hardening with safe browsing enabled, extension whitelisting, and auto-updates to latest version?",
+      "verification": [
+        "Review browser security settings (disable auto-run, block pop-ups, enable safe browsing/SmartScreen)",
+        "Check extension control (whitelist approved extensions, block unapproved extensions)",
+        "Verify auto-updates (browsers auto-update to latest version within 7 days of release)",
+        "Confirm browser coverage (hardening applied to Chrome, Edge, Firefox, Safari as appropriate)",
+        "Review browser policy enforcement (Group Policy, MDM profiles enforce browser settings)"
+      ],
+      "evidence": [
+        "Browser security policy (auto-run disabled, pop-ups blocked, safe browsing enabled)",
+        "Extension whitelist (approved extensions documented, unapproved blocked)",
+        "Browser auto-update policy (update within 7 days)",
+        "Browser coverage (Chrome, Edge, Firefox, Safari hardening)",
+        "Browser policy enforcement (Group Policy, MDM profiles)"
+      ],
+      "scoring": {
+        "yes_if": "Browser hardening (safe browsing, pop-up blocking), extension whitelisting, auto-updates (<7 days), multiple browsers hardened, policy enforcement (GPO/MDM)",
+        "partial_if": "Partial browser hardening or manual updates or single browser only",
+        "no_if": "No browser hardening or no extension control or no auto-updates"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-9",
+      "question": "Do you enforce privilege hardening with ≥90% users operating as standard (non-admin), admin account MFA, and UAC/sudo enforcement?",
+      "verification": [
+        "Review user privilege model (≥90% users have standard accounts, separate admin accounts for privileged tasks)",
+        "Check admin account protection (100% admin accounts require MFA, dedicated admin accounts not used for daily work)",
+        "Verify privilege escalation controls (Windows: UAC set to always notify, macOS/Linux: sudo requires password, all sudo logged)",
+        "Confirm admin usage monitoring (alerts on admin account usage, justification required for privileged tasks)",
+        "Review privilege compliance (quarterly reviews of user privileges, remove unnecessary admin rights)"
+      ],
+      "evidence": [
+        "User privilege distribution (≥90% standard users, <10% admin)",
+        "Admin account protection policy (100% MFA, dedicated admin accounts)",
+        "Privilege escalation configuration (UAC always notify, sudo password + logging)",
+        "Admin usage monitoring (alerts, justification tracking)",
+        "Privilege compliance reviews (quarterly audits, admin right removals)"
+      ],
+      "scoring": {
+        "yes_if": "≥90% standard users, 100% admin MFA, UAC/sudo enforced, admin usage monitored, quarterly privilege reviews",
+        "partial_if": "≥80% standard users or <100% admin MFA or limited admin monitoring",
+        "no_if": "<80% standard users or no admin MFA or no privilege controls"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-10",
+      "question": "Do you implement network hardening with host firewall enabled, NAC validation, and VPN required for remote access with MFA?",
+      "verification": [
+        "Review host firewall (Windows Firewall, macOS Firewall, Linux iptables/nftables enabled, inbound blocked by default)",
+        "Check Network Access Control (NAC validates endpoint compliance before network access: encryption, patch level, agent running)",
+        "Verify network segmentation (endpoints isolated by role: guest, employee, privileged users)",
+        "Confirm VPN requirement (100% remote access via VPN, no direct internet exposure of internal resources)",
+        "Review VPN security (VPN access requires MFA, split tunneling disabled for corporate traffic)"
+      ],
+      "evidence": [
+        "Host firewall configuration (100% endpoints with firewall enabled, inbound blocked)",
+        "NAC implementation (compliance validation before network access)",
+        "Network segmentation policy (role-based isolation: guest, employee, privileged)",
+        "VPN policy (100% remote access via VPN, zero direct exposure)",
+        "VPN security configuration (MFA required, split tunneling disabled)"
+      ],
+      "scoring": {
+        "yes_if": "100% host firewall enabled, NAC validates compliance, network segmentation by role, 100% remote via VPN with MFA, no split tunneling",
+        "partial_if": "≥90% firewall or limited NAC or VPN without MFA or split tunneling allowed",
+        "no_if": "<90% firewall or no NAC or no VPN requirement or no MFA"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-11",
+      "question": "Do you implement BYOD hardening with 100% MDM enrollment, work/personal separation, and device compliance enforcement?",
+      "verification": [
+        "Review MDM/MAM implementation (Mobile Device Management or Mobile Application Management: Intune, Jamf, Workspace ONE)",
+        "Check work/personal separation (Android: work profile, iOS: managed apps, AI agent monitors work apps/data only)",
+        "Verify MDM policies (encryption enforced, password required, remote wipe enabled, app whitelisting)",
+        "Confirm device compliance (requirements: OS version, encryption, password, MDM enrollment; non-compliant blocked)",
+        "Review BYOD coverage (100% BYOD devices enrolled in MDM before corporate access granted)"
+      ],
+      "evidence": [
+        "MDM/MAM platform documentation (Intune, Jamf, Workspace ONE)",
+        "Work/personal separation implementation (work profile/managed apps)",
+        "MDM policy configuration (encryption, password, remote wipe, app whitelist)",
+        "Device compliance policy (OS version, encryption, password, MDM requirements)",
+        "BYOD enrollment coverage (100% BYOD devices enrolled before access)"
+      ],
+      "scoring": {
+        "yes_if": "100% BYOD MDM enrollment, work/personal separation (work profile/managed apps), MDM policies enforced (encryption, password, wipe, whitelist), compliance enforced (non-compliant blocked)",
+        "partial_if": "≥90% MDM enrollment or limited policy enforcement or no compliance blocking",
+        "no_if": "<90% enrollment or no work/personal separation or no compliance enforcement"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-12",
+      "question": "Do you implement mobile hardening with OS version ≤1 year old, jailbreak/root detection, and app store restriction?",
+      "verification": [
+        "Review OS version enforcement (iOS: version released ≤1 year ago, Android: version released ≤1 year ago)",
+        "Check jailbreak/root detection (AI agent or MDM detects jailbroken/rooted devices)",
+        "Verify jailbreak/root response (alert SOC, block corporate access, or quarantine device)",
+        "Confirm app store restriction (iOS: Apple App Store only, Android: Google Play only, disable Unknown Sources)",
+        "Review enterprise app distribution (corporate apps via enterprise app store or MDM, not sideloading)"
+      ],
+      "evidence": [
+        "OS version enforcement policy (iOS and Android ≤1 year old)",
+        "Jailbreak/root detection implementation (agent or MDM detection)",
+        "Jailbreak/root response policy (alert, block access, quarantine)",
+        "App store restriction configuration (App Store/Google Play only, Unknown Sources disabled)",
+        "Enterprise app distribution (enterprise app store or MDM distribution)"
+      ],
+      "scoring": {
+        "yes_if": "OS version ≤1 year enforced, jailbreak/root detection (agent or MDM), response on detection (alert + block), app store restricted (official stores only), enterprise app distribution",
+        "partial_if": "OS version ≤2 years or jailbreak/root detection but no blocking or limited app store restriction",
+        "no_if": "No OS version enforcement or no jailbreak/root detection or sideloading allowed"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-13",
+      "question": "Do you implement physical security with screen lock ≤5 minutes, remote wipe capability, and device tracking/theft protection?",
+      "verification": [
+        "Review screen lock enforcement (auto-lock after ≤5 minutes inactivity, PIN/password/biometric required)",
+        "Check lock screen complexity (minimum 6-digit PIN or complex password, biometric as alternative)",
+        "Verify remote wipe (MDM can remotely wipe lost/stolen devices: 100% corporate endpoints, BYOD work containers)",
+        "Confirm device tracking (Find My for Apple, Find My Device for Android enabled)",
+        "Review activation lock (iOS Activation Lock, Android Factory Reset Protection prevent device reuse after wipe)"
+      ],
+      "evidence": [
+        "Screen lock policy (auto-lock ≤5 min, PIN/password/biometric)",
+        "Lock screen complexity requirements (≥6-digit PIN or complex password)",
+        "Remote wipe capability (MDM wipe for 100% endpoints and BYOD work containers)",
+        "Device tracking configuration (Find My, Find My Device enabled)",
+        "Activation lock enforcement (iOS Activation Lock, Android FRP)"
+      ],
+      "scoring": {
+        "yes_if": "Screen lock ≤5 min enforced, complexity requirements (≥6-digit PIN), 100% remote wipe capability, device tracking enabled, activation lock enforced",
+        "partial_if": "Screen lock ≤10 min or limited complexity or <100% remote wipe",
+        "no_if": "Screen lock >10 min or no remote wipe or no device tracking"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-14",
+      "question": "Do you implement automated configuration deployment with 100% coverage via Group Policy, MDM, or Ansible/Puppet?",
+      "verification": [
+        "Review configuration automation (Windows: Group Policy, macOS: Configuration Profiles/MDM, Linux: Ansible/Puppet)",
+        "Check configuration coverage (100% corporate endpoints receive automated hardening configuration)",
+        "Verify periodic re-application (configurations re-applied daily or on endpoint boot to prevent drift)",
+        "Confirm configuration validation (automated testing validates configurations applied correctly)",
+        "Review configuration management (version-controlled configurations, change approval process)"
+      ],
+      "evidence": [
+        "Configuration automation tools (Group Policy, MDM profiles, Ansible/Puppet)",
+        "Current configuration coverage (100% corporate endpoints)",
+        "Configuration re-application schedule (daily or on boot)",
+        "Configuration validation (automated testing, compliance checks)",
+        "Configuration management process (version control, change approval)"
+      ],
+      "scoring": {
+        "yes_if": "100% coverage via automation (GPO/MDM/Ansible), periodic re-application (daily or on boot), automated validation, version-controlled configurations",
+        "partial_if": "≥95% coverage or manual re-application or no validation",
+        "no_if": "<95% coverage or manual configuration or no automation"
+      }
+    },
+    {
+      "id": "eh-endpoints-1-15",
+      "question": "Do you implement configuration drift detection with monitoring, alerts on unauthorized changes, and auto-remediation?",
+      "verification": [
+        "Review drift detection (monitor endpoint configurations: security settings, agent status, firewall, encryption)",
+        "Check drift baseline (approved configurations defined per platform/role, drift = deviation from baseline)",
+        "Verify drift alerts (alert on unauthorized changes: security settings modified, agent tampered, firewall disabled)",
+        "Confirm auto-remediation (auto-remediate drift where safe: re-enable firewall, restore security settings, restart agent)",
+        "Review manual review process (risky changes alert for manual review: major config changes, repeated drift from same endpoint)"
+      ],
+      "evidence": [
+        "Drift detection configuration (settings monitored: security, agent, firewall, encryption)",
+        "Baseline configurations (approved configs per platform/role)",
+        "Drift alert rules (unauthorized change detection, alert triggers)",
+        "Auto-remediation policy (safe changes auto-remediated, risky changes manual)",
+        "Manual review workflow (risky change escalation, repeated drift investigation)"
+      ],
+      "scoring": {
+        "yes_if": "Drift detection (security settings, agent, firewall, encryption), baselines defined, alerts on unauthorized changes, auto-remediation (safe changes), manual review (risky changes)",
+        "partial_if": "Drift detection but limited monitoring or no auto-remediation or alerts only",
+        "no_if": "No drift detection or no baselines or no remediation"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "OS Hardening Compliance",
+      "target": "≥95% endpoints compliant with CIS Benchmarks",
+      "measurement": "CIS compliance % = (CIS compliant endpoints / Total endpoints) × 100",
+      "data_source": "Configuration compliance monitoring, CIS benchmark audits",
+      "frequency": "Real-time monitoring, quarterly audits",
+      "baseline": "Current CIS compliance baseline",
+      "validation": "Independent CIS benchmark scans validate compliance"
+    },
+    {
+      "metric": "Patch Compliance",
+      "target": "≥95% endpoints patched within SLA (critical ≤24h, high ≤7d)",
+      "measurement": "Patch compliance % = (Endpoints patched within SLA / Total endpoints) × 100",
+      "data_source": "Patch management systems (WSUS, Software Update, unattended-upgrades)",
+      "frequency": "Real-time monitoring, daily reporting",
+      "baseline": "Current patch compliance rate",
+      "validation": "Vulnerability scans confirm patch levels"
+    },
+    {
+      "metric": "Encryption Coverage",
+      "target": "100% corporate endpoints with disk encryption enabled",
+      "measurement": "Encryption coverage % = (Encrypted endpoints / Total endpoints) × 100",
+      "data_source": "MDM, encryption compliance monitoring",
+      "frequency": "Real-time monitoring, daily reporting",
+      "baseline": "Current encryption coverage",
+      "validation": "MDM dashboards show 100% encryption compliance"
+    },
+    {
+      "metric": "Privilege Compliance",
+      "target": "≥90% users operate as standard (non-admin) accounts, 100% admin accounts with MFA",
+      "measurement": "Standard user % and admin MFA %",
+      "data_source": "Identity management systems, privilege audits",
+      "frequency": "Quarterly privilege reviews",
+      "baseline": "Current privilege distribution",
+      "validation": "Privilege audits confirm compliance"
+    },
+    {
+      "metric": "BYOD Compliance",
+      "target": "100% BYOD devices enrolled in MDM, work/personal separation enforced",
+      "measurement": "BYOD MDM enrollment %, work/personal separation validation",
+      "data_source": "MDM enrollment data, BYOD device inventory",
+      "frequency": "Real-time monitoring, quarterly BYOD audits",
+      "baseline": "Current BYOD enrollment rate",
+      "validation": "MDM dashboards show 100% enrollment, audits validate separation"
+    },
+    {
+      "metric": "Agent Protection",
+      "target": "100% tampering attempts blocked, agent self-heals within 60 seconds",
+      "measurement": "Tampering block rate %, self-healing latency P95",
+      "data_source": "Agent protection testing, tamper detection logs",
+      "frequency": "Quarterly tampering tests, continuous monitoring",
+      "baseline": "Tampering test results (100% blocked)",
+      "validation": "Quarterly tests confirm 100% tampering blocked"
+    },
+    {
+      "metric": "Configuration Drift",
+      "target": "Drift detected within 15 minutes, auto-remediated where safe",
+      "measurement": "Drift detection latency P95, auto-remediation rate %",
+      "data_source": "Configuration drift detection system",
+      "frequency": "Real-time monitoring, monthly drift reports",
+      "baseline": "Drift detection capability baseline",
+      "validation": "Drift detection tests validate <15 min detection, auto-remediation working"
+    }
+  ]
+}

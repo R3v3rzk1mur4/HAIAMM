@@ -1,0 +1,409 @@
+{
+  "practice": "IR",
+  "domain": "endpoints",
+  "name": "Implementation Review - Endpoints Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "ir-endpoints-1-1",
+      "question": "Do you review 100% of endpoint agent code before merge with peer review and ≤2 day turnaround?",
+      "verification": [
+        "Review code review coverage (100% of agent code reviewed, ≥1 peer reviewer)",
+        "Check review quality (≥5 substantive comments per 100 lines of code)",
+        "Verify review turnaround (≥95% completed within 2 business days)",
+        "Confirm review checklist usage (functionality, performance, privacy, cross-platform, security)",
+        "Review defect detection rate (≥80% of bugs caught in code review before production)"
+      ],
+      "evidence": [
+        "Code review logs (100% coverage, reviewer names, timestamps)",
+        "Review quality metrics (comments per 100 LOC)",
+        "Review turnaround metrics (≥95% within 2 days)",
+        "Code review checklist templates",
+        "Defect detection rate (% caught in review)"
+      ],
+      "scoring": {
+        "yes_if": "100% code reviewed, ≥5 comments per 100 LOC, ≥95% within 2 days, checklist used, ≥80% defects caught in review",
+        "partial_if": "≥90% code reviewed but turnaround >2 days or defect detection 60-80%",
+        "no_if": "<90% coverage or no formal review process"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-2",
+      "question": "Do you review on-device model code meets resource constraints (model ≤50MB mobile/≤200MB desktop, inference ≤100ms, CPU ≤5%, memory ≤200MB)?",
+      "verification": [
+        "Review model architecture optimization (lightweight, fast inference)",
+        "Check model size limits (≤50MB mobile, ≤200MB desktop)",
+        "Verify inference latency (≤100ms per file scan)",
+        "Confirm CPU usage (≤5% average, ≤20% peak)",
+        "Review memory usage (≤200MB resident memory), lazy loading, memory mapping"
+      ],
+      "evidence": [
+        "Model architecture review documentation",
+        "Model size measurements (mobile vs desktop)",
+        "Inference latency profiling results",
+        "CPU usage profiling (average, peak)",
+        "Memory usage profiling and optimization review"
+      ],
+      "scoring": {
+        "yes_if": "Model ≤50MB (mobile)/≤200MB (desktop), inference ≤100ms, CPU ≤5%, memory ≤200MB, optimized loading",
+        "partial_if": "Constraints mostly met but some metrics slightly over (CPU ≤8%, memory ≤250MB)",
+        "no_if": "Constraints significantly exceeded (CPU >10%, memory >300MB) or no profiling"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-3",
+      "question": "Do you review cloud communication security (TLS 1.3, certificate pinning, offline operation, bandwidth optimization)?",
+      "verification": [
+        "Review TLS configuration (TLS 1.3, strong cipher suites only)",
+        "Check certificate pinning implementation (prevent MITM attacks)",
+        "Verify connection retry logic (exponential backoff, max retries)",
+        "Confirm offline operation (queue telemetry, sync when online)",
+        "Review bandwidth optimization (compression, delta updates, adaptive quality), API authentication (token-based, rotation)"
+      ],
+      "evidence": [
+        "TLS configuration review (version 1.3, cipher suites)",
+        "Certificate pinning implementation code",
+        "Retry logic implementation (backoff strategy)",
+        "Offline queue implementation (bounded, persistent)",
+        "Bandwidth optimization code (compression, delta), API auth review"
+      ],
+      "scoring": {
+        "yes_if": "TLS 1.3, certificate pinning, robust retry logic, offline operation, bandwidth optimized, secure API auth",
+        "partial_if": "TLS 1.2 used or missing certificate pinning or limited offline support",
+        "no_if": "TLS 1.0/1.1 or no retry logic or no offline capability"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-4",
+      "question": "Do you review privacy-preserving telemetry implementation (no user content, no PII, schema validation, encryption before transmission)?",
+      "verification": [
+        "Review telemetry collection code (privacy-preserving: no user content, no PII)",
+        "Check telemetry schema validation (structured, versioned)",
+        "Verify sampling logic (balance signal vs bandwidth)",
+        "Confirm telemetry buffering (bounded memory, no data loss)",
+        "Review encryption (encrypt before transmission), sanitization (remove sensitive paths, usernames)"
+      ],
+      "evidence": [
+        "Telemetry code review (no user content/PII verification)",
+        "Telemetry schema documentation (versioned)",
+        "Sampling algorithm review",
+        "Buffering implementation (memory bounds, overflow handling)",
+        "Encryption and sanitization code review"
+      ],
+      "scoring": {
+        "yes_if": "No user content/PII, schema validated, sampling implemented, buffering safe, encrypted and sanitized",
+        "partial_if": "Mostly privacy-preserving but some paths not sanitized or encryption timing issues",
+        "no_if": "User content collected or PII in telemetry or no encryption"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-5",
+      "question": "Do you review agent update mechanisms with code signing, staged rollout (≤10% canary), and rollback capability?",
+      "verification": [
+        "Review code signing verification (verify signature before update)",
+        "Check staged rollout support (canary ≤10% → gradual rollout)",
+        "Verify rollback capability (revert to previous version on failure)",
+        "Confirm update success validation (verify agent healthy after update, health checks)",
+        "Review atomic updates (complete or fail, no partial state), retry logic"
+      ],
+      "evidence": [
+        "Code signing verification implementation",
+        "Staged rollout configuration (≤10% canary, monitoring period)",
+        "Rollback mechanism code (automatic triggers, manual capability)",
+        "Post-update health check implementation",
+        "Atomic update code review, retry implementation"
+      ],
+      "scoring": {
+        "yes_if": "Code signing verified, staged rollout ≤10% canary, rollback capability, health checks, atomic updates",
+        "partial_if": "Update mechanism exists but no staged rollout or rollback not automatic",
+        "no_if": "No code signing or no rollback capability"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-6",
+      "question": "Do you review agent self-protection (anti-tamper, kernel-level protection, self-healing, minimal privileges)?",
+      "verification": [
+        "Review anti-tamper mechanisms (prevent process termination, file deletion)",
+        "Check kernel-level protection (driver on Windows, kext/system extension on macOS, eBPF on Linux)",
+        "Verify configuration protection (prevent unauthorized config changes)",
+        "Confirm self-healing (auto-restart if terminated, auto-repair if modified)",
+        "Review privilege minimization (run with minimal required privileges, not root/SYSTEM unless necessary)"
+      ],
+      "evidence": [
+        "Anti-tamper implementation code",
+        "Kernel-level protection review (driver/kext/eBPF)",
+        "Configuration protection code",
+        "Self-healing implementation (restart, repair logic)",
+        "Privilege analysis (least privilege verification)"
+      ],
+      "scoring": {
+        "yes_if": "Anti-tamper implemented, kernel-level protection, config protected, self-healing, minimal privileges",
+        "partial_if": "Some self-protection but no kernel-level or always runs as root/SYSTEM",
+        "no_if": "No anti-tamper or easily terminated"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-7",
+      "question": "Do you review behavioral analytics and ransomware detection with baseline establishment, anomaly detection, and ≤60s response latency?",
+      "verification": [
+        "Review baseline establishment (learns normal behavior per endpoint)",
+        "Check anomaly detection logic (statistical or ML-based, threshold tuning)",
+        "Verify ransomware detection (rapid file encryption detection ≤60s, decoy files, encryption rate monitoring)",
+        "Confirm volume shadow copy protection (prevent backup deletion)",
+        "Review response latency (detect and respond ≤60 seconds)"
+      ],
+      "evidence": [
+        "Baseline learning algorithm review",
+        "Anomaly detection implementation (algorithms, thresholds)",
+        "Ransomware detection code (encryption detection, decoy monitoring)",
+        "Volume shadow copy protection implementation",
+        "Response latency profiling (≤60s target)"
+      ],
+      "scoring": {
+        "yes_if": "Baseline establishment correct, anomaly detection validated, ransomware detection ≤60s, VSC protected, response timely",
+        "partial_if": "Detection implemented but response >60s or no VSC protection",
+        "no_if": "No behavioral analytics or ransomware detection >120s"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-8",
+      "question": "Do you review response mechanisms (network isolation, process termination, file quarantine) with safe implementation and user notification?",
+      "verification": [
+        "Review network isolation (blocks network, allows management traffic, reversible, single endpoint only)",
+        "Check process termination (safe termination, handles locked files/children, whitelist critical processes)",
+        "Verify file quarantine (preserves files, encryption, isolation, metadata, restore mechanism, auto-delete after retention)",
+        "Confirm user notification UX (clear messaging, actionable info, override option, non-blocking, localization)",
+        "Review logging (all actions logged: isolation, termination, quarantine)"
+      ],
+      "evidence": [
+        "Network isolation implementation review",
+        "Process termination code (safe handling, whitelist)",
+        "File quarantine implementation (encryption, restore, retention)",
+        "User notification UX review (messages, workflows)",
+        "Response action logging review"
+      ],
+      "scoring": {
+        "yes_if": "Isolation safe and reversible, termination handles edge cases, quarantine preserves evidence, UX clear, logging comprehensive",
+        "partial_if": "Response mechanisms work but UX limited or quarantine missing restore",
+        "no_if": "Unsafe termination or quarantine doesn't preserve files"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-9",
+      "question": "Do you review BYOD privacy implementation with work/personal separation, scope enforcement, and consent management?",
+      "verification": [
+        "Review container/profile separation enforcement (work vs personal data)",
+        "Check scope enforcement code (agent only monitors work apps/data, verify no personal data collection)",
+        "Verify user transparency (user can see what's monitored)",
+        "Confirm consent management (user explicitly consents, consent recorded)",
+        "Review data retention (≤90 days, auto-delete logic, deletion verification)"
+      ],
+      "evidence": [
+        "Container/profile separation code review",
+        "Scope enforcement implementation (work-only monitoring)",
+        "User transparency UI review",
+        "Consent management implementation (explicit consent flow)",
+        "Data retention enforcement code (auto-delete, verification)"
+      ],
+      "scoring": {
+        "yes_if": "Work/personal separation enforced, scope limited to work, transparency provided, consent managed, ≤90 day retention",
+        "partial_if": "Separation attempted but some personal data collected or retention >90 days",
+        "no_if": "No BYOD separation or personal data collected"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-10",
+      "question": "Do you review GDPR data subject rights implementation (access, deletion, portability, rectification, automated decision disclosure)?",
+      "verification": [
+        "Review data access request (user can request their endpoint data)",
+        "Check data deletion request (delete user endpoint data on request, verification)",
+        "Verify data portability (export endpoint data in machine-readable format: JSON/CSV)",
+        "Confirm right to rectification (user can correct endpoint data)",
+        "Review automated processing disclosure (user informed of automated decisions: isolation, quarantine)"
+      ],
+      "evidence": [
+        "Data access implementation (API, UI)",
+        "Data deletion implementation (complete removal, verification)",
+        "Data export functionality (JSON/CSV format)",
+        "Data rectification mechanism",
+        "Automated decision disclosure (user notifications, explanations)"
+      ],
+      "scoring": {
+        "yes_if": "All GDPR rights implemented: access, deletion, portability, rectification, automated decision disclosure",
+        "partial_if": "Most rights implemented but deletion incomplete or no portability",
+        "no_if": "No GDPR rights implementation or cannot delete user data"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-11",
+      "question": "Do you review cross-platform implementations for Windows, macOS, Linux with platform-specific APIs and constraints respected?",
+      "verification": [
+        "Review Windows agent (WinAPI, ETW, driver signing, Windows Defender compatibility, PowerShell logging, registry monitoring, Windows 10/11/Server 2016+)",
+        "Check macOS agent (Endpoint Security Framework, system extension signed/notarized, minimal entitlements, Gatekeeper, TCC, Ventura/Sonoma)",
+        "Verify Linux agent (eBPF integration, kernel compatibility, distribution compatibility: Ubuntu/RHEL/Debian, deb/rpm packages, SELinux/AppArmor)",
+        "Confirm mobile agents (iOS: battery/sandboxing/privacy constraints, Android: permissions, battery ≤5%/day, background execution, minimal data usage)",
+        "Review detection parity (≥90% detection accuracy across all platforms)"
+      ],
+      "evidence": [
+        "Windows agent code review (APIs, ETW, driver, compatibility)",
+        "macOS agent code review (ESF, extension, entitlements, Gatekeeper, TCC)",
+        "Linux agent code review (eBPF, kernel compat, distro support, packaging)",
+        "Mobile agent code review (iOS/Android constraints, battery testing)",
+        "Cross-platform detection parity analysis (≥90% accuracy)"
+      ],
+      "scoring": {
+        "yes_if": "All platforms implemented correctly, platform-specific constraints respected, ≥90% detection parity",
+        "partial_if": "3+ platforms but missing constraints handling or parity 80-90%",
+        "no_if": "<3 platforms or platform constraints not respected"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-12",
+      "question": "Do you review performance testing validates resource constraints (≤5% CPU, ≤200MB memory, ≤100ms file access latency, ≤5% battery/day mobile)?",
+      "verification": [
+        "Review CPU usage tests (validate ≤5% under normal load, ≤20% peak)",
+        "Check memory usage tests (validate ≤200MB resident)",
+        "Verify latency tests (file access ≤100ms overhead, process start ≤50ms, network ≤10ms)",
+        "Confirm battery impact tests (mobile: ≤5% drain per day)",
+        "Review stress tests (high file I/O, process creation, network flood - agent stable within limits)"
+      ],
+      "evidence": [
+        "CPU profiling results (normal, peak)",
+        "Memory profiling results (resident, peak)",
+        "Latency profiling (file, process, network)",
+        "Battery drain test results (24-hour mobile test)",
+        "Stress test results (stability under load)"
+      ],
+      "scoring": {
+        "yes_if": "CPU ≤5%, memory ≤200MB, latency ≤100ms file access, battery ≤5%/day, stable under stress",
+        "partial_if": "Most constraints met but CPU ≤8% or memory ≤250MB or latency ≤150ms",
+        "no_if": "Constraints significantly exceeded (CPU >10%, memory >300MB) or no performance testing"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-13",
+      "question": "Do you review privacy testing validates no user content/PII in telemetry and BYOD work/personal separation?",
+      "verification": [
+        "Review telemetry privacy tests (automated scanning for PII, no file paths with usernames, no personal data: emails/documents/browsing)",
+        "Check GDPR/CCPA compliance testing (privacy requirements verified)",
+        "Verify BYOD tests (work/personal separation validated, personal apps not monitored)",
+        "Confirm user consent collected (consent flow tested)",
+        "Review transparency tests (user can view monitoring scope)"
+      ],
+      "evidence": [
+        "Telemetry privacy scan results (zero PII detected)",
+        "Privacy compliance test reports (GDPR, CCPA)",
+        "BYOD separation test results (personal data not collected)",
+        "Consent flow test cases",
+        "Transparency UI test results"
+      ],
+      "scoring": {
+        "yes_if": "Zero user content/PII in telemetry, GDPR/CCPA compliant, BYOD separation validated, consent collected, transparency provided",
+        "partial_if": "Mostly private but some paths not sanitized or consent flow incomplete",
+        "no_if": "User content/PII found in telemetry or no BYOD separation"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-14",
+      "question": "Do you review false positive testing achieves ≤5% FP rate on legitimate software with user feedback loop and model retraining?",
+      "verification": [
+        "Review false positive rate tests (test on common apps, dev tools, productivity software; target ≤5% FP rate)",
+        "Check platform-specific testing (Windows: PowerShell ISE, macOS: Xcode, Linux: gcc tested)",
+        "Verify whitelisting mechanism (allow legitimate software to be whitelisted)",
+        "Confirm false positive reporting (users can report FPs)",
+        "Review feedback loop (analyst review, model retraining with feedback)"
+      ],
+      "evidence": [
+        "False positive test results (≤5% FP rate on legitimate software)",
+        "Platform-specific test results (dev tools tested per platform)",
+        "Whitelisting implementation review",
+        "FP reporting mechanism (UI, workflow)",
+        "Model retraining process with FP feedback"
+      ],
+      "scoring": {
+        "yes_if": "≤5% FP rate, platform-specific tools tested, whitelisting works, FP reporting mechanism, model retraining with feedback",
+        "partial_if": "FP rate 5-10% or limited platform testing or no retraining loop",
+        "no_if": "FP rate >10% or no FP testing"
+      }
+    },
+    {
+      "id": "ir-endpoints-1-15",
+      "question": "Do you review update/rollback testing achieves ≥99% update success, ≤1% rollback rate, with staged rollout and compatibility validated?",
+      "verification": [
+        "Review staged rollout tests (canary, 10%, 50%, 100% tested)",
+        "Check update success rate (≥99% success)",
+        "Verify rollback tests (rollback triggers correctly, completes successfully, preserves config/telemetry queue)",
+        "Confirm update compatibility (new agent compatible with old backend)",
+        "Review zero-downtime updates (agent continues protecting during update)"
+      ],
+      "evidence": [
+        "Staged rollout test results (all stages tested)",
+        "Update success metrics (≥99% target)",
+        "Rollback test results (trigger, completion, preservation)",
+        "Compatibility testing (agent-backend version matrix)",
+        "Zero-downtime update validation"
+      ],
+      "scoring": {
+        "yes_if": "≥99% update success, rollback tested and works, compatibility validated, zero-downtime updates",
+        "partial_if": "Update success 95-99% or rollback works but loses some config",
+        "no_if": "Update success <95% or rollback doesn't work"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Code Review Coverage",
+      "target": "100% endpoint agent code reviewed, ≥95% within 2 days, ≥80% bugs caught in review",
+      "measurement": "Coverage % = (Reviewed PRs / Total PRs) × 100; Turnaround from PR to approval; Defect detection % in review vs production",
+      "data_source": "GitHub/GitLab PR data, code review tools",
+      "frequency": "Continuous (every PR), weekly metrics reports",
+      "baseline": "Initial code review coverage baseline",
+      "validation": "PR audit, defect source analysis (review vs production)"
+    },
+    {
+      "metric": "Performance Compliance",
+      "target": "100% endpoints meet constraints: ≤5% CPU, ≤200MB memory, ≤100ms latency, ≤5% battery/day mobile",
+      "measurement": "Compliance % = (Compliant endpoints / Total endpoints) × 100; Resource usage from profiling",
+      "data_source": "Performance profiling tools, endpoint telemetry",
+      "frequency": "Per build (profiling), continuous production monitoring",
+      "baseline": "Initial performance baseline",
+      "validation": "Production telemetry correlation with profiling results"
+    },
+    {
+      "metric": "Detection Effectiveness",
+      "target": "≥95% malware detection, ≥85% behavioral detection, ≤5% false positive rate",
+      "measurement": "Detection rate = Detected threats / Total threats; FP rate = False positives / Total detections",
+      "data_source": "Detection test suite, production telemetry, user feedback",
+      "frequency": "Weekly detection tests, continuous production monitoring",
+      "baseline": "Initial detection baseline",
+      "validation": "Independent malware testing (VirusTotal, AV-TEST)"
+    },
+    {
+      "metric": "Privacy Compliance",
+      "target": "Zero user content leakage, zero PII in telemetry, 100% BYOD separation, ≤90 day retention",
+      "measurement": "Privacy incidents count; PII detection scan results; BYOD separation validation; Retention compliance %",
+      "data_source": "Privacy scans, incident tracking, BYOD tests, retention audits",
+      "frequency": "Daily privacy scans, quarterly BYOD audits, monthly retention audits",
+      "baseline": "Zero privacy incidents target",
+      "validation": "Independent privacy audit, GDPR compliance assessment"
+    },
+    {
+      "metric": "Cross-Platform Parity",
+      "target": "≥90% detection accuracy across all platforms (Windows, macOS, Linux, iOS, Android)",
+      "measurement": "Detection parity % = Min platform detection / Max platform detection × 100",
+      "data_source": "Platform-specific detection test results",
+      "frequency": "Weekly cross-platform testing",
+      "baseline": "Initial per-platform detection baseline",
+      "validation": "Platform-specific malware testing"
+    },
+    {
+      "metric": "Update Success",
+      "target": "≥99% update success rate, ≤1% rollback rate, staged rollout validated",
+      "measurement": "Update success % = Successful updates / Total updates × 100; Rollback rate = Rollbacks / Total updates × 100",
+      "data_source": "Update telemetry, rollback logs",
+      "frequency": "Per update release, continuous monitoring",
+      "baseline": "Initial update success baseline",
+      "validation": "Update failure analysis, rollback testing"
+    }
+  ]
+}

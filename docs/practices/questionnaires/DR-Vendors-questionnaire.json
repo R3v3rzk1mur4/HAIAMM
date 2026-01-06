@@ -1,0 +1,349 @@
+{
+  "practice": "Design Review",
+  "domain": "Vendors",
+  "name": "DR-Vendors",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "dr-vendors-1-1",
+      "question": "Have you designed multi-factor vendor risk scoring with weighted dimensions (data handling 30%, security 25%, compliance 20%, operational 15%, financial 10%) normalized to 0-100 scale?",
+      "verification": [
+        "Review risk dimensions design (security posture: third-party ratings BitSight/SecurityScorecard/UpGuard, breaches, certifications ISO 27001/SOC 2; data handling: types PII/PHI/PCI, location, encryption, retention; compliance: GDPR/CCPA/HIPAA/PCI-DSS, audit history; financial: revenue, credit, bankruptcy; operational: SLA history, incidents, DR; supply chain: subprocessors, concentration, single points of failure)",
+        "Check weighted scoring algorithm (assign weights by business criticality, data handling 30%, security 25%, compliance 20%, operational 15%, financial 10%)",
+        "Verify normalization (normalize each dimension to 0-100 scale for consistent scoring across dimensions)",
+        "Validate scoring algorithm (final risk score = weighted sum of normalized dimensions, benchmark against historical vendor incidents)",
+        "Review documentation (scoring formula, dimension weights, normalization methods, validation results)"
+      ],
+      "evidence": [
+        "Risk scoring algorithm design (weighted dimensions, normalization formulas, aggregation logic)",
+        "Risk dimension definitions (security posture metrics, data handling criteria, compliance requirements, financial indicators, operational metrics, supply chain factors)",
+        "Scoring validation plan (benchmark against historical vendor incidents, high-risk vendors correlate with past issues)",
+        "Weight justification (business criticality rationale for data handling 30%, security 25%, compliance 20%, operational 15%, financial 10%)",
+        "Normalization design (0-100 scale conversion for each dimension, handling different input ranges)"
+      ],
+      "scoring": {
+        "yes_if": "Multi-factor scoring designed (≥5 dimensions), weighted by business criticality (data 30%, security 25%, compliance 20%, operational 15%, financial 10%), normalized (0-100 scale), validated (benchmark against incidents)",
+        "partial_if": "Risk scoring designed but <5 dimensions or no weighting or no normalization or no validation",
+        "no_if": "No risk scoring algorithm designed or single-factor scoring only or no normalization"
+      }
+    },
+    {
+      "id": "dr-vendors-1-2",
+      "question": "Have you designed ML-based vendor classification (Random Forest/Gradient Boosting) with ≥85% accuracy agreement with human expert classifications and confidence scores?",
+      "verification": [
+        "Review risk tier classification design (Critical: crown jewels access PII/payment/IP, ≥$1M revenue, no alternatives; High: sensitive data, $100K-$1M revenue, some alternatives; Medium: limited data, <$100K, multiple alternatives; Low: no data, minimal impact, easily replaceable)",
+        "Check classification model design (features: risk scores, data types, revenue impact, replaceability, vendor maturity; algorithm: Random Forest, Gradient Boosting for non-linear relationships; training data: historical assessments labeled by security team)",
+        "Verify accuracy target (≥85% agreement with human expert classification, validate on held-out test set)",
+        "Review confidence scoring (output probability distribution, e.g., 70% High risk, 25% Critical, 5% Medium)",
+        "Check model documentation (architecture, features, training data, accuracy metrics, confidence interpretation)"
+      ],
+      "evidence": [
+        "Vendor tier classification design (Critical/High/Medium/Low criteria, business impact thresholds, data access requirements)",
+        "ML model architecture (Random Forest or Gradient Boosting, feature engineering, hyperparameters)",
+        "Training data plan (historical vendor assessments, expert labels, data quality requirements, minimum sample size)",
+        "Accuracy target specification (≥85% agreement with human experts, evaluation methodology, test set design)",
+        "Confidence scoring design (probability distribution output, interpretation guidelines, confidence threshold for auto-classification)"
+      ],
+      "scoring": {
+        "yes_if": "ML classification designed (Random Forest or Gradient Boosting), 4-tier classification (Critical/High/Medium/Low), ≥85% accuracy target, confidence scores (probability distribution), features defined (risk scores, data types, revenue, replaceability)",
+        "partial_if": "ML classification designed but <80% accuracy target or no confidence scores or limited features (<5)",
+        "no_if": "No ML classification designed or rule-based only or no accuracy target or <75% target"
+      }
+    },
+    {
+      "id": "dr-vendors-1-3",
+      "question": "Have you designed multi-source vendor data integration (questionnaires, third-party ratings, breach databases, SBOM, threat intelligence, financial, compliance) with API integration and entity resolution?",
+      "verification": [
+        "Review data sources design (vendor questionnaires CAIQ/VSA, third-party ratings BitSight/SecurityScorecard/UpGuard/RiskRecon, breach databases HaveIBeenPwned/RiskIQ, SBOM SPDX/CycloneDX, threat intelligence IOCs/dark web, financial D&B/credit/SEC, compliance certifications/audits)",
+        "Check API integration architecture (RESTful APIs for BitSight/SecurityScorecard/HaveIBeenPwned, authentication API keys/OAuth, rate limiting 100-1000 req/hr with exponential backoff, caching daily for critical/weekly for others, failure handling graceful degradation)",
+        "Verify entity resolution design (fuzzy matching Levenshtein distance, domain name matching, DUNS number matching, confidence scoring high/medium/low, human review for low confidence)",
+        "Review deduplication strategy (primary key DUNS/domain/legal entity, merge strategy take most recent per field, conflict resolution flag for manual review)",
+        "Check data normalization (common vendor schema profile/risk scores/data handling/certifications/incidents/contracts, normalization rules security ratings to 0-100, dates ISO 8601, booleans, null handling)"
+      ],
+      "evidence": [
+        "Data source catalog (questionnaires, third-party ratings, breach databases, SBOM, threat intelligence, financial, compliance sources)",
+        "API integration design (RESTful endpoints, authentication methods, rate limiting strategy, caching policy, error handling)",
+        "Entity resolution algorithm (fuzzy matching approach, domain/DUNS matching, confidence scoring, human review workflow)",
+        "Deduplication design (primary key strategy, merge logic, conflict resolution, data lineage preservation)",
+        "Common vendor schema (profile fields, risk scores, data handling, certifications, incidents, contracts, normalization rules)"
+      ],
+      "scoring": {
+        "yes_if": "Multi-source integration designed (≥5 sources: questionnaires, ratings, breach DBs, SBOM, threat intel, financial, compliance), API integration (RESTful, auth, rate limiting, caching, failure handling), entity resolution (fuzzy matching, DUNS, confidence scores, human review), normalization (common schema, rules)",
+        "partial_if": "Multi-source integration but <5 sources or no API integration design or no entity resolution or no normalization",
+        "no_if": "Single source only or no integration design or no entity resolution or no common schema"
+      }
+    },
+    {
+      "id": "dr-vendors-1-4",
+      "question": "Have you designed continuous vendor monitoring with event-driven webhooks (≤5 min alerts) and polling-based monitoring (Critical daily, High weekly, Medium monthly, Low quarterly)?",
+      "verification": [
+        "Review event-driven monitoring design (webhooks for vendor rating changes BitSight/SecurityScorecard, breach notifications; event stream Kafka/Kinesis; processing update risk scores and trigger alerts; latency target ≤5 min for rating change, ≤24 hr for breach)",
+        "Check polling-based monitoring design (polling frequency by tier: Critical daily, High weekly, Medium monthly, Low quarterly; polling schedule staggered to avoid rate limits; change detection compare current to previous state)",
+        "Verify monitoring coverage (100% of critical vendors monitored daily, 100% of vendors monitored at appropriate frequency)",
+        "Review monitoring architecture diagram (event flow, polling scheduler, change detection, alert generation)",
+        "Check monitoring SLA design (alert latency targets, monitoring uptime requirements, coverage requirements)"
+      ],
+      "evidence": [
+        "Event-driven monitoring design (webhook subscriptions BitSight/SecurityScorecard/breach notifications, event stream architecture, processing logic, latency targets ≤5 min/≤24 hr)",
+        "Polling-based monitoring design (frequency by tier Critical daily/High weekly/Medium monthly/Low quarterly, polling schedule stagger strategy, change detection algorithm)",
+        "Monitoring coverage plan (100% critical vendors daily monitoring, tiered monitoring for all vendors, coverage tracking)",
+        "Monitoring architecture diagram (event-driven flow, polling scheduler, change detection, alert routing)",
+        "Monitoring SLA specification (alert latency ≥95% ≤5 min for critical, uptime ≥99.9%, coverage 100%)"
+      ],
+      "scoring": {
+        "yes_if": "Continuous monitoring designed with event-driven (webhooks, event stream, ≤5 min alerts, ≤24 hr breach) and polling-based (Critical daily, High weekly, Medium monthly, Low quarterly, staggered schedule, change detection), 100% critical vendor coverage",
+        "partial_if": "Monitoring designed but event-driven only or polling only or no tiering or alert latency >15 min or <100% critical coverage",
+        "no_if": "No continuous monitoring designed or manual monitoring only or no event-driven or no polling or <80% coverage"
+      }
+    },
+    {
+      "id": "dr-vendors-1-5",
+      "question": "Have you designed change detection for security rating drops (≥10 points or grade drop), breaches, certification expirations (90-day warning), financial distress, compliance violations, and ownership changes?",
+      "verification": [
+        "Review monitored changes design (security rating drops ≥10 points BitSight/SecurityScorecard or letter grade drop; breach incidents any new disclosure HaveIBeenPwned/RiskIQ/public; certification expiration 90-day warning ISO 27001/SOC 2/PCI-DSS; financial distress credit downgrade, bankruptcy, SEC enforcement; compliance violations regulatory fines, enforcement, audit failures; ownership changes M&A, spin-offs)",
+        "Check alert thresholds (Critical: breach with customer data, rating failing <500/D/F, bankruptcy; High: rating drop ≥20 points, cert expiration <30 days, compliance violation; Medium: rating drop 10-20 points, cert expiration 30-90 days; Low: minor changes <10 points)",
+        "Verify alert routing (Critical: page on-call, P0 incident, notify vendor; High: email security team, ticket, vendor call ≤48 hr; Medium: weekly digest, dashboard; Low: monthly report)",
+        "Review change detection logic (compare states, calculate deltas, threshold evaluation, alert generation)",
+        "Check documentation (monitored change types, thresholds, routing rules, escalation procedures)"
+      ],
+      "evidence": [
+        "Monitored changes specification (security rating drops ≥10 points/grade, breaches, cert expirations 90-day, financial distress, compliance violations, ownership changes)",
+        "Alert threshold design (Critical/High/Medium/Low thresholds for each change type, threshold justification)",
+        "Alert routing design (Critical: page + P0 + notify vendor, High: email + ticket + call ≤48 hr, Medium: weekly digest, Low: monthly report)",
+        "Change detection algorithm (state comparison, delta calculation, threshold evaluation, alert generation logic)",
+        "Escalation procedures (time-based escalation, stakeholder notification, vendor engagement workflow)"
+      ],
+      "scoring": {
+        "yes_if": "Change detection designed for ≥6 types (rating drops ≥10 points/grade, breaches, cert expirations 90-day, financial, compliance, ownership), 4-tier alerts (Critical/High/Medium/Low), routing (Critical: page + P0, High: email + ticket, Medium: digest, Low: monthly)",
+        "partial_if": "Change detection but <5 types or <4 alert tiers or no routing design or cert warning <60 days",
+        "no_if": "No change detection designed or <3 types monitored or no alert thresholds or no routing"
+      }
+    },
+    {
+      "id": "dr-vendors-1-6",
+      "question": "Have you designed SBOM collection (vendor portal, API integration, metadata extraction, contractual requirement) with support for SPDX, CycloneDX, and SWID formats?",
+      "verification": [
+        "Review SBOM collection methods design (vendor portal for upload web UI/API with format validation, API integration for SaaS vendors with SBOM APIs, metadata extraction from artifacts containers/packages/binaries, contractual requirement quarterly updates for software vendors)",
+        "Check SBOM format support (SPDX JSON/XML/YAML/tag-value, CycloneDX JSON/XML for security, SWID XML, custom formats with parsing)",
+        "Verify SBOM parsing design (parser libraries spdx/tools, CycloneDX/cyclonedx-python-lib; validation schema compliance, required fields; normalization to internal component schema name/version/vendor/license/vulnerabilities)",
+        "Review SBOM storage design (repository, organization by vendor/version/upload date, retention policy)",
+        "Check SBOM collection coverage target (≥80% of software vendors provide SBOMs, quarterly updates for critical vendors)"
+      ],
+      "evidence": [
+        "SBOM collection architecture (vendor portal design, API integration endpoints, metadata extraction tools, contractual templates)",
+        "SBOM format support specification (SPDX JSON/XML/YAML/tag-value, CycloneDX JSON/XML, SWID XML, custom format parsers)",
+        "SBOM parsing design (parser libraries, validation rules, required fields, normalization to internal schema)",
+        "SBOM storage design (repository architecture, organization structure, retention policy, access controls)",
+        "SBOM collection coverage target (≥80% software vendors, quarterly updates for critical, annual for others)"
+      ],
+      "scoring": {
+        "yes_if": "SBOM collection designed (vendor portal, API integration, metadata extraction, contractual requirement quarterly), multi-format support (SPDX, CycloneDX, SWID, custom), parsing (libraries, validation, normalization), ≥80% coverage target",
+        "partial_if": "SBOM collection designed but manual only or <3 formats supported or no parsing design or <70% coverage target",
+        "no_if": "No SBOM collection designed or single format only or no validation or <50% coverage target"
+      }
+    },
+    {
+      "id": "dr-vendors-1-7",
+      "question": "Have you designed SBOM vulnerability scanning with CVE/CPE matching from NVD/GitHub Advisory, transitive dependency analysis (≥5 levels deep), and CVSS v3.1 severity scoring with exploitability checking?",
+      "verification": [
+        "Review CVE matching design (CVE databases NVD, GitHub Advisory, vendor-specific feeds; matching algorithm component name+version to CVE, handle version ranges ≥1.0.0, <2.0.0; CPE matching cpe:2.3:a:vendor:product:version for precision; accuracy minimize false positives/negatives)",
+        "Check transitive dependency analysis (dependency depth ≥5 levels deep component→dependency→sub-dependency→...; dependency resolution npm/Maven/PyPI graphs; vulnerability propagation flag parent if sub-dependency has CVE; visualization graph with CVE highlights)",
+        "Verify vulnerability severity scoring (CVSS v3.1 scores from NVD 0-10 scale; exploitability check Exploit-DB/Metasploit, increase priority if actively exploited; reachability analysis determine if vulnerable code reachable; risk prioritization critical CVSS ≥9.0 with exploits)",
+        "Review vulnerability deduplication (same CVE across multiple components, aggregate by CVE ID)",
+        "Check vulnerability remediation workflow design (assign to vendor, track remediation, verify fixes)"
+      ],
+      "evidence": [
+        "CVE matching design (NVD/GitHub Advisory/vendor feeds, matching algorithm name+version+version ranges, CPE matching, accuracy targets)",
+        "Transitive dependency analysis design (≥5 levels depth, dependency resolution npm/Maven/PyPI, vulnerability propagation logic, graph visualization)",
+        "Vulnerability severity scoring (CVSS v3.1 from NVD, exploitability checking Exploit-DB/Metasploit, reachability analysis, risk prioritization critical ≥9.0 with exploits)",
+        "Vulnerability deduplication design (aggregate by CVE ID, consolidate across components)",
+        "Remediation workflow (vendor assignment, tracking, verification, SLA enforcement)"
+      ],
+      "scoring": {
+        "yes_if": "Vulnerability scanning designed with CVE/CPE matching (NVD, GitHub Advisory, version ranges), transitive analysis (≥5 levels, dependency graphs, propagation, visualization), CVSS v3.1 scoring (exploitability check, reachability, prioritization critical ≥9.0)",
+        "partial_if": "Vulnerability scanning but no transitive analysis or <3 levels depth or no exploitability check or no reachability",
+        "no_if": "No vulnerability scanning designed or direct dependencies only or no CVE matching or no CVSS scoring"
+      }
+    },
+    {
+      "id": "dr-vendors-1-8",
+      "question": "Have you designed supply chain attack detection for typosquatting (Levenshtein distance ≤2), suspicious packages (newly created <30 days, abandoned ≥2 years, excessive permissions), and anomalous updates (breaking changes, maintainer changes, sudden activity)?",
+      "verification": [
+        "Review typosquatting detection design (suspicious names similar to popular packages, Levenshtein distance calculation to popular packages flag ≤2, homoglyph detection Unicode homoglyphs Cyrillic vs. Latin)",
+        "Check suspicious package detection (newly created <30 days with low downloads, abandoned ≥2 years no updates unpatched vulnerabilities, unexpected permissions file system/network access)",
+        "Verify anomalous update detection (breaking changes major version jumps 1.0→2.0 require review, maintainer changes flag recent changes potential takeover, sudden activity spike in updates possible compromise)",
+        "Review detection rules tuning (balance false positives vs. false negatives, whitelist known good packages)",
+        "Check alert design (severity classification, routing to security team, vendor notification workflow)"
+      ],
+      "evidence": [
+        "Typosquatting detection design (Levenshtein distance ≤2 to popular packages, homoglyph detection Unicode homoglyphs, suspicious name patterns)",
+        "Suspicious package detection (newly created <30 days + low downloads, abandoned ≥2 years no updates, excessive permissions filesystem/network)",
+        "Anomalous update detection (breaking changes major version jumps require review, maintainer changes flag recent, sudden activity spike)",
+        "Detection rules (tuning strategy, false positive handling, whitelist for known good packages)",
+        "Alert workflow (severity classification, security team routing, vendor notification, remediation tracking)"
+      ],
+      "scoring": {
+        "yes_if": "Supply chain attack detection designed for typosquatting (Levenshtein ≤2, homoglyphs), suspicious packages (new <30 days, abandoned ≥2 years, excessive permissions), anomalous updates (breaking changes, maintainer changes, sudden activity), alert workflow",
+        "partial_if": "Supply chain detection but <3 detection types or no typosquatting or no anomalous updates or no alert workflow",
+        "no_if": "No supply chain attack detection designed or single detection type only or no alerts"
+      }
+    },
+    {
+      "id": "dr-vendors-1-9",
+      "question": "Have you designed regulatory requirement mapping with jurisdiction detection (data subject location, vendor location, data flows) and automated compliance checking for GDPR, CCPA, HIPAA, PCI-DSS?",
+      "verification": [
+        "Review jurisdiction detection design (data subject location GDPR for EU/CCPA for CA, vendor location headquarters/data centers, data flow analysis US→EU transfers require SCCs/BCRs, regulatory database GDPR/CCPA/HIPAA/PCI-DSS/LGPD/PIPEDA by jurisdiction)",
+        "Check requirement database design (schema Regulation→Requirements→Controls→Evidence, example GDPR→Article 28→DPA required→Signed DPA, mapping vendor responsibilities to requirements, updates track regulatory changes)",
+        "Verify automated compliance checking (contract analysis NLP extract clauses data processing/liability/SLAs, clause verification GDPR DPA/HIPAA BAA/PCI-DSS attestation, red flags unlimited liability/perpetual retention/no termination, gap analysis missing breach notification/audit rights)",
+        "Review multi-jurisdiction compliance (GDPR: DPA generation, Article 28 checks, sub-processor management, SCCs for non-EU; CCPA: service provider agreement, consumer rights support, sale prohibition; HIPAA: BAA generation, PHI security, 60-day breach notification; PCI-DSS: AOC collection, SAQ review, CDE segmentation)",
+        "Check evidence collection automation (automated gathering SOC 2/ISO/attestations, validation certificate authenticity/expiration, storage centralized S3/SharePoint, audit trail logging)"
+      ],
+      "evidence": [
+        "Jurisdiction detection design (data subject location mapping, vendor location tracking, data flow analysis US→EU transfers, regulatory database by jurisdiction)",
+        "Requirement database design (Regulation→Requirements→Controls→Evidence schema, vendor responsibility mapping, regulatory update tracking)",
+        "Automated compliance checking (contract NLP clause extraction, clause verification GDPR DPA/HIPAA BAA/PCI-DSS, red flag detection, gap analysis)",
+        "Multi-jurisdiction compliance design (GDPR DPA/Article 28/sub-processor/SCCs, CCPA service provider/consumer rights/sale prohibition, HIPAA BAA/PHI/breach, PCI-DSS AOC/SAQ/CDE)",
+        "Evidence collection automation (SOC 2/ISO gathering, certificate validation, centralized storage, audit trail)"
+      ],
+      "scoring": {
+        "yes_if": "Regulatory mapping designed with jurisdiction detection (data subject/vendor location, data flows, regulatory database), automated compliance checking (NLP contract analysis, clause verification, gap analysis), multi-jurisdiction (GDPR DPA/SCCs, CCPA, HIPAA BAA, PCI-DSS AOC), evidence automation",
+        "partial_if": "Regulatory mapping but <4 jurisdictions or no automated checking or manual contract review or no evidence automation",
+        "no_if": "No regulatory mapping designed or single jurisdiction only or no compliance checking or manual only"
+      }
+    },
+    {
+      "id": "dr-vendors-1-10",
+      "question": "Have you designed vendor dependency mapping (≥3 levels deep: direct vendors, subprocessors, sub-subprocessors) with graph database (Neo4j/Neptune) and concentration risk detection?",
+      "verification": [
+        "Review multi-level dependency mapping design (Level 1 direct vendors contracted, Level 2 subprocessors vendors our vendors use, Level 3+ sub-subprocessors ≥3 levels for critical vendors; data collection vendor disclosure contractual obligation, questionnaires, SBOM analysis)",
+        "Check graph database design (nodes vendors with properties name/risk score/tier/certifications, edges dependencies with properties data flow/dependency type/criticality, graph database Neo4j/Amazon Neptune/Azure Cosmos DB Gremlin, query patterns find all paths from data subject to processor)",
+        "Verify dependency visualization (interactive graph nodes=vendors edges=dependencies, color-code by risk red high/green low, drill-down click node see vendor details/risk/dependencies, filtering by risk tier/data types/compliance)",
+        "Review concentration risk detection (shared subprocessor analysis identify subprocessors used by multiple vendors e.g. AWS by 20 vendors, risk scoring high concentration=high risk single point of failure, mitigation diversify vendors/multi-cloud/contingency)",
+        "Check single point of failure detection (critical path analysis identify vendors with no alternatives e.g. single payment processor, impact assessment if vendor fails revenue loss/customer impact, mitigation backup vendors/escrow/BCP)"
+      ],
+      "evidence": [
+        "Dependency mapping design (≥3 levels: direct/subprocessors/sub-subprocessors, data collection vendor disclosure/questionnaires/SBOM)",
+        "Graph database design (nodes vendors with properties, edges dependencies with properties, Neo4j/Neptune/Cosmos DB, query patterns)",
+        "Dependency visualization (interactive graph, color-coded by risk, drill-down, filtering by tier/data/compliance)",
+        "Concentration risk detection (shared subprocessor analysis, risk scoring high concentration, mitigation strategies diversification/multi-cloud/contingency)",
+        "Single point of failure detection (critical path analysis no alternatives, impact assessment revenue/customer loss, mitigation backup vendors/escrow/BCP)"
+      ],
+      "scoring": {
+        "yes_if": "Dependency mapping designed (≥3 levels: direct/subprocessors/sub-subprocessors, vendor disclosure/questionnaires/SBOM), graph database (Neo4j/Neptune/Cosmos DB, nodes/edges with properties, query patterns), visualization (interactive, color-coded, drill-down, filtering), concentration risk detection (shared subprocessor, SPOF, mitigation)",
+        "partial_if": "Dependency mapping but <3 levels or no graph database or no visualization or no concentration risk detection",
+        "no_if": "No dependency mapping designed or direct vendors only or no graph database or no concentration detection"
+      }
+    },
+    {
+      "id": "dr-vendors-1-11",
+      "question": "Have you designed risk-based vendor onboarding with automated intake, risk-based tiers (Critical/High/Medium/Low with different review depths), and onboarding SLAs (Critical ≤30 days, Low ≤2 days)?",
+      "verification": [
+        "Review automated vendor intake design (vendor portal self-service registration provide company info/contacts/certifications, initial risk assessment automated based on vendor data, due diligence trigger high-risk vendors trigger enhanced due diligence security questionnaire/on-site audit)",
+        "Check risk-based onboarding tiers (Critical/High Risk: full security review, legal review, compliance review, executive approval; Medium Risk: security questionnaire, compliance check, manager approval; Low Risk: automated checks credit/breach, auto-approval if pass)",
+        "Verify onboarding SLAs (Critical: complete onboarding ≤30 days thorough review, High: ≤15 days, Medium: ≤7 days, Low: ≤2 days mostly automated)",
+        "Review onboarding workflow automation (automatic routing, status tracking, approval workflows, SLA monitoring)",
+        "Check exception handling (escalation for SLA misses, expedited onboarding process, override approvals)"
+      ],
+      "evidence": [
+        "Automated vendor intake design (self-service portal registration, initial risk assessment automation, due diligence trigger for high-risk)",
+        "Risk-based onboarding tier design (Critical/High: full reviews + executive approval, Medium: questionnaire + manager approval, Low: automated checks + auto-approval)",
+        "Onboarding SLA specification (Critical ≤30 days thorough, High ≤15 days, Medium ≤7 days, Low ≤2 days automated)",
+        "Onboarding workflow automation (automatic routing, status tracking, approval workflows, SLA monitoring alerts)",
+        "Exception handling procedures (escalation for SLA misses, expedited process, override approvals)"
+      ],
+      "scoring": {
+        "yes_if": "Risk-based onboarding designed with automated intake (portal, risk assessment, due diligence trigger), tiered onboarding (Critical/High: full reviews + executive, Medium: questionnaire + manager, Low: automated + auto-approval), SLAs (Critical ≤30d, High ≤15d, Medium ≤7d, Low ≤2d), workflow automation",
+        "partial_if": "Risk-based onboarding but no automated intake or <4 tiers or no SLAs or no workflow automation",
+        "no_if": "No risk-based onboarding designed or single tier only or no SLAs or manual only"
+      }
+    },
+    {
+      "id": "dr-vendors-1-12",
+      "question": "Have you designed vendor off-boarding with data deletion verification (≤30 days, certificate of deletion, DoD 5220.22-M standards), access revocation, and knowledge transfer?",
+      "verification": [
+        "Review data deletion verification design (contractual requirement vendor delete all data ≤30 days of termination, verification request certificate of deletion validate through audit, data destruction verify secure destruction DoD 5220.22-M standards)",
+        "Check access revocation design (system access revoke vendor access to internal systems/APIs/databases, credential rotation rotate shared passwords/API keys/certificates, verification audit logs verify no access attempts after termination)",
+        "Verify knowledge transfer design (documentation ensure vendor provides transition documentation, training vendor trains replacement vendor or internal team, continuity ensure no service disruption during transition)",
+        "Review off-boarding checklist (all steps documented, assignment of responsibilities, timeline enforcement)",
+        "Check compliance with data protection regulations (GDPR deletion requirements, retention policy compliance)"
+      ],
+      "evidence": [
+        "Data deletion verification design (≤30 days contractual requirement, certificate of deletion request, audit validation, DoD 5220.22-M secure destruction)",
+        "Access revocation design (system access revocation internal systems/APIs/databases, credential rotation passwords/API keys/certificates, audit log verification no access after termination)",
+        "Knowledge transfer design (transition documentation requirements, training replacement vendor/internal team, service continuity during transition)",
+        "Off-boarding checklist (documented steps, responsibility assignment, timeline enforcement, verification checkpoints)",
+        "Data protection compliance (GDPR deletion Article 17, retention policy compliance, evidence retention for audit)"
+      ],
+      "scoring": {
+        "yes_if": "Off-boarding designed with data deletion verification (≤30 days, certificate, audit, DoD 5220.22-M), access revocation (systems/APIs/databases, credential rotation, audit log verification), knowledge transfer (documentation, training, continuity), checklist, GDPR compliance",
+        "partial_if": "Off-boarding designed but no deletion verification or >60 days or no access revocation or no knowledge transfer",
+        "no_if": "No off-boarding process designed or no data deletion or no access revocation or >90 days"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Vendor risk assessment coverage",
+      "target": "100% of AI vendor designs reviewed before deployment; ≥95% of active vendors risk-assessed (no un-assessed vendors)",
+      "measurement": "Count vendors reviewed before deployment / total vendors deployed; Count vendors with current risk assessment / total active vendors",
+      "data_source": "Vendor risk management system, vendor registry, design review logs",
+      "frequency": "Continuous monitoring, quarterly review",
+      "baseline": "Establish baseline from current vendor coverage, typical 60-80% coverage pre-automation",
+      "validation": "Audit vendor registry for un-assessed vendors, verify all new vendors have risk assessment before contract execution"
+    },
+    {
+      "metric": "ML classification and SBOM coverage",
+      "target": "ML classification accuracy ≥85% agreement with human expert classifications; ≥80% SBOM coverage for software vendors (SBOMs collected and analyzed)",
+      "measurement": "Confusion matrix ML predictions vs. expert labels, calculate accuracy/precision/recall; Count software vendors with current SBOMs / total software vendors",
+      "data_source": "ML model evaluation metrics (test set results), SBOM collection system logs, vendor registry",
+      "frequency": "ML model: quarterly evaluation on new test set; SBOM coverage: monthly tracking",
+      "baseline": "ML: Initial model accuracy from first test set, typically 75-80% before tuning; SBOM: 0-20% coverage pre-implementation",
+      "validation": "Independent expert review of ML classifications (100 random samples quarterly), audit SBOM collection completeness and freshness (quarterly updates for critical vendors)"
+    },
+    {
+      "metric": "Continuous monitoring and breach detection",
+      "target": "100% of critical vendors monitored daily; ≥90% of breaches detected within ≤24 hours; ≥95% of critical alerts delivered within ≤5 minutes",
+      "measurement": "Count critical vendors with daily monitoring / total critical vendors; Time from breach disclosure to detection in our system (median, p95); Time from alert generation to delivery (median, p95)",
+      "data_source": "Vendor monitoring system logs (polling/webhook events), breach detection timestamps vs. public disclosure timestamps, alert delivery logs",
+      "frequency": "Daily monitoring coverage check, breach detection time measured per incident, alert latency continuous monitoring",
+      "baseline": "Monitoring: 0-50% critical vendor coverage pre-automation; Breach detection: 7-30 days manual discovery; Alert latency: hours to days for manual alerts",
+      "validation": "Daily automated checks for monitoring gaps (critical vendors without daily polls/webhook subscriptions), post-incident review for breach detection timing, alert delivery system health checks (synthetic alerts)"
+    },
+    {
+      "metric": "Vulnerability and supply chain risk detection",
+      "target": "≥90% of vendor dependencies mapped (≥3 levels deep for critical vendors); Transitive dependency analysis ≥5 levels deep; Supply chain attack detection (typosquatting Levenshtein ≤2, suspicious packages new <30 days/abandoned ≥2 years)",
+      "measurement": "Count critical vendors with ≥3 level dependency mapping / total critical vendors; Maximum dependency depth achieved for critical vendor SBOMs; Count typosquatting detections, suspicious package detections, anomalous update detections / total packages analyzed",
+      "data_source": "Vendor dependency graph database (Neo4j/Neptune), SBOM analysis logs (dependency depth), supply chain detection system logs (detections by type)",
+      "frequency": "Dependency mapping: quarterly assessment; Transitive analysis: per SBOM upload; Supply chain detection: continuous per package",
+      "baseline": "Dependency mapping: 0-30% visibility beyond direct vendors; Transitive analysis: typically 1-2 levels manual; Supply chain detection: 0% automated pre-implementation",
+      "validation": "Manual audit of critical vendor dependency chains (verify completeness ≥3 levels), SBOM parser validation (confirm ≥5 level transitive dependency extraction), supply chain detection validation (inject test cases: known typosquats, known malicious packages, verify detection)"
+    },
+    {
+      "metric": "Compliance automation and audit readiness",
+      "target": "≥95% of vendors have required compliance artifacts (DPAs for GDPR, BAAs for HIPAA, certifications); ≥70% of compliance checks automated (not manual review); 100% of audit evidence accessible within ≤24 hours",
+      "measurement": "Count vendors with required artifacts (DPA if GDPR, BAA if HIPAA, ISO/SOC 2 if critical) / total vendors by regulation; Count automated compliance checks / total compliance checks; Time to retrieve complete audit evidence package (median, p95)",
+      "data_source": "Compliance artifact repository (evidence collection system), compliance check automation logs (automated vs. manual), audit evidence retrieval system (response time logs)",
+      "frequency": "Compliance artifact coverage: quarterly review; Automation rate: quarterly assessment; Audit readiness: tested quarterly (simulate audit request)",
+      "baseline": "Compliance artifacts: 40-70% coverage manual tracking; Automation: 10-30% pre-automation; Audit evidence: 3-14 days manual collection",
+      "validation": "Quarterly compliance audit (external or internal: verify required artifacts present and valid, test expiration tracking), compliance automation audit (verify automated checks execute correctly, no false negatives), quarterly audit readiness drill (time complete evidence package retrieval)"
+    },
+    {
+      "metric": "Vendor onboarding and operational efficiency",
+      "target": "≥90% of vendors onboarded within SLA (Critical ≤30 days, High ≤15 days, Medium ≤7 days, Low ≤2 days); Vendor dashboard uptime ≥99.9% availability; API integration reliability ≥99% successful API calls",
+      "measurement": "Count vendors onboarded within SLA / total vendors by tier; Uptime monitoring vendor dashboard (availability percentage); API call success rate (successful calls / total calls) for BitSight/SecurityScorecard/HaveIBeenPwned/breach APIs",
+      "data_source": "Vendor onboarding system (onboarding date vs. SLA date by tier), dashboard uptime monitoring (synthetic checks, user access logs), API integration monitoring (success/failure logs per API)",
+      "frequency": "Onboarding SLA: weekly tracking, monthly review; Dashboard uptime: continuous monitoring, monthly review; API reliability: continuous monitoring, daily review",
+      "baseline": "Onboarding SLA: 50-70% compliance manual processes; Dashboard uptime: 95-99% typical; API reliability: 90-95% without retry logic",
+      "validation": "Monthly onboarding audit (sample vendors per tier, verify SLA compliance, identify bottlenecks), dashboard uptime independent monitoring (third-party uptime service), API integration testing (daily synthetic API calls to validate reliability)"
+    },
+    {
+      "metric": "Risk management outcomes",
+      "target": "Zero vendor-related regulatory violations from design flaws; Concentration risk detection (identify ≥90% of shared subprocessors used by ≥3 vendors); Off-boarding compliance (100% data deletion verification ≤30 days, 100% access revocation verified)",
+      "measurement": "Count vendor-related regulatory violations attributed to design flaws; Count shared subprocessors detected / total shared subprocessors (validated via vendor disclosure); Count off-boarded vendors with deletion certificate + audit log verification / total off-boarded vendors",
+      "data_source": "Regulatory compliance incident tracking (violations by root cause), vendor dependency graph (shared subprocessor analysis), off-boarding logs (deletion certificates, audit log verification)",
+      "frequency": "Regulatory violations: continuous tracking, quarterly review; Concentration risk: quarterly dependency graph analysis; Off-boarding: per vendor off-boarding event",
+      "baseline": "Regulatory violations: 1-3 vendor violations per year typical; Concentration risk: 0-50% visibility pre-automation; Off-boarding: 40-70% verification compliance manual",
+      "validation": "Annual regulatory audit (external or internal: verify zero vendor design-related violations), quarterly dependency graph validation (manual audit of critical vendors: verify shared subprocessor detection completeness), off-boarding audit (quarterly sample: verify deletion certificates authentic, audit logs show no post-termination access)"
+    }
+  ]
+}

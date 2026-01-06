@@ -1,0 +1,370 @@
+{
+  "practice": "IM",
+  "domain": "data",
+  "name": "Issue Management - Data Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "im-data-1-1",
+      "question": "Do you monitor classification model accuracy continuously with real-time tracking (≥90% overall, ≥85% per type), alerts on accuracy drops, and root cause analysis for degradation?",
+      "verification": [
+        "Review continuous accuracy monitoring (metrics: precision, recall, F1 per data type: PII, PHI, PCI, credentials; real-time monitoring, daily aggregation, weekly reports)",
+        "Check accuracy alerts (alert if accuracy drops below threshold: ≤90% overall, ≤85% per data type)",
+        "Verify root cause analysis (investigate accuracy drops: data drift, new data formats, model staleness)",
+        "Confirm false positive/negative tracking (false positives: legitimate as sensitive ≤5% target; false negatives: sensitive as benign ≤10% target critical data)",
+        "Review confidence score distribution (% low confidence <80%, route to human review; increasing low confidence indicates model degradation)"
+      ],
+      "evidence": [
+        "Accuracy monitoring dashboard (precision, recall, F1 per type: PII, PHI, PCI, credentials; real-time, daily, weekly)",
+        "Accuracy alert configuration (≤90% overall, ≤85% per type thresholds)",
+        "Root cause analysis process (data drift, new formats, model staleness investigation)",
+        "False positive/negative tracking (≤5% FP target, ≤10% FN target critical data)",
+        "Confidence score analysis (% low confidence <80%, human review routing, trend tracking)"
+      ],
+      "scoring": {
+        "yes_if": "Continuous accuracy monitoring (real-time, daily, weekly; precision, recall, F1 per type), alerts (≤90% overall, ≤85% per type), root cause analysis (drift, formats, staleness), FP/FN tracking (≤5% FP, ≤10% FN), confidence analysis (<80% to human review)",
+        "partial_if": "Accuracy monitoring but weekly only (not real-time) or limited alerts or no root cause analysis or FP/FN >10%",
+        "no_if": "No accuracy monitoring or no alerts or FP >15% or FN >20% or no confidence analysis"
+      }
+    },
+    {
+      "id": "im-data-1-2",
+      "question": "Do you detect model drift with data drift monitoring (KS test, PSI, feature distribution) and concept drift monitoring (accuracy degradation), triggering model retraining when detected?",
+      "verification": [
+        "Review data drift monitoring (statistical tests: KS test Kolmogorov-Smirnov, PSI Population Stability Index; feature distribution monitoring; detection: input data shifts from training data; examples: new file formats, languages, data patterns)",
+        "Check concept drift monitoring (detection: accuracy degradation with consistent data; causes: regulatory changes GDPR updates, policy changes, new threat patterns)",
+        "Verify retraining triggers (retrain model when drift detected: data drift →retrain with recent data, concept drift →update rules + retrain)",
+        "Confirm drift response (model retraining automated or manual, validation before deployment)"
+      ],
+      "evidence": [
+        "Data drift monitoring (KS test, PSI, feature distribution tracking; new formats/languages/patterns detection)",
+        "Concept drift monitoring (accuracy degradation detection; regulatory, policy, threat pattern changes)",
+        "Retraining triggers (drift detected → model retraining: data drift recent data, concept drift rules update)",
+        "Drift response workflow (retraining automated or manual, validation before deployment)"
+      ],
+      "scoring": {
+        "yes_if": "Data drift monitoring (KS test, PSI, feature distribution; new formats/languages/patterns), concept drift monitoring (accuracy degradation; regulatory/policy/threat changes), retraining triggers (drift → retrain: data recent data, concept rules update), drift response (retraining + validation)",
+        "partial_if": "Drift monitoring but manual detection (not KS test/PSI) or limited concept drift (no regulatory tracking) or manual retraining (not triggered)",
+        "no_if": "No drift monitoring or no retraining triggers or drift not addressed"
+      }
+    },
+    {
+      "id": "im-data-1-3",
+      "question": "Do you test adversarial robustness quarterly with ≥70% evasion detection (encoding, obfuscation, format manipulation), ≤10% accuracy drop with 5% poisoning, ≤10% model inversion, and ≤60% model extraction?",
+      "verification": [
+        "Review evasion attack testing (attacks: encoding Base64/hex/URL, obfuscation typos/spacing/leetspeak, format manipulation images/QR codes, paraphrasing; frequency: quarterly + after each model update; target: ≥70% evasion detected; remediation: retrain with adversarial examples, add evasion rules)",
+        "Check data poisoning vulnerability (inject 5% mislabeled training data, measure accuracy impact; target: accuracy drop ≤10% with 5% poisoning; remediation: training data validation, outlier detection, federated learning Byzantine detection)",
+        "Verify model inversion vulnerability (query model to extract training samples; target: reconstruction accuracy ≤10%; remediation: differential privacy in training, output limiting, query throttling)",
+        "Confirm model extraction vulnerability (query extensively, build substitute model; target: substitute accuracy ≤60%; remediation: query rate limiting, API authentication, model watermarking)"
+      ],
+      "evidence": [
+        "Evasion attack testing (quarterly + per model update; encoding, obfuscation, format, paraphrasing; ≥70% detection; adversarial retraining)",
+        "Data poisoning testing (5% injection, ≤10% accuracy drop; validation, outlier detection, Byzantine)",
+        "Model inversion testing (reconstruction ≤10%; differential privacy, output limiting, throttling)",
+        "Model extraction testing (substitute ≤60%; rate limiting, API auth, watermarking)"
+      ],
+      "scoring": {
+        "yes_if": "Quarterly adversarial testing (evasion ≥70% detection: encoding, obfuscation, format, paraphrasing), poisoning (≤10% accuracy drop with 5% injection), inversion (≤10% reconstruction), extraction (≤60% substitute), remediation (retraining, validation, defenses)",
+        "partial_if": "Quarterly testing but evasion ≥60% or poisoning ≤15% drop or inversion ≤20% or extraction ≤70% or limited remediation",
+        "no_if": "No adversarial testing or evasion <60% or poisoning >15% drop or inversion >20% or extraction >70%"
+      }
+    },
+    {
+      "id": "im-data-1-4",
+      "question": "Do you scan ML framework dependencies daily for CVEs (TensorFlow, PyTorch, scikit-learn, Hugging Face) with critical ≤48h/high ≤7d SLAs and assess pre-trained model security?",
+      "verification": [
+        "Review ML framework CVE scanning (frameworks: TensorFlow, PyTorch, scikit-learn, Hugging Face Transformers, SpaCy, NLTK; sources: NVD, GitHub Security Advisories, framework security bulletins; tools: Snyk, Safety Python, OWASP Dependency-Check; frequency: daily dependency scans)",
+        "Check CVE SLA (critical ML framework CVEs ≤48 hours, high ≤7 days)",
+        "Verify pre-trained model security assessment (sources: Hugging Face Hub, TensorFlow Hub, PyTorch Hub; risks: backdoors, trojans, data poisoning in public models; assessment: model provenance verification, adversarial testing, output validation; policy: prefer verified publishers, validate before production)"
+      ],
+      "evidence": [
+        "ML framework CVE scanning (daily scans: TensorFlow, PyTorch, scikit-learn, Hugging Face, SpaCy, NLTK; Snyk, Safety, OWASP Dependency-Check)",
+        "CVE SLA compliance (critical ≤48h, high ≤7d)",
+        "Pre-trained model security (provenance verification, adversarial testing, output validation; verified publishers preferred, validation before production)"
+      ],
+      "scoring": {
+        "yes_if": "Daily ML framework CVE scanning (TensorFlow, PyTorch, scikit-learn, Hugging Face, SpaCy, NLTK; Snyk, Safety, OWASP), CVE SLA (critical ≤48h, high ≤7d), pre-trained model security (provenance, adversarial testing, validation; verified publishers, production validation)",
+        "partial_if": "Weekly CVE scanning (not daily) or CVE SLA not met (critical ≤7d) or limited pre-trained model security (no provenance verification)",
+        "no_if": "No CVE scanning or critical >7d or no pre-trained model security assessment"
+      }
+    },
+    {
+      "id": "im-data-1-5",
+      "question": "Do you test DLP bypass vulnerabilities quarterly with ≥70% encoding detection (Base64, hex, URL, binary, encrypted files), obfuscation detection (steganography, typos, word splitting, paraphrasing), 100% channel coverage, and fragmentation attack detection?",
+      "verification": [
+        "Review encoding bypass testing (techniques: Base64, hex, URL, encrypted files password-protected PDFs, binary; frequency: quarterly DLP bypass testing; target: ≥70% encoding evasion detected; remediation: decoding pre-processing, multi-layer detection)",
+        "Check obfuscation bypass testing (techniques: steganography data in images, typos/misspellings, word splitting, paraphrasing; remediation: ML-based detection less brittle than regex, NLP for paraphrase)",
+        "Verify channel hopping detection (scenario: blocked on email →try chat →try USB; target: DLP covers all channels no gaps 100% coverage; remediation: extend DLP to all channels, correlate user behavior)",
+        "Confirm fragmentation attack testing (attack: credit card in pieces across emails; target: context-aware DLP detects fragmentation; remediation: cross-message correlation, user behavior analytics)"
+      ],
+      "evidence": [
+        "Encoding bypass testing (quarterly; Base64, hex, URL, encrypted PDFs, binary; ≥70% detection; decoding, multi-layer)",
+        "Obfuscation bypass testing (steganography, typos, word splitting, paraphrasing; ML-based, NLP detection)",
+        "Channel hopping detection (email →chat →USB; 100% channel coverage no gaps; behavior correlation)",
+        "Fragmentation attack testing (credit card pieces; context-aware detection; cross-message correlation, analytics)"
+      ],
+      "scoring": {
+        "yes_if": "Quarterly DLP bypass testing (encoding ≥70% detection: Base64, hex, URL, encrypted, binary), obfuscation detection (steganography, typos, splitting, paraphrasing; ML-based, NLP), channel hopping (100% coverage no gaps, behavior correlation), fragmentation detection (context-aware, cross-message correlation)",
+        "partial_if": "Quarterly testing but encoding ≥60% or limited obfuscation detection or channel coverage <100% or no fragmentation detection",
+        "no_if": "No DLP bypass testing or encoding <60% or channel coverage <80% or no fragmentation testing"
+      }
+    },
+    {
+      "id": "im-data-1-6",
+      "question": "Do you maintain DLP channel inventory with monthly reviews for new channels, shadow IT detection, and gap analysis prioritized by risk?",
+      "verification": [
+        "Review channel inventory (channels: email, chat, file upload, clipboard, cloud sync, USB, print, screen capture, API, webhooks; process: monthly review for new channels new tools Slack/Teams/Discord)",
+        "Check gap analysis (which channels lack DLP coverage? prioritize by risk)",
+        "Verify shadow IT detection (network monitoring for unauthorized cloud sync, file sharing apps; examples: personal Dropbox, WeTransfer, unauthorized file sharing sites; remediation: block unauthorized apps, extend DLP to approved alternatives)"
+      ],
+      "evidence": [
+        "DLP channel inventory (email, chat, upload, clipboard, cloud sync, USB, print, screen capture, API, webhooks; monthly reviews)",
+        "Gap analysis (uncovered channels identified, prioritized by risk)",
+        "Shadow IT detection (network monitoring: unauthorized cloud sync, file sharing; Dropbox, WeTransfer, unauthorized sites; blocking + DLP extension)"
+      ],
+      "scoring": {
+        "yes_if": "Channel inventory (≥10 channels: email, chat, upload, clipboard, cloud sync, USB, print, screen capture, API, webhooks; monthly reviews), gap analysis (uncovered identified, risk prioritized), shadow IT detection (network monitoring, unauthorized blocking, DLP extension)",
+        "partial_if": "Channel inventory but quarterly reviews (not monthly) or limited gap analysis or no shadow IT detection",
+        "no_if": "No channel inventory or no gap analysis or no shadow IT detection"
+      }
+    },
+    {
+      "id": "im-data-1-7",
+      "question": "Do you test DLP false negatives (≤10% target) and analyze false positives (≤5% target) with rule tuning and legitimate workflow identification?",
+      "verification": [
+        "Review false negative testing (method: send known sensitive data test PII/PHI/PCI, verify DLP detects; target: false negative rate ≤10%; root cause: incomplete rules, new data patterns, encoding evasions; remediation: update detection rules, retrain ML models, add missing patterns)",
+        "Check false positive analysis (metric: false positive rate ≤5% target; impact: high FP rate causes user friction, policy override abuse; remediation: tune DLP rules, improve ML model, identify legitimate business workflows)"
+      ],
+      "evidence": [
+        "False negative testing (send test PII/PHI/PCI, verify detection; ≤10% FN rate; incomplete rules, new patterns, evasions; rule updates, ML retraining, pattern addition)",
+        "False positive analysis (≤5% FP rate; friction, override abuse impact; rule tuning, ML improvement, workflow identification)"
+      ],
+      "scoring": {
+        "yes_if": "False negative testing (test PII/PHI/PCI, ≤10% FN rate; root cause: rules, patterns, evasions; remediation: rules, ML, patterns), false positive analysis (≤5% FP rate; friction/override impact; tuning, ML improvement, workflow identification)",
+        "partial_if": "FN testing but ≤15% rate or FP analysis but ≤10% rate or limited remediation",
+        "no_if": "No FN testing or FN >15% or no FP analysis or FP >10%"
+      }
+    },
+    {
+      "id": "im-data-1-8",
+      "question": "Do you scan DLP infrastructure for vulnerabilities with critical agent CVEs ≤24h/high ≤7d SLAs, gateway scanning, and failover testing?",
+      "verification": [
+        "Review DLP agent vulnerability scanning (vulnerability scanners for agent software; risks: agent bypass, privilege escalation, tampering; SLA: critical agent CVEs ≤24 hours, high ≤7 days)",
+        "Check DLP gateway vulnerability scanning (risks: gateway bypass, performance degradation, failover issues; testing: test failover behavior what happens when DLP gateway fails?; remediation: patch gateways, implement redundancy, define fail-safe behavior)"
+      ],
+      "evidence": [
+        "DLP agent vulnerability scanning (agent software scans; bypass, privilege escalation, tampering risks; critical ≤24h, high ≤7d SLAs)",
+        "DLP gateway vulnerability scanning (gateway scans; bypass, performance, failover risks; failover testing; patching, redundancy, fail-safe behavior)"
+      ],
+      "scoring": {
+        "yes_if": "DLP agent vulnerability scanning (bypass, escalation, tampering; critical ≤24h, high ≤7d), DLP gateway scanning (bypass, performance, failover; failover testing; patching, redundancy, fail-safe)",
+        "partial_if": "Agent scanning but SLA not met (critical ≤48h) or limited gateway scanning (no failover testing)",
+        "no_if": "No DLP agent scanning or critical >48h or no gateway scanning or no failover testing"
+      }
+    },
+    {
+      "id": "im-data-1-9",
+      "question": "Do you monitor differential privacy budget with alerts at 80%/95%/100% consumption and test privacy attacks quarterly (membership inference ≤55%, model inversion ≤15%, attribute inference ≤60%)?",
+      "verification": [
+        "Review privacy budget exhaustion monitoring (metrics: budget consumed, queries performed, budget remaining; alerts: 80%, 95%, 100% consumption; vulnerability: budget exhaustion enables privacy attacks; remediation: query limits, increase epsilon reduce privacy, reduce query frequency)",
+        "Check privacy attack testing (attacks: membership inference determine if record in training, model inversion reconstruct training data, attribute inference infer sensitive attributes; frequency: quarterly privacy attack testing; target: attack success ≤55% close to random 50%; remediation: increase noise reduce epsilon, stricter query limits)",
+        "Verify noise implementation correctness (testing: verify noise magnitude matches ε and δ parameters; risk: implementation bugs leak more than intended; remediation: vetted libraries OpenDP/Tumult Analytics, regular audits)"
+      ],
+      "evidence": [
+        "Privacy budget monitoring (consumed, queries, remaining; 80%/95%/100% alerts; exhaustion vulnerability; query limits, epsilon increase, frequency reduction)",
+        "Privacy attack testing (quarterly; membership inference ≤55%, model inversion ≤15%, attribute inference ≤60%; noise increase, stricter limits)",
+        "Noise implementation validation (noise magnitude matches ε/δ; bug risk; OpenDP/Tumult Analytics libraries, regular audits)"
+      ],
+      "scoring": {
+        "yes_if": "Privacy budget monitoring (consumed, queries, remaining; 80%/95%/100% alerts; query limits, epsilon, frequency remediation), quarterly privacy attack testing (membership ≤55%, inversion ≤15%, attribute ≤60%; noise increase, limits), noise validation (ε/δ match; OpenDP/Tumult libraries, audits)",
+        "partial_if": "Budget monitoring but limited alerts (95%/100% only) or privacy attacks but membership ≤60% or inversion ≤25% or limited noise validation",
+        "no_if": "No budget monitoring or no privacy attack testing or membership >60% or inversion >25% or no noise validation"
+      }
+    },
+    {
+      "id": "im-data-1-10",
+      "question": "Do you test federated learning vulnerabilities quarterly with gradient inversion (≤20% reconstruction), Byzantine detection (poisoning resilience), and communication security (TLS 1.3)?",
+      "verification": [
+        "Review gradient inversion attack testing (attack: reconstruct training samples from shared gradients; frequency: after federated learning changes, quarterly; target: reconstruction accuracy ≤20%; remediation: gradient clipping, differential privacy on gradients, secure aggregation)",
+        "Check model poisoning Byzantine detection (attack: malicious participant sends poisoned gradients; testing: inject poisoned gradients, measure accuracy impact; remediation: Byzantine-robust aggregation Krum/Median, participant validation)",
+        "Verify communication security vulnerabilities (testing: verify TLS for all client-server communication; risk: unencrypted gradients leaked over network; remediation: enforce TLS 1.3, encrypt gradient payloads)"
+      ],
+      "evidence": [
+        "Gradient inversion testing (quarterly + after changes; reconstruction ≤20%; gradient clipping, differential privacy, secure aggregation)",
+        "Byzantine detection testing (poisoned gradients injection, accuracy impact; Krum/Median aggregation, participant validation)",
+        "Communication security validation (TLS all client-server; unencrypted gradient risk; TLS 1.3 enforcement, gradient payload encryption)"
+      ],
+      "scoring": {
+        "yes_if": "Quarterly federated learning testing (gradient inversion ≤20% reconstruction; clipping, differential privacy, secure aggregation), Byzantine detection (poisoning resilience; Krum/Median, validation), communication security (TLS all connections; TLS 1.3, gradient encryption)",
+        "partial_if": "Quarterly testing but reconstruction ≤30% or limited Byzantine detection or TLS 1.2 (not 1.3)",
+        "no_if": "No federated learning testing or reconstruction >30% or no Byzantine detection or no TLS"
+      }
+    },
+    {
+      "id": "im-data-1-11",
+      "question": "Do you test homomorphic encryption correctness (100% match plaintext), plaintext leakage (zero target), and library vulnerabilities (SEAL, HElib CVE scanning)?",
+      "verification": [
+        "Review computation correctness testing (testing: compare encrypted computation results with plaintext; target: 100% encrypted match plaintext; risk: incorrect HE produces wrong results)",
+        "Check plaintext leakage testing (testing: memory dumps, network traffic analysis during encrypted computation; target: zero plaintext leakage; risk: plaintext exposed defeats HE purpose; remediation: secure memory handling, encrypted payloads)",
+        "Verify HE library vulnerability scanning (libraries: Microsoft SEAL, HElib, TFHE; sources: NVD, GitHub Security Advisories; frequency: daily dependency scans; SLA: critical HE library CVEs ≤48 hours)"
+      ],
+      "evidence": [
+        "Computation correctness testing (encrypted vs plaintext comparison; 100% match target; incorrect HE risk)",
+        "Plaintext leakage testing (memory dumps, network analysis; zero leakage target; secure memory, encrypted payloads)",
+        "HE library CVE scanning (daily: SEAL, HElib, TFHE; NVD, GitHub; critical ≤48h)"
+      ],
+      "scoring": {
+        "yes_if": "Computation correctness testing (100% encrypted match plaintext; incorrect HE risk), plaintext leakage testing (memory dumps, network; zero leakage; secure memory, encrypted payloads), HE library CVE scanning (daily SEAL/HElib/TFHE; critical ≤48h)",
+        "partial_if": "Correctness testing but <100% match or limited leakage testing (no memory dumps) or weekly CVE scanning (not daily)",
+        "no_if": "No correctness testing or <95% match or plaintext leakage found or no CVE scanning"
+      }
+    },
+    {
+      "id": "im-data-1-12",
+      "question": "Do you scan data infrastructure (databases, object storage, warehouses) for CVEs and misconfigurations with critical ≤48h/high ≤7d SLAs and automated patching?",
+      "verification": [
+        "Review database CVE scanning (databases: PostgreSQL, MySQL, MongoDB, SQL Server, Redis; sources: NVD, vendor security bulletins; tools: vulnerability scanners; frequency: daily CVE scans; SLA: critical database CVEs ≤48 hours, high ≤7 days)",
+        "Check object storage misconfiguration scanning (platforms: AWS S3, Azure Blob, GCS; tools: ScoutSuite, Prowler, Cloud Custodian; misconfigurations: public buckets, unencrypted storage, overly permissive IAM; frequency: daily scans; remediation: auto-remediate where safe, alert for manual review)",
+        "Verify data warehouse vulnerability scanning (platforms: Snowflake, BigQuery, Redshift, Databricks; CVEs + misconfigurations; SLA: critical ≤48 hours, high ≤7 days)",
+        "Confirm automated patching (managed databases: auto-patching enabled; self-managed: automated patch deployment with testing; rollback capability for failed patches)"
+      ],
+      "evidence": [
+        "Database CVE scanning (daily: PostgreSQL, MySQL, MongoDB, SQL Server, Redis; NVD, vendor bulletins; critical ≤48h, high ≤7d)",
+        "Object storage misconfiguration scanning (daily: S3, Azure Blob, GCS; ScoutSuite, Prowler, Cloud Custodian; public buckets, unencrypted, overly permissive IAM; auto-remediate, alerts)",
+        "Data warehouse vulnerability scanning (Snowflake, BigQuery, Redshift, Databricks; CVEs + misconfigs; critical ≤48h, high ≤7d)",
+        "Automated patching (managed: auto-patching enabled; self-managed: automated deployment, testing, rollback)"
+      ],
+      "scoring": {
+        "yes_if": "Daily database CVE scanning (PostgreSQL, MySQL, MongoDB, SQL Server, Redis; critical ≤48h, high ≤7d), daily object storage misconfiguration scanning (S3, Azure, GCS; ScoutSuite/Prowler; public, unencrypted, IAM; auto-remediate), data warehouse scanning (Snowflake, BigQuery, Redshift, Databricks; CVEs + misconfigs; critical ≤48h), automated patching (managed auto, self-managed automated + testing + rollback)",
+        "partial_if": "Weekly scanning (not daily) or CVE SLA not met (critical ≤7d) or limited misconfiguration scanning or manual patching (not automated)",
+        "no_if": "No CVE scanning or critical >7d or no misconfiguration scanning or no automated patching"
+      }
+    },
+    {
+      "id": "im-data-1-13",
+      "question": "Do you scan data access controls for IAM misconfigurations (overly permissive, wildcard permissions, stale credentials) with ≥95% least privilege compliance and automated remediation?",
+      "verification": [
+        "Review IAM misconfiguration scanning (overly permissive: users/roles with excessive permissions, wildcard permissions: s3:*, storage.*, database:*, SUPERUSER/root for applications, stale credentials: unused for >90 days; tools: AWS IAM Access Analyzer, Azure Security Center, GCP Security Command Center, open-source: ScoutSuite, Prowler; frequency: daily scans)",
+        "Check least privilege compliance (metric: % users/roles with minimal required permissions; target: ≥95% least privilege compliance; validation: quarterly access reviews, permission audits)",
+        "Verify automated remediation (auto-remediate: remove wildcard permissions, rotate stale credentials, downgrade excessive permissions where safe; manual review: complex permission changes, role modifications)"
+      ],
+      "evidence": [
+        "IAM misconfiguration scanning (daily; overly permissive, wildcard s3:*/storage.*/database.*, stale >90 days; AWS IAM Analyzer, Azure Security Center, GCP SCC, ScoutSuite, Prowler)",
+        "Least privilege compliance (≥95% minimal permissions; quarterly access reviews, permission audits)",
+        "Automated remediation (auto-remediate: wildcard removal, stale rotation, excessive downgrade; manual review: complex changes, role modifications)"
+      ],
+      "scoring": {
+        "yes_if": "Daily IAM misconfiguration scanning (overly permissive, wildcard, stale >90 days; AWS Analyzer, Azure SC, GCP SCC, ScoutSuite, Prowler), ≥95% least privilege compliance (quarterly reviews, audits), automated remediation (wildcard removal, stale rotation, excessive downgrade; manual complex/role)",
+        "partial_if": "Weekly scanning (not daily) or ≥90% least privilege or limited automated remediation (manual only)",
+        "no_if": "No IAM scanning or <90% least privilege or no remediation"
+      }
+    },
+    {
+      "id": "im-data-1-14",
+      "question": "Do you test compliance automation (GDPR, CCPA, HIPAA, PCI-DSS) quarterly for gaps in DSAR/deletion/portability/consent with remediation SLA critical ≤48h/high ≤7d?",
+      "verification": [
+        "Review GDPR compliance gap testing (test DSAR: ≥95% recall across all systems, ≤48h search, ≤72h report; deletion: ≥95% recall, ≥99% verification, ≤30 days; portability: machine-readable export; consent: collection, withdrawal, updates tracked)",
+        "Check CCPA compliance gap testing (test: right to know ≤45 days, right to delete ≤45 days, opt-out enforcement, non-discrimination validation)",
+        "Verify HIPAA compliance gap testing (test: PHI access logging ≥6 years retention, minimum necessary validation, breach notification ≤60 days)",
+        "Confirm PCI-DSS compliance gap testing (test: cardholder data encryption, access logging, retention policies)",
+        "Review remediation SLA (critical compliance gaps: GDPR Article 17 deletion not working ≤48 hours, high gaps: DSAR latency >72h ≤7 days)"
+      ],
+      "evidence": [
+        "GDPR compliance gap testing (quarterly; DSAR ≥95% recall ≤48h search ≤72h report, deletion ≥95% recall ≥99% verification ≤30 days, portability machine-readable, consent tracking)",
+        "CCPA compliance gap testing (quarterly; know/delete ≤45 days, opt-out enforcement, non-discrimination validation)",
+        "HIPAA compliance gap testing (quarterly; PHI logging ≥6 years, minimum necessary, breach ≤60 days)",
+        "PCI-DSS compliance gap testing (quarterly; cardholder encryption, access logging, retention)",
+        "Remediation SLA (critical ≤48h: GDPR deletion not working, high ≤7d: DSAR >72h)"
+      ],
+      "scoring": {
+        "yes_if": "Quarterly compliance gap testing (GDPR DSAR/deletion/portability/consent, CCPA know/delete/opt-out/non-discrimination, HIPAA PHI/minimum necessary/breach, PCI-DSS cardholder/access/retention), remediation SLA (critical ≤48h, high ≤7d)",
+        "partial_if": "Annual compliance testing (not quarterly) or limited regulatory coverage (<3 regulations) or remediation SLA not met (critical ≤7d)",
+        "no_if": "No compliance gap testing or <2 regulations tested or remediation >14d for critical"
+      }
+    },
+    {
+      "id": "im-data-1-15",
+      "question": "Do you test data retention and disposal quarterly for violations (data exceeding retention) and incomplete deletion (data not purged from all systems) with automated remediation?",
+      "verification": [
+        "Review retention violation testing (test: identify data exceeding retention period not deleted; examples: GDPR data >90 days, logs >1 year, backups >retention policy; frequency: quarterly retention audits; remediation: automated deletion of expired data, legal hold support prevents deletion)",
+        "Check incomplete deletion testing (test: GDPR/CCPA deletion requests, verify data purged from ALL systems: databases, backups, logs, archives, caches; target: ≥95% recall ≥99% verification; gaps: data in backups not deleted, logs not purged, caches not cleared; remediation: extend deletion to all systems, automate deletion verification)",
+        "Verify automated remediation (auto-delete: data exceeding retention period automated deletion no manual intervention, deletion verification: automated confirmation of deletion from all systems)"
+      ],
+      "evidence": [
+        "Retention violation testing (quarterly; data exceeding retention: GDPR >90 days, logs >1 year, backups >policy; automated deletion expired data, legal hold support)",
+        "Incomplete deletion testing (quarterly; GDPR/CCPA deletion requests, ALL systems verification: databases, backups, logs, archives, caches; ≥95% recall ≥99% verification; extension to all systems, automated verification)",
+        "Automated remediation (auto-delete expired retention automated, deletion verification automated ALL systems confirmation)"
+      ],
+      "scoring": {
+        "yes_if": "Quarterly retention violation testing (data exceeding retention: GDPR >90 days, logs >1 year, backups >policy; automated deletion, legal hold support), quarterly incomplete deletion testing (ALL systems: databases, backups, logs, archives, caches; ≥95% recall ≥99% verification; extension, automated verification), automated remediation (auto-delete expired, verification ALL systems)",
+        "partial_if": "Quarterly testing but manual deletion (not automated) or ≥90% recall or limited system coverage (<all systems)",
+        "no_if": "No retention/deletion testing or manual deletion only or recall <85% or verification <95%"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Classification Model Accuracy",
+      "target": "≥90% overall accuracy, ≥85% per type, continuous monitoring, alerts on drops",
+      "measurement": "Accuracy % (precision, recall, F1) per data type; Alert frequency on drops",
+      "data_source": "Accuracy monitoring, manual review ground truth",
+      "frequency": "Real-time monitoring, daily aggregation, weekly reports",
+      "baseline": "Pre-deployment classification accuracy",
+      "validation": "Continuous monitoring confirms ≥90% overall, alerts trigger on drops"
+    },
+    {
+      "metric": "Adversarial Robustness",
+      "target": "≥70% evasion detection, ≤10% poisoning impact, ≤10% inversion, ≤60% extraction",
+      "measurement": "Evasion detection %, accuracy drop with poisoning, reconstruction %, substitute accuracy %",
+      "data_source": "Quarterly adversarial testing results",
+      "frequency": "Quarterly adversarial testing",
+      "baseline": "Adversarial robustness from testing",
+      "validation": "Quarterly tests confirm evasion ≥70%, poisoning ≤10%, inversion ≤10%, extraction ≤60%"
+    },
+    {
+      "metric": "DLP Effectiveness and Bypass Resistance",
+      "target": "≥70% encoding detection, 100% channel coverage, ≤10% false negatives, ≤5% false positives",
+      "measurement": "Encoding detection %, channel coverage %, FN rate %, FP rate %",
+      "data_source": "Quarterly DLP bypass testing, FP/FN tracking",
+      "frequency": "Quarterly bypass testing, continuous FP/FN monitoring",
+      "baseline": "DLP effectiveness from testing",
+      "validation": "Quarterly tests confirm encoding ≥70%, coverage 100%, FN ≤10%, FP ≤5%"
+    },
+    {
+      "metric": "Privacy Protection",
+      "target": "Privacy budget monitored (80%/95%/100% alerts), quarterly privacy attacks (membership ≤55%, inversion ≤15%, attribute ≤60%)",
+      "measurement": "Budget alerts triggered, privacy attack success rates",
+      "data_source": "Privacy budget monitoring, quarterly privacy attack testing",
+      "frequency": "Real-time budget monitoring, quarterly attack testing",
+      "baseline": "Privacy guarantees from design (ε/δ parameters)",
+      "validation": "Budget alerts at thresholds, quarterly attacks confirm membership ≤55%, inversion ≤15%, attribute ≤60%"
+    },
+    {
+      "metric": "Data Infrastructure Vulnerability Management",
+      "target": "Daily CVE scanning, critical ≤48h/high ≤7d SLAs, ≥95% least privilege IAM, automated patching",
+      "measurement": "CVE scan frequency, remediation SLA compliance %, least privilege compliance %, patching automation %",
+      "data_source": "Vulnerability scans, remediation tracking, IAM audits, patch logs",
+      "frequency": "Daily CVE scans, quarterly IAM audits, patch tracking",
+      "baseline": "Current vulnerability management posture",
+      "validation": "Daily scans confirm coverage, SLA compliance ≥95%, IAM ≥95% least privilege, automated patching enabled"
+    },
+    {
+      "metric": "Compliance Gap Management",
+      "target": "Quarterly compliance testing (GDPR, CCPA, HIPAA, PCI-DSS), critical gaps ≤48h/high ≤7d remediation",
+      "measurement": "Compliance gap testing frequency, gap remediation SLA compliance %",
+      "data_source": "Quarterly compliance testing, gap remediation tracking",
+      "frequency": "Quarterly compliance testing, continuous gap tracking",
+      "baseline": "Compliance requirements (GDPR, CCPA, HIPAA, PCI-DSS)",
+      "validation": "Quarterly tests identify gaps, remediation SLA ≥95% (critical ≤48h, high ≤7d)"
+    },
+    {
+      "metric": "Data Retention and Deletion Compliance",
+      "target": "Quarterly retention/deletion testing, ≥95% recall, ≥99% verification, automated remediation",
+      "measurement": "Retention violation %, deletion recall %, deletion verification %, automation %",
+      "data_source": "Quarterly retention/deletion audits",
+      "frequency": "Quarterly audits",
+      "baseline": "Retention policies (GDPR, CCPA, HIPAA, PCI-DSS)",
+      "validation": "Quarterly audits confirm ≥95% recall, ≥99% verification, automated remediation"
+    }
+  ]
+}

@@ -1,0 +1,398 @@
+{
+  "practice": "DR",
+  "domain": "processes",
+  "name": "Design Review - Processes Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "dr-processes-1-1",
+      "question": "Have you reviewed and documented the ML alert triage classification model design including features, training data, and accuracy targets?",
+      "verification": [
+        "Review ML model design documentation (model type, features, training approach)",
+        "Check training dataset (≥10,000 labeled alerts, balanced across classes)",
+        "Verify accuracy targets defined: ≥95% recall, ≥70% precision, ≥80% F1-score",
+        "Confirm ongoing retraining plan (monthly with analyst feedback)",
+        "Review edge case handling (zero-day, adversarial evasion, concept drift)"
+      ],
+      "evidence": [
+        "ML model design document with architecture, features, training approach",
+        "Training dataset specification (size ≥10,000, class distribution)",
+        "Model accuracy requirements and validation methodology (holdout set, k-fold cross-validation)",
+        "Retraining schedule and analyst feedback integration process",
+        "Edge case testing plan and results"
+      ],
+      "scoring": {
+        "yes_if": "Complete model design documented, dataset ≥10,000 alerts, accuracy targets defined (≥95% recall, ≥70% precision), retraining monthly, edge cases addressed",
+        "partial_if": "Model documented but incomplete (dataset <10,000, accuracy targets not defined, or no retraining plan)",
+        "no_if": "No ML triage model design documentation or very limited information"
+      }
+    },
+    {
+      "id": "dr-processes-1-2",
+      "question": "Have you designed AI-powered severity scoring with context-based adjustments validated by analysts?",
+      "verification": [
+        "Review severity scoring algorithm design (base severity × asset criticality × exploitability × business impact)",
+        "Check context factors: asset criticality, data sensitivity, exploitability, business impact",
+        "Verify output includes adjusted severity (1-100 scale) and justification",
+        "Confirm analyst validation process (≥10% random sample reviewed)"
+      ],
+      "evidence": [
+        "Severity scoring algorithm documentation with formula",
+        "Context factors definition (asset criticality levels, data sensitivity classification)",
+        "Sample severity adjustments with AI justifications",
+        "Analyst validation process and results (≥10% sample reviewed, feedback incorporated)"
+      ],
+      "scoring": {
+        "yes_if": "Severity scoring algorithm documented with context factors, output includes justification, ≥10% analyst validation",
+        "partial_if": "Algorithm exists but limited context factors or no analyst validation process",
+        "no_if": "No severity scoring design or static severity (no context-based adjustment)"
+      }
+    },
+    {
+      "id": "dr-processes-1-3",
+      "question": "Have you designed alert prioritization logic including SLA integration and starvation prevention?",
+      "verification": [
+        "Review priority assignment factors (severity, age, resource availability, analyst expertise)",
+        "Check queue design (priority queue with FIFO within levels, starvation prevention)",
+        "Verify SLA integration (alerts approaching deadline auto-escalate)",
+        "Confirm validation that critical alerts not delayed by low-priority volume"
+      ],
+      "evidence": [
+        "Priority assignment algorithm documentation",
+        "Queue architecture design (priority levels, escalation rules)",
+        "SLA integration specification showing auto-escalation triggers",
+        "Starvation prevention mechanism (old low-priority alerts eventually escalate)"
+      ],
+      "scoring": {
+        "yes_if": "Prioritization logic documented with multiple factors, SLA integration, starvation prevention, validated that critical alerts prioritized",
+        "partial_if": "Basic prioritization but missing SLA integration or starvation prevention",
+        "no_if": "No prioritization logic or simple FIFO queue without priority"
+      }
+    },
+    {
+      "id": "dr-processes-1-4",
+      "question": "Have you designed the playbook execution architecture with DAG representation, error handling, and state persistence?",
+      "verification": [
+        "Review workflow representation (DAG with nodes=actions, edges=dependencies)",
+        "Check execution engine choice (Temporal, Airflow, Prefect, Camunda)",
+        "Verify parallelism design (independent steps parallel, dependent steps sequential)",
+        "Confirm error handling (retry, fallback, skip, abort strategies)",
+        "Review state persistence (database storage, resume capability)"
+      ],
+      "evidence": [
+        "Playbook execution architecture diagram (DAG representation)",
+        "Workflow engine selection documentation with rationale",
+        "Parallel execution design with dependency management",
+        "Error handling strategy documentation (retry logic, fallback actions)",
+        "State management design (storage, resume from failure)"
+      ],
+      "scoring": {
+        "yes_if": "DAG-based execution, workflow engine selected, parallelism designed, comprehensive error handling, state persisted for resume",
+        "partial_if": "Execution architecture exists but limited error handling or no state persistence",
+        "no_if": "No playbook execution architecture design or ad-hoc execution"
+      }
+    },
+    {
+      "id": "dr-processes-1-5",
+      "question": "Have you designed multi-tool coordination with action chaining, parallel execution, and idempotency?",
+      "verification": [
+        "Review tool catalog (centralized catalog with capabilities per tool)",
+        "Check action chaining design (output from tool A → input to tool B)",
+        "Verify parallel execution (query multiple tools simultaneously, aggregate results)",
+        "Confirm idempotency design (actions safe to retry, no side effects on retry)",
+        "Review end-to-end testing plan for multi-tool workflows"
+      ],
+      "evidence": [
+        "Security tool catalog documentation (tools, capabilities, API patterns)",
+        "Action chaining examples (data flow between tools)",
+        "Parallel execution architecture (simultaneous queries, result aggregation)",
+        "Idempotency design documentation (safe retry mechanisms)",
+        "Multi-tool workflow test plan and results"
+      ],
+      "scoring": {
+        "yes_if": "Tool catalog established, action chaining designed, parallel execution supported, idempotency ensured, end-to-end tested",
+        "partial_if": "Multi-tool coordination exists but limited (no parallel execution, or not idempotent)",
+        "no_if": "No multi-tool coordination design or tools called in isolation"
+      }
+    },
+    {
+      "id": "dr-processes-1-6",
+      "question": "Have you designed graduated automation levels (Alert, Recommend, Auto-Execute Reversible, Auto-Execute Irreversible) with appropriate progression?",
+      "verification": [
+        "Review 4-level automation framework (Level 0-3 defined)",
+        "Check level assignments per action type (reversible vs irreversible)",
+        "Verify high-risk actions require approval (Level 3)",
+        "Confirm progression plan (start Level 1, gradually enable Level 2-3)"
+      ],
+      "evidence": [
+        "Graduated automation framework documentation (4 levels with criteria)",
+        "Action-to-level mapping (which actions at which level)",
+        "Approval requirements for Level 3 actions",
+        "Automation progression roadmap (phased enablement)"
+      ],
+      "scoring": {
+        "yes_if": "4-level framework defined, actions classified by level, high-risk require approval, phased progression planned",
+        "partial_if": "Some automation levels but not comprehensive 4-level framework or no progression plan",
+        "no_if": "No graduated automation design or all automation treated equally"
+      }
+    },
+    {
+      "id": "dr-processes-1-7",
+      "question": "Have you designed blast radius limits with hard-coded enforcement and rate limiting?",
+      "verification": [
+        "Review blast radius limits (≤50 IPs, ≤20 accounts, ≤5 hosts per action)",
+        "Check rate limiting (≤100 actions/hour, ≤500/day)",
+        "Verify limits enforced at orchestration engine level (cannot bypass)",
+        "Confirm critical asset exceptions require approval regardless of limits",
+        "Review monitoring for limit violations"
+      ],
+      "evidence": [
+        "Blast radius limits specification (per action and per day)",
+        "Rate limiting configuration (actions per time period)",
+        "Enforcement mechanism design (hard-coded in engine)",
+        "Critical asset exception handling (production servers, exec accounts)",
+        "Limit violation monitoring and alerting design"
+      ],
+      "scoring": {
+        "yes_if": "Limits defined (≤50 IPs, ≤20 accounts, ≤5 hosts), rate limiting, hard-coded enforcement, critical asset exceptions, monitoring designed",
+        "partial_if": "Limits defined but not enforced, or missing rate limiting, or no exception handling",
+        "no_if": "No blast radius limit design or soft limits that can be bypassed"
+      }
+    },
+    {
+      "id": "dr-processes-1-8",
+      "question": "Have you designed pre/post-change validation including dry-run mode and verification checks?",
+      "verification": [
+        "Review dry-run simulation design (show what would happen without executing)",
+        "Check pre-change checks (verify preconditions, prevent unnecessary actions)",
+        "Verify post-change verification (confirm action succeeded, alert on failures)",
+        "Confirm canary testing approach (test on non-production first)"
+      ],
+      "evidence": [
+        "Dry-run mode design documentation",
+        "Pre-change validation checklist per action type",
+        "Post-change verification design (how success is confirmed)",
+        "Canary testing process documentation"
+      ],
+      "scoring": {
+        "yes_if": "Dry-run mode designed, pre-change checks comprehensive, post-change verification for all actions, canary testing planned",
+        "partial_if": "Some validation designed but not comprehensive (missing dry-run or post-change verification)",
+        "no_if": "No change validation design or actions executed without validation"
+      }
+    },
+    {
+      "id": "dr-processes-1-9",
+      "question": "Have you designed automated rollback mechanisms with triggers, inverse actions, and validation?",
+      "verification": [
+        "Review rollback triggers (action failure, manual request, adverse impact detection)",
+        "Check rollback actions (inverse operations, snapshot restoration)",
+        "Verify rollback validation (confirm rollback succeeded, alert on failure)",
+        "Confirm irreversible action handling (documented limitations, require human recovery)"
+      ],
+      "evidence": [
+        "Rollback mechanism design document",
+        "Rollback trigger conditions and automated invocation",
+        "Rollback action mapping per original action type (unblock, re-enable, de-isolate)",
+        "Irreversible action identification and recovery procedures"
+      ],
+      "scoring": {
+        "yes_if": "Rollback triggers defined, inverse actions documented, validation designed, irreversible actions identified with limitations documented",
+        "partial_if": "Rollback designed but incomplete (missing triggers, or no validation, or irreversible not handled)",
+        "no_if": "No rollback mechanism design or manual rollback only"
+      }
+    },
+    {
+      "id": "dr-processes-1-10",
+      "question": "Have you designed a kill switch with immediate halt, graceful shutdown, and re-enable approval?",
+      "verification": [
+        "Review kill switch activation methods (web UI, API, CLI, automated trigger)",
+        "Check kill switch effects (halt all executions, block new actions, alert team)",
+        "Verify graceful shutdown design (in-flight actions complete, no inconsistent state)",
+        "Confirm re-enable requirements (manager approval, root cause analysis)"
+      ],
+      "evidence": [
+        "Kill switch design documentation",
+        "Activation trigger conditions (manual and automated)",
+        "Graceful shutdown procedure (how in-flight actions handled)",
+        "Re-enable approval workflow and RCA requirement"
+      ],
+      "scoring": {
+        "yes_if": "Kill switch designed with multiple activation methods, immediate halt, graceful shutdown, re-enable requires approval + RCA",
+        "partial_if": "Kill switch exists but limited (no automated trigger, or ungraceful shutdown, or no approval for re-enable)",
+        "no_if": "No kill switch design"
+      }
+    },
+    {
+      "id": "dr-processes-1-11",
+      "question": "Have you designed security tool integration coverage with ≥80% of organization's tools?",
+      "verification": [
+        "Review tool coverage target (≥80% overall, ≥90% critical tools)",
+        "Check tool categories covered (SIEM, EDR, firewall, cloud, IAM, ticketing, email, threat intel)",
+        "Verify capability mapping (each tool's query/block/isolate/delete capabilities documented)",
+        "Confirm gap analysis (identify missing integrations, prioritization)"
+      ],
+      "evidence": [
+        "Security tool integration roadmap showing coverage targets",
+        "Tool catalog with categories and current integration status",
+        "Capability matrix (tools × capabilities)",
+        "Gap analysis identifying high-priority missing integrations"
+      ],
+      "scoring": {
+        "yes_if": "Coverage target ≥80% overall and ≥90% critical, tool catalog established, capabilities mapped, gap analysis performed",
+        "partial_if": "Some integration planning but coverage <80% or no capability mapping",
+        "no_if": "No integration coverage plan or minimal tool integration (<50%)"
+      }
+    },
+    {
+      "id": "dr-processes-1-12",
+      "question": "Have you designed integration error handling with circuit breaker, retry logic, and graceful degradation?",
+      "verification": [
+        "Review circuit breaker design (5 consecutive failures → 5 minute break, alert on break)",
+        "Check retry logic (exponential backoff, max 5 retries, distinguish transient vs permanent errors)",
+        "Verify fallback actions (backup tools, alert analyst, mark pending)",
+        "Confirm graceful degradation (workflow continues with available tools)"
+      ],
+      "evidence": [
+        "Integration error handling design document",
+        "Circuit breaker configuration (failure threshold, break duration)",
+        "Retry strategy documentation (backoff algorithm, max retries)",
+        "Graceful degradation design (workflow adaptation when tools unavailable)"
+      ],
+      "scoring": {
+        "yes_if": "Circuit breaker designed, exponential backoff retry, fallback actions defined, graceful degradation ensures workflow continuity",
+        "partial_if": "Some error handling but missing circuit breaker or no graceful degradation",
+        "no_if": "No integration error handling design or workflows fail when tool unavailable"
+      }
+    },
+    {
+      "id": "dr-processes-1-13",
+      "question": "Have you designed approval workflows for high-risk actions with timeout and escalation?",
+      "verification": [
+        "Review approval requirements (high-risk actions: delete, reset passwords, disable critical accounts)",
+        "Check approval mechanism (analyst receives request with details, approves/rejects)",
+        "Verify timeout handling (30 min Critical, 2h High; no auto-approve on timeout)",
+        "Confirm escalation to manager for high business impact (>$100K)"
+      ],
+      "evidence": [
+        "Approval workflow design documentation",
+        "High-risk action classification (which actions require approval)",
+        "Approval request format (what information provided to approver)",
+        "Timeout and escalation rules"
+      ],
+      "scoring": {
+        "yes_if": "Approval workflows designed for high-risk actions, timeout handling prevents auto-approve, escalation rules for high impact",
+        "partial_if": "Approval mechanism exists but limited (no timeout handling or no escalation)",
+        "no_if": "No approval workflow design or all actions auto-execute"
+      }
+    },
+    {
+      "id": "dr-processes-1-14",
+      "question": "Have you designed analyst override mechanisms with justification tracking and model feedback?",
+      "verification": [
+        "Review override types (classification, recommendation, automation level)",
+        "Check justification requirement (analyst must provide reason)",
+        "Verify override logging (who, what, why, when)",
+        "Confirm feedback loop (overrides feed into model retraining)",
+        "Review override threshold alerting (>30% overrides triggers model review)"
+      ],
+      "evidence": [
+        "Override mechanism design documentation",
+        "Override justification capture process",
+        "Override logging and analytics design",
+        "Model retraining feedback loop integration",
+        "Override threshold alerting configuration"
+      ],
+      "scoring": {
+        "yes_if": "Override mechanisms designed with justification required, comprehensive logging, feedback to model, threshold alerting (>30%)",
+        "partial_if": "Override capability exists but no justification requirement or no feedback loop",
+        "no_if": "No analyst override design or overrides not tracked"
+      }
+    },
+    {
+      "id": "dr-processes-1-15",
+      "question": "Have you designed resilience including graceful degradation, queue architecture, and health monitoring?",
+      "verification": [
+        "Review graceful degradation (AI failure → rule-based fallback, tool failure → backup tool/manual, database failure → in-memory)",
+        "Check queue architecture (capacity ≥10,000 alerts, persistent, priority queues, backpressure)",
+        "Verify health monitoring (service uptime ≥99.9%, API response times, queue depths, model performance, integration health)",
+        "Confirm real-time dashboard design"
+      ],
+      "evidence": [
+        "Graceful degradation design per failure mode",
+        "Queue architecture specification (sizing, persistence, priority, dead letter queue)",
+        "Health monitoring design (metrics, thresholds, alerts)",
+        "Real-time dashboard mockup or specification"
+      ],
+      "scoring": {
+        "yes_if": "Graceful degradation for all failure modes, queue capacity ≥10,000 with persistence, comprehensive health monitoring, dashboard designed",
+        "partial_if": "Some resilience designed but gaps (limited degradation, or small queue, or minimal monitoring)",
+        "no_if": "No resilience design or single points of failure not addressed"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Design Review Coverage",
+      "target": "100% of SOAR designs reviewed before implementation, ≥90% approved without major revisions",
+      "measurement": "Review coverage % = (Designs reviewed / Total designs) × 100; Approval rate = (Designs approved without major changes / Total reviews) × 100",
+      "data_source": "Design review tracking system, review feedback records",
+      "frequency": "Per design review (continuous), quarterly aggregate reporting",
+      "baseline": "Establish design review process and track from day one",
+      "validation": "Design review checklist completion, peer review of review quality"
+    },
+    {
+      "metric": "Safety Validation",
+      "target": "Zero production outages from AI automation, ≤1% rollback rate on automated actions",
+      "measurement": "Outage count = 0; Rollback rate = (Rollbacks executed / Total automated actions) × 100",
+      "data_source": "Incident tracking, rollback execution logs",
+      "frequency": "Continuous monitoring, weekly reports",
+      "baseline": "Zero tolerance for automation-caused outages",
+      "validation": "Incident post-mortems, root cause analysis for any rollbacks"
+    },
+    {
+      "metric": "Performance Targets",
+      "target": "MTTR ≤10 hours (vs. 40 hours manual baseline), ≥70% automation rate",
+      "measurement": "MTTR = Average (Containment time - Alert time); Automation rate = (Automated responses / Total alerts) × 100",
+      "data_source": "SOAR execution logs, incident response tracking",
+      "frequency": "Weekly MTTR calculation, daily automation rate",
+      "baseline": "Manual response MTTR (40 hours), pre-automation handling rate",
+      "validation": "Compare automated vs manual MTTR, track automation rate trends"
+    },
+    {
+      "metric": "ML Triage Accuracy",
+      "target": "≥95% recall (true positive detection), ≥70% precision, ≥80% F1-score",
+      "measurement": "Recall = TP / (TP + FN); Precision = TP / (TP + FP); F1 = 2 × (Precision × Recall) / (Precision + Recall)",
+      "data_source": "Alert triage logs with analyst validation",
+      "frequency": "Daily calculation, weekly/monthly trend analysis",
+      "baseline": "Initial model performance on test set",
+      "validation": "Cross-validation on holdout sets, analyst override analysis"
+    },
+    {
+      "metric": "Integration Coverage",
+      "target": "≥80% of security tools integrated, ≥90% of critical tools (SIEM, EDR, IAM)",
+      "measurement": "Overall coverage = (Integrated tools / Total security tools) × 100; Critical coverage = (Integrated critical tools / Total critical tools) × 100",
+      "data_source": "Security tool inventory, integration status tracking",
+      "frequency": "Quarterly integration assessment",
+      "baseline": "Initial security tool inventory and integration baseline",
+      "validation": "Tool catalog audit, integration testing verification"
+    },
+    {
+      "metric": "Human Oversight Quality",
+      "target": "≥10% of autonomous actions audited, <5% inappropriate actions found in audits",
+      "measurement": "Audit coverage = (Audited actions / Total autonomous actions) × 100; Inappropriate rate = (Inappropriate actions / Audited actions) × 100",
+      "data_source": "Spot-check audit logs, audit findings",
+      "frequency": "Weekly audits with continuous coverage tracking",
+      "baseline": "Initial audit baseline to establish appropriate action rate",
+      "validation": "Independent audit validation, trend analysis"
+    },
+    {
+      "metric": "System Resilience",
+      "target": "≥99.9% SOAR service uptime, graceful degradation tested for all failure scenarios",
+      "measurement": "Uptime % = (Available time / Total time) × 100; Graceful degradation test coverage = (Tested failure modes / Total failure modes) × 100",
+      "data_source": "Service monitoring, chaos engineering test results",
+      "frequency": "Continuous uptime monitoring, quarterly resilience testing",
+      "baseline": "Initial availability baseline",
+      "validation": "Chaos engineering validation, failover drills"
+    }
+  ]
+}

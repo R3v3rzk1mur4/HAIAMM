@@ -1,0 +1,418 @@
+{
+  "practice": "ST",
+  "domain": "infrastructure",
+  "name": "Security Testing - Infrastructure Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "st-infrastructure-1-1",
+      "question": "Do you test multi-cloud detection accuracy with ≥95% detection of known misconfigurations across AWS, Azure, and GCP?",
+      "verification": [
+        "Review known-good configuration testing (≥95% correct classification of secure configurations)",
+        "Check known-bad configuration testing (≥95% detection of common misconfigurations)",
+        "Verify AWS detection coverage (EC2, S3, IAM, RDS, CloudTrail, VPC, Lambda - ≥90% per type)",
+        "Confirm Azure detection coverage (NSG, Storage, Key Vault, VMs, SQL, Activity Logs - ≥90% per type)",
+        "Review GCP detection coverage (Firewall, GCS, IAM, Compute, Cloud SQL, Logging - ≥90% per type)"
+      ],
+      "evidence": [
+        "Known-good configuration test results (≥95% correct classification)",
+        "Known-bad configuration test results (≥95% detection)",
+        "AWS detection test suite (all resource types tested)",
+        "Azure detection test suite (all resource types tested)",
+        "GCP detection test suite (all resource types tested)"
+      ],
+      "scoring": {
+        "yes_if": "≥95% detection of known misconfigurations, ≥90% accuracy per resource type, all 3 cloud providers tested",
+        "partial_if": "Detection tested but 80-95% accuracy or limited resource type coverage",
+        "no_if": "Detection accuracy <80% or single cloud only"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-2",
+      "question": "Do you test anomaly detection with ≥85% detection of behavioral anomalies and ≥75% detection of contextual anomalies?",
+      "verification": [
+        "Review behavioral anomaly testing (unusual configuration change patterns like spike in security group additions)",
+        "Check contextual anomaly testing (configurations unusual for environment like production bucket public)",
+        "Verify model robustness testing (consistent performance across environment sizes: 10 to 1M+ resources)",
+        "Confirm training data coverage (≥3 months historical cloud configurations for baseline)",
+        "Review detection algorithms (Isolation Forest, Autoencoders validated)"
+      ],
+      "evidence": [
+        "Behavioral anomaly test results (≥85% detection)",
+        "Contextual anomaly test results (≥75% detection)",
+        "Model robustness validation (small to large environments)",
+        "Training data baseline documentation",
+        "Anomaly detection algorithm performance reports"
+      ],
+      "scoring": {
+        "yes_if": "≥85% behavioral anomaly detection, ≥75% contextual anomaly detection, model robust across scales",
+        "partial_if": "Anomaly detection tested but 60-85% behavioral or 50-75% contextual",
+        "no_if": "No anomaly detection testing or accuracy <60%"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-3",
+      "question": "Do you test real-time detection with ≥95% of alerts generated within ≤5 minutes and event processing ≥10,000 events/second?",
+      "verification": [
+        "Review detection latency testing (measure time from misconfiguration to alert generation)",
+        "Check event processing throughput (generate synthetic CloudTrail/Activity Log events at scale)",
+        "Verify batch detection testing (complete scan of 1M resources in ≤6 hours)",
+        "Confirm real-time source coverage (CloudTrail events for AWS, Activity Logs for Azure, Cloud Audit Logs for GCP)",
+        "Review latency distribution (p50, p95, p99 percentiles measured)"
+      ],
+      "evidence": [
+        "Detection latency test results (≥95% alerts within ≤5 minutes)",
+        "Event processing throughput tests (≥10,000 events/second)",
+        "Batch scan performance tests (1M resources in ≤6 hours)",
+        "Real-time event stream integration validation",
+        "Latency percentile measurements"
+      ],
+      "scoring": {
+        "yes_if": "≥95% alerts within ≤5min, ≥10,000 events/sec throughput, batch scans meet targets",
+        "partial_if": "Detection tested but latency 5-10 min or throughput 5,000-10,000 events/sec",
+        "no_if": "Detection latency >10 min or throughput <5,000 events/sec"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-4",
+      "question": "Do you test blast radius limit enforcement with 100% of violations blocked at boundary conditions?",
+      "verification": [
+        "Review per-remediation resource limit testing (test at limit: 10 resources allowed, 11 blocked)",
+        "Check time-based rate limit testing (100 remediations/hour allowed, 101st blocked)",
+        "Verify cross-account blast radius testing (limits enforced globally, not per-account)",
+        "Confirm clear error messages for violations",
+        "Review enforcement logic testing (all limit types validated)"
+      ],
+      "evidence": [
+        "Blast radius limit test cases (boundary testing: limit and limit+1)",
+        "Rate limiting test results (hourly limit enforcement)",
+        "Cross-account limit test results (global enforcement)",
+        "Error message validation (clear, actionable messages)",
+        "Enforcement logic test coverage"
+      ],
+      "scoring": {
+        "yes_if": "100% of blast radius violations blocked, boundary conditions tested, cross-account limits enforced, clear errors",
+        "partial_if": "Limits tested but <100% enforcement or missing cross-account testing",
+        "no_if": "Limits not tested or violations not blocked"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-5",
+      "question": "Do you test rollback mechanisms with 100% successful rollback on remediation failures including automated and manual rollback?",
+      "verification": [
+        "Review automated rollback testing (inject failure mid-remediation, verify state restored)",
+        "Check manual rollback testing (operator-triggered rollback within ≤5 minutes)",
+        "Verify state backup testing (100% of remediations have restorable backups)",
+        "Confirm partial failure rollback testing (all-or-nothing rollback for multi-resource remediations)",
+        "Review state comparison validation (pre/post state identical after rollback)"
+      ],
+      "evidence": [
+        "Automated rollback test results (100% successful rollback)",
+        "Manual rollback test results (≤5 min completion)",
+        "State backup validation (all remediations backed up)",
+        "Partial failure test results (all-or-nothing enforcement)",
+        "State restoration verification tests"
+      ],
+      "scoring": {
+        "yes_if": "100% successful rollback (automated and manual), state backups validated, partial failures rolled back completely",
+        "partial_if": "Rollback tested but <100% success or manual rollback >5 min",
+        "no_if": "No rollback testing or success rate <90%"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-6",
+      "question": "Do you test pre-change impact assessment with dependency analysis and 100% of high-risk changes requiring approval?",
+      "verification": [
+        "Review dependency analysis testing (detect all dependent resources, calculate impact scores)",
+        "Check risk scoring testing (scores correlate with actual blast radius)",
+        "Verify approval workflow testing (high-risk changes blocked until approved)",
+        "Confirm graph analysis validation (resource relationships accurately identified)",
+        "Review risk classification accuracy (low, medium, high, critical correctly assigned)"
+      ],
+      "evidence": [
+        "Dependency analysis test results (all dependencies identified)",
+        "Risk scoring validation (correlation with blast radius)",
+        "Approval workflow test cases (100% high-risk blocked)",
+        "Resource relationship graph accuracy",
+        "Risk classification test suite"
+      ],
+      "scoring": {
+        "yes_if": "Dependencies detected correctly, risk scores accurate, 100% high-risk requires approval, graph analysis validated",
+        "partial_if": "Impact assessment tested but incomplete dependency detection or <100% approval enforcement",
+        "no_if": "No pre-change validation or high-risk changes auto-remediate"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-7",
+      "question": "Do you test post-change verification with 100% of remediations validated and new issues detected within ≤15 minutes?",
+      "verification": [
+        "Review change validation testing (remediation actually fixed the issue)",
+        "Check monitoring window testing (new issues detected after remediation)",
+        "Verify re-scan validation (resource compliant after remediation)",
+        "Confirm health check monitoring (application metrics, cloud health, dependency health)",
+        "Review rollback trigger testing (new issues trigger rollback)"
+      ],
+      "evidence": [
+        "Change validation test results (100% remediations validated)",
+        "Post-remediation monitoring test results (new issues detected ≤15 min)",
+        "Re-scan validation (compliance verified)",
+        "Health check integration tests",
+        "Automatic rollback trigger validation"
+      ],
+      "scoring": {
+        "yes_if": "100% remediations validated as successful, new issues detected ≤15 min, health checks monitored, rollback triggered",
+        "partial_if": "Validation tested but <100% coverage or detection time 15-30 min",
+        "no_if": "No post-change validation or new issues not detected"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-8",
+      "question": "Do you conduct adversarial testing with ≥70% detection of obfuscated misconfigurations and prompt injection defense ≥95%?",
+      "verification": [
+        "Review obfuscation testing (subtle misconfigurations like complex S3 bucket policies)",
+        "Check encoding/formatting testing (unusual encoding, hex, Unicode, compressed CIDR blocks)",
+        "Verify policy language exploitation testing (complex IAM policy logic like nested NotAction)",
+        "Confirm remediation abuse testing (DoS, privilege escalation, data exfiltration attempts)",
+        "Review LLM prompt injection testing (IPI-001 to IPI-004: config manipulation, remediation bypass, report manipulation, credential exfiltration)"
+      ],
+      "evidence": [
+        "Obfuscation test results (≥70% detection)",
+        "Encoding variation test results (≥80% detection)",
+        "Policy exploitation test results (≥60% detection)",
+        "Remediation abuse test results (rate limiting blocks abuse)",
+        "Prompt injection test results (≥95% blocked)"
+      ],
+      "scoring": {
+        "yes_if": "≥70% obfuscated misconfigurations detected, ≥95% prompt injection blocked, remediation abuse prevented",
+        "partial_if": "Adversarial testing conducted but 50-70% obfuscation detection or 70-95% prompt injection defense",
+        "no_if": "No adversarial testing or obfuscation detection <50%"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-9",
+      "question": "Do you test multi-cloud API integration with error handling, pagination, rate limiting, and least privilege permissions?",
+      "verification": [
+        "Review AWS API testing (Boto3 clients, pagination, region handling, error handling, rate limiting)",
+        "Check Azure API testing (Azure SDK, authentication, subscription/resource group scoping, error handling)",
+        "Verify GCP API testing (client libraries, authentication, project/zone scoping, quota management)",
+        "Confirm API security testing (100% authenticated calls, authorization respected, all calls logged)",
+        "Review credential rotation testing (seamless transition, no downtime)"
+      ],
+      "evidence": [
+        "AWS API integration test suite (all aspects covered)",
+        "Azure API integration test suite (all aspects covered)",
+        "GCP API integration test suite (all aspects covered)",
+        "API security test results (authentication, authorization, audit logging)",
+        "Credential rotation test results (zero downtime)"
+      ],
+      "scoring": {
+        "yes_if": "All 3 clouds tested comprehensively, error handling graceful, pagination correct, 100% API calls authenticated/logged",
+        "partial_if": "API testing conducted but limited error handling or missing pagination tests",
+        "no_if": "Single cloud only or no error handling testing"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-10",
+      "question": "Do you test performance with ≥10,000 resources/hour scanning throughput and event processing ≥10,000 events/second?",
+      "verification": [
+        "Review resource scan throughput testing (100K resources scanned in ≤10 hours)",
+        "Check parallel scanning testing (10 accounts in parallel, ≥80% parallel efficiency)",
+        "Verify incremental scanning testing (re-scan 100 changed resources in ≤10 minutes)",
+        "Confirm event streaming latency testing (≥95% events processed ≤60 seconds P95 latency)",
+        "Review scalability testing (linear scaling with 10K, 100K, 1M, 10M resources)"
+      ],
+      "evidence": [
+        "Scan throughput test results (≥10,000 resources/hour)",
+        "Parallel scanning efficiency tests (≥80% efficiency)",
+        "Incremental scan performance tests (≤10 min for changed resources)",
+        "Event processing latency tests (P95 ≤60s)",
+        "Scalability test results (linear scaling validated)"
+      ],
+      "scoring": {
+        "yes_if": "≥10,000 resources/hour, parallel efficiency ≥80%, incremental scans fast, P95 latency ≤60s, linear scaling",
+        "partial_if": "Performance tested but throughput 5,000-10,000/hour or latency 60-120s",
+        "no_if": "Throughput <5,000/hour or no performance testing"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-11",
+      "question": "Do you test resilience with cloud provider outage handling, network partition recovery, and resource exhaustion graceful degradation?",
+      "verification": [
+        "Review single cloud provider failure testing (system continues monitoring other clouds)",
+        "Check partial cloud service failure testing (service-level isolation, no cascade failures)",
+        "Verify network partition testing (component isolation, queues buffer detections, no data loss)",
+        "Confirm resource exhaustion testing (memory, CPU, disk, queue overflow with graceful degradation)",
+        "Review dependency failure testing (database, cache, external services with fallback mechanisms)"
+      ],
+      "evidence": [
+        "Cloud provider outage test results (graceful degradation, recovery)",
+        "Service-level failure isolation tests",
+        "Network partition test results (no data loss, recovery)",
+        "Resource exhaustion test results (graceful handling)",
+        "Dependency failure test results (fallback mechanisms work)"
+      ],
+      "scoring": {
+        "yes_if": "Cloud outages handled gracefully, service isolation works, no data loss on partition, resource exhaustion degrades gracefully",
+        "partial_if": "Resilience tested but some data loss or limited failure isolation",
+        "no_if": "No resilience testing or system fails on single component failure"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-12",
+      "question": "Do you test compliance coverage with ≥95% of CIS benchmark controls validated and IaC scanning ≥90% detection before deployment?",
+      "verification": [
+        "Review CIS Benchmark testing (AWS Foundations v1.4, Azure v1.3, GCP v1.2 - ≥95% controls validated)",
+        "Check multi-framework testing (PCI-DSS, HIPAA, GDPR, SOC 2 applicable controls validated)",
+        "Verify IaC scanning testing (Terraform HCL, CloudFormation YAML/JSON, Kubernetes manifests - ≥90% detection)",
+        "Confirm CI/CD integration testing (100% of misconfigurations block deployment)",
+        "Review compliance reporting testing (report accuracy, completeness, historical trends)"
+      ],
+      "evidence": [
+        "CIS Benchmark test results (≥95% controls validated)",
+        "Multi-framework compliance test results",
+        "IaC scanning test results (≥90% detection before deployment)",
+        "CI/CD pipeline integration tests (blocks on misconfigurations)",
+        "Compliance report accuracy validation"
+      ],
+      "scoring": {
+        "yes_if": "≥95% CIS controls validated, multiple frameworks tested, IaC scanning ≥90%, CI/CD integration blocks deployment",
+        "partial_if": "Compliance tested but 80-95% CIS coverage or IaC detection 70-90%",
+        "no_if": "CIS coverage <80% or no IaC scanning"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-13",
+      "question": "Do you maintain dedicated multi-cloud test environments with automated provisioning, synthetic data, and zero production data?",
+      "verification": [
+        "Review test environment setup (dedicated AWS/Azure/GCP test accounts isolated from production)",
+        "Check test resource provisioning (automated Terraform/CloudFormation setup/teardown)",
+        "Verify test data generation (synthetic misconfigurations: 50 secure, 50 insecure)",
+        "Confirm test data privacy (zero real credentials, PII, or production data)",
+        "Review automated cleanup (test resources deleted after tests to avoid cost)"
+      ],
+      "evidence": [
+        "Test environment configuration (dedicated accounts per cloud)",
+        "Infrastructure-as-Code for test provisioning (Terraform/CloudFormation)",
+        "Test data generation scripts (synthetic configurations)",
+        "Test data privacy validation (zero credentials/PII scans)",
+        "Automated cleanup process and validation"
+      ],
+      "scoring": {
+        "yes_if": "Dedicated test accounts for all clouds, automated provisioning, synthetic data only, zero production data, automated cleanup",
+        "partial_if": "Test environments exist but manual provisioning or incomplete isolation",
+        "no_if": "No dedicated test environments or using production data"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-14",
+      "question": "Do you have continuous testing integration with ≥80% test coverage and automated execution on every code change?",
+      "verification": [
+        "Review CI/CD test integration (tests run on every commit, PR, merge)",
+        "Check test coverage metrics (≥80% overall, 100% for critical paths)",
+        "Verify regression testing (full test suite on every release, zero regressions)",
+        "Confirm performance regression testing (performance within ±10% of baseline)",
+        "Review automated test case generation (100% of detection rules have automated tests)"
+      ],
+      "evidence": [
+        "CI/CD pipeline configuration (automated test execution)",
+        "Test coverage reports (≥80% coverage)",
+        "Regression test results (zero regressions)",
+        "Performance regression test baseline and results",
+        "Test case generation automation (detection rules → tests)"
+      ],
+      "scoring": {
+        "yes_if": "Tests automated in CI/CD, ≥80% coverage, zero regressions, performance within ±10%, detection rules have tests",
+        "partial_if": "Automated testing exists but coverage 60-80% or some regressions",
+        "no_if": "Coverage <60% or tests not automated"
+      }
+    },
+    {
+      "id": "st-infrastructure-1-15",
+      "question": "Do you conduct load and stress testing with sustained load (24 hours at 80% capacity) and spike handling (50x traffic spike)?",
+      "verification": [
+        "Review sustained load testing (24 hours at 80% capacity, no degradation)",
+        "Check spike load testing (1,000 to 50,000 events/sec spike for 5 minutes)",
+        "Verify large environment testing (≥1 million cloud resources scanned)",
+        "Confirm multi-account testing (100 AWS accounts, 100 Azure subscriptions, 100 GCP projects)",
+        "Review database scalability testing (100M+ detection results, query latency ≤5 seconds)"
+      ],
+      "evidence": [
+        "Sustained load test results (24 hours, no degradation, no memory leaks)",
+        "Spike load test results (queue buffers spike, no event loss, recovery ≤10 min)",
+        "Large environment test results (1M+ resources with linear scaling)",
+        "Multi-account test results (all accounts scanned in target time)",
+        "Database performance test results (query latency ≤5s)"
+      ],
+      "scoring": {
+        "yes_if": "24h sustained load passed, 50x spike handled, 1M+ resources tested, multi-account tested, DB performant",
+        "partial_if": "Load testing conducted but degradation during sustained load or spike recovery >10 min",
+        "no_if": "No load testing or system fails under sustained load"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Detection Accuracy",
+      "target": "≥95% misconfiguration detection, ≤5% false positive rate, ≥85% anomaly detection",
+      "measurement": "Detection rate = (Detected misconfigurations / Total test misconfigurations) × 100; FP rate = FP / (TP + FP)",
+      "data_source": "Test execution results, known-good/known-bad configuration tests",
+      "frequency": "Every release, continuous testing in CI/CD",
+      "baseline": "Initial detection accuracy baseline",
+      "validation": "Independent red team validation, adversarial testing"
+    },
+    {
+      "metric": "Remediation Safety",
+      "target": "100% blast radius violations blocked, 100% rollback success, zero production outages from auto-remediation",
+      "measurement": "Blast radius enforcement % = (Blocked violations / Total violations) × 100; Rollback success rate; Outage count",
+      "data_source": "Remediation test results, production incident tracking",
+      "frequency": "Continuous testing, quarterly safety audit",
+      "baseline": "Initial remediation safety baseline",
+      "validation": "Production monitoring, incident postmortems"
+    },
+    {
+      "metric": "Multi-Cloud API Reliability",
+      "target": "100% API calls authenticated/logged, graceful error handling, zero credential exposure",
+      "measurement": "API security compliance %; Error handling test pass rate; Credential scan results",
+      "data_source": "API integration test results, security scans",
+      "frequency": "Every API code change, continuous CI/CD testing",
+      "baseline": "Initial API quality baseline",
+      "validation": "Cloud audit logs (CloudTrail, Activity Logs, Audit Logs)"
+    },
+    {
+      "metric": "Performance",
+      "target": "≥10,000 resources/hour scan throughput, P95 event latency ≤60s, linear scalability to 1M+ resources",
+      "measurement": "Scan throughput = Resources scanned / Time; Event latency P95 from metrics; Scaling efficiency",
+      "data_source": "Performance test results, load testing reports",
+      "frequency": "Weekly performance testing, continuous production monitoring",
+      "baseline": "Initial performance baseline",
+      "validation": "Production performance correlation with test results"
+    },
+    {
+      "metric": "Resilience",
+      "target": "Graceful degradation on cloud outages, no data loss on network partition, auto-recovery ≤5 minutes",
+      "measurement": "Failover success rate; Data loss count; Recovery time from failure injection",
+      "data_source": "Resilience test results, chaos engineering reports",
+      "frequency": "Quarterly resilience testing, continuous chaos engineering",
+      "baseline": "Initial resilience baseline",
+      "validation": "Production incident analysis, recovery time validation"
+    },
+    {
+      "metric": "Compliance Coverage",
+      "target": "≥95% CIS benchmark controls validated, IaC scanning ≥90% detection, 100% deployment blocking on misconfigurations",
+      "measurement": "CIS control coverage %; IaC detection rate; Deployment block rate = (Blocked deployments / Total misconfigurations) × 100",
+      "data_source": "Compliance test results, IaC scanning reports, CI/CD logs",
+      "frequency": "Every release for compliance tests, every commit for IaC scans",
+      "baseline": "Initial compliance testing baseline",
+      "validation": "Third-party compliance audit, penetration testing"
+    },
+    {
+      "metric": "Test Coverage and Quality",
+      "target": "≥80% code coverage, 100% detection rules tested, zero regressions, performance within ±10% baseline",
+      "measurement": "Code coverage % from coverage tools; Detection rule test coverage %; Regression count; Performance variance",
+      "data_source": "Test execution reports, coverage tools, regression analysis",
+      "frequency": "Every commit (coverage), every release (regressions, performance)",
+      "baseline": "Initial test quality baseline",
+      "validation": "Code review, mutation testing (≥80% mutation score)"
+    }
+  ]
+}

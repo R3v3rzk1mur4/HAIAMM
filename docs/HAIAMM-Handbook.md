@@ -1,12 +1,12 @@
-# Human-Assisted Intelligence Assurance Maturity Model (HAIAMM)
-
 ![HAIAMM Logo](images/HAIAMM_logo.png)
 
-## Comprehensive Handbook v2.2
+## HAIAMM - Comprehensive Handbook v2.2
 
-**Last Updated**: 2025-12-26
+**Last Updated**: 2025-12-29
 
-**NEW IN v2.2**: Threat Intelligence as Foundational Capability integrated into Strategy & Metrics (SM) practice across all 6 domains, elevating threat intelligence from advanced capability to essential foundational requirement for AI-operated security programs
+**NEW IN v2.2**:
+- **Assessment Methodology**: Comprehensive questionnaire-based assessment guide similar to OpenSAMM v1.0, including scoring methodology, 5-phase assessment process, industry benchmarks, and best practices
+- **Threat Intelligence as Foundational Capability**: Integrated into Strategy & Metrics (SM) practice across all 6 domains, elevating threat intelligence from advanced capability to essential foundational requirement
 
 **NEW IN v2.1.1**: Comprehensive Prompt Injection Security guidance integrated across 15 practice one-pagers, derived from the Arcanum Prompt Injection Taxonomy by Jason Haddix (CC BY 4.0)
 
@@ -19,32 +19,37 @@
 3. [Framework Overview](#framework-overview)
 4. [Prompt Injection Security](#prompt-injection-security) **NEW IN v2.1**
 5. [Threat Intelligence as Foundational Capability](#threat-intelligence-as-foundational-capability) **NEW IN v2.2**
-6. [Maturity Levels](#maturity-levels)
-7. [Effort Estimation](#effort-estimation)
-8. [Security Domains](#security-domains)
-9. [Security Practices](#security-practices)
-10. [Practice-Domain Matrix](#practice-domain-matrix)
-11. [Implementation Roadmap](#implementation-roadmap)
-12. [Framework Mappings](#framework-mappings)
-13. [Appendices](#appendices)
+6. [Critical HAI Assurance](#critical-hai-assurance) **NEW IN v2.2**
+7. [Maturity Levels](#maturity-levels)
+8. [Effort Estimation](#effort-estimation)
+9. [Assessment Methodology](#assessment-methodology) **NEW IN v2.2**
+10. [Assurance Domains](#assurance-domains)
+11. [Security Practices](#security-practices)
+12. [Practice-Domain Matrix](#practice-domain-matrix)
+13. [Implementation Roadmap](#implementation-roadmap)
+14. [Framework Mappings](#framework-mappings)
+15. [Appendices](#appendices)
 
 ---
 
 ## Executive Summary
 
-The **Human-Assisted Intelligence Assurance Maturity Model (HAIAMM)** provides a comprehensive framework for organizations building and operating Human Assisted Intelligence technologies. HAIAMM addresses the unique challenges of securing AI systems while using AI to enhance assurance operations.
+The **Human Assisted Intelligence Assurance Maturity Model (HAIAMM)** provides a comprehensive framework for organizations designing and implementing AI to automate workflows, augment capabilities. What we refer to as Human Assisted Intelligence (HAI). Therefore, HAIAMM addresses the governance, building, verification, and operations of HAI systems with foundational practices to ensure trust, safety, and security.
 
 ### Key Features
 
-- **12 Security Practices** similarly to OpenSAMM version 1.0, HAIAMM is built upon the following business functions; Governance → Building → Verification → Operations.
-- **6 Security Domains** based on the OpenSAMM future, HAIAMM is covering the comprehensive technology stack (Software, Infrastructure, Endpoints, Data, Processes, Vendors)
-- **3 Maturity Levels** enabling progressive capability building
+- **12 Security Practices** HAIAMM is built upon the following business functions of AI system adoption; Governance → Building → Verification → Operations.
+- **6 Assurance Domains** these are similarly based on the OpenSAMM future talk and concepts. HAIAMM is covering the comprehensive technology stack (Software, Infrastructure, Endpoints, Data, Processes, Vendors)
+- **3 Maturity Levels** enabling progressive capability secure building
 - **72 Practice-Domain Combinations** with detailed one-pager guidance
 - **Threat Intelligence as Foundational Capability** across all domains (consumption, analysis, production maturity progression)
 - **Comprehensive Prompt Injection Security** based on Arcanum PI Taxonomy (13 attack intents, 18 techniques, 20 evasion methods)
-- **243+ Assessment Questions** extracted from practice one-pagers for maturity measurement
+- **Critical HAI Assurance (v2.2)** addressing 4 agentic AI risks: Excessive Agency, Agent Goal Hijack, Tool Misuse, Rogue Agents
+- **"Least Agency Principle"** foundational governance for human-AI collaboration (v2.2)
+- **95% OWASP Alignment** coverage of LLM Top 10 (2025) and Agentic Top 10 (2026)
+- **290+ Assessment Questions** extracted from practice one-pagers for maturity measurement (243 base + 47 v2.2 additions)
 - **Effort Estimates** based on OpenSAMM version 1.0 methodology for realistic planning
-- **Framework Alignment** with ISO 27001, NIST CSF, NIST AI RMF, OpenSAMM v1.0
+- **Framework Alignment** with ISO 27001, NIST CSF, NIST AI RMF, SAMM v1.0, OWASP
 ### Target Audience
 
 - **Security Leaders**: CISOs, Security Directors planning AI security programs
@@ -52,7 +57,7 @@ The **Human-Assisted Intelligence Assurance Maturity Model (HAIAMM)** provides a
 - **AI/ML Engineers**: Teams developing AI models for security applications
 - **AI/Governance**:Teams governing AI efforts in organizations
 - **Risk & Compliance**: Teams ensuring AI security meets regulatory requirements
-- **Vendors**: Security tool vendors implementing AI-powered capabilities
+- **Vendors**: AI and automation vendors implementing AI-powered capabilities
 - **IT Leaders**: Teams managing IT infrastructures and engineers automating workflows throughout the enterprise 
 
 ---
@@ -61,100 +66,104 @@ The **Human-Assisted Intelligence Assurance Maturity Model (HAIAMM)** provides a
 
 ### What is HAIAMM?
 
-HAIAMM is a maturity model specifically designed for organizations deploying **AI-operated security programs**. Unlike traditional security frameworks, HAIAMM addresses:
+HAIAMM is a maturity model specifically designed for organizations designing and implementing **Human Assisted Intelligence** systems. Unlike traditional frameworks, HAIAMM addresses:
 
-1. **AI System Security**: Securing the AI systems themselves (models, data, infrastructure)
-2. **AI-Powered Security Operations**: Using AI to enhance security (automated threat detection, response, risk assessment)
-3. **Human-AI Collaboration**: Balancing automation with human oversight and judgment
+1. **HAI Governance**: Governing HAI deployments with appropriate human oversight and accountability
+2. **HAI System Security**: Securing the AI systems themselves (models, data, infrastructure, endpoints)
+3. **Trust, Safety, and Security**: Ensuring HAI solutions are trustworthy, safe, and secure across their lifecycle
+4. **Human Oversight**: Balancing AI capabilities with human authority, validation, and control
 
 ### Why HAIAMM?
 
-Traditional security frameworks (ISO 27001, NIST CSF) weren't designed for AI-operated security programs. HAIAMM fills this gap by providing:
+Traditional security frameworks (ISO 27001, NIST CSF) weren't designed for Human Assisted Intelligence deployments. HAIAMM fills this gap by providing:
 
-- **AI-Specific Guidance**: Addresses AI model security, adversarial ML, explainability, bias
-- **Automation Safety**: Blast radius limits, rollback mechanisms, graduated automation
-- **Privacy-Preserving AI**: Federated learning, differential privacy, data minimization
-- **Cross-Domain Coverage**: Unified approach across software, infrastructure, endpoints, data, processes, vendors
-- **Practical Implementation**: Detailed checklists, success metrics, effort estimates
+- **HAI-Specific Guidance**: Addresses AI model security, adversarial ML, explainability, bias, human oversight
+- **Human Oversight Requirements**: Defines appropriate human control, approval, and validation mechanisms
+- **Trust, Safety, and Security**: Comprehensive approach beyond security alone
+- **Cross-Domain Coverage**: Unified approach across software, data, infrastructure, vendors, processes, endpoints
+- **Practical Implementation**: Detailed checklists, assessment questionnaires, success metrics, effort estimates
 
-### AI Security Technologies Covered
+### HAI Use Cases Covered
 
-HAIAMM applies to organizations deploying:
+HAIAMM applies to organizations implementing:
 
-- **SAST/DAST**: AI-powered static/dynamic application security testing
-- **CSPM**: Cloud Security Posture Management with AI-driven misconfiguration detection
-- **EDR/XDR**: Endpoint Detection & Response with behavioral analytics
-- **DLP**: Data Loss Prevention with AI classification and context-aware detection
-- **SOAR**: Security Orchestration, Automation & Response with AI triage
-- **Vendor Risk Management**: AI-powered vendor assessment and SBOM analysis
+- **Automation Workflows**: HAI systems handling business processes with human oversight
+- **Security Testing & Code Analysis**: AI-powered SAST/DAST tools, vulnerability scanning, automated code review
+- **Customer Service Automation**: Chatbots and virtual assistants with human escalation pathways
+- **Decision Support Systems**: HAI providing recommendations with human approval and validation
+- **Data Processing & Analysis**: HAI assisting humans in pattern detection, insights generation, classification
+- **Compliance Automation**: AI-assisted policy enforcement, audit trail generation, reporting
 
 ---
 
-## Framework Overview
+## Framework/Model Overview
 
-### Framework Structure
+### Structure
 
 HAIAMM is organized as a **2-dimensional matrix**:
 
 **Dimension 1: Security Practices (12)**
-
+![Governance Logo](images/governance_small_logo.png)
 **Governance Practices:**
 1. Strategy & Metrics (SM)
 2. Policy & Compliance (PC)
 3. Education & Guidance (EG)
 
+![Building Logo](images/building_small_logo.png)
 **Building Practices:**
 4. Threat Assessment (TA)
 5. Security Requirements (SR)
 6. Security Architecture (SA)
 
+![Verification Logo](images/verification_small_logo.png)
 **Verification Practices:**
 7. Design Review (DR)
 8. Implementation Review (IR)
 9. Security Testing (ST)
 
+![Operations Logo](images/operations_small_logo.png)
 **Operations Practices:**
 10. Issue Management (IM)
 11. Environment Hardening (EH)
 12. Monitoring & Logging (ML)
 
-**Dimension 2: Security Domains (6)**
+**Dimension 2: Assurance Domains (6)**
 1. Software
-2. Infrastructure
-3. Endpoints
-4. Data
+2. Data
+3. Infrastructure
+4. Vendors
 5. Processes
-6. Vendors
+6. Endpoints
 
 ### Practice Lifecycle
 
-Practices follow the **AI-Operated Security Lifecycle**:
+Practices follow the **Business functions of Human Assisted Intelligence**:
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│                    AI-OPERATED SECURITY LIFECYCLE                       │
-├────────────────────────────────────────────────────────────────────────┤
-│                                                                          │
-│  GOVERNANCE   │  BUILD    │  VERIFY  │  OPERATE            │
-│               │           │           │           │                     │
-│  Strategy &   │  Threat   │  Security │  Implem-  │  Issue              │
-│  Metrics (SM) │  Assess-  │  Require- │  entation │  Management         │
-│               │  ment     │  ments    │  Review   │  (IM)               │
-│  Policy &     │  (TA)     │  (SR)     │  (IR)     │                     │
-│  Compliance   │           │           │           │  Environment        │
-│  (PC)         │           │  Security │  Security │  Hardening          │
-│               │           │  Archit-  │  Testing  │  (EH)               │
-│  Education &  │           │  ecture   │  (ST)     │                     │
-│  Guidance     │           │  (SA)     │           │  Monitoring &       │
-│  (EG)         │           │           │           │  Logging            │
-│               │           │  Design   │           │  (ML)               │
-│               │           │  Review   │           │                     │
-│               │           │  (DR)     │           │                     │
-│               │           │           │           │                     │
-└────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│                   HAIAMM - Business functions                │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │ 
+│  GOVERNANCE   │  BUILDING    │  VERIFICATION  │  OPERATIONS  │
+│               │              │                │              │                     
+│  Strategy &   │  Threat      │  Design        │  Issue       │
+│  Metrics (SM) │  Assessesment│  Review        │  Management  │
+│               │  (TA)        │  (DR)          |  (IM)        |
+│  Policy &     │              │                │              │
+│  Compliance   │              │  Implementation│  Environment │
+│  (PC)         │  Security    │  Review        │  Hardening   │
+│               │  Require-    │  (IR)          │  (EH)        |                  
+│  Education &  │  ments       │                |              |            
+│  Guidance     │              │  Security      │  Monitoring  │
+│  (EG)         │  Security    │  Test          │  & Logging   │  
+│               │  Archit-     │  (ST)          │  (ML)        │  
+│               │  ecture      │                │              │                     
+│               │  (SA)        │                │              │                     
+│               │              │                │              │                     
+└──────────────────────────────────────────────────────────────┘
 ```
 
-### Practice Descriptions
+### Business functions and practices Descriptions
 
 **Governance Phase:**
 - **Strategy & Metrics (SM)**: Establish a unified strategic roadmap for AI-operated security across all domains. Includes threat intelligence integration as foundational capability and metrics to measure desired outcomes
@@ -166,12 +175,12 @@ Practices follow the **AI-Operated Security Lifecycle**:
 - **Security Requirements (SR)**: Define measurable security requirements for AI systems (accuracy, latency, privacy, compliance)
 - **Security Architecture (SA)**: Design secure, scalable architecture for AI security systems
 
-**Verification Practices:**
+**Verification Phase:**
 - **Design Review (DR)**: Review designs before implementation to catch flaws early
 - **Implementation Review (IR)**: Code review to ensure secure implementation following best practices
 - **Security Testing (ST)**: Test AI systems for vulnerabilities, adversarial robustness, and performance
 
-**Operational Phase:**
+**Operations Phase:**
 - **Issue Management (IM)**: Continuous vulnerability scanning and remediation (dependencies, models, infrastructure)
 - **Environment Hardening (EH)**: Harden deployment environments (least privilege, encryption, network segmentation)
 - **Monitoring & Logging (ML)**: Comprehensive logging and monitoring for security, compliance, and debugging
@@ -180,7 +189,7 @@ Practices follow the **AI-Operated Security Lifecycle**:
 
 ## Prompt Injection Security
 
-**NEW IN v2.1**: HAIAMM now includes comprehensive guidance on securing AI-operated security systems against **prompt injection attacks**, derived from the [Arcanum Prompt Injection Taxonomy](https://github.com/Arcanum-Sec/arc_pi_taxonomy) by Jason Haddix (CC BY 4.0).
+**NEW IN v2.1**: HAIAMM now includes comprehensive guidance on securing AI-operated systems against **prompt injection attacks**, derived from the [Arcanum Prompt Injection Taxonomy](https://github.com/Arcanum-Sec/arc_pi_taxonomy) by Jason Haddix (CC BY 4.0). and [OWASP top 10 for Agentic Applications] (https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
 
 ### Why Prompt Injection Matters for AI Security
 
@@ -564,15 +573,96 @@ Organizations following HAIAMM v2.2 will have **industry-leading threat intellig
 
 ---
 
+## Critical HAI Assurance
+
+**NEW IN v2.2**: HAIAMM now addresses **4 critical risks** for Human Assisted Intelligence deployments that traditional frameworks don't cover, achieving **95% alignment** with OWASP Top 10 for LLM Applications (2025) and OWASP Top 10 for Agentic Applications (2026).
+
+### Why These Risks Matter Now
+
+2025-2026 represents the emergence of "agentic AI" - AI agents are now granted:
+- Production deployment authority
+- Database modification permissions
+- External communication capabilities
+- Financial transaction authority
+
+Without proper controls, these powerful capabilities can be exploited or misused, resulting in data breaches, production outages, compliance violations, and financial losses.
+
+### The Four Critical Risks
+
+#### 1. Excessive Agency (LLM06:2025)
+
+**Definition**: AI agents granted excessive autonomy or permissions perform unauthorized actions beyond their intended assistance role, violating the fundamental HAI principle that humans maintain decision authority.
+
+**The "Least Agency Principle"**: Grant agents the **minimum autonomy** required to safely assist humans. High-risk actions MUST require human approval.
+
+**Action Classification Framework**:
+| Class | Autonomy Level | Human Involvement | Examples |
+|-------|---------------|-------------------|----------|
+| **Autonomous (Green)** | Agent acts independently | Human notified after action | Code scanning, report generation, log analysis |
+| **Human-Validated (Yellow)** | Agent proposes, human approves | Human approval required before action | Security patches, config changes, user notifications |
+| **Human-Only (Red)** | Agent prohibited | Human performs action | Production deployment, data deletion, compliance decisions |
+
+**Success Metrics**: ≥95% approval compliance rate, ≤1% privilege escalation attempts
+
+#### 2. Agent Goal Hijack (ASI01:2026)
+
+**Definition**: Attackers manipulate agent objectives through prompt injection or data poisoning, causing agents to pursue malicious goals while appearing to function normally.
+
+**Key Controls**:
+- **Goal Validation**: Verify agent goal matches intended objective before each action
+- **Immutability Controls**: Agent goals cannot be modified via prompts
+- **Multi-Turn Consistency**: Detect gradual goal drift across conversations
+- **Monitoring**: Alert on any goal state changes (CRITICAL severity)
+
+**Success Metrics**: 100% pre-action goal validation, ≥95% hijack detection rate
+
+#### 3. Tool Misuse (ASI02:2026)
+
+**Definition**: AI agents use **legitimate, authorized tools** for **malicious purposes**. Unlike unauthorized access (which gets blocked), tool misuse exploits capabilities the agent is supposed to have.
+
+**Key Controls**:
+- **Intent Validation**: Verify tool usage aligns with business purpose (not just parameters valid)
+- **Destructive Operation Approval**: Delete/destroy actions require human approval
+- **Anomaly Detection**: Alert on unusual tool usage patterns
+- **Scoped Authorization**: Tools restricted to specific contexts (e.g., email only to internal domains)
+
+**Success Metrics**: ≥90% tool misuse prevention rate, 100% destructive operation human approval
+
+#### 4. Rogue Agents (ASI10:2026)
+
+**Definition**: Compromised agents act maliciously while **appearing to function normally**, undermining trust in HAI systems.
+
+**Key Controls**:
+- **Behavioral Baselining**: Establish normal agent behavior over 30 days
+- **Real-Time Anomaly Detection**: Alert on deviations ≥2 standard deviations
+- **Automatic Containment**: Severe anomalies trigger containment within 30 seconds
+- **Ephemeral Goal State**: Compromised goals don't persist across sessions
+
+**Success Metrics**: ≤5 minutes mean time to detect, ≥95% containment success rate
+
+### OWASP Alignment
+
+HAIAMM v2.2 achieves comprehensive alignment with industry-leading OWASP frameworks:
+
+| Framework | v2.1 Coverage | v2.2 Coverage | Improvement |
+|-----------|---------------|---------------|-------------|
+| **OWASP Top 10 for LLM Applications 2025** | 7/10 (70%) | 9/10 (90%) | +20% |
+| **OWASP Top 10 for Agentic Applications 2026** | 4/10 (40%) | 9/10 (90%) | +50% |
+| **Overall OWASP Alignment** | 11/20 (55%) | 18/20 (90%) | +35% |
+
+**Reference**: See HAIAMM-v2.2-Executive-Summary.md for executive overview and HAIAMM-v2.2-Practice-Additions.md for detailed implementation guidance.
+
+---
+
 ## Maturity Levels
 
 HAIAMM defines **3 maturity levels** for progressive capability building:
 
 ### Level 1: Foundational
-**Definition**: Essential practices for minimally viable AI security program
+**Definition**: Essential practices for minimally viable AI assurance program
 
 **Characteristics**:
-- Core security practices established
+- Core practices established
 - Basic automation with human oversight
 - Manual processes for complex decisions
 - Reactive security posture
@@ -582,11 +672,11 @@ HAIAMM defines **3 maturity levels** for progressive capability building:
 - Ad-hoc threat assessment
 - Basic security requirements documented
 - Security considered late in development
-- Limited code review coverage
+- Limited security review coverage
 - Manual vulnerability tracking
 - Basic logging and monitoring
 
-**Target**: All organizations starting AI security programs
+**Target**: All organizations starting AI asurance programs
 
 ---
 
@@ -623,7 +713,8 @@ HAIAMM defines **3 maturity levels** for progressive capability building:
 - Formal verification where applicable
 
 **Typical State**:
-- Continuous threat intelligence
+- Continuous threat intelligence 
+- Continue threat detection, prevention, monitoring
 - AI-powered security automation
 - Formal security proofs
 - Public security research
@@ -697,7 +788,448 @@ Based on **OpenSAMM v1.0** approach, effort estimates assume:
 
 ---
 
-## Security Domains
+## Assessment Methodology
+
+### Overview
+
+HAIAMM uses a **questionnaire-based maturity assessment** approach, similar to OpenSAMM v1.0, to provide objective, evidence-based measurement of organizational maturity in governing, building, verifying, and operating Human Assisted Intelligence systems.
+
+**Assessment Philosophy:**
+- **Evidence-Based**: Every "Yes" answer requires documented proof
+- **Progressive**: Level 1 must be achieved before Level 2, Level 2 before Level 3
+- **Comprehensive**: All 12 practices assessed across relevant domains
+- **Repeatable**: Standardized questions enable tracking progress over time
+- **Practical**: Designed for self-assessment or third-party audit
+
+---
+
+### Questionnaire Structure
+
+**Total Assessment Scope (v2.0):**
+- **12 Security Practices** across 6 domains = **72 practice-domain combinations**
+- **3 Maturity Levels** per practice = **216 assessment points**
+- **2 questions per level** (average) = **432 total assessment criteria**
+
+**Tiered Assessment Options:**
+
+| Tier | Duration | Questions | Domains | Use Case |
+|------|----------|-----------|---------|----------|
+| **Tier 1 (Foundation)** | 20-30 min | 24 | Software, Data | Quick baseline, quarterly checks |
+| **Tier 2 (Standard)** | 3-4 hours | 192 | +Infrastructure, Endpoints | Operational assessment, planning |
+| **Tier 3 (Comprehensive)** | 12-16 hours | 432 | All 6 domains | Compliance, audit, benchmarking |
+
+**Question Format:**
+
+Each practice level has 2-3 specific, testable questions:
+
+```
+Practice: Threat Assessment (TA)
+Domain: Software
+Level: 1 (Foundational)
+
+TA-Software-L1-Q1: Have you identified and documented threats specific
+to your HAI systems (e.g., adversarial attacks, prompt injection, data
+poisoning)?
+
+Evidence Required:
+☐ Threat model document exists
+☐ Threat library or database
+☐ Updated within last 12 months
+
+Answer: ☐ Yes  ☐ No
+```
+
+---
+
+### Scoring Methodology
+
+**Level Achievement Logic:**
+
+For each practice, maturity level is determined by percentage of questions answered "Yes":
+
+**Simplified Approach (Recommended for Self-Assessment):**
+```
+Level 1 Achieved = ALL Level 1 questions answered "Yes"
+Level 2 Achieved = ALL Level 1 + ALL Level 2 questions answered "Yes"
+Level 3 Achieved = ALL questions (L1, L2, L3) answered "Yes"
+
+Practice Score:
+- 0.0 = No Level 1 questions answered "Yes"
+- 1.0 = All Level 1 "Yes", but not all Level 2
+- 2.0 = All Level 1 + Level 2 "Yes", but not all Level 3
+- 3.0 = All questions "Yes" (full maturity)
+```
+
+**Precise Approach (For Formal Audits):**
+```
+Practice Score = (L1_score * 1.0) + (L2_score * 1.0) + (L3_score * 1.0)
+
+Where:
+L1_score = (# of L1 "Yes" answers) / (# of L1 questions)
+L2_score = (# of L2 "Yes" answers) / (# of L2 questions) * L1_score
+L3_score = (# of L3 "Yes" answers) / (# of L3 questions) * L2_score
+
+Note: Higher levels only count if lower level achieved (cascading dependency)
+```
+
+**Overall Maturity Score:**
+```
+Overall Score = Average of all 12 practice scores
+
+Example:
+SM=0.5, PC=1.0, EG=0.8, TA=1.2, SR=1.5, SA=0.7,
+DR=0.3, IR=0.5, ST=0.8, EH=1.0, IM=1.2, ML=1.3
+
+Overall = (0.5+1.0+0.8+1.2+1.5+0.7+0.3+0.5+0.8+1.0+1.2+1.3) / 12
+        = 10.8 / 12
+        = 0.90 (Mid Level 1 maturity)
+```
+
+---
+
+### Assessment Process
+
+**Phase 1: Pre-Assessment Preparation (4-8 hours)**
+
+**1.1 Define Assessment Scope**
+- [ ] Identify HAI system(s) to assess (start with 1-2 critical systems)
+- [ ] Determine assessment tier (Foundation, Standard, Comprehensive)
+- [ ] Select domains to assess (minimum: Software + Data for Foundation tier)
+- [ ] Define assessment timeframe (point-in-time vs. 3-month lookback)
+
+**1.2 Assemble Assessment Team**
+
+Recommended team composition:
+- **Assessment Lead** (Security/GRC): Facilitates, ensures objectivity
+- **HAI Product Owner**: Provides context on system design and usage
+- **Security Engineer**: Technical security evidence and controls
+- **AI/ML Engineer**: Model security, data governance, algorithmic risks
+- **Operations Engineer**: Runtime environment, monitoring, incident response
+- **Compliance/Legal** (if applicable): Regulatory requirements, policies
+
+**1.3 Gather Evidence**
+
+Prepare documentation to support assessment:
+- [ ] HAI system architecture diagrams
+- [ ] Security policies and procedures
+- [ ] Threat models and risk assessments
+- [ ] Security requirements documentation
+- [ ] Code review reports and tools output
+- [ ] Security testing results (SAST, DAST, penetration test reports)
+- [ ] Incident response logs and postmortems
+- [ ] Monitoring dashboards and logging configurations
+- [ ] Training records and security awareness materials
+- [ ] Vendor contracts and security questionnaires (if using third-party AI)
+
+**1.4 Schedule Assessment Workshop**
+
+Typical schedule:
+- **Foundation Tier (24 questions)**: 2-3 hour workshop
+- **Standard Tier (192 questions)**: 1-2 day workshop with breaks
+- **Comprehensive Tier (432 questions)**: 3-5 day assessment (can be distributed)
+
+**Deliverable:** Assessment plan, stakeholder roster, evidence repository
+
+---
+
+**Phase 2: Conduct Assessment (2-16 hours depending on tier)**
+
+**2.1 Questionnaire Completion Process**
+
+For each practice in scope:
+
+**Step 1:** Review practice definition and objectives
+- Read practice one-pager (e.g., `TA-Software-OnePager.md`)
+- Understand what "good looks like" for each maturity level
+
+**Step 2:** Answer Level 1 questions
+- Read each question carefully
+- Discuss with team whether practice is implemented
+- **Require evidence** - Do NOT answer "Yes" without proof
+- Document evidence reference (e.g., "Threat model doc dated 2024-11-15")
+- Record partial implementations (e.g., "Yes for 60% of HAI systems")
+
+**Step 3:** Proceed to Level 2 only if ALL Level 1 = "Yes"
+- If any Level 1 question = "No", **STOP** (cannot achieve Level 2)
+- If all Level 1 = "Yes", proceed to Level 2 questions
+- Apply same evidence-based approach
+
+**Step 4:** Proceed to Level 3 only if ALL Level 2 = "Yes"
+
+**Critical Assessment Rules:**
+
+1. **"Yes" requires evidence**: No "trust me" answers
+2. **"Partial Yes" = "No"**: Practice must be complete and consistent
+3. **"Planned" = "No"**: Only implemented practices count
+4. **"Sometimes" = "No"**: Practice must be systematic, not ad-hoc
+5. **Lookback period**: 3-month default (practice must be current, not historical)
+
+**2.2 Evidence Documentation**
+
+For each "Yes" answer, document:
+- **What**: Description of the practice implementation
+- **Where**: Location of evidence (URL, document name, system)
+- **When**: Date evidence was created/last updated
+- **Who**: Responsible team/individual
+
+Example:
+```
+Question: TA-Software-L1-Q1: Have you documented threats to your HAI system?
+
+Answer: ☑ Yes
+
+Evidence:
+- What: Threat model for Customer Service Chatbot HAI system
+- Where: Confluence: /Security/Threat-Models/Chatbot-TM-2024
+- When: Created 2024-11-15, Last updated 2024-12-10
+- Who: Security Engineering team (lead: Jane Doe)
+```
+
+**2.3 Handle Edge Cases**
+
+**Scenario 1: Practice not applicable**
+- Example: "We don't use third-party AI vendors" (Vendor domain)
+- **Solution**: Mark domain as "N/A" and exclude from overall score calculation
+
+**Scenario 2: Evidence is confidential**
+- Example: Penetration test report contains sensitive findings
+- **Solution**: Provide summary with sanitized details, offer restricted access to auditors
+
+**Scenario 3: Disagreement among assessors**
+- Example: Engineers say "Yes", security says "No"
+- **Solution**: Mark as "No" with note, investigate evidence, escalate if needed
+
+**Deliverable:** Completed questionnaire with evidence references
+
+---
+
+**Phase 3: Scoring and Analysis (2-4 hours)**
+
+**3.1 Calculate Practice Scores**
+
+For each of the 12 practices:
+
+```
+1. Count "Yes" answers per level:
+   - L1_yes = # of L1 "Yes" answers
+   - L2_yes = # of L2 "Yes" answers
+   - L3_yes = # of L3 "Yes" answers
+
+2. Count total questions per level:
+   - L1_total = # of L1 questions
+   - L2_total = # of L2 questions
+   - L3_total = # of L3 questions
+
+3. Calculate level scores:
+   - L1_score = L1_yes / L1_total
+   - L2_score = L2_yes / L2_total (only if L1_score = 1.0)
+   - L3_score = L3_yes / L3_total (only if L2_score = 1.0)
+
+4. Calculate practice score:
+   - If L1_score < 1.0:  Practice_Score = L1_score
+   - If L1_score = 1.0 AND L2_score < 1.0:  Practice_Score = 1.0 + L2_score
+   - If L2_score = 1.0 AND L3_score < 1.0:  Practice_Score = 2.0 + L3_score
+   - If L3_score = 1.0:  Practice_Score = 3.0 (full maturity)
+```
+
+**3.2 Calculate Overall Maturity**
+
+```
+Overall_Maturity = SUM(all practice scores) / NUMBER(practices assessed)
+
+Example (all 12 practices):
+Overall = (SM + PC + EG + TA + SR + SA + DR + IR + ST + EH + IM + ML) / 12
+```
+
+**3.3 Calculate Business Function Scores**
+
+```
+Governance_Score = (SM + PC + EG) / 3
+Building_Score = (TA + SR + SA) / 3
+Verification_Score = (DR + IR + ST) / 3
+Operations_Score = (EH + IM + ML) / 3
+```
+
+**3.4 Maturity Interpretation**
+
+| Score Range | Maturity Level | Interpretation |
+|-------------|----------------|----------------|
+| **0.0 - 0.5** | Early Level 1 | Just starting, ad-hoc practices, significant gaps |
+| **0.5 - 1.0** | Mid Level 1 | Basic practices in place, inconsistent application |
+| **1.0 - 1.5** | Late L1 / Early L2 | Solid foundation, beginning systematic approach |
+| **1.5 - 2.0** | Mid Level 2 | Mature practices, organization-wide adoption |
+| **2.0 - 2.5** | Late L2 / Early L3 | Advanced capabilities, beginning innovation |
+| **2.5 - 3.0** | Level 3 | Industry-leading, continuous improvement, research |
+
+**3.5 Gap Analysis**
+
+Identify and categorize gaps:
+
+**Critical Gaps** (Priority 1):
+- Practices scoring < 0.5 in high-risk areas (TA, SR, ST)
+- Missing foundational practices (Level 1 not achieved)
+- Regulatory compliance requirements not met
+
+**Important Gaps** (Priority 2):
+- Practices scoring 0.5-1.0 that block Level 2 progression
+- Inconsistent practice application across HAI systems
+- Manual processes that should be automated
+
+**Enhancement Opportunities** (Priority 3):
+- Practices at Level 1 that could advance to Level 2
+- Automation and tooling improvements
+- Metrics and measurement enhancements
+
+**Deliverable:** Assessment scorecard, gap analysis report
+
+---
+
+**Phase 4: Improvement Roadmap (4-8 hours)**
+
+**4.1 Prioritize Improvements**
+
+Use risk-based prioritization matrix:
+
+```
+Priority = (Business Impact) × (Current Gap Size) × (Effort to Improve)^-1
+
+Where:
+- Business Impact: 1 (Low) to 5 (Critical)
+- Gap Size: (Target Score - Current Score)
+- Effort: Person-days estimated from Effort Estimation section
+```
+
+**4.2 Define Improvement Roadmap**
+
+**Template:**
+
+```
+Phase 1: Foundation (Months 1-3)
+Goal: Achieve Level 1 across all critical practices
+Target Practices: [List practices currently < 1.0]
+Success Criteria: All practices ≥ 1.0
+Resources: [Team, budget, tools]
+
+Phase 2: Consolidation (Months 4-6)
+Goal: Strengthen weak areas, begin Level 2 for top priorities
+Target Practices: [List Priority 1 practices for Level 2]
+Success Criteria: 4-6 practices at Level 2
+Resources: [Team, budget, tools]
+
+Phase 3: Advancement (Months 7-12)
+Goal: Systematic maturity, majority of practices at Level 2
+Target Practices: [Remaining practices for Level 2]
+Success Criteria: Overall score ≥ 1.5
+Resources: [Team, budget, tools]
+```
+
+**4.3 Define Success Metrics**
+
+For each improvement initiative:
+- **Practice Score Target**: Current → Target (e.g., TA: 0.5 → 1.0)
+- **Timeline**: Start date, milestones, completion date
+- **Owner**: Responsible individual or team
+- **Investment**: Estimated effort (person-days), budget, tools
+- **Success Criteria**: Specific, measurable outcomes
+- **Evidence**: How compliance will be demonstrated
+
+**Deliverable:** 12-month improvement roadmap with quarterly milestones
+
+---
+
+**Phase 5: Re-Assessment (Ongoing)**
+
+**Re-Assessment Frequency:**
+- **Quarterly**: For organizations actively improving (track progress)
+- **Semi-Annual**: For stable, mature organizations (maintain compliance)
+- **Annual**: Minimum recommended frequency (prevent regression)
+- **Triggered**: After major HAI system changes or incidents
+
+**Re-Assessment Benefits:**
+- Track improvement progress against roadmap
+- Identify regression (scores decreasing)
+- Validate investment effectiveness (ROI)
+- Maintain compliance and audit readiness
+- Benchmark against industry peers
+
+**Continuous Improvement:**
+- Use assessment results to refine roadmap
+- Adjust priorities based on emerging threats and business changes
+- Celebrate successes (practices achieving new levels)
+- Share lessons learned across organization
+
+---
+
+### Assessment Tools and Templates
+
+**HAIAMM Desktop Application provides:**
+- **Dynamic Questionnaire Generator**: Tier-based assessment with 24/192/432 questions
+- **Evidence Repository**: Link evidence to each answer
+- **Automated Scoring**: Calculates practice, function, domain, and overall scores
+- **Gap Analysis Dashboard**: Visual identification of strengths and weaknesses
+- **Progress Tracking**: Compare assessments over time
+- **Report Export**: JSON/CSV export with PGP encryption for secure sharing
+
+**Manual Assessment Templates** (if not using desktop app):
+- Assessment planning template (scope, team, timeline)
+- Questionnaire spreadsheet (432 questions with evidence columns)
+- Scoring calculator (formulas for practice/overall scores)
+- Gap analysis template (prioritization matrix)
+- Roadmap template (phases, milestones, success criteria)
+
+---
+
+### Industry Benchmarks
+
+**Typical First Assessment Scores:**
+
+| Organization Type | Typical Score | Common Strengths | Common Gaps |
+|-------------------|---------------|------------------|-------------|
+| **Startup (<2 years)** | 0.3 - 0.6 | Operations (IM, ML) | Governance (SM, PC) |
+| **Scale-Up (2-5 years)** | 0.6 - 1.2 | Building (TA, SR) | Verification (DR, IR) |
+| **Enterprise (5+ years)** | 0.8 - 1.5 | Governance (PC, EG) | Innovation (Level 3) |
+| **Security-First Orgs** | 1.0 - 1.8 | Verification (ST) | AI-Specific (adversarial testing) |
+
+**Maturity Progression Benchmarks:**
+
+Based on organizations actively working to improve:
+
+| Timeframe | Expected Progress | Typical Score Range |
+|-----------|-------------------|---------------------|
+| **First assessment** | Baseline | 0.3 - 0.8 |
+| **After 3 months** | Quick wins implemented | 0.6 - 1.1 |
+| **After 6 months** | Level 1 mostly achieved | 0.8 - 1.3 |
+| **After 12 months** | Level 2 begun | 1.2 - 1.8 |
+| **After 24 months** | Level 2 mature | 1.8 - 2.4 |
+| **After 36 months** | Level 3 achieved | 2.2 - 2.8 |
+
+**Note:** Progression speed depends on organizational commitment, resources, and starting maturity.
+
+---
+
+### Assessment Best Practices
+
+**DO:**
+- ✅ Use evidence-based assessment (require proof for every "Yes")
+- ✅ Involve cross-functional team (security, AI/ML, ops, compliance)
+- ✅ Be honest and objective (this is for improvement, not judgment)
+- ✅ Document partial implementations (helps prioritize improvements)
+- ✅ Re-assess regularly (track progress, prevent regression)
+- ✅ Share results with stakeholders (transparency builds support)
+- ✅ Celebrate successes (recognize teams achieving maturity levels)
+
+**DON'T:**
+- ❌ Guess or estimate answers (require actual evidence)
+- ❌ Accept "partial yes" as "yes" (practice must be complete)
+- ❌ Skip evidence documentation (needed for audits and tracking)
+- ❌ Assess aspirations vs. reality ("we plan to" ≠ "we do")
+- ❌ Only assess once (maturity requires continuous measurement)
+- ❌ Make it punitive (focus on improvement, not blame)
+- ❌ Assess alone (multiple perspectives improve accuracy)
+
+---
+
+## Assurance Domains
 
 ### 1. Software Domain
 **Scope**: AI security systems code (SAST, DAST, models, pipelines, APIs)
@@ -775,7 +1307,7 @@ Based on **OpenSAMM v1.0** approach, effort estimates assume:
 ---
 
 ### 6. Vendors Domain
-**Scope**: Vendor risk management (AI-powered assessment, SBOM analysis)
+**Scope**: Vendor risk management (AI-powered assessment, SBOM analysis) Suppliers and partners.
 
 **Key Challenges**:
 - Scale (thousands of vendors)
@@ -791,7 +1323,9 @@ Based on **OpenSAMM v1.0** approach, effort estimates assume:
 
 ## Security Practices
 
-### Governance Practices
+![HAIAMM Government practice Logo](images/governance_logo.png)
+### Governance business function
+**Purpose**: Covers 3 best practices to govern a Human Assisted Intelligence Assurance program
 
 ### 1. Strategy & Metrics (SM)
 **Purpose**: Establish unified strategic roadmap and measure effectiveness of AI-operated security programs
@@ -859,7 +1393,8 @@ Based on **OpenSAMM v1.0** approach, effort estimates assume:
 
 ---
 
-### Development Lifecycle Practices
+### Building business function
+**Purpose**: This function covers all best practices recommended to improve and build secure Human Assisted Intelligence systems
 
 ### 4. Threat Assessment (TA)
 **Purpose**: Identify and analyze threats specific to AI-operated security systems
@@ -920,6 +1455,8 @@ Based on **OpenSAMM v1.0** approach, effort estimates assume:
 **Domain Coverage**: [Software](practices/SA-Software-OnePager.md) | [Infrastructure](practices/SA-Infrastructure-OnePager.md) | [Endpoints](practices/SA-Endpoints-OnePager.md) | [Data](practices/SA-Data-OnePager.md) | [Processes](practices/SA-Processes-OnePager.md) | [Vendors](practices/SA-Vendors-OnePager.md)
 
 ---
+### Verification business function
+**Purpose**: The Verification business function recommends 3 best practices to verify HAI systems for security, ensure they have been built with security in mind.
 
 ### 7. Design Review (DR)
 **Purpose**: Review designs before implementation to catch flaws early
@@ -983,10 +1520,11 @@ Based on **OpenSAMM v1.0** approach, effort estimates assume:
 
 ---
 
-### Operations Practices
+### Operations business function
+**Purpose**: The Operations business functions covers all best practices recommended to build, improve how HAI systems operate.
 
 ### 10. Issue Management (IM)
-**Purpose**: Continuous vulnerability scanning and remediation
+**Purpose**: Continuous vulnerability scanning and remediation, tracking of tickets/issues like vulnerabilities.
 
 **Key Activities**:
 - Dependency scanning (libraries, frameworks, ML packages)
@@ -1047,7 +1585,7 @@ Based on **OpenSAMM v1.0** approach, effort estimates assume:
 
 ---
 
-## Practice-Domain Matrix
+## Practices-Domain Matrix
 
 ### Complete Coverage Matrix (12 × 6 = 72 Practice-Domain Combinations)
 
@@ -1197,10 +1735,10 @@ Based on **OpenSAMM v1.0** approach, effort estimates assume:
 | NIST CSF Function | HAIAMM Practices | Notes |
 |-------------------|------------------|-------|
 | **GOVERN (GV)** | TA, SR | AI risk management, security strategy |
-| **IDENTIFY (ID)** | TA, VM | AI asset inventory, vulnerability discovery |
+| **IDENTIFY (ID)** | TA, IM | AI asset inventory, vulnerability discovery |
 | **PROTECT (PR)** | SA, EH, IR | Secure AI architecture, hardening |
 | **DETECT (DE)** | ML, ST | AI security monitoring, testing |
-| **RESPOND (RS)** | VM, ML | Issue remediation, incident response |
+| **RESPOND (RS)** | IM, ML | Issue remediation, incident response |
 | **RECOVER (RC)** | EH, ML | Backup, recovery, resilience |
 
 **Coverage**: HAIAMM implements CSF 2.0 for AI-operated security programs
@@ -1217,26 +1755,6 @@ Based on **OpenSAMM v1.0** approach, effort estimates assume:
 | **MANAGE** | VM, EH, IR | AI risk treatment, mitigation |
 
 **Coverage**: HAIAMM operationalizes NIST AI RMF for security applications
-
----
-
-### OWASP SAMM Mapping
-
-| SAMM Practice | HAIAMM Practices | Notes |
-|---------------|------------------|-------|
-| **Strategy & Metrics** | TA, SR | Security requirements, threat assessment |
-| **Policy & Compliance** | SR, EH | Requirements, hardening standards |
-| **Education & Guidance** | DR, IR | Code review, design review training |
-| **Threat Assessment** | TA | Threat modeling, abuse cases |
-| **Security Requirements** | SR | Functional, non-functional requirements |
-| **Security Architecture** | SA, DR | Architecture design and review |
-| **Design Review** | DR | Architectural risk analysis |
-| **Implementation Review** | IR | Code review |
-| **Security Testing** | ST | Penetration testing, adversarial testing |
-| **Environment Hardening** | EH | Operational environment hardening |
-| **Operational Enablement** | ML, VM | Monitoring, issue management |
-
-**Coverage**: HAIAMM extends SAMM with AI-specific practices and domains
 
 ---
 

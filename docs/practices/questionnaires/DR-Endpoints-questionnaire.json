@@ -1,0 +1,285 @@
+{
+  "practice": "DR",
+  "domain": "endpoints",
+  "name": "Design Review - Endpoints Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "dr-endpoints-1-1",
+      "question": "Do you conduct design reviews for AI endpoint security systems with multi-role participation before implementation?",
+      "verification": [
+        "Review design review process documentation",
+        "Check participant roles (endpoint security engineer, privacy officer, platform engineer, security architect, compliance, UX)",
+        "Verify review artifacts (detection architecture, privacy design, response workflows, cross-platform strategy, performance analysis)",
+        "Confirm review timing (initial design, iterative at milestones, pre-production, post-incident)",
+        "Sample 3 recent endpoint AI projects and verify design reviews conducted"
+      ],
+      "evidence": [
+        "Design review process documentation",
+        "Design review records with multi-role participation (≥6 roles)",
+        "Review artifacts (architecture diagrams, privacy analysis, performance models)",
+        "Review timing compliance (before implementation)",
+        "Sample project design review records"
+      ],
+      "scoring": {
+        "yes_if": "Mandatory process with 6+ role participation, comprehensive artifacts, proper timing, 100% of sampled projects reviewed",
+        "partial_if": "Reviews conducted but limited participation or incomplete artifacts",
+        "no_if": "No formal design review or single-role reviews only"
+      }
+    },
+    {
+      "id": "dr-endpoints-1-2",
+      "question": "Have you designed on-device AI models meeting resource constraints (≤5% CPU, ≤200MB memory, ≤3% battery impact)?",
+      "verification": [
+        "Review on-device model architecture (lightweight models: decision trees, small neural networks, ensemble methods)",
+        "Check resource constraint targets (CPU ≤5%, memory ≤200MB, battery impact ≤3%)",
+        "Verify model optimization techniques (quantization, pruning, knowledge distillation)",
+        "Confirm performance modeling (estimated resource usage under load)",
+        "Review on-device detection capabilities (which threats detected on-device vs cloud)"
+      ],
+      "evidence": [
+        "On-device model architecture documentation",
+        "Resource constraint specifications and modeling",
+        "Model optimization design (quantization, pruning techniques)",
+        "Performance analysis (CPU, memory, battery projections)",
+        "On-device detection coverage (threat types handled locally)"
+      ],
+      "scoring": {
+        "yes_if": "On-device models designed, resource constraints defined (≤5% CPU, ≤200MB memory, ≤3% battery), optimization techniques specified",
+        "partial_if": "On-device models designed but targets not defined or no optimization plan",
+        "no_if": "No on-device model design or unrealistic resource requirements"
+      }
+    },
+    {
+      "id": "dr-endpoints-1-3",
+      "question": "Have you designed cloud analysis for heavy AI models with accuracy vs latency trade-offs documented?",
+      "verification": [
+        "Review cloud model architecture (complex deep learning models, ensemble models, large feature sets)",
+        "Check accuracy vs latency design (target: ≥95% accuracy, ≤60s analysis latency)",
+        "Verify hybrid decision logic (when escalate from on-device to cloud analysis)",
+        "Confirm scalability design (cloud infrastructure to handle peak telemetry load)",
+        "Review fallback design (on-device operation if cloud unavailable)"
+      ],
+      "evidence": [
+        "Cloud model architecture documentation",
+        "Accuracy and latency targets with trade-off analysis",
+        "Hybrid escalation logic (on-device vs cloud decision tree)",
+        "Cloud scalability design (load handling, auto-scaling)",
+        "Fallback mechanism design (offline operation)"
+      ],
+      "scoring": {
+        "yes_if": "Cloud models designed for accuracy, latency targets defined (≥95% accuracy, ≤60s), hybrid logic documented, scalability planned, fallback designed",
+        "partial_if": "Cloud analysis designed but trade-offs not documented or no fallback",
+        "no_if": "No cloud analysis design or no hybrid approach"
+      }
+    },
+    {
+      "id": "dr-endpoints-1-4",
+      "question": "Have you designed behavioral analytics with UEBA and anomaly detection covering user and entity behavior baselines?",
+      "verification": [
+        "Review UEBA design (user behavior analytics: login patterns, file access, network connections, process execution)",
+        "Check anomaly detection approach (unsupervised learning: Isolation Forest, Autoencoders; supervised for known threats)",
+        "Verify baseline strategy (per-user baselines, per-endpoint baselines, organizational baselines)",
+        "Confirm adaptation design (baselines updated over time, drift detection)",
+        "Review detection accuracy targets (≥85% true positive rate, ≤10% false positive rate)"
+      ],
+      "evidence": [
+        "UEBA architecture documentation (behavior types monitored)",
+        "Anomaly detection algorithm design (unsupervised + supervised)",
+        "Baseline strategy (per-user, per-endpoint, organizational)",
+        "Baseline adaptation mechanism design",
+        "Accuracy targets (≥85% TP, ≤10% FP)"
+      ],
+      "scoring": {
+        "yes_if": "UEBA designed, anomaly detection algorithms specified, baseline strategy documented, adaptation planned, accuracy targets defined",
+        "partial_if": "Behavioral analytics designed but limited baseline strategy or targets not defined",
+        "no_if": "No UEBA design or rule-based detection only"
+      }
+    },
+    {
+      "id": "dr-endpoints-1-5",
+      "question": "Have you designed privacy-preserving telemetry with data minimization, BYOD protection, and GDPR compliance (≤90 day retention)?",
+      "verification": [
+        "Review data minimization strategy (collect only security-relevant data, no user content, no PII unless necessary)",
+        "Check BYOD privacy design (work/personal data separation, no monitoring of personal apps/files)",
+        "Verify GDPR compliance (data retention ≤90 days, right to deletion, consent management, data subject rights)",
+        "Confirm differential privacy design (aggregate telemetry anonymized, individual user data protected)",
+        "Review data encryption (telemetry encrypted in transit TLS 1.2+, at rest AES-256)"
+      ],
+      "evidence": [
+        "Data minimization policy (what data collected, justification)",
+        "BYOD privacy design (work/personal separation mechanism)",
+        "GDPR compliance design (retention ≤90 days, deletion process, consent)",
+        "Differential privacy implementation design",
+        "Encryption design (transit and rest)"
+      ],
+      "scoring": {
+        "yes_if": "Data minimized, BYOD privacy protected, GDPR compliant (≤90 day retention, deletion), differential privacy, encrypted",
+        "partial_if": "Privacy considered but retention >90 days or limited BYOD protection",
+        "no_if": "No data minimization or GDPR non-compliance or no encryption"
+      }
+    },
+    {
+      "id": "dr-endpoints-1-6",
+      "question": "Have you designed graduated automated response levels (alert, isolate, remediate, reimage) with user notification and false positive handling?",
+      "verification": [
+        "Review automated response levels (Level 1: alert only, Level 2: isolate endpoint, Level 3: remediate threat, Level 4: reimage endpoint)",
+        "Check user notification design (when notify user: always for isolation/reimage, optional for alerts)",
+        "Verify false positive handling (user override process, analyst review workflow, automatic rollback on override)",
+        "Confirm blast radius limits (max endpoints per auto-response: ≤100 for isolation, ≤10 for reimage)",
+        "Review response safety (pre-response validation, state backup, rollback mechanism)"
+      ],
+      "evidence": [
+        "Graduated response level framework (4 levels defined)",
+        "User notification design (when, how, message content)",
+        "False positive handling workflow (override, review, rollback)",
+        "Blast radius limit specifications",
+        "Response safety mechanisms (validation, backup, rollback)"
+      ],
+      "scoring": {
+        "yes_if": "4 response levels designed, user notification specified, false positive handling, blast radius limits, safety mechanisms",
+        "partial_if": "Response levels defined but missing user notification or no false positive handling",
+        "no_if": "No graduated response or unlimited auto-response"
+      }
+    },
+    {
+      "id": "dr-endpoints-1-7",
+      "question": "Have you designed cross-platform support for ≥4 platforms (Windows, macOS, Linux, iOS, Android) with platform-specific constraints addressed?",
+      "verification": [
+        "Review platform coverage (Windows, macOS, Linux, iOS, Android with justification for platform selection)",
+        "Check platform-specific constraints (macOS: Endpoint Security Framework, Linux: eBPF, mobile: app sandboxing, battery limits)",
+        "Verify unified detection logic (same threat detection rules across platforms, platform-agnostic rule engine)",
+        "Confirm platform-specific implementations (OS-specific APIs, kernel drivers vs user-space agents)",
+        "Review agent architecture (lightweight agent design, update mechanism, staged rollout, rollback capability)"
+      ],
+      "evidence": [
+        "Platform coverage matrix (≥4 platforms supported)",
+        "Platform-specific constraint documentation (ESF, eBPF, sandboxing)",
+        "Unified detection logic design (cross-platform rules)",
+        "Platform-specific implementation architecture",
+        "Agent update mechanism design (OTA, staged rollout, rollback)"
+      ],
+      "scoring": {
+        "yes_if": "≥4 platforms designed, platform constraints addressed, unified logic, platform-specific implementations, update mechanism",
+        "partial_if": "3-4 platforms designed but limited constraint handling or no unified logic",
+        "no_if": "<3 platforms or no platform-specific design"
+      }
+    },
+    {
+      "id": "dr-endpoints-1-8",
+      "question": "Have you designed agent update mechanisms with over-the-air updates, staged rollout (≤10% initial), and automatic rollback?",
+      "verification": [
+        "Review OTA update design (automatic updates, user-triggered updates, enterprise policy-controlled updates)",
+        "Check staged rollout strategy (canary deployment: ≤10% endpoints initially, monitor for 24-48 hours, gradual rollout)",
+        "Verify rollback mechanism (automatic rollback on failure, manual rollback capability, preserve previous version)",
+        "Confirm update validation (health checks post-update, telemetry monitoring, error rate thresholds)",
+        "Review update scheduling (minimize disruption: off-hours, maintenance windows, user deferral option)"
+      ],
+      "evidence": [
+        "OTA update architecture design",
+        "Staged rollout strategy (≤10% canary, monitoring period)",
+        "Rollback mechanism design (automatic triggers, manual process)",
+        "Post-update validation (health checks, telemetry)",
+        "Update scheduling design (timing, user options)"
+      ],
+      "scoring": {
+        "yes_if": "OTA updates designed, staged rollout ≤10% initial, automatic rollback, post-update validation, scheduling considered",
+        "partial_if": "Update mechanism designed but no staged rollout or rollback",
+        "no_if": "No OTA update design or manual updates only"
+      }
+    },
+    {
+      "id": "dr-endpoints-1-9",
+      "question": "Have you designed performance monitoring and optimization with targets for CPU (≤5%), memory (≤200MB), and battery impact (≤3%)?",
+      "verification": [
+        "Review performance targets (CPU usage ≤5%, memory footprint ≤200MB, battery impact ≤3% on mobile)",
+        "Check performance monitoring design (real-time agent telemetry, resource usage tracking, performance dashboards)",
+        "Verify optimization strategies (scan scheduling during idle time, differential scanning, intelligent caching)",
+        "Confirm performance degradation handling (reduce scanning frequency if resource constrained, alert on performance issues)",
+        "Review performance testing plan (load testing, stress testing, battery drain testing on target devices)"
+      ],
+      "evidence": [
+        "Performance target specifications (CPU, memory, battery)",
+        "Performance monitoring architecture",
+        "Optimization strategy documentation",
+        "Performance degradation handling logic",
+        "Performance testing plan"
+      ],
+      "scoring": {
+        "yes_if": "Performance targets defined (≤5% CPU, ≤200MB memory, ≤3% battery), monitoring designed, optimization strategies, degradation handling, testing planned",
+        "partial_if": "Performance targets defined but no monitoring or optimization strategies",
+        "no_if": "No performance targets or unrealistic resource requirements"
+      }
+    },
+    {
+      "id": "dr-endpoints-1-10",
+      "question": "Have you designed integration with SOC/SIEM, incident response workflows, and centralized management console?",
+      "verification": [
+        "Review SIEM integration design (alert forwarding, telemetry streaming, bi-directional communication)",
+        "Check incident response workflow integration (automated ticket creation, playbook triggering, analyst escalation)",
+        "Verify centralized management console design (fleet visibility, policy management, remote actions, reporting)",
+        "Confirm API design (RESTful APIs for integration, webhook support, authentication/authorization)",
+        "Review multi-tenancy design (for MSSPs: tenant isolation, delegated administration, separate dashboards)"
+      ],
+      "evidence": [
+        "SIEM integration architecture (Splunk, Sentinel, Chronicle, Elastic)",
+        "Incident response workflow design (ticketing, playbooks, escalation)",
+        "Management console mockups/specifications",
+        "API documentation design (endpoints, authentication)",
+        "Multi-tenancy architecture (if applicable)"
+      ],
+      "scoring": {
+        "yes_if": "SIEM integration designed, incident response workflows, centralized console, API designed, multi-tenancy (if needed)",
+        "partial_if": "Some integration designed but limited SIEM or no centralized console",
+        "no_if": "No SIEM integration or isolated endpoint solution"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Design Review Coverage",
+      "target": "100% of endpoint AI systems reviewed before implementation",
+      "measurement": "Coverage % = (Projects with design review / Total endpoint AI projects) × 100",
+      "data_source": "Design review tracking, project inventory",
+      "frequency": "Quarterly",
+      "baseline": "Initial project inventory and review coverage",
+      "validation": "Project audit to verify review compliance"
+    },
+    {
+      "metric": "Performance Target Compliance",
+      "target": "Design targets met: ≤5% CPU, ≤200MB memory, ≤3% battery impact",
+      "measurement": "Performance specification validation in design documents",
+      "data_source": "Design review artifacts, performance modeling",
+      "frequency": "Per design review",
+      "baseline": "Industry benchmarks for endpoint agents",
+      "validation": "Proof-of-concept testing validates targets achievable"
+    },
+    {
+      "metric": "Privacy Compliance Design",
+      "target": "Zero GDPR violations from design, ≤90 day retention, data minimization enforced",
+      "measurement": "Privacy design checklist compliance; Retention specification review; Data collection audit",
+      "data_source": "Privacy impact assessments, design documentation",
+      "frequency": "Per design review, quarterly privacy audit",
+      "baseline": "GDPR requirements baseline",
+      "validation": "Legal/compliance review of designs"
+    },
+    {
+      "metric": "Cross-Platform Design Coverage",
+      "target": "≥4 platforms designed with platform-specific constraints addressed",
+      "measurement": "Platform count; Constraint documentation completeness",
+      "data_source": "Architecture design documents",
+      "frequency": "Per design review",
+      "baseline": "Target platform list",
+      "validation": "Platform engineer review validates constraint handling"
+    },
+    {
+      "metric": "Response Safety Design",
+      "target": "4 graduated response levels, blast radius limits defined, rollback mechanisms designed",
+      "measurement": "Safety design completeness checklist",
+      "data_source": "Response design documentation",
+      "frequency": "Per design review",
+      "baseline": "Safety design requirements",
+      "validation": "Security architect review verification"
+    }
+  ]
+}

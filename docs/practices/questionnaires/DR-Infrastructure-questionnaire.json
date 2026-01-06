@@ -1,0 +1,276 @@
+{
+  "practice": "DR",
+  "domain": "infrastructure",
+  "name": "Design Review - Infrastructure Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "dr-infrastructure-1-1",
+      "question": "Do you conduct design reviews for AI infrastructure security systems with multi-role participation before implementation?",
+      "verification": [
+        "Review design review process documentation",
+        "Check participant roles (infrastructure security engineer, cloud architect, network security, SRE, security architect, compliance)",
+        "Verify review artifacts (architecture diagrams, data flow, threat model, remediation safety, scalability, integration, DR plan)",
+        "Confirm review timing (initial, iterative at milestones, pre-production, post-incident)",
+        "Sample 3 recent infrastructure AI projects and verify design reviews conducted"
+      ],
+      "evidence": [
+        "Design review process documentation",
+        "Design review records with multi-role participation",
+        "Review artifacts (diagrams, threat models, scalability analysis)",
+        "Review timing compliance (before implementation)",
+        "Sample project design review records"
+      ],
+      "scoring": {
+        "yes_if": "Mandatory process with 6+ role participation, comprehensive artifacts, proper timing, 100% of sampled projects reviewed",
+        "partial_if": "Reviews conducted but limited participation or incomplete artifacts",
+        "no_if": "No formal design review or single-role reviews only"
+      }
+    },
+    {
+      "id": "dr-infrastructure-1-2",
+      "question": "Have you designed multi-cloud architecture covering ≥95% of cloud resources across AWS, Azure, and GCP?",
+      "verification": [
+        "Review cloud provider coverage design (AWS, Azure, GCP primary)",
+        "Check service coverage per provider (compute, storage, network, identity - ≥90% critical services)",
+        "Verify API integration design (read-only for discovery, write for remediation with least privilege)",
+        "Confirm API rate limiting design (respect cloud provider limits)",
+        "Review hybrid cloud support (on-premise: VMware, OpenStack if required)"
+      ],
+      "evidence": [
+        "Multi-cloud architecture documentation (providers, services covered)",
+        "Service coverage matrix (provider × service types)",
+        "API permission design (least privilege IAM policies)",
+        "Rate limiting strategy (backoff, throttling)",
+        "Hybrid cloud integration design (if applicable)"
+      ],
+      "scoring": {
+        "yes_if": "≥95% resource coverage, ≥90% critical services per provider, least privilege API, rate limiting designed, hybrid if needed",
+        "partial_if": "Multi-cloud designed but coverage 70-95% or missing rate limiting",
+        "no_if": "Single cloud only or coverage <70%"
+      }
+    },
+    {
+      "id": "dr-infrastructure-1-3",
+      "question": "Have you designed AI-powered cloud security detection with behavioral analytics and threat detection?",
+      "verification": [
+        "Review anomaly detection design (unusual resource creation, access patterns, network traffic)",
+        "Check threat detection design (MITRE ATT&CK cloud tactics, crypto mining, data exfiltration)",
+        "Verify ML model design (supervised for known threats, unsupervised for anomalies)",
+        "Confirm detection accuracy targets (≥90% true positive rate, ≤10% false positive rate)",
+        "Review detection latency targets (≤5 minutes for critical threats)"
+      ],
+      "evidence": [
+        "Detection architecture documentation",
+        "Anomaly detection algorithms design (isolation forest, autoencoders)",
+        "Threat detection coverage (MITRE ATT&CK mapping)",
+        "ML model architecture for detection",
+        "Accuracy and latency targets"
+      ],
+      "scoring": {
+        "yes_if": "Behavioral analytics designed, threat detection covers MITRE ATT&CK, ML models specified, targets defined (≥90% TP, ≤10% FP, ≤5min)",
+        "partial_if": "Detection designed but targets not defined or limited MITRE coverage",
+        "no_if": "No AI-powered detection design or rule-based only"
+      }
+    },
+    {
+      "id": "dr-infrastructure-1-4",
+      "question": "Have you designed automated remediation with graduated automation levels, blast radius limits, and rollback mechanisms?",
+      "verification": [
+        "Review automation level design (Level 1: alert, Level 2: recommend, Level 3: auto-remediate reversible, Level 4: auto-remediate irreversible with approval)",
+        "Check blast radius limits (max resources per action: ≤50 instances, ≤20 security groups, ≤10 databases)",
+        "Verify rollback mechanism design (snapshot before change, automated rollback on failure)",
+        "Confirm approval workflow design (high-risk actions require human approval)",
+        "Review kill switch design (emergency stop all automation)"
+      ],
+      "evidence": [
+        "Graduated automation framework documentation",
+        "Blast radius limit specifications",
+        "Rollback mechanism design (snapshot, restore procedures)",
+        "Approval workflow architecture",
+        "Kill switch design and testing plan"
+      ],
+      "scoring": {
+        "yes_if": "4 automation levels designed, blast radius limits defined, rollback mechanisms, approval workflows, kill switch",
+        "partial_if": "Automation designed but missing blast radius limits or rollback",
+        "no_if": "No graduated automation or unlimited auto-remediation"
+      }
+    },
+    {
+      "id": "dr-infrastructure-1-5",
+      "question": "Have you designed scalability architecture to handle ≥100,000 cloud resources with <5 minute resource discovery?",
+      "verification": [
+        "Review scalability targets (resource capacity, discovery latency, throughput)",
+        "Check distributed architecture design (multi-region deployment, horizontal scaling)",
+        "Verify caching strategy (resource metadata caching, TTL configuration)",
+        "Confirm database design (time-series for metrics, relational for inventory)",
+        "Review performance optimization (parallel API calls, pagination, incremental updates)"
+      ],
+      "evidence": [
+        "Scalability requirements and architecture",
+        "Distributed deployment design",
+        "Caching strategy documentation",
+        "Database schema design (optimized for scale)",
+        "Performance optimization techniques"
+      ],
+      "scoring": {
+        "yes_if": "Designed for ≥100K resources, discovery <5min, distributed architecture, caching strategy, optimized database",
+        "partial_if": "Scalability considered but targets not defined or single-region only",
+        "no_if": "No scalability design or monolithic architecture"
+      }
+    },
+    {
+      "id": "dr-infrastructure-1-6",
+      "question": "Have you designed network security detection with traffic analysis and lateral movement detection?",
+      "verification": [
+        "Review network traffic analysis design (VPC Flow Logs, NSG Flow Logs, packet capture)",
+        "Check lateral movement detection (unusual internal traffic, privilege escalation paths)",
+        "Verify microsegmentation monitoring (security group changes, firewall rule modifications)",
+        "Confirm encrypted traffic analysis (metadata analysis without decryption)",
+        "Review DDoS detection design (traffic spikes, volumetric attacks)"
+      ],
+      "evidence": [
+        "Network detection architecture",
+        "Traffic analysis design (flow log ingestion, analysis algorithms)",
+        "Lateral movement detection logic",
+        "Microsegmentation monitoring design",
+        "Encrypted traffic analysis approach"
+      ],
+      "scoring": {
+        "yes_if": "Network traffic analysis designed, lateral movement detection, microsegmentation monitored, encrypted traffic handled, DDoS detection",
+        "partial_if": "Network detection designed but limited to flow logs or no lateral movement detection",
+        "no_if": "No network security detection design"
+      }
+    },
+    {
+      "id": "dr-infrastructure-1-7",
+      "question": "Have you designed compliance automation with continuous assessment and evidence collection?",
+      "verification": [
+        "Review compliance framework support (CIS Benchmarks, PCI-DSS, HIPAA, SOC 2, FedRAMP)",
+        "Check continuous assessment design (real-time compliance checking)",
+        "Verify evidence collection automation (screenshots, configuration exports, audit logs)",
+        "Confirm compliance reporting design (dashboards, automated reports, audit trails)",
+        "Review drift detection design (detect configuration drift from baseline)"
+      ],
+      "evidence": [
+        "Compliance framework coverage documentation",
+        "Continuous assessment architecture",
+        "Evidence collection automation design",
+        "Compliance reporting mockups/specifications",
+        "Drift detection algorithm design"
+      ],
+      "scoring": {
+        "yes_if": "≥3 frameworks supported, continuous assessment, automated evidence collection, reporting designed, drift detection",
+        "partial_if": "Compliance designed but manual evidence collection or limited frameworks",
+        "no_if": "No compliance automation design"
+      }
+    },
+    {
+      "id": "dr-infrastructure-1-8",
+      "question": "Have you designed integration with SIEM, SOAR, and existing security tools?",
+      "verification": [
+        "Review SIEM integration design (log forwarding, alert correlation)",
+        "Check SOAR integration design (playbook triggers, automated response orchestration)",
+        "Verify ticketing integration design (ServiceNow, Jira for incident management)",
+        "Confirm cloud-native tool integration (GuardDuty, Security Center, Security Command Center)",
+        "Review webhook/API design for custom integrations"
+      ],
+      "evidence": [
+        "Integration architecture diagram",
+        "SIEM integration specifications",
+        "SOAR integration design (playbook examples)",
+        "Ticketing system integration",
+        "Cloud-native security tool integration design"
+      ],
+      "scoring": {
+        "yes_if": "SIEM integration designed, SOAR integration for automation, ticketing integrated, cloud-native tools connected, webhook/API available",
+        "partial_if": "Some integrations designed but missing SOAR or limited tool coverage",
+        "no_if": "No integration design or isolated system"
+      }
+    },
+    {
+      "id": "dr-infrastructure-1-9",
+      "question": "Have you designed high availability with multi-region deployment and ≥99.9% uptime target?",
+      "verification": [
+        "Review HA architecture (multi-region active-active or active-passive)",
+        "Check failover design (automated detection and failover, RTO ≤5 minutes)",
+        "Verify data replication design (cross-region replication, eventual consistency acceptable)",
+        "Confirm health check design (liveness, readiness, dependency health)",
+        "Review disaster recovery plan (backup strategy, restore procedures, DR testing)"
+      ],
+      "evidence": [
+        "High availability architecture diagram",
+        "Failover mechanism design and automation",
+        "Data replication strategy",
+        "Health check specifications",
+        "Disaster recovery plan with RTO/RPO targets"
+      ],
+      "scoring": {
+        "yes_if": "Multi-region HA, automated failover (RTO ≤5min), data replication, health checks, DR plan with ≥99.9% target",
+        "partial_if": "HA designed but single-region or manual failover",
+        "no_if": "No HA design or single instance deployment"
+      }
+    },
+    {
+      "id": "dr-infrastructure-1-10",
+      "question": "Have you designed security and privacy controls including data encryption, access controls, and audit logging?",
+      "verification": [
+        "Review encryption design (at rest for data/findings, in transit TLS 1.2+)",
+        "Check access control design (RBAC, least privilege, MFA enforcement)",
+        "Verify data minimization design (collect only necessary cloud metadata)",
+        "Confirm audit logging design (all security actions logged, tamper-proof storage)",
+        "Review credential management design (secrets manager, no hardcoded credentials)"
+      ],
+      "evidence": [
+        "Encryption architecture (KMS integration, TLS configuration)",
+        "RBAC design with role definitions",
+        "Data minimization policy",
+        "Audit logging architecture (immutable storage)",
+        "Credential management design (Vault, Secrets Manager)"
+      ],
+      "scoring": {
+        "yes_if": "Encryption comprehensive (rest + transit), RBAC with least privilege, data minimized, audit logs tamper-proof, secrets managed",
+        "partial_if": "Security designed but missing encryption at rest or weak access controls",
+        "no_if": "No encryption or plaintext credentials"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Design Review Coverage",
+      "target": "100% of infrastructure AI systems reviewed before implementation",
+      "measurement": "Coverage % = (Projects with design review / Total AI infrastructure projects) × 100",
+      "data_source": "Design review tracking, project inventory",
+      "frequency": "Quarterly",
+      "baseline": "Initial project inventory and review coverage",
+      "validation": "Project audit to verify review compliance"
+    },
+    {
+      "metric": "Cloud Coverage",
+      "target": "≥95% of cloud resources covered across AWS, Azure, GCP",
+      "measurement": "Coverage % = (Covered cloud resources / Total cloud resources) × 100 per provider",
+      "data_source": "Cloud asset inventory, system capability assessment",
+      "frequency": "Monthly cloud resource coverage review",
+      "baseline": "Initial cloud resource inventory",
+      "validation": "Cloud provider API queries to verify coverage"
+    },
+    {
+      "metric": "Detection Design Quality",
+      "target": "≥90% true positive rate, ≤10% false positive rate, ≤5min detection latency (design targets)",
+      "measurement": "Design targets defined and validated in architecture",
+      "data_source": "Design documentation, architecture review records",
+      "frequency": "Per design review",
+      "baseline": "Industry benchmarks for cloud security detection",
+      "validation": "Proof-of-concept testing validates design targets achievable"
+    },
+    {
+      "metric": "Safety Design Completeness",
+      "target": "100% of designs include blast radius limits, rollback mechanisms, approval workflows",
+      "measurement": "Safety design completeness checklist",
+      "data_source": "Design review checklists and artifacts",
+      "frequency": "Per design review",
+      "baseline": "Safety design requirements checklist",
+      "validation": "Architecture review verification"
+    }
+  ]
+}

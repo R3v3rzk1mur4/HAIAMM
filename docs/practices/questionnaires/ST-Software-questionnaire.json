@@ -1,0 +1,363 @@
+{
+  "practice": "ST",
+  "domain": "software",
+  "name": "Security Testing - Software Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "st-software-1-1",
+      "question": "Do you test AI model adversarial robustness against evasion attacks with ≥70% detection rate?",
+      "verification": [
+        "Review adversarial testing methodology (gradient-based attacks: FGSM, PGD)",
+        "Check test tools used (Adversarial Robustness Toolbox, CleverHans)",
+        "Verify adversarial example generation and testing",
+        "Confirm detection rate ≥70% for adversarial examples",
+        "Review adversarial training or defenses implemented"
+      ],
+      "evidence": [
+        "Adversarial testing reports (attack methods, detection rates)",
+        "Adversarial example dataset",
+        "Testing tool configuration (ART, CleverHans)",
+        "Detection rate results (≥70% target)",
+        "Defense mechanisms implemented"
+      ],
+      "scoring": {
+        "yes_if": "Adversarial testing conducted with FGSM/PGD, detection rate ≥70%, defenses implemented",
+        "partial_if": "Some adversarial testing but detection rate 50-70% or limited attack types",
+        "no_if": "No adversarial testing or detection rate <50%"
+      }
+    },
+    {
+      "id": "st-software-1-2",
+      "question": "Do you test model performance with precision ≥90%, recall ≥85%, F1 ≥87.5% on hold-out test dataset?",
+      "verification": [
+        "Review test dataset (≥10,000 samples, representative of production)",
+        "Check accuracy metrics (precision, recall, F1-score)",
+        "Verify edge case testing (obfuscated code, polyglot files, encoding variations)",
+        "Confirm cross-language testing (≤5% accuracy difference across languages)",
+        "Review explanation quality testing (≥80% helpful ratings)"
+      ],
+      "evidence": [
+        "Test dataset specification (size, composition, representativeness)",
+        "Accuracy test results (precision ≥90%, recall ≥85%, F1 ≥87.5%)",
+        "Edge case test results (≥70% accuracy on edge cases)",
+        "Cross-language performance parity analysis",
+        "Explanation quality evaluation results"
+      ],
+      "scoring": {
+        "yes_if": "Test dataset ≥10,000, precision ≥90%, recall ≥85%, F1 ≥87.5%, edge cases tested, cross-language parity",
+        "partial_if": "Metrics tested but some targets missed (precision 80-90% or recall 75-85%)",
+        "no_if": "No performance testing or metrics significantly below targets"
+      }
+    },
+    {
+      "id": "st-software-1-3",
+      "question": "Do you test SAST accuracy with ≥90% true positive rate and ≤5% false positive rate?",
+      "verification": [
+        "Review test dataset (synthetic vulnerable code, historical CVEs, OWASP benchmark)",
+        "Check true positive rate (≥90% of known vulnerabilities detected)",
+        "Verify false positive rate (≤5% on clean code)",
+        "Confirm false negative rate (≤10% via red team testing)",
+        "Review OWASP Top 10 coverage"
+      ],
+      "evidence": [
+        "SAST test dataset (vulnerable code samples, OWASP benchmark)",
+        "True positive rate results (≥90%)",
+        "False positive test results on clean OSS projects (≤5%)",
+        "Red team testing results (false negative rate ≤10%)",
+        "OWASP Top 10 coverage report"
+      ],
+      "scoring": {
+        "yes_if": "TP rate ≥90%, FP rate ≤5%, FN rate ≤10%, OWASP Top 10 covered",
+        "partial_if": "Testing conducted but TP rate 80-90% or FP rate 5-10%",
+        "no_if": "TP rate <80% or FP rate >10%"
+      }
+    },
+    {
+      "id": "st-software-1-4",
+      "question": "Do you test integration security for all critical integrations (IDE, CI/CD, SCM) with authentication and authorization validation?",
+      "verification": [
+        "Review IDE integration testing (VS Code, IntelliJ, etc.)",
+        "Check CI/CD integration testing (GitHub Actions, GitLab CI, Jenkins)",
+        "Verify SCM integration testing (GitHub, GitLab, Bitbucket)",
+        "Confirm authentication testing (OAuth flows, API key validation)",
+        "Review authorization testing (permission enforcement, RBAC)"
+      ],
+      "evidence": [
+        "IDE integration test suite (plugin installation, analysis trigger, results display)",
+        "CI/CD integration test suite (pipeline integration, gating logic)",
+        "SCM integration test suite (webhook delivery, PR comments)",
+        "Authentication test results (OAuth, API keys)",
+        "Authorization test results (RBAC enforcement)"
+      ],
+      "scoring": {
+        "yes_if": "All critical integrations tested (IDE, CI/CD, SCM), authentication and authorization validated",
+        "partial_if": "≥70% integrations tested or limited auth/authz testing",
+        "no_if": "<70% integration testing or no security testing"
+      }
+    },
+    {
+      "id": "st-software-1-5",
+      "question": "Do you test API security including authentication, input validation, rate limiting, and error handling?",
+      "verification": [
+        "Review authentication testing (OAuth, API keys, SAML flows)",
+        "Check input validation testing (schema validation, injection prevention)",
+        "Verify rate limiting testing (abuse prevention)",
+        "Confirm error handling testing (no sensitive info leaked)",
+        "Test API versioning and backward compatibility"
+      ],
+      "evidence": [
+        "API authentication test suite",
+        "Input validation test results (SQL injection, XSS, command injection)",
+        "Rate limiting test results (abuse scenarios blocked)",
+        "Error handling test results (secure error messages)",
+        "API versioning compatibility tests"
+      ],
+      "scoring": {
+        "yes_if": "Authentication tested, input validation comprehensive, rate limiting validated, errors secure, versioning tested",
+        "partial_if": "API testing exists but missing rate limiting or versioning tests",
+        "no_if": "SQL injection possible or authentication not tested"
+      }
+    },
+    {
+      "id": "st-software-1-6",
+      "question": "Do you test infrastructure security including encryption, network isolation, and secrets management?",
+      "verification": [
+        "Review encryption testing (at rest: model files, data; in transit: TLS 1.2+)",
+        "Check network isolation testing (firewall rules, security groups)",
+        "Verify secrets management testing (no hardcoded credentials, rotation tested)",
+        "Confirm IAM testing (least privilege, no overpermissive policies)",
+        "Test backup and disaster recovery"
+      ],
+      "evidence": [
+        "Encryption test results (at rest and in transit validated)",
+        "Network isolation test results (segmentation verified)",
+        "Secrets scanning results (zero hardcoded credentials)",
+        "IAM permission audit (least privilege validated)",
+        "DR test results (backup/restore validated)"
+      ],
+      "scoring": {
+        "yes_if": "Encryption validated (rest + transit), network isolated, zero hardcoded secrets, IAM least privilege, DR tested",
+        "partial_if": "Infrastructure tested but using TLS 1.0/1.1 or hardcoded secrets found",
+        "no_if": "No encryption or plaintext sensitive data"
+      }
+    },
+    {
+      "id": "st-software-1-7",
+      "question": "Do you test performance meeting latency (≤100ms inference), throughput, and scalability targets?",
+      "verification": [
+        "Review latency testing (p50, p95, p99 measurements)",
+        "Check throughput testing (requests per second capacity)",
+        "Verify load testing (sustained load, no degradation)",
+        "Confirm scalability testing (horizontal scaling, auto-scaling)",
+        "Test resource efficiency (CPU, memory, GPU utilization)"
+      ],
+      "evidence": [
+        "Latency test results (p95 ≤100ms for inference)",
+        "Throughput test results (target RPS achieved)",
+        "Load test results (sustained high load for hours)",
+        "Scalability test results (auto-scaling validated)",
+        "Resource utilization analysis"
+      ],
+      "scoring": {
+        "yes_if": "Latency p95 ≤100ms, throughput targets met, load tested, scalability validated, resource efficient",
+        "partial_if": "Performance tested but latency p95 100-200ms or throughput below target",
+        "no_if": "Latency >200ms or no performance testing"
+      }
+    },
+    {
+      "id": "st-software-1-8",
+      "question": "Do you test resilience with failure injection, graceful degradation, and recovery validation?",
+      "verification": [
+        "Review failure injection testing (service crashes, network failures, database unavailable)",
+        "Check graceful degradation (system continues operating in degraded mode)",
+        "Verify circuit breaker testing (opens on failures, closes on recovery)",
+        "Confirm retry logic testing (exponential backoff, max retries)",
+        "Test recovery time (system restores after failures)"
+      ],
+      "evidence": [
+        "Chaos engineering test results (failure scenarios)",
+        "Graceful degradation validation (continued operation)",
+        "Circuit breaker test results",
+        "Retry logic test results (backoff verified)",
+        "Recovery time measurements (RTO/RPO targets)"
+      ],
+      "scoring": {
+        "yes_if": "Failure injection tested, graceful degradation validated, circuit breaker working, retry logic correct, recovery time acceptable",
+        "partial_if": "Some resilience testing but missing circuit breaker or no recovery testing",
+        "no_if": "System crashes on failures or no resilience testing"
+      }
+    },
+    {
+      "id": "st-software-1-9",
+      "question": "Do you test data pipeline security including privacy protection, data quality validation, and access controls?",
+      "verification": [
+        "Review PII detection and anonymization testing",
+        "Check data quality validation (schema validation, deduplication)",
+        "Verify access control testing (read-only permissions, audit logging)",
+        "Confirm data versioning testing (reproducibility)",
+        "Test data retention and deletion (compliance)"
+      ],
+      "evidence": [
+        "PII detection test results (no PII in training data)",
+        "Data quality validation test results",
+        "Access control audit (least privilege verified)",
+        "Data versioning test results (reproducibility validated)",
+        "Data retention/deletion compliance tests"
+      ],
+      "scoring": {
+        "yes_if": "PII protected, quality validated, access controlled, versioned, retention/deletion compliant",
+        "partial_if": "Data pipeline tested but limited PII protection or no versioning",
+        "no_if": "PII leakage or no data security testing"
+      }
+    },
+    {
+      "id": "st-software-1-10",
+      "question": "Do you test prompt injection defenses (for LLM integrations) with ≥95% detection rate?",
+      "verification": [
+        "Review prompt injection test cases (jailbreaks, prompt leaking, instruction injection)",
+        "Check system prompt protection (≥95% leak prevention)",
+        "Verify output filtering (prevent harmful content generation)",
+        "Confirm context scoping (prevent cross-conversation attacks)",
+        "Test multi-turn conversation attacks"
+      ],
+      "evidence": [
+        "Prompt injection test dataset (techniques tested)",
+        "System prompt protection test results (≥95% success)",
+        "Output filtering validation",
+        "Context scoping test results",
+        "Multi-turn attack test results"
+      ],
+      "scoring": {
+        "yes_if": "Prompt injection tested, ≥95% system prompt protection, output filtered, context scoped, multi-turn attacks blocked",
+        "partial_if": "Some prompt injection testing but protection rate 70-95%",
+        "no_if": "No prompt injection testing or protection <70%"
+      }
+    },
+    {
+      "id": "st-software-1-11",
+      "question": "Do you conduct compliance testing for data protection regulations (GDPR, CCPA, HIPAA if applicable)?",
+      "verification": [
+        "Review data subject rights testing (access, rectification, deletion, portability)",
+        "Check consent management testing (explicit consent, withdrawal)",
+        "Verify data processing lawfulness testing (legal basis validation)",
+        "Confirm data retention testing (automated deletion after retention period)",
+        "Test data breach notification process"
+      ],
+      "evidence": [
+        "GDPR compliance test results (data subject rights validated)",
+        "Consent management test results",
+        "Data processing lawfulness validation",
+        "Automated retention/deletion test results",
+        "Breach notification procedure tests"
+      ],
+      "scoring": {
+        "yes_if": "All data subject rights tested, consent managed, lawfulness validated, retention automated, breach process tested",
+        "partial_if": "Compliance tested but some rights missing or manual retention",
+        "no_if": "No compliance testing or cannot delete user data"
+      }
+    },
+    {
+      "id": "st-software-1-12",
+      "question": "Do you perform regular penetration testing (at least annually) by qualified security professionals?",
+      "verification": [
+        "Review penetration testing schedule (annual minimum, after major changes)",
+        "Check tester qualifications (OSCP, CEH, or equivalent)",
+        "Verify test scope (all critical components, realistic attack scenarios)",
+        "Confirm findings remediation (critical ≤30 days, high ≤90 days)",
+        "Review retest results (validate fixes)"
+      ],
+      "evidence": [
+        "Penetration test reports (last 12 months)",
+        "Tester credentials and qualifications",
+        "Test scope documentation",
+        "Findings remediation tracking (SLA compliance)",
+        "Retest validation results"
+      ],
+      "scoring": {
+        "yes_if": "Annual pentesting by qualified professionals, comprehensive scope, findings remediated within SLA, retested",
+        "partial_if": "Pentesting conducted but not annual or findings remediation slow",
+        "no_if": "No penetration testing or >2 years since last test"
+      }
+    },
+    {
+      "id": "st-software-1-13",
+      "question": "Do you have automated security testing in CI/CD with every commit scanned?",
+      "verification": [
+        "Review CI/CD security testing integration (SAST, dependency scanning, secrets scanning)",
+        "Check automated execution (runs on every PR/commit)",
+        "Verify build gating (blocks on critical findings)",
+        "Confirm test execution time (≤10 minutes for fast feedback)",
+        "Review false positive management (suppression workflow)"
+      ],
+      "evidence": [
+        "CI/CD pipeline configuration (security testing stages)",
+        "Automated scan execution logs (every commit)",
+        "Build gating policy and enforcement",
+        "Test execution time metrics (≤10 min)",
+        "False positive suppression workflow"
+      ],
+      "scoring": {
+        "yes_if": "SAST + dependency + secrets scanning automated, every commit, build gating, ≤10min, FP management",
+        "partial_if": "Automated scanning but not every commit or execution time >10min",
+        "no_if": "No automated security testing in CI/CD"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Model Security",
+      "target": "≥70% adversarial robustness, accuracy degradation ≤10% with 5% poisoned data",
+      "measurement": "Adversarial detection rate; Accuracy drop under poisoning",
+      "data_source": "Adversarial testing reports, poisoning test results",
+      "frequency": "Quarterly adversarial testing, before major model updates",
+      "baseline": "Initial model robustness assessment",
+      "validation": "Independent red team validation"
+    },
+    {
+      "metric": "Model Accuracy",
+      "target": "Precision ≥90%, Recall ≥85%, F1 ≥87.5% on test dataset",
+      "measurement": "Standard ML metrics on hold-out test set",
+      "data_source": "Model evaluation reports",
+      "frequency": "Every model training/update",
+      "baseline": "Initial model performance baseline",
+      "validation": "Cross-validation, real-world accuracy monitoring"
+    },
+    {
+      "metric": "SAST Accuracy",
+      "target": "≥90% true positive rate, ≤5% false positive rate, ≤10% false negative rate",
+      "measurement": "TP/FP/FN rates on test datasets (OWASP, CVEs, clean code)",
+      "data_source": "SAST testing reports",
+      "frequency": "Quarterly, before major releases",
+      "baseline": "Initial SAST accuracy baseline",
+      "validation": "Red team validation, comparison with commercial tools"
+    },
+    {
+      "metric": "Performance",
+      "target": "Latency p95 ≤100ms for inference, throughput ≥1000 RPS, scalability validated",
+      "measurement": "Latency percentiles, RPS measurements, load test results",
+      "data_source": "Performance test reports, load testing tools",
+      "frequency": "Weekly performance testing, continuous production monitoring",
+      "baseline": "Initial performance baseline",
+      "validation": "Production performance correlation"
+    },
+    {
+      "metric": "Security Testing Coverage",
+      "target": "100% of OWASP Top 10 tested, ≥90% integration coverage, ≥95% prompt injection protection",
+      "measurement": "Test coverage metrics per category",
+      "data_source": "Security test suite execution reports",
+      "frequency": "Every release",
+      "baseline": "Initial security test coverage",
+      "validation": "Penetration testing validates coverage effectiveness"
+    },
+    {
+      "metric": "Compliance",
+      "target": "100% data subject rights testable, zero GDPR violations in testing",
+      "measurement": "GDPR/CCPA compliance test pass rate",
+      "data_source": "Compliance test results, audit reports",
+      "frequency": "Quarterly compliance testing",
+      "baseline": "Initial compliance assessment",
+      "validation": "Third-party compliance audit"
+    }
+  ]
+}

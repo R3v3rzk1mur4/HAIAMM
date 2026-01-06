@@ -1,0 +1,394 @@
+{
+  "practice": "EH",
+  "domain": "data",
+  "name": "Environment Hardening - Data Domain",
+  "level": 1,
+  "assessment_criteria": [
+    {
+      "id": "eh-data-1-1",
+      "question": "Do you harden database authentication with default credentials removed, strong passwords (≥16 chars), key-based auth, MFA for admin, and no anonymous access?",
+      "verification": [
+        "Review default credential removal (postgres, root, admin passwords changed/removed)",
+        "Check strong password policy (≥16 chars, complexity, no dictionary words)",
+        "Verify key-based authentication (prefer certificate/key-based over passwords)",
+        "Confirm MFA for administrative database access (100% admin accounts)",
+        "Review anonymous access disabled (no anonymous/guest accounts)"
+      ],
+      "evidence": [
+        "Default credential removal documentation (all defaults changed/removed)",
+        "Password policy (≥16 chars, complexity requirements, dictionary exclusion)",
+        "Key-based authentication configuration (certificate/key auth enabled)",
+        "Admin MFA enforcement (100% admin accounts require MFA)",
+        "Anonymous access configuration (disabled, no guest accounts)"
+      ],
+      "scoring": {
+        "yes_if": "Default credentials removed, strong passwords (≥16 chars, complexity), key-based auth preferred, 100% admin MFA, anonymous access disabled",
+        "partial_if": "Default credentials removed but passwords <16 chars or <100% admin MFA or anonymous access exists",
+        "no_if": "Default credentials present or passwords <12 chars or no admin MFA or anonymous access allowed"
+      }
+    },
+    {
+      "id": "eh-data-1-2",
+      "question": "Do you harden database network access with private IPs only (never 0.0.0.0), firewall rules (allow required sources only), no public access, and VPN/bastion for admin access?",
+      "verification": [
+        "Review database binding (private IPs only, never 0.0.0.0 all interfaces)",
+        "Check firewall rules (allow only required sources: application servers, deny all else)",
+        "Verify no public internet exposure (databases never publicly accessible)",
+        "Confirm VPN/bastion admin access (require VPN or bastion host for administrative access)",
+        "Review network segmentation (databases isolated from general network)"
+      ],
+      "evidence": [
+        "Database binding configuration (private IPs, not 0.0.0.0)",
+        "Firewall rules (allow list: application servers, deny all default)",
+        "Public access validation (no databases publicly accessible, scans confirm)",
+        "VPN/bastion requirement (administrative access requires VPN or bastion)",
+        "Network segmentation (database network isolated)"
+      ],
+      "scoring": {
+        "yes_if": "Private IPs only (never 0.0.0.0), firewall allow list (application servers only, deny default), no public access (validated), VPN/bastion admin access required, network segmentation",
+        "partial_if": "Private IPs but limited firewall rules or VPN optional (not required) for admin or limited segmentation",
+        "no_if": "0.0.0.0 binding or no firewall rules or public access found or no VPN/bastion requirement"
+      }
+    },
+    {
+      "id": "eh-data-1-3",
+      "question": "Do you implement database encryption with TDE at rest (AES-256, external KMS, annual key rotation) and TLS in transit (TLS 1.3 or 1.2+, certificate validation, strong cipher suites)?",
+      "verification": [
+        "Review encryption at rest (Transparent Data Encryption: PostgreSQL pgcrypto, MySQL InnoDB, SQL Server TDE, MongoDB encryption; AES-256 algorithm)",
+        "Check key management (external KMS: AWS KMS, Azure Key Vault; annual key rotation)",
+        "Verify encryption in transit (TLS for all database connections: TLS 1.3 preferred, TLS 1.2 minimum)",
+        "Confirm certificate validation (enforce validation, reject self-signed certificates)",
+        "Review cipher suites (strong cipher suites only, no weak ciphers)"
+      ],
+      "evidence": [
+        "Encryption at rest configuration (TDE enabled: PostgreSQL, MySQL, SQL Server, MongoDB; AES-256)",
+        "KMS integration (external KMS: AWS KMS, Azure Key Vault; annual key rotation policy)",
+        "TLS configuration (TLS 1.3 or 1.2+ for all database connections)",
+        "Certificate validation (enforced, self-signed rejected)",
+        "Cipher suite configuration (strong cipher suites only, weak ciphers disabled)"
+      ],
+      "scoring": {
+        "yes_if": "TDE at rest (AES-256, all databases), external KMS (AWS KMS, Azure Key Vault, annual rotation), TLS in transit (TLS 1.3 or 1.2+, all connections), certificate validation (enforced, self-signed rejected), strong cipher suites",
+        "partial_if": "TDE enabled but internal key management (not external KMS) or TLS 1.2 only or limited certificate validation",
+        "no_if": "No TDE or no encryption in transit or TLS <1.2 or self-signed certs accepted"
+      }
+    },
+    {
+      "id": "eh-data-1-4",
+      "question": "Do you enforce least privilege database authorization with application accounts (required permissions only), read-only accounts, no SUPERUSER for applications, row-level security, and column-level security for sensitive data?",
+      "verification": [
+        "Review application account permissions (grant only required: SELECT, INSERT, UPDATE on specific tables, not SUPERUSER)",
+        "Check read-only accounts (separate accounts for analytics, reporting with read-only permissions)",
+        "Verify SUPERUSER restriction (no SUPERUSER or root for application accounts)",
+        "Confirm row-level security (RLS for multi-tenant databases: users see only their data)",
+        "Review column-level security (encrypt or restrict access to sensitive columns: PII, PHI, PCI)"
+      ],
+      "evidence": [
+        "Application account permissions (least privilege: required tables/operations only, no SUPERUSER)",
+        "Read-only account configuration (analytics, reporting accounts with read-only permissions)",
+        "SUPERUSER restriction policy (application accounts never SUPERUSER or root)",
+        "Row-level security implementation (RLS for multi-tenant: user data isolation)",
+        "Column-level security (sensitive columns: PII, PHI, PCI encrypted or access restricted)"
+      ],
+      "scoring": {
+        "yes_if": "Application accounts least privilege (required permissions only, no SUPERUSER), read-only accounts (analytics, reporting), row-level security (multi-tenant isolation), column-level security (PII, PHI, PCI protected)",
+        "partial_if": "Least privilege but no read-only accounts or no RLS or limited column-level security",
+        "no_if": "Application accounts with SUPERUSER or excessive permissions or no RLS or no column-level security"
+      }
+    },
+    {
+      "id": "eh-data-1-5",
+      "question": "Do you harden database configuration with CIS Benchmarks, unnecessary features disabled, query logging for sensitive tables, connection limits, and patching SLA (critical ≤48h, high ≤7d)?",
+      "verification": [
+        "Review CIS Benchmark compliance (CIS PostgreSQL, MySQL, MongoDB, SQL Server applied)",
+        "Check unnecessary features disabled (remote file access, external scripts, xp_cmdshell)",
+        "Verify query logging (enabled for sensitive tables: PII, PHI, PCI access logged)",
+        "Confirm connection limits (prevent resource exhaustion, idle/query timeouts configured)",
+        "Review patching SLA (critical patches ≤48 hours, high ≤7 days, medium ≤30 days; tested in staging before production)"
+      ],
+      "evidence": [
+        "CIS Benchmark compliance (CIS PostgreSQL, MySQL, MongoDB, SQL Server applied and validated)",
+        "Disabled features documentation (remote file access, external scripts, xp_cmdshell disabled)",
+        "Query logging configuration (sensitive tables: PII, PHI, PCI logging enabled)",
+        "Connection limit configuration (resource limits, idle timeout, query timeout)",
+        "Patching policy and compliance (critical ≤48h, high ≤7d, medium ≤30d; staging testing)"
+      ],
+      "scoring": {
+        "yes_if": "CIS Benchmarks applied (PostgreSQL, MySQL, MongoDB, SQL Server), unnecessary features disabled, sensitive table query logging, connection limits (resource, timeout), patching SLA (critical ≤48h, high ≤7d, staging tested)",
+        "partial_if": "CIS Benchmarks applied but features not disabled or no query logging or patching SLA not met (critical ≤7d)",
+        "no_if": "No CIS Benchmarks or unnecessary features enabled or no query logging or patching >14d for critical"
+      }
+    },
+    {
+      "id": "eh-data-1-6",
+      "question": "Do you harden object storage (S3, Azure Blob, GCS) with public access blocked, encryption (SSE-KMS/CMEK at rest, HTTPS in transit), least privilege IAM, versioning, and access logging?",
+      "verification": [
+        "Review public access blocking (AWS S3 Block Public Access account+bucket level, Azure Blob containers private, GCS buckets private; validated with ScoutSuite/Prowler)",
+        "Check encryption at rest (AWS S3 SSE-KMS customer-managed keys not SSE-S3, Azure Blob customer-managed Key Vault keys, GCS CMEK; bucket policies require encryption reject unencrypted uploads)",
+        "Verify encryption in transit (HTTPS required, deny HTTP requests, TLS 1.2+)",
+        "Confirm least privilege IAM (minimal permissions: read-only vs write, explicit actions not s3:* or storage.*, time-limited pre-signed URLs)",
+        "Review versioning and logging (versioning enabled for deletion/ransomware protection, S3 Access Logging/CloudTrail, Azure Storage Analytics, GCS Access Logs to SIEM)"
+      ],
+      "evidence": [
+        "Public access blocking (S3 Block Public Access, Azure Blob private, GCS private; ScoutSuite/Prowler scans confirm no public buckets)",
+        "Encryption at rest (SSE-KMS/CMEK customer-managed keys, bucket policies reject unencrypted)",
+        "Encryption in transit (HTTPS required, HTTP denied, TLS 1.2+)",
+        "Least privilege IAM (minimal permissions, explicit actions, time-limited pre-signed URLs)",
+        "Versioning and access logging (versioning enabled, access logs to SIEM)"
+      ],
+      "scoring": {
+        "yes_if": "Public access blocked (S3/Azure/GCS, validated), encryption at rest (SSE-KMS/CMEK customer-managed, bucket policies reject unencrypted), encryption in transit (HTTPS required, HTTP denied, TLS 1.2+), least privilege IAM (minimal, explicit, time-limited URLs), versioning + logging (enabled, SIEM integration)",
+        "partial_if": "Public access blocked but SSE-S3 (not customer-managed) or HTTP allowed or excessive IAM (s3:*) or no versioning or no logging",
+        "no_if": "Public buckets found or no encryption or HTTP allowed or wildcard IAM or no versioning"
+      }
+    },
+    {
+      "id": "eh-data-1-7",
+      "question": "Do you harden data lake/warehouse platforms with strong authentication (Kerberos for Hadoop, SSO+MFA for cloud warehouses), encryption (at rest+in transit), fine-grained access control (column/row-level, dynamic masking), and private network isolation?",
+      "verification": [
+        "Review authentication hardening (Hadoop: Kerberos not simple auth in production; Cloud warehouses: SSO integration SAML/OAuth, MFA for admin accounts)",
+        "Check encryption (at rest: HDFS, S3, warehouse storage encrypted; in transit: TLS for all client-server, server-server communication)",
+        "Verify fine-grained access control (column-level, row-level security: Snowflake RLS, BigQuery column-level, Redshift column-level encryption; least privilege: required tables/columns/rows only; dynamic masking for unauthorized users)",
+        "Confirm network isolation (no public access: private endpoints, VPC peering; network segmentation: data platform isolated from general network)"
+      ],
+      "evidence": [
+        "Authentication configuration (Hadoop Kerberos, cloud warehouses SSO+MFA)",
+        "Encryption configuration (at rest: HDFS/S3/warehouse; in transit: TLS all connections)",
+        "Fine-grained access control (column/row-level: Snowflake RLS, BigQuery, Redshift; least privilege; dynamic masking)",
+        "Network isolation (private endpoints, VPC peering, segmentation from general network)"
+      ],
+      "scoring": {
+        "yes_if": "Strong authentication (Hadoop Kerberos, cloud SSO+MFA), encryption (at rest+in transit all connections), fine-grained access (column/row-level: Snowflake RLS/BigQuery/Redshift, least privilege, dynamic masking), network isolation (private endpoints, segmentation)",
+        "partial_if": "Authentication hardened but no MFA or encryption partial (at rest or in transit) or limited access control (table-level only) or limited network isolation",
+        "no_if": "No authentication hardening or no encryption or no access control or public access"
+      }
+    },
+    {
+      "id": "eh-data-1-8",
+      "question": "Do you harden file shares (NFS, SMB) with access restrictions (specific IPs/hosts), encryption (NFSv4 Kerberos, SMB3 encryption), authentication (no anonymous), and least privilege permissions?",
+      "verification": [
+        "Review access restrictions (NFS exports limited to specific IPs/hosts, SMB ACLs restrict access)",
+        "Check encryption (NFSv4 with Kerberos, SMB3 encryption enabled)",
+        "Verify authentication (no anonymous shares, authentication required for all access)",
+        "Confirm least privilege permissions (read-only where possible, write only when required)"
+      ],
+      "evidence": [
+        "File share access restrictions (NFS exports, SMB ACLs limited to specific IPs/hosts)",
+        "Encryption configuration (NFSv4 Kerberos, SMB3 encryption enabled)",
+        "Authentication enforcement (no anonymous shares, authentication required)",
+        "Least privilege permissions (read-only default, write only when required)"
+      ],
+      "scoring": {
+        "yes_if": "Access restricted (specific IPs/hosts: NFS exports, SMB ACLs), encryption (NFSv4 Kerberos, SMB3), authentication required (no anonymous), least privilege (read-only default)",
+        "partial_if": "Access restrictions but no encryption or authentication optional (anonymous allowed) or excessive permissions (write default)",
+        "no_if": "No access restrictions or no encryption or anonymous shares or excessive permissions"
+      }
+    },
+    {
+      "id": "eh-data-1-9",
+      "question": "Do you implement encryption at rest with full-disk encryption (LUKS, BitLocker, FileVault), application-level encryption (sensitive columns via libraries, keys in KMS), and strong algorithms (AES-256-GCM, avoid deprecated)?",
+      "verification": [
+        "Review full-disk encryption (LUKS for Linux, BitLocker for Windows, FileVault for macOS; cloud: encrypted EBS, Azure disks, GCP disks)",
+        "Check application-level encryption (sensitive columns: credit card, SSN, PII fields; libraries: NaCl, libsodium, AWS Encryption SDK; keys in KMS not database)",
+        "Verify algorithm selection (symmetric: AES-256-GCM authenticated, ChaCha20-Poly1305; asymmetric: RSA-4096, Ed25519, ECDSA P-256+; avoid deprecated: DES, 3DES, RC4, MD5, SHA-1)"
+      ],
+      "evidence": [
+        "Full-disk encryption (LUKS, BitLocker, FileVault; cloud encrypted volumes)",
+        "Application-level encryption (sensitive columns encrypted via NaCl/libsodium/AWS SDK, keys in KMS)",
+        "Algorithm configuration (AES-256-GCM, ChaCha20-Poly1305, RSA-4096, Ed25519; deprecated disabled: DES, 3DES, RC4, MD5, SHA-1)"
+      ],
+      "scoring": {
+        "yes_if": "Full-disk encryption (LUKS/BitLocker/FileVault, cloud encrypted volumes), application-level encryption (sensitive columns, libraries, keys in KMS), strong algorithms (AES-256-GCM, ChaCha20-Poly1305, RSA-4096, Ed25519, deprecated disabled)",
+        "partial_if": "Full-disk encryption but no application-level or keys in database (not KMS) or weak algorithms (3DES, MD5 used)",
+        "no_if": "No full-disk encryption or no application-level or deprecated algorithms (DES, RC4) used"
+      }
+    },
+    {
+      "id": "eh-data-1-10",
+      "question": "Do you harden TLS with strong versions (TLS 1.3 preferred, TLS 1.2 minimum, disable <1.2), strong cipher suites (ECDHE-GCM, forward secrecy, disable weak), and certificate validation (no self-signed, pinning, revocation checking)?",
+      "verification": [
+        "Review TLS version (TLS 1.3 preferred, TLS 1.2 minimum; TLS 1.0, 1.1, SSLv3 disabled)",
+        "Check cipher suites (prefer: ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-CHACHA20-POLY1305; disable: RC4, DES, 3DES, export ciphers, null ciphers; require ECDHE or DHE for perfect forward secrecy)",
+        "Verify certificate validation (no self-signed in production, certificate pinning for critical services, revocation checking: OCSP, CRL)"
+      ],
+      "evidence": [
+        "TLS version configuration (TLS 1.3 preferred, TLS 1.2 minimum; <1.2 disabled)",
+        "Cipher suite configuration (ECDHE-GCM preferred, weak disabled: RC4/DES/3DES/export/null, forward secrecy ECDHE/DHE)",
+        "Certificate validation (self-signed rejected, pinning for critical services, revocation checking OCSP/CRL)"
+      ],
+      "scoring": {
+        "yes_if": "TLS 1.3 preferred or TLS 1.2 minimum (<1.2 disabled), strong cipher suites (ECDHE-GCM, forward secrecy ECDHE/DHE, weak disabled), certificate validation (self-signed rejected, pinning, revocation checking)",
+        "partial_if": "TLS 1.2 minimum but weak ciphers allowed (3DES, RC4) or self-signed accepted (not production) or no pinning or no revocation checking",
+        "no_if": "TLS <1.2 allowed or weak ciphers (RC4, DES, export) or self-signed accepted in production"
+      }
+    },
+    {
+      "id": "eh-data-1-11",
+      "question": "Do you implement certificate management with automated issuance (Let's Encrypt, cert-manager, ACM), rotation (≤30 day expiration alerts, automated), and private key protection (HSM/KMS, chmod 600, no sharing)?",
+      "verification": [
+        "Review automated certificate issuance (Let's Encrypt, cert-manager for Kubernetes, AWS ACM; prevents expired certificates)",
+        "Check certificate rotation (monitoring: alert when ≤30 days from expiration; automation: automated rotation where possible)",
+        "Verify private key protection (storage: HSM Hardware Security Module or KMS; permissions: chmod 600 on key files; no sharing: never share private keys across systems)"
+      ],
+      "evidence": [
+        "Automated certificate issuance (Let's Encrypt, cert-manager, AWS ACM)",
+        "Certificate rotation (≤30 day expiration alerts, automated rotation)",
+        "Private key protection (HSM/KMS storage, chmod 600 permissions, no sharing policy)"
+      ],
+      "scoring": {
+        "yes_if": "Automated certificate issuance (Let's Encrypt/cert-manager/ACM), rotation (≤30 day alerts, automated), private key protection (HSM/KMS, chmod 600, no sharing)",
+        "partial_if": "Automated issuance but manual rotation (no automation) or keys in filesystem (not HSM/KMS) or shared keys",
+        "no_if": "Manual certificate issuance or no expiration monitoring or keys not protected (chmod 644) or shared keys"
+      }
+    },
+    {
+      "id": "eh-data-1-12",
+      "question": "Do you implement mTLS for service-to-service communication (service mesh: Istio/Linkerd/Consul or manual) for data classification ↔ database, DLP ↔ data stores with mutual authentication and encryption?",
+      "verification": [
+        "Review mTLS implementation (service mesh: Istio, Linkerd, Consul Connect or manual mTLS configuration)",
+        "Check service coverage (data classification service ↔ database, DLP ↔ data stores, internal services)",
+        "Verify mutual authentication (both client and server authenticate via certificates)",
+        "Confirm encryption (all internal traffic encrypted via mTLS)"
+      ],
+      "evidence": [
+        "mTLS implementation (service mesh: Istio/Linkerd/Consul or manual mTLS)",
+        "Service coverage (data classification ↔ database, DLP ↔ data stores, internal services)",
+        "Mutual authentication (client + server certificate validation)",
+        "Encryption (all internal service traffic encrypted)"
+      ],
+      "scoring": {
+        "yes_if": "mTLS implemented (service mesh or manual), service coverage (data classification ↔ database, DLP ↔ stores, internal services), mutual authentication (client + server), encryption (all internal traffic)",
+        "partial_if": "mTLS implemented but limited service coverage (<50% services) or one-way TLS (not mutual) or external traffic only",
+        "no_if": "No mTLS or plaintext internal communication or no mutual authentication"
+      }
+    },
+    {
+      "id": "eh-data-1-13",
+      "question": "Do you centralize key management with KMS (AWS KMS, Azure Key Vault, GCP Cloud KMS, HashiCorp Vault), implement key hierarchy (KEK/DEK), and enforce access control with audit logging?",
+      "verification": [
+        "Review KMS usage (AWS KMS, Azure Key Vault, GCP Cloud KMS, HashiCorp Vault; all encryption keys: data keys, TLS keys, API keys centralized)",
+        "Check key hierarchy (KEK: Key Encryption Key master in KMS/HSM, DEK: Data Encryption Key encrypts data encrypted by KEK; benefit: rotate DEKs without re-encrypting data)",
+        "Verify access control (least privilege: only services that encrypt/decrypt access keys; IAM policies restrict key usage: kms:Encrypt, kms:Decrypt)",
+        "Confirm audit logging (log all key usage: who, which key, when, what purpose)"
+      ],
+      "evidence": [
+        "KMS usage (AWS KMS, Azure Key Vault, GCP Cloud KMS, Vault; all keys centralized)",
+        "Key hierarchy (KEK master in KMS/HSM, DEK encrypted by KEK)",
+        "Access control (least privilege IAM policies: kms:Encrypt, kms:Decrypt only for required services)",
+        "Audit logging (all key usage logged: who, key, when, purpose)"
+      ],
+      "scoring": {
+        "yes_if": "KMS centralized (AWS KMS/Azure Key Vault/GCP Cloud KMS/Vault, all keys), key hierarchy (KEK/DEK, rotate DEKs without re-encrypt), access control (least privilege IAM, explicit permissions), audit logging (all usage: who, key, when, purpose)",
+        "partial_if": "KMS usage but no key hierarchy (KEK/DEK) or excessive access (wildcard IAM) or limited audit logging",
+        "no_if": "No KMS (keys in code/config) or no access control or no audit logging"
+      }
+    },
+    {
+      "id": "eh-data-1-14",
+      "question": "Do you implement key rotation with data encryption keys annually, master keys every 2-3 years, immediate rotation on compromise, and automated zero-downtime rotation?",
+      "verification": [
+        "Review rotation frequency (data encryption keys DEK annually, master keys KEK every 2-3 years)",
+        "Check compromise response (immediate rotation if compromise suspected)",
+        "Verify automation (automated rotation with zero downtime, no service disruption)",
+        "Confirm rotation testing (rotation procedures tested, validated for zero downtime)"
+      ],
+      "evidence": [
+        "Key rotation policy (DEK annually, KEK every 2-3 years)",
+        "Compromise rotation procedure (immediate rotation on suspected compromise)",
+        "Automated rotation (zero downtime, service continuity)",
+        "Rotation testing (procedures tested, zero downtime validated)"
+      ],
+      "scoring": {
+        "yes_if": "Rotation frequency (DEK annually, KEK 2-3 years), immediate on compromise, automated zero-downtime rotation, rotation tested",
+        "partial_if": "Rotation frequency defined but manual rotation (not automated) or downtime during rotation or not tested",
+        "no_if": "No rotation policy or rotation >5 years or manual rotation with downtime or not tested"
+      }
+    },
+    {
+      "id": "eh-data-1-15",
+      "question": "Do you implement key backup and recovery with encrypted backups (separate KEK), separate region/account storage, documented recovery procedures, and annual testing?",
+      "verification": [
+        "Review key backups (encrypted backups of keys, protected with separate KEK)",
+        "Check backup storage (separate region or account from production keys)",
+        "Verify recovery procedures (documented key recovery procedures, step-by-step instructions)",
+        "Confirm annual testing (recovery procedures tested annually, successful recovery validated)"
+      ],
+      "evidence": [
+        "Key backup policy (encrypted backups, separate KEK protection)",
+        "Backup storage (separate region or account from production)",
+        "Recovery procedures documentation (step-by-step key recovery instructions)",
+        "Annual testing results (recovery tested yearly, successful recovery validated)"
+      ],
+      "scoring": {
+        "yes_if": "Encrypted key backups (separate KEK), separate region/account storage, documented recovery procedures, annual testing (successful recovery validated)",
+        "partial_if": "Key backups but same KEK (not separate) or same region as production or procedures not documented or testing <annual",
+        "no_if": "No key backups or unencrypted backups or same account as production or no recovery procedures or never tested"
+      }
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric": "Database Hardening Compliance",
+      "target": "100% databases hardened: default credentials removed, MFA for admin, TDE at rest, TLS in transit, least privilege, CIS Benchmarks",
+      "measurement": "Database hardening compliance % = (Hardened databases / Total databases) × 100",
+      "data_source": "Database configuration audits, CIS Benchmark scans",
+      "frequency": "Quarterly compliance audits, continuous monitoring",
+      "baseline": "Current database hardening compliance",
+      "validation": "CIS Benchmark scans validate compliance, audits confirm MFA + TDE + TLS"
+    },
+    {
+      "metric": "Object Storage Security",
+      "target": "100% object storage hardened: no public access, SSE-KMS/CMEK at rest, HTTPS in transit, least privilege IAM, versioning",
+      "measurement": "Object storage security % = (Hardened buckets / Total buckets) × 100",
+      "data_source": "Object storage audits, ScoutSuite/Prowler scans",
+      "frequency": "Weekly scans, quarterly audits",
+      "baseline": "Current object storage security baseline",
+      "validation": "ScoutSuite/Prowler scans confirm no public buckets, SSE-KMS/CMEK enforced"
+    },
+    {
+      "metric": "Encryption Coverage",
+      "target": "100% sensitive data encrypted: full-disk encryption, TDE at rest, TLS in transit (TLS 1.3 or 1.2+), strong algorithms",
+      "measurement": "Encryption coverage % = (Encrypted data stores / Total data stores) × 100",
+      "data_source": "Encryption audits, configuration scans",
+      "frequency": "Quarterly encryption audits",
+      "baseline": "Current encryption coverage",
+      "validation": "Audits confirm 100% encryption: full-disk, TDE, TLS 1.2+"
+    },
+    {
+      "metric": "TLS Hardening",
+      "target": "100% services use TLS 1.3 or 1.2+, strong cipher suites, certificate validation, no self-signed in production",
+      "measurement": "TLS compliance % = (Hardened services / Total services) × 100",
+      "data_source": "TLS configuration scans (testssl.sh, nmap)",
+      "frequency": "Weekly TLS scans",
+      "baseline": "Current TLS configuration",
+      "validation": "TLS scans confirm TLS 1.2+, strong ciphers, no self-signed"
+    },
+    {
+      "metric": "Key Management Centralization",
+      "target": "100% encryption keys in KMS, key hierarchy (KEK/DEK), least privilege access, audit logging",
+      "measurement": "Key centralization % = (Keys in KMS / Total keys) × 100",
+      "data_source": "KMS audits, key usage logs",
+      "frequency": "Quarterly KMS audits",
+      "baseline": "Current key management",
+      "validation": "Audits confirm 100% keys in KMS, access control enforced"
+    },
+    {
+      "metric": "Key Rotation Compliance",
+      "target": "100% key rotation compliant: DEK annually, KEK 2-3 years, automated zero-downtime",
+      "measurement": "Rotation compliance % = (Keys rotated on schedule / Total keys) × 100",
+      "data_source": "Key rotation logs, KMS audit logs",
+      "frequency": "Quarterly rotation audits",
+      "baseline": "Key rotation policy (DEK annually, KEK 2-3 years)",
+      "validation": "Rotation logs confirm automated rotation on schedule, zero downtime"
+    },
+    {
+      "metric": "Least Privilege Access",
+      "target": "100% data access least privilege: database permissions minimal, object storage IAM minimal, no SUPERUSER for applications",
+      "measurement": "Least privilege compliance % = (Least privilege accounts / Total accounts) × 100",
+      "data_source": "Access control audits, permission reviews",
+      "frequency": "Quarterly access audits",
+      "baseline": "Current access control posture",
+      "validation": "Audits confirm least privilege, no SUPERUSER for applications, minimal IAM"
+    }
+  ]
+}

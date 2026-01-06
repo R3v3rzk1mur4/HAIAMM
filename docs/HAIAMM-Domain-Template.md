@@ -35,9 +35,9 @@
 | Function | Focus | Practices |
 |----------|-------|-----------|
 | **Governance** | [Description] | SM, PC, EG |
-| **Engineering** | [Description] | TA, SR, SA |
-| **Verification** | [Description] | DR, CR, ST |
-| **Operations** | [Description] | IM, EH, OE |
+| **Building** | [Description] | TA, SR, SA |
+| **Verification** | [Description] | DR, IR, ST |
+| **Operations** | [Description] | EH, IM, ML |
 
 ### Practice Summary
 
@@ -50,11 +50,11 @@
 | SR | Security Requirements | [Focus] | [Focus] | [Focus] |
 | SA | Secure Architecture | [Focus] | [Focus] | [Focus] |
 | DR | Design Review | [Focus] | [Focus] | [Focus] |
-| CR | Code/Configuration Review | [Focus] | [Focus] | [Focus] |
+| IR | Implementation Review | [Focus] | [Focus] | [Focus] |
 | ST | Security Testing | [Focus] | [Focus] | [Focus] |
 | IM | Issue Management | [Focus] | [Focus] | [Focus] |
 | EH | Environment Hardening | [Focus] | [Focus] | [Focus] |
-| OE | Operational Enablement | [Focus] | [Focus] | [Focus] |
+| ML | Monitoring & Logging | [Focus] | [Focus] | [Focus] |
 
 ---
 
