@@ -50,6 +50,7 @@ HAIAMM is a comprehensive framework for securing Human-Assisted Intelligence (HA
 - [Maturity Roadmap](06-MATURITY-ROADMAP.md) - Level 1 → 2 → 3 progression
 - [Assessment Checklist](07-ASSESSMENT-CHECKLIST.md) - Quick self-assessment (30 min)
 - [Tools & Resources](08-TOOLS-RESOURCES.md) - Recommended tools by practice
+- [Framework Mappings](09-FRAMEWORK-MAPPINGS.md) - BSIMM, OpenSAMM, NIST AI RMF, NIST CSF alignment
 
 ---
 
