@@ -1,0 +1,434 @@
+name: "HAIAMM Maturity Assessment"
+description: "Track a HAIAMM maturity assessment"
+title: "[ASSESSMENT] "
+labels: ["haiamm", "assessment"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## HAIAMM Maturity Assessment Tracker
+        Use this template to document and track the results of a HAIAMM maturity assessment for your AI security program.
+
+  - type: input
+    id: assessment_name
+    attributes:
+      label: Assessment Name
+      description: Name for this assessment
+      placeholder: "Q1 2026 AI Security Maturity Assessment"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: assessment_type
+    attributes:
+      label: Assessment Type
+      description: What type of assessment is this?
+      options:
+        - "Full Assessment - All 12 practices"
+        - "Domain Assessment - Single domain focus"
+        - "Function Assessment - Single function focus"
+        - "Quick Assessment - Rapid baseline check"
+        - "Delta Assessment - Changes since last assessment"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope_domain
+    attributes:
+      label: Primary Domain (if domain-focused)
+      description: If this is a domain assessment, which domain?
+      options:
+        - "N/A - Full assessment"
+        - "Software"
+        - "Infrastructure"
+        - "Endpoints"
+        - "Data"
+        - "Processes"
+        - "Vendors"
+    validations:
+      required: false
+
+  - type: textarea
+    id: scope_systems
+    attributes:
+      label: Systems in Scope
+      description: Which AI systems were assessed?
+      placeholder: |
+        - Customer Support Chatbot (production)
+        - Internal Code Assistant (staging)
+        - RAG-based Knowledge Search (production)
+        - ML Pipeline Infrastructure
+    validations:
+      required: true
+
+  - type: input
+    id: assessment_date
+    attributes:
+      label: Assessment Date
+      description: When was this assessment conducted?
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+
+  - type: input
+    id: assessor
+    attributes:
+      label: Assessor(s)
+      description: Who conducted this assessment?
+      placeholder: "@username, @username2, External Firm Name"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Maturity Scores by Practice
+        Rate each practice: **0** = Not Started, **1** = Foundation, **2** = Structured, **3** = Optimized
+
+        ### Governance Function
+
+  - type: dropdown
+    id: sm_score
+    attributes:
+      label: SM - Strategy & Metrics
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: pc_score
+    attributes:
+      label: PC - Policy & Compliance
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: eg_score
+    attributes:
+      label: EG - Education & Guidance
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Building Function
+
+  - type: dropdown
+    id: ta_score
+    attributes:
+      label: TA - Threat Assessment
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sr_score
+    attributes:
+      label: SR - Security Requirements
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sa_score
+    attributes:
+      label: SA - Secure Architecture
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Verification Function
+
+  - type: dropdown
+    id: dr_score
+    attributes:
+      label: DR - Design Review
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ir_score
+    attributes:
+      label: IR - Implementation Review
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: st_score
+    attributes:
+      label: ST - Security Testing
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Operations Function
+
+  - type: dropdown
+    id: im_score
+    attributes:
+      label: IM - Issue Management
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: eh_score
+    attributes:
+      label: EH - Environment Hardening
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ml_score
+    attributes:
+      label: ML - Monitoring & Logging
+      options:
+        - "0 - Not Started"
+        - "1 - Foundation"
+        - "2 - Structured"
+        - "3 - Optimized"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Assessment Analysis
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Executive Summary
+      description: High-level summary of assessment findings
+      placeholder: |
+        **Overall Maturity:** Level X.X (average across practices)
+
+        **Strengths:**
+        - Strong monitoring and logging (ML: Level 2)
+        - Established security requirements process (SR: Level 2)
+
+        **Critical Gaps:**
+        - No formal threat assessment process (TA: Level 0)
+        - Ad-hoc security testing (ST: Level 1)
+
+        **Key Recommendation:** Prioritize Threat Assessment practice to enable risk-based security decisions.
+    validations:
+      required: true
+
+  - type: textarea
+    id: strengths
+    attributes:
+      label: Strengths Identified
+      description: What is working well?
+      placeholder: |
+        1. **ML - Monitoring & Logging (Level 2)**
+           - Centralized logging for all LLM interactions
+           - Alerts configured for anomalous patterns
+           - 30-day log retention policy
+
+        2. **SR - Security Requirements (Level 2)**
+           - Security requirements documented in PRDs
+           - Consistent input validation standards
+    validations:
+      required: true
+
+  - type: textarea
+    id: gaps
+    attributes:
+      label: Gaps Identified
+      description: What needs improvement?
+      placeholder: |
+        1. **TA - Threat Assessment (Level 0)** - CRITICAL
+           - No formal threat modeling for AI systems
+           - Risks identified reactively, not proactively
+           - Recommendation: Implement AI-specific threat modeling
+
+        2. **ST - Security Testing (Level 1)** - HIGH
+           - Manual, ad-hoc security testing
+           - No prompt injection test suites
+           - Recommendation: Adopt automated AI security testing tools
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks_discovered
+    attributes:
+      label: Risks Discovered During Assessment
+      description: Any new risks identified during this assessment?
+      placeholder: |
+        - RISK-001: System prompt exposed via error messages (create separate risk issue)
+        - RISK-002: No rate limiting on agent tool calls
+        - RISK-003: Training data contains PII from production logs
+    validations:
+      required: false
+
+  - type: textarea
+    id: recommendations
+    attributes:
+      label: Prioritized Recommendations
+      description: Recommended actions in priority order
+      placeholder: |
+        **Immediate (0-30 days):**
+        1. [ ] Implement input validation on all LLM endpoints (#123)
+        2. [ ] Enable output logging for all AI interactions (#124)
+
+        **Short-term (30-90 days):**
+        3. [ ] Establish threat assessment process for AI systems (#125)
+        4. [ ] Deploy automated prompt injection testing (#126)
+
+        **Long-term (90+ days):**
+        5. [ ] Achieve Level 2 maturity across all practices (#127)
+        6. [ ] Implement continuous security monitoring (#128)
+    validations:
+      required: true
+
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Comparison to Previous Assessment
+      description: If applicable, how does this compare to the last assessment?
+      placeholder: |
+        **Previous Assessment:** Q4 2025 (Issue #89)
+
+        | Practice | Previous | Current | Change |
+        |----------|----------|---------|--------|
+        | SM | 1 | 1 | → |
+        | PC | 1 | 2 | ↑ |
+        | TA | 0 | 1 | ↑ |
+        | ... | ... | ... | ... |
+
+        **Overall Trend:** Improving (+3 points total)
+    validations:
+      required: false
+
+  - type: input
+    id: next_assessment
+    attributes:
+      label: Next Assessment Date
+      description: When is the next assessment scheduled?
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: false
+
+  - type: textarea
+    id: stakeholders
+    attributes:
+      label: Stakeholders Notified
+      description: Who should be informed of these results?
+      placeholder: |
+        - CISO: @ciso (briefing scheduled)
+        - Engineering Lead: @eng-lead (action items assigned)
+        - Compliance: @compliance (regulatory implications)
+    validations:
+      required: false
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links to related documentation
+      placeholder: |
+        - Assessment methodology: [HAIAMM Assessment Checklist](link)
+        - Previous assessment: #89
+        - Evidence repository: [link to folder]
+        - Presentation deck: [link]
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Verifhai Integration (Optional)
+        Complete this section if this assessment was conducted with Verifhai assistance.
+
+  - type: dropdown
+    id: verifhai_assisted
+    attributes:
+      label: Verifhai-Assisted Assessment?
+      description: Was this assessment conducted using Verifhai skills?
+      options:
+        - "No - Manual assessment"
+        - "Yes - /verifhai-assess (quick)"
+        - "Yes - /verifhai-measure (full)"
+    validations:
+      required: false
+
+  - type: input
+    id: verifhai_session
+    attributes:
+      label: Verifhai Session Reference
+      description: Session date or ID for traceability
+      placeholder: "2026-01-07 or leave blank"
+    validations:
+      required: false
+
+  - type: textarea
+    id: verifhai_recommendations
+    attributes:
+      label: Verifhai Recommendations Generated
+      description: List issues created from Verifhai recommendations
+      placeholder: |
+        - #101 - [VERIFHAI] Implement threat assessment process
+        - #102 - [VERIFHAI] Add prompt injection testing
+        - #103 - [PRACTICE] TA - Threat Assessment Level 1
+    validations:
+      required: false

@@ -1,0 +1,265 @@
+name: "Verifhai Recommendation"
+description: "AI-generated security recommendation from Verifhai assessment"
+title: "[VERIFHAI] "
+labels: ["haiamm", "verifhai", "ai-recommended"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Verifhai Security Recommendation
+        This template captures AI-generated recommendations from Verifhai assessments and practice-building sessions.
+
+        **Verifhai Skills Integration:**
+        - `/verifhai-assess` → Quick maturity assessment
+        - `/verifhai-practice` → Practice building guidance
+        - `/verifhai-measure` → Full HAIAMM measurement
+        - `/verifhai-review` → Security code review
+
+  - type: dropdown
+    id: source_skill
+    attributes:
+      label: Source Verifhai Skill
+      description: Which Verifhai skill generated this recommendation?
+      options:
+        - "/verifhai-start - Initial HAI security journey"
+        - "/verifhai-assess - Quick maturity assessment"
+        - "/verifhai-practice - Practice building session"
+        - "/verifhai-measure - Full HAIAMM measurement"
+        - "/verifhai-review - Security code review"
+        - "/verifhai-status - Progress check"
+        - "Manual - User-created from Verifhai guidance"
+    validations:
+      required: true
+
+  - type: input
+    id: session_ref
+    attributes:
+      label: Verifhai Session Reference
+      description: Session ID or date of the Verifhai interaction
+      placeholder: "2026-01-07 or session-abc123"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: recommendation_type
+    attributes:
+      label: Recommendation Type
+      description: What type of recommendation is this?
+      options:
+        - "Quick Win - Immediate action, low effort"
+        - "Gap Remediation - Address identified maturity gap"
+        - "Risk Mitigation - Address specific security risk"
+        - "Practice Implementation - Start or advance a practice"
+        - "Control Implementation - Implement specific control"
+        - "Process Improvement - Improve existing process"
+        - "Training Need - Education or guidance gap"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: practice
+    attributes:
+      label: Related HAIAMM Practice
+      description: Primary practice this recommendation supports
+      options:
+        - "SM - Strategy & Metrics"
+        - "PC - Policy & Compliance"
+        - "EG - Education & Guidance"
+        - "TA - Threat Assessment"
+        - "SR - Security Requirements"
+        - "SA - Secure Architecture"
+        - "DR - Design Review"
+        - "IR - Implementation Review"
+        - "ST - Security Testing"
+        - "IM - Issue Management"
+        - "EH - Environment Hardening"
+        - "ML - Monitoring & Logging"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: maturity_impact
+    attributes:
+      label: Maturity Level Impact
+      description: Which maturity level does this help achieve?
+      options:
+        - "Level 1 - Foundation (basic capability)"
+        - "Level 2 - Structured (documented, consistent)"
+        - "Level 3 - Optimized (measured, improved)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommendation
+      description: The specific recommendation from Verifhai
+      placeholder: |
+        **What:** Clear description of the recommended action
+
+        **Why:** Business/security justification
+
+        **CAN/CANNOT/MUST context:**
+        - CAN: What this enables you to do
+        - CANNOT: What gaps remain without this
+        - MUST: Critical requirements for implementation
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Assessment Context
+      description: Context from the Verifhai session that led to this recommendation
+      placeholder: |
+        **Current State:**
+        - Practice maturity: Level X
+        - Key gaps identified: ...
+
+        **Assessment Findings:**
+        - Finding 1
+        - Finding 2
+
+        **User Goals:**
+        - Goal stated during session
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria (AI-Generated)
+      description: Success criteria suggested by Verifhai
+      placeholder: |
+        - [ ] Criterion 1: Specific, measurable outcome
+        - [ ] Criterion 2: Specific, measurable outcome
+        - [ ] Criterion 3: Specific, measurable outcome
+
+        **Verification method:** How to confirm completion
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: risks_addressed
+    attributes:
+      label: OWASP Risks Addressed
+      description: Which risks does this recommendation help mitigate?
+      options:
+        - label: "LLM01 - Prompt Injection"
+        - label: "LLM02 - Sensitive Information Disclosure"
+        - label: "LLM03 - Supply Chain"
+        - label: "LLM04 - Data and Model Poisoning"
+        - label: "LLM05 - Improper Output Handling"
+        - label: "LLM06 - Excessive Agency"
+        - label: "LLM07 - System Prompt Leakage"
+        - label: "LLM08 - Vector and Embedding Weaknesses"
+        - label: "LLM09 - Misinformation"
+        - label: "LLM10 - Unbounded Consumption"
+        - label: "ASI01 - Agent Goal Hijack"
+        - label: "ASI02 - Tool Misuse & Exploitation"
+        - label: "ASI03 - Identity & Privilege Abuse"
+        - label: "ASI04 - Agentic Supply Chain"
+        - label: "ASI05 - Unexpected Code Execution"
+        - label: "ASI06 - Memory & Context Poisoning"
+        - label: "ASI07 - Insecure Inter-Agent Communication"
+        - label: "ASI08 - Cascading Failures"
+        - label: "ASI09 - Human-Agent Trust Exploitation"
+        - label: "ASI10 - Rogue Agents"
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Estimated Effort
+      description: Verifhai's effort estimate
+      options:
+        - "XS - Less than 1 hour"
+        - "S - 1-4 hours"
+        - "M - 1-3 days"
+        - "L - 1-2 weeks"
+        - "XL - More than 2 weeks"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Recommended Priority
+      description: Priority based on Verifhai assessment
+      options:
+        - "Critical - Do immediately"
+        - "High - Do this week"
+        - "Medium - Do this month"
+        - "Low - Backlog for future"
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation_hints
+    attributes:
+      label: Implementation Hints
+      description: Guidance from Verifhai on how to implement
+      placeholder: |
+        **Suggested approach:**
+        1. Step 1
+        2. Step 2
+        3. Step 3
+
+        **Tools/Resources:**
+        - Tool recommendation
+        - Documentation link
+
+        **Code patterns:**
+        ```python
+        # Example pattern if applicable
+        ```
+
+        **Pitfalls to avoid:**
+        - Common mistake 1
+        - Common mistake 2
+    validations:
+      required: false
+
+  - type: textarea
+    id: related_items
+    attributes:
+      label: Related Items
+      description: Links to related issues, practices, or documentation
+      placeholder: |
+        **Prerequisites:**
+        - Issue #XX must be completed first
+
+        **Enables:**
+        - Will unblock Issue #YY
+
+        **Related practices:**
+        - Also supports: PC, EG
+
+        **Documentation:**
+        - HAIAMM Practice Guide: [link]
+    validations:
+      required: false
+
+  - type: textarea
+    id: follow_up
+    attributes:
+      label: Verifhai Follow-up
+      description: Suggested next steps after completing this recommendation
+      placeholder: |
+        **After completion, run:**
+        - `/verifhai-status` to update progress
+        - `/verifhai-practice [next-practice]` to continue building
+
+        **Next recommendations in sequence:**
+        1. Recommendation A
+        2. Recommendation B
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: ai_disclosure
+    attributes:
+      label: AI-Generated Content Disclosure
+      description: Acknowledge this recommendation was AI-generated
+      options:
+        - label: "This recommendation was generated by Verifhai (Claude AI) and should be reviewed by a human before implementation"
+          required: true

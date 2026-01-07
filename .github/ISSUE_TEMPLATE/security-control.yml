@@ -1,0 +1,280 @@
+name: "HAIAMM Security Control"
+description: "Track implementation of a specific security control"
+title: "[CONTROL] "
+labels: ["haiamm", "control"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## HAIAMM Security Control Tracker
+        Use this template to track the implementation of a specific security control for your AI systems.
+
+  - type: input
+    id: control_name
+    attributes:
+      label: Control Name
+      description: Short, descriptive name for this control
+      placeholder: "Input validation for LLM prompts"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: control_type
+    attributes:
+      label: Control Type
+      description: What type of control is this?
+      options:
+        - "Preventive - Stops threats before they occur"
+        - "Detective - Identifies threats when they occur"
+        - "Corrective - Responds to and fixes issues"
+        - "Compensating - Alternative control when primary isn't feasible"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: practice
+    attributes:
+      label: Related Practice
+      description: Which HAIAMM practice does this control support?
+      options:
+        - "SM - Strategy & Metrics"
+        - "PC - Policy & Compliance"
+        - "EG - Education & Guidance"
+        - "TA - Threat Assessment"
+        - "SR - Security Requirements"
+        - "SA - Secure Architecture"
+        - "DR - Design Review"
+        - "IR - Implementation Review"
+        - "ST - Security Testing"
+        - "IM - Issue Management"
+        - "EH - Environment Hardening"
+        - "ML - Monitoring & Logging"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      description: Which domain does this control apply to?
+      options:
+        - "Software"
+        - "Infrastructure"
+        - "Endpoints"
+        - "Data"
+        - "Processes"
+        - "Vendors"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: risk_addressed
+    attributes:
+      label: Risks Addressed
+      description: Which OWASP risks does this control help mitigate?
+      options:
+        - label: "LLM01 - Prompt Injection"
+        - label: "LLM02 - Sensitive Information Disclosure"
+        - label: "LLM03 - Supply Chain"
+        - label: "LLM04 - Data and Model Poisoning"
+        - label: "LLM05 - Improper Output Handling"
+        - label: "LLM06 - Excessive Agency"
+        - label: "LLM07 - System Prompt Leakage"
+        - label: "LLM08 - Vector and Embedding Weaknesses"
+        - label: "LLM09 - Misinformation"
+        - label: "LLM10 - Unbounded Consumption"
+        - label: "ASI01 - Agent Goal Hijack"
+        - label: "ASI02 - Tool Misuse & Exploitation"
+        - label: "ASI03 - Identity & Privilege Abuse"
+        - label: "ASI04 - Agentic Supply Chain"
+        - label: "ASI05 - Unexpected Code Execution"
+        - label: "ASI06 - Memory & Context Poisoning"
+        - label: "ASI07 - Insecure Inter-Agent Communication"
+        - label: "ASI08 - Cascading Failures"
+        - label: "ASI09 - Human-Agent Trust Exploitation"
+        - label: "ASI10 - Rogue Agents"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Control Description
+      description: Detailed description of what this control does
+      placeholder: |
+        This control validates all user inputs before they are sent to the LLM, checking for:
+        - Maximum length limits (10,000 characters)
+        - Known injection patterns
+        - Encoding attacks
+        - Rate limiting per user
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation Details
+      description: How will this control be implemented?
+      placeholder: |
+        **Location:** API Gateway / Application layer
+        **Technology:** Python middleware with regex + ML classifier
+        **Integration points:**
+        - Pre-LLM API call hook
+        - Logging to SIEM
+
+        **Code/Config snippet:**
+        ```python
+        def validate_input(user_input: str) -> bool:
+            # Implementation details
+            pass
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What criteria must be met for this control to be considered complete?
+      placeholder: |
+        - [ ] All LLM endpoints have input validation enabled
+        - [ ] Validation blocks known injection patterns with <1% false positive rate
+        - [ ] Blocked attempts are logged with full context
+        - [ ] Alert triggers for >10 blocked attempts per user per hour
+        - [ ] Documentation updated with control details
+    validations:
+      required: true
+
+  - type: textarea
+    id: test_plan
+    attributes:
+      label: Test Plan
+      description: How will you verify this control works?
+      placeholder: |
+        **Unit Tests:**
+        - Test against OWASP prompt injection test cases
+        - Test edge cases (empty input, max length, special chars)
+
+        **Integration Tests:**
+        - End-to-end test through API
+        - Verify logging captures blocked attempts
+
+        **Security Tests:**
+        - Red team testing with novel injection attempts
+        - Fuzzing with automated tools (Garak, PyRIT)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Implementation Status
+      description: Current status of this control
+      options:
+        - "Not Started"
+        - "In Design"
+        - "In Development"
+        - "In Testing"
+        - "Deployed - Monitoring"
+        - "Deployed - Verified"
+        - "Blocked"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Implementation priority
+      options:
+        - "Critical - Required before production"
+        - "High - Required within 30 days"
+        - "Medium - Required within 90 days"
+        - "Low - Planned improvement"
+    validations:
+      required: true
+
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+      description: Who is responsible for implementing this control?
+      placeholder: "@username or team name"
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected_systems
+    attributes:
+      label: Affected Systems
+      description: Which AI systems will this control apply to?
+      placeholder: |
+        - Customer Support Bot (production)
+        - Internal Code Assistant (staging)
+        - RAG Search System (production)
+    validations:
+      required: true
+
+  - type: textarea
+    id: rollback_plan
+    attributes:
+      label: Rollback Plan
+      description: How to rollback if the control causes issues?
+      placeholder: |
+        1. Disable feature flag `INPUT_VALIDATION_ENABLED`
+        2. Redeploy previous version via CI/CD
+        3. Notify security team via #security-incidents
+    validations:
+      required: false
+
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Effectiveness Metrics
+      description: How will you measure this control's effectiveness?
+      placeholder: |
+        - Blocked attempts per day (baseline vs. current)
+        - False positive rate (target: <1%)
+        - Mean time to detection
+        - Coverage (% of endpoints protected)
+    validations:
+      required: false
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links to related documentation
+      placeholder: |
+        - HAIAMM Practice: EH-Software-OnePager.md
+        - OWASP Testing Guide: [link]
+        - Internal Design Doc: [link]
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Verifhai Integration (Optional)
+        Complete this section if this control was recommended by Verifhai.
+
+  - type: dropdown
+    id: verifhai_generated
+    attributes:
+      label: Recommended by Verifhai?
+      description: Was this control recommended from a Verifhai session?
+      options:
+        - "No - Manually identified"
+        - "Yes - /verifhai-practice"
+        - "Yes - /verifhai-review"
+        - "Yes - /verifhai-assess"
+    validations:
+      required: false
+
+  - type: input
+    id: verifhai_session
+    attributes:
+      label: Verifhai Session Reference
+      description: Session date or ID for traceability
+      placeholder: "2026-01-07 or leave blank"
+    validations:
+      required: false
