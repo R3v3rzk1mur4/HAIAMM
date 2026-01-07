@@ -1,0 +1,32 @@
+{
+  "epic": {
+    "summary": "[HAIAMM] Governance Function Implementation",
+    "description": "Implement HAIAMM Governance function practices to establish AI security strategy, policies, and education.\n\n## Overview\n\nThe Governance function answers: *How do you govern AI security?*\n\n## Practices Included\n\n| Practice | Code | Purpose |\n|----------|------|---------|\n| Strategy & Metrics | SM | Define AI security strategy and measure effectiveness |\n| Policy & Compliance | PC | Establish policies and ensure regulatory compliance |\n| Education & Guidance | EG | Train teams on AI security best practices |\n\n## Target Maturity\n\n- [ ] Level 1: Foundation\n- [ ] Level 2: Structured\n- [ ] Level 3: Optimized\n\n## Success Criteria\n\n- AI security strategy documented and approved\n- AI policies published and communicated\n- Training program established\n- Metrics dashboard operational\n\n## References\n\n- [HAIAMM Handbook](https://github.com/R3v3rzk1mur4/HAIAMM/docs/handbook/00-INDEX.md)\n- [Level 1 Checklist](https://github.com/R3v3rzk1mur4/HAIAMM/docs/templates/checklists/level1-foundation-checklist.md)",
+    "issueType": "Epic",
+    "labels": ["haiamm", "governance", "ai-security"],
+    "priority": "High",
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Function": "Governance",
+      "Target Maturity Level": "Level 1",
+      "OWASP Risks Addressed": "ASI09, LLM06"
+    }
+  },
+  "childStories": [
+    {
+      "summary": "[SM] Strategy & Metrics - Level 1",
+      "storyPoints": 8,
+      "priority": "High"
+    },
+    {
+      "summary": "[PC] Policy & Compliance - Level 1",
+      "storyPoints": 8,
+      "priority": "High"
+    },
+    {
+      "summary": "[EG] Education & Guidance - Level 1",
+      "storyPoints": 5,
+      "priority": "Medium"
+    }
+  ]
+}

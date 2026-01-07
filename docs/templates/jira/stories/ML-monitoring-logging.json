@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[ML] Monitoring & Logging - Level 1 Implementation",
+    "description": "Implement HAIAMM Monitoring & Logging (ML) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Operations\n**Purpose:** Monitor AI systems for security events\n\n## Level 1 Objectives\n\nEstablish basic AI interaction logging and monitoring capability.\n\n## Acceptance Criteria\n\n- [ ] Basic interaction logging enabled\n  - User/session identifier (hashed for privacy)\n  - Input received (or secure reference)\n  - Output generated (or secure reference)\n  - Timestamp and context\n\n- [ ] Log storage secured\n  - Access-controlled storage\n  - Minimum 30-day retention\n  - Tamper protection enabled\n  - Encryption at rest\n\n- [ ] Anomaly awareness established\n  - Baseline usage patterns documented\n  - Unusual request patterns identified\n  - Error rate baselines set\n  - Suspicious patterns defined\n\n- [ ] Basic alerting configured\n  - Error rate monitoring\n  - Availability monitoring\n  - Security event detection\n  - Manual review capability\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Logging verified in all environments\n- [ ] Alerts tested and working\n- [ ] Team can investigate incidents\n\n## OWASP Risks Addressed\n\n- All risks (monitoring enables detection)\n- ASI02: Tool Misuse & Exploitation\n- ASI03: Identity & Privilege Abuse\n- ASI07: Insecure Inter-Agent Communication\n- ASI10: Rogue Agents\n- LLM02: Sensitive Information Disclosure\n\n## Resources\n\n- [ML Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/ML-Software-OnePager.md)\n- [Incident Response Checklist](https://github.com/R3v3rzk1mur4/HAIAMM/docs/templates/checklists/incident-response-checklist.md)\n\n## Verifhai Integration\n\nUse `/verifhai-practice ML` for monitoring guidance.",
+    "issueType": "Story",
+    "labels": ["haiamm", "operations", "ml", "level-1", "monitoring"],
+    "priority": "High",
+    "storyPoints": 8,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "ML - Monitoring & Logging",
+      "HAIAMM Function": "Operations",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "1-2 weeks"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Implement AI interaction logging",
+      "description": "Enable logging of all AI system interactions with appropriate privacy controls."
+    },
+    {
+      "summary": "Secure log storage",
+      "description": "Configure access controls, retention, and encryption for logs."
+    },
+    {
+      "summary": "Document baseline patterns",
+      "description": "Establish normal usage patterns and anomaly indicators."
+    },
+    {
+      "summary": "Configure basic alerting",
+      "description": "Set up alerts for errors, availability, and security events."
+    }
+  ]
+}

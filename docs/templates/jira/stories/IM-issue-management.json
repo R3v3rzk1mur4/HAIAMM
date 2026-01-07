@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[IM] Issue Management - Level 1 Implementation",
+    "description": "Implement HAIAMM Issue Management (IM) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Operations\n**Purpose:** Track and remediate security issues\n\n## Level 1 Objectives\n\nEstablish basic security issue tracking and remediation process.\n\n## Acceptance Criteria\n\n- [ ] Issue tracking system configured\n  - Use existing system (Jira, GitHub Issues)\n  - AI security label/component created\n  - Required fields defined\n  - Workflow configured\n\n- [ ] Severity definitions established\n  - Critical: Active exploitation, data breach\n  - High: Exploitable vulnerability\n  - Medium: Potential vulnerability\n  - Low: Best practice gap\n\n- [ ] Remediation process defined\n  - Assignment process documented\n  - Timeline expectations set\n  - Verification procedures established\n  - Escalation path defined\n\n- [ ] Regular review established\n  - Weekly review for critical/high\n  - Monthly review for medium/low\n  - Trend tracking initiated\n  - Stakeholder reporting\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Issue tracking configured and tested\n- [ ] Team trained on process\n- [ ] First issues tracked through workflow\n\n## OWASP Risks Addressed\n\n- All risks (issue management supports remediation)\n- ASI04: Agentic Supply Chain\n- ASI08: Cascading Failures\n- ASI10: Rogue Agents\n\n## Resources\n\n- [IM Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/IM-Software-OnePager.md)\n- [GitHub Issue Templates](https://github.com/R3v3rzk1mur4/HAIAMM/.github/ISSUE_TEMPLATE/)\n\n## Verifhai Integration\n\nUse `/verifhai-practice IM` for issue management guidance.",
+    "issueType": "Story",
+    "labels": ["haiamm", "operations", "im", "level-1", "issue-management"],
+    "priority": "Medium",
+    "storyPoints": 5,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "IM - Issue Management",
+      "HAIAMM Function": "Operations",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "1 week"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Configure issue tracking for AI security",
+      "description": "Set up labels, components, and workflow for AI security issues."
+    },
+    {
+      "summary": "Define severity levels",
+      "description": "Document severity definitions for AI security issues."
+    },
+    {
+      "summary": "Document remediation process",
+      "description": "Create procedure for assigning, tracking, and resolving issues."
+    },
+    {
+      "summary": "Establish review cadence",
+      "description": "Set up regular issue review meetings and reporting."
+    }
+  ]
+}

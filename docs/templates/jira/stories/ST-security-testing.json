@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[ST] Security Testing - Level 1 Implementation",
+    "description": "Implement HAIAMM Security Testing (ST) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Verification\n**Purpose:** Test AI systems for security weaknesses\n\n## Level 1 Objectives\n\nEstablish basic AI security testing capability.\n\n## Acceptance Criteria\n\n- [ ] Manual security testing performed\n  - Common prompt injection patterns tested\n  - Input validation boundaries tested\n  - Output filtering verified\n  - Error handling tested\n\n- [ ] Test cases documented\n  - Prompt injection attempts\n  - Jailbreak attempts\n  - Data extraction attempts\n  - Boundary testing cases\n  - Abuse scenarios\n\n- [ ] Testing tools identified\n  - Garak, PyRIT, or similar evaluated\n  - Manual testing procedures documented\n  - Tool configuration documented\n  - Team trained on tools\n\n- [ ] Test results tracked\n  - Vulnerabilities documented\n  - Severity ratings assigned\n  - Remediation status tracked\n  - Trend analysis started\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Test suite documented\n- [ ] Initial testing completed on critical systems\n- [ ] Findings remediated or tracked\n\n## OWASP Risks Addressed\n\n- LLM01: Prompt Injection\n- LLM05: Improper Output Handling\n- LLM07: System Prompt Leakage\n- ASI01: Agent Goal Hijack\n- ASI05: Unexpected Code Execution\n\n## Recommended Tools\n\n- **Garak** - LLM vulnerability scanner\n- **PyRIT** - Microsoft AI red team tool\n- **Rebuff** - Prompt injection detection\n- **Custom test suite** - Organization-specific tests\n\n## Resources\n\n- [ST Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/ST-Software-OnePager.md)\n- [Tools & Resources](https://github.com/R3v3rzk1mur4/HAIAMM/docs/handbook/08-TOOLS-RESOURCES.md)\n\n## Verifhai Integration\n\nUse `/verifhai-practice ST` for testing guidance.",
+    "issueType": "Story",
+    "labels": ["haiamm", "verification", "st", "level-1", "security-testing"],
+    "priority": "High",
+    "storyPoints": 13,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "ST - Security Testing",
+      "HAIAMM Function": "Verification",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "2-3 weeks"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Perform initial security testing",
+      "description": "Conduct manual security testing on AI systems."
+    },
+    {
+      "summary": "Document test cases",
+      "description": "Create test case library for AI security testing."
+    },
+    {
+      "summary": "Evaluate and configure testing tools",
+      "description": "Select and set up AI security testing tools."
+    },
+    {
+      "summary": "Establish results tracking",
+      "description": "Set up system to track test results and findings."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "epic": {
+    "summary": "[HAIAMM] Verification Function Implementation",
+    "description": "Implement HAIAMM Verification function practices to establish AI security review and testing processes.\n\n## Overview\n\nThe Verification function answers: *How do you verify AI agents work correctly?*\n\n## Practices Included\n\n| Practice | Code | Purpose |\n|----------|------|---------|\n| Design Review | DR | Review AI system designs for security flaws |\n| Implementation Review | IR | Review AI implementations for vulnerabilities |\n| Security Testing | ST | Test AI systems for security weaknesses |\n\n## Target Maturity\n\n- [ ] Level 1: Foundation\n- [ ] Level 2: Structured\n- [ ] Level 3: Optimized\n\n## Success Criteria\n\n- Design review process integrated into SDLC\n- Code review checklist includes AI security items\n- Security testing suite for AI systems operational\n- Test automation integrated into CI/CD\n\n## Key Risks Addressed\n\n- ASI05: Unexpected Code Execution\n- ASI06: Memory & Context Poisoning\n- LLM01: Prompt Injection\n- LLM05: Improper Output Handling\n- LLM09: Misinformation\n\n## References\n\n- [HAIAMM Handbook](https://github.com/R3v3rzk1mur4/HAIAMM/docs/handbook/00-INDEX.md)\n- [Security Review Gate Checklist](https://github.com/R3v3rzk1mur4/HAIAMM/docs/templates/checklists/security-review-gate-checklist.md)",
+    "issueType": "Epic",
+    "labels": ["haiamm", "verification", "ai-security", "testing"],
+    "priority": "High",
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Function": "Verification",
+      "Target Maturity Level": "Level 1",
+      "OWASP Risks Addressed": "ASI05, ASI06, LLM01, LLM05, LLM09"
+    }
+  },
+  "childStories": [
+    {
+      "summary": "[DR] Design Review - Level 1",
+      "storyPoints": 5,
+      "priority": "Medium"
+    },
+    {
+      "summary": "[IR] Implementation Review - Level 1",
+      "storyPoints": 8,
+      "priority": "High"
+    },
+    {
+      "summary": "[ST] Security Testing - Level 1",
+      "storyPoints": 13,
+      "priority": "High"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[EG] Education & Guidance - Level 1 Implementation",
+    "description": "Implement HAIAMM Education & Guidance (EG) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Governance\n**Purpose:** Train teams on AI security best practices\n\n## Level 1 Objectives\n\nEstablish basic AI security awareness and resource availability.\n\n## Acceptance Criteria\n\n- [ ] Awareness materials created or curated\n  - Prompt injection explanation\n  - AI-specific risks overview\n  - Reporting procedures\n\n- [ ] Training audience identified\n  - Developers building AI features\n  - Users of AI systems\n  - Security team members\n\n- [ ] Resource library established\n  - OWASP AI resources collected\n  - Vendor security docs gathered\n  - Internal guidelines documented\n\n- [ ] Communication channel created\n  - Slack channel, email list, or wiki\n  - Regular update cadence defined\n  - Initial announcement made\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Training materials accessible\n- [ ] Communication channel active\n- [ ] Initial awareness session conducted\n\n## OWASP Risks Addressed\n\n- ASI09: Human-Agent Trust Exploitation\n- All risks (awareness reduces exploitation)\n\n## Resources\n\n- [EG Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/EG-Software-OnePager.md)\n- [OWASP AI Security Resources](https://owasp.org/www-project-ai-security/)\n\n## Verifhai Integration\n\nUse `/verifhai-practice EG` for guided implementation assistance.",
+    "issueType": "Story",
+    "labels": ["haiamm", "governance", "eg", "level-1", "training"],
+    "priority": "Medium",
+    "storyPoints": 5,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "EG - Education & Guidance",
+      "HAIAMM Function": "Governance",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "1 week"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Create AI security awareness materials",
+      "description": "Develop or curate basic training content on AI security risks."
+    },
+    {
+      "summary": "Identify training audiences",
+      "description": "Document who needs AI security training by role."
+    },
+    {
+      "summary": "Build resource library",
+      "description": "Collect and organize AI security references and guides."
+    },
+    {
+      "summary": "Establish communication channel",
+      "description": "Create channel for AI security updates and discussions."
+    }
+  ]
+}

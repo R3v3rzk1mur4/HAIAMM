@@ -1,0 +1,32 @@
+{
+  "epic": {
+    "summary": "[HAIAMM] Operations Function Implementation",
+    "description": "Implement HAIAMM Operations function practices to establish secure AI operations and incident response.\n\n## Overview\n\nThe Operations function answers: *How do you run AI agents safely?*\n\n## Practices Included\n\n| Practice | Code | Purpose |\n|----------|------|---------|\n| Issue Management | IM | Track and remediate security issues |\n| Environment Hardening | EH | Secure AI runtime environments |\n| Monitoring & Logging | ML | Monitor AI systems for security events |\n\n## Target Maturity\n\n- [ ] Level 1: Foundation\n- [ ] Level 2: Structured\n- [ ] Level 3: Optimized\n\n## Success Criteria\n\n- Security issue tracking process operational\n- AI environments hardened per standards\n- Monitoring and alerting active\n- Incident response procedures tested\n\n## Key Risks Addressed\n\n- ASI03: Identity & Privilege Abuse\n- ASI08: Cascading Failures\n- ASI10: Rogue Agents\n- LLM03: Supply Chain\n- LLM07: System Prompt Leakage\n- LLM10: Unbounded Consumption\n\n## References\n\n- [HAIAMM Handbook](https://github.com/R3v3rzk1mur4/HAIAMM/docs/handbook/00-INDEX.md)\n- [Incident Response Checklist](https://github.com/R3v3rzk1mur4/HAIAMM/docs/templates/checklists/incident-response-checklist.md)\n- [Deployment Readiness Checklist](https://github.com/R3v3rzk1mur4/HAIAMM/docs/templates/checklists/deployment-readiness-checklist.md)",
+    "issueType": "Epic",
+    "labels": ["haiamm", "operations", "ai-security", "monitoring"],
+    "priority": "High",
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Function": "Operations",
+      "Target Maturity Level": "Level 1",
+      "OWASP Risks Addressed": "ASI03, ASI08, ASI10, LLM03, LLM07, LLM10"
+    }
+  },
+  "childStories": [
+    {
+      "summary": "[IM] Issue Management - Level 1",
+      "storyPoints": 5,
+      "priority": "Medium"
+    },
+    {
+      "summary": "[EH] Environment Hardening - Level 1",
+      "storyPoints": 13,
+      "priority": "High"
+    },
+    {
+      "summary": "[ML] Monitoring & Logging - Level 1",
+      "storyPoints": 8,
+      "priority": "High"
+    }
+  ]
+}

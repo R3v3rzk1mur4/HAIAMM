@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[DR] Design Review - Level 1 Implementation",
+    "description": "Implement HAIAMM Design Review (DR) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Verification\n**Purpose:** Review AI system designs for security flaws\n\n## Level 1 Objectives\n\nEstablish basic design review process for AI systems.\n\n## Acceptance Criteria\n\n- [ ] Review process defined\n  - Triggers identified (new systems, major changes)\n  - Scope defined\n  - Timing in SDLC established\n  - Participants identified\n\n- [ ] Review checklist created\n  - Trust boundaries verification\n  - Least privilege check\n  - Input validation review\n  - Output sanitization review\n  - Architecture compliance check\n\n- [ ] Documentation requirements set\n  - Architecture diagrams required\n  - Data flow descriptions required\n  - Security considerations documented\n  - Threat model reference required\n\n- [ ] Review tracking implemented\n  - Reviews recorded (date, system, reviewer)\n  - Findings documented\n  - Resolutions tracked\n  - Metrics collected\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Process documented and published\n- [ ] Checklist available to reviewers\n- [ ] First design review completed\n\n## OWASP Risks Addressed\n\n- ASI06: Memory & Context Poisoning\n- LLM02: Sensitive Information Disclosure\n- LLM04: Data and Model Poisoning\n- LLM09: Misinformation\n\n## Resources\n\n- [DR Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/DR-Software-OnePager.md)\n\n## Verifhai Integration\n\nUse `/verifhai-practice DR` for design review guidance.",
+    "issueType": "Story",
+    "labels": ["haiamm", "verification", "dr", "level-1", "design-review"],
+    "priority": "Medium",
+    "storyPoints": 5,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "DR - Design Review",
+      "HAIAMM Function": "Verification",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "1 week"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Define design review process",
+      "description": "Document when, how, and who conducts design reviews."
+    },
+    {
+      "summary": "Create design review checklist",
+      "description": "Develop AI-specific security design review checklist."
+    },
+    {
+      "summary": "Establish documentation requirements",
+      "description": "Define what documentation is required for design review."
+    },
+    {
+      "summary": "Implement review tracking",
+      "description": "Set up system to track design reviews and findings."
+    }
+  ]
+}

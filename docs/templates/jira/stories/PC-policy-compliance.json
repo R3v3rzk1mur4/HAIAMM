@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[PC] Policy & Compliance - Level 1 Implementation",
+    "description": "Implement HAIAMM Policy & Compliance (PC) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Governance\n**Purpose:** Establish policies and ensure regulatory compliance\n\n## Level 1 Objectives\n\nEstablish basic AI usage policies and regulatory awareness.\n\n## Acceptance Criteria\n\n- [ ] Acceptable Use Policy documented\n  - Data handling guidelines\n  - Approved AI systems list\n  - Prohibited uses defined\n\n- [ ] Regulatory requirements identified\n  - EU AI Act applicability assessed\n  - Industry regulations mapped (HIPAA, PCI, etc.)\n  - Data privacy implications documented\n\n- [ ] Incident reporting process defined\n  - Reporting contacts identified\n  - Required information documented\n  - Response expectations set\n\n- [ ] Third-party AI policy created\n  - Approved vendors list\n  - Data sharing restrictions\n  - Approval process for new tools\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Policies published and accessible\n- [ ] Stakeholders notified\n- [ ] Compliance gaps documented\n\n## OWASP Risks Addressed\n\n- LLM06: Excessive Agency\n- ASI09: Human-Agent Trust Exploitation\n\n## Resources\n\n- [PC Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/PC-Processes-OnePager.md)\n\n## Verifhai Integration\n\nUse `/verifhai-practice PC` for guided implementation assistance.",
+    "issueType": "Story",
+    "labels": ["haiamm", "governance", "pc", "level-1", "compliance"],
+    "priority": "High",
+    "storyPoints": 8,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "PC - Policy & Compliance",
+      "HAIAMM Function": "Governance",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "1-2 weeks"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Draft AI acceptable use policy",
+      "description": "Create policy covering data handling, approved systems, and prohibited uses."
+    },
+    {
+      "summary": "Map regulatory requirements",
+      "description": "Identify applicable AI regulations and compliance requirements."
+    },
+    {
+      "summary": "Define incident reporting process",
+      "description": "Document how to report AI security incidents."
+    },
+    {
+      "summary": "Create third-party AI policy",
+      "description": "Establish rules for external AI services and vendor approval."
+    }
+  ]
+}

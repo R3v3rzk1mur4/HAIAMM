@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[SM] Strategy & Metrics - Level 1 Implementation",
+    "description": "Implement HAIAMM Strategy & Metrics (SM) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Governance\n**Purpose:** Define AI security strategy and measure effectiveness\n\n## Level 1 Objectives\n\nEstablish basic AI security strategy awareness and initial metrics.\n\n## Acceptance Criteria\n\n- [ ] AI system inventory documented\n  - All AI/ML systems listed\n  - Data access levels identified\n  - Tool/API access documented\n  - Owners assigned\n\n- [ ] Top AI security risks identified\n  - 3-5 priority risks documented\n  - Mapped to OWASP Top 10 LLM/Agentic\n  - Business impact assessed\n\n- [ ] Basic metrics tracking established\n  - At least 1 security metric defined\n  - Monthly collection cadence\n  - Baseline established\n\n- [ ] Stakeholders identified\n  - Security team contact\n  - AI/ML engineering contact\n  - Executive sponsor (if applicable)\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Documentation in central repository\n- [ ] Stakeholders briefed\n- [ ] Evidence collected for assessment\n\n## Resources\n\n- [SM Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/SM-Software-OnePager.md)\n- [Level 1 Checklist](https://github.com/R3v3rzk1mur4/HAIAMM/docs/templates/checklists/level1-foundation-checklist.md)\n\n## Verifhai Integration\n\nUse `/verifhai-practice SM` for guided implementation assistance.",
+    "issueType": "Story",
+    "labels": ["haiamm", "governance", "sm", "level-1"],
+    "priority": "High",
+    "storyPoints": 8,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "SM - Strategy & Metrics",
+      "HAIAMM Function": "Governance",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "1-2 weeks"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Create AI system inventory",
+      "description": "Document all AI/ML systems with data access, tool access, and ownership."
+    },
+    {
+      "summary": "Identify top AI security risks",
+      "description": "Document 3-5 priority risks mapped to OWASP."
+    },
+    {
+      "summary": "Establish metrics baseline",
+      "description": "Define and begin tracking at least one security metric."
+    },
+    {
+      "summary": "Document stakeholder contacts",
+      "description": "Identify and document key AI security stakeholders."
+    }
+  ]
+}

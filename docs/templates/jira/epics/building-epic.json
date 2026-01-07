@@ -1,0 +1,32 @@
+{
+  "epic": {
+    "summary": "[HAIAMM] Building Function Implementation",
+    "description": "Implement HAIAMM Building function practices to establish secure AI development processes.\n\n## Overview\n\nThe Building function answers: *How do you build AI agents securely?*\n\n## Practices Included\n\n| Practice | Code | Purpose |\n|----------|------|---------|\n| Threat Assessment | TA | Identify and prioritize AI-specific threats |\n| Security Requirements | SR | Define security requirements for AI systems |\n| Secure Architecture | SA | Design secure AI system architectures |\n\n## Target Maturity\n\n- [ ] Level 1: Foundation\n- [ ] Level 2: Structured\n- [ ] Level 3: Optimized\n\n## Success Criteria\n\n- Threat modeling process established for AI systems\n- Security requirements catalog created\n- Reference architecture documented\n- Design patterns library available\n\n## Key Risks Addressed\n\n- ASI01: Agent Goal Hijack\n- ASI02: Tool Misuse & Exploitation\n- ASI04: Agentic Supply Chain\n- LLM01: Prompt Injection\n- LLM04: Data and Model Poisoning\n\n## References\n\n- [HAIAMM Handbook](https://github.com/R3v3rzk1mur4/HAIAMM/docs/handbook/00-INDEX.md)\n- [Top 10 Agentic Risks](https://github.com/R3v3rzk1mur4/HAIAMM/docs/handbook/04-TOP10-AGENTIC-RISKS.md)",
+    "issueType": "Epic",
+    "labels": ["haiamm", "building", "ai-security", "secure-development"],
+    "priority": "High",
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Function": "Building",
+      "Target Maturity Level": "Level 1",
+      "OWASP Risks Addressed": "ASI01, ASI02, ASI04, LLM01, LLM04"
+    }
+  },
+  "childStories": [
+    {
+      "summary": "[TA] Threat Assessment - Level 1",
+      "storyPoints": 8,
+      "priority": "High"
+    },
+    {
+      "summary": "[SR] Security Requirements - Level 1",
+      "storyPoints": 8,
+      "priority": "High"
+    },
+    {
+      "summary": "[SA] Secure Architecture - Level 1",
+      "storyPoints": 13,
+      "priority": "High"
+    }
+  ]
+}

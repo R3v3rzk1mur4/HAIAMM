@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[EH] Environment Hardening - Level 1 Implementation",
+    "description": "Implement HAIAMM Environment Hardening (EH) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Operations\n**Purpose:** Secure AI runtime environments\n\n## Level 1 Objectives\n\nEstablish basic security controls for AI runtime environments.\n\n## Acceptance Criteria\n\n- [ ] Basic hardening applied\n  - API authentication required\n  - HTTPS/TLS for all communications\n  - Secrets not hardcoded\n  - Default credentials changed\n\n- [ ] Input validation implemented\n  - Length limits enforced\n  - Rate limiting enabled\n  - Basic content filtering active\n  - Encoding handled properly\n\n- [ ] Output controls implemented\n  - Sensitive pattern filtering\n  - Response size limits\n  - Error message sanitization\n  - System prompt protection\n\n- [ ] Access controls configured\n  - Authentication required\n  - Authorization enforced\n  - Audit logging enabled\n  - Session management implemented\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Hardening verified via testing\n- [ ] Configuration documented\n- [ ] Monitoring confirms controls active\n\n## OWASP Risks Addressed\n\n- LLM01: Prompt Injection\n- LLM07: System Prompt Leakage\n- LLM08: Vector and Embedding Weaknesses\n- LLM10: Unbounded Consumption\n- ASI03: Identity & Privilege Abuse\n- ASI05: Unexpected Code Execution\n\n## Resources\n\n- [EH Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/EH-Software-OnePager.md)\n- [Deployment Readiness Checklist](https://github.com/R3v3rzk1mur4/HAIAMM/docs/templates/checklists/deployment-readiness-checklist.md)\n\n## Verifhai Integration\n\nUse `/verifhai-practice EH` for hardening guidance.",
+    "issueType": "Story",
+    "labels": ["haiamm", "operations", "eh", "level-1", "hardening"],
+    "priority": "High",
+    "storyPoints": 13,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "EH - Environment Hardening",
+      "HAIAMM Function": "Operations",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "2-3 weeks"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Apply basic security hardening",
+      "description": "Implement authentication, TLS, secrets management."
+    },
+    {
+      "summary": "Implement input validation",
+      "description": "Add length limits, rate limiting, content filtering."
+    },
+    {
+      "summary": "Implement output controls",
+      "description": "Add sensitive filtering, size limits, error sanitization."
+    },
+    {
+      "summary": "Configure access controls",
+      "description": "Set up authentication, authorization, and audit logging."
+    }
+  ]
+}

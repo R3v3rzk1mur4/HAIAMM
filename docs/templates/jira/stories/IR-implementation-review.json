@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[IR] Implementation Review - Level 1 Implementation",
+    "description": "Implement HAIAMM Implementation Review (IR) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Verification\n**Purpose:** Review AI implementations for vulnerabilities\n\n## Level 1 Objectives\n\nEstablish basic security-focused code review for AI components.\n\n## Acceptance Criteria\n\n- [ ] Code review practice includes security\n  - Hardcoded secrets check\n  - Input validation verification\n  - Error handling review\n  - Logging review\n\n- [ ] Review triggers defined\n  - PRs with AI components\n  - Security-sensitive changes\n  - Pre-production deployment\n  - Post-incident review\n\n- [ ] Common issues checklist created\n  - Prompt injection vulnerabilities\n  - Sensitive data exposure\n  - Improper error messages\n  - Missing input validation\n  - Hardcoded credentials\n\n- [ ] Review documentation established\n  - Issues found recorded\n  - Remediation tracked\n  - Sign-off documented\n  - Lessons learned captured\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Checklist integrated into PR template\n- [ ] Team trained on AI security issues\n- [ ] First security-focused review completed\n\n## OWASP Risks Addressed\n\n- LLM01: Prompt Injection\n- LLM05: Improper Output Handling\n- LLM07: System Prompt Leakage\n- ASI05: Unexpected Code Execution\n\n## Resources\n\n- [IR Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/IR-Software-OnePager.md)\n- [Security Review Gate Checklist](https://github.com/R3v3rzk1mur4/HAIAMM/docs/templates/checklists/security-review-gate-checklist.md)\n\n## Verifhai Integration\n\nUse `/verifhai-review` for AI-assisted code review.",
+    "issueType": "Story",
+    "labels": ["haiamm", "verification", "ir", "level-1", "code-review"],
+    "priority": "High",
+    "storyPoints": 8,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "IR - Implementation Review",
+      "HAIAMM Function": "Verification",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "1-2 weeks"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Integrate security into code review",
+      "description": "Add security checks to existing code review process."
+    },
+    {
+      "summary": "Define review triggers",
+      "description": "Document when security-focused review is required."
+    },
+    {
+      "summary": "Create AI security issues checklist",
+      "description": "Develop checklist of common AI security code issues."
+    },
+    {
+      "summary": "Establish review documentation",
+      "description": "Set up tracking for review findings and resolutions."
+    }
+  ]
+}

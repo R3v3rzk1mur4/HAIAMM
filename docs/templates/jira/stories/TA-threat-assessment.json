@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[TA] Threat Assessment - Level 1 Implementation",
+    "description": "Implement HAIAMM Threat Assessment (TA) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Building\n**Purpose:** Identify and prioritize AI-specific threats\n\n## Level 1 Objectives\n\nEstablish basic AI threat awareness and initial threat identification.\n\n## Acceptance Criteria\n\n- [ ] AI-specific threats identified\n  - Prompt injection attacks documented\n  - Data poisoning risks assessed\n  - Model theft/extraction considered\n  - Agent misuse scenarios listed\n\n- [ ] Threats mapped to AI systems\n  - Vulnerability matrix created\n  - Impact assessment completed\n  - Priority ranking established\n\n- [ ] Threat actors identified\n  - External attackers profiled\n  - Insider threats considered\n  - Automated attack vectors documented\n\n- [ ] Basic threat model created\n  - At least one critical system modeled\n  - Data flows documented\n  - Trust boundaries identified\n  - Threats enumerated\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Threat model documented\n- [ ] Stakeholders briefed on top threats\n- [ ] Mitigation priorities established\n\n## OWASP Risks Addressed\n\n- ASI01: Agent Goal Hijack\n- ASI04: Agentic Supply Chain\n- ASI10: Rogue Agents\n- LLM04: Data and Model Poisoning\n\n## Resources\n\n- [TA Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/TA-Software-OnePager.md)\n- [OWASP Top 10 Agentic Risks](https://github.com/R3v3rzk1mur4/HAIAMM/docs/handbook/04-TOP10-AGENTIC-RISKS.md)\n\n## Verifhai Integration\n\nUse `/verifhai-practice TA` for guided threat assessment assistance.",
+    "issueType": "Story",
+    "labels": ["haiamm", "building", "ta", "level-1", "threat-modeling"],
+    "priority": "High",
+    "storyPoints": 8,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "TA - Threat Assessment",
+      "HAIAMM Function": "Building",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "1-2 weeks"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Document AI-specific threat landscape",
+      "description": "Identify and document relevant AI threats (injection, poisoning, theft, misuse)."
+    },
+    {
+      "summary": "Map threats to AI systems",
+      "description": "Create vulnerability matrix mapping threats to systems with impact assessment."
+    },
+    {
+      "summary": "Profile threat actors",
+      "description": "Document potential attackers and attack vectors."
+    },
+    {
+      "summary": "Create initial threat model",
+      "description": "Develop threat model for most critical AI system."
+    }
+  ]
+}

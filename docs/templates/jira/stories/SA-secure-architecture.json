@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[SA] Secure Architecture - Level 1 Implementation",
+    "description": "Implement HAIAMM Secure Architecture (SA) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Building\n**Purpose:** Design secure AI system architectures\n\n## Level 1 Objectives\n\nEstablish basic architecture documentation and security boundaries.\n\n## Acceptance Criteria\n\n- [ ] Architecture documented\n  - Components and interactions mapped\n  - Data flow diagrams created\n  - External dependencies listed\n  - Integration points identified\n\n- [ ] Trust boundaries identified\n  - User input boundary defined\n  - LLM/model boundary defined\n  - Tool/API boundary defined\n  - Network boundaries mapped\n\n- [ ] Least privilege applied\n  - Minimal tool access configured\n  - Restricted data access implemented\n  - Limited network access enforced\n  - Permission inventory created\n\n- [ ] Environment separation implemented\n  - Dev/staging/prod separation\n  - Network segmentation (where feasible)\n  - Access controls per environment\n  - Data isolation verified\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Architecture diagrams published\n- [ ] Security boundaries documented\n- [ ] Development team trained\n\n## OWASP Risks Addressed\n\n- ASI02: Tool Misuse & Exploitation\n- ASI07: Insecure Inter-Agent Communication\n- ASI08: Cascading Failures\n- LLM03: Supply Chain\n- LLM06: Excessive Agency\n- LLM08: Vector and Embedding Weaknesses\n\n## Resources\n\n- [SA Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/SA-Software-OnePager.md)\n\n## Verifhai Integration\n\nUse `/verifhai-practice SA` for architecture guidance.",
+    "issueType": "Story",
+    "labels": ["haiamm", "building", "sa", "level-1", "architecture"],
+    "priority": "High",
+    "storyPoints": 13,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "SA - Secure Architecture",
+      "HAIAMM Function": "Building",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "2-3 weeks"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Document AI system architecture",
+      "description": "Create architecture diagrams showing components, data flows, and dependencies."
+    },
+    {
+      "summary": "Define trust boundaries",
+      "description": "Identify and document all trust boundaries in AI systems."
+    },
+    {
+      "summary": "Implement least privilege",
+      "description": "Apply minimal permissions to AI agents and components."
+    },
+    {
+      "summary": "Verify environment separation",
+      "description": "Ensure proper isolation between dev/staging/production."
+    }
+  ]
+}

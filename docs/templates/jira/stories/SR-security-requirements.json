@@ -1,0 +1,35 @@
+{
+  "story": {
+    "summary": "[SR] Security Requirements - Level 1 Implementation",
+    "description": "Implement HAIAMM Security Requirements (SR) practice at Level 1 maturity.\n\n## Practice Overview\n\n**Function:** Building\n**Purpose:** Define security requirements for AI systems\n\n## Level 1 Objectives\n\nEstablish basic security requirements for AI system inputs, outputs, access, and data.\n\n## Acceptance Criteria\n\n- [ ] Input requirements defined\n  - Maximum input length specified\n  - Prohibited content patterns listed\n  - Rate limiting thresholds set\n  - Encoding requirements documented\n\n- [ ] Output requirements defined\n  - Sensitive data filtering rules\n  - Response length limits\n  - Format validation requirements\n  - Error message standards\n\n- [ ] Access requirements defined\n  - Authentication requirements\n  - Authorization levels\n  - API key management rules\n  - Session handling requirements\n\n- [ ] Data requirements defined\n  - Allowed data types\n  - Retention policies\n  - Privacy requirements\n  - Classification standards\n\n## Definition of Done\n\n- [ ] All acceptance criteria met\n- [ ] Requirements documented in catalog\n- [ ] Development team briefed\n- [ ] Requirements integrated into templates\n\n## OWASP Risks Addressed\n\n- LLM01: Prompt Injection\n- LLM05: Improper Output Handling\n- LLM10: Unbounded Consumption\n- ASI03: Identity & Privilege Abuse\n- ASI05: Unexpected Code Execution\n\n## Resources\n\n- [SR Practice Guide](https://github.com/R3v3rzk1mur4/HAIAMM/docs/practices/SR-Software-OnePager.md)\n\n## Verifhai Integration\n\nUse `/verifhai-practice SR` for guided requirements development.",
+    "issueType": "Story",
+    "labels": ["haiamm", "building", "sr", "level-1", "requirements"],
+    "priority": "High",
+    "storyPoints": 8,
+    "components": ["AI Security"],
+    "customFields": {
+      "HAIAMM Practice": "SR - Security Requirements",
+      "HAIAMM Function": "Building",
+      "Target Maturity Level": "Level 1",
+      "Estimated Effort": "1-2 weeks"
+    }
+  },
+  "subtasks": [
+    {
+      "summary": "Define input validation requirements",
+      "description": "Document length limits, content patterns, rate limits for AI inputs."
+    },
+    {
+      "summary": "Define output handling requirements",
+      "description": "Document filtering, limits, and validation for AI outputs."
+    },
+    {
+      "summary": "Define access control requirements",
+      "description": "Document authentication, authorization, and API management requirements."
+    },
+    {
+      "summary": "Define data handling requirements",
+      "description": "Document data classification, retention, and privacy requirements."
+    }
+  ]
+}
