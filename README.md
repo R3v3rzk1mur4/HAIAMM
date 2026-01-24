@@ -4,7 +4,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub stars](https://img.shields.io/github/stars/[your-repo]/HAIAMM.svg?style=social&label=Star)](https://github.com/R3v3rzk1mur4/HAIAMM)
 
-**This is a Open Source Maturity Framework for assurance of Human Assisted Intelligence systems and programs**
+**What is Human Assisted Intelligence (HAI)?**
+Human Assisted Intelligence (HAI) refers to systems or technologies that combine human cognitive capacities with artificial intelligence to enhance automation, creativity, problem solving, decision making. Unlike fully autonomous AI, HAI relies on human input alongside machine learning to improve its effectiveness.
+
+![alt text](<HAIAMM-Image03_47_44 PM.png>)
+
+**This is a Open Source Maturity Framework for building assurance of Human Assisted Intelligence systems and programs**
 
 HAIAMM assesses the maturity of organizations designing and implementing Human Assisted Intelligence (HAI) solutions - providing foundational practices that ensure trust, safety, and security.
 Most organizations leverage Human Assisted Intelligence to augment engineering capabilities such as; security testing or code remediation or for automation workflows, generating documentation, detect and response to threats, customer service chatbots, and decision support. HAIAMM provides a comprehensive framework across governance, building, verification, and operations with appropriate human oversight. Measuring outcomes. 
