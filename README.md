@@ -29,7 +29,7 @@ Most organizations leverage Human Assisted Intelligence to augment engineering c
 
 ### The Human Assisted Intelligence Challenge
 
-Organizations are designing and implementing Human Assisted Intelligence for critical functions:
+Organizations are designing and implementing Human Assisted Intelligence or AI to augment critical functions:
 
 - **Automation Workflows**: HAI systems handling business processes with human oversight
 - **Security Testing & Code Analysis**: AI-powered vulnerability scanning, SAST/DAST tools, automated code review
@@ -37,7 +37,7 @@ Organizations are designing and implementing Human Assisted Intelligence for cri
 - **Decision Support**: HAI providing recommendations with human approval and validation
 - **Data Processing**: HAI assisting humans in analysis, pattern detection, and insights generation
 
-**The Problem:** Organizations are deploying HAI at scale, but have **NO comprehensive framework to ensure trust, safety, security, proper governance, and human oversight.**
+**The Problem:** Organizations are deploying HAI at scale, but have **NO comprehensive framework or plan to ensure trust, safety, security, proper governance, and human oversight.**
 
 ### Why HAIAMM Fills a Critical Gap
 
@@ -81,7 +81,7 @@ Example Questions HAIAMM Answers:
 - ✅ Are HAI decisions aligned with business risk with appropriate human oversight?
 - ✅ Can humans appropriately oversee and override HAI recommendations?
 - ✅ Are your HAI systems built with security and safety requirements?
-- ✅ Do you have processes to verify HAI behavior before deployment?
+- ✅ Do you have processes to verify HAI behaviors before deployment?
 
 ---
 
@@ -126,10 +126,10 @@ See [docs/TIER-IMPLEMENTATION-SUMMARY.md](docs/TIER-IMPLEMENTATION-SUMMARY.md) f
 
 1. **Software**: HAI applications, models, code, AI-assisted development, security testing tools
 2. **Data**: Training/operational data, privacy, quality, governance of human-AI data interactions
-3. **Infrastructure**: Cloud/on-premise platforms, deployment environments, scaling with human oversight
+3. **Infrastructure**: Cloud/on-premise platforms, security testing, deployment environments, scaling with human oversight
 4. **Vendors**: Third-party HAI services, vendor management, supply chain for HAI components
 5. **Processes**: Business workflows involving HAI, governance procedures, compliance, automation
-6. **Endpoints**: User interfaces, APIs, integration points where humans interact with HAI
+6. **Endpoints**: User interfaces, APIs, security testing, integration points where humans interact with HAI
 
 ### 4 Business Functions - How Organizations Build and Deploy Human Assisted Intelligence
 
@@ -138,7 +138,7 @@ Each domain assesses 4 business functions that organizations perform:
 1. **Governance**: How you govern, measure, and educate around HAI with human oversight
    - Strategy & Metrics, Policy & Compliance, Education & Guidance
 
-2. **Building**: How you design and build HAI systems with appropriate human controls
+2. **Building**: How you design and build HAI systems with appropriate security controls
    - Threat Assessment, Security Requirements, Secure Architecture
 
 3. **Verification**: How you verify HAI systems work correctly and safely with human validation
@@ -231,73 +231,6 @@ Each domain assesses 4 business functions that organizations perform:
 
 Each of the 72 practice instances has 3 maturity levels with specific assessment criteria tailored for responsible Human Assisted Intelligence.
 
-## Installation
-
-### Prerequisites
-- Python 3.10 or higher
-- GPG/GnuPG (for encryption features)
-
-### Using uv (Recommended)
-```bash
-# Clone or navigate to the project
-cd ~/projects/HAIAMM
-
-# Install dependencies with uv
-uv pip install -r requirements.txt
-```
-
-### Using pip
-```bash
-pip install -r requirements.txt
-```
-
-## Usage
-
-```bash
-python main.py
-```
-
-## Development
-
-### Running Tests
-```bash
-pytest
-```
-
-### Linting
-```bash
-ruff check .
-```
-
-### Building Distributable
-```bash
-# macOS
-pyinstaller --name HAIAMM --windowed --icon=resources/icons/app.icns main.py
-
-# Windows
-pyinstaller --name HAIAMM --windowed --icon=resources/icons/app.ico main.py
-
-# Linux
-pyinstaller --name HAIAMM --windowed main.py
-```
-
-## Architecture
-
-The application follows an Enhanced MVC pattern with Service Layer:
-
-- **Models**: Domain objects (Assessment, HAIAMM multi-domain structure, Scores)
-  - `haiamm_model.py`: 6-domain HAIAMM model with 12 practices (72 practice instances)
-  - `assessment_model.py`: Assessment responses with domain_id support
-  - `scoring_model.py`: Multi-domain scoring calculations
-- **Views**: PyQt6 UI components (Questionnaire, Dashboard, Charts)
-  - Domain selection interface for filtering assessments
-  - Multi-domain visualizations (6-domain radar charts, domain heatmaps)
-- **Controllers**: Orchestration (Assessment, Questionnaire, Roadmap)
-- **Services**: Specialized operations (Database, Export, Visualization, PGP, History)
-  - `visualization_service.py`: Multi-domain chart generation with Plotly
-
-## License
-
 **HAIAMM uses a dual-license model (same as SAMM):**
 
 - **Framework & Content:** [Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/)
@@ -311,7 +244,7 @@ The application follows an Enhanced MVC pattern with Service Layer:
 See [LICENSE](LICENSE) file for complete details.
 
 **Attribution:** When using HAIAMM framework, please credit:
-> Based on HAIAMM (Human Assisted Intelligence Assurance Maturity Model) by Kuai Hinojosa
+> Based on OpenSAMM future directions by Pravir Chandra 03/27/2015
 
 ## Technical Details
 
