@@ -24,9 +24,8 @@ Most organizations leverage Human Assisted Intelligence to augment engineering c
 - ✅ **Framework**: Free to use, adapt, and share (CC BY-SA 4.0)
 - ✅ **Software**: Open source assessment tool (MIT License)
 - ✅ **Community**: Contributions welcome from security professionals worldwide
-- ✅ **Services**: Professional certification, training, and consulting available
 
-**[Get Started](#installation)** | **[Contribute](CONTRIBUTING.md)** | **[Commercial Services](docs/OPEN-SOURCE-BUSINESS-MODEL.md)**
+**[Get Started](#installation)** | **[Contribute](CONTRIBUTING.md)**
 
 ---
 
