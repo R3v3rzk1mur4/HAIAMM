@@ -1,5 +1,5 @@
 # Issue Management Practice – Vendors Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -247,4 +247,4 @@ Issue Management for Vendors ensures AI vendor risk management systems systemati
 
 ---
 
-**Document Information**: Practice: Issue Management (IM) | Domain: Vendors | HAIAMM v2.1 | Last Updated: 2025-12-30
+**Document Information**: Practice: Issue Management (IM) | Domain: Vendors | HAIAMM v2.0 | Last Updated: 2025-12-30

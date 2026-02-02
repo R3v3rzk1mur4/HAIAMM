@@ -1,5 +1,5 @@
 # Environment Hardening Practice – Vendors Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -317,4 +317,4 @@ Environment Hardening for Vendors ensures AI vendor risk management systems are 
 
 ---
 
-**Document Information**: Practice: Environment Hardening (EH) | Domain: Vendors | HAIAMM v2.1 | Last Updated: 2025-12-30
+**Document Information**: Practice: Environment Hardening (EH) | Domain: Vendors | HAIAMM v2.0 | Last Updated: 2025-12-30

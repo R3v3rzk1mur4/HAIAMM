@@ -1,5 +1,5 @@
 # Policy & Compliance (PC)
-## Vendors Domain - HAIAMM v2.1
+## Vendors Domain - HAIAMM v2.0
 
 ---
 
@@ -260,7 +260,7 @@ Organizations must ensure AI vendor security operations meet third-party risk re
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Policy & Compliance (PC)
 **Domain:** Vendors
 **Last Updated:** December 2025

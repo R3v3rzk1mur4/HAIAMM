@@ -2,7 +2,7 @@
 ## Strategic Analysis: Integrating Threat Intelligence as Foundational Capability
 
 **Analysis Date**: 2025-12-26
-**HAIAMM Version**: 2.1
+**HAIAMM Version**: 2.0
 **Focus**: Strategy & Metrics (SM) Practice Enhancement
 
 **Verdict**: ✅ THREAT INTELLIGENCE SHOULD BE FOUNDATIONAL CAPABILITY ACROSS ALL DOMAINS
@@ -1041,7 +1041,7 @@ Lead industry advancement in [domain] threat intelligence and AI security integr
 - **Analysis Type**: Strategic Integration Analysis
 - **Focus Practice**: Strategy & Metrics (SM)
 - **Scope**: All 6 Domains (Software, Infrastructure, Endpoints, Data, Processes, Vendors)
-- **HAIAMM Version**: 2.1 → 2.2 (proposed)
+- **HAIAMM Version**: 2.0
 - **Author**: Verifhai
 - **Date**: 2025-12-26
 - **Status**: Pending User Approval

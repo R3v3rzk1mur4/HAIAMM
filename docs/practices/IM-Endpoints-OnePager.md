@@ -1,5 +1,5 @@
 # Issue Management Practice – Endpoints Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -98,4 +98,4 @@ Issue Management for Endpoints ensures AI endpoint security systems systematical
 
 ---
 
-**Document Information**: Practice: Issue Management (IM) | Domain: Endpoints | HAIAMM v2.1 | Last Updated: 2025-12-25
+**Document Information**: Practice: Issue Management (IM) | Domain: Endpoints | HAIAMM v2.0 | Last Updated: 2025-12-25

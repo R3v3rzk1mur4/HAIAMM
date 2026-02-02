@@ -469,7 +469,7 @@ Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional se
 ### Phase 1: Foundation (Months 1-3)
 
 **Objectives:**
-- Incorporate NIST SP 800-171 control references into HAIAMM v2.1
+- Incorporate NIST SP 800-171 control references into HAIAMM v2.0
 - Add DFARS incident reporting requirements
 - Align maturity levels with CMMC structure
 
@@ -533,7 +533,7 @@ Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional se
 **Deliverables:**
 - Pilot assessment reports (5-10 organizations)
 - Refinement based on feedback
-- Final HAIAMM v2.1 with NIST/CMMC integration
+- Final HAIAMM v2.0 with NIST/CMMC integration
 - Publication and community release
 
 ---
@@ -649,7 +649,7 @@ Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional se
     - Incorporate CMMC Level 3 enhanced practices
     - Complete all 6 domains
 
-11. **Publish HAIAMM v2.1 with NIST/CMMC integration**
+11. **Publish HAIAMM v2.0 with NIST/CMMC integration**
     - Release updated framework documentation
     - Announce NIST/CMMC alignment to community
     - Market to defense contractor community
@@ -846,4 +846,4 @@ The integration is technically feasible (89% control alignment), strategically v
 
 **Document Version:** 1.0
 **Last Updated:** December 18, 2025
-**Next Review:** March 2026 (post HAIAMM v2.1 implementation)
+**Next Review:** March 2026 (post HAIAMM v2.0 implementation)

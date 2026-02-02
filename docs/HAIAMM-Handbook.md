@@ -1,10 +1,10 @@
 ![HAIAMM Logo](images/HAIAMM_logo.png)
 
-## HAIAMM - Comprehensive Handbook v2.2
+## HAIAMM - Comprehensive Handbook v2.0
 
 **Last Updated**: 2025-12-29
 
-**NEW IN v2.2**:
+**NEW IN v2.0**:
 - **Assessment Methodology**: Comprehensive questionnaire-based assessment guide similar to OpenSAMM v1.0, including scoring methodology, 5-phase assessment process, industry benchmarks, and best practices
 - **Threat Intelligence as Foundational Capability**: Integrated into Strategy & Metrics (SM) practice across all 6 domains, elevating threat intelligence from advanced capability to essential foundational requirement
 
@@ -17,12 +17,12 @@
 1. [Executive Summary](#executive-summary)
 2. [Introduction](#introduction)
 3. [Framework Overview](#framework-overview)
-4. [Prompt Injection Security](#prompt-injection-security) **NEW IN v2.1**
-5. [Threat Intelligence as Foundational Capability](#threat-intelligence-as-foundational-capability) **NEW IN v2.2**
-6. [Critical HAI Assurance](#critical-hai-assurance) **NEW IN v2.2**
+4. [Prompt Injection Security](#prompt-injection-security) **NEW IN v2.0**
+5. [Threat Intelligence as Foundational Capability](#threat-intelligence-as-foundational-capability) **NEW IN v2.0**
+6. [Critical HAI Assurance](#critical-hai-assurance) **NEW IN v2.0**
 7. [Maturity Levels](#maturity-levels)
 8. [Effort Estimation](#effort-estimation)
-9. [Assessment Methodology](#assessment-methodology) **NEW IN v2.2**
+9. [Assessment Methodology](#assessment-methodology) **NEW IN v2.0**
 10. [Assurance Domains](#assurance-domains)
 11. [Security Practices](#security-practices)
 12. [Practice-Domain Matrix](#practice-domain-matrix)
@@ -98,30 +98,27 @@ HAIAMM applies to organizations implementing:
 
 ## Framework/Model Overview
 
+
 ### Structure
 
 HAIAMM is organized as a **2-dimensional matrix**:
 
 **Dimension 1: Security Practices (12)**
-![Governance Logo](images/governance_small_logo.png)
 **Governance Practices:**
 1. Strategy & Metrics (SM)
 2. Policy & Compliance (PC)
 3. Education & Guidance (EG)
 
-![Building Logo](images/building_small_logo.png)
 **Building Practices:**
 4. Threat Assessment (TA)
 5. Security Requirements (SR)
 6. Security Architecture (SA)
 
-![Verification Logo](images/verification_small_logo.png)
 **Verification Practices:**
 7. Design Review (DR)
 8. Implementation Review (IR)
 9. Security Testing (ST)
 
-![Operations Logo](images/operations_small_logo.png)
 **Operations Practices:**
 10. Issue Management (IM)
 11. Environment Hardening (EH)
@@ -189,7 +186,7 @@ Practices follow the **Business functions of Human Assisted Intelligence**:
 
 ## Prompt Injection Security
 
-**NEW IN v2.1**: HAIAMM now includes comprehensive guidance on securing AI-operated systems against **prompt injection attacks**, derived from the [Arcanum Prompt Injection Taxonomy](https://github.com/Arcanum-Sec/arc_pi_taxonomy) by Jason Haddix (CC BY 4.0). and [OWASP top 10 for Agentic Applications] (https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
+**NEW IN v2.0**: HAIAMM now includes comprehensive guidance on securing AI-operated systems against **prompt injection attacks**, derived from the [Arcanum Prompt Injection Taxonomy](https://github.com/Arcanum-Sec/arc_pi_taxonomy) by Jason Haddix (CC BY 4.0). and [OWASP top 10 for Agentic Applications] (https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
 
 ### Why Prompt Injection Matters for AI Security
 
@@ -210,7 +207,7 @@ These LLM integrations create a new attack surface: **prompt injection**. Advers
 
 ### Comprehensive Coverage Across HAIAMM
 
-HAIAMM v2.1 integrates prompt injection security across **6 practices** in the **Software, Data, and Processes** domains:
+HAIAMM v2.0 integrates prompt injection security across **6 practices** in the **Software, Data, and Processes** domains:
 
 #### 1. **Threat Assessment (TA)** - Prompt Injection Threat Modeling
 **Files**: TA-Software, TA-Data, TA-Processes
@@ -365,13 +362,13 @@ By integrating the Arcanum PI Taxonomy, HAIAMM provides:
 ✅ **Measurable Success Criteria**: ≥95% detection rates, ≤5% false positives, SLA-based remediation
 ✅ **Cross-Practice Integration**: TA → SR → ST → IR → IM lifecycle coverage
 
-Organizations following HAIAMM v2.1 will have **industry-leading prompt injection security** for their AI-operated security programs.
+Organizations following HAIAMM v2.0 will have **industry-leading prompt injection security** for their AI-operated security programs.
 
 ---
 
 ## Threat Intelligence as Foundational Capability
 
-**NEW IN v2.2**: HAIAMM now integrates threat intelligence as a **foundational capability** (Level 1 maturity) across all six security domains through the Strategy & Metrics (SM) practice, with clear maturity progression from consumption (L1) → analysis and correlation (L2) → production and sharing (L3).
+**NEW IN v2.0**: HAIAMM now integrates threat intelligence as a **foundational capability** (Level 1 maturity) across all six security domains through the Strategy & Metrics (SM) practice, with clear maturity progression from consumption (L1) → analysis and correlation (L2) → production and sharing (L3).
 
 ### Why Threat Intelligence is Foundational for AI-Operated Security
 
@@ -393,7 +390,7 @@ AI-operated security systems make thousands of decisions per day - which vulnera
 
 **Threat Intelligence as "Security Operating System"**: Just as an operating system provides shared context and services to applications, threat intelligence provides shared threat context to all AI security tools. All AI security systems (SAST, EDR, CSPM, DLP, SOAR, vendor risk) benefit from same threat intelligence feeds, creating consistent, context-aware security operations.
 
-### Threat Intelligence Maturity Progression in HAIAMM v2.2
+### Threat Intelligence Maturity Progression in HAIAMM v2.0
 
 #### Level 1: Foundational Threat Intelligence Consumption
 
@@ -499,7 +496,7 @@ AI-operated security systems make thousands of decisions per day - which vulnera
 - Standards development participation (≥2 contributions per year)
 - Organization recognized as threat intelligence thought leader
 
-### Comprehensive Coverage Across HAIAMM v2.2
+### Comprehensive Coverage Across HAIAMM v2.0
 
 Threat intelligence is now integrated into **Strategy & Metrics (SM) practice for all 6 domains**:
 
@@ -531,7 +528,7 @@ Threat intelligence is now integrated into **Strategy & Metrics (SM) practice fo
 
 ### Implementation Guidance for Threat Intelligence Integration
 
-Organizations implementing HAIAMM v2.2 threat intelligence capabilities should:
+Organizations implementing HAIAMM v2.0 threat intelligence capabilities should:
 
 1. **Start with Level 1 Foundational Consumption** (0-6 months):
    - Identify domain-specific threat intelligence requirements
@@ -551,7 +548,7 @@ Organizations implementing HAIAMM v2.2 threat intelligence capabilities should:
    - Demonstrate industry leadership (conference presentations, open-source projects, standards development)
    - Contribute to collective defense (anonymized threat sharing, community collaboration)
 
-### Benefits of Integrated Threat Intelligence Coverage in HAIAMM v2.2
+### Benefits of Integrated Threat Intelligence Coverage in HAIAMM v2.0
 
 ✅ **Context-Aware AI Security**: All AI security tools operate with real-world threat context, not just generic risk scores
 
@@ -567,7 +564,7 @@ Organizations implementing HAIAMM v2.2 threat intelligence capabilities should:
 
 ✅ **Progressive Maturity**: Clear path from basic consumption (L1) → comprehensive analysis (L2) → industry leadership (L3)
 
-Organizations following HAIAMM v2.2 will have **industry-leading threat intelligence-driven AI security programs** with measurable ROI, improved security outcomes, and contributions to collective defense.
+Organizations following HAIAMM v2.0 will have **industry-leading threat intelligence-driven AI security programs** with measurable ROI, improved security outcomes, and contributions to collective defense.
 
 **Reference**: See Threat-Intelligence-Integration-Analysis.md for comprehensive analysis of threat intelligence integration into HAIAMM, including philosophical rationale, maturity progression details, implementation roadmap, and risk assessment.
 
@@ -575,7 +572,7 @@ Organizations following HAIAMM v2.2 will have **industry-leading threat intellig
 
 ## Critical HAI Assurance
 
-**NEW IN v2.2**: HAIAMM now addresses **4 critical risks** for Human Assisted Intelligence deployments that traditional frameworks don't cover, achieving **95% alignment** with OWASP Top 10 for LLM Applications (2025) and OWASP Top 10 for Agentic Applications (2026).
+**NEW IN v2.0**: HAIAMM now addresses **4 critical risks** for Human Assisted Intelligence deployments that traditional frameworks don't cover, achieving **95% alignment** with OWASP Top 10 for LLM Applications (2025) and OWASP Top 10 for Agentic Applications (2026).
 
 ### Why These Risks Matter Now
 
@@ -642,7 +639,7 @@ Without proper controls, these powerful capabilities can be exploited or misused
 
 ### OWASP Alignment
 
-HAIAMM v2.2 achieves comprehensive alignment with industry-leading OWASP frameworks:
+HAIAMM v2.0 achieves comprehensive alignment with industry-leading OWASP frameworks:
 
 | Framework | v2.1 Coverage | v2.2 Coverage | Improvement |
 |-----------|---------------|---------------|-------------|
@@ -650,7 +647,7 @@ HAIAMM v2.2 achieves comprehensive alignment with industry-leading OWASP framewo
 | **OWASP Top 10 for Agentic Applications 2026** | 4/10 (40%) | 9/10 (90%) | +50% |
 | **Overall OWASP Alignment** | 11/20 (55%) | 18/20 (90%) | +35% |
 
-**Reference**: See HAIAMM-v2.2-Executive-Summary.md for executive overview and HAIAMM-v2.2-Practice-Additions.md for detailed implementation guidance.
+**Reference**: See HAIAMM-v2.0-Executive-Summary.md for executive overview and HAIAMM-v2.0-Practice-Additions.md for detailed implementation guidance.
 
 ---
 
@@ -1804,7 +1801,7 @@ Based on organizations actively working to improve:
   - Publication: [Executive Offense Newsletter](https://executiveoffense.beehiiv.com/p/executive-offense-release-the-arcanum-prompt-injection-taxonomy-v1-5)
   - Comprehensive taxonomy of prompt injection attacks (13 intents, 18 techniques, 20 evasions)
   - 5-layer defense model, 32 threat modeling questions, probe library
-  - Integrated into HAIAMM v2.1 TA, SR, ST, IR, IM practices across Software, Data, Processes domains
+  - Integrated into HAIAMM v2.0 TA, SR, ST, IR, IM practices across Software, Data, Processes domains
 
 ---
 
@@ -1836,13 +1833,13 @@ Based on organizations actively working to improve:
 - OWASP SAMM for maturity model methodology
 - NIST for AI and cybersecurity frameworks
 - ISO for security management standards
-- **Jason Haddix** and the Arcanum Security team for the Arcanum Prompt Injection Taxonomy (CC BY 4.0), which provides comprehensive prompt injection attack coverage integrated into HAIAMM v2.1
+- **Jason Haddix** and the Arcanum Security team for the Arcanum Prompt Injection Taxonomy (CC BY 4.0), which provides comprehensive prompt injection attack coverage integrated into HAIAMM v2.0
 
 ---
 
 ### Appendix E: Change Log
 
-**Version 2.1 (2025-12-25)**:
+**Version 2.0 (2025-12-25)**:
 - Initial comprehensive handbook release
 - 54 practice-domain one-pagers
 - Effort estimation methodology
@@ -1850,7 +1847,7 @@ Based on organizations actively working to improve:
 - Implementation roadmap
 - Complete practice and domain coverage
 
-**Version 2.2 (2025-12-26)**:
+**Version 2.0 (2025-12-26)**:
 - **Threat Intelligence as Foundational Capability**: Integrated threat intelligence as Level 1 foundational requirement across all 6 domains
 - **Strategy & Metrics (SM) Practice Enhancement**: Added comprehensive threat intelligence guidance to SM practice for all domains
   - SM-Software: Vulnerability exploitation intelligence, dependency vulnerability intelligence, code security trends
@@ -1874,7 +1871,7 @@ Based on organizations actively working to improve:
 - **Philosophical Shift**: Threat intelligence elevated from "advanced capability" (L2/3) to "foundational capability" (L1) across all domains
 - **Benefits**: Context-aware AI security, improved prioritization, reduced false positives (≥30%), faster response, measurable ROI
 
-**Version 2.1.1 (2025-12-26)**:
+**Version 2.0.1 (2025-12-26)**:
 - **Prompt Injection Security Integration**: Added comprehensive prompt injection guidance across 6 practices (TA, SR, ST, IR, IM, SA) in Software, Data, and Processes domains
 - **Arcanum PI Taxonomy Integration**: Integrated Arcanum Prompt Injection Taxonomy v1.5 by Jason Haddix (CC BY 4.0)
   - 13 Attack Intents (System Prompt Leak, Jailbreak, Data Exfiltration, Tool Enumeration, etc.)
@@ -1898,7 +1895,7 @@ Based on organizations actively working to improve:
 ## Document Information
 
 - **Document**: HAIAMM Comprehensive Handbook
-- **Version**: 2.2
+- **Version**: 2.0
 - **Last Updated**: 2025-12-26
 - **Status**: Published
 - **License**: Creative Commons Attribution 4.0 International (CC BY 4.0)
@@ -1908,4 +1905,4 @@ Based on organizations actively working to improve:
 
 ---
 
-**End of HAIAMM Handbook v2.2**
+**End of HAIAMM Handbook v2.0**

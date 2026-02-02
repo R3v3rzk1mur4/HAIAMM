@@ -1,5 +1,5 @@
 # Strategy & Metrics (SM)
-## Infrastructure Domain - HAIAMM v2.1
+## Infrastructure Domain - HAIAMM v2.0
 
 ---
 
@@ -267,7 +267,7 @@ Present to executives as: "AI infrastructure security agents cost $X, prevented 
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Strategy & Metrics (SM)
 **Domain:** Infrastructure
 **Last Updated:** December 2025

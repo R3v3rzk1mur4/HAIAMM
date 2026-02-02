@@ -1,5 +1,5 @@
 # Monitoring & Logging Practice – Endpoints Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -127,4 +127,4 @@ Monitoring & Logging for Endpoints ensures AI endpoint security systems have com
 
 ---
 
-**Document Information**: Practice: Monitoring & Logging (ML) | Domain: Endpoints | HAIAMM v2.1 | Last Updated: 2025-12-25
+**Document Information**: Practice: Monitoring & Logging (ML) | Domain: Endpoints | HAIAMM v2.0 | Last Updated: 2025-12-25

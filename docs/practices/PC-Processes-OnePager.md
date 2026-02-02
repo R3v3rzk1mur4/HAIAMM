@@ -1,5 +1,5 @@
 # Policy & Compliance (PC)
-## Processes Domain - HAIAMM v2.1
+## Processes Domain - HAIAMM v2.0
 
 ---
 
@@ -250,7 +250,7 @@ Organizations must ensure AI-automated security processes meet operational gover
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Policy & Compliance (PC)
 **Domain:** Processes
 **Last Updated:** December 2025

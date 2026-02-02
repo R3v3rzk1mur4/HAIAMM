@@ -4,7 +4,7 @@
 
 **How HAIAMM compares to other AI security frameworks and models**
 
-**Version:** 2.2
+**Version:** 2.0
 **Last Updated:** January 2026
 
 ---
@@ -285,7 +285,7 @@ HAIAMM is solving a real problem that will only grow as AI agents increasingly r
 
 **The challenge is adoption.** Success depends on building the ecosystem: early adopters, case studies, certification authority, community validation, and regulatory recognition.
 
-**Bottom line:** The concept is sound, the timing is right, and the execution in v2.2 is solid. HAIAMM has the potential to become the standard for AI-operated security assurance—but potential must be converted to adoption.
+**Bottom line:** The concept is sound, the timing is right, and the execution in v2.0 is solid. HAIAMM has the potential to become the standard for AI-operated security assurance—but potential must be converted to adoption.
 
 ---
 
@@ -294,7 +294,7 @@ HAIAMM is solving a real problem that will only grow as AI agents increasingly r
 | Field | Value |
 |-------|-------|
 | Document | Competitive Analysis |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | Last Updated | January 2026 |
 
 ---

@@ -2,17 +2,14 @@
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/[your-repo]/HAIAMM.svg?style=social&label=Star)](https://github.com/R3v3rzk1mur4/HAIAMM)
+[![GitHub stars](https://img.shields.io/github/stars/R3v3rzk1mur4/HAIAMM.svg?style=social&label=Star)](https://github.com/R3v3rzk1mur4/HAIAMM)
 
 **What is Human Assisted Intelligence (HAI)?**
 Human Assisted Intelligence (HAI) refers to systems or technologies that combine human cognitive capacities with artificial intelligence to enhance automation, creativity, problem solving, decision making. Unlike fully autonomous AI, HAI relies on human input alongside machine learning to improve its effectiveness.
 
-![alt text](<HAIAMM-Image03_47_44 PM.png>)
+![alt text](<HAIAMM_framework_domains.png>)
 
-**This is a Open Source Maturity Framework for building assurance of Human Assisted Intelligence systems and programs**
-
-HAIAMM assesses the maturity of organizations designing and implementing Human Assisted Intelligence (HAI) solutions - providing foundational practices that ensure trust, safety, and security.
-Most organizations leverage Human Assisted Intelligence to augment engineering capabilities such as; security testing or code remediation or for automation workflows, generating documentation, detect and response to threats, customer service chatbots, and decision support. HAIAMM provides a comprehensive framework across governance, building, verification, and operations with appropriate human oversight. Measuring outcomes. 
+**HAIAMM v2.0, or the Human Assisted Intelligence Assurance Maturity Model version 2.0, is a framework designed to help organizations develop and implement effective Human Assisted Intelligence assurance strategies. This model enables organizations to assess their current HAI governance and security practices, establish improvement roadmaps, and ensure that trust, safety, and appropriate human oversight are integrated into their HAI systems and operations.**
 
 **The Critical Question:** You're implementing Human Assisted Intelligence across your organization - but how do you ensure it delivers trust, safety, and security with proper governance and human oversight?
 
@@ -250,18 +247,29 @@ See [LICENSE](LICENSE) file for complete details.
 **Attribution:** When using HAIAMM framework, please credit:
 > Based on OpenSAMM future directions by Pravir Chandra 03/27/2015
 
-## Technical Details
+---
 
-### Data Model
-The HAIAMM model is defined in `models/haiamm_model.py` and data is stored in `config/haiamm_multi_domain_data_v2.json` (v2.0 with reduced questions).
+## HAIAMM Handbook
 
-### Database
-Assessments are stored in SQLite (`data/haiamm.db`) with domain_id tracking for each response.
+The **HAIAMM Handbook** provides practical guidance for implementing AI security using the HAIAMM framework. Whether you're securing a simple LLM integration or deploying autonomous AI agents, the handbook offers actionable steps, risk mappings, and assessment tools.
 
-### Multi-Domain Support
-- Each assessment response includes a `domain_id` field linking it to one of the 6 security domains
-- Scoring engine calculates both domain-specific and cross-domain maturity metrics
-- Visualization service generates domain-filtered charts and comprehensive multi-domain heatmaps
+### Table of Contents
+
+| Chapter | Title | Description |
+|---------|-------|-------------|
+| [00](docs/handbook/00-COVER.md) | Cover | Handbook cover and version information |
+| [01](docs/handbook/01-QUICK-START.md) | Quick Start Guide | Get started securing your AI systems in 10 minutes |
+| [02](docs/handbook/02-FIRST-30-DAYS.md) | First 30 Days | Day-by-day implementation roadmap |
+| [03](docs/handbook/03-TOP10-LLM-RISKS.md) | OWASP Top 10 for LLM Applications | Security controls mapped to LLM application risks |
+| [04](docs/handbook/04-TOP10-AGENTIC-RISKS.md) | OWASP Top 10 for Agentic Applications | Security controls for autonomous AI agent risks |
+| [05](docs/handbook/05-RISK-PRACTICE-MATRIX.md) | Risk-Practice Matrix | Which HAIAMM practices address which risks |
+| [06](docs/handbook/06-MATURITY-ROADMAP.md) | Maturity Roadmap | Level 1 → 2 → 3 progression guide |
+| [07](docs/handbook/07-ASSESSMENT-CHECKLIST.md) | Assessment Checklist | Rapid 30-minute self-assessment |
+| [08](docs/handbook/08-TOOLS-RESOURCES.md) | Tools & Resources | Recommended tools organized by practice |
+
+**[View Full Handbook](docs/HAIAMM-Handbook.md)** - Complete consolidated handbook document
+
+---
 
 ## References
 

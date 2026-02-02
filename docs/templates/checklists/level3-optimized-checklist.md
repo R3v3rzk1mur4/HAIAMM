@@ -549,7 +549,7 @@ At Level 3, focus shifts to continuous optimization:
 
 | Field | Value |
 |-------|-------|
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | Checklist Version | 1.0 |
 | Last Updated | January 2026 |
 

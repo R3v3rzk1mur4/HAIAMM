@@ -1,5 +1,5 @@
 # Implementation Review Practice – Infrastructure Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -591,6 +591,6 @@ Implementation Review for Infrastructure ensures AI-powered cloud and network se
 **Document Information**:
 - **Practice**: Implementation Review (IR)
 - **Domain**: Infrastructure
-- **HAIAMM Version**: 2.1
+- **HAIAMM Version**: 2.0
 - **Maturity Levels**: 3 (Foundational, Comprehensive, Industry-Leading)
 - **Last Updated**: 2025-12-30

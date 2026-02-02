@@ -1,5 +1,5 @@
 # Policy & Compliance (PC)
-## Software Domain - HAIAMM v2.1
+## Software Domain - HAIAMM v2.0
 
 ---
 
@@ -246,7 +246,7 @@ Organizations must ensure AI software security tools meet secure development and
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Policy & Compliance (PC)
 **Domain:** Software
 **Last Updated:** December 2025

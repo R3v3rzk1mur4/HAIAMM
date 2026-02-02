@@ -1,5 +1,5 @@
 # Education & Guidance (EG)
-## Software Domain - HAIAMM v2.1
+## Software Domain - HAIAMM v2.0
 
 ---
 
@@ -297,7 +297,7 @@ Organizations must invest in developer-focused security education that builds se
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Education & Guidance (EG)
 **Domain:** Software
 **Last Updated:** December 2025

@@ -1,5 +1,5 @@
 # Security Testing Practice – Processes Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -210,4 +210,4 @@ Security Testing for Processes validates that AI security orchestration systems 
 
 ---
 
-**Document Information**: Practice: Security Testing (ST) | Domain: Processes | HAIAMM v2.1 | Last Updated: 2025-12-30
+**Document Information**: Practice: Security Testing (ST) | Domain: Processes | HAIAMM v2.0 | Last Updated: 2025-12-30

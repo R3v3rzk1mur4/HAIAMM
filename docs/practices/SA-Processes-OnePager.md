@@ -1,5 +1,5 @@
 # Security Architecture Practice – Processes Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -244,6 +244,6 @@ Processes SA practice provides architectural guidance for AI-powered security or
 **Document Information**:
 - **Practice**: Security Architecture (SA)
 - **Domain**: Processes
-- **HAIAMM Version**: 2.1
+- **HAIAMM Version**: 2.0
 - **Maturity Levels**: 3 (Foundational, Comprehensive, Industry-Leading)
 - **Last Updated**: 2025-12-25

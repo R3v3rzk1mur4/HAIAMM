@@ -1,4 +1,4 @@
-# HAIAMM v2.1: Outcome-Oriented Enhancement
+# HAIAMM v2.0: Outcome-Oriented Enhancement
 
 **Goal:** Transform HAIAMM from process-oriented maturity model to outcome-driven effectiveness framework
 
@@ -61,7 +61,7 @@
 
 ---
 
-## Proposed HAIAMM v2.1 Enhancement
+## Proposed HAIAMM v2.0 Enhancement
 
 ### Add 3 Components to Each Practice Level:
 
@@ -82,7 +82,7 @@
 }
 ```
 
-**Enhanced HAIAMM (v2.1):**
+**Enhanced HAIAMM (v2.0):**
 ```json
 {
   "level": 1,
@@ -149,7 +149,7 @@
 
 ---
 
-### Enhanced HAIAMM v2.1 (Outcome-Oriented):
+### Enhanced HAIAMM v2.0 (Outcome-Oriented):
 
 **ST (Security Testing) - Level 2**
 
@@ -438,7 +438,7 @@
 
 ---
 
-### Outcome-Oriented (Enhanced HAIAMM v2.1):
+### Outcome-Oriented (Enhanced HAIAMM v2.0):
 
 **Question:** Same - "Do you test AI security agents for adversarial manipulation?"
 
@@ -532,7 +532,7 @@
 
 ---
 
-## Implementation Plan for HAIAMM v2.1
+## Implementation Plan for HAIAMM v2.0
 
 ### Phase 1: Define Outcomes (Month 1-2)
 
@@ -763,7 +763,7 @@
 
 ### Competitive Differentiation:
 
-| Traditional Maturity Models | HAIAMM v2.1 |
+| Traditional Maturity Models | HAIAMM v2.0 |
 |----------------------------|-------------|
 | ❌ "Do you have a process?" | ✅ "Does your process achieve results?" |
 | ❌ Checkbox compliance | ✅ Quantifiable outcomes |
@@ -775,7 +775,7 @@
 
 ## Recommendation
 
-**Implement HAIAMM v2.1 with outcome-oriented enhancements:**
+**Implement HAIAMM v2.0 with outcome-oriented enhancements:**
 
 ### Minimum Viable Enhancement (MVP):
 
@@ -849,7 +849,7 @@
 
 ## Final Thoughts
 
-**This is the RIGHT direction.** Outcome-oriented HAIAMM v2.1:
+**This is the RIGHT direction.** Outcome-oriented HAIAMM v2.0:
 
 1. ✅ **Addresses maturity model effectiveness criticisms**
 2. ✅ **Maintains SAMM structure** (still compatible, just enhanced)
@@ -861,6 +861,6 @@
 "The first outcome-driven maturity framework for AI-operated security"
 
 **Marketing angle:**
-"We learned from 30 years of maturity model failures. HAIAMM v2.1 does it right: Outcomes over process, results over checkboxes."
+"We learned from 30 years of maturity model failures. HAIAMM v2.0 does it right: Outcomes over process, results over checkboxes."
 
 Ready to start building this?

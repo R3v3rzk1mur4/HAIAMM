@@ -1,5 +1,5 @@
 # Strategy & Metrics (SM)
-## Vendors Domain - HAIAMM v2.1
+## Vendors Domain - HAIAMM v2.0
 
 ---
 
@@ -444,7 +444,7 @@ Organizations must balance AI vendor security automation with vendor partnership
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Strategy & Metrics (SM)
 **Domain:** Vendors
 **Last Updated:** December 2025

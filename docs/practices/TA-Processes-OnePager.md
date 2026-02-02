@@ -1,5 +1,5 @@
 # Threat Assessment (TA)
-## Processes Domain - HAIAMM v2.1
+## Processes Domain - HAIAMM v2.0
 
 ---
 
@@ -605,7 +605,7 @@ Organizations must balance AI process automation efficiency with operational res
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Threat Assessment (TA)
 **Domain:** Processes
 **Last Updated:** December 2024

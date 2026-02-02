@@ -436,7 +436,7 @@ NIST CSF 2.0 (Cybersecurity Framework) is the leading cybersecurity framework. V
 | Field | Value |
 |-------|-------|
 | Document | Framework Mappings (Appendix) |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | Frameworks Mapped | BSIMM, OpenSAMM v1.0, NIST AI RMF, NIST CSF 2.0 |
 | Last Updated | January 2026 |
 

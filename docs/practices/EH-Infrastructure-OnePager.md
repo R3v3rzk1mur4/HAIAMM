@@ -1,5 +1,5 @@
 # Environment Hardening Practice – Infrastructure Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -818,4 +818,4 @@ Environment Hardening for Infrastructure ensures AI cloud and network security s
 
 ---
 
-**Document Information**: Practice: Environment Hardening (EH) | Domain: Infrastructure | HAIAMM v2.1 | Last Updated: 2025-12-30
+**Document Information**: Practice: Environment Hardening (EH) | Domain: Infrastructure | HAIAMM v2.0 | Last Updated: 2025-12-30

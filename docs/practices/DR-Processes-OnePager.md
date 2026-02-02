@@ -1,5 +1,5 @@
 # Design Review Practice – Processes Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -278,4 +278,4 @@ Design Review for Processes ensures AI security orchestration and automation des
 
 ---
 
-**Document Information**: Practice: Design Review (DR) | Domain: Processes | HAIAMM v2.1 | Last Updated: 2025-12-30
+**Document Information**: Practice: Design Review (DR) | Domain: Processes | HAIAMM v2.0 | Last Updated: 2025-12-30

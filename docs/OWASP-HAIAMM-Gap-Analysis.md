@@ -3,22 +3,22 @@
 
 **Date:** 2026-01-02
 **Version:** 1.0
-**Purpose:** Analyze OWASP Top 10 for LLM Applications 2025 and Agentic Applications 2026 against HAIAMM v2.1 to identify gaps and recommend enhancements
+**Purpose:** Analyze OWASP Top 10 for LLM Applications 2025 and Agentic Applications 2026 against HAIAMM v2.0 to identify gaps and recommend enhancements
 
 ---
 
 ## Executive Summary
 
-This analysis evaluates HAIAMM v2.1 against two critical OWASP frameworks:
+This analysis evaluates HAIAMM v2.0 against two critical OWASP frameworks:
 - [OWASP Top 10 for LLM Applications 2025](https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/)
 - [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
 
 **Key Findings:**
-- ✅ **Strong Coverage**: HAIAMM v2.1 covers 14 of 20 OWASP risks (70%)
+- ✅ **Strong Coverage**: HAIAMM v2.0 covers 14 of 20 OWASP risks (70%)
 - ⚠️ **Partial Coverage**: 4 risks partially addressed, need enhancement (20%)
 - ❌ **Gaps Identified**: 2 critical agentic risks not explicitly covered (10%)
 
-**Recommendation:** Enhance HAIAMM to v2.2 with explicit coverage of agentic risks, particularly Agent Goal Hijack, Tool Misuse, and Rogue Agents.
+**Recommendation:** Enhance HAIAMM v2.0 with explicit coverage of agentic risks, particularly Agent Goal Hijack, Tool Misuse, and Rogue Agents.
 
 ---
 
@@ -483,7 +483,7 @@ This analysis evaluates HAIAMM v2.1 against two critical OWASP frameworks:
 
 ---
 
-## Recommended Enhancements for HAIAMM v2.2
+## Recommended Enhancements for HAIAMM v2.0
 
 ### Critical Priority (Must Have)
 
@@ -577,7 +577,7 @@ This analysis evaluates HAIAMM v2.1 against two critical OWASP frameworks:
 
 ## Conclusion
 
-HAIAMM v2.1 provides strong foundational coverage of LLM security risks (70% comprehensive coverage), particularly excelling in prompt injection, supply chain, and data poisoning. However, the emergence of agentic AI systems introduces new threat classes that require explicit coverage:
+HAIAMM v2.0 provides strong foundational coverage of LLM security risks (70% comprehensive coverage), particularly excelling in prompt injection, supply chain, and data poisoning. However, the emergence of agentic AI systems introduces new threat classes that require explicit coverage:
 
 **Critical Gaps:**
 1. **Agent Goal Hijack** - Attackers manipulating agent objectives
@@ -585,7 +585,7 @@ HAIAMM v2.1 provides strong foundational coverage of LLM security risks (70% com
 3. **Rogue Agents** - Compromised agents acting maliciously
 4. **Excessive Agency** - Insufficient human oversight and control
 
-These gaps align perfectly with HAIAMM's mission as a **Human Assisted Intelligence** framework. By adding explicit coverage of agentic risks in v2.2, HAIAMM will provide:
+These gaps align perfectly with HAIAMM's mission as a **Human Assisted Intelligence** framework. By adding explicit coverage of agentic risks in v2.0, HAIAMM will provide:
 - Industry-leading guidance for agentic AI security
 - Comprehensive alignment with both OWASP Top 10 frameworks
 - Clear requirements for human oversight and agent control
@@ -594,9 +594,9 @@ These gaps align perfectly with HAIAMM's mission as a **Human Assisted Intellige
 **Next Steps:**
 1. Review and approve this gap analysis
 2. Prioritize enhancements based on organizational risk appetite
-3. Implement Phase 1 (Critical Agentic Risks) for HAIAMM v2.2
+3. Implement Phase 1 (Critical Agentic Risks) for HAIAMM v2.0
 4. Update practice one-pagers, questionnaires, and handbook
-5. Publish HAIAMM v2.2 with full OWASP alignment
+5. Publish HAIAMM v2.0 with full OWASP alignment
 
 ---
 

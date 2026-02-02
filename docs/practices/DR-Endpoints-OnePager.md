@@ -1,5 +1,5 @@
 # Design Review Practice – Endpoints Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -44,4 +44,4 @@ Design Review for Endpoints ensures AI endpoint security system designs balance 
 
 ---
 
-**Document Information**: Practice: Design Review (DR) | Domain: Endpoints | HAIAMM v2.1 | Last Updated: 2025-12-25
+**Document Information**: Practice: Design Review (DR) | Domain: Endpoints | HAIAMM v2.0 | Last Updated: 2025-12-25

@@ -541,7 +541,7 @@ class TokenRateLimiter:
 | Field | Value |
 |-------|-------|
 | Document | OWASP Top 10 for LLM Applications - HAIAMM Mapping |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | OWASP LLM Version | 2025 |
 | Last Updated | January 2026 |
 

@@ -1,5 +1,5 @@
 # Implementation Review Practice – Vendors Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -463,4 +463,4 @@ Implementation Review for Vendors ensures AI vendor risk management implementati
 
 ---
 
-**Document Information**: Practice: Implementation Review (IR) | Domain: Vendors | HAIAMM v2.1 | Last Updated: 2025-12-30
+**Document Information**: Practice: Implementation Review (IR) | Domain: Vendors | HAIAMM v2.0 | Last Updated: 2025-12-30

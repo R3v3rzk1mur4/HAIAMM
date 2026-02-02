@@ -1,5 +1,5 @@
 # Security Testing Practice – Vendors Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -485,4 +485,4 @@ Security Testing for Vendors validates that AI vendor risk management systems co
 
 ---
 
-**Document Information**: Practice: Security Testing (ST) | Domain: Vendors | HAIAMM v2.1 | Last Updated: 2025-12-30
+**Document Information**: Practice: Security Testing (ST) | Domain: Vendors | HAIAMM v2.0 | Last Updated: 2025-12-30

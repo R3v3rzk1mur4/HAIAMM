@@ -748,7 +748,7 @@ def validate_ai_input(user_input: str, user_id: str) -> tuple[bool, str]:
 | Field | Value |
 |-------|-------|
 | Document | First 30 Days Implementation Guide |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | Last Updated | January 2026 |
 
 ---

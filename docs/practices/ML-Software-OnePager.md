@@ -1,5 +1,5 @@
 # Monitoring & Logging Practice – Software Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -379,6 +379,6 @@ Monitoring & Logging for Software ensures AI code security systems have comprehe
 **Document Information**:
 - **Practice**: Monitoring & Logging (ML)
 - **Domain**: Software
-- **HAIAMM Version**: 2.1
+- **HAIAMM Version**: 2.0
 - **Maturity Levels**: 3 (Foundational, Comprehensive, Industry-Leading)
 - **Last Updated**: 2025-12-25

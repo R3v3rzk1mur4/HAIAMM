@@ -312,7 +312,7 @@ These are your priority improvement areas.
 | Field | Value |
 |-------|-------|
 | Document | Assessment Checklist |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | Last Updated | January 2026 |
 
 ---

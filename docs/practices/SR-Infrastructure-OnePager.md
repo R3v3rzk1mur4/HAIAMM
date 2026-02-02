@@ -1,5 +1,5 @@
 # Security Requirements (SR)
-## Infrastructure Domain - HAIAMM v2.1
+## Infrastructure Domain - HAIAMM v2.0
 
 ---
 
@@ -511,7 +511,7 @@ Organizations must balance AI infrastructure security automation with the realit
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Security Requirements (SR)
 **Domain:** Infrastructure
 **Last Updated:** December 2024
