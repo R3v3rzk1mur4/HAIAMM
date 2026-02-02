@@ -3,7 +3,7 @@
 
 **Version:** 1.0
 **Date:** January 2026
-**HAIAMM Version:** 2.2
+**HAIAMM Version:** 2.0
 **NIST AI RMF:** 1.0 (AI 100-1), Playbook (AI 600-1)
 
 ---
@@ -91,7 +91,7 @@ HAIAMM and NIST AI RMF are genuinely complementary:
 | Establish overall risk measurement approach | TA L2, SM L2 | Full | Combined practice coverage |
 | Assign systems to uniform risk scales | SM L2 | Partial | HAIAMM uses maturity levels, not risk scales |
 
-**HAIAMM Coverage:** 90% — HAIAMM's measurable outcomes (v2.2) directly address this.
+**HAIAMM Coverage:** 90% — HAIAMM's measurable outcomes (v2.0) directly address this.
 
 ---
 
@@ -388,7 +388,7 @@ HAIAMM and NIST AI RMF are genuinely complementary:
 | Monitor AI system external inputs | ML L2, SA (Vendors) | Full |
 | Assess pre vs post-deployment performance | ST L2, ML L2 | Full |
 
-**HAIAMM Coverage:** 85% — v2.2 measurable outcomes directly address measurement.
+**HAIAMM Coverage:** 85% — v2.0 measurable outcomes directly address measurement.
 
 ---
 
@@ -752,7 +752,7 @@ HAIAMM and NIST AI RMF are genuinely complementary:
 | Field | Value |
 |-------|-------|
 | Document | NIST AI RMF Playbook Action-Level Mapping |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | NIST AI RMF Version | 1.0 (AI 100-1) |
 | NIST Playbook Version | AI 600-1 |
 | Last Updated | January 2026 |
@@ -763,7 +763,7 @@ HAIAMM and NIST AI RMF are genuinely complementary:
 - NIST AI 100-1: AI Risk Management Framework (2023)
 - NIST AI 600-1: AI RMF Generative AI Profile (2024)
 - NIST AI RMF Playbook: airc.nist.gov/AI_RMF_Playbook
-- HAIAMM v2.2: Framework Structure and Assessment Questionnaires
+- HAIAMM v2.0: Framework Structure and Assessment Questionnaires
 
 ---
 

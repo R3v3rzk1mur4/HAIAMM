@@ -1,5 +1,5 @@
 # Security Requirements Practice – Data Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -1566,6 +1566,6 @@ Organizations implementing this practice transform data security from a manual, 
 **Document Information**:
 - **Practice**: Security Requirements (SR)
 - **Domain**: Data
-- **HAIAMM Version**: 2.1
+- **HAIAMM Version**: 2.0
 - **Maturity Levels**: 3 (Foundational, Comprehensive, Industry-Leading)
 - **Last Updated**: 2025-12-25

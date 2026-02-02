@@ -1,5 +1,5 @@
 # Threat Assessment (TA)
-## Endpoints Domain - HAIAMM v2.1
+## Endpoints Domain - HAIAMM v2.0
 
 ---
 
@@ -502,7 +502,7 @@ Organizations must balance AI endpoint security automation with user productivit
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Threat Assessment (TA)
 **Domain:** Endpoints
 **Last Updated:** December 2024

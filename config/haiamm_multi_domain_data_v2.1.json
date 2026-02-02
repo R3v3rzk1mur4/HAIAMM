@@ -1,7 +1,7 @@
 {
-  "version": "2.1-pilot",
+  "version": "2.0",
   "model_name": "Human-Assisted Intelligence Assurance Maturity Model (HAIAMM) v2.0",
-  "description": "A comprehensive maturity model for securing Human-Assisted Intelligence (HAI) systems across six critical domains: Software, Infrastructure, Endpoints, Data, Processes, and Vendors. Adapted from OWASP SAMM to address the unique security challenges of AI-augmented systems. [v2.1-pilot: Reduced from 702 to 468 questions for improved efficiency while with 12 core practices] [v2.1-pilot: Outcome-oriented enhancements for SM, ST, TA in Software domain]",
+  "description": "A comprehensive maturity model for securing Human-Assisted Intelligence (HAI) systems across six critical domains: Software, Infrastructure, Endpoints, Data, Processes, and Vendors. Adapted from OWASP SAMM to address the unique security challenges of AI-augmented systems. [v2.0: Reduced from 702 to 468 questions for improved efficiency while with 12 core practices] [v2.0: Outcome-oriented enhancements for SM, ST, TA in Software domain]",
   "domains": [
     {
       "id": "software",

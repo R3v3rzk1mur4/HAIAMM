@@ -1,5 +1,5 @@
 # Monitoring & Logging Practice – Vendors Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -358,4 +358,4 @@ Monitoring & Logging for Vendors ensures AI vendor risk management systems have 
 
 ---
 
-**Document Information**: Practice: Monitoring & Logging (ML) | Domain: Vendors | HAIAMM v2.1 | Last Updated: 2025-12-30
+**Document Information**: Practice: Monitoring & Logging (ML) | Domain: Vendors | HAIAMM v2.0 | Last Updated: 2025-12-30

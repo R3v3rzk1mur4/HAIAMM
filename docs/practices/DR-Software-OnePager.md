@@ -1,5 +1,5 @@
 # Design Review Practice – Software Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -243,6 +243,6 @@ Design Review for Software domain ensures AI code security systems are well-desi
 **Document Information**:
 - **Practice**: Design Review (DR)
 - **Domain**: Software
-- **HAIAMM Version**: 2.1
+- **HAIAMM Version**: 2.0
 - **Maturity Levels**: 3 (Foundational, Comprehensive, Industry-Leading)
 - **Last Updated**: 2025-12-25

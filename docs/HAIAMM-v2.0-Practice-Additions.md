@@ -1,9 +1,9 @@
-# HAIAMM v2.2 Practice Additions
+# HAIAMM v2.0 Practice Additions
 ## Critical Human Assisted Intelligence Assurance Enhancements
 
 **Version:** 1.0
 **Date:** 2026-01-02
-**Purpose:** Detailed practice sections to add to HAIAMM v2.1 for comprehensive HAI assurance
+**Purpose:** Detailed practice sections to add to HAIAMM v2.0 for comprehensive HAI assurance
 
 ---
 

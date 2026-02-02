@@ -241,7 +241,7 @@ Focus on practices with:
 | Field | Value |
 |-------|-------|
 | Document | Risk-Practice Matrix |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | Last Updated | January 2026 |
 
 ---

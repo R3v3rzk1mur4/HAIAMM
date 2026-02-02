@@ -1,5 +1,5 @@
 # Education & Guidance (EG)
-## Endpoints Domain - HAIAMM v2.1
+## Endpoints Domain - HAIAMM v2.0
 
 ---
 
@@ -293,7 +293,7 @@ Organizations must invest in continuous, engaging security education that builds
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Education & Guidance (EG)
 **Domain:** Endpoints
 **Last Updated:** December 2025

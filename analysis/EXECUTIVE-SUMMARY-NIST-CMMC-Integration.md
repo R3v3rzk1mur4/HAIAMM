@@ -182,12 +182,12 @@ Organizations can use HAIAMM to:
 
 ### Phase 4: Validation (Months 12-18)
 
-**Objective:** Pilot, refine, and publish HAIAMM v2.1
+**Objective:** Pilot, refine, and publish HAIAMM v2.0
 
 **Deliverables:**
 - [ ] Conduct pilot assessments
 - [ ] Gather feedback and refine questions
-- [ ] Publish HAIAMM v2.1 with NIST/CMMC integration
+- [ ] Publish HAIAMM v2.0 with NIST/CMMC integration
 - [ ] Market to defense contractor community
 
 **Investment:** 300-400 hours + marketing costs
@@ -395,8 +395,8 @@ Organizations can use HAIAMM to:
 
 - [ ] 5-10 pilot assessments completed
 - [ ] Feedback incorporated and questions refined
-- [ ] HAIAMM v2.1 with NIST/CMMC integration published
-- [ ] 25+ organizations adopt HAIAMM v2.1
+- [ ] HAIAMM v2.0 with NIST/CMMC integration published
+- [ ] 25+ organizations adopt HAIAMM v2.0
 
 ---
 
@@ -500,7 +500,7 @@ Organizations can use HAIAMM to:
 - Establish HAO certification framework
 
 **Long-Term (12-18 Months):**
-- Publish HAIAMM v2.1 with full NIST/CMMC integration
+- Publish HAIAMM v2.0 with full NIST/CMMC integration
 - Market to defense contractor community
 - Scale assessor certification program
 

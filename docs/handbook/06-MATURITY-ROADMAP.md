@@ -327,7 +327,7 @@ Some practices should be prioritized before others:
 | Field | Value |
 |-------|-------|
 | Document | Maturity Roadmap |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | Last Updated | January 2026 |
 
 ---

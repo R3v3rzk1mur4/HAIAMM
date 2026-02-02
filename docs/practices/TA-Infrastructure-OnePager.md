@@ -1,5 +1,5 @@
 # Threat Assessment (TA)
-## Infrastructure Domain - HAIAMM v2.1
+## Infrastructure Domain - HAIAMM v2.0
 
 ---
 
@@ -447,7 +447,7 @@ Organizations must balance infrastructure automation efficiency with threat awar
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Threat Assessment (TA)
 **Domain:** Infrastructure
 **Last Updated:** December 2024

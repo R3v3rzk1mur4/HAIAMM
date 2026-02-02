@@ -7,7 +7,7 @@
 **What is Human Assisted Intelligence (HAI)?**
 Human Assisted Intelligence (HAI) refers to systems or technologies that combine human cognitive capacities with artificial intelligence to enhance automation, creativity, problem solving, decision making. Unlike fully autonomous AI, HAI relies on human input alongside machine learning to improve its effectiveness.
 
-![alt text](<HAIAMM-Image03_47_44 PM.png>)
+![alt text](<HAIAMM_framework_domains.png>)
 
 **HAIAMM v2.0, or the Human Assisted Intelligence Assurance Maturity Model version 2.0, is a framework designed to help organizations develop and implement effective Human Assisted Intelligence assurance strategies. This model enables organizations to assess their current HAI governance and security practices, establish improvement roadmaps, and ensure that trust, safety, and appropriate human oversight are integrated into their HAI systems and operations.**
 

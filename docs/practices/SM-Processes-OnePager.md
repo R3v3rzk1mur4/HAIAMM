@@ -1,5 +1,5 @@
 # Strategy & Metrics (SM)
-## Processes Domain - HAIAMM v2.1
+## Processes Domain - HAIAMM v2.0
 
 ---
 
@@ -296,7 +296,7 @@ Organizations must balance automation efficiency with operational resilience and
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Strategy & Metrics (SM)
 **Domain:** Processes
 **Last Updated:** December 2025

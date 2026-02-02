@@ -1,5 +1,5 @@
 # Issue Management Practice – Software Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -475,6 +475,6 @@ Issue Management for Software ensures AI code security systems systematically id
 **Document Information**:
 - **Practice**: Issue Management (IM)
 - **Domain**: Software
-- **HAIAMM Version**: 2.1
+- **HAIAMM Version**: 2.0
 - **Maturity Levels**: 3 (Foundational, Comprehensive, Industry-Leading)
 - **Last Updated**: 2025-12-25

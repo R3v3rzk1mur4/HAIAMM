@@ -1,5 +1,5 @@
 # Security Requirements (SR)
-## Software Domain - HAIAMM v2.1
+## Software Domain - HAIAMM v2.0
 
 ---
 
@@ -522,7 +522,7 @@ Organizations must balance AI software security automation with the reality that
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Security Requirements (SR)
 **Domain:** Software
 **Last Updated:** December 2024

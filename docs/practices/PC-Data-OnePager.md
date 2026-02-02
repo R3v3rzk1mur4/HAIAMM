@@ -1,5 +1,5 @@
 # Policy & Compliance (PC)
-## Data Domain - HAIAMM v2.1
+## Data Domain - HAIAMM v2.0
 
 ---
 
@@ -255,7 +255,7 @@ Organizations must ensure AI data security operations meet privacy regulations a
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Policy & Compliance (PC)
 **Domain:** Data
 **Last Updated:** December 2025

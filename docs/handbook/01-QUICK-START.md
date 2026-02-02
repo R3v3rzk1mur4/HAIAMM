@@ -320,7 +320,7 @@ Traditional application security doesn't fully address AI-specific risks:
 | Field | Value |
 |-------|-------|
 | Practice | Quick Start Guide |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | Last Updated | January 2026 |
 
 [Back to Index](00-INDEX.md) | [First 30 Days](02-FIRST-30-DAYS.md) | [Assessment Checklist](07-ASSESSMENT-CHECKLIST.md)

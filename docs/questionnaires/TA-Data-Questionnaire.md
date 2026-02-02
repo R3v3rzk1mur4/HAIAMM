@@ -1,5 +1,5 @@
 # Threat Assessment (TA) - Data Domain Assessment Questionnaire
-## HAIAMM v2.1
+## HAIAMM v2.0
 
 ---
 
@@ -668,7 +668,7 @@ ___________________________________________________________________
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Threat Assessment (TA)
 **Domain:** Data
 **Questionnaire Version:** 1.0

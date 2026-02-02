@@ -1,5 +1,5 @@
 # Strategy & Metrics (SM)
-## Data Domain - HAIAMM v2.1
+## Data Domain - HAIAMM v2.0
 
 ---
 
@@ -295,7 +295,7 @@ Organizations must ensure AI data security decisions are auditable, explainable 
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Strategy & Metrics (SM)
 **Domain:** Data
 **Last Updated:** December 2025

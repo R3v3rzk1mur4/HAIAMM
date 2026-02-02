@@ -1,5 +1,5 @@
 # Monitoring & Logging Practice – Infrastructure Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -1016,4 +1016,4 @@ Monitoring & Logging for Infrastructure ensures AI cloud and network security sy
 
 ---
 
-**Document Information**: Practice: Monitoring & Logging (ML) | Domain: Infrastructure | HAIAMM v2.1 | Last Updated: 2025-12-30
+**Document Information**: Practice: Monitoring & Logging (ML) | Domain: Infrastructure | HAIAMM v2.0 | Last Updated: 2025-12-30

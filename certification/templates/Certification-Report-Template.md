@@ -128,7 +128,7 @@
 
 ### 2.5 Assessment Methodology
 
-This assessment followed the HAIAMM v2.2 methodology:
+This assessment followed the HAIAMM v2.0 methodology:
 - Evidence-based validation of control implementation
 - Stakeholder interviews for context and verification
 - Scoring per HAIAMM criteria (Yes=2, Partial=1, No=0)
@@ -220,7 +220,7 @@ Legend: ██ ≥75%  ▓▓ 50-74%  ░░ <50%
 
 ### 4.1 Overview
 
-HAIAMM v2.2 assesses four critical risks specific to agentic AI deployments:
+HAIAMM v2.0 assesses four critical risks specific to agentic AI deployments:
 
 | Risk Category | Score | Status |
 |---------------|-------|--------|

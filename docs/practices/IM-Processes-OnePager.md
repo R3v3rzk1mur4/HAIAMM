@@ -1,5 +1,5 @@
 # Issue Management Practice – Processes Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -95,4 +95,4 @@ Issue Management for Processes ensures AI security orchestration (SOAR) systems 
 
 ---
 
-**Document Information**: Practice: Issue Management (IM) | Domain: Processes | HAIAMM v2.1 | Last Updated: 2025-12-25
+**Document Information**: Practice: Issue Management (IM) | Domain: Processes | HAIAMM v2.0 | Last Updated: 2025-12-25

@@ -3,7 +3,7 @@
 
 **Human Assisted Intelligence Assurance Maturity Model (HAIAMM)**
 
-Version 2.2 | Last Updated: 2026-01-03 | **NEW: Critical HAI Assurance for Agentic AI**
+Version 2.0 | Last Updated: 2026-01-03 | **NEW: Critical HAI Assurance for Agentic AI**
 
 ---
 
@@ -234,7 +234,7 @@ HAIAMM uses 3 maturity levels. You progress from basic (Level 1) to advanced (Le
 
 **Why This Matters NOW:** 2025-2026 is the "year of agentic AI" - AI agents are now granted production deployment authority, database modification permissions, external communication capabilities, and financial transaction authority. Without proper controls, these powerful capabilities create unprecedented risks.
 
-HAIAMM v2.2 addresses **4 critical risks** that traditional frameworks don't cover:
+HAIAMM v2.0 addresses **4 critical risks** that traditional frameworks don't cover:
 
 ### 1. Excessive Agency - "Who Controls the AI?"
 
@@ -318,7 +318,7 @@ Answer these questions for your most critical HAI system:
 | **Tool Misuse** | Do you validate tool usage matches intent? | Authorized tools can be weaponized |
 | **Rogue Agents** | Do you have behavioral monitoring for agents? | Compromised agents operate undetected |
 
-**If you answered "No" to any question, HAIAMM v2.2 provides the controls you need.**
+**If you answered "No" to any question, HAIAMM v2.0 provides the controls you need.**
 
 ---
 
@@ -1113,14 +1113,14 @@ A: HAIAMM helps you **implement** what regulations require. Many regulations man
 ---
 
 **Document Information:**
-- Version: 2.2
+- Version: 2.0
 - Last Updated: 2026-01-03
 - License: Creative Commons Attribution 4.0 International (CC BY 4.0)
 - What's New in v2.2: Critical HAI Assurance for agentic AI (Excessive Agency, Agent Goal Hijack, Tool Misuse, Rogue Agents), 47 new assessment questions, 95% OWASP alignment
 - Previous: v1.1 added comprehensive assessment methodology (questionnaire method, scoring, examples)
 - Full Handbook: See HAIAMM-Handbook.md for comprehensive technical details
 - Practice Details: See /practices/ folder for 72+ practice-domain one-pagers
-- v2.2 Details: See HAIAMM-v2.2-Executive-Summary.md and HAIAMM-v2.2-Practice-Additions.md
+- v2.0 Details: See HAIAMM-v2.0-Executive-Summary.md and HAIAMM-v2.0-Practice-Additions.md
 
 ---
 

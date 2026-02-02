@@ -5,7 +5,7 @@
 
   <!-- Title -->
   <text x="600" y="50" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#1A237E">
-    HAIAMM v2.1 Framework
+    HAIAMM v2.0 Framework
   </text>
 
   <!-- Central Hexagon -->
@@ -19,7 +19,7 @@
       HAIAMM
     </text>
     <text x="600" y="575" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#1A237E">
-      v2.1
+      v2.0
     </text>
     <text x="600" y="600" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="middle" fill="#424242">
       First Open Source

@@ -966,7 +966,7 @@ These controls optimize and scale AI operations:
 
 **Document Version:** 1.0
 **Last Updated:** December 18, 2025
-**Next Steps:** Use this roadmap to prioritize HAIAMM question development for v2.1
+**Next Steps:** Use this roadmap to prioritize HAIAMM question development for v2.0
 
 **Related Documents:**
 - Full Analysis: `NIST-DFARS-CMMC-HAIAMM-Alignment-Analysis.md`

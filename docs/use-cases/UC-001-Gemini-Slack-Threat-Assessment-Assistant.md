@@ -604,7 +604,7 @@ async function runThreatAssessment(systemDescription: string): Promise<Assessmen
 ### Phase 2: Assess with HAIAMM (Weeks 5-8)
 
 Run the assistant through HAIAMM Threat Assessment for each domain:
-1. Use the questionnaires from `HAIAMM-v2.2-Assessment-Questionnaires.md`
+1. Use the questionnaires from `HAIAMM-v2.0-Assessment-Questionnaires.md`
 2. Score each domain independently
 3. Identify gaps and create remediation roadmap
 4. Prioritize by risk score
@@ -647,7 +647,7 @@ Address findings from HAIAMM assessment:
 |-------|-------|
 | Use Case | UC-001 |
 | Title | Gemini-Powered Slack Threat Assessment Assistant |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | Practice Focus | Threat Assessment (TA) |
 | Domains | All 6 (Software, Data, Infrastructure, Vendors, Processes, Endpoints) |
 | Last Updated | January 2026 |
@@ -655,7 +655,7 @@ Address findings from HAIAMM assessment:
 ---
 
 **Related Documents:**
-- [HAIAMM v2.2 Executive Summary](../HAIAMM-v2.2-Executive-Summary.md)
+- [HAIAMM v2.0 Executive Summary](../HAIAMM-v2.0-Executive-Summary.md)
 - [HAIAMM Framework Structure](../HAIAMM-Framework-Structure.md)
-- [HAIAMM v2.2 Assessment Questionnaires](../HAIAMM-v2.2-Assessment-Questionnaires.md)
+- [HAIAMM v2.0 Assessment Questionnaires](../HAIAMM-v2.0-Assessment-Questionnaires.md)
 - [OWASP-HAIAMM Gap Analysis](../OWASP-HAIAMM-Gap-Analysis.md)

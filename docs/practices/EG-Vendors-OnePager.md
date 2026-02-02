@@ -1,5 +1,5 @@
 # Education & Guidance (EG)
-## Vendors Domain - HAIAMM v2.1
+## Vendors Domain - HAIAMM v2.0
 
 ---
 
@@ -294,7 +294,7 @@ Organizations must invest in cross-functional vendor security education that bal
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Education & Guidance (EG)
 **Domain:** Vendors
 **Last Updated:** December 2025

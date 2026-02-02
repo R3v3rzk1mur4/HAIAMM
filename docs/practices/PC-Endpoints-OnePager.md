@@ -1,5 +1,5 @@
 # Policy & Compliance (PC)
-## Endpoints Domain - HAIAMM v2.1
+## Endpoints Domain - HAIAMM v2.0
 
 ---
 
@@ -250,7 +250,7 @@ Organizations must ensure AI endpoint security balances security effectiveness w
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Policy & Compliance (PC)
 **Domain:** Endpoints
 **Last Updated:** December 2025

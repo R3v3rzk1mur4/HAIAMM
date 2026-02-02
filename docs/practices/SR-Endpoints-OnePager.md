@@ -1,5 +1,5 @@
 # Security Requirements (SR)
-## Endpoints Domain - HAIAMM v2.1
+## Endpoints Domain - HAIAMM v2.0
 
 ---
 
@@ -511,7 +511,7 @@ Organizations must balance AI endpoint security automation with the reality that
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Security Requirements (SR)
 **Domain:** Endpoints
 **Last Updated:** December 2024

@@ -144,14 +144,14 @@ HAIAMM certification provides evidence for:
 ## Related Documentation
 
 ### Assessment Content
-- `/docs/HAIAMM-v2.2-Assessment-Questionnaires.md` - 290+ assessment questions
+- `/docs/HAIAMM-v2.0-Assessment-Questionnaires.md` - 290+ assessment questions
 - `/docs/HAIAMM-Software-Domain.md` - Complete domain example
 - `/config/haiamm_multi_domain_data_v2.1.json` - Scoring configuration
 
 ### Framework Reference
 - `/docs/HAIAMM-Handbook.md` - Complete framework documentation
 - `/docs/HAIAMM-Quick-Start-Guide.md` - Practitioner guide
-- `/docs/HAIAMM-v2.2-Executive-Summary.md` - Executive overview
+- `/docs/HAIAMM-v2.0-Executive-Summary.md` - Executive overview
 
 ### Business Materials
 - `/docs/HAIAMM-VERIFHAI-PITCH-DECK.md` - Full pitch deck

@@ -1,5 +1,5 @@
 
-# HAIAMM Handbook v2.2
+# HAIAMM Handbook v2.0
 
 ## Human Assisted Intelligence Assurance Maturity Model
 
@@ -304,7 +304,7 @@ HAIAMM maps directly to industry-recognized AI security risks:
 
 | Field | Value |
 |-------|-------|
-| Version | 2.2 |
+| Version | 2.0 |
 | Last Updated | January 2026 |
 | Status | Active |
 

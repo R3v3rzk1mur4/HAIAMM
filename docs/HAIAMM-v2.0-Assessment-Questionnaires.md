@@ -1,4 +1,4 @@
-# HAIAMM v2.2 Assessment Questionnaires
+# HAIAMM v2.0 Assessment Questionnaires
 ## Critical Human Assisted Intelligence Assurance Risks
 
 **Version:** 1.0
@@ -893,7 +893,7 @@ Each questionnaire follows HAIAMM's assessment format:
 - **Rogue Agents (RA)**: 10 questions (8 Level 1, 2 Level 2)
 
 **Next Steps:**
-1. Integrate questions into HAIAMM v2.2 assessment questionnaires
+1. Integrate questions into HAIAMM v2.0 assessment questionnaires
 2. Generate JSON questionnaire files for assessment tool integration
 3. Create scoring calculator for new questions
 4. Pilot test questions with organizations

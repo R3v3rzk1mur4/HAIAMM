@@ -1,5 +1,5 @@
 # Threat Assessment (TA)
-## Vendors Domain - HAIAMM v2.1
+## Vendors Domain - HAIAMM v2.0
 
 ---
 
@@ -538,7 +538,7 @@ Organizations must balance AI vendor security automation with the reality that v
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Threat Assessment (TA)
 **Domain:** Vendors
 **Last Updated:** December 2024

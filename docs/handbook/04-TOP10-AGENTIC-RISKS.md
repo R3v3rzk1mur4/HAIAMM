@@ -1560,7 +1560,7 @@ Compromised or misaligned agents act harmfully while appearing legitimate. Detec
 | Field | Value |
 |-------|-------|
 | Document | OWASP Top 10 for Agentic Applications - HAIAMM Mapping |
-| HAIAMM Version | 2.2 |
+| HAIAMM Version | 2.0 |
 | OWASP Agentic Version | 2026 |
 | Last Updated | January 2026 |
 

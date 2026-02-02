@@ -1,5 +1,5 @@
 # Strategy & Metrics (SM)
-## Software Domain - HAIAMM v2.1
+## Software Domain - HAIAMM v2.0
 
 ---
 
@@ -521,7 +521,7 @@ Organizations must balance AI software security automation with developer experi
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Strategy & Metrics (SM)
 **Domain:** Software
 **Last Updated:** December 2025

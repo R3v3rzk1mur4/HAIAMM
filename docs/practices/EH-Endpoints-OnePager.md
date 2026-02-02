@@ -1,5 +1,5 @@
 # Environment Hardening Practice – Endpoints Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -129,4 +129,4 @@ Environment Hardening for Endpoints ensures endpoint devices running AI security
 
 ---
 
-**Document Information**: Practice: Environment Hardening (EH) | Domain: Endpoints | HAIAMM v2.1 | Last Updated: 2025-12-25
+**Document Information**: Practice: Environment Hardening (EH) | Domain: Endpoints | HAIAMM v2.0 | Last Updated: 2025-12-25

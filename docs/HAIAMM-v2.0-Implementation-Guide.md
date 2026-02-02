@@ -1,4 +1,4 @@
-# HAIAMM v2.2 Implementation Guide
+# HAIAMM v2.0 Implementation Guide
 ## Integration of Critical HAI Assurance Enhancements
 
 **Version:** 1.0
@@ -10,7 +10,7 @@
 
 ## Executive Summary
 
-This guide provides step-by-step instructions for integrating 4 critical Human Assisted Intelligence assurance enhancements into HAIAMM v2.1 to create HAIAMM v2.2:
+This guide provides step-by-step instructions for integrating 4 critical Human Assisted Intelligence assurance enhancements into HAIAMM v2.0 to create HAIAMM v2.0:
 
 1. **Excessive Agency (EA)** - Define and enforce "Least Agency Principle"
 2. **Agent Goal Hijack (AGH)** - Protect agent objectives from manipulation
@@ -64,7 +64,7 @@ Location: `/docs/practices/TA-Processes-OnePager.md`
 
 **Insert After:** Existing Level 1 threat scenarios
 
-**Source Content:** From `HAIAMM-v2.2-Practice-Additions.md`:
+**Source Content:** From `HAIAMM-v2.0-Practice-Additions.md`:
 - Section 1.1: Excessive Agency threats
 - Section 2.1: Agent Goal Hijack threats
 - Section 3.1: Tool Misuse threats
@@ -89,7 +89,7 @@ Location: `/docs/practices/SR-Processes-OnePager.md`
 
 **Insert After:** Existing Level 1 requirements
 
-**Source Content:** From `HAIAMM-v2.2-Practice-Additions.md`:
+**Source Content:** From `HAIAMM-v2.0-Practice-Additions.md`:
 - Section 1.2: Excessive Agency requirements (SR-PROC-EA-001 through SR-PROC-EA-COMP-001)
 - Section 2.2: Agent Goal Hijack requirements (SR-PROC-AGH-001 through SR-PROC-AGH-SEC-001)
 - Section 3.2: Tool Misuse requirements (SR-PROC-TM-001 through SR-PROC-TM-NFR-002)
@@ -130,7 +130,7 @@ Location: `/docs/practices/ML-Processes-OnePager.md`
 
 **Insert After:** Existing Level 1 monitoring activities
 
-**Source Content:** From `HAIAMM-v2.2-Practice-Additions.md`:
+**Source Content:** From `HAIAMM-v2.0-Practice-Additions.md`:
 - Section 1.3: Excessive Agency monitoring
 - Section 2.3: Agent Goal Hijack monitoring
 - Section 3.3: Tool Misuse monitoring
@@ -180,7 +180,7 @@ Location: `/docs/practices/ST-Processes-OnePager.md`
 
 **Insert After:** Existing Level 1 testing activities
 
-**Source Content:** From `HAIAMM-v2.2-Practice-Additions.md`:
+**Source Content:** From `HAIAMM-v2.0-Practice-Additions.md`:
 - Section 1.4: Excessive Agency testing
 - Section 2.4: Agent Goal Hijack testing
 - Section 3.4: Tool Misuse testing
@@ -234,7 +234,7 @@ Location: `/docs/practices/IM-Processes-OnePager.md`
 
 **Insert After:** Existing vulnerability classification section
 
-**Source Content:** From `HAIAMM-v2.2-Practice-Additions.md`:
+**Source Content:** From `HAIAMM-v2.0-Practice-Additions.md`:
 - Section 1.5: Excessive Agency vulnerability classes (EA-001 through EA-005)
 - Section 2.5: Agent Goal Hijack vulnerability classes (AGH-001 through AGH-005)
 - Section 3.5: Tool Misuse vulnerability classes (TM-001 through TM-005)
@@ -406,7 +406,7 @@ Generate JSON questionnaire files for the 4 new risk categories.
 
 **Step 2.1.1: Convert Assessment Questions to JSON**
 
-**Source:** Use questions from `HAIAMM-v2.2-Assessment-Questionnaires.md`
+**Source:** Use questions from `HAIAMM-v2.0-Assessment-Questionnaires.md`
 
 **Process:**
 1. Extract questions for each risk (EA, AGH, TM, RA)
@@ -450,11 +450,11 @@ Location: `/docs/HAIAMM-Handbook.md`
 **Insert at top of document:**
 
 ```markdown
-## HAIAMM - Comprehensive Handbook v2.2
+## HAIAMM - Comprehensive Handbook v2.0
 
 **Last Updated**: 2026-01-02
 
-**NEW IN v2.2**:
+**NEW IN v2.0**:
 - **Critical HAI Assurance Enhancements**: Four critical risks added to address emerging agentic AI threats
   - **Excessive Agency (EA)**: "Least Agency Principle" defined, approval gates for high-risk actions
   - **Agent Goal Hijack (AGH)**: Goal validation, immutability controls, multi-turn consistency checks
@@ -502,7 +502,7 @@ Location: `/docs/HAIAMM-Handbook.md`
 
 ## Critical HAI Assurance Risks
 
-**NEW IN v2.2**: HAIAMM addresses four critical risks that strike at the core of Human Assisted Intelligence principles, derived from [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/).
+**NEW IN v2.0**: HAIAMM addresses four critical risks that strike at the core of Human Assisted Intelligence principles, derived from [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/).
 
 ### Why These Risks Matter for HAI
 
@@ -715,7 +715,7 @@ Four critical risks integrated primarily into Processes domain, with selective S
 - [ ] Update success metrics if baselines unrealistic
 - [ ] Final proofread and quality check
 
-**Deliverable:** Refined HAIAMM v2.2 ready for publication
+**Deliverable:** Refined HAIAMM v2.0 ready for publication
 
 ---
 
@@ -750,7 +750,7 @@ Four critical risks integrated primarily into Processes domain, with selective S
 - Day 3: Internal review
 - Days 4-5: Pilot testing (concurrent with pilot orgs)
 
-**Deliverable:** HAIAMM v2.2 Handbook, pilot test report
+**Deliverable:** HAIAMM v2.0 Handbook, pilot test report
 
 ---
 
@@ -759,7 +759,7 @@ Four critical risks integrated primarily into Processes domain, with selective S
 - Day 3: Final quality check and approval
 - Day 4-5: Publication and announcement
 
-**Deliverable:** Published HAIAMM v2.2
+**Deliverable:** Published HAIAMM v2.0
 
 ---
 
@@ -811,7 +811,7 @@ Four critical risks integrated primarily into Processes domain, with selective S
 ## Rollout Plan
 
 ### Soft Launch (Week 5)
-- Publish HAIAMM v2.2 to GitHub repository
+- Publish HAIAMM v2.0 to GitHub repository
 - Announce to existing HAIAMM users via mailing list
 - Provide migration guide (v2.1 → v2.2)
 - Offer webinar explaining new HAI assurance enhancements
@@ -844,7 +844,7 @@ Four critical risks integrated primarily into Processes domain, with selective S
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.0 | 2026-01-02 | Initial implementation guide for HAIAMM v2.2 |
+| 1.0 | 2026-01-02 | Initial implementation guide for HAIAMM v2.0 |
 
 ---
 
@@ -889,8 +889,8 @@ Four critical risks integrated primarily into Processes domain, with selective S
 | Source Documents | `/docs/` | 3 files |
 
 **Source Documents:**
-- `/docs/HAIAMM-v2.2-Practice-Additions.md` (77KB reference)
-- `/docs/HAIAMM-v2.2-Assessment-Questionnaires.md` (47 questions)
+- `/docs/HAIAMM-v2.0-Practice-Additions.md` (77KB reference)
+- `/docs/HAIAMM-v2.0-Assessment-Questionnaires.md` (47 questions)
 - `/docs/OWASP-HAIAMM-Gap-Analysis.md` (comprehensive analysis)
 
 ---

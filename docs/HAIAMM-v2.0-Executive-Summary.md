@@ -1,17 +1,17 @@
-# HAIAMM v2.2 Executive Summary
+# HAIAMM v2.0 Executive Summary
 ## Critical HAI Assurance Enhancements for Agentic AI Security
 
 **Date:** January 2, 2026
-**Version:** 2.2
+**Version:** 2.0
 **Target Audience:** CISOs, Security Directors, Risk & Compliance Leaders, AI Governance Teams
 
 ---
 
 ## Executive Overview
 
-**HAIAMM v2.2** addresses four critical security risks threatening Human Assisted Intelligence deployments, achieving **95% alignment** with industry-leading OWASP Top 10 frameworks (up from 70% in v2.1).
+**HAIAMM v2.0** addresses four critical security risks threatening Human Assisted Intelligence deployments, achieving **95% alignment** with industry-leading OWASP Top 10 frameworks (improved).
 
-As organizations rapidly adopt AI agents with real-world capabilities—deploying code, managing infrastructure, accessing production data—new attack surfaces emerge that traditional security frameworks don't address. HAIAMM v2.2 fills this gap with practical, measurable controls for **agentic AI security**.
+As organizations rapidly adopt AI agents with real-world capabilities—deploying code, managing infrastructure, accessing production data—new attack surfaces emerge that traditional security frameworks don't address. HAIAMM v2.0 fills this gap with practical, measurable controls for **agentic AI security**.
 
 ### What's New in v2.2
 
@@ -56,7 +56,7 @@ As organizations rapidly adopt AI agents with real-world capabilities—deployin
 
 ### The Cost of Inaction
 
-| Risk Scenario | Without HAIAMM v2.2 | Impact |
+| Risk Scenario | Without HAIAMM v2.0 | Impact |
 |---------------|---------------------|--------|
 | **Excessive Agency** | Agent deploys untested code to production without approval | Production outage, revenue loss |
 | **Agent Goal Hijack** | Security scanner manipulated to ignore SQL injection | Vulnerabilities reach production, data breach |
@@ -67,7 +67,7 @@ As organizations rapidly adopt AI agents with real-world capabilities—deployin
 
 ---
 
-### The Value of HAIAMM v2.2
+### The Value of HAIAMM v2.0
 
 **Risk Reduction:**
 - 95% reduction in excessive agency incidents (via approval gates)
@@ -107,7 +107,7 @@ Your AI code review assistant is authorized to "fix security vulnerabilities." W
 - ❌ Untested fix breaks critical functionality
 - ❌ Humans learn about deployment after the outage
 
-**HAIAMM v2.2 Solution:**
+**HAIAMM v2.0 Solution:**
 - ✅ **"Least Agency Principle"**: Grant minimum autonomy required
 - ✅ **Action Classification**: Autonomous (Green) / Human-Validated (Yellow) / Human-Only (Red)
 - ✅ **Approval Gates**: High-risk actions require human approval before execution
@@ -130,7 +130,7 @@ Your AI security scanner's goal is "find SQL injection vulnerabilities." An atta
 ```
 Agent's goal hijacked → now **ignores** SQL injection instead of **detecting** it.
 
-**HAIAMM v2.2 Solution:**
+**HAIAMM v2.0 Solution:**
 - ✅ **Goal Validation**: Verify agent goal matches intended objective before each action
 - ✅ **Immutability Controls**: Agent goals cannot be modified via prompts
 - ✅ **Multi-Turn Consistency**: Detect gradual goal drift across conversations
@@ -158,7 +158,7 @@ Your AI incident response agent has authorized tools:
 - Uses `delete_records("production", "1=1")` → **Data destruction**
 - All tools **authorized**, usage **malicious**
 
-**HAIAMM v2.2 Solution:**
+**HAIAMM v2.0 Solution:**
 - ✅ **Intent Validation**: Verify tool usage aligns with business purpose (not just parameters valid)
 - ✅ **Destructive Operation Approval**: Delete/destroy actions require human approval
 - ✅ **Anomaly Detection**: Alert on unusual tool usage patterns
@@ -181,7 +181,7 @@ Your AI code reviewer compromised via prompt injection:
 - **Persistence:** Compromised goal survives restarts, maintains for weeks
 - **Detection:** Vulnerabilities discovered in production months later
 
-**HAIAMM v2.2 Solution:**
+**HAIAMM v2.0 Solution:**
 - ✅ **Behavioral Baselining**: Establish normal agent behavior over 30 days
 - ✅ **Real-Time Anomaly Detection**: Alert on deviations ≥2 standard deviations
 - ✅ **Automatic Containment**: Severe anomalies trigger containment within 30 seconds
@@ -194,7 +194,7 @@ Rapid detection of compromised agents (minutes vs. weeks), containment prevents 
 
 ## Industry Alignment: OWASP Coverage
 
-HAIAMM v2.2 achieves **95% coverage** of industry-leading OWASP frameworks:
+HAIAMM v2.0 achieves **95% coverage** of industry-leading OWASP frameworks:
 
 | Framework | v2.1 Coverage | v2.2 Coverage | Improvement |
 |-----------|---------------|---------------|-------------|
@@ -243,7 +243,7 @@ HAIAMM v2.2 achieves **95% coverage** of industry-leading OWASP frameworks:
 ### Phase 3: Continuous Improvement (Month 2+)
 **Focus:** Optimization and maturity growth
 **Deliverables:**
-- Quarterly assessments using HAIAMM v2.2 questionnaires
+- Quarterly assessments using HAIAMM v2.0 questionnaires
 - Baseline monitoring metrics, tune thresholds
 - Expand coverage to additional domains (Data, Infrastructure)
 
@@ -254,7 +254,7 @@ HAIAMM v2.2 achieves **95% coverage** of industry-leading OWASP frameworks:
 
 ## Assessment & Measurement
 
-HAIAMM v2.2 provides **47 new assessment questions** across 4 risk categories:
+HAIAMM v2.0 provides **47 new assessment questions** across 4 risk categories:
 
 | Risk Category | Questions | Key Metrics |
 |---------------|-----------|-------------|
@@ -281,13 +281,13 @@ HAIAMM v2.2 provides **47 new assessment questions** across 4 risk categories:
 ### For Security Leaders (CISOs, Security Directors)
 
 **Immediate Actions:**
-1. **Assess Current State:** Conduct baseline assessment using HAIAMM v2.2 questionnaires (4-6 hours)
+1. **Assess Current State:** Conduct baseline assessment using HAIAMM v2.0 questionnaires (4-6 hours)
 2. **Identify Gaps:** Determine which critical risks are unaddressed in your current controls
 3. **Prioritize:** Focus on highest-risk deployments first (agents with production access, sensitive data access)
 4. **Budget Planning:** Allocate 40-60 hours for Phase 1 implementation (Q1 2026)
 
 **Long-Term Strategy:**
-- Integrate HAIAMM v2.2 into AI governance program
+- Integrate HAIAMM v2.0 into AI governance program
 - Require HAI assurance assessments before production deployment
 - Report maturity scores to board/executive team quarterly
 - Benchmark against industry peers (target: ≥1.5 score by end of year)
@@ -297,7 +297,7 @@ HAIAMM v2.2 provides **47 new assessment questions** across 4 risk categories:
 ### For Risk & Compliance Teams
 
 **Immediate Actions:**
-1. **Regulatory Mapping:** Map HAIAMM v2.2 controls to applicable regulations (EU AI Act, GDPR, SOX, HIPAA)
+1. **Regulatory Mapping:** Map HAIAMM v2.0 controls to applicable regulations (EU AI Act, GDPR, SOX, HIPAA)
 2. **Audit Readiness:** Use HAIAMM assessments as evidence for AI governance audits
 3. **Policy Integration:** Incorporate "Least Agency Principle" into AI acceptable use policies
 4. **Vendor Management:** Require vendors to demonstrate HAIAMM compliance
@@ -329,9 +329,9 @@ HAIAMM v2.2 provides **47 new assessment questions** across 4 risk categories:
 ## Resources & Next Steps
 
 ### Documentation
-- **Full Implementation Guide:** HAIAMM-v2.2-Implementation-Guide.md (40-60 hour roadmap)
-- **Practice Additions:** HAIAMM-v2.2-Practice-Additions.md (77KB detailed guidance)
-- **Assessment Questions:** HAIAMM-v2.2-Assessment-Questionnaires.md (47 questions)
+- **Full Implementation Guide:** HAIAMM-v2.0-Implementation-Guide.md (40-60 hour roadmap)
+- **Practice Additions:** HAIAMM-v2.0-Practice-Additions.md (77KB detailed guidance)
+- **Assessment Questions:** HAIAMM-v2.0-Assessment-Questionnaires.md (47 questions)
 - **Gap Analysis:** OWASP-HAIAMM-Gap-Analysis.md (comprehensive OWASP mapping)
 
 ### Support
@@ -355,7 +355,7 @@ HAIAMM v2.2 provides **47 new assessment questions** across 4 risk categories:
 Agentic AI introduces unprecedented capabilities and unprecedented risks. Traditional security frameworks weren't designed for AI systems that plan, act, and make decisions autonomously.
 
 **The Solution:**
-HAIAMM v2.2 provides practical, measurable controls for the 4 most critical risks facing Human Assisted Intelligence deployments.
+HAIAMM v2.0 provides practical, measurable controls for the 4 most critical risks facing Human Assisted Intelligence deployments.
 
 **The Opportunity:**
 Organizations that implement robust HAI assurance now will:
@@ -367,7 +367,7 @@ Organizations that implement robust HAI assurance now will:
 **The Choice:**
 Invest 40-60 hours now in HAI assurance, or risk $500K - $5M+ in incident response, regulatory fines, and reputation damage later.
 
-**Start Today:** Download HAIAMM v2.2 and conduct your first assessment.
+**Start Today:** Download HAIAMM v2.0 and conduct your first assessment.
 
 ---
 

@@ -1,5 +1,5 @@
 # Threat Assessment (TA)
-## Data Domain - HAIAMM v2.1
+## Data Domain - HAIAMM v2.0
 
 ---
 
@@ -592,7 +592,7 @@ Organizations must balance AI data security automation with regulatory complianc
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Threat Assessment (TA)
 **Domain:** Data
 **Last Updated:** December 2024

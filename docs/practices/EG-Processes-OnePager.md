@@ -1,5 +1,5 @@
 # Education & Guidance (EG)
-## Processes Domain - HAIAMM v2.1
+## Processes Domain - HAIAMM v2.0
 
 ---
 
@@ -276,7 +276,7 @@ Organizations must train teams not just on AI tools but on how to integrate AI i
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Education & Guidance (EG)
 **Domain:** Processes
 **Last Updated:** December 2025

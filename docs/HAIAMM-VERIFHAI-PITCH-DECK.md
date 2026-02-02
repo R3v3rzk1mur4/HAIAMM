@@ -4,7 +4,7 @@
 
 ## Complete Pitch Deck
 
-**Version:** 2.2
+**Version:** 2.0
 **Format:** Slide-by-slide content for PowerPoint/Google Slides/Keynote
 **Duration:** 20-25 minute presentation
 
@@ -112,7 +112,7 @@ These are real incidents from organizations that trusted their AI security tools
 
 ---
 
-## SLIDE 5: Introducing HAIAMM v2.2
+## SLIDE 5: Introducing HAIAMM v2.0
 
 **Visual:** Framework structure diagram with OWASP alignment highlighted
 
@@ -122,7 +122,7 @@ These are real incidents from organizations that trusted their AI security tools
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    HAIAMM v2.2 FRAMEWORK                    │
+│                    HAIAMM v2.0 FRAMEWORK                    │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
@@ -151,7 +151,7 @@ These are real incidents from organizations that trusted their AI security tools
 - Modular handbook with Quick Start Guide
 
 **Speaker Notes:**
-Version 2.2 represents a major evolution. We've mapped every OWASP risk to specific practices with measurable outcomes. You don't just know what to do - you know exactly how to measure success.
+Version 2.0 represents a major evolution. We've mapped every OWASP risk to specific practices with measurable outcomes. You don't just know what to do - you know exactly how to measure success.
 
 ---
 
@@ -294,7 +294,7 @@ This is the strategic value. Your security team no longer needs to guess which c
 ```
 
 **Speaker Notes:**
-This is what makes HAIAMM v2.2 different. We don't just say "implement goal integrity checking." We define the measurement formula, the data sources, and the validation method. This is what auditors and boards actually need.
+This is what makes HAIAMM v2.0 different. We don't just say "implement goal integrity checking." We define the measurement formula, the data sources, and the validation method. This is what auditors and boards actually need.
 
 ---
 

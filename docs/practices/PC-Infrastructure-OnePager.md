@@ -1,5 +1,5 @@
 # Policy & Compliance (PC)
-## Infrastructure Domain - HAIAMM v2.1
+## Infrastructure Domain - HAIAMM v2.0
 
 ---
 
@@ -248,7 +248,7 @@ Organizations must ensure AI infrastructure security operations meet applicable 
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Policy & Compliance (PC)
 **Domain:** Infrastructure
 **Last Updated:** December 2025

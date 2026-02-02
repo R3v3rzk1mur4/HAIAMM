@@ -1,5 +1,5 @@
 # Security Testing Practice – Endpoints Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -88,4 +88,4 @@ Security Testing for Endpoints validates that AI endpoint security systems corre
 
 ---
 
-**Document Information**: Practice: Security Testing (ST) | Domain: Endpoints | HAIAMM v2.1 | Last Updated: 2025-12-25
+**Document Information**: Practice: Security Testing (ST) | Domain: Endpoints | HAIAMM v2.0 | Last Updated: 2025-12-25

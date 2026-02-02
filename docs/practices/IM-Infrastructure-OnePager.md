@@ -1,5 +1,5 @@
 # Issue Management Practice – Infrastructure Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -696,4 +696,4 @@ Issue Management for Infrastructure ensures AI cloud and network security system
 
 ---
 
-**Document Information**: Practice: Issue Management (IM) | Domain: Infrastructure | HAIAMM v2.1 | Last Updated: 2025-12-30
+**Document Information**: Practice: Issue Management (IM) | Domain: Infrastructure | HAIAMM v2.0 | Last Updated: 2025-12-30

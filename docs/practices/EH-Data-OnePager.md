@@ -1,5 +1,5 @@
 # Environment Hardening Practice – Data Domain
-## HAIAMM v2.1 One-Pager
+## HAIAMM v2.0 One-Pager
 
 ### Practice Overview
 
@@ -768,6 +768,6 @@ Environment Hardening for Data ensures AI data security systems are deployed wit
 **Document Information**:
 - **Practice**: Environment Hardening (EH)
 - **Domain**: Data
-- **HAIAMM Version**: 2.1
+- **HAIAMM Version**: 2.0
 - **Maturity Levels**: 3 (Foundational, Comprehensive, Industry-Leading)
 - **Last Updated**: 2025-12-29

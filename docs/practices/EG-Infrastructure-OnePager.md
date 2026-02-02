@@ -1,5 +1,5 @@
 # Education & Guidance (EG)
-## Infrastructure Domain - HAIAMM v2.1
+## Infrastructure Domain - HAIAMM v2.0
 
 ---
 
@@ -274,7 +274,7 @@ Organizations must invest in comprehensive, ongoing education to realize the ful
 
 ---
 
-**Document Version:** HAIAMM v2.1
+**Document Version:** HAIAMM v2.0
 **Practice:** Education & Guidance (EG)
 **Domain:** Infrastructure
 **Last Updated:** December 2025

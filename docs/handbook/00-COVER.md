@@ -6,7 +6,7 @@
 
 ## Human-Assisted Intelligence Assurance Maturity Model
 
-**Version 2.2**
+**Version 2.0**
 
 ---
 
