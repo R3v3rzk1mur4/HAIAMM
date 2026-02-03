@@ -26,7 +26,7 @@ HAIAMM (Human-Assisted Intelligence Assurance Maturity Model) is a practical fra
 
 - **Security teams** responsible for AI/ML system security
 - **Engineering teams** building LLM applications or AI agents
-- **CISOs and security leaders** establishing AI security programs
+- **CISOs and security leaders** establishing HAI security programs
 - **Compliance teams** addressing AI-specific regulatory requirements
 
 ---
@@ -62,7 +62,7 @@ HAIAMM (Human-Assisted Intelligence Assurance Maturity Model) is a practical fra
 |--------------|----------|
 | Building an LLM chatbot, copilot, or RAG system | [Top 10 LLM Risks](03-TOP10-LLM-RISKS.md) |
 | Deploying autonomous AI agents with tool access | [Top 10 Agentic Risks](04-TOP10-AGENTIC-RISKS.md) |
-| Establishing an enterprise AI security program | [First 30 Days](02-FIRST-30-DAYS.md) |
+| Establishing an enterprise HAI security program | [First 30 Days](02-FIRST-30-DAYS.md) |
 | Assessing current AI security posture | [Assessment Checklist](07-ASSESSMENT-CHECKLIST.md) |
 | Looking for specific tools | [Tools & Resources](08-TOOLS-RESOURCES.md) |
 

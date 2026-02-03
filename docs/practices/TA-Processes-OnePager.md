@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Identify and analyze threats specific to AI-operated security process automation
+**Objective:** Identify and analyze threats specific to HAI security process automation
 
 **Description:** Build and maintain threat models that account for unique attack vectors, failure modes, and adversarial risks when AI agents perform critical security workflow and process functions such as Security Orchestration, Automation, and Response (SOAR), incident response automation, security information and event management (SIEM) alert triage, vulnerability management prioritization, compliance reporting automation, GRC (Governance, Risk, Compliance) workflow automation, security metrics and KPI generation, security awareness training delivery and adaptation, change management automation, and risk assessment workflow support.
 
-**Context:** AI agents operating security processes create novel threat surfaces beyond traditional manual workflow risks. Adversaries may attempt prompt injection to manipulate AI incident triage (downgrading critical incidents), data poisoning to corrupt AI prioritization models (training AI to ignore certain vulnerability types), adversarial input to evade AI alert correlation, model inversion to extract sensitive security intelligence from AI workflow models, and supply chain compromise of AI SOAR platforms. Additionally, AI security process agents face operational threats: false negatives (missing critical security incidents, failing to escalate urgent vulnerabilities, overlooking compliance violations), false positives (excessive escalations causing alert fatigue, unnecessary incident investigations wasting SOC time), model drift (degraded triage accuracy as threat landscape evolves), catastrophic automation failures (AI closes critical incidents incorrectly, AI compliance reports contain material errors submitted to auditors), and process dependency risks (over-reliance on AI automation creating operational brittleness when AI fails). Process-specific challenges include auditability requirements (SOC 2, ISO 27001 requiring documented processes AI may obscure), human skill atrophy (analysts losing capability to perform processes manually when AI fails), regulatory compliance complexity (AI-generated reports must meet legal standards), cross-functional coordination (AI workflows spanning security, IT, legal, risk management), and the fundamental challenge that AI process automation decisions often require human judgment, nuance, and accountability that AI cannot provide. This practice ensures organizations proactively identify, assess, and mitigate threats specific to AI-operated security processes before critical incidents are mishandled, compliance audits fail, or operational dependencies on flawed AI automation create systemic risk.
+**Context:** AI agents operating security processes create novel threat surfaces beyond traditional manual workflow risks. Adversaries may attempt prompt injection to manipulate AI incident triage (downgrading critical incidents), data poisoning to corrupt AI prioritization models (training AI to ignore certain vulnerability types), adversarial input to evade AI alert correlation, model inversion to extract sensitive security intelligence from AI workflow models, and supply chain compromise of AI SOAR platforms. Additionally, AI security process agents face operational threats: false negatives (missing critical security incidents, failing to escalate urgent vulnerabilities, overlooking compliance violations), false positives (excessive escalations causing alert fatigue, unnecessary incident investigations wasting SOC time), model drift (degraded triage accuracy as threat landscape evolves), catastrophic automation failures (AI closes critical incidents incorrectly, AI compliance reports contain material errors submitted to auditors), and process dependency risks (over-reliance on AI automation creating operational brittleness when AI fails). Process-specific challenges include auditability requirements (SOC 2, ISO 27001 requiring documented processes AI may obscure), human skill atrophy (analysts losing capability to perform processes manually when AI fails), regulatory compliance complexity (AI-generated reports must meet legal standards), cross-functional coordination (AI workflows spanning security, IT, legal, risk management), and the fundamental challenge that AI process automation decisions often require human judgment, nuance, and accountability that AI cannot provide. This practice ensures organizations proactively identify, assess, and mitigate threats specific to HAI security processes before critical incidents are mishandled, compliance audits fail, or operational dependencies on flawed AI automation create systemic risk.
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish baseline threat awareness for AI-operated security processes
+### Objective: Establish baseline threat awareness for HAI security processes
 
 At this level, organizations recognize that AI agents performing security process automation introduce unique threats beyond traditional manual workflow risks and begin documenting these AI-specific threat scenarios.
 
@@ -179,7 +179,7 @@ Document threat scenarios with specific examples relevant to your security proce
 
 **B) Establish threat awareness training for security operations, compliance, and process teams**
 
-Educate SOC analysts, incident responders, vulnerability management teams, compliance analysts, GRC professionals, and security leadership on threats specific to AI-operated security processes. Teams must understand that AI process automation is powerful but introduces new attack vectors and failure modes that don't exist with manual processes.
+Educate SOC analysts, incident responders, vulnerability management teams, compliance analysts, GRC professionals, and security leadership on threats specific to HAI security processes. Teams must understand that AI process automation is powerful but introduces new attack vectors and failure modes that don't exist with manual processes.
 
 Training coverage:
 
@@ -223,7 +223,7 @@ At this level, organizations assess AI security process threats based on technic
 
 #### Activities
 
-**A) Develop abuse cases and attack trees for AI-operated security processes**
+**A) Develop abuse cases and attack trees for HAI security processes**
 
 For each AI agent performing security process automation, create detailed abuse cases showing how adversaries could exploit or degrade AI security workflow operations. Model attack paths from initial manipulation to security failure despite AI process automation.
 
@@ -384,7 +384,7 @@ At this level, organizations proactively track adversarial process manipulation 
 
 **A) Monitor industry threat intelligence for AI security process vulnerabilities, attack techniques, and automation failure patterns**
 
-Establish continuous monitoring of security operations research, AI automation failure reports, SOAR platform advisories, and operational lessons from peer organizations to identify new threats to AI-operated security processes.
+Establish continuous monitoring of security operations research, AI automation failure reports, SOAR platform advisories, and operational lessons from peer organizations to identify new threats to HAI security processes.
 
 Threat intelligence sources:
 
@@ -505,7 +505,7 @@ Document all adversarial testing and operational resilience results. Share findi
 ## Key Success Indicators
 
 **Level 1:**
-- Documented threat scenarios specific to AI-operated security processes (minimum 15 scenarios covering triage manipulation, process failures, compliance errors, operational dependencies, skills atrophy)
+- Documented threat scenarios specific to HAI security processes (minimum 15 scenarios covering triage manipulation, process failures, compliance errors, operational dependencies, skills atrophy)
 - Threat awareness training delivered to SOC, incident response, vulnerability management, compliance teams (>80% completion within 90 days of AI automation deployment)
 - Inventory of AI security process agents mapped to threat scenarios (each AI workflow has 3+ documented threat scenarios and failure modes)
 - Executive awareness of AI automation risks and operational dependencies (CISO briefed on AI process automation threats and contingency plans)
@@ -534,7 +534,7 @@ Document all adversarial testing and operational resilience results. Share findi
 ## Common Pitfalls
 
 **Level 1:**
-- ❌ Threat scenarios are generic (not specific to AI-operated processes) - "AI makes mistakes" instead of "AI triage downgrade critical ransomware incident enabling 8-hour response delay"
+- ❌ Threat scenarios are generic (not specific to HAI processes) - "AI makes mistakes" instead of "AI triage downgrade critical ransomware incident enabling 8-hour response delay"
 - ❌ Training is compliance theater (slide deck on automation risks, no hands-on exercises, no validation of manual skills retention)
 - ❌ Threat inventory is incomplete (missing AI-powered analytics, shadow automation, forgotten workflows, vendor AI processing)
 - ❌ No consideration of operational dependency risks (assume AI always available, no manual failover planning, skills atrophy ignored)
@@ -569,7 +569,7 @@ Document all adversarial testing and operational resilience results. Share findi
 
 **Level 1:**
 1. Have you documented threat scenarios specific to AI agents performing security process automation (incident triage, vulnerability prioritization, compliance reporting, SOAR workflows)?
-2. Have SOC analysts, incident responders, vulnerability management teams, and compliance professionals received training on threats unique to AI-operated processes and manual failover procedures?
+2. Have SOC analysts, incident responders, vulnerability management teams, and compliance professionals received training on threats unique to HAI processes and manual failover procedures?
 3. Is there an inventory mapping each AI security process agent to potential threat scenarios, failure modes, and documented manual backup procedures?
 
 **Level 2:**
@@ -586,7 +586,7 @@ Document all adversarial testing and operational resilience results. Share findi
 
 ## Process-Specific Considerations
 
-Threat Assessment for AI-operated security processes must address unique challenges in workflow automation, operational resilience, and human factors:
+Threat Assessment for HAI security processes must address unique challenges in workflow automation, operational resilience, and human factors:
 
 - **Auditability Requirements**: SOC 2, ISO 27001, regulatory audits require documented, explainable processes - AI automation may obscure decision logic, creating compliance risk
 - **Human Accountability**: Security process decisions often require accountability (who approved risk acceptance, who triaged incident) - AI automation creates accountability gaps

@@ -5,7 +5,7 @@
 
 ### Practice Overview
 
-**Objective:** Establish unified strategic roadmap for AI-operated software security within the organization
+**Objective:** Establish unified strategic roadmap for HAI software security within the organization
 
 **Description:** Build and maintain a Human-Assisted Intelligence Assurance program to better understand and manage risks when AI agents operate critical software security functions such as code vulnerability scanning (SAST/DAST/SCA), automated security testing, AI-assisted code review, threat modeling, dependency analysis, security defect prioritization, and DevSecOps pipeline automation.
 
@@ -20,7 +20,7 @@ At this level, organizations recognize that AI agents are performing software se
 
 #### Activities
 
-**A) Estimate overall risk in the context of AI-operated software security**
+**A) Estimate overall risk in the context of HAI software security**
 
 Create an inventory of AI agents operating software security functions and assess the risk of AI-driven decisions. Identify critical applications where AI agents make security decisions (customer-facing web apps, payment processing, mobile apps, APIs, internal tools). Document potential failure scenarios: What happens if an AI agent misses a critical SQL injection vulnerability? Incorrectly marks a real security flaw as false positive? Blocks a production deployment with a false positive security finding? Auto-generates insecure code fixes?
 
@@ -47,11 +47,11 @@ Key elements:
 
 **C) Establish foundational threat intelligence for AI software security**
 
-Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform AI-operated software security decisions from day one.
+Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform HAI software security decisions from day one.
 
 **Software Domain Threat Intelligence Requirements**:
 
-AI-operated software security needs external threat intelligence to make context-aware decisions about vulnerabilities, dependencies, and code security threats.
+HAI software security needs external threat intelligence to make context-aware decisions about vulnerabilities, dependencies, and code security threats.
 
 **Threat Intelligence Types for Software Security**:
 - **Vulnerability Exploitation Intelligence**: Which CVEs are actively exploited in the wild? (CISA KEV, exploit databases, vendor advisories)
@@ -265,7 +265,7 @@ Software Threat Intelligence ROI =
 ## Maturity Level 3
 ### Objective: Align AI software security investment with demonstrable vulnerability reduction and secure development efficiency
 
-At this level, organizations prove ROI of AI-operated software security through data-driven metrics, vulnerability reduction in production, and development efficiency improvements.
+At this level, organizations prove ROI of HAI software security through data-driven metrics, vulnerability reduction in production, and development efficiency improvements.
 
 #### Activities
 
@@ -504,7 +504,7 @@ Demonstrate leadership in software security threat intelligence and AI-security 
 
 ## Software-Specific Considerations
 
-AI-operated software security must address unique software development challenges:
+HAI software security must address unique software development challenges:
 
 - **Development Velocity vs. Security**: AI security tools must provide fast, actionable feedback without blocking developer productivity
 - **False Positive Management**: High false positive rates from AI security tools lead to alert fatigue, tool disabling, and security gate bypasses

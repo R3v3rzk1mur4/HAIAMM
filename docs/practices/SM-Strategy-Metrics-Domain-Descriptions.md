@@ -10,13 +10,13 @@
 
 ## PRACTICE OVERVIEW
 
-**Strategy & Metrics (SM)** is a foundational governance practice that establishes the strategic direction for AI-operated security programs and implements measurement systems to track AI agent effectiveness and security posture improvements.
+**Strategy & Metrics (SM)** is a foundational governance practice that establishes the strategic direction for HAI security programs and implements measurement systems to track AI agent effectiveness and security posture improvements.
 
 **Based on OWASP SAMM v1.0 Definition:**
 > "Strategy & Metrics involves the overall strategic direction of the software assurance program and instrumentation of processes and activities to collect metrics about an organization's security posture."
 
 **HAIAMM Translation:**
-> "Strategy & Metrics involves the overall strategic direction of AI-operated security programs and instrumentation of AI agent activities to collect metrics about an organization's security posture across all domains."
+> "Strategy & Metrics involves the overall strategic direction of HAI security programs and instrumentation of AI agent activities to collect metrics about an organization's security posture across all domains."
 
 ---
 
@@ -32,9 +32,9 @@
 
 **Practice Description:**
 
-Strategy & Metrics for the Software domain involves the **overall strategic direction of the AI-operated application security program** and **instrumentation of AI agent activities** to collect metrics about an organization's software security posture.
+Strategy & Metrics for the Software domain involves the **overall strategic direction of the HAI application security program** and **instrumentation of AI agent activities** to collect metrics about an organization's software security posture.
 
-This practice establishes how organizations define strategic goals for AI agents performing software security work (code analysis, vulnerability scanning, secure code review, application testing), align AI security operations with business objectives, and measure the effectiveness of AI-driven software security activities.
+This practice establishes how organizations define strategic goals for AI agents performing software security work (code analysis, vulnerability scanning, secure code review, application testing), align HAI security operations with business objectives, and measure the effectiveness of AI-driven software security activities.
 
 **Core Questions This Practice Answers:**
 
@@ -77,7 +77,7 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Example Strategy Statement:**
 
-> "Our AI-operated software security strategy is to achieve zero high-severity vulnerabilities in production by deploying AI security agents at every stage of the SDLC. We measure success through vulnerability detection rates, remediation velocity, and reduction in security incidents. AI agents must scan 100% of code commits with <2% false positive rate, enabling developers to ship secure code faster."
+> "Our HAI software security strategy is to achieve zero high-severity vulnerabilities in production by deploying AI security agents at every stage of the SDLC. We measure success through vulnerability detection rates, remediation velocity, and reduction in security incidents. AI agents must scan 100% of code commits with <2% false positive rate, enabling developers to ship secure code faster."
 
 ---
 
@@ -89,9 +89,9 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Practice Description:**
 
-Strategy & Metrics for the Infrastructure domain involves the **overall strategic direction of the AI-operated infrastructure security program** and **instrumentation of AI agent activities** to collect metrics about an organization's infrastructure security posture.
+Strategy & Metrics for the Infrastructure domain involves the **overall strategic direction of the HAI infrastructure security program** and **instrumentation of AI agent activities** to collect metrics about an organization's infrastructure security posture.
 
-This practice establishes how organizations define strategic goals for AI agents performing infrastructure security work (configuration hardening, network monitoring, cloud security posture management, infrastructure-as-code security), align AI security operations with infrastructure reliability and scalability objectives, and measure the effectiveness of AI-driven infrastructure security activities.
+This practice establishes how organizations define strategic goals for AI agents performing infrastructure security work (configuration hardening, network monitoring, cloud security posture management, infrastructure-as-code security), align HAI security operations with infrastructure reliability and scalability objectives, and measure the effectiveness of AI-driven infrastructure security activities.
 
 **Core Questions This Practice Answers:**
 
@@ -134,7 +134,7 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Example Strategy Statement:**
 
-> "Our AI-operated infrastructure security strategy is to maintain continuous compliance with zero-trust principles across all cloud and on-premises infrastructure. We measure success through misconfiguration detection rates, infrastructure hardening coverage, and prevented security incidents. AI agents must monitor 100% of cloud resources with automated remediation of critical issues within 1 hour."
+> "Our HAI infrastructure security strategy is to maintain continuous compliance with zero-trust principles across all cloud and on-premises infrastructure. We measure success through misconfiguration detection rates, infrastructure hardening coverage, and prevented security incidents. AI agents must monitor 100% of cloud resources with automated remediation of critical issues within 1 hour."
 
 ---
 
@@ -146,9 +146,9 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Practice Description:**
 
-Strategy & Metrics for the Endpoints domain involves the **overall strategic direction of the AI-operated endpoint security program** and **instrumentation of AI agent activities** to collect metrics about an organization's endpoint security posture.
+Strategy & Metrics for the Endpoints domain involves the **overall strategic direction of the HAI endpoint security program** and **instrumentation of AI agent activities** to collect metrics about an organization's endpoint security posture.
 
-This practice establishes how organizations define strategic goals for AI agents performing endpoint security work (endpoint detection and response, device compliance monitoring, mobile threat defense, behavioral analysis), align AI security operations with workforce productivity and remote work enablement, and measure the effectiveness of AI-driven endpoint security activities.
+This practice establishes how organizations define strategic goals for AI agents performing endpoint security work (endpoint detection and response, device compliance monitoring, mobile threat defense, behavioral analysis), align HAI security operations with workforce productivity and remote work enablement, and measure the effectiveness of AI-driven endpoint security activities.
 
 **Core Questions This Practice Answers:**
 
@@ -191,7 +191,7 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Example Strategy Statement:**
 
-> "Our AI-operated endpoint security strategy is to protect 100% of corporate and BYOD endpoints from malware, ransomware, and insider threats through autonomous AI agents. We measure success through threat detection rates, endpoint compliance levels, and incident response speed. AI agents must detect endpoint compromises within 5 minutes and contain threats automatically with <0.5% false positive rate."
+> "Our HAI endpoint security strategy is to protect 100% of corporate and BYOD endpoints from malware, ransomware, and insider threats through autonomous AI agents. We measure success through threat detection rates, endpoint compliance levels, and incident response speed. AI agents must detect endpoint compromises within 5 minutes and contain threats automatically with <0.5% false positive rate."
 
 ---
 
@@ -203,9 +203,9 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Practice Description:**
 
-Strategy & Metrics for the Data domain involves the **overall strategic direction of the AI-operated data security program** and **instrumentation of AI agent activities** to collect metrics about an organization's data security posture.
+Strategy & Metrics for the Data domain involves the **overall strategic direction of the HAI data security program** and **instrumentation of AI agent activities** to collect metrics about an organization's data security posture.
 
-This practice establishes how organizations define strategic goals for AI agents performing data security work (data classification, access monitoring, data loss prevention, encryption enforcement, data exfiltration detection), align AI security operations with data governance and privacy regulations, and measure the effectiveness of AI-driven data security activities.
+This practice establishes how organizations define strategic goals for AI agents performing data security work (data classification, access monitoring, data loss prevention, encryption enforcement, data exfiltration detection), align HAI security operations with data governance and privacy regulations, and measure the effectiveness of AI-driven data security activities.
 
 **Core Questions This Practice Answers:**
 
@@ -248,7 +248,7 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Example Strategy Statement:**
 
-> "Our AI-operated data security strategy is to achieve zero unauthorized access to sensitive data (PII, PHI, CUI) through autonomous AI classification, monitoring, and protection agents. We measure success through data classification coverage, exfiltration prevention rates, and compliance with privacy regulations. AI agents must classify 100% of new data within 24 hours and block unauthorized data transfers with <1% false positive rate."
+> "Our HAI data security strategy is to achieve zero unauthorized access to sensitive data (PII, PHI, CUI) through autonomous AI classification, monitoring, and protection agents. We measure success through data classification coverage, exfiltration prevention rates, and compliance with privacy regulations. AI agents must classify 100% of new data within 24 hours and block unauthorized data transfers with <1% false positive rate."
 
 ---
 
@@ -260,9 +260,9 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Practice Description:**
 
-Strategy & Metrics for the Processes domain involves the **overall strategic direction of the AI-operated security process program** and **instrumentation of AI agent activities** to collect metrics about an organization's security process effectiveness and maturity.
+Strategy & Metrics for the Processes domain involves the **overall strategic direction of the HAI security process program** and **instrumentation of AI agent activities** to collect metrics about an organization's security process effectiveness and maturity.
 
-This practice establishes how organizations define strategic goals for AI agents performing security process work (incident detection and response, compliance monitoring, policy violation detection, security training delivery, risk assessments), align AI security operations with governance and compliance objectives, and measure the effectiveness of AI-driven security process automation.
+This practice establishes how organizations define strategic goals for AI agents performing security process work (incident detection and response, compliance monitoring, policy violation detection, security training delivery, risk assessments), align HAI security operations with governance and compliance objectives, and measure the effectiveness of AI-driven security process automation.
 
 **Core Questions This Practice Answers:**
 
@@ -305,7 +305,7 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Example Strategy Statement:**
 
-> "Our AI-operated security process strategy is to automate 80% of routine security workflows (incident response, compliance monitoring, policy enforcement) through autonomous AI agents, enabling the security team to focus on strategic initiatives. We measure success through process automation coverage, incident response speed, and continuous compliance scores. AI agents must detect security incidents within 5 minutes and maintain 100% real-time compliance visibility."
+> "Our HAI security process strategy is to automate 80% of routine security workflows (incident response, compliance monitoring, policy enforcement) through autonomous AI agents, enabling the security team to focus on strategic initiatives. We measure success through process automation coverage, incident response speed, and continuous compliance scores. AI agents must detect security incidents within 5 minutes and maintain 100% real-time compliance visibility."
 
 ---
 
@@ -317,9 +317,9 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Practice Description:**
 
-Strategy & Metrics for the Vendors domain involves the **overall strategic direction of the AI-operated vendor security program** and **instrumentation of AI agent activities** to collect metrics about an organization's third-party risk and supply chain security posture.
+Strategy & Metrics for the Vendors domain involves the **overall strategic direction of the HAI vendor security program** and **instrumentation of AI agent activities** to collect metrics about an organization's third-party risk and supply chain security posture.
 
-This practice establishes how organizations define strategic goals for AI agents performing vendor security work (vendor risk assessments, continuous vendor monitoring, supply chain threat detection, contract compliance verification), align AI security operations with supply chain resilience and third-party risk management objectives, and measure the effectiveness of AI-driven vendor security activities.
+This practice establishes how organizations define strategic goals for AI agents performing vendor security work (vendor risk assessments, continuous vendor monitoring, supply chain threat detection, contract compliance verification), align HAI security operations with supply chain resilience and third-party risk management objectives, and measure the effectiveness of AI-driven vendor security activities.
 
 **Core Questions This Practice Answers:**
 
@@ -362,7 +362,7 @@ This practice establishes how organizations define strategic goals for AI agents
 
 **Example Strategy Statement:**
 
-> "Our AI-operated vendor security strategy is to achieve continuous visibility into the security posture of all third-party vendors and supply chain partners through autonomous AI monitoring and risk scoring. We measure success through vendor assessment coverage, continuous monitoring adoption, and supply chain incident prevention. AI agents must assess 100% of new vendors within 48 hours and monitor critical vendors 24/7 with real-time risk alerts."
+> "Our HAI vendor security strategy is to achieve continuous visibility into the security posture of all third-party vendors and supply chain partners through autonomous AI monitoring and risk scoring. We measure success through vendor assessment coverage, continuous monitoring adoption, and supply chain incident prevention. AI agents must assess 100% of new vendors within 48 hours and monitor critical vendors 24/7 with real-time risk alerts."
 
 ---
 
@@ -370,12 +370,12 @@ This practice establishes how organizations define strategic goals for AI agents
 
 | Domain | Strategic Focus | AI Agent Activities | Key Metrics Examples |
 |--------|----------------|---------------------|---------------------|
-| **Software** | AI-operated application security strategy | Code scanning, vulnerability detection, secure code review | Vulnerabilities detected, false positive rate, code coverage |
-| **Infrastructure** | AI-operated infrastructure security strategy | CSPM, network monitoring, infrastructure hardening | Misconfigurations found, infrastructure coverage, MTTR |
-| **Endpoints** | AI-operated endpoint security strategy | EDR, device compliance, behavioral analysis | Malware detections, endpoint coverage, compromise detection time |
-| **Data** | AI-operated data protection strategy | Data classification, DLP, access monitoring | Data classified, exfiltration attempts blocked, encryption coverage |
-| **Processes** | AI-operated security process automation strategy | Incident response, compliance monitoring, policy enforcement | Incidents detected, compliance score, process automation % |
-| **Vendors** | AI-operated vendor risk management strategy | Vendor assessments, supply chain monitoring, risk scoring | Vendor assessment coverage, security scores, supply chain incidents |
+| **Software** | HAI application security strategy | Code scanning, vulnerability detection, secure code review | Vulnerabilities detected, false positive rate, code coverage |
+| **Infrastructure** | HAI infrastructure security strategy | CSPM, network monitoring, infrastructure hardening | Misconfigurations found, infrastructure coverage, MTTR |
+| **Endpoints** | HAI endpoint security strategy | EDR, device compliance, behavioral analysis | Malware detections, endpoint coverage, compromise detection time |
+| **Data** | HAI data protection strategy | Data classification, DLP, access monitoring | Data classified, exfiltration attempts blocked, encryption coverage |
+| **Processes** | HAI security process automation strategy | Incident response, compliance monitoring, policy enforcement | Incidents detected, compliance score, process automation % |
+| **Vendors** | HAI vendor risk management strategy | Vendor assessments, supply chain monitoring, risk scoring | Vendor assessment coverage, security scores, supply chain incidents |
 
 ---
 

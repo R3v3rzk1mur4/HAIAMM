@@ -52,7 +52,7 @@ The **Human Assisted Intelligence Assurance Maturity Model (HAIAMM)** provides a
 - **Framework Alignment** with ISO 27001, NIST CSF, NIST AI RMF, SAMM v1.0, OWASP
 ### Target Audience
 
-- **Security Leaders**: CISOs, Security Directors planning AI security programs
+- **Security Leaders**: CISOs, Security Directors planning HAI security programs
 - **Security Engineers**: Teams building and operating AI security systems (SAST, DAST, CSPM, EDR, DLP, SOAR)
 - **AI/ML Engineers**: Teams developing AI models for security applications
 - **AI/Governance**:Teams governing AI efforts in organizations
@@ -163,8 +163,8 @@ Practices follow the **Business functions of Human Assisted Intelligence**:
 ### Business functions and practices Descriptions
 
 **Governance Phase:**
-- **Strategy & Metrics (SM)**: Establish a unified strategic roadmap for AI-operated security across all domains. Includes threat intelligence integration as foundational capability and metrics to measure desired outcomes
-- **Policy & Compliance (PC)**: Define policies, standards, and compliance requirements for AI-operated security systems. Ensures regulatory compliance (e.g. GDPR, HIPAA, SOX) and internal governance
+- **Strategy & Metrics (SM)**: Establish a unified strategic roadmap for HAI security across all domains. Includes threat intelligence integration as foundational capability and metrics to measure desired outcomes
+- **Policy & Compliance (PC)**: Define policies, standards, and compliance requirements for HAI security systems. Ensures regulatory compliance (e.g. GDPR, HIPAA, SOX) and internal governance
 - **Education & Guidance (EG)**: Provide security training, awareness, and guidance for teams building and operating AI security systems. For example, covers secure AI development, prompt injection prevention, and operational best practices
 
 **Building Phase:**
@@ -186,7 +186,7 @@ Practices follow the **Business functions of Human Assisted Intelligence**:
 
 ## Prompt Injection Security
 
-**NEW IN v2.0**: HAIAMM now includes comprehensive guidance on securing AI-operated systems against **prompt injection attacks**, derived from the [Arcanum Prompt Injection Taxonomy](https://github.com/Arcanum-Sec/arc_pi_taxonomy) by Jason Haddix (CC BY 4.0). and [OWASP top 10 for Agentic Applications] (https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
+**NEW IN v2.0**: HAIAMM now includes comprehensive guidance on securing HAI systems against **prompt injection attacks**, derived from the [Arcanum Prompt Injection Taxonomy](https://github.com/Arcanum-Sec/arc_pi_taxonomy) by Jason Haddix (CC BY 4.0). and [OWASP top 10 for Agentic Applications] (https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
 
 ### Why Prompt Injection Matters for AI Security
 
@@ -362,7 +362,7 @@ By integrating the Arcanum PI Taxonomy, HAIAMM provides:
 ✅ **Measurable Success Criteria**: ≥95% detection rates, ≤5% false positives, SLA-based remediation
 ✅ **Cross-Practice Integration**: TA → SR → ST → IR → IM lifecycle coverage
 
-Organizations following HAIAMM v2.0 will have **industry-leading prompt injection security** for their AI-operated security programs.
+Organizations following HAIAMM v2.0 will have **industry-leading prompt injection security** for their HAI security programs.
 
 ---
 
@@ -372,7 +372,7 @@ Organizations following HAIAMM v2.0 will have **industry-leading prompt injectio
 
 ### Why Threat Intelligence is Foundational for AI-Operated Security
 
-AI-operated security systems make thousands of decisions per day - which vulnerabilities to prioritize, which endpoints to quarantine, which cloud configurations to flag, which data access patterns to investigate. **Without threat intelligence, AI security is context-blind:**
+HAI security systems make thousands of decisions per day - which vulnerabilities to prioritize, which endpoints to quarantine, which cloud configurations to flag, which data access patterns to investigate. **Without threat intelligence, AI security is context-blind:**
 
 **AI Security WITHOUT Threat Intelligence** ❌:
 - Prioritizes vulnerabilities by CVSS scores (generic severity, not real-world exploitation)
@@ -394,7 +394,7 @@ AI-operated security systems make thousands of decisions per day - which vulnera
 
 #### Level 1: Foundational Threat Intelligence Consumption
 
-**Objective**: Establish basic threat intelligence consumption to inform AI-operated security decisions from day one.
+**Objective**: Establish basic threat intelligence consumption to inform HAI security decisions from day one.
 
 **Core Activities**:
 1. **Identify Domain-Specific Threat Intelligence Requirements** (per domain):
@@ -467,7 +467,7 @@ AI-operated security systems make thousands of decisions per day - which vulnera
 
 #### Level 3: Industry-Leading Threat Intelligence Production and Sharing
 
-**Objective**: Produce original threat intelligence from AI security operations and contribute to industry collective defense.
+**Objective**: Produce original threat intelligence from HAI security operations and contribute to industry collective defense.
 
 **Core Activities**:
 1. **Produce Original Threat Intelligence from AI Security Operations**:
@@ -543,7 +543,7 @@ Organizations implementing HAIAMM v2.0 threat intelligence capabilities should:
    - Calculate and demonstrate threat intelligence ROI (≥3:1 target)
 
 3. **Achieve Level 3 Industry Leadership** (18+ months):
-   - Produce original threat intelligence from AI security operations (IOCs, attack patterns, vulnerability research)
+   - Produce original threat intelligence from HAI security operations (IOCs, attack patterns, vulnerability research)
    - Participate in industry threat intelligence sharing communities (ISACs, vendor partnerships, open-source)
    - Demonstrate industry leadership (conference presentations, open-source projects, standards development)
    - Contribute to collective defense (anonymized threat sharing, community collaboration)
@@ -564,7 +564,7 @@ Organizations implementing HAIAMM v2.0 threat intelligence capabilities should:
 
 ✅ **Progressive Maturity**: Clear path from basic consumption (L1) → comprehensive analysis (L2) → industry leadership (L3)
 
-Organizations following HAIAMM v2.0 will have **industry-leading threat intelligence-driven AI security programs** with measurable ROI, improved security outcomes, and contributions to collective defense.
+Organizations following HAIAMM v2.0 will have **industry-leading threat intelligence-driven HAI security programs** with measurable ROI, improved security outcomes, and contributions to collective defense.
 
 **Reference**: See Threat-Intelligence-Integration-Analysis.md for comprehensive analysis of threat intelligence integration into HAIAMM, including philosophical rationale, maturity progression details, implementation roadmap, and risk assessment.
 
@@ -678,7 +678,7 @@ HAIAMM defines **3 maturity levels** for progressive capability building:
 ---
 
 ### Level 2: Comprehensive
-**Definition**: Advanced practices for mature AI security program
+**Definition**: Advanced practices for mature HAI security program
 
 **Characteristics**:
 - Proactive security practices
@@ -1325,7 +1325,7 @@ Based on organizations actively working to improve:
 **Purpose**: Covers 3 best practices to govern a Human Assisted Intelligence Assurance program
 
 ### 1. Strategy & Metrics (SM)
-**Purpose**: Establish unified strategic roadmap and measure effectiveness of AI-operated security programs
+**Purpose**: Establish unified strategic roadmap and measure effectiveness of HAI security programs
 
 **Key Activities**:
 - Define AI security strategy across all domains (Software, Infrastructure, Endpoints, Data, Processes, Vendors)
@@ -1347,7 +1347,7 @@ Based on organizations actively working to improve:
 ---
 
 ### 2. Policy & Compliance (PC)
-**Purpose**: Define policies, standards, and ensure regulatory compliance for AI-operated security systems
+**Purpose**: Define policies, standards, and ensure regulatory compliance for HAI security systems
 
 **Key Activities**:
 - Develop AI security policies (acceptable use, data handling, model governance)
@@ -1394,7 +1394,7 @@ Based on organizations actively working to improve:
 **Purpose**: This function covers all best practices recommended to improve and build secure Human Assisted Intelligence systems
 
 ### 4. Threat Assessment (TA)
-**Purpose**: Identify and analyze threats specific to AI-operated security systems
+**Purpose**: Identify and analyze threats specific to HAI security systems
 
 **Key Activities**:
 - AI-specific threat modeling (adversarial ML, data poisoning, model theft)
@@ -1738,7 +1738,7 @@ Based on organizations actively working to improve:
 | **RESPOND (RS)** | IM, ML | Issue remediation, incident response |
 | **RECOVER (RC)** | EH, ML | Backup, recovery, resilience |
 
-**Coverage**: HAIAMM implements CSF 2.0 for AI-operated security programs
+**Coverage**: HAIAMM implements CSF 2.0 for HAI security programs
 
 ---
 
@@ -1790,7 +1790,7 @@ Based on organizations actively working to improve:
 - ISO/IEC 42001:2023 - AI Management System
 - NIST Cybersecurity Framework 2.0 (2024)
 - NIST AI Risk Management Framework (2023)
-- OWASP SAMM 2.0 - Software Assurance Maturity Model
+- OpenSAMM v1.0 - Software Assurance Maturity Model
 
 **AI Security Research**:
 - MITRE ATLAS - Adversarial Threat Landscape for AI Systems
@@ -1830,7 +1830,7 @@ Based on organizations actively working to improve:
 - Effort Estimation
 
 **Acknowledgments**:
-- OWASP SAMM for maturity model methodology
+- OpenSAMM and BSIMM for maturity model methodology
 - NIST for AI and cybersecurity frameworks
 - ISO for security management standards
 - **Jason Haddix** and the Arcanum Security team for the Arcanum Prompt Injection Taxonomy (CC BY 4.0), which provides comprehensive prompt injection attack coverage integrated into HAIAMM v2.0

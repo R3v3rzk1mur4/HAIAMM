@@ -157,7 +157,7 @@ Industry process automation contributions:
 - **Standards Development**: Contribute to process automation standards (SOAR best practices, AI-augmented incident response frameworks, automated compliance standards)
 - **Open-Source Process Automation**: Publish SOAR playbooks, workflow templates, integration scripts as open source
 - **ITIL/Process Framework Evolution**: Contribute to process frameworks adapting for AI (ITIL AI guidance, CMMI for AI-augmented processes)
-- **Industry Working Groups**: Participate in industry groups on AI security operations (FIRST, ISACs, security operations forums)
+- **Industry Working Groups**: Participate in industry groups on HAI security operations (FIRST, ISACs, security operations forums)
 - **Blog Posts and Case Studies**: Share AI process automation experiences (efficiency gains, lessons learned, implementation guidance)
 
 Process training effectiveness measurement:

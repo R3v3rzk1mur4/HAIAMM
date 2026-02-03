@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Identify and analyze threats specific to AI-operated vendor security and third-party risk management operations
+**Objective:** Identify and analyze threats specific to HAI vendor security and third-party risk management operations
 
 **Description:** Build and maintain threat models that account for unique attack vectors, failure modes, and adversarial risks when AI agents perform critical vendor security and third-party risk management functions such as automated vendor risk assessment, security questionnaire analysis, continuous vendor security monitoring, Software Composition Analysis (SCA), Software Bill of Materials (SBOM) analysis, supply chain threat detection, vendor breach monitoring, fourth-party (subprocessor) risk management, contract security clause review, vendor access governance, and vendor incident response coordination.
 
-**Context:** AI agents operating vendor security and third-party risk management create novel threat surfaces beyond traditional vendor management risks. Adversaries may attempt supply chain attacks exploiting AI vendor assessment blind spots (malicious vendor approved due to AI risk scoring error), data poisoning to corrupt vendor risk models (training AI that high-risk vendors are acceptable), prompt injection in vendor security questionnaires (manipulating AI analysis to approve insecure vendors), model inversion to extract sensitive vendor intelligence from AI assessment models, adversarial package injection evading AI SCA detection (malicious dependencies bypassing AI supply chain scanning), and vendor compromise enabling indirect organizational breach (attackers pivoting through approved vendors AI monitors). Additionally, AI vendor security agents face operational threats: false negatives (missing critical vendor risks, approving insecure vendors, failing to detect supply chain attacks, overlooking vendor breaches), false positives (blocking legitimate vendors, excessive vendor risk alerts causing analyst fatigue, over-restrictive dependency scanning breaking builds), model drift (degraded vendor risk assessment accuracy as vendor threat landscape evolves), catastrophic vendor approval errors (AI approves high-risk vendor enabling data breach, AI misses vendor compromise affecting organization), and vendor dependency risks (over-reliance on AI vendor monitoring creating blind spots when AI fails to detect vendor security degradation). Vendor-specific challenges include supply chain attack sophistication (state-sponsored supply chain compromises, sophisticated dependency attacks), fourth-party visibility limitations (vendors' vendors creating extended risk beyond AI monitoring), regulatory third-party risk requirements (GDPR Article 28, HIPAA BAA, PCI-DSS 12.8 requiring vendor due diligence), vendor concentration risks (single vendor failures cascading across organization), vendor data access implications (vendors processing sensitive data create outsized breach risk), and the fundamental challenge that vendor security posture is partially opaque (organizations depend on vendor self-attestation, third-party assessments AI must interpret, and external signals that may lag actual vendor security state). This practice ensures organizations proactively identify, assess, and mitigate threats specific to AI-operated vendor security before supply chain attacks, vendor breaches, catastrophic vendor approval errors, or regulatory compliance failures in third-party risk management occur.
+**Context:** AI agents operating vendor security and third-party risk management create novel threat surfaces beyond traditional vendor management risks. Adversaries may attempt supply chain attacks exploiting AI vendor assessment blind spots (malicious vendor approved due to AI risk scoring error), data poisoning to corrupt vendor risk models (training AI that high-risk vendors are acceptable), prompt injection in vendor security questionnaires (manipulating AI analysis to approve insecure vendors), model inversion to extract sensitive vendor intelligence from AI assessment models, adversarial package injection evading AI SCA detection (malicious dependencies bypassing AI supply chain scanning), and vendor compromise enabling indirect organizational breach (attackers pivoting through approved vendors AI monitors). Additionally, AI vendor security agents face operational threats: false negatives (missing critical vendor risks, approving insecure vendors, failing to detect supply chain attacks, overlooking vendor breaches), false positives (blocking legitimate vendors, excessive vendor risk alerts causing analyst fatigue, over-restrictive dependency scanning breaking builds), model drift (degraded vendor risk assessment accuracy as vendor threat landscape evolves), catastrophic vendor approval errors (AI approves high-risk vendor enabling data breach, AI misses vendor compromise affecting organization), and vendor dependency risks (over-reliance on AI vendor monitoring creating blind spots when AI fails to detect vendor security degradation). Vendor-specific challenges include supply chain attack sophistication (state-sponsored supply chain compromises, sophisticated dependency attacks), fourth-party visibility limitations (vendors' vendors creating extended risk beyond AI monitoring), regulatory third-party risk requirements (GDPR Article 28, HIPAA BAA, PCI-DSS 12.8 requiring vendor due diligence), vendor concentration risks (single vendor failures cascading across organization), vendor data access implications (vendors processing sensitive data create outsized breach risk), and the fundamental challenge that vendor security posture is partially opaque (organizations depend on vendor self-attestation, third-party assessments AI must interpret, and external signals that may lag actual vendor security state). This practice ensures organizations proactively identify, assess, and mitigate threats specific to HAI vendor security before supply chain attacks, vendor breaches, catastrophic vendor approval errors, or regulatory compliance failures in third-party risk management occur.
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish baseline threat awareness for AI-operated vendor security and third-party risk management
+### Objective: Establish baseline threat awareness for HAI vendor security and third-party risk management
 
 At this level, organizations recognize that AI agents performing vendor security and third-party risk management introduce unique threats beyond traditional manual vendor assessments and begin documenting these AI-specific threat scenarios.
 
@@ -89,7 +89,7 @@ Document threat scenarios with specific examples relevant to your vendor portfol
 
 **B) Establish threat awareness training for vendor risk, procurement, and security teams**
 
-Educate vendor risk analysts, third-party risk managers, procurement teams, security operations, legal counsel, and supply chain security specialists on threats specific to AI-operated vendor security. Teams must understand that AI vendor assessment is powerful but introduces new attack vectors and failure modes that don't exist with traditional manual vendor due diligence.
+Educate vendor risk analysts, third-party risk managers, procurement teams, security operations, legal counsel, and supply chain security specialists on threats specific to HAI vendor security. Teams must understand that AI vendor assessment is powerful but introduces new attack vectors and failure modes that don't exist with traditional manual vendor due diligence.
 
 Training coverage:
 
@@ -140,7 +140,7 @@ At this level, organizations assess AI vendor security threats based on technica
 
 #### Activities
 
-**A) Develop abuse cases and attack trees for AI-operated vendor security**
+**A) Develop abuse cases and attack trees for HAI vendor security**
 
 For each AI agent performing vendor security, create detailed abuse cases showing how adversaries could exploit or degrade AI vendor security operations. Model attack paths from initial vendor compromise to organizational impact despite AI vendor monitoring.
 
@@ -315,7 +315,7 @@ At this level, organizations proactively track supply chain security research, r
 
 **A) Monitor industry threat intelligence for AI vendor security vulnerabilities, supply chain attacks, and vendor breach patterns**
 
-Establish continuous monitoring of supply chain security research, vendor breach disclosures, third-party risk management best practices, and AI vendor assessment failure patterns to identify new threats to AI-operated vendor security.
+Establish continuous monitoring of supply chain security research, vendor breach disclosures, third-party risk management best practices, and AI vendor assessment failure patterns to identify new threats to HAI vendor security.
 
 Threat intelligence sources:
 
@@ -436,7 +436,7 @@ Document all adversarial testing and vendor security validation results. Share f
 ## Key Success Indicators
 
 **Level 1:**
-- Documented threat scenarios specific to AI-operated vendor security (minimum 15 scenarios covering supply chain attacks, vendor breaches, assessment manipulation, fourth-party risks, regulatory violations)
+- Documented threat scenarios specific to HAI vendor security (minimum 15 scenarios covering supply chain attacks, vendor breaches, assessment manipulation, fourth-party risks, regulatory violations)
 - Threat awareness training delivered to vendor risk analysts, procurement, supply chain teams, legal counsel (>80% completion within 90 days of AI vendor tool deployment)
 - Inventory of AI vendor security agents mapped to threat scenarios (each AI tool has 3+ documented threat scenarios and supply chain attack vectors)
 - Executive awareness of vendor security risks and supply chain attack threats (CISO/CPO briefed on AI-specific vendor security threats, supply chain attack sophistication)
@@ -465,7 +465,7 @@ Document all adversarial testing and vendor security validation results. Share f
 ## Common Pitfalls
 
 **Level 1:**
-- ❌ Threat scenarios are generic (not specific to AI-operated vendor security) - "vendors get hacked" instead of "AI continuous monitoring misses vendor breach for 60 days enabling organizational compromise"
+- ❌ Threat scenarios are generic (not specific to HAI vendor security) - "vendors get hacked" instead of "AI continuous monitoring misses vendor breach for 60 days enabling organizational compromise"
 - ❌ Training is compliance theater (slide deck on vendor risk, no hands-on supply chain security exercises, no validation of assessment skills)
 - ❌ Threat inventory is incomplete (missing supply chain attack vectors, fourth-party risks, dependency vulnerabilities, vendor AI tool risks)
 - ❌ No consideration of supply chain attack sophistication (assume basic vendor breaches, ignore nation-state supply chain attacks, dependency confusion, SBOM manipulation)
@@ -502,7 +502,7 @@ Document all adversarial testing and vendor security validation results. Share f
 
 **Level 1:**
 1. Have you documented threat scenarios specific to AI agents performing vendor security and third-party risk management (vendor assessment, continuous monitoring, supply chain scanning, SBOM analysis)?
-2. Have vendor risk analysts, procurement teams, supply chain security specialists, and legal counsel received training on threats unique to AI-operated vendor security and supply chain attack vectors?
+2. Have vendor risk analysts, procurement teams, supply chain security specialists, and legal counsel received training on threats unique to HAI vendor security and supply chain attack vectors?
 3. Is there an inventory mapping each AI vendor security agent to potential threat scenarios, supply chain attack vectors, regulatory obligations, and vendor types managed?
 
 **Level 2:**
@@ -519,7 +519,7 @@ Document all adversarial testing and vendor security validation results. Share f
 
 ## Vendor-Specific Considerations
 
-Threat Assessment for AI-operated vendor security must address unique challenges in third-party risk management, supply chain security, and extended vendor ecosystems:
+Threat Assessment for HAI vendor security must address unique challenges in third-party risk management, supply chain security, and extended vendor ecosystems:
 
 - **Supply Chain Attack Sophistication**: Nation-state actors increasingly target supply chains (SolarWinds, Kaseya) - threat models must account for advanced persistent threats via vendors
 - **Fourth-Party Visibility Limits**: Organizations often have limited visibility into vendor's vendors (subprocessors) - extended supply chain creates blind spots beyond AI monitoring scope

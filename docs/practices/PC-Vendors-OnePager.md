@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Establish and maintain policies governing AI-operated vendor security and demonstrate compliance with third-party risk management requirements
+**Objective:** Establish and maintain policies governing HAI vendor security and demonstrate compliance with third-party risk management requirements
 
 **Description:** Build and maintain policies, standards, and compliance programs that govern how AI agents operate vendor security and third-party risk management functions. Ensure AI-driven vendor security decisions (vendor risk assessments, continuous monitoring, security questionnaire analysis, supply chain threat detection) are auditable, defensible, and meet regulatory and contractual third-party risk requirements.
 
-**Context:** Organizations must establish clear policies for AI agents that manage vendor security - defining acceptable AI autonomy for vendor risk scoring, security assessment automation, and supply chain threat detection. Auditors, regulators, and customers scrutinize third-party risk management, requiring documented policies, justification for vendor approval decisions, and evidence that AI-operated vendor security balances risk mitigation with business enablement.
+**Context:** Organizations must establish clear policies for AI agents that manage vendor security - defining acceptable AI autonomy for vendor risk scoring, security assessment automation, and supply chain threat detection. Auditors, regulators, and customers scrutinize third-party risk management, requiring documented policies, justification for vendor approval decisions, and evidence that HAI vendor security balances risk mitigation with business enablement.
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish foundational policies for AI-operated vendor security and third-party risk management
+### Objective: Establish foundational policies for HAI vendor security and third-party risk management
 
 At this level, organizations create initial policies governing AI agent operations in vendor security and identify applicable compliance and contractual requirements for third-party risk.
 
@@ -48,7 +48,7 @@ Compliance framework identification:
 - **Contractual Obligations**: Customer vendor security requirements (banks, healthcare, government requiring vendor due diligence), MSA security commitments, insurance policy requirements
 - **Supply Chain Standards**: NIST SSDF (Secure Software Development Framework), EO 14028 SBOM requirements, SLSA supply chain levels
 
-Document third-party risk requirements specific to AI-operated vendor security:
+Document third-party risk requirements specific to HAI vendor security:
 - **Vendor Due Diligence**: Does AI vendor assessment meet due diligence requirements (SOC 2 Type II requirement for vendor reviews, customer contractual vendor security requirements)?
 - **Subprocessor Management**: Does AI support GDPR Article 28 subprocessor notification and approval requirements?
 - **Continuous Monitoring**: Does AI continuous vendor monitoring meet regulatory expectations (FFIEC ongoing monitoring, PCI-DSS annual vendor reviews)?
@@ -130,7 +130,7 @@ Advanced supply chain security:
 
 **B) Lead development of third-party risk and supply chain security AI standards**
 
-Engage with industry groups, regulators, and supply chain security initiatives to shape AI-operated vendor security standards, with focus on explainability, vendor privacy, and supply chain transparency.
+Engage with industry groups, regulators, and supply chain security initiatives to shape HAI vendor security standards, with focus on explainability, vendor privacy, and supply chain transparency.
 
 Industry engagement activities:
 - **Standards Development**: Participate in third-party risk standards for AI (ISO 27001 A.15 AI guidance, NIST supply chain risk management for AI, SBOM standards development)
@@ -208,7 +208,7 @@ Value of vendor security leadership:
 
 **Level 1:**
 1. Do you have documented policies governing how AI agents operate vendor security and third-party risk management functions?
-2. Have you identified and documented compliance requirements (GDPR Article 28, HIPAA BAA, PCI-DSS 12.8, SOC 2) that apply to AI-operated vendor security?
+2. Have you identified and documented compliance requirements (GDPR Article 28, HIPAA BAA, PCI-DSS 12.8, SOC 2) that apply to HAI vendor security?
 3. Is a vendor classification framework defined with different AI oversight requirements based on vendor risk and criticality?
 
 **Level 2:**
@@ -225,7 +225,7 @@ Value of vendor security leadership:
 
 ## Compliance & Third-Party Risk Considerations
 
-AI-operated vendor security must address specific regulatory and contractual requirements:
+HAI vendor security must address specific regulatory and contractual requirements:
 
 ### GDPR (EU General Data Protection Regulation)
 - **Article 28**: Processor requirements - Vendor DPAs required, vendor security obligations documented

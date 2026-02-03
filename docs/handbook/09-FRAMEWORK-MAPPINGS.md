@@ -29,7 +29,7 @@ HAIAMM is designed to complement, not replace, existing security frameworks. Thi
 
 | Framework | Focus | Structure | AI-Specific |
 |-----------|-------|-----------|-------------|
-| **HAIAMM** | AI-operated security | 4 functions, 12 practices, 6 domains | ✅ Yes |
+| **HAIAMM** | HAI security | 4 functions, 12 practices, 6 domains | ✅ Yes |
 | **BSIMM** | Software security (descriptive) | 4 domains, 12 practices, 128 activities | ❌ No |
 | **OpenSAMM v1.0** | Software security (prescriptive) | 4 functions, 12 practices | ❌ No |
 | **NIST AI RMF** | AI risk management | 4 functions, multiple categories | ✅ Yes |
@@ -43,7 +43,7 @@ HAIAMM is designed to complement, not replace, existing security frameworks. Thi
 
 BSIMM (Building Security In Maturity Model) is a descriptive model based on observations from 130+ organizations. It measures what organizations actually do, not what they should do.
 
-**Key Difference:** BSIMM describes software security practices; HAIAMM prescribes AI-operated security practices.
+**Key Difference:** BSIMM describes software security practices; HAIAMM prescribes HAI security practices.
 
 ### Domain Alignment
 
@@ -147,7 +147,7 @@ BSIMM (Building Security In Maturity Model) is a descriptive model based on obse
 
 OpenSAMM (Software Assurance Maturity Model) v1.0 is a prescriptive framework for software security programs. HAIAMM was designed with awareness of OpenSAMM's structure.
 
-**Key Difference:** OpenSAMM addresses human software development; HAIAMM addresses AI-operated security.
+**Key Difference:** OpenSAMM addresses human software development; HAIAMM addresses HAI security.
 
 ### Function Alignment
 
@@ -272,7 +272,7 @@ NIST AI RMF (AI Risk Management Framework) provides guidance for managing AI sys
 
 NIST CSF 2.0 (Cybersecurity Framework) is the leading cybersecurity framework. Version 2.0 added a GOVERN function.
 
-**Key Difference:** NIST CSF covers all cybersecurity; HAIAMM focuses on AI security operations.
+**Key Difference:** NIST CSF covers all cybersecurity; HAIAMM focuses on HAI security operations.
 
 ### Function Alignment
 

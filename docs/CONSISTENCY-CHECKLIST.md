@@ -29,7 +29,7 @@
 ### ❌ Common Errors to Avoid
 
 - [ ] Remove ALL hyphens from "Human Assisted Intelligence"
-- [ ] Never use "AI-operated security programs"
+- [ ] Never use "HAI security programs"
 - [ ] Never use "AI security agents" or "AI security tools"
 - [ ] Avoid "Code Review" (correct term: "Implementation Review")
 
@@ -136,7 +136,7 @@
 > HAIAMM assesses the maturity of organizations designing and implementing Human Assisted Intelligence (HAI) solutions - providing foundational practices to ensure **trust, safety, and security**.
 
 **Incorrect:**
-> ~~HAIAMM is for AI-operated security programs~~ ❌
+> ~~HAIAMM is for HAI security programs~~ ❌
 > ~~HAIAMM focuses only on security~~ ❌
 
 ### Use Cases (MUST Include)

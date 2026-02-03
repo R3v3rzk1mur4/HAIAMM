@@ -18,7 +18,7 @@ This guide explains how to use HAIAMM assessment questionnaires for evaluating A
 ```
 What do you need to assess?
 │
-├─► Organization's AI security program
+├─► Organization's HAI security program
 │   └─► Full Maturity Assessment
 │
 ├─► Third-party AI service or vendor

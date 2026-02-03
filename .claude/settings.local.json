@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(git fetch:*)",
+      "Bash(git merge:*)",
+      "Bash(git rm:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(git pull:*)",
+      "Bash(git tag:*)",
+      "Bash(gh release create:*)",
+      "Bash(pandoc:*)",
+      "Bash(brew install:*)",
+      "Bash(npx --version)",
+      "Bash(npx md-to-pdf:*)",
+      "Bash(git stash:*)",
+      "Bash(gh release upload:*)",
+      "Bash(gh release view:*)",
+      "Bash(cat:*)",
+      "WebSearch"
+    ]
+  }
+}

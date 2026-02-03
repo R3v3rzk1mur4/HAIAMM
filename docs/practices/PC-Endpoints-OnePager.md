@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Establish and maintain policies governing AI-operated endpoint security and demonstrate compliance with endpoint protection requirements
+**Objective:** Establish and maintain policies governing HAI endpoint security and demonstrate compliance with endpoint protection requirements
 
 **Description:** Build and maintain policies, standards, and compliance programs that govern how AI agents operate endpoint security functions. Ensure AI-driven endpoint security decisions (threat detection, automated response, patch deployment, device compliance enforcement) are auditable, justified, and meet regulatory and operational requirements.
 
-**Context:** Organizations must establish clear policies for AI agents that secure endpoints - defining acceptable AI autonomy for threat response, patch management, and device quarantine. Auditors and business stakeholders scrutinize AI endpoint security decisions that impact user productivity, requiring documented policies, justification for AI actions, and evidence that AI-operated endpoint security balances security with operational continuity.
+**Context:** Organizations must establish clear policies for AI agents that secure endpoints - defining acceptable AI autonomy for threat response, patch management, and device quarantine. Auditors and business stakeholders scrutinize AI endpoint security decisions that impact user productivity, requiring documented policies, justification for AI actions, and evidence that HAI endpoint security balances security with operational continuity.
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish foundational policies for AI-operated endpoint security
+### Objective: Establish foundational policies for HAI endpoint security
 
 At this level, organizations create initial policies governing AI agent operations in endpoint security and identify applicable compliance and operational requirements.
 
@@ -38,7 +38,7 @@ Example policy statements:
 - "All AI-driven endpoint quarantine decisions must log detection rationale for incident investigation and audit"
 - "AI endpoint security must maintain <5% false positive rate measured monthly; exceeding threshold triggers human review of AI detection logic"
 
-**B) Identify and document compliance requirements for AI-operated endpoint security**
+**B) Identify and document compliance requirements for HAI endpoint security**
 
 Inventory applicable regulatory and compliance frameworks that govern endpoint security, and identify specific requirements that apply when AI agents operate endpoint protection functions.
 
@@ -48,7 +48,7 @@ Compliance framework identification:
 - **Endpoint Management Standards**: Microsoft Security Baselines, CIS Benchmarks, DISA STIGs
 - **Business Continuity**: SLAs for endpoint availability, acceptable downtime windows
 
-Document compliance requirements specific to AI-operated endpoint security:
+Document compliance requirements specific to HAI endpoint security:
 - **Malware Protection**: Does AI endpoint security meet anti-malware requirements (PCI-DSS Requirement 5, HIPAA §164.308(a)(5)(ii)(B))?
 - **Patch Management**: Does AI patch deployment comply with timely patching requirements (PCI-DSS Requirement 6.2, critical patches within 30 days)?
 - **Access Control**: How do AI endpoint security controls enforce access policies (NIST CSF PR.AC controls)?
@@ -84,7 +84,7 @@ User impact governance:
 
 **B) Conduct regular endpoint security compliance validation and penetration testing**
 
-Establish regular compliance validation processes for AI-operated endpoint security, and include AI endpoint controls in penetration testing and red team exercises.
+Establish regular compliance validation processes for HAI endpoint security, and include AI endpoint controls in penetration testing and red team exercises.
 
 Compliance validation activities:
 - **Endpoint Control Testing**: Quarterly testing of AI endpoint security controls (verify AI detects test malware, test AI quarantine procedures, validate AI patch deployment)
@@ -206,7 +206,7 @@ Value of privacy-preserving leadership:
 
 **Level 1:**
 1. Do you have documented policies governing how AI agents operate endpoint security functions (threat detection, response, patch management)?
-2. Have you identified and documented compliance requirements (PCI-DSS, HIPAA, CIS Controls) that apply to AI-operated endpoint security?
+2. Have you identified and documented compliance requirements (PCI-DSS, HIPAA, CIS Controls) that apply to HAI endpoint security?
 3. Are device classifications defined with different AI oversight requirements based on device criticality and user role?
 
 **Level 2:**
@@ -223,7 +223,7 @@ Value of privacy-preserving leadership:
 
 ## Compliance & Privacy Considerations
 
-AI-operated endpoint security must address specific regulatory and privacy requirements:
+HAI endpoint security must address specific regulatory and privacy requirements:
 
 ### PCI-DSS (Payment Card Industry)
 - **Requirement 5**: AI anti-malware on endpoints accessing cardholder data

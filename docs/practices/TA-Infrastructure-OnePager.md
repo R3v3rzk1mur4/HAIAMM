@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Identify and analyze threats specific to AI-operated infrastructure security operations
+**Objective:** Identify and analyze threats specific to HAI infrastructure security operations
 
 **Description:** Build and maintain threat models that account for unique attack vectors, failure modes, and adversarial risks when AI agents perform critical infrastructure security functions such as cloud security posture management (CSPM), network anomaly detection, infrastructure vulnerability scanning, automated security hardening, configuration compliance monitoring, container/Kubernetes security, Infrastructure as Code (IaC) security analysis, and cloud workload protection.
 
-**Context:** AI agents operating infrastructure security create novel threat surfaces beyond traditional infrastructure risks. Adversaries may attempt prompt injection to manipulate cloud security configurations, adversarial network traffic to evade AI-driven threat detection, data poisoning to corrupt network anomaly baselines, model inversion to extract infrastructure topology from AI security models, and supply chain compromise of AI CSPM/CNAPP tools. Additionally, AI infrastructure security agents face operational threats: false negatives (missing critical cloud misconfigurations, undetected network intrusions), false positives (flagging compliant infrastructure as insecure, causing alert fatigue), model drift (degraded anomaly detection as infrastructure evolves), automated misconfiguration (AI changing firewall rules incorrectly, creating security gaps or service outages), and cascading failures (one AI-driven infrastructure change causing widespread impact across cloud environments). This practice ensures organizations proactively identify, assess, and mitigate threats specific to AI-operated infrastructure security before security incidents, compliance failures, or service disruptions occur.
+**Context:** AI agents operating infrastructure security create novel threat surfaces beyond traditional infrastructure risks. Adversaries may attempt prompt injection to manipulate cloud security configurations, adversarial network traffic to evade AI-driven threat detection, data poisoning to corrupt network anomaly baselines, model inversion to extract infrastructure topology from AI security models, and supply chain compromise of AI CSPM/CNAPP tools. Additionally, AI infrastructure security agents face operational threats: false negatives (missing critical cloud misconfigurations, undetected network intrusions), false positives (flagging compliant infrastructure as insecure, causing alert fatigue), model drift (degraded anomaly detection as infrastructure evolves), automated misconfiguration (AI changing firewall rules incorrectly, creating security gaps or service outages), and cascading failures (one AI-driven infrastructure change causing widespread impact across cloud environments). This practice ensures organizations proactively identify, assess, and mitigate threats specific to HAI infrastructure security before security incidents, compliance failures, or service disruptions occur.
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish baseline threat awareness for AI-operated infrastructure security
+### Objective: Establish baseline threat awareness for HAI infrastructure security
 
 At this level, organizations recognize that AI agents performing infrastructure security introduce unique threats beyond traditional infrastructure security risks and begin documenting these AI-specific threat scenarios.
 
@@ -74,7 +74,7 @@ Document threat scenarios with specific examples relevant to your infrastructure
 
 **B) Establish threat awareness training for infrastructure and security teams**
 
-Educate infrastructure engineers, cloud architects, security operations, and IT leadership on threats specific to AI-operated infrastructure security. Teams must understand that AI infrastructure security tools are powerful but introduce new attack vectors that don't exist with traditional manual infrastructure security reviews.
+Educate infrastructure engineers, cloud architects, security operations, and IT leadership on threats specific to HAI infrastructure security. Teams must understand that AI infrastructure security tools are powerful but introduce new attack vectors that don't exist with traditional manual infrastructure security reviews.
 
 Training coverage:
 
@@ -109,7 +109,7 @@ At this level, organizations assess AI infrastructure security threats based on 
 
 #### Activities
 
-**A) Develop abuse cases and attack trees for AI-operated infrastructure security**
+**A) Develop abuse cases and attack trees for HAI infrastructure security**
 
 For each AI agent performing infrastructure security, create detailed abuse cases showing how adversaries could exploit or degrade AI infrastructure security operations. Model attack paths from initial access to successful infrastructure compromise despite AI security defenses.
 
@@ -245,7 +245,7 @@ At this level, organizations proactively track adversarial ML research, real-wor
 
 **A) Monitor industry threat intelligence for AI infrastructure security tool vulnerabilities and attack techniques**
 
-Establish continuous monitoring of adversarial ML research, cloud security research, vulnerability databases, and AI security vendor advisories to identify new threats to AI-operated infrastructure security. Track both theoretical attacks (academic research) and real-world exploits (CVEs, incident reports, cloud security breaches).
+Establish continuous monitoring of adversarial ML research, cloud security research, vulnerability databases, and AI security vendor advisories to identify new threats to HAI infrastructure security. Track both theoretical attacks (academic research) and real-world exploits (CVEs, incident reports, cloud security breaches).
 
 Threat intelligence sources:
 
@@ -355,7 +355,7 @@ Document all adversarial testing results and share findings with AI infrastructu
 ## Key Success Indicators
 
 **Level 1:**
-- Documented threat scenarios specific to AI-operated infrastructure security (minimum 12 scenarios covering adversarial manipulation, data poisoning, operational failures, supply chain risks, AI-generated infrastructure risks)
+- Documented threat scenarios specific to HAI infrastructure security (minimum 12 scenarios covering adversarial manipulation, data poisoning, operational failures, supply chain risks, AI-generated infrastructure risks)
 - Threat awareness training delivered to infrastructure teams, security operations, and engineering leadership (>80% completion within 90 days of AI tool deployment)
 - Inventory of AI infrastructure security agents mapped to threat scenarios (each AI tool has 3+ documented threat scenarios)
 - Executive awareness of AI infrastructure security risks (CISO/CTO briefed on AI-specific infrastructure threats)
@@ -380,7 +380,7 @@ Document all adversarial testing results and share findings with AI infrastructu
 ## Common Pitfalls
 
 **Level 1:**
-- ❌ Threat scenarios are generic (not specific to AI-operated infrastructure security) - "AI tool gets hacked" instead of "Prompt injection in CSPM via resource metadata"
+- ❌ Threat scenarios are generic (not specific to HAI infrastructure security) - "AI tool gets hacked" instead of "Prompt injection in CSPM via resource metadata"
 - ❌ Training is compliance theater (slide deck on AI threats, no hands-on cloud security exercises, no testing of knowledge retention)
 - ❌ Threat inventory is incomplete (missing AI network detection, shadow AI tools, AI-generated IaC tools like Copilot for Terraform)
 - ❌ No consideration of AI-generated infrastructure risks (assume AI-generated Terraform/Kubernetes configs are always secure)
@@ -411,7 +411,7 @@ Document all adversarial testing results and share findings with AI infrastructu
 
 **Level 1:**
 1. Have you documented threat scenarios specific to AI agents performing infrastructure security operations (cloud security, network detection, vulnerability scanning, automated remediation)?
-2. Have infrastructure teams, cloud architects, and security operations received training on threats unique to AI-operated infrastructure security?
+2. Have infrastructure teams, cloud architects, and security operations received training on threats unique to HAI infrastructure security?
 3. Is there an inventory mapping each AI infrastructure security agent to potential threat scenarios, failure modes, and cloud environments?
 
 **Level 2:**
@@ -428,7 +428,7 @@ Document all adversarial testing results and share findings with AI infrastructu
 
 ## Infrastructure-Specific Considerations
 
-Threat Assessment for AI-operated infrastructure security must address unique challenges in cloud infrastructure, network operations, and infrastructure automation:
+Threat Assessment for HAI infrastructure security must address unique challenges in cloud infrastructure, network operations, and infrastructure automation:
 
 - **Cloud Multi-Tenancy Risks**: AI infrastructure security tools operate in shared cloud environments where adversaries may exploit multi-tenant isolation weaknesses to attack AI security agents or evade detection
 - **Infrastructure Blast Radius**: Single AI-driven infrastructure misconfiguration can cascade across hundreds of services, containers, or cloud resources - threat models must account for wide-impact scenarios

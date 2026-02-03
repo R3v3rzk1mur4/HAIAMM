@@ -221,7 +221,7 @@ Built for the AI security era (not retrofitted)
 - Slow to update (ISO 27001: 2013 → 2022 update = 9 years)
 
 **HAIAMM:**
-- Built FROM THE GROUND UP for AI-operated security
+- Built FROM THE GROUND UP for HAI security
 - Open source = rapid community updates
 - Addresses current threats (Schneier's trustworthy AI principles)
 - Can evolve with AI security landscape
@@ -358,7 +358,7 @@ If maturity models have too much baggage, consider alternative framing:
 
 **3. Proven Approach, Modern Execution:**
 - "Following the successful OpenSAMM model..."
-- "...but built for AI-operated security with outcome focus"
+- "...but built for HAI security with outcome focus"
 - "Best of both worlds: Established framework + modern effectiveness"
 
 ---
@@ -383,7 +383,7 @@ Create content that directly addresses maturity model skeptics:
 
 **Q: "How is HAIAMM different from CMMI/other maturity models?"**
 **A:** Three key differences:
-1. Built for AI-operated security (not retrofitted)
+1. Built for HAI security (not retrofitted)
 2. Outcome-focused questions (prove effectiveness, not just process)
 3. Flexible tiers (choose depth based on your needs)
 

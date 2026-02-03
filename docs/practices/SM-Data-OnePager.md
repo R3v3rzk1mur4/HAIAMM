@@ -5,11 +5,11 @@
 
 ### Practice Overview
 
-**Objective:** Establish unified strategic roadmap for AI-operated data security within the organization
+**Objective:** Establish unified strategic roadmap for HAI data security within the organization
 
 **Description:** Build and maintain a Human-Assisted Intelligence Assurance program to better understand and manage risks when AI agents operate critical data security functions such as data classification, access monitoring, DLP (Data Loss Prevention), encryption management, and privacy compliance.
 
-**Context:** Organizations increasingly deploy AI agents to secure data - from automated data discovery and classification to AI-driven access anomaly detection and privacy compliance scanning. This practice ensures strategic oversight of these AI security operations, measuring their effectiveness and aligning AI agent activities with data protection requirements and business risk tolerance.
+**Context:** Organizations increasingly deploy AI agents to secure data - from automated data discovery and classification to AI-driven access anomaly detection and privacy compliance scanning. This practice ensures strategic oversight of these HAI security operations, measuring their effectiveness and aligning AI agent activities with data protection requirements and business risk tolerance.
 
 ---
 
@@ -20,7 +20,7 @@ At this level, organizations recognize that AI agents are performing data securi
 
 #### Activities
 
-**A) Estimate overall risk in the context of AI-operated data security**
+**A) Estimate overall risk in the context of HAI data security**
 
 Create an inventory of AI agents operating data security functions and assess the risk of AI-driven decisions. Identify critical data assets (customer PII, financial records, intellectual property, health records) where AI agents make security or compliance decisions. Document potential failure scenarios: What happens if an AI agent misclassifies sensitive data? Fails to detect unauthorized access? Incorrectly flags compliant data handling as a violation?
 
@@ -45,7 +45,7 @@ Key elements:
 
 **C) Establish foundational threat intelligence for AI data security**
 
-Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform AI-operated data security decisions.
+Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform HAI data security decisions.
 
 **Data Domain Threat Intelligence Requirements**:
 
@@ -151,7 +151,7 @@ Example goals:
 ## Maturity Level 3
 ### Objective: Align AI data security investment with demonstrable privacy risk reduction and compliance efficiency
 
-At this level, organizations prove ROI of AI-operated data security through data-driven metrics, regulatory compliance efficiency, and industry benchmarking.
+At this level, organizations prove ROI of HAI data security through data-driven metrics, regulatory compliance efficiency, and industry benchmarking.
 
 #### Activities
 
@@ -283,7 +283,7 @@ Present to executives and board as: "AI data security agents cost $X, prevented 
 
 ## Regulatory Considerations
 
-AI-operated data security must meet regulatory standards for data protection:
+HAI data security must meet regulatory standards for data protection:
 
 - **GDPR Article 25**: Data protection by design and default - AI agents must implement appropriate technical measures
 - **GDPR Article 32**: Security of processing - AI security measures must ensure appropriate level of security

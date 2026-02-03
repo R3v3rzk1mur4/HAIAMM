@@ -11,7 +11,7 @@
 
 **Verdict**: ✅ **INTEGRATION ALIGNS WITH CORE MISSION**
 
-The Arcanum Prompt Injection Taxonomy integration is **appropriate, well-scoped, and enhances HAIAMM's core purpose** as a capability maturity model for building comprehensive human-assisted AI security programs. The integration addresses a real, emerging threat to AI-operated security systems (LLM-based code reviewers, security chatbots, AI-powered SAST/DAST, SOAR platforms) while maintaining HAIAMM's maturity-focused structure.
+The Arcanum Prompt Injection Taxonomy integration is **appropriate, well-scoped, and enhances HAIAMM's core purpose** as a capability maturity model for building comprehensive HAI security programs. The integration addresses a real, emerging threat to HAI security systems (LLM-based code reviewers, security chatbots, AI-powered SAST/DAST, SOAR platforms) while maintaining HAIAMM's maturity-focused structure.
 
 **Key Findings**:
 - ✅ Integration scope is appropriate (9/54 files = 16.7%, focused on LLM-applicable domains)
@@ -31,7 +31,7 @@ From the handbook: *"HAIAMM provides a comprehensive framework for organizations
 
 **Core Tenets**:
 1. **AI-Operated Security Programs**: AI agents performing security functions (SAST, DAST, CSPM, EDR, DLP, SOAR)
-2. **Human-Assisted Intelligence**: Humans oversee, validate, and augment AI security operations
+2. **Human-Assisted Intelligence**: Humans oversee, validate, and augment HAI security operations
 3. **Capability Maturity Model**: Progressive capability building across 3 maturity levels
 4. **Multi-Domain Coverage**: 6 domains × 9 practices = 54 combinations
 5. **Practical Implementation**: Specific guidance, metrics, effort estimates
@@ -39,7 +39,7 @@ From the handbook: *"HAIAMM provides a comprehensive framework for organizations
 ### How Prompt Injection Integration Aligns
 
 #### ✅ **Alignment: AI-Operated Security Programs**
-**Question**: Do modern AI security programs use LLMs vulnerable to prompt injection?
+**Question**: Do modern HAI security programs use LLMs vulnerable to prompt injection?
 **Answer**: YES - Increasingly common
 
 **Evidence from HAIAMM itself**:
@@ -638,10 +638,10 @@ PI-002: Jailbreak / Safety Bypass
 
 ### Overall Assessment: ✅ **INTEGRATION IS SOUND AND ALIGNED**
 
-**The Arcanum Prompt Injection Taxonomy integration successfully enhances HAIAMM's core mission as a capability maturity model for human-assisted AI security programs.**
+**The Arcanum Prompt Injection Taxonomy integration successfully enhances HAIAMM's core mission as a capability maturity model for HAI security programs.**
 
 ### Strengths Summary
-1. ✅ **Mission-Aligned**: Addresses real threat to AI-operated security systems (LLM-based code reviewers, chatbots, SOAR, DLP)
+1. ✅ **Mission-Aligned**: Addresses real threat to HAI security systems (LLM-based code reviewers, chatbots, SOAR, DLP)
 2. ✅ **Maturity-Focused**: Maintains 3-level progression (awareness → risk-based → continuous adaptation)
 3. ✅ **Human-Assisted Paradigm**: Reinforces human oversight requirements throughout
 4. ✅ **Appropriately Scoped**: 16.7% of framework (9/54 files), focused on LLM-applicable domains
@@ -669,7 +669,7 @@ PI-002: Jailbreak / Safety Bypass
 The integration is **production-ready**, provides **immediate value** to organizations deploying LLM-based security systems, and **maintains HAIAMM's integrity** as a capability maturity model. Identified gaps are **enhancements, not blockers**.
 
 **Suggested Messaging**:
-> "HAIAMM v2.0.1 now includes industry-leading prompt injection security guidance, derived from the Arcanum Prompt Injection Taxonomy by Jason Haddix. Organizations can now build comprehensive AI-operated security programs that address both traditional AI/ML threats and emerging LLM-specific attacks. This enhancement maintains HAIAMM's maturity-focused structure while providing actionable, specific guidance for securing LLM-based security tools (AI code reviewers, security chatbots, SOAR platforms, DLP systems, and compliance automation)."
+> "HAIAMM v2.0.1 now includes industry-leading prompt injection security guidance, derived from the Arcanum Prompt Injection Taxonomy by Jason Haddix. Organizations can now build comprehensive HAI security programs that address both traditional AI/ML threats and emerging LLM-specific attacks. This enhancement maintains HAIAMM's maturity-focused structure while providing actionable, specific guidance for securing LLM-based security tools (AI code reviewers, security chatbots, SOAR platforms, DLP systems, and compliance automation)."
 
 ---
 
@@ -677,7 +677,7 @@ The integration is **production-ready**, provides **immediate value** to organiz
 
 - **Analysis Type**: Post-Integration Quality Assessment
 - **Scope**: HAIAMM v2.0.1 Arcanum Prompt Injection Taxonomy Integration
-- **Focus**: Alignment with core mission as capability maturity model for human-assisted AI security programs
+- **Focus**: Alignment with core mission as capability maturity model for HAI security programs
 - **Date**: 2025-12-26
 - **Analyst**: AI Assistant
 - **Methodology**: Structural analysis, content review, maturity model assessment, gap analysis, risk evaluation

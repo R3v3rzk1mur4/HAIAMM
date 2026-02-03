@@ -5,7 +5,7 @@
 
 ## Purpose
 
-This questionnaire assesses organizational maturity in identifying and analyzing threats specific to AI-operated data security operations. It evaluates threat modeling, risk prioritization, threat intelligence monitoring, and adversarial testing practices for AI agents performing data discovery, classification, DLP, access monitoring, privacy compliance, and DSAR automation in the Data domain.
+This questionnaire assesses organizational maturity in identifying and analyzing threats specific to HAI data security operations. It evaluates threat modeling, risk prioritization, threat intelligence monitoring, and adversarial testing practices for AI agents performing data discovery, classification, DLP, access monitoring, privacy compliance, and DSAR automation in the Data domain.
 
 ---
 
@@ -79,7 +79,7 @@ ___________________________________________________________________
 
 ### Question 1.2: Threat Awareness Training for Data Security Teams
 
-**Question:** Have DPOs, data security teams, legal counsel, and leadership received training on threats unique to AI-operated data security and AI-related privacy risks?
+**Question:** Have DPOs, data security teams, legal counsel, and leadership received training on threats unique to HAI data security and AI-related privacy risks?
 
 **Answer:** ☐ Yes ☐ No
 

@@ -3,13 +3,13 @@
 
 **Date:** December 18, 2025
 **Version:** 1.0
-**Focus:** Most fundamental controls for building AI security programs (Maturity Levels 1 → 2 → 3)
+**Focus:** Most fundamental controls for building HAI security programs (Maturity Levels 1 → 2 → 3)
 
 ---
 
 ## PHILOSOPHY: BASICS FIRST
 
-HAIAMM assesses how well **AI agents perform security work**, not how to secure AI systems. This roadmap identifies the **most fundamental controls** organizations need when building AI-operated security programs.
+HAIAMM assesses how well **AI agents perform security work**, not how to secure AI systems. This roadmap identifies the **most fundamental controls** organizations need when building HAI security programs.
 
 **Progression:**
 - **Level 1 (Basic):** Can AI agents do security work at all?
@@ -54,7 +54,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
 #### 2. IDENTIFICATION & AUTHENTICATION (IA) - "Do we know which AI agent did what?"
 
 **NIST Control:** IA.3.083 - Identify information system users
-**Why Fundamental:** If you can't identify which AI agent took an action, you can't trust AI security operations.
+**Why Fundamental:** If you can't identify which AI agent took an action, you can't trust HAI security operations.
 
 **HAIAMM Assessment:**
 - **L1.IA.Q1:** "Does each AI security agent have a unique identity for tracking actions?"
@@ -169,7 +169,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
 #### 8. RISK ASSESSMENT (RA) - "Do humans understand the risks of using AI for security?"
 
 **NIST Control:** RA.3.161 - Conduct risk assessments
-**Why Fundamental:** AI security operations create new risks you must identify.
+**Why Fundamental:** HAI security operations create new risks you must identify.
 
 **HAIAMM Assessment:**
 - **L1.RA.Q1:** "Have you assessed the risks of AI agents performing security work?"
@@ -182,7 +182,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
   - Risk 2: AI fooled by adversarial input → Mitigation: Multi-AI validation
   - Risk 3: AI over-privileges itself → Mitigation: Least-privilege enforcement
 
-**Human Verification:** "Can humans explain 3 risks of AI security operations and mitigations?"
+**Human Verification:** "Can humans explain 3 risks of HAI security operations and mitigations?"
 
 ---
 
@@ -201,7 +201,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
 - Documented procedures: "When AI Threat Detector Alerts You"
 - Quarterly drills: "Responding to AI-Detected Incidents"
 
-**Human Verification:** "Can humans demonstrate they've been trained on AI security operations?"
+**Human Verification:** "Can humans demonstrate they've been trained on HAI security operations?"
 
 ---
 
@@ -238,7 +238,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
 | 6 | Inventory | Can you list all AI security agents deployed? | ☐ Yes ☐ No |
 | 7 | Effectiveness | Can AI agents find real security problems? | ☐ Yes ☐ No |
 | 8 | Risk Assessment | Have you assessed AI security risks? | ☐ Yes ☐ No |
-| 9 | Training | Are staff trained on AI security operations? | ☐ Yes ☐ No |
+| 9 | Training | Are staff trained on HAI security operations? | ☐ Yes ☐ No |
 | 10 | Output Protection | Are AI security reports access-controlled? | ☐ Yes ☐ No |
 
 **If you can't answer YES to all 10, you're not ready for Level 2.**
@@ -261,7 +261,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
 
 **Level 2 = Level 1 + Documented Processes + Validation + Continuous Monitoring**
 
-#### 11. POLICY & COMPLIANCE (PC) - "Are AI security operations governed by documented policies?"
+#### 11. POLICY & COMPLIANCE (PC) - "Are HAI security operations governed by documented policies?"
 
 **NIST Control:** PL.3.001 - Develop security plans
 **Why Fundamental:** Ad-hoc AI security creates gaps; documented policies ensure consistency.
@@ -498,7 +498,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
 **Why Fundamental:** Identifying risks without mitigation is security theater.
 
 **HAIAMM Assessment:**
-- **L2.RA.Q1:** "Do you have documented risk mitigation strategies for AI security operations?"
+- **L2.RA.Q1:** "Do you have documented risk mitigation strategies for HAI security operations?"
   - ✅ Yes = Risk register with mitigations: "AI false negative → Human review of critical assets"
   - ❌ No = Risks identified but no mitigation plan
 
@@ -542,7 +542,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
   - ❌ No = Anyone can be granted AI agent admin access
 
 **What This Looks Like:**
-- AI security operations team undergoes background checks
+- HAI security operations team undergoes background checks
 - Privileged access to AI agents requires manager approval
 - Contractors with AI agent access sign NDAs
 - Access reviews quarterly: "Who still needs AI admin access?"
@@ -580,7 +580,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
 
 | # | Control | Question | Pass/Fail |
 |---|---------|----------|-----------|
-| 11 | Policy | Do you have documented AI security operations policies? | ☐ Yes ☐ No |
+| 11 | Policy | Do you have documented HAI security operations policies? | ☐ Yes ☐ No |
 | 12 | Requirements | Do AI agents meet security requirements before deployment? | ☐ Yes ☐ No |
 | 13 | Architecture | Are AI agents isolated from production systems? | ☐ Yes ☐ No |
 | 14 | Design Review | Are AI workflows reviewed before deployment? | ☐ Yes ☐ No |
@@ -619,7 +619,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
 #### 26. CONTINUOUS MONITORING (CAM) - "Are AI agents continuously assessed for effectiveness?"
 
 **NIST Control:** CAM.3.002 - Assess security controls at regular intervals
-**Why Fundamental:** Level 3 requires proof that AI security operations are getting better.
+**Why Fundamental:** Level 3 requires proof that HAI security operations are getting better.
 
 **HAIAMM Assessment:**
 - **L3.CAM.Q1:** "Do you conduct quarterly assessments of AI agent security effectiveness with metrics-based improvement?"
@@ -634,7 +634,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
   - Coverage: 98% of infrastructure monitored
   - Improvement actions implemented: 12
 
-**Maturity Indicator:** Trend data showing measurable AI security operations improvement over time.
+**Maturity Indicator:** Trend data showing measurable HAI security operations improvement over time.
 
 ---
 
@@ -743,14 +743,14 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
 
 ---
 
-#### 32. PLAN OF ACTION & MILESTONES (PC) - "Do you continuously improve AI security operations with documented plans?"
+#### 32. PLAN OF ACTION & MILESTONES (PC) - "Do you continuously improve HAI security operations with documented plans?"
 
 **NIST Control:** PL.3.001 - System security plans
 **CMMC POA&M Requirement**
 **Why Fundamental:** Level 3 = Never done improving; always planning next optimization.
 
 **HAIAMM Assessment:**
-- **L3.PC.Q1:** "Do you maintain Plans of Action & Milestones (POA&Ms) for AI security operations improvements?"
+- **L3.PC.Q1:** "Do you maintain Plans of Action & Milestones (POA&Ms) for HAI security operations improvements?"
   - ✅ Yes = "Q2 2026 Goal: Reduce AI false positive rate from 2% to 1%" with 180-day plan
   - ❌ No = No formal improvement planning
 
@@ -813,12 +813,12 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
 #### 35. METRICS & OPTIMIZATION (SM) - "Do you measure and optimize AI security ROI?"
 
 **NIST Control:** CAM.3.001 - Develop and implement security assessment plans
-**Why Fundamental:** Level 3 = Prove AI security operations deliver measurable value.
+**Why Fundamental:** Level 3 = Prove HAI security operations deliver measurable value.
 
 **HAIAMM Assessment:**
-- **L3.SM.Q1:** "Do you measure AI security operations ROI with metrics like cost-per-detection, time-to-remediation, and coverage?"
+- **L3.SM.Q1:** "Do you measure HAI security operations ROI with metrics like cost-per-detection, time-to-remediation, and coverage?"
   - ✅ Yes = "AI detected 1,200 vulns at $5/vuln vs. human pentest $500/vuln"
-  - ❌ No = AI security operations deployed without measuring effectiveness
+  - ❌ No = HAI security operations deployed without measuring effectiveness
 
 **What This Looks Like:**
 - **AI Security Operations Dashboard:**
@@ -828,7 +828,7 @@ HAIAMM assesses how well **AI agents perform security work**, not how to secure 
   - False positive rate: 2% (vs. 5% traditional SIEM)
   - Analyst time saved: 720 hours/quarter
 
-**Maturity Indicator:** Executive dashboard showing AI security operations business value and continuous optimization.
+**Maturity Indicator:** Executive dashboard showing HAI security operations business value and continuous optimization.
 
 ---
 
@@ -947,7 +947,7 @@ These controls optimize and scale AI operations:
 **Reality:** Level 2 requires Level 1 foundations; skipping creates security gaps
 
 ### ❌ Mistake 5: "We passed CMMC Level 2, so we don't need HAIAMM"
-**Reality:** CMMC assesses traditional security; HAIAMM assesses AI-operated security (different focus)
+**Reality:** CMMC assesses traditional security; HAIAMM assesses HAI security (different focus)
 
 ---
 

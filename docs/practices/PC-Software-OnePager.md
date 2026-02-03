@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Establish and maintain policies governing AI-operated software security and demonstrate compliance with secure development requirements
+**Objective:** Establish and maintain policies governing HAI software security and demonstrate compliance with secure development requirements
 
 **Description:** Build and maintain policies, standards, and compliance programs that govern how AI agents operate software security functions. Ensure AI-driven software security decisions (code vulnerability detection, automated security testing, AI-assisted code review, security gate enforcement) are auditable, accurate, and meet regulatory and development governance requirements.
 
-**Context:** Organizations must establish clear policies for AI agents that secure software development - defining acceptable AI autonomy for code scanning, security test automation, and deployment gate enforcement. Auditors and development leadership scrutinize AI software security decisions that impact development velocity, requiring documented policies, justification for security findings, and evidence that AI-operated software security balances security rigor with development efficiency.
+**Context:** Organizations must establish clear policies for AI agents that secure software development - defining acceptable AI autonomy for code scanning, security test automation, and deployment gate enforcement. Auditors and development leadership scrutinize AI software security decisions that impact development velocity, requiring documented policies, justification for security findings, and evidence that HAI software security balances security rigor with development efficiency.
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish foundational policies for AI-operated software security
+### Objective: Establish foundational policies for HAI software security
 
 At this level, organizations create initial policies governing AI agent operations in software security and identify applicable compliance and secure development requirements.
 
@@ -48,7 +48,7 @@ Compliance framework identification:
 - **Industry Frameworks**: BSIMM, SAMM, Building Security In Maturity Model (BSIMM)
 - **Customer Requirements**: Vendor security questionnaires requiring secure development evidence
 
-Document compliance requirements specific to AI-operated software security:
+Document compliance requirements specific to HAI software security:
 - **Vulnerability Scanning**: Does AI code scanning meet mandatory scanning requirements (PCI-DSS Requirement 6.3.2 code review, HIPAA risk analysis)?
 - **Security Testing**: Does AI security testing meet testing requirements (OWASP ASVS verification, penetration testing standards)?
 - **Code Review**: Does AI code review satisfy secure development requirements (two-person review, security-focused review)?
@@ -203,7 +203,7 @@ Value of secure development leadership:
 
 **Level 1:**
 1. Do you have documented policies governing how AI agents operate software security functions (code scanning, security testing, deployment gates)?
-2. Have you identified and documented compliance requirements (PCI-DSS, HIPAA, OWASP ASVS) that apply to AI-operated software security?
+2. Have you identified and documented compliance requirements (PCI-DSS, HIPAA, OWASP ASVS) that apply to HAI software security?
 3. Are finding quality standards defined with acceptable false positive rates and remediation guidance requirements?
 
 **Level 2:**
@@ -220,7 +220,7 @@ Value of secure development leadership:
 
 ## Compliance & Secure Development Considerations
 
-AI-operated software security must address specific regulatory and industry requirements:
+HAI software security must address specific regulatory and industry requirements:
 
 ### PCI-DSS (Payment Card Industry)
 - **Requirement 6.3.2**: Code review for applications - AI code review meets requirement if validated effective

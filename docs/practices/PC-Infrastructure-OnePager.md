@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Establish and maintain policies governing AI-operated infrastructure security and demonstrate compliance with regulatory requirements
+**Objective:** Establish and maintain policies governing HAI infrastructure security and demonstrate compliance with regulatory requirements
 
 **Description:** Build and maintain policies, standards, and compliance programs that govern how AI agents operate infrastructure security functions. Ensure AI-driven infrastructure security decisions are auditable, explainable, and meet regulatory requirements for cloud platforms, network security, server hardening, and configuration management.
 
-**Context:** Organizations must establish clear policies for AI agents that secure infrastructure - defining acceptable AI autonomy levels, human oversight requirements, and compliance obligations. Regulators and auditors increasingly scrutinize how AI systems make infrastructure security decisions, requiring documented policies, audit trails, and evidence that AI-operated security meets compliance standards (SOC 2, ISO 27001, FedRAMP, PCI-DSS, NIST frameworks).
+**Context:** Organizations must establish clear policies for AI agents that secure infrastructure - defining acceptable AI autonomy levels, human oversight requirements, and compliance obligations. Regulators and auditors increasingly scrutinize how AI systems make infrastructure security decisions, requiring documented policies, audit trails, and evidence that HAI security meets compliance standards (SOC 2, ISO 27001, FedRAMP, PCI-DSS, NIST frameworks).
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish foundational policies for AI-operated infrastructure security
+### Objective: Establish foundational policies for HAI infrastructure security
 
 At this level, organizations create initial policies governing AI agent operations in infrastructure security and identify applicable compliance requirements.
 
@@ -38,7 +38,7 @@ Example policy statements:
 - "All AI infrastructure security decisions must be logged with rationale for audit purposes"
 - "Infrastructure security team must review AI agent recommendations before implementing automated hardening"
 
-**B) Identify and document compliance requirements for AI-operated infrastructure security**
+**B) Identify and document compliance requirements for HAI infrastructure security**
 
 Inventory applicable regulatory and compliance frameworks that govern infrastructure security, and identify specific requirements that apply when AI agents operate security functions.
 
@@ -48,7 +48,7 @@ Compliance framework identification:
 - **Cloud Provider Compliance**: AWS Well-Architected Framework, Azure Security Benchmark, GCP Security Best Practices
 - **Contractual Obligations**: Customer security requirements, vendor security commitments, SLA security provisions
 
-Document compliance requirements specific to AI-operated infrastructure:
+Document compliance requirements specific to HAI infrastructure:
 - **Auditability**: Can you demonstrate to auditors how AI agents make infrastructure security decisions?
 - **Evidence Collection**: What logs/records must AI agents maintain for compliance audits?
 - **Change Control**: Do AI-automated infrastructure changes comply with change management policies?
@@ -84,20 +84,20 @@ Policy enforcement mechanisms:
 
 **B) Conduct regular compliance validation and audit preparation for AI infrastructure security**
 
-Establish regular compliance validation processes to ensure AI-operated infrastructure security meets regulatory requirements, and maintain audit readiness through documentation and evidence collection.
+Establish regular compliance validation processes to ensure HAI infrastructure security meets regulatory requirements, and maintain audit readiness through documentation and evidence collection.
 
 Compliance validation activities:
 - **Internal Audits**: Quarterly internal reviews of AI infrastructure security compliance (sample AI decisions, review audit logs, validate policy adherence)
 - **Control Testing**: Regular testing of AI security controls (verify AI agents are detecting known misconfigurations, test AI alert escalation workflows)
 - **Evidence Collection**: Maintain organized evidence repository for auditor review (AI agent logs, policy documents, approval records, training records)
 - **Gap Assessments**: Annual assessment of AI infrastructure security against compliance frameworks (SOC 2, ISO 27001 controls mapped to AI operations)
-- **Penetration Testing**: Include AI-operated infrastructure security in penetration tests (can attackers bypass AI security controls? Can AI detect penetration testing activities?)
+- **Penetration Testing**: Include HAI infrastructure security in penetration tests (can attackers bypass AI security controls? Can AI detect penetration testing activities?)
 
 Audit preparation:
 - **Documentation**: Maintain current policies, procedures, AI system documentation, approval workflows
 - **Narratives**: Prepare compliance narratives explaining how AI infrastructure security operates (for SOC 2 Type 2, ISO 27001 audits)
 - **Evidence Mapping**: Map AI agent logs and decisions to specific compliance controls
-- **Auditor Education**: Prepare to explain AI infrastructure security operations to auditors (many auditors unfamiliar with AI-operated security)
+- **Auditor Education**: Prepare to explain AI infrastructure security operations to auditors (many auditors unfamiliar with HAI security)
 - **Remediation Tracking**: Document how policy violations or control gaps are remediated
 
 ---
@@ -105,7 +105,7 @@ Audit preparation:
 ## Maturity Level 3
 ### Objective: Demonstrate continuous compliance and drive industry-wide AI security policy standards
 
-At this level, organizations achieve continuous compliance validation, contribute to industry AI security policy development, and serve as models for AI-operated infrastructure security governance.
+At this level, organizations achieve continuous compliance validation, contribute to industry AI security policy development, and serve as models for HAI infrastructure security governance.
 
 #### Activities
 
@@ -129,7 +129,7 @@ Benefits of continuous compliance:
 
 **B) Contribute to and adopt emerging AI security policy standards for infrastructure**
 
-Engage with industry groups, standards bodies, and regulators to shape AI security policy development, and adopt emerging AI governance frameworks to maintain leadership position in AI-operated infrastructure security.
+Engage with industry groups, standards bodies, and regulators to shape AI security policy development, and adopt emerging AI governance frameworks to maintain leadership position in HAI infrastructure security.
 
 Industry engagement activities:
 - **Standards Development**: Participate in standards bodies developing AI security governance frameworks (ISO/IEC AI standards, NIST AI Risk Management Framework, industry-specific consortiums)
@@ -172,7 +172,7 @@ Value of industry leadership:
 - Automated attestation generation for AI infrastructure security compliance
 - Active participation in AI security policy standards development
 - Published contributions to industry AI governance best practices
-- Zero critical compliance findings in external audits for AI-operated infrastructure security
+- Zero critical compliance findings in external audits for HAI infrastructure security
 
 ---
 
@@ -205,12 +205,12 @@ Value of industry leadership:
 
 **Level 1:**
 1. Do you have documented policies governing how AI agents operate infrastructure security functions?
-2. Have you identified and documented compliance requirements (SOC 2, ISO 27001, FedRAMP, etc.) that apply to AI-operated infrastructure security?
+2. Have you identified and documented compliance requirements (SOC 2, ISO 27001, FedRAMP, etc.) that apply to HAI infrastructure security?
 3. Are AI infrastructure security decisions logged to create audit trails for compliance validation?
 
 **Level 2:**
 1. Are comprehensive, role-based policies implemented with approval workflows for AI infrastructure security operations?
-2. Do you conduct regular compliance validation (quarterly internal audits, annual external audits) of AI-operated infrastructure security?
+2. Do you conduct regular compliance validation (quarterly internal audits, annual external audits) of HAI infrastructure security?
 3. Is there an organized evidence repository maintained for auditor review of AI infrastructure security compliance?
 
 **Level 3:**
@@ -222,7 +222,7 @@ Value of industry leadership:
 
 ## Regulatory & Compliance Considerations
 
-AI-operated infrastructure security must address specific regulatory requirements:
+HAI infrastructure security must address specific regulatory requirements:
 
 ### SOC 2 Type II
 - **CC6.1**: Logical access controls - How do AI agents authenticate? What permissions do they have?

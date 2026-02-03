@@ -5,11 +5,11 @@
 
 ### Practice Overview
 
-**Objective:** Establish unified strategic roadmap for AI-operated infrastructure security within the organization
+**Objective:** Establish unified strategic roadmap for HAI infrastructure security within the organization
 
 **Description:** Build and maintain a Human-Assisted Intelligence Assurance program to better understand and manage risks when AI agents operate critical infrastructure security functions such as cloud hardening, configuration management, vulnerability scanning, and compliance monitoring.
 
-**Context:** Organizations increasingly deploy AI agents to secure infrastructure - from automated cloud configuration audits to AI-driven threat detection on servers and networks. This practice ensures strategic oversight of these AI security operations, measuring their effectiveness and aligning AI agent activities with business risk tolerance.
+**Context:** Organizations increasingly deploy AI agents to secure infrastructure - from automated cloud configuration audits to AI-driven threat detection on servers and networks. This practice ensures strategic oversight of these HAI security operations, measuring their effectiveness and aligning AI agent activities with business risk tolerance.
 
 ---
 
@@ -20,7 +20,7 @@ At this level, organizations recognize that AI agents are performing infrastruct
 
 #### Activities
 
-**A) Estimate overall risk in the context of AI-operated infrastructure security**
+**A) Estimate overall risk in the context of HAI infrastructure security**
 
 Create an inventory of AI agents operating infrastructure security functions and assess the risk of AI-driven decisions. Identify critical infrastructure components (cloud platforms, network devices, servers, containers) where AI agents make security decisions. Document potential failure scenarios: What happens if an AI agent misconfigures a firewall? Misses a critical vulnerability? Incorrectly flags compliant infrastructure as non-compliant?
 
@@ -32,7 +32,7 @@ Conduct initial risk assessment considering:
 
 **B) Build and maintain Human-Assisted Intelligence Assurance programs**
 
-Develop a strategic roadmap for governing AI agents that operate infrastructure security. Define executive sponsorship, establish governance structure, and create a plan for implementing human oversight of AI security operations.
+Develop a strategic roadmap for governing AI agents that operate infrastructure security. Define executive sponsorship, establish governance structure, and create a plan for implementing human oversight of HAI security operations.
 
 Key elements:
 - Identify executive sponsor for AI infrastructure security program
@@ -43,7 +43,7 @@ Key elements:
 
 **C) Establish foundational threat intelligence for AI infrastructure security**
 
-Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform AI-operated infrastructure security decisions.
+Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform HAI infrastructure security decisions.
 
 **Infrastructure Domain Threat Intelligence Requirements**:
 
@@ -147,7 +147,7 @@ Example goals:
 ## Maturity Level 3
 ### Objective: Align AI infrastructure security investment with demonstrable risk reduction
 
-At this level, organizations prove ROI of AI-operated infrastructure security through data-driven metrics and industry benchmarking.
+At this level, organizations prove ROI of HAI infrastructure security through data-driven metrics and industry benchmarking.
 
 #### Activities
 

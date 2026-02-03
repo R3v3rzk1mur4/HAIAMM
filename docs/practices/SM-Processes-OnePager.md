@@ -5,7 +5,7 @@
 
 ### Practice Overview
 
-**Objective:** Establish unified strategic roadmap for AI-operated security processes within the organization
+**Objective:** Establish unified strategic roadmap for HAI security processes within the organization
 
 **Description:** Build and maintain a Human-Assisted Intelligence Assurance program to better understand and manage risks when AI agents operate critical security workflow functions such as incident response automation, compliance reporting, security metrics tracking, vulnerability management, change management, and GRC (Governance, Risk, Compliance) processes.
 
@@ -20,7 +20,7 @@ At this level, organizations recognize that AI agents are performing security wo
 
 #### Activities
 
-**A) Estimate overall risk in the context of AI-operated security processes**
+**A) Estimate overall risk in the context of HAI security processes**
 
 Create an inventory of AI agents operating security workflows and processes. Identify critical security operations where AI agents make process decisions or automate workflows. Document potential failure scenarios: What happens if an AI agent incorrectly triages a critical security incident as low priority? Generates an inaccurate compliance report? Fails to escalate a vulnerability requiring urgent remediation?
 
@@ -45,7 +45,7 @@ Key elements:
 
 **C) Establish foundational threat intelligence for AI process security**
 
-Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform AI-operated security process decisions.
+Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform HAI security process decisions.
 
 **Processes Domain Threat Intelligence Requirements**:
 
@@ -150,7 +150,7 @@ Example goals:
 ## Maturity Level 3
 ### Objective: Align AI process automation investment with demonstrable operational efficiency and security effectiveness
 
-At this level, organizations prove ROI of AI-operated security processes through data-driven metrics, operational efficiency gains, and security outcome improvements.
+At this level, organizations prove ROI of HAI security processes through data-driven metrics, operational efficiency gains, and security outcome improvements.
 
 #### Activities
 
@@ -283,7 +283,7 @@ Present to executives and board as: "AI security process automation cost $X, sav
 
 ## Operational Considerations
 
-AI-operated security processes must maintain operational resilience and auditability:
+HAI security processes must maintain operational resilience and auditability:
 
 - **Business Continuity**: AI process automation should include failover to human operations if AI systems are unavailable
 - **Audit Trail**: AI-automated processes must maintain sufficient logging and documentation for compliance audits (SOC 2, ISO 27001)
@@ -292,7 +292,7 @@ AI-operated security processes must maintain operational resilience and auditabi
 - **Quality Assurance**: Regular sampling and review of AI-automated process outputs to ensure quality and catch drift
 - **Escalation Procedures**: Clear criteria for when AI agents should escalate to human decision-makers in process execution
 
-Organizations must balance automation efficiency with operational resilience and the ability to explain/audit AI-operated processes.
+Organizations must balance automation efficiency with operational resilience and the ability to explain/audit HAI processes.
 
 ---
 

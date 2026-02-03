@@ -5,14 +5,14 @@
 
 The Security Requirements (SR) practice for the Data domain establishes mandatory security, privacy, and compliance standards for AI-powered data security operations. This practice defines measurable requirements that AI data security agents must meet to safely and effectively protect sensitive information across the organization.
 
-**Scope**: This practice covers AI-operated security capabilities in:
+**Scope**: This practice covers HAI security capabilities in:
 - **Data Classification**: AI systems that automatically discover, classify, and label sensitive data based on content, context, and regulatory requirements
 - **Data Loss Prevention (DLP)**: AI-powered systems that detect, prevent, and respond to unauthorized data exfiltration or exposure across networks, endpoints, cloud storage, and SaaS applications
 - **Privacy Compliance Automation**: AI agents that ensure compliance with data privacy regulations (GDPR, CCPA, HIPAA, etc.) through automated data subject request processing, consent management, retention enforcement, and breach detection
 - **Sensitive Data Discovery**: AI systems that continuously scan repositories, databases, file shares, and applications to identify previously unknown sensitive data exposures
 - **Access Control & Monitoring**: AI-powered systems that enforce data access policies, detect anomalous data access patterns, and prevent unauthorized data operations
 
-**Why This Matters**: Data security is fundamentally a classification and pattern recognition problem—ideal for AI capabilities. However, AI-operated data security systems handle the organization's most sensitive assets (customer PII, financial data, healthcare records, intellectual property) where errors can result in catastrophic breaches, massive regulatory fines, loss of customer trust, and competitive disadvantage. Unlike other security domains where false positives cause operational friction, data security AI faces unique challenges:
+**Why This Matters**: Data security is fundamentally a classification and pattern recognition problem—ideal for AI capabilities. However, HAI data security systems handle the organization's most sensitive assets (customer PII, financial data, healthcare records, intellectual property) where errors can result in catastrophic breaches, massive regulatory fines, loss of customer trust, and competitive disadvantage. Unlike other security domains where false positives cause operational friction, data security AI faces unique challenges:
 
 1. **Asymmetric Risk Profile**: False negatives in classification can expose sensitive data to unauthorized parties or non-compliant processing, creating legal liability and regulatory penalties in the millions of dollars. False positives can block legitimate business operations, encrypt accessible data, or trigger unnecessary breach notifications.
 
@@ -497,7 +497,7 @@ This practice ensures AI data security systems meet rigorous requirements for ac
 
 **Outcome Metrics** (What good looks like):
 1. **Data Breach Prevention**: Zero incidents of sensitive data exposure due to AI misclassification (false negatives) in production
-2. **Compliance Achievement**: Zero regulatory fines or violations related to data privacy in AI-operated systems
+2. **Compliance Achievement**: Zero regulatory fines or violations related to data privacy in HAI systems
 3. **Business Enablement**: ≤5% of users report DLP as "blocking legitimate work" in quarterly surveys
 4. **Human Oversight Quality**: ≥90% agreement rate between AI classification and human expert review (on random sample of 1,000 decisions per quarter)
 5. **Privacy Protection**: Zero incidents of AI systems leaking sensitive data through model outputs or training data exposure
@@ -1274,7 +1274,7 @@ This practice ensures AI data security systems meet rigorous requirements for ac
 **Justification**: User experience is often overlooked in security, but poor UX drives shadow IT and policy violations. Level 3 maturity recognizes that security must be user-centric—enabling work while protecting data. User satisfaction metrics ensure security doesn't become a business blocker. Intelligent assistance transforms security from "the team that says no" to "the team that helps." Transparent classification and one-click secure sharing reduce friction to near-zero.
 
 #### 4. Industry Contribution & Standards Leadership
-**Activity**: Contribute to industry knowledge, standards development, and open-source security capabilities to advance the field of AI-operated data security.
+**Activity**: Contribute to industry knowledge, standards development, and open-source security capabilities to advance the field of HAI data security.
 
 **Specific Requirements**:
 
@@ -1472,7 +1472,7 @@ This practice ensures AI data security systems meet rigorous requirements for ac
 ### Key Success Indicators (Level 3)
 
 **Outcome Metrics**:
-1. **Zero Trust Violations**: Zero data breaches or compliance violations in AI-operated data security over ≥12 months
+1. **Zero Trust Violations**: Zero data breaches or compliance violations in HAI data security over ≥12 months
 2. **User Advocacy**: ≥90% user satisfaction; users actively recommend AI data security tools (measured via Net Promoter Score ≥50)
 3. **Autonomous Compliance**: ≥90% of data subject requests fulfilled without human intervention, within ≤7 days
 4. **Industry Recognition**: Organization recognized as industry leader in AI data security (speaking invitations, advisory boards, published case studies)
@@ -1551,7 +1551,7 @@ This practice ensures AI data security systems meet rigorous requirements for ac
 
 ## Conclusion
 
-The Security Requirements practice for the Data domain establishes the foundation for trustworthy AI-operated data security. By defining measurable requirements for accuracy, explainability, privacy protection, compliance, and user experience, this practice ensures AI systems protect sensitive data without creating new risks or business friction.
+The Security Requirements practice for the Data domain establishes the foundation for trustworthy HAI data security. By defining measurable requirements for accuracy, explainability, privacy protection, compliance, and user experience, this practice ensures AI systems protect sensitive data without creating new risks or business friction.
 
 **Level 1** establishes baseline requirements that make AI safe to deploy: accurate classification (≥92% for structured data, ≥88% for unstructured), effective DLP (≥93% detection), explainable decisions, human oversight for high-risk actions, privacy protection for AI itself, safety guardrails, and compliance with major regulations (GDPR, CCPA, HIPAA, PCI).
 

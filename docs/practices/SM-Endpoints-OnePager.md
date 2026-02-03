@@ -5,7 +5,7 @@
 
 ### Practice Overview
 
-**Objective:** Establish unified strategic roadmap for AI-operated endpoint security within the organization
+**Objective:** Establish unified strategic roadmap for HAI endpoint security within the organization
 
 **Description:** Build and maintain a Human-Assisted Intelligence Assurance program to better understand and manage risks when AI agents operate critical endpoint security functions such as threat detection (EDR/XDR), automated patch management, device compliance enforcement, behavioral analysis, automated response/remediation, and endpoint policy management.
 
@@ -20,7 +20,7 @@ At this level, organizations recognize that AI agents are performing endpoint se
 
 #### Activities
 
-**A) Estimate overall risk in the context of AI-operated endpoint security**
+**A) Estimate overall risk in the context of HAI endpoint security**
 
 Create an inventory of AI agents operating endpoint security functions and assess the risk of AI-driven decisions. Identify critical endpoint types (executive laptops, BYOD devices, production servers, IoT sensors, remote worker devices) where AI agents make security decisions. Document potential failure scenarios: What happens if an AI agent quarantines a CEO's laptop during a critical presentation? Deploys a patch that breaks production servers? Fails to detect a sophisticated endpoint attack? Incorrectly flags legitimate user behavior as malicious?
 
@@ -47,7 +47,7 @@ Key elements:
 
 **C) Establish foundational threat intelligence for AI endpoint security**
 
-Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform AI-operated endpoint security decisions.
+Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform HAI endpoint security decisions.
 
 **Endpoints Domain Threat Intelligence Requirements**:
 
@@ -156,7 +156,7 @@ Example goals:
 ## Maturity Level 3
 ### Objective: Align AI endpoint security investment with demonstrable threat prevention and operational efficiency
 
-At this level, organizations prove ROI of AI-operated endpoint security through data-driven metrics, threat prevention outcomes, and operational efficiency improvements.
+At this level, organizations prove ROI of HAI endpoint security through data-driven metrics, threat prevention outcomes, and operational efficiency improvements.
 
 #### Activities
 
@@ -291,7 +291,7 @@ Present to executives and board as: "AI endpoint security cost $X, prevented $Y 
 
 ## Endpoint-Specific Considerations
 
-AI-operated endpoint security must address unique endpoint challenges:
+HAI endpoint security must address unique endpoint challenges:
 
 - **Device Diversity**: AI agents must handle heterogeneous endpoint fleet (Windows, Mac, Linux, mobile iOS/Android, IoT devices) with different security capabilities
 - **Remote/Hybrid Work**: AI endpoint security must function effectively for remote workers outside traditional network security controls

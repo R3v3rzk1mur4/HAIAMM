@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Identify and analyze threats specific to AI-operated data security operations
+**Objective:** Identify and analyze threats specific to HAI data security operations
 
 **Description:** Build and maintain threat models that account for unique attack vectors, failure modes, and adversarial risks when AI agents perform critical data security functions such as automated data discovery and classification, Data Loss Prevention (DLP), access anomaly detection, encryption key management, privacy compliance monitoring (GDPR, CCPA, HIPAA), data masking and tokenization, insider threat detection, database activity monitoring (DAM), and Data Subject Access Request (DSAR) automation.
 
-**Context:** AI agents operating data security create novel threat surfaces beyond traditional data protection risks. Adversaries may attempt data poisoning to corrupt classification models (training AI to label PII as "public"), model inversion to extract sensitive data from AI classification models, adversarial data patterns to evade AI DLP detection, prompt injection in AI privacy tools to bypass data access controls, and supply chain compromise of AI data security platforms. Additionally, AI data security agents face operational threats: false negatives (missing sensitive data exposure, undetected data exfiltration, privacy violations), false positives (blocking legitimate data access, incorrectly flagging compliant data handling as violations, disrupting business operations), model drift (degraded classification accuracy as data patterns evolve), catastrophic misclassification (AI labels entire customer database as "public", enabling mass data exposure), and privacy violations by AI itself (AI monitoring tools inadvertently collecting sensitive data without legal basis, AI models trained on personal data without consent). Data-specific challenges include regulatory complexity (GDPR, CCPA, HIPAA, PCI-DSS each with different AI implications), data at rest vs. in transit vs. in use protection, structured vs. unstructured data classification, multi-jurisdictional compliance (AI data classification must respect geographic data sovereignty), and the fundamental tension between AI needing data access to protect data (creating circular privacy risk). This practice ensures organizations proactively identify, assess, and mitigate threats specific to AI-operated data security before data breaches, regulatory penalties, or systemic privacy violations occur.
+**Context:** AI agents operating data security create novel threat surfaces beyond traditional data protection risks. Adversaries may attempt data poisoning to corrupt classification models (training AI to label PII as "public"), model inversion to extract sensitive data from AI classification models, adversarial data patterns to evade AI DLP detection, prompt injection in AI privacy tools to bypass data access controls, and supply chain compromise of AI data security platforms. Additionally, AI data security agents face operational threats: false negatives (missing sensitive data exposure, undetected data exfiltration, privacy violations), false positives (blocking legitimate data access, incorrectly flagging compliant data handling as violations, disrupting business operations), model drift (degraded classification accuracy as data patterns evolve), catastrophic misclassification (AI labels entire customer database as "public", enabling mass data exposure), and privacy violations by AI itself (AI monitoring tools inadvertently collecting sensitive data without legal basis, AI models trained on personal data without consent). Data-specific challenges include regulatory complexity (GDPR, CCPA, HIPAA, PCI-DSS each with different AI implications), data at rest vs. in transit vs. in use protection, structured vs. unstructured data classification, multi-jurisdictional compliance (AI data classification must respect geographic data sovereignty), and the fundamental tension between AI needing data access to protect data (creating circular privacy risk). This practice ensures organizations proactively identify, assess, and mitigate threats specific to HAI data security before data breaches, regulatory penalties, or systemic privacy violations occur.
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish baseline threat awareness for AI-operated data security
+### Objective: Establish baseline threat awareness for HAI data security
 
 At this level, organizations recognize that AI agents performing data security introduce unique threats beyond traditional data protection risks and begin documenting these AI-specific threat scenarios.
 
@@ -172,7 +172,7 @@ Document threat scenarios with specific examples relevant to your data portfolio
 
 **B) Establish threat awareness training for data security, privacy, and compliance teams**
 
-Educate Data Protection Officers (DPOs), data security teams, privacy engineers, compliance analysts, database administrators, and legal counsel on threats specific to AI-operated data security. Teams must understand that AI data security tools are powerful but introduce new attack vectors and privacy risks that don't exist with traditional manual data governance.
+Educate Data Protection Officers (DPOs), data security teams, privacy engineers, compliance analysts, database administrators, and legal counsel on threats specific to HAI data security. Teams must understand that AI data security tools are powerful but introduce new attack vectors and privacy risks that don't exist with traditional manual data governance.
 
 Training coverage:
 
@@ -215,7 +215,7 @@ At this level, organizations assess AI data security threats based on technical 
 
 #### Activities
 
-**A) Develop abuse cases and attack trees for AI-operated data security**
+**A) Develop abuse cases and attack trees for HAI data security**
 
 For each AI agent performing data security, create detailed abuse cases showing how adversaries could exploit or degrade AI data security operations. Model attack paths from initial compromise to data breach or privacy violation despite AI security defenses.
 
@@ -369,7 +369,7 @@ At this level, organizations proactively track adversarial ML research, real-wor
 
 **A) Monitor industry threat intelligence for AI data security tool vulnerabilities, attack techniques, and regulatory developments**
 
-Establish continuous monitoring of adversarial ML research, privacy/compliance guidance, AI data security vendor advisories, data breach disclosures, and regulatory enforcement actions to identify new threats to AI-operated data security.
+Establish continuous monitoring of adversarial ML research, privacy/compliance guidance, AI data security vendor advisories, data breach disclosures, and regulatory enforcement actions to identify new threats to HAI data security.
 
 Threat intelligence sources:
 
@@ -490,7 +490,7 @@ Document all adversarial testing and compliance validation results. Share findin
 ## Key Success Indicators
 
 **Level 1:**
-- Documented threat scenarios specific to AI-operated data security (minimum 15 scenarios covering classification errors, DLP evasion, privacy violations, insider threats, regulatory risks)
+- Documented threat scenarios specific to HAI data security (minimum 15 scenarios covering classification errors, DLP evasion, privacy violations, insider threats, regulatory risks)
 - Threat awareness training delivered to DPOs, data security teams, DBAs, legal counsel (>80% completion within 90 days of AI data security tool deployment)
 - Inventory of AI data security agents mapped to threat scenarios and regulatory obligations (each AI tool has 3+ documented threat scenarios and applicable regulations)
 - Executive awareness of AI data security risks and regulatory implications (CISO/CPO/General Counsel briefed on AI-specific data protection threats and compliance risks)
@@ -519,7 +519,7 @@ Document all adversarial testing and compliance validation results. Share findin
 ## Common Pitfalls
 
 **Level 1:**
-- ❌ Threat scenarios are generic (not specific to AI-operated data security) - "data gets stolen" instead of "AI classification model poisoning marks PII as public"
+- ❌ Threat scenarios are generic (not specific to HAI data security) - "data gets stolen" instead of "AI classification model poisoning marks PII as public"
 - ❌ Training is compliance theater (slide deck on data threats, no hands-on exercises, no validation of DPO/security team understanding, no legal counsel involvement)
 - ❌ Threat inventory is incomplete (missing AI DLP tools, shadow data discovery tools, AI-powered CASB solutions, vendor AI processing)
 - ❌ No consideration of threats from AI data security tools themselves (AI training data privacy, model data leakage, excessive access, cross-border transfers)
@@ -554,7 +554,7 @@ Document all adversarial testing and compliance validation results. Share findin
 
 **Level 1:**
 1. Have you documented threat scenarios specific to AI agents performing data security operations (classification, DLP, access monitoring, privacy compliance)?
-2. Have DPOs, data security teams, legal counsel, and leadership received training on threats unique to AI-operated data security and AI-related privacy risks?
+2. Have DPOs, data security teams, legal counsel, and leadership received training on threats unique to HAI data security and AI-related privacy risks?
 3. Is there an inventory mapping each AI data security agent to potential threat scenarios, failure modes, regulatory obligations, and data types processed?
 
 **Level 2:**
@@ -571,7 +571,7 @@ Document all adversarial testing and compliance validation results. Share findin
 
 ## Data-Specific Considerations
 
-Threat Assessment for AI-operated data security must address unique challenges in data protection, privacy compliance, and regulatory complexity:
+Threat Assessment for HAI data security must address unique challenges in data protection, privacy compliance, and regulatory complexity:
 
 - **Regulatory Complexity**: AI data processing must comply with multiple overlapping regulations (GDPR, CCPA, HIPAA, PCI-DSS, FERPA, SOX) each with different requirements - threat models must account for regulatory risk
 - **Data Sovereignty**: AI data security models and telemetry often cross borders - GDPR Chapter V transfer requirements, data localization laws create compliance risks

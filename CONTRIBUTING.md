@@ -303,7 +303,7 @@ python main.py
 
 ## 🙏 Thank You!
 
-Your contributions help make HAIAMM the standard framework for AI-operated security assessment. Together, we're building a safer AI security future.
+Your contributions help make HAIAMM the standard framework for HAI security assessment. Together, we're building a safer AI security future.
 
 **Questions?**
 - Open a GitHub Discussion

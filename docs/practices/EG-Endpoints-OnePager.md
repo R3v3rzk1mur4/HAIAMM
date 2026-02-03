@@ -5,11 +5,11 @@
 
 ### Practice Overview
 
-**Objective:** Establish and maintain education and guidance programs that enable users and IT teams to effectively work with AI-operated endpoint security
+**Objective:** Establish and maintain education and guidance programs that enable users and IT teams to effectively work with HAI endpoint security
 
 **Description:** Build and deliver training, awareness programs, and reference materials that enable end users, IT support teams, and security teams to understand, cooperate with, and optimize AI-driven endpoint security. Ensure users understand what AI endpoint security monitors, how to respond to AI security actions, and privacy protections while building security culture and reducing security friction.
 
-**Context:** Organizations deploying AI-operated endpoint security (EDR/XDR, AI-driven patch management, automated device compliance) face unique education challenges - end users must understand what AI monitors without feeling surveilled, IT teams must learn AI-augmented endpoint management, and everyone must cooperate with AI security actions (quarantine, patching, compliance enforcement) without business disruption. Effective education balances security effectiveness, user productivity, and privacy trust.
+**Context:** Organizations deploying HAI endpoint security (EDR/XDR, AI-driven patch management, automated device compliance) face unique education challenges - end users must understand what AI monitors without feeling surveilled, IT teams must learn AI-augmented endpoint management, and everyone must cooperate with AI security actions (quarantine, patching, compliance enforcement) without business disruption. Effective education balances security effectiveness, user productivity, and privacy trust.
 
 ---
 
@@ -22,7 +22,7 @@ At this level, organizations create basic training programs and awareness campai
 
 **A) Provide foundational training on AI endpoint security for users and IT teams**
 
-Create and deliver introductory training programs that teach end users, IT support teams, and security teams the basics of AI-operated endpoint security - what AI monitors, why it's necessary, and how to cooperate with AI security actions.
+Create and deliver introductory training programs that teach end users, IT support teams, and security teams the basics of HAI endpoint security - what AI monitors, why it's necessary, and how to cooperate with AI security actions.
 
 Foundational training elements:
 - **AI Endpoint Security Overview**: What AI endpoint security tools are deployed (EDR/XDR, AI-driven patch management, device compliance monitoring, behavioral analytics)

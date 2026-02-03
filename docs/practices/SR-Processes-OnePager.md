@@ -5,7 +5,7 @@
 
 The Security Requirements (SR) practice for the Processes domain establishes mandatory security, safety, and operational standards for AI-powered security process automation. This practice defines measurable requirements that AI security orchestration, automation, and response (SOAR) systems must meet to safely and effectively execute security workflows, incident response, vulnerability management, and operational tasks.
 
-**Scope**: This practice covers AI-operated security capabilities in:
+**Scope**: This practice covers HAI security capabilities in:
 - **Security Orchestration, Automation, and Response (SOAR)**: AI systems that automate security workflows, orchestrate multi-tool operations, and execute response playbooks across security infrastructure
 - **Automated Incident Response**: AI agents that triage security alerts, investigate incidents, contain threats, and remediate vulnerabilities with varying levels of autonomy
 - **Issue Management Automation**: AI-powered systems that prioritize vulnerabilities, schedule patching, execute remediation workflows, and validate fixes
@@ -1211,7 +1211,7 @@ This practice ensures AI security process automation meets rigorous requirements
 **Benchmarking Against Baselines**:
 - **Manual Operations Baseline**: Maintain baseline metrics of manual security operations for comparison
   - Metrics: MTTD, MTTR, investigation thoroughness, false positive rate, analyst productivity
-  - Comparison: AI-operated vs manual operations
+  - Comparison: HAI vs manual operations
   - Target: Demonstrate ≥3x improvement across all key metrics (MTTD 3x faster, MTTR 3x faster, 3x more incidents handled per analyst)
 
 - **Industry Benchmarking**: Compare performance to industry averages
@@ -1231,7 +1231,7 @@ This practice ensures AI security process automation meets rigorous requirements
   - Validation: Changes must improve performance by ≥5% without degrading safety (false positive rate, inappropriate actions)
 
 **Real-Time Performance Dashboards**:
-- **Executive Dashboard**: Real-time visibility into AI security operations for leadership
+- **Executive Dashboard**: Real-time visibility into HAI security operations for leadership
   - Metrics: Incidents handled (total, by severity, by type), automation rate (% handled autonomously), MTTD/MTTR trends, false positive rate, analyst productivity, cost savings, near-miss incidents (attacks detected in early stages)
   - Comparison: Current vs historical baseline, current vs industry benchmarks
   - Access: CISO, CIO, board of directors (demonstrate security program effectiveness)
@@ -1271,7 +1271,7 @@ This practice ensures AI security process automation meets rigorous requirements
   - Distribution: Blog posts, conference talks, whitepapers
 
 **Research & Publication**:
-- **Academic Collaboration**: Partner with universities on AI security operations research
+- **Academic Collaboration**: Partner with universities on HAI security operations research
   - Topics: Adversarial robustness of SOAR AI, optimal human-AI collaboration models, predictive security analytics
   - Output: Peer-reviewed publications (≥1 per year), open-source datasets (for research community)
 
@@ -1289,12 +1289,12 @@ This practice ensures AI security process automation meets rigorous requirements
 **Vendor Partnership & Influence**:
 - **Vendor Advisory Boards**: Participate in security vendor advisory boards to influence product direction
   - Focus: Ensure vendor tools support AI-driven orchestration, request features needed for advanced automation
-  - Impact: Shape tool evolution to better support AI security operations
+  - Impact: Shape tool evolution to better support HAI security operations
 
-**Justification**: Industry-leading organizations don't just consume knowledge—they create and share it. Threat intelligence sharing improves collective defense. Open-source playbooks accelerate industry maturity. Research advances the field. Standards contribution ensures future standards align with real-world AI security operations needs. Vendor influence ensures tools evolve to support advanced use cases.
+**Justification**: Industry-leading organizations don't just consume knowledge—they create and share it. Threat intelligence sharing improves collective defense. Open-source playbooks accelerate industry maturity. Research advances the field. Standards contribution ensures future standards align with real-world HAI security operations needs. Vendor influence ensures tools evolve to support advanced use cases.
 
 #### 5. Advanced Adversarial Resilience
-**Activity**: Harden AI security operations against sophisticated adversaries who attempt to evade, manipulate, or weaponize automation.
+**Activity**: Harden HAI security operations against sophisticated adversaries who attempt to evade, manipulate, or weaponize automation.
 
 **Specific Requirements**:
 

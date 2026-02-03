@@ -647,7 +647,7 @@ def validate_ai_input(user_input: str, user_id: str) -> tuple[bool, str]:
 
 ### Day 29: Program Documentation
 
-**Objective:** Document the complete AI security program.
+**Objective:** Document the complete HAI security program.
 
 **Actions:**
 - [ ] Compile all deliverables

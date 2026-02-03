@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Identify and analyze threats specific to AI-operated software security operations
+**Objective:** Identify and analyze threats specific to HAI software security operations
 
 **Description:** Build and maintain threat models that account for unique attack vectors, failure modes, and adversarial risks when AI agents perform critical software security functions such as vulnerability detection, automated security testing, code review, threat modeling, dependency analysis, security defect prioritization, and DevSecOps pipeline automation.
 
-**Context:** AI agents operating software security create novel threat surfaces beyond traditional security concerns. Adversaries may attempt prompt injection to bypass security gates, data poisoning to train AI to miss certain vulnerability patterns, model inversion to extract proprietary threat intelligence, adversarial examples to evade AI security detection, and supply chain compromise of AI training data or model weights. Additionally, AI software security agents face operational threats: false negatives (missing real vulnerabilities), false positives (flagging secure code), model drift (degraded detection over time), and cascading failures (one AI error propagating across development). This practice ensures organizations proactively identify, assess, and mitigate threats specific to AI-operated software security before incidents occur.
+**Context:** AI agents operating software security create novel threat surfaces beyond traditional security concerns. Adversaries may attempt prompt injection to bypass security gates, data poisoning to train AI to miss certain vulnerability patterns, model inversion to extract proprietary threat intelligence, adversarial examples to evade AI security detection, and supply chain compromise of AI training data or model weights. Additionally, AI software security agents face operational threats: false negatives (missing real vulnerabilities), false positives (flagging secure code), model drift (degraded detection over time), and cascading failures (one AI error propagating across development). This practice ensures organizations proactively identify, assess, and mitigate threats specific to HAI software security before incidents occur.
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish baseline threat awareness for AI-operated software security
+### Objective: Establish baseline threat awareness for HAI software security
 
 At this level, organizations recognize that AI agents performing software security introduce unique threats beyond traditional software security risks and begin documenting these AI-specific threat scenarios.
 
@@ -143,7 +143,7 @@ Document threat scenarios with specific examples relevant to your software portf
 
 **B) Establish threat awareness training for development and security teams**
 
-Educate developers, security engineers, and engineering leadership on threats specific to AI-operated software security. Teams must understand that AI security tools are powerful but introduce new attack vectors that don't exist with traditional manual security reviews.
+Educate developers, security engineers, and engineering leadership on threats specific to HAI software security. Teams must understand that AI security tools are powerful but introduce new attack vectors that don't exist with traditional manual security reviews.
 
 Training coverage:
 
@@ -178,9 +178,9 @@ At this level, organizations assess AI software security threats based on techni
 
 #### Activities
 
-**A) Develop abuse cases and attack trees for AI-operated software security**
+**A) Develop abuse cases and attack trees for HAI software security**
 
-For each AI agent performing software security, create detailed abuse cases showing how adversaries could exploit or degrade AI security operations. Model attack paths from initial access to successful compromise despite AI security defenses.
+For each AI agent performing software security, create detailed abuse cases showing how adversaries could exploit or degrade HAI security operations. Model attack paths from initial access to successful compromise despite AI security defenses.
 
 Abuse case format (per AI security agent):
 
@@ -277,7 +277,7 @@ At this level, organizations proactively track adversarial ML research, real-wor
 
 **A) Monitor industry threat intelligence for AI security tool vulnerabilities and attack techniques**
 
-Establish continuous monitoring of adversarial ML research, security conferences, vulnerability databases, and AI security vendor advisories to identify new threats to AI-operated software security. Track both theoretical attacks (academic research) and real-world exploits (CVEs, incident reports).
+Establish continuous monitoring of adversarial ML research, security conferences, vulnerability databases, and AI security vendor advisories to identify new threats to HAI software security. Track both theoretical attacks (academic research) and real-world exploits (CVEs, incident reports).
 
 Threat intelligence sources:
 
@@ -345,7 +345,7 @@ Adversarial testing program:
   - Bypass AI security gates through evasion, manipulation, or social engineering
   - Successfully exploit deployed vulnerability in simulated production environment
 - **Duration:** 2-4 weeks with rules of engagement (no actual data exfiltration, DoS, or service disruption)
-- **Output:** Red team report documenting successful bypasses, vulnerabilities in AI security operations, remediation recommendations
+- **Output:** Red team report documenting successful bypasses, vulnerabilities in HAI security operations, remediation recommendations
 
 **Model Drift Monitoring:**
 - **Objective:** Detect if AI security tool accuracy degrades over time (model drift)
@@ -363,7 +363,7 @@ Document all adversarial testing results and share findings with AI security too
 ## Key Success Indicators
 
 **Level 1:**
-- Documented threat scenarios specific to AI-operated software security (minimum 10 scenarios covering adversarial manipulation, data poisoning, operational failures, supply chain risks)
+- Documented threat scenarios specific to HAI software security (minimum 10 scenarios covering adversarial manipulation, data poisoning, operational failures, supply chain risks)
 - Threat awareness training delivered to developers, security teams, and engineering leadership (>80% completion within 90 days of AI tool deployment)
 - Inventory of AI security agents mapped to threat scenarios (each AI tool has 3+ documented threat scenarios)
 - Executive awareness of AI security risks (board/leadership briefed on AI-specific threats)
@@ -388,7 +388,7 @@ Document all adversarial testing results and share findings with AI security too
 ## Common Pitfalls
 
 **Level 1:**
-- ❌ Threat scenarios are generic (not specific to AI-operated software security) - "AI gets hacked" instead of "Prompt injection in AI code reviewer"
+- ❌ Threat scenarios are generic (not specific to HAI software security) - "AI gets hacked" instead of "Prompt injection in AI code reviewer"
 - ❌ Training is compliance theater (slide deck on AI threats, no hands-on exercises, no testing of knowledge retention)
 - ❌ Threat inventory is incomplete (missing AI coding assistants like Copilot, shadow AI tools developers installed independently)
 - ❌ No consideration of AI-generated code risks (assume Copilot/ChatGPT code is always secure)
@@ -416,7 +416,7 @@ Document all adversarial testing results and share findings with AI security too
 
 **Level 1:**
 1. Have you documented threat scenarios specific to AI agents performing software security operations (adversarial manipulation, data poisoning, operational failures)?
-2. Have development and security teams received training on threats unique to AI-operated software security?
+2. Have development and security teams received training on threats unique to HAI software security?
 3. Is there an inventory mapping each AI security agent to potential threat scenarios and failure modes?
 
 **Level 2:**
@@ -433,7 +433,7 @@ Document all adversarial testing results and share findings with AI security too
 
 ## Software-Specific Considerations
 
-Threat Assessment for AI-operated software security must address unique challenges in software development and AI security tool deployment:
+Threat Assessment for HAI software security must address unique challenges in software development and AI security tool deployment:
 
 - **Developer Access & Insider Threat**: Developers have code commit access and intimate knowledge of AI security tools in their workflow, creating insider threat scenarios not present in other domains
 - **Rapid Evolution of Attack Techniques**: Software vulnerability research and adversarial ML research advance rapidly; threat models must update frequently to remain current

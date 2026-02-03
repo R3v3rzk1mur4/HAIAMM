@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Establish and maintain policies governing AI-operated security processes and demonstrate compliance with operational and regulatory requirements
+**Objective:** Establish and maintain policies governing HAI security processes and demonstrate compliance with operational and regulatory requirements
 
 **Description:** Build and maintain policies, standards, and compliance programs that govern how AI agents operate security workflow and process functions. Ensure AI-driven security process automation (incident response, compliance reporting, vulnerability management, metrics tracking) is auditable, documented, and meets regulatory and operational governance requirements.
 
-**Context:** Organizations must establish clear policies for AI agents that automate security processes - defining acceptable AI autonomy for incident triage, compliance report generation, vulnerability prioritization, and security workflow automation. Auditors and regulators scrutinize how AI systems make process decisions, requiring documented policies, audit trails, and evidence that AI-operated processes meet compliance standards (SOC 2, ISO 27001, ITIL, regulatory reporting requirements).
+**Context:** Organizations must establish clear policies for AI agents that automate security processes - defining acceptable AI autonomy for incident triage, compliance report generation, vulnerability prioritization, and security workflow automation. Auditors and regulators scrutinize how AI systems make process decisions, requiring documented policies, audit trails, and evidence that HAI processes meet compliance standards (SOC 2, ISO 27001, ITIL, regulatory reporting requirements).
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish foundational policies for AI-operated security process automation
+### Objective: Establish foundational policies for HAI security process automation
 
 At this level, organizations create initial policies governing AI agent operations in security processes and identify applicable compliance and operational governance requirements.
 
@@ -104,7 +104,7 @@ Audit preparation:
 ## Maturity Level 3
 ### Objective: Demonstrate continuous process governance and drive industry standards for AI process automation
 
-At this level, organizations achieve continuous process quality monitoring, automated audit evidence generation, and contribute to industry standards for AI-operated security processes.
+At this level, organizations achieve continuous process quality monitoring, automated audit evidence generation, and contribute to industry standards for HAI security processes.
 
 #### Activities
 
@@ -126,7 +126,7 @@ Benefits of continuous process governance:
 - Higher process reliability (continuous validation catches process drift before impacting operations)
 - Automated compliance (process governance continuously validates compliance vs. point-in-time audits)
 
-**B) Lead development of industry standards for AI-operated security process automation**
+**B) Lead development of industry standards for HAI security process automation**
 
 Engage with industry groups, standards bodies, and auditors to shape AI process automation standards, and demonstrate process governance leadership through transparency and adoption of emerging frameworks.
 
@@ -221,7 +221,7 @@ Value of industry leadership:
 
 ## Compliance & Audit Considerations
 
-AI-operated security processes must address specific compliance and audit requirements:
+HAI security processes must address specific compliance and audit requirements:
 
 ### SOC 2 Type II
 - **CC7.2**: System monitoring - AI-automated processes monitored and logged

@@ -5,7 +5,7 @@
 
 ### Practice Overview
 
-**Objective:** Establish unified strategic roadmap for AI-operated vendor security within the organization
+**Objective:** Establish unified strategic roadmap for HAI vendor security within the organization
 
 **Description:** Build and maintain a Human-Assisted Intelligence Assurance program to better understand and manage risks when AI agents operate critical third-party security functions such as vendor risk assessment, continuous vendor monitoring, supply chain security analysis, vendor breach detection, and third-party compliance validation.
 
@@ -20,7 +20,7 @@ At this level, organizations recognize that AI agents are performing vendor secu
 
 #### Activities
 
-**A) Estimate overall risk in the context of AI-operated vendor security**
+**A) Estimate overall risk in the context of HAI vendor security**
 
 Create an inventory of AI agents operating vendor security functions and assess the risk of AI-driven decisions. Identify critical third-party relationships where AI agents make vendor risk assessments. Document potential failure scenarios: What happens if an AI agent incorrectly assesses a high-risk vendor as low-risk? Misses a vendor security breach? Fails to detect a supply chain attack?
 
@@ -45,7 +45,7 @@ Key elements:
 
 **C) Establish foundational threat intelligence for AI vendor security**
 
-Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform AI-operated vendor security decisions.
+Identify threat intelligence requirements and integrate basic threat intelligence consumption to inform HAI vendor security decisions.
 
 **Vendors Domain Threat Intelligence Requirements**:
 
@@ -216,7 +216,7 @@ Vendor Threat Intelligence ROI =
 ## Maturity Level 3
 ### Objective: Align AI vendor security investment with demonstrable supply chain risk reduction and vendor ecosystem resilience
 
-At this level, organizations prove ROI of AI-operated vendor security through data-driven metrics, supply chain attack prevention, and industry benchmarking.
+At this level, organizations prove ROI of HAI vendor security through data-driven metrics, supply chain attack prevention, and industry benchmarking.
 
 #### Activities
 
@@ -428,7 +428,7 @@ Present to executives and board as: "AI vendor security tools cost $X, prevented
 
 ## Vendor-Specific Considerations
 
-AI-operated vendor security must balance supply chain risk management with vendor relationship preservation:
+HAI vendor security must balance supply chain risk management with vendor relationship preservation:
 
 - **Vendor Communication**: AI vendor security assessments must be communicated professionally to vendors (collaborative improvement, not punitive audit)
 - **Vendor Fatigue**: Excessive AI-driven security questionnaires, scans, or audits can strain vendor relationships and cause vendor churn

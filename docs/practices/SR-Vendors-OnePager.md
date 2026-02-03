@@ -5,7 +5,7 @@
 
 The Security Requirements (SR) practice for the Vendors domain establishes mandatory security, privacy, and risk management standards for AI-powered third-party risk management operations. This practice defines measurable requirements that AI vendor risk assessment, supply chain security, and third-party monitoring systems must meet to safely and effectively manage vendor-introduced risks.
 
-**Scope**: This practice covers AI-operated security capabilities in:
+**Scope**: This practice covers HAI security capabilities in:
 - **Vendor Risk Assessment**: AI systems that automatically assess third-party security posture, privacy practices, compliance status, and overall risk profile through automated questionnaires, external scanning, and continuous monitoring
 - **Supply Chain Security Analysis**: AI-powered analysis of software supply chains, dependency risks, Software Bill of Materials (SBOM), open-source component vulnerabilities, and transitive dependency threats
 - **Continuous Vendor Monitoring**: AI agents that continuously monitor vendor security posture, breach notifications, security ratings, vulnerability disclosures, and behavioral changes to detect emerging risks
@@ -16,7 +16,7 @@ The Security Requirements (SR) practice for the Vendors domain establishes manda
 
 **Why This Matters**: Third-party vendors have become the primary attack vector for organizational breaches—60% of data breaches involve third parties (Ponemon Institute). Organizations rely on hundreds or thousands of vendors (SaaS applications, cloud providers, managed service providers, software libraries, infrastructure partners), creating an expansive attack surface that's largely outside direct control. Traditional manual vendor risk assessments are point-in-time, infrequent (annual), incomplete (cover only Tier 1 vendors), and subjective (rely on vendor self-assessments that may be inaccurate or outdated).
 
-AI-operated vendor risk management promises continuous monitoring, comprehensive coverage, objective assessment, and rapid response. However, this domain faces unique challenges:
+HAI vendor risk management promises continuous monitoring, comprehensive coverage, objective assessment, and rapid response. However, this domain faces unique challenges:
 
 1. **Limited Visibility & Control**: Unlike internal systems (where organization has full access and authority), vendor systems are black boxes. AI must assess risk with limited information—relying on external signals (security ratings, breach notifications, public disclosures), vendor-provided data (questionnaires, certifications, audit reports), and inference from observable behavior. Vendors may be uncooperative or deceptive about their security posture.
 

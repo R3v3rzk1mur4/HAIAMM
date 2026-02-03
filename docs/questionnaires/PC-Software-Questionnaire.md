@@ -18,7 +18,7 @@
 ---
 
 ## Level 1: Foundational
-**Objective:** Establish foundational policies for AI-operated software security and identify compliance requirements
+**Objective:** Establish foundational policies for HAI software security and identify compliance requirements
 
 ### Question 1: AI Agent Operations Policies and Finding Quality Standards
 
@@ -49,7 +49,7 @@
 
 ### Question 2: Compliance Framework Identification and Mapping
 
-**Q1.2:** Have you identified and documented applicable compliance requirements (PCI-DSS Requirement 6, HIPAA, OWASP ASVS, NIST SSDF, SOX) that apply to AI-operated software security, with mapping showing how AI capabilities meet each requirement?
+**Q1.2:** Have you identified and documented applicable compliance requirements (PCI-DSS Requirement 6, HIPAA, OWASP ASVS, NIST SSDF, SOX) that apply to HAI software security, with mapping showing how AI capabilities meet each requirement?
 
 **Evidence Required:**
 - [ ] Compliance frameworks identified and documented (applicable to your organization):

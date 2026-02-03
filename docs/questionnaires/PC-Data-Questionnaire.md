@@ -18,7 +18,7 @@
 ---
 
 ## Level 1: Foundational
-**Objective:** Establish foundational policies for AI-operated data security and identify privacy compliance requirements
+**Objective:** Establish foundational policies for HAI data security and identify privacy compliance requirements
 
 ### Question 1: AI Agent Data Security Policies and Privacy Principles
 
@@ -63,7 +63,7 @@
 
 ### Question 2: Privacy Regulation Identification and Compliance Mapping
 
-**Q1.2:** Have you identified and documented applicable privacy regulations and data protection frameworks (GDPR, CCPA/CPRA, HIPAA, PCI-DSS, PIPEDA, industry standards) with specific requirements mapped to AI-operated data security functions, including lawful basis, transparency requirements, automated decision-making considerations, DPIA requirements, and cross-border transfer safeguards?
+**Q1.2:** Have you identified and documented applicable privacy regulations and data protection frameworks (GDPR, CCPA/CPRA, HIPAA, PCI-DSS, PIPEDA, industry standards) with specific requirements mapped to HAI data security functions, including lawful basis, transparency requirements, automated decision-making considerations, DPIA requirements, and cross-border transfer safeguards?
 
 **Evidence Required:**
 - [ ] Privacy Regulation Identification:

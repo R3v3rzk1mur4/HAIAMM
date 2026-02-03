@@ -9,7 +9,7 @@
 
 ## EXECUTIVE SUMMARY
 
-This analysis examines how NIST SP 800-171, DFARS 252.204-7012, and CMMC 2.0 can enhance the Human Assisted Intelligence Assurance Maturity Model (HAIAMM). While these frameworks focus on **traditional cybersecurity** (protecting CUI/CDI in nonfederal systems), HAIAMM addresses **AI-operated security** (assessing how well AI agents perform security work). Despite different focal points, significant alignment opportunities exist that can strengthen HAIAMM's framework.
+This analysis examines how NIST SP 800-171, DFARS 252.204-7012, and CMMC 2.0 can enhance the Human Assisted Intelligence Assurance Maturity Model (HAIAMM). While these frameworks focus on **traditional cybersecurity** (protecting CUI/CDI in nonfederal systems), HAIAMM addresses **HAI security** (assessing how well AI agents perform security work). Despite different focal points, significant alignment opportunities exist that can strengthen HAIAMM's framework.
 
 ### Key Findings
 
@@ -21,7 +21,7 @@ This analysis examines how NIST SP 800-171, DFARS 252.204-7012, and CMMC 2.0 can
 
 ### Strategic Recommendation
 
-Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional security controls into AI-operated security assessments**. This creates a **unified framework** that organizations can use to simultaneously:
+Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional security controls into HAI security assessments**. This creates a **unified framework** that organizations can use to simultaneously:
 - Assess AI agent security operations (HAIAMM core mission)
 - Demonstrate NIST SP 800-171 compliance
 - Meet DFARS contractual obligations
@@ -35,7 +35,7 @@ Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional se
 
 | Element | Details |
 |---------|---------|
-| **Purpose** | Assess maturity of AI-operated security programs |
+| **Purpose** | Assess maturity of HAI security programs |
 | **Domains** | 6 (Software, Infrastructure, Endpoints, Data, Processes, Vendors) |
 | **Business Functions** | 4 (Governance, Building, Verification, Operations) |
 | **Security Practices** | 12 (SM, PC, EG, TA, SR, SA, DR, CR, ST, EH, ML, IM) |
@@ -341,7 +341,7 @@ Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional se
 **Maturity Progression Alignment:**
 
 **HAIAMM Maturity Level 0 (Initial):**
-- No formal AI security operations
+- No formal HAI security operations
 - Ad-hoc AI agent deployment
 - No documentation or policies
 - **Maps to:** Below CMMC Level 1
@@ -363,7 +363,7 @@ Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional se
 - **Assessment:** Third-party verification recommended
 
 **HAIAMM Maturity Level 3 (Managed & Optimized):**
-- Comprehensive AI security program
+- Comprehensive HAI security program
 - Continuous monitoring and improvement
 - Advanced threat detection
 - Full compliance documentation
@@ -564,7 +564,7 @@ Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional se
 
 **5. Competitive Differentiation**
 - First-to-market with unified AI security + NIST compliance framework
-- Demonstrates sophisticated approach to AI-operated security programs
+- Demonstrates sophisticated approach to HAI security programs
 - Positions organization as leader in AI security governance
 
 ### For HAIAMM Framework Development
@@ -773,7 +773,7 @@ Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional se
 
 **Section 1: System Identification**
 - Organization name and CAGE code
-- AI security program scope
+- HAI security program scope
 - Information types processed (FCI, CUI, CDI)
 - CMMC level required
 - HAIAMM assessment tier
@@ -832,7 +832,7 @@ Incorporate NIST/DFARS/CMMC controls into HAIAMM by **translating traditional se
 
 Incorporating NIST SP 800-171, DFARS 252.204-7012, and CMMC 2.0 into HAIAMM creates a powerful unified framework that:
 
-1. **Addresses the AI Security Gap:** No other framework assesses AI-operated security maturity
+1. **Addresses the AI Security Gap:** No other framework assesses HAI security maturity
 2. **Provides Compliance Pathway:** Organizations can demonstrate both AI security maturity and NIST/CMMC compliance
 3. **Expands Market Reach:** 350,000+ DIB organizations become HAIAMM target audience
 4. **Enhances Credibility:** Alignment with established government standards provides validation

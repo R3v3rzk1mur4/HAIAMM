@@ -175,7 +175,7 @@ The Design Review (DR) practice for the Data domain establishes systematic revie
 **Outcome Metrics**:
 1. **Design Quality**: ≥90% of designs approved or approved with conditions (not rejected)
 2. **Privacy Protection**: Zero AI-caused data exposure incidents in production (validated design prevents privacy violations)
-3. **Compliance Achievement**: Zero GDPR/CCPA violations from AI-operated systems (design meets regulatory requirements)
+3. **Compliance Achievement**: Zero GDPR/CCPA violations from HAI systems (design meets regulatory requirements)
 4. **Defect Prevention**: ≥70% reduction in design-related defects found in production vs pre-review baseline
 
 **Process Metrics**:

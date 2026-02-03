@@ -16,13 +16,13 @@
 ## Maturity Level 1
 ### Objective: Establish foundational training on AI data security and privacy compliance basics
 
-At this level, organizations create basic training programs on AI-operated data security, privacy regulations, and data classification to build foundational understanding across teams.
+At this level, organizations create basic training programs on HAI data security, privacy regulations, and data classification to build foundational understanding across teams.
 
 #### Activities
 
 **A) Provide foundational training on AI data security, privacy regulations, and data classification**
 
-Create and deliver introductory training programs that teach data security teams, privacy teams, and stakeholders the basics of AI-operated data security - privacy regulations that apply, how AI classifies and protects data, and employee/customer privacy rights.
+Create and deliver introductory training programs that teach data security teams, privacy teams, and stakeholders the basics of HAI data security - privacy regulations that apply, how AI classifies and protects data, and employee/customer privacy rights.
 
 Foundational training elements:
 - **Privacy Regulations Overview**: Applicable privacy laws and how they impact AI data security (GDPR, CCPA/CPRA, HIPAA, PCI-DSS, sector-specific regulations)

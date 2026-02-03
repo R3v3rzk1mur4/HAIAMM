@@ -265,7 +265,7 @@
     },
     {
       "metric": "Compliance Achievement",
-      "target": "Zero GDPR/CCPA violations from AI-operated systems",
+      "target": "Zero GDPR/CCPA violations from HAI systems",
       "measurement": "Count of regulatory violations attributed to AI data security systems",
       "data_source": "Compliance tracking, regulatory audit findings",
       "frequency": "Quarterly compliance reviews, annual audits",

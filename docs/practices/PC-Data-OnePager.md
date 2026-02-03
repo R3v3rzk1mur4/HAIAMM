@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Establish and maintain policies governing AI-operated data security and demonstrate compliance with data protection regulations
+**Objective:** Establish and maintain policies governing HAI data security and demonstrate compliance with data protection regulations
 
 **Description:** Build and maintain policies, standards, and compliance programs that govern how AI agents operate data security functions. Ensure AI-driven data security decisions (classification, access control, DLP enforcement, privacy compliance) are auditable, explainable, and meet regulatory requirements for data protection.
 
-**Context:** Organizations must establish clear policies for AI agents that secure data - defining acceptable AI autonomy for data classification, privacy compliance scanning, and access monitoring. Privacy regulators and auditors scrutinize how AI systems make data protection decisions, requiring documented policies, audit trails, and evidence that AI-operated data security meets privacy regulations (GDPR, CCPA/CPRA, HIPAA, PCI-DSS, PIPEDA).
+**Context:** Organizations must establish clear policies for AI agents that secure data - defining acceptable AI autonomy for data classification, privacy compliance scanning, and access monitoring. Privacy regulators and auditors scrutinize how AI systems make data protection decisions, requiring documented policies, audit trails, and evidence that HAI data security meets privacy regulations (GDPR, CCPA/CPRA, HIPAA, PCI-DSS, PIPEDA).
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish foundational policies for AI-operated data security and privacy compliance
+### Objective: Establish foundational policies for HAI data security and privacy compliance
 
 At this level, organizations create initial policies governing AI agent operations in data security and identify applicable privacy and data protection regulations.
 
@@ -48,7 +48,7 @@ Privacy regulation identification:
 - **Industry Standards**: PCI-DSS (payment card data), ISO 27701 (privacy management), NIST Privacy Framework
 - **Contractual**: Data Processing Agreements (DPAs), customer privacy commitments, vendor privacy requirements
 
-Document privacy requirements specific to AI-operated data security:
+Document privacy requirements specific to HAI data security:
 - **Lawful Basis**: What is the lawful basis for AI processing personal data for security purposes? (Legitimate interest under GDPR Article 6(1)(f)?)
 - **Transparency**: How do you inform data subjects that AI systems monitor their data access? (Privacy notice updates required?)
 - **Automated Decision-Making**: Do AI data security decisions constitute "automated decision-making" under GDPR Article 22? (Right to human review?)
@@ -208,7 +208,7 @@ Value of privacy leadership:
 
 **Level 1:**
 1. Do you have documented policies governing how AI agents operate data security functions and protect privacy?
-2. Have you identified and documented privacy regulations (GDPR, CCPA, HIPAA, etc.) that apply to AI-operated data security?
+2. Have you identified and documented privacy regulations (GDPR, CCPA, HIPAA, etc.) that apply to HAI data security?
 3. Has a Data Protection Impact Assessment (DPIA) been initiated for AI data security operations?
 
 **Level 2:**
@@ -225,7 +225,7 @@ Value of privacy leadership:
 
 ## Privacy Regulation & Compliance Considerations
 
-AI-operated data security must address specific privacy regulatory requirements:
+HAI data security must address specific privacy regulatory requirements:
 
 ### GDPR (EU General Data Protection Regulation)
 - **Article 6(1)(f)**: Legitimate interest basis for AI security processing (balancing test required)

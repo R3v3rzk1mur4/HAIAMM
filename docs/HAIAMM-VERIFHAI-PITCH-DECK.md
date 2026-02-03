@@ -30,7 +30,7 @@
 [Date]
 
 **Speaker Notes:**
-Welcome. Today I'm presenting HAIAMM version 2.2 - not just as a framework, but as a complete solution. HAIAMM tells you WHAT to secure. Verifhai shows you HOW to build it. Together, they're the first end-to-end system for securing AI-operated security programs.
+Welcome. Today I'm presenting HAIAMM version 2.2 - not just as a framework, but as a complete solution. HAIAMM tells you WHAT to secure. Verifhai shows you HOW to build it. Together, they're the first end-to-end system for securing HAI security programs.
 
 ---
 
@@ -57,7 +57,7 @@ This is the question every CISO will face in 2025-2026. AI agents are no longer 
 
 ## SLIDE 3: The Paradigm Shift
 
-**Visual:** Timeline showing evolution from manual to AI-operated security
+**Visual:** Timeline showing evolution from manual to HAI security
 
 # Security Has Fundamentally Changed
 
@@ -77,7 +77,7 @@ This is the question every CISO will face in 2025-2026. AI agents are no longer 
 - ISO 27001 assesses human controls
 - NIST CSF assesses human processes
 - OWASP SAMM assesses human development
-- **Nothing assesses AI-operated security**
+- **Nothing assesses HAI security**
 
 Until HAIAMM.
 
@@ -753,7 +753,7 @@ I recommend starting with Option 1 today. Takes 10 minutes. You'll immediately s
 *The Framework + The Tool for AI-Operated Security*
 
 **Speaker Notes:**
-Thank you. Your AI security agents are running right now - making decisions, blocking threats, generating evidence. The question is: do you know if they're doing it correctly? HAIAMM + Verifhai gives you the answer. Download it today, start your assessment, and join us in defining the standard for AI-operated security assurance.
+Thank you. Your AI security agents are running right now - making decisions, blocking threats, generating evidence. The question is: do you know if they're doing it correctly? HAIAMM + Verifhai gives you the answer. Download it today, start your assessment, and join us in defining the standard for HAI security assurance.
 
 ---
 
@@ -786,7 +786,7 @@ Thank you. Your AI security agents are running right now - making decisions, blo
 
 | Aspect | HAIAMM | NIST AI RMF | ISO 27001 | OWASP LLM Top 10 |
 |--------|--------|-------------|-----------|------------------|
-| **Focus** | AI-operated security | AI system security | General security | LLM vulnerabilities |
+| **Focus** | HAI security | AI system security | General security | LLM vulnerabilities |
 | **Assesses AI agents doing security?** | ✅ Yes | ❌ No | ❌ No | ❌ No |
 | **Measurable outcomes?** | ✅ With formulas | ⚠️ General guidance | ⚠️ Controls only | ❌ Risks only |
 | **Interactive tool?** | ✅ Verifhai | ❌ No | ❌ No | ❌ No |

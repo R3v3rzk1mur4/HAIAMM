@@ -67,12 +67,12 @@ HAIAMM's 3-tier structure naturally aligns with CMMC's 3-level certification mod
 
 **HAIAMM Value Proposition:**
 Organizations can use HAIAMM to:
-1. Assess AI security operations maturity (core HAIAMM mission)
+1. Assess HAI security operations maturity (core HAIAMM mission)
 2. Prepare for CMMC Level 2 certification (compliance pathway)
 3. Demonstrate NIST SP 800-171 implementation (DFARS requirement)
 4. Document AI-specific security controls (competitive advantage)
 
-**Differentiation:** HAIAMM is the **only framework** assessing AI-operated security programs. CMMC assesses traditional security; HAIAMM assesses AI security agents.
+**Differentiation:** HAIAMM is the **only framework** assessing HAI security programs. CMMC assesses traditional security; HAIAMM assesses AI security agents.
 
 ---
 
@@ -275,7 +275,7 @@ Organizations can use HAIAMM to:
 - AI agent inventory
 - NIST control implementation for AI operations
 - HAIAMM practice maturity levels
-- Risk assessments for AI-operated security
+- Risk assessments for HAI security
 - Incident response procedures (72-hour DFARS reporting)
 - Continuous monitoring approach
 
@@ -331,16 +331,16 @@ Organizations can use HAIAMM to:
 | **NIST SP 800-171** | CUI protection controls | ❌ None | ✅ Defines controls | Federal contractors |
 | **NIST AI RMF** | Securing AI systems | ⚠️ Partial (AI as risk, not operator) | ✅ NIST framework | AI developers |
 | **ISO 27001** | Information security management | ❌ None | ⚠️ Aligned but separate | Global enterprises |
-| **HAIAMM (Current)** | AI-operated security maturity | ✅ **ONLY** framework | ❌ Not aligned | AI security programs |
-| **HAIAMM (Proposed)** | AI-operated security + NIST compliance | ✅ **ONLY** framework | ✅ **Fully aligned** | Defense contractors + AI security |
+| **HAIAMM (Current)** | HAI security maturity | ✅ **ONLY** framework | ❌ Not aligned | HAI security programs |
+| **HAIAMM (Proposed)** | HAI security + NIST compliance | ✅ **ONLY** framework | ✅ **Fully aligned** | Defense contractors + AI security |
 
 **Unique Value Proposition:** HAIAMM with NIST/CMMC integration is the **ONLY** framework that:
-1. Assesses AI-operated security programs (vs. traditional human/system security)
+1. Assesses HAI security programs (vs. traditional human/system security)
 2. Aligns with NIST SP 800-171 compliance requirements
 3. Prepares organizations for CMMC certification
 4. Provides unified AI security + compliance assessment
 
-**Market Gap:** No competing framework addresses AI-operated security with NIST/CMMC alignment.
+**Market Gap:** No competing framework addresses HAI security with NIST/CMMC alignment.
 
 ---
 
@@ -431,7 +431,7 @@ Organizations can use HAIAMM to:
 
 **Consulting & Training:**
 - Implementation consulting for HAIAMM adoption
-- Training programs for AI security operations
+- Training programs for HAI security operations
 - Custom assessment services
 
 ### ROI Projection
@@ -508,11 +508,11 @@ Organizations can use HAIAMM to:
 
 ## CONCLUSION
 
-Integrating NIST SP 800-171, DFARS 252.204-7012, and CMMC 2.0 into HAIAMM transforms the framework from an **AI security niche tool** into a **comprehensive AI-operated security and compliance platform**.
+Integrating NIST SP 800-171, DFARS 252.204-7012, and CMMC 2.0 into HAIAMM transforms the framework from an **AI security niche tool** into a **comprehensive HAI security and compliance platform**.
 
 **The opportunity is clear:**
 - 350,000+ defense contractors need CMMC certification
-- No competing framework addresses AI-operated security
+- No competing framework addresses HAI security
 - Strong technical alignment (89%) makes integration feasible
 - Regulatory mandate (CMMC effective Nov 2025) creates immediate demand
 

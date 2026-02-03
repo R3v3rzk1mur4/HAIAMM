@@ -28,11 +28,11 @@ HAIAMM occupies a unique position in the AI security landscape. While most frame
 | **MITRE ATLAS** | What adversarial techniques target AI? |
 | **EU AI Act** | What compliance is required for AI? |
 | **OWASP SAMM** | How mature is our software security? |
-| **HAIAMM** | Is AI-operated security actually effective? |
+| **HAIAMM** | Is HAI security actually effective? |
 
 ### The Gap HAIAMM Fills
 
-The core insight is valid: AI agents are no longer just being secured—they ARE the security program. When Darktrace autonomously blocks threats, when GitHub Copilot Autofix merges security patches, when AI GRC tools generate compliance evidence, someone needs to ask: "Are these AI security operations actually working?"
+The core insight is valid: AI agents are no longer just being secured—they ARE the security program. When Darktrace autonomously blocks threats, when GitHub Copilot Autofix merges security patches, when AI GRC tools generate compliance evidence, someone needs to ask: "Are these HAI security operations actually working?"
 
 No existing framework addresses this question systematically.
 
@@ -44,7 +44,7 @@ No existing framework addresses this question systematically.
 
 | Aspect | NIST AI RMF | HAIAMM |
 |--------|-------------|--------|
-| **Focus** | AI system risk governance | AI-operated security effectiveness |
+| **Focus** | AI system risk governance | HAI security effectiveness |
 | **Scope** | All AI systems | AI doing security work |
 | **Structure** | 4 functions (Govern, Map, Measure, Manage) | 4 functions, 12 practices, 6 domains |
 | **Maturity levels** | No | Yes (L1, L2, L3) |
@@ -60,13 +60,13 @@ No existing framework addresses this question systematically.
 
 | Aspect | ISO 42001 | HAIAMM |
 |--------|-----------|--------|
-| **Focus** | AI management system | AI security operations |
+| **Focus** | AI management system | HAI security operations |
 | **Approach** | Certification standard | Maturity model |
 | **Cost** | Paid standard | Free/open source |
 | **Flexibility** | Prescriptive controls | Adaptable practices |
 | **Industry adoption** | Growing (ISO brand) | Emerging |
 
-**Relationship:** Complementary. ISO 42001 provides management system certification. HAIAMM provides operational security assessment for AI-operated security specifically.
+**Relationship:** Complementary. ISO 42001 provides management system certification. HAIAMM provides operational security assessment for HAI security specifically.
 
 ---
 
@@ -102,16 +102,16 @@ No existing framework addresses this question systematically.
 
 | Aspect | OWASP SAMM | HAIAMM |
 |--------|------------|--------|
-| **Focus** | Software security maturity | AI-operated security maturity |
+| **Focus** | Software security maturity | HAI security maturity |
 | **Target** | Human development teams | AI agents doing security |
 | **Practices** | 15 practices | 12 practices |
 | **Domains** | 5 business functions | 6 security domains |
 | **AI-specific** | No | Yes |
 | **Open source** | Yes | Yes |
 
-**Relationship:** Parallel models for different eras. SAMM assesses human software security programs. HAIAMM assesses AI-operated security programs. Organizations may need both.
+**Relationship:** Parallel models for different eras. SAMM assesses human software security programs. HAIAMM assesses HAI security programs. Organizations may need both.
 
-**Important:** HAIAMM is NOT derived from SAMM. While both are maturity models, HAIAMM was designed specifically for AI security operations with different practices, domains, and assessment criteria.
+**Important:** HAIAMM is NOT derived from SAMM. While both are maturity models, HAIAMM was designed specifically for HAI security operations with different practices, domains, and assessment criteria.
 
 ---
 
@@ -213,7 +213,7 @@ Organizations already drowning in frameworks (NIST CSF, ISO 27001, SOC 2, PCI-DS
 Framework designed in 2024-2025 may not anticipate 2027 AI architectures:
 - Multi-agent systems
 - Autonomous agent networks
-- AI-to-AI security operations
+- AI-to-HAI security operations
 - Novel attack vectors
 
 **Mitigation:** Built-in evolution mechanism. Regular version updates. Community-driven practice additions.
@@ -228,7 +228,7 @@ Who certifies HAIAMM assessments? Without established certification bodies, "HAI
 ## Competitive Advantages
 
 ### vs. Generic Frameworks (NIST, ISO)
-- More specific to AI security operations
+- More specific to HAI security operations
 - Actionable implementation guidance (First 30 Days)
 - Interactive tooling (Verifhai)
 - Measurable outcomes, not just controls
@@ -240,10 +240,10 @@ Who certifies HAIAMM assessments? Without established certification bodies, "HAI
 - Organizational assessment, not just technical risks
 
 ### vs. Software Security Models (SAMM)
-- Designed for AI-operated security era
+- Designed for HAI security era
 - Addresses AI agent effectiveness
 - AI-specific practices and assessment criteria
-- Complementary for organizations with both human and AI security operations
+- Complementary for organizations with both human and HAI security operations
 
 ---
 
@@ -285,7 +285,7 @@ HAIAMM is solving a real problem that will only grow as AI agents increasingly r
 
 **The challenge is adoption.** Success depends on building the ecosystem: early adopters, case studies, certification authority, community validation, and regulatory recognition.
 
-**Bottom line:** The concept is sound, the timing is right, and the execution in v2.0 is solid. HAIAMM has the potential to become the standard for AI-operated security assurance—but potential must be converted to adoption.
+**Bottom line:** The concept is sound, the timing is right, and the execution in v2.0 is solid. HAIAMM has the potential to become the standard for HAI security assurance—but potential must be converted to adoption.
 
 ---
 

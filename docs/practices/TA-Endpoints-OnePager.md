@@ -5,16 +5,16 @@
 
 ### Practice Overview
 
-**Objective:** Identify and analyze threats specific to AI-operated endpoint security operations
+**Objective:** Identify and analyze threats specific to HAI endpoint security operations
 
 **Description:** Build and maintain threat models that account for unique attack vectors, failure modes, and adversarial risks when AI agents perform critical endpoint security functions such as endpoint detection and response (EDR/XDR), behavioral analytics, automated threat hunting, ransomware detection and response, patch management automation, device compliance enforcement, mobile device management (MDM), insider threat detection, and zero trust endpoint verification.
 
-**Context:** AI agents operating endpoint security create novel threat surfaces beyond traditional endpoint protection risks. Adversaries may attempt adversarial malware to evade AI EDR detection, behavioral mimicry to blend malicious activity into normal user patterns, poisoning of behavioral baselines to normalize attack indicators, model inversion to extract EDR detection logic, and supply chain compromise of AI endpoint security tools. Additionally, AI endpoint security agents face operational threats: false negatives (missing sophisticated ransomware, advanced persistent threats, fileless malware), false positives (quarantining CEO's laptop during critical business event, blocking legitimate remote access tools, disrupting workforce productivity), model drift (degraded detection as user behavior and applications evolve), automated overreaction (AI isolating entire departments for benign anomaly), and cascading impact (one AI-driven endpoint action disrupting dependent business processes). Endpoint-specific challenges include device diversity (corporate laptops, BYOD, mobile, IoT, servers with different OS, security capabilities), remote/hybrid work (endpoints outside traditional network perimeter), user impact visibility (AI endpoint actions directly affect workforce productivity), and privacy considerations (AI monitoring BYOD devices, behavioral analytics on employee activity). This practice ensures organizations proactively identify, assess, and mitigate threats specific to AI-operated endpoint security before ransomware outbreaks, undetected breaches, or business-disrupting false positives occur.
+**Context:** AI agents operating endpoint security create novel threat surfaces beyond traditional endpoint protection risks. Adversaries may attempt adversarial malware to evade AI EDR detection, behavioral mimicry to blend malicious activity into normal user patterns, poisoning of behavioral baselines to normalize attack indicators, model inversion to extract EDR detection logic, and supply chain compromise of AI endpoint security tools. Additionally, AI endpoint security agents face operational threats: false negatives (missing sophisticated ransomware, advanced persistent threats, fileless malware), false positives (quarantining CEO's laptop during critical business event, blocking legitimate remote access tools, disrupting workforce productivity), model drift (degraded detection as user behavior and applications evolve), automated overreaction (AI isolating entire departments for benign anomaly), and cascading impact (one AI-driven endpoint action disrupting dependent business processes). Endpoint-specific challenges include device diversity (corporate laptops, BYOD, mobile, IoT, servers with different OS, security capabilities), remote/hybrid work (endpoints outside traditional network perimeter), user impact visibility (AI endpoint actions directly affect workforce productivity), and privacy considerations (AI monitoring BYOD devices, behavioral analytics on employee activity). This practice ensures organizations proactively identify, assess, and mitigate threats specific to HAI endpoint security before ransomware outbreaks, undetected breaches, or business-disrupting false positives occur.
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish baseline threat awareness for AI-operated endpoint security
+### Objective: Establish baseline threat awareness for HAI endpoint security
 
 At this level, organizations recognize that AI agents performing endpoint security introduce unique threats beyond traditional endpoint security risks and begin documenting these AI-specific threat scenarios.
 
@@ -86,7 +86,7 @@ Document threat scenarios with specific examples relevant to your endpoint portf
 
 **B) Establish threat awareness training for endpoint security and IT teams**
 
-Educate SOC analysts, endpoint security teams, IT operations, helpdesk, and business leadership on threats specific to AI-operated endpoint security. Teams must understand that AI endpoint security tools are powerful but introduce new attack vectors and failure modes that don't exist with traditional signature-based endpoint protection.
+Educate SOC analysts, endpoint security teams, IT operations, helpdesk, and business leadership on threats specific to HAI endpoint security. Teams must understand that AI endpoint security tools are powerful but introduce new attack vectors and failure modes that don't exist with traditional signature-based endpoint protection.
 
 Training coverage:
 
@@ -132,7 +132,7 @@ At this level, organizations assess AI endpoint security threats based on techni
 
 #### Activities
 
-**A) Develop abuse cases and attack trees for AI-operated endpoint security**
+**A) Develop abuse cases and attack trees for HAI endpoint security**
 
 For each AI agent performing endpoint security, create detailed abuse cases showing how adversaries could exploit or degrade AI endpoint security operations. Model attack paths from initial endpoint compromise to business impact despite AI security defenses.
 
@@ -286,7 +286,7 @@ At this level, organizations proactively track adversarial ML research, real-wor
 
 **A) Monitor industry threat intelligence for AI endpoint security tool vulnerabilities and attack techniques**
 
-Establish continuous monitoring of adversarial ML research, endpoint security research, vulnerability databases, ransomware analysis, and AI EDR vendor advisories to identify new threats to AI-operated endpoint security. Track both theoretical attacks (academic research) and real-world exploits (ransomware variants, APT TTPs, EDR bypass techniques).
+Establish continuous monitoring of adversarial ML research, endpoint security research, vulnerability databases, ransomware analysis, and AI EDR vendor advisories to identify new threats to HAI endpoint security. Track both theoretical attacks (academic research) and real-world exploits (ransomware variants, APT TTPs, EDR bypass techniques).
 
 Threat intelligence sources:
 
@@ -405,7 +405,7 @@ Document all adversarial testing results and share findings with AI endpoint sec
 ## Key Success Indicators
 
 **Level 1:**
-- Documented threat scenarios specific to AI-operated endpoint security (minimum 15 scenarios covering adversarial evasion, ransomware, insider threats, false positives, supply chain risks)
+- Documented threat scenarios specific to HAI endpoint security (minimum 15 scenarios covering adversarial evasion, ransomware, insider threats, false positives, supply chain risks)
 - Threat awareness training delivered to SOC, IT operations, business users, and leadership (>80% completion within 90 days of AI EDR deployment)
 - Inventory of AI endpoint security agents mapped to threat scenarios (each AI tool has 3+ documented threat scenarios)
 - Executive awareness of AI endpoint security risks and business impact (CISO/CIO briefed on AI-specific endpoint threats)
@@ -432,7 +432,7 @@ Document all adversarial testing results and share findings with AI endpoint sec
 ## Common Pitfalls
 
 **Level 1:**
-- ❌ Threat scenarios are generic (not specific to AI-operated endpoint security) - "endpoints get hacked" instead of "adversarial ransomware evades AI EDR behavioral detection"
+- ❌ Threat scenarios are generic (not specific to HAI endpoint security) - "endpoints get hacked" instead of "adversarial ransomware evades AI EDR behavioral detection"
 - ❌ Training is compliance theater (slide deck on endpoint threats, no hands-on exercises, no validation of knowledge retention, no SOC-specific training)
 - ❌ Threat inventory is incomplete (missing BYOD, IoT devices, mobile endpoints, shadow AI endpoint tools users installed independently)
 - ❌ No consideration of endpoint diversity (assume all endpoints are corporate Windows laptops, ignore Mac, Linux, mobile, IoT)
@@ -466,7 +466,7 @@ Document all adversarial testing results and share findings with AI endpoint sec
 
 **Level 1:**
 1. Have you documented threat scenarios specific to AI agents performing endpoint security operations (EDR/XDR, behavioral analytics, automated response, ransomware detection)?
-2. Have SOC analysts, IT operations, business users, and leadership received training on threats unique to AI-operated endpoint security?
+2. Have SOC analysts, IT operations, business users, and leadership received training on threats unique to HAI endpoint security?
 3. Is there an inventory mapping each AI endpoint security agent to potential threat scenarios, failure modes, and endpoint types (corporate, BYOD, mobile, IoT)?
 
 **Level 2:**
@@ -483,7 +483,7 @@ Document all adversarial testing results and share findings with AI endpoint sec
 
 ## Endpoint-Specific Considerations
 
-Threat Assessment for AI-operated endpoint security must address unique challenges in endpoint protection, user impact, and device diversity:
+Threat Assessment for HAI endpoint security must address unique challenges in endpoint protection, user impact, and device diversity:
 
 - **User Productivity Impact**: AI endpoint actions (quarantines, process terminations, network isolation) directly affect workforce productivity - false positives have immediate business consequences unlike infrastructure false positives
 - **Device Heterogeneity**: AI endpoint security must protect diverse OS (Windows, Mac, Linux), mobile platforms (iOS, Android), IoT devices with vastly different security capabilities, telemetry, and threat landscapes

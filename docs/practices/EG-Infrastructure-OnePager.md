@@ -9,12 +9,12 @@
 
 **Description:** Build and deliver training, awareness programs, and reference materials that enable infrastructure teams, security teams, and stakeholders to understand, operate, and optimize AI-driven infrastructure security. Ensure teams have the knowledge to leverage AI security capabilities effectively while understanding limitations, avoiding over-reliance, and maintaining human oversight.
 
-**Context:** Organizations adopting AI-operated infrastructure security face a learning curve - teams must understand how AI tools work, when to trust AI recommendations, when to override AI decisions, and how to tune AI systems for effectiveness. Without proper education, teams may misuse AI tools, ignore valuable AI insights, or place inappropriate trust in AI decisions. Effective education programs accelerate AI adoption, reduce errors, and maximize security value.
+**Context:** Organizations adopting HAI infrastructure security face a learning curve - teams must understand how AI tools work, when to trust AI recommendations, when to override AI decisions, and how to tune AI systems for effectiveness. Without proper education, teams may misuse AI tools, ignore valuable AI insights, or place inappropriate trust in AI decisions. Effective education programs accelerate AI adoption, reduce errors, and maximize security value.
 
 ---
 
 ## Maturity Level 1
-### Objective: Establish foundational training and awareness for AI-operated infrastructure security
+### Objective: Establish foundational training and awareness for HAI infrastructure security
 
 At this level, organizations create basic training programs and awareness campaigns to introduce AI infrastructure security capabilities and build foundational understanding across teams.
 
@@ -22,7 +22,7 @@ At this level, organizations create basic training programs and awareness campai
 
 **A) Provide foundational training on AI infrastructure security tools and capabilities**
 
-Create and deliver introductory training programs that teach infrastructure teams, security teams, and stakeholders the basics of AI-operated infrastructure security - what AI tools do, how they work, and how teams should interact with them.
+Create and deliver introductory training programs that teach infrastructure teams, security teams, and stakeholders the basics of HAI infrastructure security - what AI tools do, how they work, and how teams should interact with them.
 
 Foundational training elements:
 - **AI Infrastructure Security Overview**: What AI tools are deployed (CSPM, CNAPP, AI-driven vulnerability scanners, automated configuration auditing)
@@ -47,7 +47,7 @@ Target audiences:
 
 **B) Build awareness of AI infrastructure security through campaigns and communications**
 
-Develop awareness programs that communicate AI infrastructure security value, successes, and best practices to build organizational understanding and support for AI-operated security.
+Develop awareness programs that communicate AI infrastructure security value, successes, and best practices to build organizational understanding and support for HAI security.
 
 Awareness campaign elements:
 - **AI Security Wins**: Regular communication of AI security successes (misconfigurations detected before exploitation, vulnerabilities identified and remediated, compliance violations prevented)
@@ -133,7 +133,7 @@ At this level, organizations achieve continuous learning through communities of 
 
 **A) Establish communities of practice with continuous learning for AI infrastructure security**
 
-Build vibrant communities of practice where infrastructure and security teams continuously learn from each other, share AI security knowledge, and collaborate on improving AI-operated infrastructure security effectiveness.
+Build vibrant communities of practice where infrastructure and security teams continuously learn from each other, share AI security knowledge, and collaborate on improving HAI infrastructure security effectiveness.
 
 Community of practice elements:
 - **AI Security Guild**: Regular meetings of practitioners sharing AI infrastructure security knowledge (monthly meetings, rotating presentations, problem-solving sessions)
@@ -230,7 +230,7 @@ Continuous improvement cycle:
 ## Practice Maturity Questions
 
 **Level 1:**
-1. Have all infrastructure and security teams received foundational training on AI-operated infrastructure security tools and capabilities?
+1. Have all infrastructure and security teams received foundational training on HAI infrastructure security tools and capabilities?
 2. Are awareness campaigns actively communicating AI infrastructure security value and successes to the organization?
 3. Is training completion tracked with target completion rates defined (e.g., >80% of relevant teams)?
 
@@ -270,7 +270,7 @@ Effective AI infrastructure security education must address several unique chall
 - **Emerging Threats**: New attack techniques against AI require ongoing threat awareness education
 - **Best Practice Evolution**: Industry best practices for AI infrastructure security are still emerging, requiring continuous learning
 
-Organizations must invest in comprehensive, ongoing education to realize the full value of AI-operated infrastructure security.
+Organizations must invest in comprehensive, ongoing education to realize the full value of HAI infrastructure security.
 
 ---
 

@@ -18,7 +18,7 @@
 ---
 
 ## Level 1: Foundational
-**Objective:** Establish baseline threat awareness for AI-operated software security
+**Objective:** Establish baseline threat awareness for HAI software security
 
 ### Question 1: AI-Specific Threat Scenario Identification
 
@@ -97,7 +97,7 @@
 
 ### Question 4: Abuse Cases and Attack Trees
 
-**Q2.1:** Have you developed detailed abuse cases and attack trees for each HAI agent performing software security, showing how adversaries could exploit or degrade AI security operations?
+**Q2.1:** Have you developed detailed abuse cases and attack trees for each HAI agent performing software security, showing how adversaries could exploit or degrade HAI security operations?
 
 **Evidence Required:**
 - [ ] At least 3-5 abuse cases documented per AI security agent
