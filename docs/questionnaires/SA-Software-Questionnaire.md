@@ -1,9 +1,11 @@
 # Secure Architecture (SA) - Software Domain
-## HAIAMM Assessment Questionnaire v2.0
+## HAIAMM Assessment Questionnaire v3.0
 
 **Practice:** Secure Architecture (SA)
 **Domain:** Software
+**Version:** v3.0
 **Purpose:** Assess organizational maturity in architectural design for Human Assisted Intelligence systems
+**Scoring Model:** Evidence + Outcome Metrics (see Scoring Methodology below)
 
 ---
 
@@ -13,7 +15,10 @@
 - **"Yes" requires evidence** - Document proof for each affirmative answer
 - **Answer progressively** - Complete all Level 1 questions before Level 2
 - **Level progression** - Achieve ALL questions at lower level before advancing
-- **Partial implementation = "No"** - Practice must be complete and systematic
+- **Partial implementation = "Partial"** - Practice must be complete and systematic for full credit
+- Each question has two components: **Evidence** (what you did) and **Outcome Metrics** (how well it worked)
+- **Scoring uses 4 tiers:** Fully Mature (1.0), Implemented (0.67), Partial (0.33), Not Implemented (0.0)
+- **Baseline first** - Record current metric values before setting targets
 
 ---
 
@@ -41,9 +46,29 @@
 - [ ] Architecture documentation (architectural diagrams, design decisions, technology choices)
 - [ ] Architecture reviewed and approved by security and engineering leadership
 
-**Answer:** [ ] Yes  [ ] No
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| Model precision (% of flagged findings that are true positives) | ___ | ___ | ≥85% | ☐ | |
+| Model recall (% of actual vulnerabilities detected) | ___ | ___ | ≥95% | ☐ | |
+| Code repository integration coverage (% of repos connected) | ___ | ___ | ≥95% | ☐ | |
+| Training dataset size per major vulnerability class (labeled examples) | ___ | ___ | ≥10,000 | ☐ | |
+
+**Metric Collection Guidance:**
+- **Model precision**: Collect from security dashboard; formula = True Positives / (True Positives + False Positives) computed monthly from validated developer feedback and expert review
+- **Model recall**: Collect from security audits and production incident retrospectives; formula = True Positives / (True Positives + False Negatives); validate via quarterly red-team exercises
+- **Repository integration coverage**: Pull from repository connector admin dashboard; formula = Connected Repos / Total Known Repos; report monthly
+- **Training dataset size**: Export count from model registry or training data catalog; count labeled examples per vulnerability class (SQL injection, XSS, auth flaws, crypto, etc.)
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
 
 **Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
 
 **Notes:** ___________________________________________
 
@@ -73,9 +98,29 @@
   - Model Serving Architecture (model server or embedded models)
 - [ ] Infrastructure monitoring and alerting configured
 
-**Answer:** [ ] Yes  [ ] No
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| IDE analysis latency p95 (seconds from code change to result display) | ___ | ___ | ≤3 seconds | ☐ | |
+| CI/CD build time overhead added by security scan (%) | ___ | ___ | <10% | ☐ | |
+| System uptime (monthly availability %) | ___ | ___ | ≥99.5% | ☐ | |
+| Result cache hit rate (% of analysis requests served from cache) | ___ | ___ | ≥60% | ☐ | |
+
+**Metric Collection Guidance:**
+- **IDE latency p95**: Instrument IDE plugin with telemetry; collect timestamps from code change event to result display; compute 95th percentile monthly from plugin analytics or APM tool (Datadog, New Relic)
+- **CI/CD build time overhead**: Compare average build time with and without security scan step; formula = (Build Time With Scan - Build Time Without Scan) / Build Time Without Scan x 100; pull from CI/CD pipeline analytics (GitHub Actions, Jenkins) monthly
+- **System uptime**: Calculate from monitoring tool (Prometheus, Datadog); formula = (Total Minutes - Downtime Minutes) / Total Minutes x 100; report monthly from SLO dashboard
+- **Cache hit rate**: Pull from Redis/Memcached metrics dashboard; formula = Cache Hits / (Cache Hits + Cache Misses) x 100; report daily, average monthly
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
 
 **Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
 
 **Notes:** ___________________________________________
 
@@ -106,24 +151,44 @@
   - Security Outcome Monitoring (vulnerability detection metrics, remediation tracking)
 - [ ] Evidence of operational security (logs, monitoring dashboards, security reviews)
 
-**Answer:** [ ] Yes  [ ] No
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| Developer feedback volume (validated feedback submissions per month) | ___ | ___ | ≥100/month | ☐ | |
+| False positive rate (% of findings marked as false positive by developers) | ___ | ___ | ≤20% | ☐ | |
+| Credential rotation compliance (% of AI service credentials rotated on schedule) | ___ | ___ | 100% | ☐ | |
+| Security incidents involving AI system compromise (count in trailing 12 months) | ___ | ___ | 0 | ☐ | |
+
+**Metric Collection Guidance:**
+- **Developer feedback volume**: Count from feedback database or ticketing system; formula = COUNT(feedback records) per calendar month where feedback_type IN ('false_positive', 'confirmed', 'severity_adjustment'); report monthly
+- **False positive rate**: Pull from security dashboard findings data; formula = Findings marked 'false_positive' / Total Findings Reviewed x 100; compute monthly from triaged findings
+- **Credential rotation compliance**: Query secrets manager audit log or credential rotation scheduler; formula = Credentials Rotated On Time / Total Credentials x 100; report monthly
+- **AI security incidents**: Count from incident management system (PagerDuty, Jira) tagged with AI system component; report quarterly with trailing 12-month count
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
 
 **Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
 
 **Notes:** ___________________________________________
 
 ---
 
-**Level 1 Score:** _____ / 3 questions answered "Yes"
+**Level 1 Score:** _____ / 3.0 (sum of question scores)
 
-**Level 1 Achieved:** [ ] Yes (3/3) [ ] No (< 3/3)
+**Level 1 Achieved:** [ ] Yes (all questions ≥0.67) [ ] No
 
 ---
 
 ## Level 2: Comprehensive
 **Objective:** Implement comprehensive architecture with ensemble learning, real-time adaptation, distributed processing at enterprise scale, and advanced developer experience
 
-**Prerequisites:** ALL Level 1 questions must be "Yes" to proceed to Level 2
+**Prerequisites:** ALL Level 1 questions must score ≥0.67 to proceed to Level 2
 
 ### Question 4: Ensemble Learning and Real-Time Model Adaptation
 
@@ -147,9 +212,29 @@
   - Historical tracking showing sustained accuracy improvement (≥6 months)
 - [ ] Evidence of ensemble and real-time learning effectiveness (metrics dashboards, performance reports)
 
-**Answer:** [ ] Yes  [ ] No
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| Ensemble model precision (% true positives among all flagged findings) | ___ | ___ | ≥92% | ☐ | |
+| Ensemble lift over best single model (% accuracy improvement) | ___ | ___ | ≥10% | ☐ | |
+| Monthly model accuracy improvement via continuous learning (%) | ___ | ___ | ≥2%/month | ☐ | |
+| Active learning efficiency vs random sampling (multiplier) | ___ | ___ | ≥3x | ☐ | |
+
+**Metric Collection Guidance:**
+- **Ensemble precision**: Pull from model monitoring dashboard; compute monthly from validated ground truth labels; formula = True Positives / (True Positives + False Positives); compare ensemble to each specialist individually
+- **Ensemble lift**: Compare ensemble accuracy score to best-performing individual specialist model in A/B test; formula = (Ensemble Accuracy - Best Specialist Accuracy) / Best Specialist Accuracy x 100; evaluate quarterly
+- **Monthly accuracy improvement**: Track precision/recall on held-out validation set month-over-month; formula = (Current Month Accuracy - Prior Month Accuracy); chart in model performance dashboard
+- **Active learning efficiency**: Run controlled experiment comparing active-selected vs randomly-selected labeling batches; formula = Accuracy Gain Per Label (Active) / Accuracy Gain Per Label (Random); evaluate semi-annually
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
 
 **Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
 
 **Notes:** ___________________________________________
 
@@ -181,9 +266,29 @@
 - [ ] Service Mesh (optional): Istio or Linkerd for microservice communication management
 - [ ] Performance metrics demonstrating scale achievement (load testing reports, production metrics)
 
-**Answer:** [ ] Yes  [ ] No
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| Maximum lines of code analyzed in a single day (millions of LOC) | ___ | ___ | ≥10M LOC | ☐ | |
+| Average analysis request latency at peak load (seconds) | ___ | ___ | ≤5 seconds | ☐ | |
+| Distributed cache hit rate (%) | ___ | ___ | ≥70% | ☐ | |
+| Parallel processing efficiency (% of linear scaling achieved) | ___ | ___ | ≥80% | ☐ | |
+
+**Metric Collection Guidance:**
+- **Max daily LOC analyzed**: Aggregate from analysis job logs or metrics pipeline; formula = SUM(lines_analyzed) per calendar day; pull from findings database or telemetry; report peak day per month
+- **Average latency at peak load**: Capture from APM tool or distributed tracing (Jaeger, Zipkin) during peak hours; formula = mean(request_duration_ms) during top-10% traffic periods; report monthly
+- **Distributed cache hit rate**: Pull from Redis Cluster metrics (redis-cli INFO stats: keyspace_hits, keyspace_misses); formula = hits / (hits + misses) x 100; report daily average monthly
+- **Parallel efficiency**: Load test with N workers vs 2N workers; formula = (Throughput_2N / Throughput_N) / 2 x 100; run quarterly load tests and document
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
 
 **Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
 
 **Notes:** ___________________________________________
 
@@ -218,24 +323,44 @@
   - Developers rate AI tools as helpful (not hindering productivity)
 - [ ] Evidence of advanced features in use (metrics, developer feedback, adoption rates)
 
-**Answer:** [ ] Yes  [ ] No
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| AI-suggested remediation adoption rate (% of vulnerabilities fixed using AI fix) | ___ | ___ | ≥60% | ☐ | |
+| False positive rate reduction from contextual analysis (% improvement vs context-free) | ___ | ___ | ≥30% reduction | ☐ | |
+| Developer satisfaction score (quarterly survey, 0-100 scale) | ___ | ___ | ≥85 | ☐ | |
+| IDE coverage (% of developers with AI security plugin actively installed and used) | ___ | ___ | ≥70% | ☐ | |
+
+**Metric Collection Guidance:**
+- **Remediation adoption rate**: Track in findings management system; formula = Findings fixed using AI-suggested fix / Total Findings Fixed x 100; pull from remediation workflow audit log monthly
+- **False positive reduction**: A/B test context-aware vs context-free analysis on same codebase; formula = (FP Rate Context-Free - FP Rate Context-Aware) / FP Rate Context-Free x 100; evaluate quarterly
+- **Developer satisfaction score**: Run quarterly survey (SurveyMonkey, Google Forms, or internal tool); ask "How satisfied are you with the AI security tools?" on 0-100 scale; compute mean score; report quarterly
+- **IDE coverage**: Pull from IDE plugin telemetry or developer tooling management (Toolbox, MDM); formula = Active Plugin Users (activity in last 30 days) / Total Developers x 100; report monthly
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
 
 **Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
 
 **Notes:** ___________________________________________
 
 ---
 
-**Level 2 Score:** _____ / 3 questions answered "Yes"
+**Level 2 Score:** _____ / 3.0 (sum of question scores)
 
-**Level 2 Achieved:** [ ] Yes (3/3) [ ] No (< 3/3)
+**Level 2 Achieved:** [ ] Yes (all questions ≥0.67) [ ] No
 
 ---
 
 ## Level 3: Industry-Leading
 **Objective:** Achieve industry-leading architecture with self-healing systems, zero-trust security, multi-cloud resilience, AIOps, and open-source contributions
 
-**Prerequisites:** ALL Level 2 questions must be "Yes" to proceed to Level 3
+**Prerequisites:** ALL Level 2 questions must score ≥0.67 to proceed to Level 3
 
 ### Question 7: Self-Healing Architecture and AIOps Integration
 
@@ -262,9 +387,29 @@
 - [ ] Historical tracking showing self-healing effectiveness (≥12 months of incident data, resolution times, automation rates)
 - [ ] Documented reduction in manual interventions (≥50% reduction in manual incident response)
 
-**Answer:** [ ] Yes  [ ] No
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| Reduction in manual incident response actions (% vs 12-month prior baseline) | ___ | ___ | ≥50% reduction | ☐ | |
+| Predictive scaling accuracy (% of load spikes handled proactively before capacity breach) | ___ | ___ | ≥80% | ☐ | |
+| Mean time to self-heal (minutes from anomaly detection to automated resolution) | ___ | ___ | ≤10 minutes | ☐ | |
+| AIOps alert noise reduction (% reduction in actionable alert volume vs pre-AIOps baseline) | ___ | ___ | ≥50% reduction | ☐ | |
+
+**Metric Collection Guidance:**
+- **Manual incident response reduction**: Compare incident tickets requiring human action this year vs same period prior year; formula = (Prior Year Manual Incidents - Current Year Manual Incidents) / Prior Year Manual Incidents x 100; pull from PagerDuty or incident management system; report annually
+- **Predictive scaling accuracy**: Track from Kubernetes HPA or auto-scaling logs; formula = Load Spikes With Proactive Scale-Out / Total Load Spikes x 100; a spike is "proactively handled" if capacity was available before queue depth exceeded threshold; report monthly
+- **Mean time to self-heal**: Measure from anomaly detection timestamp to remediation verified timestamp in incident logs; formula = MEAN(remediation_time - detection_time) for auto-resolved incidents; report monthly from AIOps platform
+- **Alert noise reduction**: Compare alert volume pre-AIOps vs current; formula = (Baseline Alert Volume - Current Alert Volume) / Baseline Alert Volume x 100; pull from alerting platform (PagerDuty, OpsGenie) monthly; establish 6-month pre-AIOps baseline
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
 
 **Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
 
 **Notes:** ___________________________________________
 
@@ -294,9 +439,29 @@
 - [ ] Compliance considerations addressed (data residency, regulatory requirements)
 - [ ] Evidence of zero-trust implementation (security audits, penetration tests, compliance certifications)
 
-**Answer:** [ ] Yes  [ ] No
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| Zero-trust policy coverage (% of service-to-service paths enforcing mTLS and RBAC) | ___ | ___ | 100% | ☐ | |
+| Multi-cloud failover RTO achieved in drills (minutes to full service restoration) | ___ | ___ | ≤30 minutes | ☐ | |
+| Least-privilege audit pass rate (% of service accounts with no excess permissions) | ___ | ___ | ≥95% | ☐ | |
+| Cross-cloud replication lag (seconds of data lag between primary and replica cloud) | ___ | ___ | ≤60 seconds | ☐ | |
+
+**Metric Collection Guidance:**
+- **Zero-trust policy coverage**: Audit service mesh configuration (Istio, Linkerd) and IAM policies; formula = Service Paths With mTLS + RBAC Enforced / Total Service Paths x 100; run automated compliance scan quarterly
+- **Failover RTO in drills**: Time annual or semi-annual failover drill from trigger to service health check passing on secondary cloud; formula = time(service_healthy_secondary) - time(primary_failure_simulated); document each drill result
+- **Least-privilege audit pass rate**: Run IAM analyzer or cloud security posture tool (AWS Access Analyzer, Azure Permissions Management); formula = Service Accounts With Minimum Required Permissions Only / Total Service Accounts x 100; report quarterly
+- **Cross-cloud replication lag**: Monitor replication metrics from data replication tool (AWS DMS, custom sync); formula = MEAN(replication_lag_seconds) sampled every 5 minutes; alert if lag > 60 seconds; report monthly P95
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
 
 **Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
 
 **Notes:** ___________________________________________
 
@@ -333,43 +498,43 @@
   - Sustainable infrastructure practices documented
 - [ ] Executive-level reporting on architecture business value
 
-**Answer:** [ ] Yes  [ ] No
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| Year-over-year vulnerability reduction in production (%) | ___ | ___ | ≥50% YoY | ☐ | |
+| Shift-left ratio (% of vulnerabilities caught in development vs QA/production) | ___ | ___ | ≥80% in development | ☐ | |
+| Architecture ROI (ratio of benefits to investment costs, trailing 12 months) | ___ | ___ | ≥3:1 | ☐ | |
+| Open-source contributions per year (count of qualifying contributions) | ___ | ___ | ≥2/year | ☐ | |
+
+**Metric Collection Guidance:**
+- **YoY vulnerability reduction**: Compare production security incidents and post-release CVEs year vs prior year; formula = (Prior Year Production Vulns - Current Year Production Vulns) / Prior Year Production Vulns x 100; pull from bug tracker and security incident system; report annually
+- **Shift-left ratio**: Tag all vulnerabilities in findings system by detection phase (development/IDE/CI, QA/staging, production); formula = Vulnerabilities Found in Development / Total Vulnerabilities Found x 100; report quarterly
+- **Architecture ROI**: Benefits = cost of manual security reviews avoided + breach prevention value + developer time savings; Costs = infrastructure + tooling + engineering; formula = Total Benefits / Total Costs; document methodology and compute annually with finance team
+- **Open-source contributions**: Maintain contribution log (GitHub repos, conference talks, published papers, standards working groups); count qualifying contributions per calendar year; qualifying = publicly accessible and substantive (>500 words or functional code)
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
 
 **Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
 
 **Notes:** ___________________________________________
 
 ---
 
-**Level 3 Score:** _____ / 3 questions answered "Yes"
+**Level 3 Score:** _____ / 3.0 (sum of question scores)
 
-**Level 3 Achieved:** [ ] Yes (3/3) [ ] No (< 3/3)
+**Level 3 Achieved:** [ ] Yes (all questions ≥0.67) [ ] No
 
 ---
 
 ## Practice Score Calculation
 
-### Simplified Scoring (Recommended)
-
-```
-Level 1 Achieved (all 3 "Yes"): 1.0 point
-Level 2 Achieved (all 3 "Yes"): +1.0 point (total 2.0)
-Level 3 Achieved (all 3 "Yes"): +1.0 point (total 3.0)
-```
-
 **SA-Software Practice Score:** _______ / 3.0
-
-### Precise Scoring (For Formal Audits)
-
-```
-L1_score = (L1 "Yes" answers) / 3
-L2_score = (L2 "Yes" answers) / 3 × L1_score
-L3_score = (L3 "Yes" answers) / 3 × L2_score
-
-Practice Score = L1_score + L2_score + L3_score
-```
-
-**SA-Software Practice Score (Precise):** _______ / 3.0
 
 ---
 
@@ -382,10 +547,10 @@ Practice Score = L1_score + L2_score + L3_score
 **HAI System(s) Assessed:** __________________________
 
 **Overall Maturity Level:**
-- [ ] Level 0 (Score < 1.0): Ad-hoc, no formal architecture for AI code security
-- [ ] Level 1 (Score 1.0 - 1.9): Foundational architecture with model design, data management, workflow integration
-- [ ] Level 2 (Score 2.0 - 2.9): Comprehensive architecture with ensemble learning, distributed processing, advanced UX
-- [ ] Level 3 (Score 3.0): Industry-leading with self-healing, zero-trust, multi-cloud, AIOps, open-source contributions
+- [ ] Level 0 (Score < 0.5): Ad-hoc, no formal architecture for AI code security
+- [ ] Level 1 (Score 0.5 - 1.49): Foundational architecture with model design, data management, workflow integration
+- [ ] Level 2 (Score 1.5 - 2.49): Comprehensive architecture with ensemble learning, distributed processing, advanced UX
+- [ ] Level 3 (Score 2.5 - 3.0): Industry-leading with self-healing, zero-trust, multi-cloud, AIOps, open-source contributions
 
 **Strengths:**
 
@@ -488,6 +653,44 @@ Link all evidence documents here for audit trail:
 
 ---
 
-**Document Version:** 2.0
-**Last Updated:** 2025-12-29
+## Updated Scoring Methodology
+
+### Question-Level Scoring
+
+Each question receives a score based on evidence + outcome metrics:
+
+| Answer Category | Score | Criteria |
+|----------------|-------|----------|
+| **Fully Mature** | 1.0 | Evidence complete + ≥75% of metrics meet targets (≥3 of 4 metrics) |
+| **Implemented** | 0.67 | Evidence complete + 50-74% of metrics meet targets (2 of 4 metrics) |
+| **Partial** | 0.33 | Evidence complete + <50% metrics meet targets OR incomplete evidence |
+| **Not Implemented** | 0.0 | No evidence |
+
+### Level Scoring
+
+Level Score = Sum of question scores in that level / Number of questions
+
+```
+L1_score = (Q1.1_score + Q1.2_score + Q1.3_score) / 3
+L2_score = (Q2.1_score + Q2.2_score + Q2.3_score) / 3 × (L1_score if L1_score ≥ 1.0, else 0)
+L3_score = (Q3.1_score + Q3.2_score + Q3.3_score) / 3 × (L2_score if L2_score ≥ 1.0, else 0)
+```
+
+### Practice Score
+
+Practice Score = L1_score + L2_score + L3_score (Maximum = 3.0)
+
+### Maturity Interpretation
+
+| Score Range | Maturity Level | Interpretation |
+|-------------|---------------|----------------|
+| 2.5 - 3.0 | Level 3: Industry-Leading | Comprehensive evidence + strong outcome metrics |
+| 1.5 - 2.49 | Level 2: Comprehensive | Strong evidence + metrics at L1-L2 |
+| 0.5 - 1.49 | Level 1: Foundational | Basic evidence + some outcome metrics at L1 |
+| < 0.5 | Level 0: Ad-hoc | Minimal evidence or metrics |
+
+---
+
+**Document Version:** 3.0
+**Last Updated:** 2026-02-18
 **Next Review:** Quarterly or after significant HAI system changes

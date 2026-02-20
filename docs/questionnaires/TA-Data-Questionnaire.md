@@ -1,5 +1,8 @@
 # Threat Assessment (TA) - Data Domain Assessment Questionnaire
-## HAIAMM v2.0
+## HAIAMM v3.0
+
+**Version:** v3.0
+**Scoring Model:** Evidence + Outcome Metrics (see Scoring Methodology below)
 
 ---
 
@@ -13,8 +16,11 @@ This questionnaire assesses organizational maturity in identifying and analyzing
 
 - Answer each question honestly based on current organizational practices
 - Select "Yes" only if you have documented evidence of the practice
+- Each question has two components: **Evidence** (what you did) and **Outcome Metrics** (how well it worked)
+- **Scoring uses 4 tiers:** Fully Mature (1.0), Implemented (0.67), Partial (0.33), Not Implemented (0.0)
+- **Baseline first** - Record current metric values before setting targets
 - Provide specific evidence in the "Evidence Repository" section
-- Calculate your maturity level using the scoring guide at the end
+- Calculate your maturity level using the scoring methodology at the end
 
 ---
 
@@ -23,8 +29,6 @@ This questionnaire assesses organizational maturity in identifying and analyzing
 ### Question 1.1: AI-Specific Data Security Threat Scenarios
 
 **Question:** Have you documented threat scenarios specific to AI agents performing data security operations (classification, DLP, access monitoring, privacy compliance)?
-
-**Answer:** ☐ Yes ☐ No
 
 **Evidence Required:**
 - [ ] Inventory of AI data security agents documented:
@@ -69,19 +73,37 @@ This questionnaire assesses organizational maturity in identifying and analyzing
   - HIPAA violations (accessing PHI without authorization, inadequate audit trails)
   - PCI-DSS violations (AI accessing cardholder data without proper segmentation)
 
-**Evidence Location:** ___________________________________________
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| % of known AI data security attack vectors documented | ___ | ___ | ≥85% | ☐ | |
+| # of documented threat scenarios across all categories | ___ | ___ | ≥15 scenarios | ☐ | |
+| # of regulatory obligations mapped to AI data processing threats | ___ | ___ | 100% of applicable regulations | ☐ | |
+| % of threat scenarios validated through PoC testing or PIA | ___ | ___ | ≥70% | ☐ | |
 
-**Notes:**
-___________________________________________________________________
-___________________________________________________________________
+**Metric Collection Guidance:**
+- **% of attack vectors documented**: Enumerate known attack vectors from MITRE ATLAS and OWASP ML Top 10; divide count of documented scenarios by total known vectors; assess quarterly
+- **# of threat scenarios**: Count distinct documented scenarios; review threat document and count entries across all categories; assess at each document update
+- **# of regulatory obligations mapped**: List all applicable regulations (GDPR, CCPA, HIPAA, PCI-DSS); count those with documented AI data processing threat scenarios; review annually or when regulations change
+- **% PoC validated**: For each threat scenario, flag as validated if a proof-of-concept test or privacy impact assessment confirms exploitability; divide validated count by total scenario count; review quarterly
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
+
+**Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
+
+**Notes:** ___________________________________________
 
 ---
 
 ### Question 1.2: Threat Awareness Training for Data Security Teams
 
 **Question:** Have DPOs, data security teams, legal counsel, and leadership received training on threats unique to HAI data security and AI-related privacy risks?
-
-**Answer:** ☐ Yes ☐ No
 
 **Evidence Required:**
 - [ ] **Data Protection Officers & Privacy Teams** training delivered:
@@ -117,19 +139,37 @@ ___________________________________________________________________
   - Training includes real-world examples (adversarial ML research, case studies, regulatory enforcement actions)
   - Training effectiveness validated (pre/post assessments, knowledge retention)
 
-**Evidence Location:** ___________________________________________
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| % of DPOs, data security teams, DBAs, and legal counsel completing training | ___ | ___ | ≥80% within 90 days | ☐ | |
+| % of DPOs passing post-training assessment (≥75% score) | ___ | ___ | ≥75% of DPOs | ☐ | |
+| # of stakeholder groups receiving domain-specific training | ___ | ___ | ≥4 groups | ☐ | |
+| Days from AI tool deployment to initial training completion | ___ | ___ | ≤90 days | ☐ | |
 
-**Notes:**
-___________________________________________________________________
-___________________________________________________________________
+**Metric Collection Guidance:**
+- **% training completion**: Divide number of staff who completed training by total required staff across all four groups; pull from LMS completion records; measure at 90-day mark
+- **% DPOs passing assessment**: Administer standardized pre/post assessment; count DPOs scoring ≥75%; divide by total DPOs; measure after each training cohort
+- **# of stakeholder groups**: Count distinct role groups that received tailored training content (DPOs, data security, DBAs, legal); confirm via training attendance records
+- **Days to initial completion**: Record date of AI tool go-live and date first full training cohort completed; calculate difference; track per tool deployment
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
+
+**Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
+
+**Notes:** ___________________________________________
 
 ---
 
 ### Question 1.3: AI Data Security Agent Inventory and Governance
 
 **Question:** Is there an inventory mapping each AI data security agent to potential threat scenarios, failure modes, regulatory obligations, and data types processed?
-
-**Answer:** ☐ Yes ☐ No
 
 **Evidence Required:**
 - [ ] Comprehensive AI data security agent inventory:
@@ -157,11 +197,31 @@ ___________________________________________________________________
   - Regulatory compliance risks communicated (GDPR fines up to 4% revenue, CCPA violations, HIPAA penalties)
   - Business impact of AI data security failures discussed (breach costs, reputation damage, customer trust)
 
-**Evidence Location:** ___________________________________________
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| % of AI data security agents with completed inventory entry (all fields) | ___ | ___ | 100% | ☐ | |
+| % of AI data security agents with completed DPIA | ___ | ___ | 100% within 90 days of deployment | ☐ | |
+| % of AI data security agents mapped to ≥3 threat scenarios | ___ | ___ | 100% | ☐ | |
+| # of days from new AI tool deployment to inventory inclusion | ___ | ___ | ≤30 days | ☐ | |
 
-**Notes:**
-___________________________________________________________________
-___________________________________________________________________
+**Metric Collection Guidance:**
+- **% agents with complete inventory**: Audit inventory spreadsheet or CMDB; count agents with all required fields populated; divide by total AI security agents; review quarterly
+- **% with completed DPIA**: Count DPIAs marked complete and approved by DPO; divide by total AI data security agents; pull from DPIA register; review quarterly
+- **% mapped to ≥3 scenarios**: For each inventory entry, count linked threat scenarios; flag entries with fewer than 3; divide compliant count by total; review at each inventory update
+- **Days to inventory inclusion**: Record go-live date and date of inventory entry creation for each new tool; calculate difference; track as part of AI tool onboarding checklist
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
+
+**Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
+
+**Notes:** ___________________________________________
 
 ---
 
@@ -170,8 +230,6 @@ ___________________________________________________________________
 ### Question 2.1: Detailed Abuse Cases for AI Data Security Exploitation
 
 **Question:** Have you developed detailed abuse cases showing how adversaries could exploit or bypass AI data security defenses (misclassification, DLP evasion, insider baseline poisoning, model inversion)?
-
-**Answer:** ☐ Yes ☐ No
 
 **Evidence Required:**
 - [ ] Minimum 3-5 abuse cases per critical AI data security agent documented:
@@ -212,19 +270,37 @@ ___________________________________________________________________
   - Root goal: "Exfiltrate customer PII despite AI DLP"
   - Branches: Evade DLP detection, corrupt data classification, exploit model inversion, compromise AI tool, exploit insider access within baseline
 
-**Evidence Location:** ___________________________________________
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| % of critical AI data security agents with ≥3 documented abuse cases | ___ | ___ | 100% | ☐ | |
+| AI data classification misclassification rate (false negative rate) | ___ | ___ | ≤5% | ☐ | |
+| % of abuse cases differentiated by data sensitivity tier (PII vs. confidential vs. internal) | ___ | ___ | 100% | ☐ | |
+| # of days to implement mitigations for Critical/High abuse case findings | ___ | ___ | ≤90 days | ☐ | |
 
-**Notes:**
-___________________________________________________________________
-___________________________________________________________________
+**Metric Collection Guidance:**
+- **% agents with ≥3 abuse cases**: Count abuse cases per agent in threat model documentation; flag any with fewer than 3; divide compliant count by total critical agents; review quarterly
+- **Misclassification rate**: Run quarterly classification accuracy test against 500-1,000 sample dataset with known ground truth; calculate false negative rate (sensitive data missed / total sensitive data); formula: FNR = FN / (FN + TP)
+- **% abuse cases differentiated by sensitivity**: Review each abuse case for explicit data sensitivity tier annotation; count fully annotated cases; divide by total abuse cases; review at each threat model update
+- **Days to mitigation**: Record date of abuse case documented and date mitigation deployed; calculate mean across all Critical/High findings; track via vulnerability/risk management tool
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
+
+**Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
+
+**Notes:** ___________________________________________
 
 ---
 
 ### Question 2.2: Risk-Prioritized Threat Assessment with Mitigation Strategies
 
 **Question:** Are AI data security threats prioritized by risk (likelihood × business impact × regulatory consequence) with documented mitigation strategies for high-priority threats?
-
-**Answer:** ☐ Yes ☐ No
 
 **Evidence Required:**
 - [ ] Likelihood assessment framework defined:
@@ -273,19 +349,37 @@ ___________________________________________________________________
   - Risk scores re-evaluated as threat landscape evolves
   - New threats added, obsolete threats removed
 
-**Evidence Location:** ___________________________________________
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| % of "Immediate" and "High" priority threats with implemented mitigations | ___ | ___ | ≥80% within 90 days | ☐ | |
+| AI DLP detection rate for adversarial evasion techniques (quarterly test) | ___ | ___ | ≥85% | ☐ | |
+| $ amount of regulatory fines related to AI data security failures | ___ | ___ | $0 | ☐ | |
+| # of threat model updates per quarter incorporating new intelligence | ___ | ___ | ≥5 updates per quarter | ☐ | |
 
-**Notes:**
-___________________________________________________________________
-___________________________________________________________________
+**Metric Collection Guidance:**
+- **% mitigations implemented**: Count Immediate/High threats with at least one implemented mitigation control in production; divide by total Immediate/High threats; track via risk register; review quarterly
+- **DLP evasion detection rate**: Conduct quarterly red team DLP evasion test using standard evasion techniques (steganography, encoding, fragmentation); count detected attempts / total attempts; formula: detection rate = detected / total × 100
+- **$ regulatory fines**: Query legal/compliance records for any regulatory fines or settlements related to AI data security; $0 target means zero fines; track annually and upon any regulatory action
+- **# threat model updates**: Count discrete threat model change records (new threat added, risk score changed, mitigation added) per quarter; maintain changelog in threat model document
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
+
+**Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
+
+**Notes:** ___________________________________________
 
 ---
 
 ### Question 2.3: Data Sensitivity Differentiation and Regulatory Compliance
 
 **Question:** Do you differentiate threat risk assessment based on data sensitivity (restricted/PII/PHI vs. confidential vs. internal vs. public) and regulatory applicability (GDPR, CCPA, HIPAA, PCI-DSS)?
-
-**Answer:** ☐ Yes ☐ No
 
 **Evidence Required:**
 - [ ] Data sensitivity classification scheme defined:
@@ -332,11 +426,31 @@ ___________________________________________________________________
   - Combined regulatory fines quantified in risk assessment
   - Multi-jurisdictional litigation risk assessed
 
-**Evidence Location:** ___________________________________________
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| % of data sensitivity tiers with distinct threat risk scores for the same scenario | ___ | ___ | 100% (all 4 tiers differentiated) | ☐ | |
+| % of applicable regulations (GDPR, CCPA, HIPAA, PCI-DSS) with documented AI processing obligations | ___ | ___ | 100% of applicable regulations | ☐ | |
+| % of data subject rights request types (access, deletion, portability, objection) tested and validated | ___ | ___ | 100% | ☐ | |
+| # of AI data security agents with completed DPAs with their vendors | ___ | ___ | 100% of agents with data processor vendors | ☐ | |
 
-**Notes:**
-___________________________________________________________________
-___________________________________________________________________
+**Metric Collection Guidance:**
+- **% sensitivity tiers differentiated**: For each threat scenario, check if risk score matrix has distinct rows per sensitivity tier; count scenarios with all 4 tiers differentiated; divide by total scenarios; review at each threat model update
+- **% regulations with documented obligations**: List applicable regulations; for each, check if AI processing obligations are mapped to specific threat scenarios; count mapped regulations / total applicable; review annually
+- **% DSR types tested**: Maintain test log of data subject rights tests (DSAR fulfillment, deletion verification, portability export, objection processing); count types tested / 4 total types; run tests semi-annually
+- **% agents with DPAs**: Audit vendor contract register for each AI data security agent's vendor; confirm executed DPA exists; count compliant agents / total agents with external vendors; review quarterly
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
+
+**Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
+
+**Notes:** ___________________________________________
 
 ---
 
@@ -345,8 +459,6 @@ ___________________________________________________________________
 ### Question 3.1: Active Threat Intelligence Monitoring for AI Data Security
 
 **Question:** Do you actively monitor adversarial ML research, privacy/compliance guidance, regulatory enforcement actions, and vulnerability databases for emerging threats to AI data security tools?
-
-**Answer:** ☐ Yes ☐ No
 
 **Evidence Required:**
 - [ ] **Academic research monitoring** (theoretical attacks):
@@ -399,19 +511,37 @@ ___________________________________________________________________
   - Intelligence findings integrated into threat model quarterly updates
   - Findings shared with data security roadmap and regulatory compliance planning
 
-**Evidence Location:** ___________________________________________
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| # of threat intelligence sources actively monitored | ___ | ___ | ≥25 sources | ☐ | |
+| # of days from regulatory guidance publication to incorporation in threat model | ___ | ___ | ≤14 days | ☐ | |
+| % of data security threats documented before public exploit or regulatory enforcement action | ___ | ___ | ≥25% proactively identified | ☐ | |
+| % of quarterly threat model updates completed on schedule | ___ | ___ | 100% (4 of 4 per year) | ☐ | |
 
-**Notes:**
-___________________________________________________________________
-___________________________________________________________________
+**Metric Collection Guidance:**
+- **# of sources monitored**: Maintain a threat intelligence source registry listing each monitored source, type (academic/regulatory/vendor/community), and monitoring frequency; count entries; review quarterly
+- **Days to incorporation**: For each regulatory guidance publication (EDPB, CPPA, HHS), record publication date and date incorporated into threat model; calculate mean; track via changelog
+- **% proactively identified**: After any public exploit or enforcement action, check if threat was pre-existing in threat model; count proactively documented threats / total threats at year end; calculate annually
+- **% quarterly updates on schedule**: Track quarterly threat model review dates against planned schedule; count completed on-time reviews / 4 planned reviews per year; track in project management system
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
+
+**Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
+
+**Notes:** ___________________________________________
 
 ---
 
 ### Question 3.2: Periodic Adversarial Testing Against AI Data Security Agents
 
 **Question:** Do you conduct periodic adversarial testing (classification accuracy validation, DLP evasion tests, privacy attack testing, data security red team exercises) against AI data security agents?
-
-**Answer:** ☐ Yes ☐ No
 
 **Evidence Required:**
 - [ ] **Quarterly AI Data Classification Accuracy Testing** implemented:
@@ -461,19 +591,37 @@ ___________________________________________________________________
   - Threat models updated based on testing insights
   - DLP policies refined, classification accuracy enhanced, regulatory compliance strengthened
 
-**Evidence Location:** ___________________________________________
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| AI data classification precision and recall on quarterly test dataset | ___ | ___ | ≥95% precision AND ≥95% recall | ☐ | |
+| AI DLP detection rate for adversarial exfiltration attempts (quarterly test) | ___ | ___ | ≥90% | ☐ | |
+| % of training data information leaked in semi-annual model inversion test | ___ | ___ | <1% | ☐ | |
+| % of annual red team data exfiltration attempts blocked by AI defenses | ___ | ___ | ≥85% | ☐ | |
 
-**Notes:**
-___________________________________________________________________
-___________________________________________________________________
+**Metric Collection Guidance:**
+- **Classification precision and recall**: Run quarterly test against labeled 500-1,000 sample dataset; compute precision = TP / (TP + FP); compute recall = TP / (TP + FN); both must meet ≥95% threshold; track trends over time
+- **DLP detection rate**: During quarterly evasion test, count total exfiltration attempt methods tested and number detected by AI DLP; formula: detection rate = detected / total attempted methods × 100
+- **% training data leaked**: During semi-annual privacy attack test, measure information leakage using reconstruction accuracy or membership inference AUC; compare against randomized baseline; report % above baseline leakage
+- **% red team attempts blocked**: During annual red team exercise, count total attack scenarios executed and number detected and blocked before data exposure; formula: block rate = blocked / total × 100
+
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
+
+**Evidence Location:** _________________________________
+
+**Metric Validation Date:** _________________________________
+
+**Notes:** ___________________________________________
 
 ---
 
 ### Question 3.3: Model Drift Monitoring and Regulatory Compliance Validation
 
 **Question:** Is there a process to detect and respond to model drift (degraded AI classification accuracy over time) and validate ongoing regulatory compliance (DPIA updates, data subject rights testing)?
-
-**Answer:** ☐ Yes ☐ No
 
 **Evidence Required:**
 - [ ] **Model Drift Monitoring** implemented:
@@ -533,33 +681,31 @@ ___________________________________________________________________
   - Regulatory compliance findings integrated into data security roadmap
   - Regulatory audit preparation: Evidence collection systems, compliance dashboards, automated reporting
 
-**Evidence Location:** ___________________________________________
+**Outcome Metrics:**
+| Metric | Baseline | Current | Target | Met? | Notes |
+|--------|----------|---------|--------|------|-------|
+| Hours to detect AI classification accuracy degradation >5% from baseline | ___ | ___ | ≤72 hours | ☐ | |
+| % of data subject rights requests fulfilled within regulatory timeframes (GDPR 30 days / CCPA 45 days) | ___ | ___ | ≥95% | ☐ | |
+| # of privacy-preserving AI techniques implemented for highest-sensitivity data | ___ | ___ | ≥3 techniques | ☐ | |
+| YoY change in AI classification accuracy on golden dataset (trend) | ___ | ___ | 0% or positive (no degradation year-over-year) | ☐ | |
 
-**Notes:**
-___________________________________________________________________
-___________________________________________________________________
+**Metric Collection Guidance:**
+- **Hours to detect drift**: When drift alert fires (>5% accuracy drop), record timestamp of first alert vs. timestamp of accuracy drop onset (estimated from golden dataset test history); calculate mean detection lag in hours; track per drift event
+- **% DSR requests fulfilled on time**: Log all data subject rights requests with received date and fulfillment date; count fulfilled within regulatory deadline / total requests; calculate monthly; formula: fulfillment rate = on-time / total × 100
+- **# privacy-preserving techniques**: Inventory implemented techniques (differential privacy, federated learning, SMPC, homomorphic encryption, k-anonymity, pseudonymization); count distinct techniques in production; audit quarterly
+- **YoY accuracy trend**: Compare annual average precision/recall from monthly golden dataset tests against prior year average; positive or zero = no degradation; negative = drift trend requiring investigation
 
----
+**Answer:**
+- ☐ **Fully Mature** (Evidence complete + ≥75% of metrics meet targets = ≥3 metrics met)
+- ☐ **Implemented** (Evidence complete + 50-74% of metrics meet targets = 2 metrics met)
+- ☐ **Partial** (Evidence complete + <50% metrics meet targets OR incomplete evidence)
+- ☐ **Not Implemented** (No evidence)
 
-## Scoring Guide
+**Evidence Location:** _________________________________
 
-### Simplified Scoring Method
-- **Level 1 (Foundational)**: All 3 questions in Level 1 answered "Yes" = 3 points
-- **Level 2 (Comprehensive)**: All 3 questions in Level 1 AND Level 2 answered "Yes" = 6 points
-- **Level 3 (Industry-Leading)**: All 9 questions answered "Yes" = 9 points
+**Metric Validation Date:** _________________________________
 
-### Precise Scoring Method
-- Each question worth 1 point
-- Partial credit: If ≥70% of evidence checkboxes completed = 0.7 points, ≥50% = 0.5 points
-- **Total Score**: Sum of all question scores (0-9 points)
-- **Maturity Level**:
-  - 0-3 points: Level 1 (Foundational) or below
-  - 4-6 points: Level 2 (Comprehensive)
-  - 7-9 points: Level 3 (Industry-Leading)
-
-**Your Score:** _______ / 9 points
-
-**Your Maturity Level:** _______________________
+**Notes:** ___________________________________________
 
 ---
 
@@ -581,6 +727,71 @@ ___________________________________________________________________
 | 3.2 | Adversarial testing reports (classification accuracy, DLP evasion, privacy attacks, red team) | | |
 | 3.3 | Model drift monitoring dashboard | | |
 | 3.3 | Regulatory compliance validation reports (DPIA updates, data subject rights testing) | | |
+
+---
+
+## Assessment Summary
+
+**Assessment Date:** _____________________
+
+**Assessor Name:** _____________________
+
+**Organization/Team:** _____________________
+
+**Current Maturity Level:** _____________________
+
+### Strengths
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+### Gaps
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+### Recommended Improvements
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+### Next Assessment Date:** _____________________
+
+---
+
+## Updated Scoring Methodology
+
+### Question-Level Scoring
+
+Each question receives a score based on evidence + outcome metrics:
+
+| Answer Category | Score | Criteria |
+|----------------|-------|----------|
+| **Fully Mature** | 1.0 | Evidence complete + ≥75% of metrics meet targets (≥3 of 4 metrics) |
+| **Implemented** | 0.67 | Evidence complete + 50-74% of metrics meet targets (2 of 4 metrics) |
+| **Partial** | 0.33 | Evidence complete + <50% metrics meet targets OR incomplete evidence |
+| **Not Implemented** | 0.0 | No evidence |
+
+### Level Scoring
+
+Level Score = Sum of question scores in that level / Number of questions
+
+L1_score = (Q1.1_score + Q1.2_score + Q1.3_score) / 3
+L2_score = (Q2.1_score + Q2.2_score + Q2.3_score) / 3 × (L1_score if L1_score ≥ 1.0, else 0)
+L3_score = (Q3.1_score + Q3.2_score + Q3.3_score) / 3 × (L2_score if L2_score ≥ 1.0, else 0)
+
+### Practice Score
+
+Practice Score = L1_score + L2_score + L3_score (Maximum = 3.0)
+
+### Maturity Interpretation
+
+| Score Range | Maturity Level | Interpretation |
+|-------------|---------------|----------------|
+| 2.5 - 3.0 | Level 3: Industry-Leading | Comprehensive evidence + strong outcome metrics |
+| 1.5 - 2.49 | Level 2: Comprehensive | Strong evidence + metrics at L1-L2 |
+| 0.5 - 1.49 | Level 1: Foundational | Basic evidence + some outcome metrics at L1 |
+| < 0.5 | Level 0: Ad-hoc | Minimal evidence or metrics |
 
 ---
 
@@ -628,48 +839,10 @@ AI data security tools need access to sensitive data to protect it, creating cir
 - AI vendors may process customer sensitive data (cross-border transfers, training data, telemetry)
 - Balancing AI effectiveness (broad data access) vs. data minimization (GDPR Article 5(1)(c))
 
-### Data-Specific Attack Vectors
-
-- Database credential theft (AI tools often have privileged database access)
-- Shadow data discovery (sensitive data in locations AI doesn't monitor)
-- Encryption key compromise (AI manages or accesses encryption keys)
-- Data masking bypass (exploiting flaws in AI-powered anonymization)
-- API data exfiltration (APIs AI DLP doesn't monitor)
-- Backup data exposure (sensitive data in backups AI doesn't classify)
-
 ---
 
-## Assessment Summary
-
-**Assessment Date:** _____________________
-
-**Assessor Name:** _____________________
-
-**Organization/Team:** _____________________
-
-**Current Maturity Level:** _____________________
-
-### Strengths
-___________________________________________________________________
-___________________________________________________________________
-___________________________________________________________________
-
-### Gaps
-___________________________________________________________________
-___________________________________________________________________
-___________________________________________________________________
-
-### Recommended Improvements
-___________________________________________________________________
-___________________________________________________________________
-___________________________________________________________________
-
-### Next Assessment Date:** _____________________
-
----
-
-**Document Version:** HAIAMM v2.0
+**Document Version:** HAIAMM v3.0
 **Practice:** Threat Assessment (TA)
 **Domain:** Data
-**Questionnaire Version:** 1.0
-**Last Updated:** December 2025
+**Questionnaire Version:** 3.0
+**Last Updated:** February 2026
