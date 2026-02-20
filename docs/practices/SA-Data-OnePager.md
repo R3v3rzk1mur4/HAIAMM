@@ -246,6 +246,30 @@ The Security Architecture (SA) practice for the Data domain defines the architec
 
 ---
 
+## Cross-Domain Architecture Integration
+
+**Software Domain Dependency**:
+- **Input**: Code analysis findings identify data handling vulnerabilities (SQL injection, insecure deserialization)
+- **Output**: Data classification requirements inform code analysis rules; PII detection patterns shared with code review
+
+**Infrastructure Domain Dependency**:
+- **Input**: Infrastructure architecture determines data storage options, encryption capabilities, network isolation
+- **Output**: Data residency requirements drive infrastructure architecture (multi-region, data sovereignty compliance)
+
+**Processes Domain Dependency**:
+- **Input**: DLP findings feed into SOAR workflows for automated incident response
+- **Output**: Compliance requirements from data governance drive process automation design
+
+**Endpoints Domain Dependency**:
+- **Input**: Endpoint telemetry provides data access patterns for DLP and insider threat detection
+- **Output**: Data classification determines endpoint monitoring scope; sensitive data access triggers enhanced monitoring
+
+**Vendors Domain Dependency**:
+- **Input**: Vendor data processing agreements define data handling requirements
+- **Output**: Data classification informs vendor risk assessment; PII inventory determines which vendors need enhanced due diligence
+
+---
+
 ## Conclusion
 
 Data SA practice provides architectural guidance for AI-powered data security systems. Level 1 establishes foundational classification, DLP, and privacy-preserving processing. Level 2 adds data lineage and privacy-enhancing technologies. Level 3 achieves federated security and zero-knowledge architectures.

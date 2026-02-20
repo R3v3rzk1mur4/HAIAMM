@@ -504,30 +504,62 @@ Document all adversarial testing and operational resilience results. Share findi
 
 ## Key Success Indicators
 
-**Level 1:**
-- Documented threat scenarios specific to HAI security processes (minimum 15 scenarios covering triage manipulation, process failures, compliance errors, operational dependencies, skills atrophy)
-- Threat awareness training delivered to SOC, incident response, vulnerability management, compliance teams (>80% completion within 90 days of AI automation deployment)
-- Inventory of AI security process agents mapped to threat scenarios (each AI workflow has 3+ documented threat scenarios and failure modes)
-- Executive awareness of AI automation risks and operational dependencies (CISO briefed on AI process automation threats and contingency plans)
-- Documented failover procedures for critical processes when AI automation fails (manual backup plans, human takeover procedures)
+### Level 1
 
-**Level 2:**
-- Abuse cases and attack trees for all critical AI security process agents (minimum 3-5 abuse cases per automation workflow covering manipulation, evasion, failures)
-- Risk-prioritized threat matrix with likelihood × impact scoring for all identified threats, differentiated by process criticality tier (critical/high/medium/low)
-- Documented mitigation strategies for high/critical priority threats (specific controls like input sanitization, human validation, failover procedures, skills maintenance)
-- Evidence of mitigation implementation (AI triage validation procedures, prompt injection defenses, manual process documentation, SOC training on manual skills)
-- Quarterly threat model reviews updating risk assessments based on observed incidents, near-misses, operational failures, or vendor advisories
-- Regular human validation sampling of AI process decisions (incident triage, vulnerability prioritization, compliance determinations)
+**Outcome Metrics** (What good looks like):
+1. **Critical Incident Misclassification Rate**: ≤5% of critical security incidents (ransomware, data breach, APT) incorrectly triaged as low priority by AI (target: zero catastrophic failures)
+2. **Security Process Threat Coverage**: ≥90% of AI-automated security processes (SOAR, triage, compliance, vulnerability prioritization) have documented threat scenarios and failure modes
+3. **Manual Failover Capability**: ≥70% of SOC operational capacity maintained using manual processes during AI automation outage simulation
+4. **Executive Operational Risk Awareness**: ≥85% of security leadership can articulate operational dependency risks and failover plans for AI process automation
+5. **Process Automation Auditability**: 100% of AI-automated critical decisions have audit trails meeting SOC 2/ISO 27001 requirements
 
-**Level 3:**
-- Active monitoring of AI security process threat intelligence (subscriptions to security operations research, SOAR vendor advisories, incident response lessons learned, automation failure reports)
-- Quarterly adversarial testing program with documented results: triage accuracy testing, prompt injection testing, manipulation resistance validation
-- Semi-annual operational failover exercises validating SOC can operate manually when AI automation fails
-- Annual security process red team exercise against AI automation with findings remediated and retested
-- Model drift monitoring with automated alerting when AI process accuracy degrades (monthly testing against golden datasets)
-- Skills maintenance program ensuring analysts retain manual capabilities (quarterly manual investigation exercises, competency testing)
-- Threat intelligence backlog integrated into security process roadmap (emerging threats addressed in quarterly planning, automation governance updates)
-- Operational lessons learned shared with community (public case studies of AI automation challenges, best practices, failure patterns)
+**Process Metrics** (Leading indicators):
+1. **Threat Scenario Documentation Velocity**: ≥15 process-specific threat scenarios documented within 90 days (covering triage manipulation, alert evasion, compliance errors, skills atrophy)
+2. **SOC Training Completion**: ≥80% of SOC analysts, incident responders, and compliance teams complete threat awareness training within 90 days
+3. **Failover Documentation Coverage**: 100% of critical AI-automated processes have documented manual backup procedures tested at least once
+4. **Process-to-Threat Mapping**: 100% of AI security process agents mapped to ≥3 threat scenarios and ≥2 documented failure modes
+
+**Effectiveness Metrics** (Business impact):
+1. **Prompt Injection Prevention**: Zero successful prompt injection attacks against AI security processes in production
+2. **Compliance Automation Accuracy**: ≥95% accuracy in AI-generated compliance assessments when validated against auditor findings
+
+### Level 2
+
+**Outcome Metrics**:
+1. **Process Threat Mitigation Effectiveness**: ≥85% of high/critical priority process threats have documented mitigations implemented and validated
+2. **AI Triage Accuracy Under Attack**: ≥90% accuracy in AI incident triage even when adversarial inputs attempted (validated quarterly)
+3. **Alert Correlation Effectiveness**: ≥85% of multi-stage attacks correctly correlated by AI despite fragmentation tactics
+4. **Skills Retention During Automation**: ≥80% of SOC analysts maintain manual triage accuracy within 20% of AI-assisted accuracy
+5. **Process Automation Business Impact**: ≤0.1% of AI-driven security actions cause business disruption
+
+**Process Metrics**:
+1. **Abuse Case Coverage**: ≥3-5 detailed abuse cases per critical AI security process (covering triage manipulation, alert evasion, compliance falsification, dependency failures)
+2. **Risk Prioritization Validation**: ≥90% of process automation incidents align with "High" or "Critical" priority in threat matrix
+3. **Mitigation Deployment Rate**: ≥80% of documented mitigations for high-priority process threats deployed within 90 days
+4. **Threat Model Review Cadence**: 100% of process threat models reviewed quarterly
+
+**Effectiveness Metrics**:
+1. **Human Validation Accuracy**: ≥90% of human overrides of AI process decisions are correct (validates appropriate human judgment)
+2. **Process Resilience Score**: ≥95% of security operations continue effectively when AI automation unavailable for ≤4 hours
+
+### Level 3
+
+**Outcome Metrics**:
+1. **Proactive Process Threat Discovery**: ≥5 novel AI security process threats identified per quarter through threat intelligence before exploitation
+2. **Process Red Team Resistance**: ≤20% of red team process manipulation scenarios succeed against AI automation defenses
+3. **AI Process Model Drift Management**: ≤5% degradation in AI triage/prioritization accuracy per quarter with automated drift detection and retraining
+4. **Industry Process Security Leadership**: ≥3 contributions to security operations community per year (automation failure case studies, best practices, SOAR tool improvements)
+5. **Operational Resilience Validation**: 100% of manual failover exercises completed annually with ≥70% capacity maintained and ≤4 hour recovery time
+
+**Process Metrics**:
+1. **Threat Intelligence Monitoring Velocity**: ≥10 threat intelligence sources monitored weekly (security operations research, SOAR advisories, automation failure reports, prompt injection research)
+2. **Adversarial Testing Cadence**: 100% of quarterly triage accuracy tests, prompt injection tests, and failover exercises completed on schedule
+3. **Threat Model Evolution**: ≥20% of threat model content updated annually based on operational lessons, new attack techniques, or automation research
+4. **Red Team Exercise Coverage**: Annual process security red team exercises cover ≥80% of documented high-priority threat scenarios
+
+**Effectiveness Metrics**:
+1. **Threat Backlog Execution Rate**: ≥70% of threats in intelligence backlog addressed in security process roadmap within 6 months
+2. **Vendor Tool Enhancement Impact**: ≥5 responsible disclosures to SOAR/AI security platform vendors per year resulting in improvements
 
 ---
 
@@ -602,6 +634,39 @@ Threat Assessment for HAI security processes must address unique challenges in w
 - **Incident Response Speed**: AI automation promises faster response, but errors/outages can delay response more than manual processes (dependency on unavailable system)
 
 Organizations must balance AI process automation efficiency with operational resilience, auditability, human skill retention, and the reality that many security processes require human judgment, accountability, and cross-functional coordination that AI cannot provide. Threat models must account for both adversarial exploitation and operational failures as equally significant risks.
+
+---
+
+### Cross-Domain Threat Dependencies for Security Process Automation
+
+Security process automation AI failures cascade across all operational domains:
+
+**Upstream Dependencies (affect Processes TA):**
+- **Software**: Code vulnerabilities generate alert volume affecting SOAR triage accuracy; false positives from code review increase SOC burden
+- **Infrastructure**: Cloud security alerts feed into SOAR; infrastructure monitoring failures create blind spots
+- **Endpoints**: Endpoint detection alerts are primary SOAR input; EDR false negatives mean SOAR never sees critical threats
+- **Data**: Data quality affects AI triage accuracy; corrupted threat intelligence feeds degrade alert correlation
+
+**Downstream Dependencies (Processes TA affects):**
+- **Software**: SOAR orchestrates vulnerability remediation workflows; AI triage errors delay critical patch deployment
+- **Infrastructure**: SOAR executes infrastructure containment; incorrect AI recommendations could disable critical infrastructure
+- **Endpoints**: SOAR triggers endpoint isolation/remediation; AI triage errors cause mass disruption or missed threats
+
+**Critical Cascading Scenarios:**
+- **AI Triage Manipulation → Delayed Response**: Attacker injects prompt to downgrade severity → SOAR auto-closes critical incident → breach undetected
+- **Alert Fatigue Cascade**: Excessive false positives → analysts ignore AI alerts → real critical alert buried → breach detection delayed
+- **Skills Atrophy → Extended Outage**: SOAR platform fails → analysts unfamiliar with manual triage take 3-4x longer
+
+### Emerging AI-Powered Threats to Security Process Automation
+
+**LLM-Powered Multi-Stage Process Manipulation**: Attackers use LLMs to craft prompt injections that evolve across conversation turns
+- Mitigation: Conversation scope limiting, context window sanitization, no memory across separate incidents
+
+**Automation Attack Amplification**: Single malicious input cascades through automated processes causing disproportionate damage
+- Mitigation: Rate limiting on automation triggers, blast radius limits, circuit breakers for cascading automation
+
+**Compliance Automation Gaming**: AI compliance tools optimize for metrics rather than actual compliance
+- Mitigation: Independent regulatory verification, human legal review of compliance determinations
 
 ---
 

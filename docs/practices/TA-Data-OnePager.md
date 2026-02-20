@@ -489,30 +489,63 @@ Document all adversarial testing and compliance validation results. Share findin
 
 ## Key Success Indicators
 
-**Level 1:**
-- Documented threat scenarios specific to HAI data security (minimum 15 scenarios covering classification errors, DLP evasion, privacy violations, insider threats, regulatory risks)
-- Threat awareness training delivered to DPOs, data security teams, DBAs, legal counsel (>80% completion within 90 days of AI data security tool deployment)
-- Inventory of AI data security agents mapped to threat scenarios and regulatory obligations (each AI tool has 3+ documented threat scenarios and applicable regulations)
-- Executive awareness of AI data security risks and regulatory implications (CISO/CPO/General Counsel briefed on AI-specific data protection threats and compliance risks)
-- Documented privacy governance for AI data security tools themselves (DPIAs, legal basis, data processing agreements with vendors)
+### Level 1
 
-**Level 2:**
-- Abuse cases and attack trees for all critical AI data security agents (minimum 3-5 abuse cases per AI tool covering misclassification, evasion, insider threats, privacy violations)
-- Risk-prioritized threat matrix with likelihood × impact × regulatory risk scoring for all identified threats, differentiated by data sensitivity tier (restricted/confidential/internal/public)
-- Documented mitigation strategies for high/critical priority threats (specific technical controls like classification validation, multi-layered DLP, hard access limits, privacy-preserving ML)
-- Evidence of mitigation implementation (AI classification validation procedures, DLP tuning, compensating controls deployed, privacy safeguards documented)
-- Quarterly threat model reviews updating risk assessments based on observed incidents, near-misses, regulatory enforcement actions, or vendor advisories
-- Regulatory compliance documentation (DPIAs for AI data processing, legal basis, data subject rights procedures)
+**Outcome Metrics** (What good looks like):
+1. **Data Protection Threat Coverage**: ≥85% of known AI data security attack vectors documented (classification poisoning, DLP evasion, model inversion, privacy violations)
+2. **Privacy Compliance Threat Awareness**: 100% of DPOs, data security teams, and legal counsel can identify AI-specific GDPR/CCPA/HIPAA risks (measured via assessment)
+3. **Data Breach Prevention**: Zero data breaches caused by undocumented AI data security threats
+4. **Regulatory Risk Identification**: 100% of applicable regulations mapped to AI data processing threats with impact quantification
+5. **Threat Scenario Validation**: ≥70% of documented data security threat scenarios validated through proof-of-concept testing or privacy impact assessments
 
-**Level 3:**
-- Active monitoring of AI data security threat intelligence (subscriptions to privacy research, GDPR/CCPA updates, adversarial ML research, vendor advisories, regulatory enforcement tracking)
-- Quarterly adversarial testing program with documented results: classification accuracy testing, DLP evasion tests, model inversion/privacy attack testing
-- Annual data security red team exercise against AI defenses with findings remediated and retested
-- Model drift monitoring with automated alerting when AI classification accuracy degrades (monthly testing against golden dataset)
-- Regulatory compliance validation program (annual DPIA refresh, data subject rights testing, legal basis review, cross-border transfer compliance)
-- Privacy-preserving AI techniques implemented (differential privacy, federated learning, secure multi-party computation for highest sensitivity data)
-- Threat intelligence backlog integrated into data security roadmap (emerging threats addressed in quarterly planning, regulatory changes incorporated)
-- Public contribution to AI data security community (shared research, responsible disclosure to vendors, privacy best practices sharing, regulatory comment letters)
+**Process Metrics** (Leading indicators):
+1. **Threat Documentation Breadth**: Minimum 15 documented threat scenarios covering ≥7 categories (adversarial evasion, data poisoning, operational failures, AI privacy violations, supply chain, regulatory risks, data-specific attacks)
+2. **Privacy Governance Completeness**: 100% of AI data security tools have documented DPIAs, legal basis, and data processing agreements within 90 days of deployment
+3. **Cross-Functional Training**: ≥80% of DPOs, data security teams, DBAs, and legal counsel complete AI data security threat training within 90 days
+4. **Threat Inventory Currency**: New data security threats documented within ≤30 days of regulatory guidance updates or threat disclosure
+
+**Effectiveness Metrics** (Business impact):
+1. **DPO Threat Recognition**: ≥75% of data protection officers correctly identify AI data security and privacy threats in system reviews
+2. **Regulatory Compliance Readiness**: Zero findings from internal privacy audits related to undocumented AI data processing risks
+
+### Level 2
+
+**Outcome Metrics**:
+1. **Data Classification Accuracy Protection**: AI data classification misclassification rate ≤5% (preventing PII marked as public, measured via validation testing)
+2. **DLP Evasion Prevention**: ≥85% detection rate for adversarial DLP evasion techniques in quarterly testing (steganography, encoding, fragmentation, covert channels)
+3. **Insider Threat Detection**: ≥75% detection rate for baseline poisoning and authorized data theft scenarios in controlled testing
+4. **Privacy Violation Prevention**: Zero privacy violations caused by AI data security tools themselves (cross-border transfers, excessive access, purpose limitation breaches)
+5. **Regulatory Penalty Avoidance**: $0 in regulatory fines related to inadequate AI data security or AI-caused privacy violations
+
+**Process Metrics**:
+1. **Comprehensive Abuse Case Coverage**: 100% of critical AI data security agents have ≥3-5 documented abuse cases differentiated by data sensitivity tier
+2. **Risk-Based Mitigation Deployment**: ≥80% of high/critical priority data threats have implemented mitigations within 90 days, validated through testing
+3. **Threat Model Update Cadence**: Quarterly threat model reviews with ≥5 updates per cycle based on incidents, near-misses, or regulatory enforcement actions
+4. **Regulatory Intelligence Integration**: ≥15 regulatory and privacy sources monitored with findings incorporated into threat models within 30 days
+
+**Effectiveness Metrics**:
+1. **Classification Validation**: AI data classification validated against ≥500-sample test dataset quarterly, maintaining ≥95% precision and ≥95% recall
+2. **Mitigation ROI**: Data breach risk reduced by ≥70% for mitigated threats (measured via risk scoring before/after mitigation)
+
+### Level 3
+
+**Outcome Metrics**:
+1. **Advanced Attack Resilience**: ≥90% detection rate for sophisticated attacks (model inversion, membership inference, classification poisoning) in semi-annual testing
+2. **Model Drift Prevention**: AI data classification accuracy degradation detected within ≤72 hours and corrected within ≤7 days, maintaining ≥95% effectiveness
+3. **Red Team Data Exfiltration Prevention**: ≥85% of red team data exfiltration attempts blocked by AI DLP and access monitoring (despite adversarial techniques)
+4. **Regulatory Compliance Excellence**: Zero findings from external privacy audits related to AI data security
+5. **Privacy-Preserving Innovation**: ≥3 privacy-enhancing techniques implemented (differential privacy, federated learning, secure multi-party computation) reducing AI data exposure risk by ≥50%
+
+**Process Metrics**:
+1. **Comprehensive Threat Intelligence**: ≥25 threat intelligence sources monitored (academic research, regulatory guidance, breach intelligence, vendor advisories) with weekly updates
+2. **Continuous Validation Testing**: Quarterly classification accuracy tests, quarterly DLP evasion tests, semi-annual privacy attack tests, annual data security red team—all on schedule with ≥90% of findings remediated
+3. **Regulatory Landscape Monitoring**: GDPR/CCPA/HIPAA/PCI-DSS guidance updates incorporated into threat models within ≤14 days of publication
+4. **Industry Contribution**: ≥5 contributions annually to AI data security community (vendor disclosures, privacy research, regulatory comment letters)
+
+**Effectiveness Metrics**:
+1. **Proactive Privacy Threat Discovery**: ≥25% of privacy threats documented before regulatory enforcement actions or public incidents
+2. **Regulatory Influence**: ≥2 regulatory comment submissions annually influencing AI data protection guidance
+3. **Cross-Border Compliance Leadership**: 100% compliance with multi-jurisdictional data protection requirements without data exposure incidents
 
 ---
 
@@ -589,6 +622,43 @@ Threat Assessment for HAI data security must address unique challenges in data p
 - **Cross-Border Litigation**: Data breaches trigger multi-jurisdictional litigation - AI failures can expose organization to class actions, regulatory enforcement across multiple jurisdictions
 
 Organizations must balance AI data security automation with regulatory compliance, privacy rights, and the fundamental challenge that AI security tools themselves process sensitive data, creating new privacy risks while attempting to reduce data security risks. Threat models must account for both adversarial attacks and regulatory enforcement as threat actors.
+
+---
+
+### Cross-Domain Threat Dependencies for Data Security
+
+Data security AI failures cascade across organizational systems and regulatory compliance:
+
+**Upstream Dependencies (affect Data TA):**
+- **Software**: Vulnerable code enables unauthorized data access; API flaws expose data endpoints
+- **Infrastructure**: Cloud misconfigurations expose data stores; network segmentation failures enable lateral movement to data
+- **Vendors**: Vendor breaches expose shared data; inadequate vendor data handling compromises data integrity
+- **Endpoints**: Compromised endpoints used for data exfiltration; insider threats via endpoint access to sensitive data
+
+**Downstream Dependencies (Data TA affects):**
+- **Software**: Data poisoning degrades ML model accuracy across all AI security tools; corrupted training data creates systematic blind spots
+- **Infrastructure**: Compromised data feeds incorrect signals to infrastructure monitoring; false data triggers incorrect automated responses
+- **Processes**: Data integrity issues cause compliance automation failures; DLP false negatives delay incident response
+- **Vendors**: Data classification errors affect vendor risk assessments; PII misidentification violates data processing agreements
+
+**Critical Cascading Scenarios:**
+- **Training Data Poisoning → Organization-Wide AI Failure**: Attacker poisons shared training dataset → all downstream AI models degrade → systematic detection gaps
+- **PII Misclassification → Regulatory Cascade**: AI misclassifies PII as non-sensitive → data shared with vendors without DPA → GDPR Article 28 violation → regulatory penalties
+- **Data Exfiltration via AI Pipeline → IP Theft**: Attacker exploits AI data pipeline to extract training data containing proprietary code, customer data, or trade secrets
+
+### Emerging AI-Powered Threats to Data Security
+
+**Generative AI Data Leakage**: LLMs trained on organizational data inadvertently memorize and reproduce sensitive information
+- Impact: PII, credentials, proprietary data extractable through targeted prompting of organization's AI models
+- Mitigation: Differential privacy in training; data extraction testing; output filtering for sensitive patterns
+
+**AI-Powered Data Reconstruction**: Attackers use ML to reconstruct sensitive data from anonymized or aggregated datasets
+- Impact: De-anonymization attacks defeat traditional privacy protections; re-identification of individuals from aggregate data
+- Mitigation: Formal differential privacy guarantees; k-anonymity validation; synthetic data generation as alternative
+
+**LLM Training Data Extraction Attacks**: Adversaries probe AI models to extract memorized training data
+- Impact: Confidential data used in training becomes accessible through model queries
+- Mitigation: Membership inference defense; data deduplication before training; canary token monitoring
 
 ---
 

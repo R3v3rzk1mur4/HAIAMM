@@ -354,26 +354,63 @@ Document all adversarial testing results and share findings with AI infrastructu
 
 ## Key Success Indicators
 
-**Level 1:**
-- Documented threat scenarios specific to HAI infrastructure security (minimum 12 scenarios covering adversarial manipulation, data poisoning, operational failures, supply chain risks, AI-generated infrastructure risks)
-- Threat awareness training delivered to infrastructure teams, security operations, and engineering leadership (>80% completion within 90 days of AI tool deployment)
-- Inventory of AI infrastructure security agents mapped to threat scenarios (each AI tool has 3+ documented threat scenarios)
-- Executive awareness of AI infrastructure security risks (CISO/CTO briefed on AI-specific infrastructure threats)
+### Level 1
 
-**Level 2:**
-- Abuse cases and attack trees for all critical AI infrastructure security agents (minimum 3 abuse cases per AI tool)
-- Risk-prioritized threat matrix with likelihood × impact scoring for all identified threats, differentiated by infrastructure criticality tier
-- Documented mitigation strategies for high/critical priority threats (specific technical controls, not general recommendations)
-- Evidence of mitigation implementation (CSPM configuration, network detection rules, IaC scanning, review policies addressing high-priority threats)
-- Quarterly threat model reviews updating risk assessments based on observed incidents, near-misses, or intelligence
+**Outcome Metrics** (What good looks like):
+1. **Infrastructure Threat Coverage**: ≥85% of known AI infrastructure security attack vectors documented (CSPM evasion, network IDS bypass, automated remediation risks, cloud misconfigurations)
+2. **Infrastructure Security Awareness**: ≥90% of infrastructure engineers, cloud architects, and security operations pass threat awareness assessment with ≥80% score
+3. **Infrastructure Compromise Prevention**: Zero production infrastructure compromises resulting from undocumented AI infrastructure security threats
+4. **Cloud Misconfiguration Detection**: ≥90% of intentional misconfigurations detected by AI CSPM in validation testing
+5. **Threat Scenario Realism**: ≥75% of documented threat scenarios successfully demonstrated in lab environments
 
-**Level 3:**
-- Active monitoring of AI infrastructure security threat intelligence (subscriptions to research sources, CVE tracking, vendor advisories, cloud security communities)
-- Quarterly adversarial testing program with documented results: CSPM evasion tests, network IDS evasion tests, prompt injection tests
-- Annual infrastructure red team exercise against AI security defenses with findings remediated and retested
-- Model drift monitoring with automated alerting when AI infrastructure security tool accuracy degrades (monthly testing against golden datasets)
-- Threat intelligence backlog integrated into infrastructure security roadmap (emerging threats addressed in quarterly planning)
-- Public contribution to AI infrastructure security community (shared research, responsible disclosure to vendors, threat intelligence sharing with peers)
+**Process Metrics** (Leading indicators):
+1. **Threat Documentation Scope**: Minimum 12 documented threat scenarios covering ≥6 categories (adversarial manipulation, data poisoning, operational failures, supply chain, AI-generated infrastructure risks, cloud-specific threats)
+2. **Cross-Team Training**: ≥80% of infrastructure engineers, cloud architects, security operations, and leadership complete threat training within 90 days
+3. **Threat Inventory Currency**: New infrastructure threats documented within ≤30 days of cloud security research publication or vendor advisory
+4. **Tool-to-Threat Mapping**: 100% of AI infrastructure security agents mapped to ≥3 documented threat scenarios and failure modes
+
+**Effectiveness Metrics** (Business impact):
+1. **Infrastructure Engineer Threat Recognition**: ≥70% of engineers correctly identify AI infrastructure security manipulation attempts in simulated scenarios
+2. **Executive Risk Communication**: 100% of CISO/CTO can articulate top 3 AI infrastructure security threats and business/operational impact
+
+### Level 2
+
+**Outcome Metrics**:
+1. **Cloud Misconfiguration Prevention**: ≥90% reduction in critical cloud misconfigurations reaching production (measured pre/post AI CSPM with threat-informed tuning)
+2. **Network Intrusion Detection Effectiveness**: ≥85% detection rate for adversarial network traffic in quarterly evasion testing
+3. **Automated Remediation Safety**: Zero production outages caused by AI auto-remediation errors
+4. **Infrastructure Attack Surface Reduction**: ≥65% decrease in exploitable infrastructure vulnerabilities from baseline (measured via quarterly penetration testing)
+5. **Cascading Failure Prevention**: Zero multi-service infrastructure failures caused by AI-driven configuration changes
+
+**Process Metrics**:
+1. **Comprehensive Abuse Case Coverage**: 100% of critical AI infrastructure security agents have ≥3 abuse cases differentiated by infrastructure tier (production/staging/dev)
+2. **Risk-Based Mitigation Deployment**: ≥75% of high/critical infrastructure threats have mitigations implemented within 90 days, validated through adversarial testing
+3. **Quarterly Threat Updates**: Threat models reviewed quarterly with ≥5 updates per cycle incorporating incidents, near-misses, or cloud security intelligence
+4. **Cloud Security Intelligence**: ≥15 infrastructure threat intelligence sources monitored with findings incorporated within 30 days
+
+**Effectiveness Metrics**:
+1. **CSPM Validation**: AI cloud security posture management tested against ≥100-200 misconfiguration test cases quarterly, maintaining ≥95% detection rate
+2. **Threat Model Predictive Accuracy**: ≥80% of detected infrastructure attacks were predicted in threat model
+
+### Level 3
+
+**Outcome Metrics**:
+1. **Advanced Adversarial Resilience**: ≥90% detection rate for cutting-edge attacks (prompt injection via cloud metadata, adversarial network traffic, configuration baseline poisoning) in quarterly testing
+2. **Infrastructure Red Team Defeat**: ≥85% of red team infrastructure compromise attempts detected and blocked
+3. **Model Drift Prevention**: AI infrastructure security tool degradation detected within ≤72 hours and corrected within ≤7 days, maintaining ≥95% detection effectiveness
+4. **Zero-Day Infrastructure Response**: New infrastructure attack techniques incorporated into threat models and tested within ≤14 days of disclosure
+5. **Multi-Cloud Resilience**: 100% threat coverage across all deployed cloud platforms (AWS, Azure, GCP) with platform-specific threat validation
+
+**Process Metrics**:
+1. **Comprehensive Threat Intelligence**: ≥20 infrastructure threat intelligence sources monitored continuously (academic research, cloud vendor advisories, CSPM vendor research, bug bounty reports)
+2. **Continuous Adversarial Testing**: Quarterly CSPM evasion tests, quarterly network IDS evasion tests, semi-annual prompt injection tests, annual infrastructure red team—all on schedule
+3. **Automated Drift Monitoring**: AI infrastructure security tools validated monthly against golden datasets with automated alerting
+4. **Threat Backlog Integration**: ≥80% of emerging infrastructure threats from intelligence backlog addressed in quarterly security roadmap
+
+**Effectiveness Metrics**:
+1. **Proactive Threat Discovery**: ≥30% of infrastructure threats documented before public exploits or vendor advisories
+2. **Industry Contribution**: ≥5 infrastructure security contributions annually (CSPM vendor disclosures, cloud security research, Kubernetes/container security findings)
+3. **Continuous Improvement**: Infrastructure threat detection effectiveness improves ≥5% quarter-over-quarter
 
 ---
 
@@ -444,6 +481,43 @@ Threat Assessment for HAI infrastructure security must address unique challenges
 - **Multi-Cloud Complexity**: Organizations using AWS + Azure + GCP face fragmented AI security tool coverage - threat models must address gaps between cloud providers, inconsistent AI tool effectiveness
 
 Organizations must balance infrastructure automation efficiency with threat awareness, ensuring AI infrastructure security tools enhance security posture without introducing new attack vectors, service disruption risks, or compliance gaps that outweigh automation benefits.
+
+---
+
+### Cross-Domain Threat Dependencies for Infrastructure Security
+
+Infrastructure security AI failures cascade across the entire organizational technology stack:
+
+**Upstream Dependencies (affect Infrastructure TA):**
+- **Software**: Vulnerable container images deployed to Kubernetes; insecure IaC templates create misconfigurations
+- **Data**: Corrupted threat intelligence feeds cause false detections; poisoned ML training data degrades infrastructure monitoring
+- **Vendors**: Cloud provider vulnerabilities expose shared infrastructure; compromised IaC modules from vendor marketplaces
+- **Processes**: Incident response automation may execute dangerous infrastructure changes; compliance scanning misconfigurations go unreported
+
+**Downstream Dependencies (Infrastructure TA affects):**
+- **Software**: Infrastructure compromise provides access to CI/CD pipelines, source code repositories, artifact registries
+- **Data**: Cloud misconfiguration exposes databases, storage buckets, data lakes; network segmentation failures enable data access
+- **Endpoints**: Infrastructure compromise enables lateral movement to endpoints; compromised DNS redirects endpoint traffic
+- **Processes**: Infrastructure alert volume impacts SOC operations; false positives from cloud monitoring create alert fatigue
+
+**Critical Cascading Scenarios:**
+- **Kubernetes Cluster Compromise → Full Stack Breach**: Container escape → node access → cluster admin credentials → all workloads compromised
+- **Cloud IAM Misconfiguration → Data Breach**: Overprivileged service account → S3 bucket access → PII exfiltration → GDPR notification required
+- **IaC Template Poisoning → Systematic Misconfiguration**: Attacker modifies Terraform module → all deployments inherit vulnerability
+
+### Emerging AI-Powered Threats to Infrastructure Security
+
+**AI-Powered Cloud Exploitation**: Attackers use LLMs to automatically discover and exploit cloud misconfigurations at scale
+- Impact: Automated scanning of millions of cloud resources; exploitation faster than human defenders can patch
+- Mitigation: Real-time cloud posture management; automated remediation of critical misconfigurations
+
+**Kubernetes-Specific AI Threats**: Adversarial attacks targeting AI-powered Kubernetes security tools
+- Impact: Container escape detection evasion; pod security policy bypass through adversarial pod specifications
+- Mitigation: Multi-layer container security (image scanning + runtime monitoring + network policies)
+
+**Infrastructure-as-Code Supply Chain Attacks**: Malicious Terraform/CloudFormation modules with AI-obfuscated backdoors
+- Impact: Trusted IaC registries compromised; subtle misconfigurations embedded in popular modules
+- Mitigation: IaC module verification and signing; automated security scanning of all IaC before deployment
 
 ---
 

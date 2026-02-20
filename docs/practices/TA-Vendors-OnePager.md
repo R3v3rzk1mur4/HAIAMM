@@ -435,30 +435,62 @@ Document all adversarial testing and vendor security validation results. Share f
 
 ## Key Success Indicators
 
-**Level 1:**
-- Documented threat scenarios specific to HAI vendor security (minimum 15 scenarios covering supply chain attacks, vendor breaches, assessment manipulation, fourth-party risks, regulatory violations)
-- Threat awareness training delivered to vendor risk analysts, procurement, supply chain teams, legal counsel (>80% completion within 90 days of AI vendor tool deployment)
-- Inventory of AI vendor security agents mapped to threat scenarios (each AI tool has 3+ documented threat scenarios and supply chain attack vectors)
-- Executive awareness of vendor security risks and supply chain attack threats (CISO/CPO briefed on AI-specific vendor security threats, supply chain attack sophistication)
-- Documented vendor security requirements in contracts (breach notification SLAs, security standards, audit rights, subprocessor approval requirements)
+### Level 1
 
-**Level 2:**
-- Abuse cases and attack trees for all critical AI vendor security agents (minimum 3-5 abuse cases per AI tool covering vendor compromise, supply chain attacks, assessment failures)
-- Risk-prioritized threat matrix with likelihood × impact scoring for all identified threats, differentiated by vendor criticality tier (critical/high/medium/low)
-- Documented mitigation strategies for high/critical priority threats (specific controls like human validation, multi-source monitoring, dependency security, fourth-party mapping)
-- Evidence of mitigation implementation (enhanced vendor assessment procedures, supply chain security controls deployed, continuous monitoring improvements, SBOM validation)
-- Quarterly threat model reviews updating risk assessments based on vendor breaches, supply chain attacks, regulatory enforcement, or vendor tool advisories
-- Independent validation of AI vendor assessments (human sampling of vendor risk scores, verification of vendor security certifications, reference checks)
+**Outcome Metrics** (What good looks like):
+1. **Vendor Breach Prevention Rate**: ≥95% of high-risk vendors identified before organizational security incident occurs (target: zero security incidents from vendor compromise)
+2. **Supply Chain Attack Detection Coverage**: ≥90% of supply chain attack vectors documented with specific detection mechanisms
+3. **Executive Risk Awareness Score**: ≥85% of executives can articulate top 3 vendor security risks and potential business impact
+4. **Vendor Contract Security Coverage**: 100% of new critical/high vendor contracts include security provisions (breach notification SLAs ≤24 hours, audit rights, subprocessor approval)
+5. **Threat Intelligence Integration Rate**: ≥80% of documented vendor threat scenarios linked to real-world incident examples or research
 
-**Level 3:**
-- Active monitoring of vendor security threat intelligence (subscriptions to supply chain security research, vendor breach feeds, dependency attack databases, regulatory enforcement tracking)
-- Quarterly adversarial testing program with documented results: vendor assessment validation, SCA evasion testing, vendor breach simulation
-- Annual vendor security red team exercise against AI vendor security defenses with findings remediated and retested
-- Model drift monitoring with automated alerting when AI vendor risk assessment accuracy degrades (quarterly testing against golden vendor dataset)
-- Fourth-party risk mapping program with validated subprocessor visibility and GDPR Article 28 compliance
-- Supply chain security leadership contributions (OpenSSF, SLSA framework, SBOM standards, vendor risk best practices)
-- Threat intelligence backlog integrated into vendor security roadmap (emerging supply chain attacks addressed in quarterly planning, vendor monitoring enhancements)
-- Public contribution to vendor security community (shared lessons learned from vendor breaches, supply chain attack case studies, best practices)
+**Process Metrics** (Leading indicators):
+1. **Threat Documentation Velocity**: ≥15 vendor-specific threat scenarios documented within 90 days of AI vendor tool deployment
+2. **Training Completion Rate**: ≥80% of vendor risk, procurement, and supply chain teams complete threat awareness training within 90 days
+3. **Tool-to-Threat Mapping Coverage**: 100% of AI vendor security agents mapped to ≥3 specific threat scenarios each
+4. **Stakeholder Engagement**: ≥90% of vendor-facing teams (procurement, legal, security) participate in threat scenario validation workshops
+
+**Effectiveness Metrics** (Business impact):
+1. **Prevented Vendor Approvals**: ≥5 high-risk vendor proposals rejected based on threat assessment findings per quarter
+2. **Vendor Security Clause Adoption**: 100% compliance with required security clauses in vendor contracts
+
+### Level 2
+
+**Outcome Metrics**:
+1. **Vendor Threat Mitigation Effectiveness**: ≥85% of high/critical priority vendor threats have documented mitigations implemented and validated
+2. **Supply Chain Attack Resilience**: Zero successful supply chain attacks via vendor compromise in measurement period (validated through red team exercises)
+3. **AI Vendor Assessment Accuracy**: ≥90% accuracy in AI vendor risk scoring when validated against independent security assessments or actual vendor breaches
+4. **Fourth-Party Risk Visibility**: ≥80% of critical vendors have documented subprocessor inventories with risk assessments
+5. **Vendor Compromise Detection Time**: Mean time to detect vendor security degradation ≤7 days
+
+**Process Metrics**:
+1. **Abuse Case Coverage**: ≥3-5 detailed abuse cases per critical AI vendor security agent (covering vendor compromise, supply chain attacks, assessment manipulation)
+2. **Risk Prioritization Accuracy**: ≥90% of vendor security incidents align with "High" or "Critical" priority in threat matrix
+3. **Mitigation Implementation Rate**: ≥80% of documented mitigations for high-priority threats deployed within 90 days
+4. **Threat Model Currency**: 100% of vendor threat models reviewed and updated quarterly
+
+**Effectiveness Metrics**:
+1. **Vendor Assessment Override Accuracy**: ≥85% of AI vendor approval overrides (human overriding AI) are correct decisions
+2. **Supply Chain Intelligence Integration**: ≥90% of high-priority threats include specific detection mechanisms deployed in production vendor monitoring
+
+### Level 3
+
+**Outcome Metrics**:
+1. **Proactive Threat Discovery Rate**: ≥5 novel vendor threat scenarios identified per quarter through threat intelligence before exploitation
+2. **Vendor Security Red Team Success Rate**: ≤20% of red team vendor attack scenarios succeed against AI vendor security defenses
+3. **AI Vendor Risk Model Accuracy**: ≥95% sustained accuracy on golden vendor dataset with ≤5% model drift per quarter
+4. **Industry Threat Leadership**: ≥3 contributions to vendor security community per year (public research, threat intelligence sharing, vendor tool improvements)
+5. **Fourth-Party Supply Chain Coverage**: ≥80% of critical vendor subprocessors monitored with GDPR Article 28 compliant approval workflows
+
+**Process Metrics**:
+1. **Threat Intelligence Velocity**: ≥10 threat intelligence sources monitored daily (supply chain research, vendor breach disclosures, dependency attack databases)
+2. **Adversarial Testing Cadence**: 100% of quarterly vendor assessment validation tests and SCA evasion tests completed on schedule
+3. **Threat Model Evolution Rate**: ≥20% of threat model content updated annually based on emerging supply chain attacks or new research
+4. **Red Team Exercise Coverage**: Annual vendor security red team exercises cover ≥80% of documented high-priority threat scenarios
+
+**Effectiveness Metrics**:
+1. **Predictive Threat Value**: ≥70% of threats in intelligence backlog addressed in vendor security roadmap within 6 months
+2. **Vendor Tool Vendor Engagement**: ≥5 responsible disclosures to AI vendor risk platform vendors per year resulting in improvements
 
 ---
 
@@ -535,6 +567,42 @@ Threat Assessment for HAI vendor security must address unique challenges in thir
 - **Vendor Financial Health**: Vendor financial distress can lead to security degradation (cost cutting, security team reductions) - AI vendor monitoring should incorporate financial stability signals
 
 Organizations must balance AI vendor security automation with the reality that vendor relationships create extended attack surface, supply chain dependencies introduce sophisticated threat actors, and regulatory third-party obligations require rigorous due diligence AI alone cannot provide. Threat models must account for both vendor-originated attacks and the cascading consequences of vendor security failures across extended supply chains.
+
+---
+
+### Cross-Domain Threat Dependencies for Vendor Security
+
+Vendor security AI failures create cascading risks across all organizational domains:
+
+**Upstream Dependencies (affect Vendor TA):**
+- **Software**: Vendor software vulnerabilities in deployed applications; compromised SDKs and libraries from vendor ecosystem
+- **Infrastructure**: Vendor cloud infrastructure misconfigurations; shared responsibility model gaps
+- **Processes**: Vendor incident response SLAs affect organizational incident timelines; compliance automation depends on vendor attestations
+
+**Downstream Dependencies (Vendor TA affects):**
+- **Software**: Vendor supply chain compromise introduces vulnerabilities across software stack
+- **Data**: Vendor data breaches expose organizational PII; vendor data processing violations trigger regulatory liability
+- **Infrastructure**: Vendor platform outages affect infrastructure availability; vendor security tool compromise disables protections
+- **Endpoints**: Vendor endpoint agents (EDR, MDM) supply chain attacks compromise entire endpoint fleet
+
+**Critical Cascading Scenarios:**
+- **Vendor Supply Chain → Organization-Wide Compromise**: Vendor code repository compromised → malicious update pushed → all systems using vendor software affected
+- **Concentration Risk → Cascading Outage**: Single cloud provider outage → 80% of critical vendors affected → organization loses multiple services simultaneously
+- **Vendor Certification Fraud → Compliance Gap**: Vendor falsifies SOC 2 certification → organization relies on fraudulent attestation → audit failure
+
+### Emerging AI-Powered Threats to Vendor Security
+
+**AI Model Supply Chain Attacks**: Adversaries compromise pre-trained ML models distributed by vendors
+- Impact: Backdoored models deployed across organizations; trojaned models activate under specific conditions
+- Mitigation: Model provenance verification; behavioral testing of vendor-supplied models
+
+**AI-Assisted Vendor Fraud**: Attackers use AI to create convincing fake vendor companies with fabricated credentials
+- Impact: AI-generated SOC 2 reports, fake websites, synthetic employee profiles bypass vendor due diligence
+- Mitigation: Enhanced vendor verification (in-person audits, independent certification verification)
+
+**Open-Source AI Dependency Risks**: Critical AI systems depend on unmaintained open-source ML libraries
+- Impact: Abandoned ML libraries accumulate vulnerabilities; single maintainer risk for critical dependencies
+- Mitigation: SBOM analysis for AI/ML dependencies; vendor commitment to maintaining or replacing deprecated libraries
 
 ---
 

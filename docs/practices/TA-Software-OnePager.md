@@ -362,26 +362,63 @@ Document all adversarial testing results and share findings with AI security too
 
 ## Key Success Indicators
 
-**Level 1:**
-- Documented threat scenarios specific to HAI software security (minimum 10 scenarios covering adversarial manipulation, data poisoning, operational failures, supply chain risks)
-- Threat awareness training delivered to developers, security teams, and engineering leadership (>80% completion within 90 days of AI tool deployment)
-- Inventory of AI security agents mapped to threat scenarios (each AI tool has 3+ documented threat scenarios)
-- Executive awareness of AI security risks (board/leadership briefed on AI-specific threats)
+### Level 1
 
-**Level 2:**
-- Abuse cases and attack trees for all critical AI software security agents (minimum 3 abuse cases per AI tool)
-- Risk-prioritized threat matrix with likelihood × impact scoring for all identified threats
-- Documented mitigation strategies for high/critical priority threats (specific controls, not general recommendations)
-- Evidence of mitigation implementation (configuration changes, code review policies, monitoring rules addressing high-priority threats)
-- Quarterly threat model reviews updating risk assessments based on observed incidents or intelligence
+**Outcome Metrics** (What good looks like):
+1. **Threat Detection Coverage**: ≥85% of known AI software security attack techniques documented and validated through proof-of-concept testing
+2. **Security Awareness Effectiveness**: ≥90% of developers and security teams pass threat awareness assessment with ≥80% score
+3. **Incident Prevention Rate**: Zero production incidents caused by undocumented AI software security threats
+4. **Threat Identification Accuracy**: ≥75% of documented threat scenarios validated as exploitable through proof-of-concept testing
+5. **Executive Risk Awareness**: 100% of key stakeholders (CISO, CTO, engineering leads) can articulate top 3 AI software security threats and business impact
 
-**Level 3:**
-- Active monitoring of AI security threat intelligence (subscriptions to research sources, CVE tracking, vendor advisories)
-- Quarterly adversarial testing program with documented evasion test results
-- Annual red team exercise against AI software security defenses with findings remediated
-- Model drift monitoring with automated alerting when AI security tool accuracy degrades
-- Threat intelligence backlog integrated into security roadmap (emerging threats addressed in future releases)
-- Public contribution to AI security community (shared research, responsible disclosure to vendors, threat intelligence sharing)
+**Process Metrics** (Leading indicators):
+1. **Threat Documentation Velocity**: New emerging threats documented within ≤30 days of public disclosure
+2. **Training Completion Rate**: ≥80% of developers, security teams, and leadership complete threat awareness training within 90 days of AI tool deployment
+3. **Threat Inventory Breadth**: Minimum 10 documented threat scenarios covering ≥5 categories (adversarial manipulation, data poisoning, operational failures, supply chain, prompt injection)
+4. **Stakeholder Engagement**: ≥3 threat review sessions per quarter with cross-functional teams
+
+**Effectiveness Metrics** (Business impact):
+1. **Developer Threat Recognition**: ≥70% of developers correctly identify AI security threat indicators in code reviews (measured through simulated scenarios)
+2. **Threat-to-Control Mapping**: 100% of documented threats have assigned owners and basic mitigation strategies
+
+### Level 2
+
+**Outcome Metrics**:
+1. **Threat Mitigation Effectiveness**: ≥80% of high/critical priority threats have implemented mitigations that reduce exploitation likelihood by ≥50% (validated through adversarial testing)
+2. **Attack Surface Reduction**: ≥60% decrease in exploitable AI software security attack vectors from baseline (measured via quarterly assessments)
+3. **Risk-Based Prioritization Accuracy**: ≥85% correlation between threat priority rankings and actual exploitation attempts in adversarial testing
+4. **Business Impact Prevention**: Zero critical security incidents resulting from AI software security vulnerabilities rated high/critical in threat model
+5. **Abuse Case Validation Rate**: ≥70% of documented abuse cases successfully demonstrated in controlled environments
+
+**Process Metrics**:
+1. **Threat Model Update Frequency**: Threat models reviewed and updated quarterly with ≥5 new threat scenarios or mitigation updates per review cycle
+2. **Mitigation Implementation Rate**: ≥75% of high/critical priority threats have mitigations deployed within 90 days of identification
+3. **Risk Assessment Coverage**: 100% of AI software security agents have ≥3 detailed abuse cases with likelihood × impact scoring
+4. **Threat Intelligence Integration**: ≥10 threat intelligence sources actively monitored with findings incorporated into threat models within 30 days
+
+**Effectiveness Metrics**:
+1. **Mitigation Validation**: 100% of implemented mitigations tested and validated through adversarial techniques within 60 days of deployment
+2. **Threat Model Predictive Power**: ≥75% of detected attempted attacks were predicted in threat model
+
+### Level 3
+
+**Outcome Metrics**:
+1. **Adversarial Resilience**: ≥90% detection rate for cutting-edge adversarial ML attacks in quarterly testing (model evasion, prompt injection, poisoning)
+2. **Zero-Day Threat Response**: New threat techniques incorporated into threat models and tested within ≤14 days
+3. **Model Drift Prevention**: AI security tool accuracy degradation detected and corrected within ≤72 hours, maintaining ≥95% effectiveness
+4. **Red Team Defeat Rate**: ≥85% of red team attack attempts detected and blocked by mitigations designed from threat model
+5. **Industry Leadership Impact**: ≥5 threat intelligence contributions shared with AI security community annually
+
+**Process Metrics**:
+1. **Continuous Threat Monitoring**: ≥20 threat intelligence sources monitored continuously with automated alerting on new AI software security threats
+2. **Adversarial Testing Cadence**: Quarterly evasion testing, semi-annual prompt injection testing, annual red team exercises executed on schedule with findings remediated
+3. **Model Performance Monitoring**: Automated drift detection running continuously with ≥monthly validation against golden dataset
+4. **Threat Intelligence Backlog Integration**: ≥80% of emerging threats from intelligence backlog addressed in quarterly security roadmap planning
+
+**Effectiveness Metrics**:
+1. **Proactive Threat Discovery**: ≥30% of threats documented before public disclosure or exploitation in wild
+2. **Community Threat Prevention**: ≥3 responsible disclosures to AI security vendors annually resulting in patches
+3. **Continuous Improvement Velocity**: Threat detection effectiveness improves ≥5% quarter-over-quarter
 
 ---
 
@@ -447,6 +484,43 @@ Threat Assessment for HAI software security must address unique challenges in so
 - **Regulatory & Compliance Risk**: False negatives in AI security tools (missed vulnerabilities) may create liability under regulations requiring "reasonable security measures" - organizations must prove due diligence
 
 Organizations must balance automation efficiency with threat awareness, ensuring AI software security tools enhance security without introducing new attack vectors that outweigh benefits.
+
+---
+
+### Cross-Domain Threat Dependencies for Software Security
+
+Software security AI failures cascade across organizational attack surface and dependent systems:
+
+**Upstream Dependencies (affect Software TA):**
+- **Data**: Training data poisoning degrades code analysis accuracy; corrupted vulnerability knowledge bases cause false negatives
+- **Infrastructure**: Compromised CI/CD infrastructure enables code injection bypassing AI review; cloud misconfigurations expose code repositories
+- **Vendors**: Third-party library vulnerabilities bypass AI detection if not in knowledge base; compromised vendor SDKs introduce backdoors
+- **Processes**: Incident response delays allow exploited vulnerabilities to persist; compliance automation errors misclassify security findings
+
+**Downstream Dependencies (Software TA affects):**
+- **Data**: Vulnerable code enables data breaches; SQL injection, API flaws expose sensitive data stores
+- **Infrastructure**: Insecure code deployed to production creates infrastructure attack surface; container escape vulnerabilities
+- **Endpoints**: Vulnerable applications distributed to endpoints enable malware delivery; browser exploits from insecure web applications
+- **Processes**: Volume of software vulnerabilities impacts SOC triage; false positives from AI code review create alert fatigue
+
+**Critical Cascading Scenarios:**
+- **AI Code Review Bypass → Supply Chain Attack**: Adversarial code passes AI review → merged to main branch → deployed to production → compromises downstream consumers
+- **Training Data Poisoning → Systemic Blind Spot**: Attacker poisons vulnerability dataset → AI fails to detect entire class of vulnerabilities → organization-wide exposure
+- **False Negative → Data Breach**: AI misses SQL injection in production code → attacker exploits → PII exfiltration → regulatory penalties
+
+### Emerging AI-Powered Threats to Software Security
+
+**LLM-Generated Vulnerability Introduction**: Developers using AI coding assistants (Copilot, ChatGPT) inadvertently introduce vulnerabilities suggested by the LLM
+- Impact: AI code review must detect AI-generated vulnerable code patterns, not just human-written patterns
+- Mitigation: Train AI code review models on LLM-generated vulnerability patterns; flag AI-assisted code for enhanced review
+
+**AI-Powered Exploit Generation**: Attackers use LLMs to automatically generate exploits for discovered vulnerabilities
+- Impact: Time-to-exploit shrinks from days to minutes; vulnerability prioritization must account for AI-accelerated exploitation
+- Mitigation: Factor AI exploit generation capability into risk scoring; prioritize vulnerabilities with clear exploitation paths
+
+**AI Supply Chain Attacks**: Malicious packages with AI-obfuscated backdoors designed to evade static analysis
+- Impact: Traditional and AI-based dependency scanning may miss sophisticated obfuscation
+- Mitigation: Runtime behavior analysis of dependencies; sandboxed execution testing; SBOM integrity verification
 
 ---
 

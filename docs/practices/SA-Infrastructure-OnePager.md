@@ -221,6 +221,30 @@ The Security Architecture (SA) practice for the Infrastructure domain defines th
 
 ---
 
+## Cross-Domain Architecture Integration
+
+**Software Domain Dependency**:
+- **Input**: Code analysis infrastructure requirements from Software SA (compute, storage, network needed for analysis tools)
+- **Output**: Infrastructure security findings may affect code analysis infrastructure; insecure model servers discovered
+
+**Data Domain Dependency**:
+- **Input**: Data residency requirements from Data SA (code data must stay in EU for GDPR); data classification drives storage architecture
+- **Output**: Infrastructure security determines where data can flow (VPC boundaries, multi-region policy, encryption requirements)
+
+**Processes Domain Dependency**:
+- **Input**: Incident response automation workflows from Processes SA (auto-remediation of misconfigurations)
+- **Output**: Infrastructure findings feed into SOAR for automated or manual remediation; cloud alerts become SOAR inputs
+
+**Endpoints Domain Dependency**:
+- **Input**: Endpoint agent infrastructure requirements; telemetry processing capacity needs from Endpoints SA
+- **Output**: Infrastructure security posture affects endpoint deployment options; network architecture determines endpoint communication paths
+
+**Vendors Domain Dependency**:
+- **Input**: Vendor infrastructure assessment requirements; vendor cloud deployment security needs
+- **Output**: Infrastructure findings on vendor-hosted systems inform vendor risk assessments
+
+---
+
 ## Conclusion
 
 Infrastructure SA practice provides architectural guidance for AI-powered cloud and network security systems. Level 1 establishes foundational multi-cloud detection and safe remediation. Level 2 adds predictive security and intelligent remediation. Level 3 achieves autonomous operations and zero-trust architecture.

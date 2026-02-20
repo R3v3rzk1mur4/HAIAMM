@@ -853,6 +853,30 @@ This practice ensures AI code security systems are architected for scalability, 
 
 ---
 
+## Cross-Domain Architecture Integration
+
+**Data Domain Dependency**:
+- **Input**: Data classification and privacy requirements from Data SA determine what code data can be stored, how long, and where
+- **Output**: Code analysis findings feed into data breach detection; vulnerability data enriches data risk models
+
+**Infrastructure Domain Dependency**:
+- **Input**: Infrastructure architecture (Kubernetes, serverless) determines deployment model for code analysis tools
+- **Output**: Code analysis infrastructure requirements feed into Infrastructure SA capacity planning
+
+**Processes Domain Dependency**:
+- **Input**: SOAR workflows trigger automated code scanning; incident response may require emergency code analysis
+- **Output**: Code vulnerability findings feed into SOAR alert triage; findings priority affects incident response workflows
+
+**Endpoints Domain Dependency**:
+- **Input**: IDE integration requirements from endpoint architecture; agent deployment constraints
+- **Output**: Code-level findings inform endpoint detection rules; vulnerable code patterns become endpoint monitoring signatures
+
+**Vendors Domain Dependency**:
+- **Input**: Third-party library risk assessments from vendor risk management
+- **Output**: SBOM analysis feeds back into vendor risk scoring; open-source dependency risks inform vendor assessment
+
+---
+
 ## Conclusion
 
 The Security Architecture practice for the Software domain provides comprehensive guidance for architecting AI-powered code security systems that deliver security outcomes while maintaining developer productivity, organizational scale, and operational excellence.

@@ -235,6 +235,30 @@ The Security Architecture (SA) practice for the Processes domain defines the arc
 
 ---
 
+## Cross-Domain Architecture Integration
+
+**Software Domain Dependency**:
+- **Input**: Code vulnerability findings from Software SA feed into SOAR alert streams
+- **Output**: SOAR orchestrates vulnerability remediation workflows; automated patch deployment priorities
+
+**Data Domain Dependency**:
+- **Input**: DLP findings from Data SA feed into SOAR for incident response automation
+- **Output**: SOAR orchestration may execute data containment workflows; compliance automation depends on data classification
+
+**Infrastructure Domain Dependency**:
+- **Input**: Infrastructure security findings from Infrastructure SA feed into SOAR workflows as alerts
+- **Output**: SOAR may execute infrastructure remediation (block IP, modify firewall, isolate cloud resources)
+
+**Endpoints Domain Dependency**:
+- **Input**: Endpoint alerts from Endpoints SA are primary SOAR input for threat detection and triage
+- **Output**: SOAR may execute endpoint response actions (isolate, remediate, reimage with human approval)
+
+**Vendors Domain Dependency**:
+- **Input**: Vendor incident notifications trigger SOAR workflows; vendor risk changes affect compliance automation
+- **Output**: SOAR manages vendor breach notification workflows; automated vendor risk recalculation on incidents
+
+---
+
 ## Conclusion
 
 Processes SA practice provides architectural guidance for AI-powered security orchestration and automation. Level 1 establishes foundational triage, orchestration, safety, and integration. Level 2 adds adaptive playbooks and cross-domain orchestration. Level 3 achieves autonomous operations and predictive prevention.

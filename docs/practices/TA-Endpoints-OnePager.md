@@ -404,28 +404,62 @@ Document all adversarial testing results and share findings with AI endpoint sec
 
 ## Key Success Indicators
 
-**Level 1:**
-- Documented threat scenarios specific to HAI endpoint security (minimum 15 scenarios covering adversarial evasion, ransomware, insider threats, false positives, supply chain risks)
-- Threat awareness training delivered to SOC, IT operations, business users, and leadership (>80% completion within 90 days of AI EDR deployment)
-- Inventory of AI endpoint security agents mapped to threat scenarios (each AI tool has 3+ documented threat scenarios)
-- Executive awareness of AI endpoint security risks and business impact (CISO/CIO briefed on AI-specific endpoint threats)
-- Documented escalation procedures for AI endpoint actions (when humans must approve quarantines, when business can override security)
+### Level 1
 
-**Level 2:**
-- Abuse cases and attack trees for all critical AI endpoint security agents (minimum 3-5 abuse cases per AI tool covering ransomware, APT, insider threat scenarios)
-- Risk-prioritized threat matrix with likelihood × impact scoring for all identified threats, differentiated by endpoint criticality tier (critical/high/medium/low)
-- Documented mitigation strategies for high/critical priority threats (specific technical controls like LOTL detection, baseline hard limits, multi-layered defense)
-- Evidence of mitigation implementation (EDR configuration, behavioral analytics tuning, compensating controls deployed, SOC procedures updated)
-- Quarterly threat model reviews updating risk assessments based on observed incidents, near-misses, ransomware intelligence, or vendor advisories
+**Outcome Metrics** (What good looks like):
+1. **Ransomware Detection Effectiveness**: ≥95% of ransomware variants detected and contained by AI EDR before ≥10% of test files encrypted (target: zero ransomware outbreaks)
+2. **Endpoint Threat Coverage**: ≥90% of AI endpoint security capabilities (EDR, behavioral analytics, automated response) have documented threat scenarios and adversarial evasion techniques
+3. **False Positive Business Impact**: ≤1% of AI endpoint actions (quarantines, isolations, process terminations) cause business disruption requiring manual intervention
+4. **Endpoint Diversity Coverage**: ≥85% of organizational endpoints (corporate, BYOD, mobile, IoT) have appropriate AI security monitoring with documented coverage gaps
+5. **Executive Endpoint Risk Awareness**: ≥85% of IT and security leadership can articulate top 3 AI endpoint security risks and business impact
 
-**Level 3:**
-- Active monitoring of AI endpoint security threat intelligence (subscriptions to ransomware trackers, MITRE ATT&CK, adversarial ML research, vendor advisories)
-- Quarterly adversarial testing program with documented results: EDR evasion tests, behavioral analytics bypass tests, ransomware simulations
-- Annual endpoint red team exercise against AI security defenses with findings remediated and retested
-- Model drift monitoring with automated alerting when AI endpoint security tool accuracy degrades (monthly testing against golden malware/behavior datasets)
-- Purple team exercises improving AI detection and SOC response (quarterly focused exercises on specific threat categories)
-- Threat intelligence backlog integrated into endpoint security roadmap (emerging threats addressed in quarterly planning, SOC training updated)
-- Public contribution to AI endpoint security community (shared research, responsible disclosure to vendors, threat intelligence sharing with peer organizations)
+**Process Metrics** (Leading indicators):
+1. **Threat Scenario Documentation**: ≥15 endpoint-specific threat scenarios documented within 90 days (covering EDR evasion, ransomware, insider threats, false positives, supply chain)
+2. **Training Completion Rate**: ≥80% of SOC analysts, IT operations, and security teams complete endpoint threat awareness training within 90 days
+3. **Tool-to-Threat Mapping**: 100% of AI endpoint security agents mapped to ≥3 specific threat scenarios each (including evasion techniques)
+4. **Escalation Procedure Coverage**: 100% of AI endpoint action types have documented escalation procedures for false positives
+
+**Effectiveness Metrics** (Business impact):
+1. **Advanced Threat Detection**: ≥90% of advanced persistent threat and fileless malware test scenarios detected by AI EDR within 5 minutes
+2. **Endpoint Privacy Compliance**: 100% of BYOD and remote worker endpoint monitoring complies with privacy requirements (GDPR, CCPA, employee monitoring laws)
+
+### Level 2
+
+**Outcome Metrics**:
+1. **Endpoint Threat Mitigation Effectiveness**: ≥85% of high/critical priority endpoint threats have documented mitigations implemented and validated
+2. **Adversarial Malware Resistance**: ≥95% of adversarial malware test variants (obfuscated, polymorphic, AI-aware) detected by AI EDR (validated quarterly)
+3. **Living-off-the-Land Detection**: ≥85% of LOTL attack scenarios (PowerShell, WMI, legitimate tools) correctly identified as malicious by AI behavioral analytics
+4. **Insider Threat Detection Accuracy**: ≥75% of insider threat test scenarios detected despite falling within "normal" behavior baselines
+5. **Endpoint Response Speed**: Mean time to detect and contain endpoint threats ≤5 minutes for critical endpoints
+
+**Process Metrics**:
+1. **Abuse Case Coverage**: ≥3-5 detailed abuse cases per critical AI endpoint security agent (covering ransomware evasion, behavioral poisoning, false positives, supply chain)
+2. **Risk Prioritization Validation**: ≥90% of endpoint security incidents align with "High" or "Critical" priority in threat matrix
+3. **Mitigation Implementation Rate**: ≥80% of documented mitigations for high-priority endpoint threats deployed within 90 days
+4. **Threat Model Review Currency**: 100% of endpoint threat models reviewed quarterly
+
+**Effectiveness Metrics**:
+1. **Endpoint Tier Differentiation**: ≥95% of critical endpoint threats escalated within SLA vs. ≤10% false escalation rate for low-tier endpoints
+2. **Offline Device Risk Management**: ≥90% of offline devices scanned within 1 hour of reconnection to network
+
+### Level 3
+
+**Outcome Metrics**:
+1. **Proactive Endpoint Threat Discovery**: ≥5 novel AI EDR evasion techniques identified per quarter through threat intelligence before weaponization
+2. **Endpoint Red Team Resistance**: ≤20% of red team endpoint attack scenarios succeed against AI EDR/XDR defenses
+3. **AI EDR Model Accuracy Maintenance**: ≥95% sustained detection accuracy on golden malware dataset with ≤5% model drift per quarter
+4. **Industry Endpoint Security Leadership**: ≥3 contributions to endpoint security community per year (adversarial ML research, EDR evasion disclosures, threat intelligence sharing)
+5. **Zero-Day Endpoint Defense**: ≥70% of zero-day endpoint exploits detected by AI behavioral analytics despite no signature
+
+**Process Metrics**:
+1. **Threat Intelligence Monitoring Velocity**: ≥10 threat intelligence sources monitored daily (ransomware trackers, adversarial ML research, MITRE ATT&CK, EDR vendor advisories)
+2. **Adversarial Testing Cadence**: 100% of quarterly EDR evasion tests, behavioral bypass tests, ransomware simulations completed on schedule
+3. **Threat Model Evolution Rate**: ≥20% of threat model content updated annually based on new ransomware families, EDR bypass techniques, or endpoint research
+4. **Red Team Exercise Coverage**: Annual endpoint red team exercises cover ≥80% of documented high-priority threat scenarios
+
+**Effectiveness Metrics**:
+1. **Threat Backlog Execution**: ≥70% of threats in intelligence backlog addressed in endpoint security roadmap within 6 months
+2. **EDR Vendor Engagement Impact**: ≥5 responsible disclosures to AI EDR/XDR vendors per year resulting in product improvements
 
 ---
 
@@ -499,6 +533,43 @@ Threat Assessment for HAI endpoint security must address unique challenges in en
 - **Regulatory Privacy Requirements**: GDPR, CCPA, employee monitoring laws constrain AI behavioral analytics - organizations must balance security monitoring with legal privacy obligations
 
 Organizations must balance AI endpoint security automation with user productivity, privacy expectations, and the reality that endpoints are the primary attack surface in modern enterprise security. AI endpoint tools enhance detection and response speed but introduce new risks of business disruption, privacy violations, and adversarial evasion that require continuous threat model updates and adversarial testing.
+
+---
+
+### Cross-Domain Threat Dependencies for Endpoint Security
+
+Endpoint security AI failures cascade across organizational attack surface and dependent systems:
+
+**Upstream Dependencies (affect Endpoint TA):**
+- **Software**: Vulnerable code deployed to endpoints executes malware; exploitable applications bypass AI detection
+- **Infrastructure**: Cloud misconfiguration exposes credentials harvested from endpoints; unmonitored APIs exploited via compromised endpoints
+- **Processes**: Incident detection depends on AI EDR accuracy; false negatives delay incident response
+- **Vendors**: Third-party endpoint tools (EDR, MDM) supply chain compromises disable endpoint protection
+
+**Downstream Dependencies (Endpoint TA affects):**
+- **Software**: Endpoint malware accesses source code, credentials for supply chain attacks; IP exfiltration via endpoint
+- **Data**: Endpoint compromise enables PII theft, data exfiltration; insider threats on BYOD steal customer data
+- **Infrastructure**: Compromised endpoint pivots to infrastructure; credential theft enables cloud account compromise
+- **Processes**: Endpoint alert volume impacts SOC; false positives cause alert fatigue and missed real threats
+
+**Critical Cascading Scenarios:**
+- **AI EDR Evasion → Ransomware Deployment**: Adversarial ransomware evades AI EDR → encrypts endpoints, file shares, databases → business disruption
+- **BYOD Compromise → Supply Chain Attack**: Personal device compromised → attacker accesses corporate VPN → pivots to infrastructure
+- **AI EDR Supply Chain Compromise → Org-Wide Failure**: Malicious EDR vendor update → all endpoints report "secure" while actually compromised
+
+### Emerging AI-Powered Threats to Endpoint Security
+
+**Generative AI Polymorphic Malware**: Attackers use generative AI to create infinite malware variants at scale
+- Mitigation: Behavioral detection (LOTL pattern analysis, process behavior), heuristic engines, ML models trained on adversarial samples
+
+**AI-Assisted Phishing for Credential Compromise**: LLMs generate highly targeted, personalized phishing emails at scale
+- Mitigation: Behavioral email analysis, UEBA for unusual email responses, enhanced user training
+
+**AI Zero-Day Discovery**: Attackers use AI to discover zero-days in endpoint OS/applications faster than patches available
+- Mitigation: Behavior-based exploitation detection, kernel-level monitoring, threat intelligence integration
+
+**Behavioral Baseline Learning Attack**: Attacker studies target employee patterns then mimics behavior to evade UEBA
+- Mitigation: Hard thresholds for sensitive data access, peer group comparison, PAM for sensitive operations
 
 ---
 

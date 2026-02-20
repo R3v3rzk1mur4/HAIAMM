@@ -267,6 +267,30 @@ The Security Architecture (SA) practice for the Vendors domain defines the archi
 
 ---
 
+## Cross-Domain Architecture Integration
+
+**Software Domain Dependency**:
+- **Input**: Vendor software supply chain (code, dependencies) feeds into software security analysis
+- **Output**: Software security findings in vendor products inform vendor risk assessment scores
+
+**Data Domain Dependency**:
+- **Input**: Vendor data handling requirements from Data SA (what data processed, where stored, subprocessors)
+- **Output**: Data classification determines vendor risk tier; PII processing triggers enhanced vendor due diligence
+
+**Infrastructure Domain Dependency**:
+- **Input**: Vendor infrastructure requirements; where vendor systems operate and how they connect
+- **Output**: Infrastructure security findings on vendor systems affect overall vendor risk assessment
+
+**Processes Domain Dependency**:
+- **Input**: Vendor incident SLAs feed into process automation; vendor compliance status affects compliance workflows
+- **Output**: SOAR workflows manage vendor incident notifications; automated vendor risk recalculation
+
+**Endpoints Domain Dependency**:
+- **Input**: Vendor endpoint agents (EDR, MDM) require endpoint architecture integration
+- **Output**: Vendor tool security assessments inform endpoint security architecture decisions
+
+---
+
 ## Conclusion
 
 Vendors SA practice provides architectural guidance for AI-powered third-party risk management. Level 1 establishes foundational vendor assessment, monitoring, and SBOM analysis. Level 2 adds predictive risk modeling and ecosystem intelligence. Level 3 achieves autonomous operations and zero-trust vendor architecture.

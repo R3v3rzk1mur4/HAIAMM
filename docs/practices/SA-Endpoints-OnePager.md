@@ -251,6 +251,30 @@ The Security Architecture (SA) practice for the Endpoints domain defines the arc
 
 ---
 
+## Cross-Domain Architecture Integration
+
+**Software Domain Dependency**:
+- **Input**: Code vulnerability findings inform endpoint patching priorities; vulnerable application versions on endpoints
+- **Output**: Endpoint detection rules generated from code-level vulnerability patterns
+
+**Data Domain Dependency**:
+- **Input**: Data classification from Data SA informs endpoint monitoring scope; sensitive data locations determine enhanced monitoring
+- **Output**: Endpoint monitoring of data access feeds into Data SA audit requirements; DLP enforcement at endpoint level
+
+**Infrastructure Domain Dependency**:
+- **Input**: Infrastructure security posture affects endpoint deployment options; network architecture determines communication paths
+- **Output**: Endpoint agent infrastructure must be managed per Infrastructure SA standards (VPCs, security groups, encryption)
+
+**Processes Domain Dependency**:
+- **Input**: SOAR workflows trigger endpoint remediation actions; incident response playbooks define endpoint containment procedures
+- **Output**: Endpoint alerts feed into Processes SA SOAR workflows as primary detection input
+
+**Vendors Domain Dependency**:
+- **Input**: Vendor-supplied endpoint tools (EDR, MDM, AV) require vendor risk assessment from Vendors SA
+- **Output**: Endpoint security findings on vendor-supplied tools inform vendor risk scoring
+
+---
+
 ## Conclusion
 
 Endpoint SA practice provides architectural guidance for AI-powered endpoint security. Level 1 establishes foundational detection, privacy-preserving telemetry, and safe response. Level 2 adds behavioral analytics and memory forensics. Level 3 achieves autonomous operations and zero-trust.
